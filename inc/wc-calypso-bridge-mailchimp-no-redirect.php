@@ -2,7 +2,7 @@
 /**
  * Prevent redirection during MailChimp activation.
  *
- * @since 0.8.8
+ * @since 0.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

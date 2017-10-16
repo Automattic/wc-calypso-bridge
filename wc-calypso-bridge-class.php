@@ -38,6 +38,7 @@ class WC_Calypso_Bridge {
 	function init() {
 		if ( $this->is_woocommerce_valid() ) {
 			$this->includes();
+			add_action( 'rest_api_init', array( $this, 'register_routes' ), 10 );
 		}
 	}
 
@@ -59,19 +60,37 @@ class WC_Calypso_Bridge {
 	 * Includes.
 	 */
 	public function includes() {
-		// Hotfixes
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-allowed-redirect-hosts.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-cheque-defaults.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-email-order-url.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-email-site-title.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-enable-auto-update-db.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-jetpack-hotfixes.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-mailchimp-no-redirect.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-masterbar-menu.php' );
-		include_once( dirname( __FILE__ ) . '/hotfixes/wc-calypso-bridge-paypal-defaults.php' );
-
-		// Other classes.
 		include_once( dirname( __FILE__ ) . '/inc/class-customizer-guided-tour.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-order-url.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-site-title.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-hotfixes.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-no-redirect.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php' );
+	}
+
+	/**
+	 * Register REST API routes.
+	 *
+	 * New endpoints/controllers can be added here.
+	 */
+	public function register_routes() {
+		$controllers = array();
+
+		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
+				$controllers[] = 'WC_Calypso_Bridge_MailChimp_Settings_Controller';
+		}
+
+		foreach ( $controllers as $controller ) {
+			$controller_instance = new $controller();
+			$controller_instance->register_routes();
+		}
+
+		// We include it here because rest_api_init is a proper context for mocked add_settings_error function
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-add-settings-error.php' );
 	}
 
 	/**
