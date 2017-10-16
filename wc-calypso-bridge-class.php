@@ -29,7 +29,7 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'woocommerce_init', array( $this, 'init' ) );
+		add_action( 'woocommerce_init', array( $this, 'init' ), 20 );
 	}
 
 	/**
@@ -38,7 +38,8 @@ class WC_Calypso_Bridge {
 	function init() {
 		if ( $this->is_woocommerce_valid() ) {
 			$this->includes();
-			add_action( 'rest_api_init', array( $this, 'register_routes' ), 10 );
+			// Ensure wc-api-dev has already registered routes
+			add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
 		}
 	}
 
@@ -70,6 +71,10 @@ class WC_Calypso_Bridge {
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-no-redirect.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php' );
+
+		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
+			include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php' );
+		}
 	}
 
 	/**
