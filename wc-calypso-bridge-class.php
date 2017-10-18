@@ -67,6 +67,7 @@ class WC_Calypso_Bridge {
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-order-url.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-site-title.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-hide-alerts.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-hotfixes.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-sync.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-no-redirect.php' );
