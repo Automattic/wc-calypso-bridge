@@ -21,5 +21,5 @@ function wc_calypso_bridge_hide_admin_notice( $bool, $notice ) {
 		return false;
 	}
 
-	return $notice;
+	return $bool;
 }
