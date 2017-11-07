@@ -7,7 +7,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Current version of the plugin.
 	 */
-	const CURRENT_VERSION = '0.1.0';
+	const CURRENT_VERSION = '0.1.1';
 
 	/**
 	 * Minimum woocommerce version needed to run this plugin.
