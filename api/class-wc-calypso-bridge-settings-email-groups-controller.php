@@ -81,7 +81,7 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 							'error'    => array( 'code' => $_response->get_error_code(), 'message' => $_response->get_error_message(), 'data' => $_response->get_error_data() ),
 					);
 			} else {
-					// Filter out unneded fields
+					// Filter out unneaded fields
 					$option = array_intersect_key( $wp_rest_server->response_to_data( $_response, '' ), $wanted_keys );
 					$option['group_id'] = $item['group_id'];
 					$response[] = $option;
