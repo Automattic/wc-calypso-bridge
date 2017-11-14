@@ -61,6 +61,7 @@ class WC_Calypso_Bridge {
 	 * Includes.
 	 */
 	public function includes() {
+		/** Patches includes */
 		include_once( dirname( __FILE__ ) . '/inc/class-customizer-guided-tour.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php' );
@@ -75,9 +76,11 @@ class WC_Calypso_Bridge {
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php' );
 
+		/** API includes */
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
 			include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php' );
 		}
+		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php' );
 	}
 
 	/**
