@@ -68,16 +68,22 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 		$response = [];
 
 		foreach ( $items as $item ) {
-				$_response = $this->get_option( $item );
-				if ( is_wp_error( $_response ) ) {
-						$response[] = array(
-								'group_id' => $item['group_id'],
-								'id'       => $item['id'],
-								'error'    => array( 'code' => $_response->get_error_code(), 'message' => $_response->get_error_message(), 'data' => $_response->get_error_data() ),
-						);
-				} else {
-						$response[] = $wp_rest_server->response_to_data( $_response, '' );
-				}
+			$wanted_keys = array(
+				'group_id' => '',
+				'id'       => '',
+				'value'    => '',
+			);
+
+			$_response = $this->get_option( $item );
+			if ( is_wp_error( $_response ) ) {
+					$response[] = array(
+							'group_id' => $item['group_id'],
+							'id'       => $item['id'],
+							'error'    => array( 'code' => $_response->get_error_code(), 'message' => $_response->get_error_message(), 'data' => $_response->get_error_data() ),
+					);
+			} else {
+					$response[] = array_intersect_key( $wp_rest_server->response_to_data( $_response, '' ), $wanted_keys );
+			}
 		}
 
 		return $response;
@@ -90,14 +96,9 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 	 * @return WP_Error|WP_REST_Response
 	 */
 	public function get_option( $request ) {
-		$wanted_keys = array(
-			'group_id' => '',
-			'id'       => '',
-			'value'    => '',
-		);
-		
+
 		$options_controller = new WC_REST_Setting_Options_Controller;
-		$response = array_intersect_key( $options_controller->get_item( $request ), $wanted_keys );
+		$response =  $options_controller->get_item( $request );
 		return $response;
 	}
 
