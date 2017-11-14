@@ -95,6 +95,8 @@ class WC_Calypso_Bridge {
 				$controllers[] = 'WC_Calypso_Bridge_MailChimp_Settings_Controller';
 		}
 
+		$controllers[] = 'WC_Calypso_Bridge_Settings_Email_Groups_Controller';
+
 		foreach ( $controllers as $controller ) {
 			$controller_instance = new $controller();
 			$controller_instance->register_routes();
