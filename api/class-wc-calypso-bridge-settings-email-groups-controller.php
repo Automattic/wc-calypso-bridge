@@ -90,7 +90,7 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 	 * @return WP_Error|WP_REST_Response
 	 */
 	public function get_option( $request ) {
-		$options_controller = new WC_REST_Setting_Options_Controlle;
+		$options_controller = new WC_REST_Setting_Options_Controller;
 		$response = $options_controller->get_item( $request );
 		return $response;
 	}
