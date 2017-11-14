@@ -22,3 +22,19 @@ function wc_calypso_bridge_add_post_meta_whitelist( $list ) {
 }
 
 add_filter( 'jetpack_sync_post_meta_whitelist', 'wc_calypso_bridge_add_post_meta_whitelist', 10 );
+
+// There is no Jetpack sync filter for the comment meta whitelist like there is for postmeta
+// We can still hook into the return value of the option where the whitelist is stored.
+// @TODO We can update this when https://github.com/Automattic/jetpack/issues/8170 is resolved.
+function wc_calypso_bridge_add_comment_meta_whitelist( $list ) {
+	if ( false === $list ) {
+		return false;
+	}
+
+	$additional_meta = array(
+		'rating',
+	);
+	return array_merge( $list, $additional_meta );
+}
+
+add_filter( 'option_jetpack_sync_settings_comment_meta_whitelist', 'wc_calypso_bridge_add_comment_meta_whitelist', 10 );
