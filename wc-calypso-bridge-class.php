@@ -62,6 +62,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function includes() {
 		include_once( dirname( __FILE__ ) . '/inc/class-customizer-guided-tour.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-order-url.php' );
