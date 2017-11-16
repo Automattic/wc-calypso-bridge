@@ -31,6 +31,10 @@ function wc_calypso_bridge_add_comment_meta_whitelist( $list ) {
 		return false;
 	}
 
+	if ( ! is_array( $list ) ) {
+		return $list;
+	}
+
 	$additional_meta = array(
 		'rating',
 	);
