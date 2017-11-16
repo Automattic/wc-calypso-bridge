@@ -15,7 +15,7 @@ function wc_calypso_bridge_add_bacs_accounts( $response, $gateway, $request ) {
 		return $response;
 	}
 
-	if ( 'bacs' == $gateway->id ) {
+	if ( 'bacs' === $gateway->id ) {
 		$response->data[ 'settings' ][ 'accounts' ] = array(
 			'id'    => 'accounts',
 			'value' => get_option( 'woocommerce_bacs_accounts', array() ),

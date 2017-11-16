@@ -74,7 +74,6 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	 * Load WC API Dev.
 	 */
 	public function load_wc_api_dev() {
-		define( 'WC_API_DEV_ENABLE_HOTFIXES', false );
 		require_once( $this->wc_api_dev_dir . '/wc-api-dev-class.php' );
 	}
 
