@@ -258,4 +258,82 @@ class BACS_Accounts extends WC_REST_Unit_Test_Case {
 		$response = $this->server->dispatch( $request );
 		$this->assertEquals( 400, $response->get_status() );
 	}
+
+	/**
+	 * Test updating bacs gateway with empty accounts.
+	 */
+	public function test_update_bacs_payment_gateway_with_empty_account_array() {
+		wp_set_current_user( $this->user );
+
+		$account_data = array(
+			array(
+				'account_name'   => 'chicken and ribs',
+				'account_number' => '123yummy',
+				'bank_name'      => 'tasty bbq',
+				'sort_code'      => 'half rack',
+				'iban'           => 'brisket',
+				'bic'            => 'yes',
+			)
+		);
+		update_option( 'woocommerce_bacs_accounts', $account_data );
+
+		$response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/payment_gateways' ) );
+		$gateways   = $response->get_data();
+		$this->assertEquals( 200, $response->get_status() );
+		$filtered_gateways = wp_filter_object_list( $gateways, array( 'id' => 'bacs' ) );
+		$bacs = array_pop( $filtered_gateways );
+		$this->assertTrue( array_key_exists( 'accounts', $bacs[ 'settings' ] ) );
+		$this->assertEquals( $bacs[ 'settings' ][ 'accounts' ], array(
+			'id'    => 'accounts',
+			'value' => $account_data,
+		) );
+
+		$empty_accounts = array( 
+			array(
+				'account_name'   => '',
+				'account_number' => '',
+				'bank_name'      => '',
+				'sort_code'      => '',
+				'iban'           => '',
+				'bic'            => '',
+			)
+		);
+		$request = new WP_REST_Request( 'POST', '/wc/v3/payment_gateways/bacs' );
+		$request->set_body_params( array(
+			'settings' => array(
+				'accounts' => $empty_accounts,
+			),
+		) );
+		$response = $this->server->dispatch( $request );
+		$bacs   = $response->get_data();
+		$this->assertEquals( 200, $response->get_status() );
+		$this->assertTrue( array_key_exists( 'accounts', $bacs[ 'settings' ] ) );
+		$this->assertEquals( $bacs[ 'settings' ][ 'accounts' ], array(
+			'id' => 'accounts',
+			'value' => $empty_accounts,
+		) );
+	}
+
+	/**
+	 * Test updating bacs gateway with no account data, to effectively "delete"
+	 * BACS accounts
+	 */
+	public function test_update_bacs_payment_gateway_with_empty_account_data_array() {
+		wp_set_current_user( $this->user );
+
+		$request = new WP_REST_Request( 'POST', '/wc/v3/payment_gateways/bacs' );
+		$request->set_body_params( array(
+			'settings' => array(
+				'accounts' => array(),
+			),
+		) );
+		$response = $this->server->dispatch( $request );
+		$bacs   = $response->get_data();
+		$this->assertEquals( 200, $response->get_status() );
+		$this->assertTrue( array_key_exists( 'accounts', $bacs[ 'settings' ] ) );
+		$this->assertEquals( $bacs[ 'settings' ][ 'accounts' ], array(
+			'id' => 'accounts',
+			'value' => array(),
+		) );
+	}
 }
