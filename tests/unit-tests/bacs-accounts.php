@@ -206,7 +206,7 @@ class BACS_Accounts extends WC_REST_Unit_Test_Case {
 	}
 
 	/**
-	 * Test updating bacs gateway with account data supplied.
+	 * Test updating bacs gateway with account, and non-account data supplied.
 	 */
 	public function test_update_bacs_payment_gateway_with_account_data_and_title() {
 		wp_set_current_user( $this->user );
