@@ -22,8 +22,13 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 0.1.0 =
-* Initial release
+= 0.1.2 =
+* Test Suite added
+* BACS accounts added to payment-gateways API responses
+* Rating added to Jetpack Sync comment meta whitelist
 
 = 0.1.1 =
 * Adding back the forgotten email templates
+
+= 0.1.0 =
+* Initial release
