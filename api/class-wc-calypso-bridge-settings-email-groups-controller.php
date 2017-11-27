@@ -1,8 +1,8 @@
 <?php
 /**
- * REST API Settings controller
+ * REST API Settings Email Groups controller
  *
- * Handles requests to the /settings/batch_email endpoint.
+ * Handles requests to the /settings_email_groups endpoint.
  *
  * @author   Automattic
  * @category API
@@ -68,13 +68,12 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 		$response = [];
 
 		$options_controller = new WC_REST_Setting_Options_Controller;
+		$wanted_keys = array(
+			'id'       => '',
+			'value'    => '',
+		);
 
 		foreach ( $items as $item ) {
-			$wanted_keys = array(
-				'id'       => '',
-				'value'    => '',
-			);
-
 			$_response = $options_controller->get_item( $item );
 			if ( is_wp_error( $_response ) ) {
 					$response[] = array(
@@ -83,7 +82,7 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 							'error'    => array( 'code' => $_response->get_error_code(), 'message' => $_response->get_error_message(), 'data' => $_response->get_error_data() ),
 					);
 			} else {
-					// Filter out unneaded fields
+					// Filter out unneeded fields
 					$option = array_intersect_key( $wp_rest_server->response_to_data( $_response, '' ), $wanted_keys );
 					$option['group_id'] = $item['group_id'];
 					$response[] = $option;
