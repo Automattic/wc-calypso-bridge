@@ -49,7 +49,7 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 		/** @var WP_REST_Server $wp_rest_server */
 		global $wp_rest_server;
 
-		// List of all items returned by the settings/batch_email endpoint.
+		// List of all items returned by the settings_email_groups endpoint.
 		$items = [
 			[ 'group_id' => 'email',                           'id' => 'woocommerce_email_from_name' ],
 			[ 'group_id' => 'email',                           'id' => 'woocommerce_email_from_address' ],
