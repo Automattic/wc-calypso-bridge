@@ -27,8 +27,6 @@ class Email_Groups_controller extends WC_REST_Unit_Test_Case {
 		$response      = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/settings_email_groups' ) );
 		$response_data = $response->get_data();
 
-		var_export( $response_data );
-
 		// Create settings array to test against.
 		$settings = array( 
 			0 => array( 
