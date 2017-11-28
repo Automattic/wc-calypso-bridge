@@ -2,8 +2,7 @@
 /**
  * Tests for Email Groups Endpoint accounts in the REST API.
  */
-
-class Email_Groups_controller extends WC_REST_Unit_Test_Case {
+class Email_Groups_Controller extends WC_REST_Unit_Test_Case {
 
 	/**
 	 * Setup our test server, endpoints, and user info.
