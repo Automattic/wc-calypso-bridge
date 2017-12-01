@@ -13,6 +13,9 @@ class Email_Groups_Controller extends WC_REST_Unit_Test_Case {
 		$this->user = $this->factory->user->create( array(
 			'role' => 'administrator',
 		) );
+		$this->subscriber = $this->factory->user->create( array(
+			'role' => 'subscriber',
+		) );
 	}
 
 	/**
@@ -97,6 +100,14 @@ class Email_Groups_Controller extends WC_REST_Unit_Test_Case {
 
 		$this->assertEquals( 200, $response->get_status() );
 		$this->assertEquals( $settings, $response_data );
+	}
+
+	public function test_get_email_group_settings_invalid_credentials() {
+		wp_set_current_user( $this->subscriber );
+
+		$response      = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/settings_email_groups' ) );
+		$response_data = $response->get_data();
+		$this->assertEquals( 403, $response->get_status() );
 	}
 
 }
