@@ -76,16 +76,16 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 		foreach ( $items as $item ) {
 			$_response = $options_controller->get_item( $item );
 			if ( is_wp_error( $_response ) ) {
-					$response[] = array(
-							'group_id' => $item['group_id'],
-							'id'       => $item['id'],
-							'error'    => array( 'code' => $_response->get_error_code(), 'message' => $_response->get_error_message(), 'data' => $_response->get_error_data() ),
-					);
+				$response[] = array(
+					'group_id' => $item['group_id'],
+					'id'       => $item['id'],
+					'error'    => array( 'code' => $_response->get_error_code(), 'message' => $_response->get_error_message(), 'data' => $_response->get_error_data() ),
+				);
 			} else {
-					// Filter out unneeded fields
-					$option = array_intersect_key( $wp_rest_server->response_to_data( $_response, '' ), $wanted_keys );
-					$option['group_id'] = $item['group_id'];
-					$response[] = $option;
+				// Filter out unneeded fields
+				$option = array_intersect_key( $wp_rest_server->response_to_data( $_response, '' ), $wanted_keys );
+				$option['group_id'] = $item['group_id'];
+				$response[] = $option;
 			}
 		}
 
