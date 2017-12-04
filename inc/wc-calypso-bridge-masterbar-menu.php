@@ -31,7 +31,7 @@ if ( ! function_exists( 'wc_api_dev_masterbar_css' ) ) {
 			$wp_admin_bar->add_menu( array(
 				'parent' => 'blog',
 				'id'     => 'store',
-				'title'  => esc_html__( 'Store (BETA)', 'wc_calypso_bridge' ),
+				'title'  => esc_html__( 'Store', 'wc_calypso_bridge' ),
 				'href'   => $store_url,
 				'meta'   => array(
 					'class' => 'mb-icon-spacer',
