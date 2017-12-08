@@ -71,6 +71,7 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 		$wanted_keys = array(
 			'id'       => '',
 			'value'    => '',
+			'default'  => '',
 		);
 
 		foreach ( $items as $item ) {
