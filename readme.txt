@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 0.1.3 =
+* Currencies Controller for returning WooCommerce Currency Data
+* Email Groups controller for batch request of Email Settings
+
 = 0.1.2 =
 * Test Suite added
 * BACS accounts added to payment-gateways API responses
