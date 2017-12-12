@@ -27,14 +27,14 @@ class Currencies_Controller extends WC_REST_Unit_Test_Case {
 		$response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/currencies' ) );
 		$data = $response->get_data();
         
-        $currencies = array();
-        foreach ( get_woocommerce_currencies() as $code => $name ) {
-            $currencies[] = array(
-                'code'   => $code,
-                'name'   => $name,
-                'symbol' => html_entity_decode( get_woocommerce_currency_symbol( $code ) ),
-            );
-        }
+		$currencies = array();
+		foreach ( get_woocommerce_currencies() as $code => $name ) {
+			$currencies[] = array(
+				'code'   => $code,
+				'name'   => $name,
+				'symbol' => html_entity_decode( get_woocommerce_currency_symbol( $code ) ),
+			);
+		}
 
 		$this->assertEquals( 200, $response->get_status() );
 		$this->assertEquals( $currencies, $data );
