@@ -17,8 +17,7 @@ class Currencies_Controller extends WC_REST_Unit_Test_Case {
 	}
 
 	/**
-	 * Test getting currencies when authed
-	 * which defaults to an empty array.
+	 * Test getting currencies when authed.
 	 *
 	 * @since 3.0.0
 	 */
@@ -26,7 +25,7 @@ class Currencies_Controller extends WC_REST_Unit_Test_Case {
 		wp_set_current_user( $this->user );
 
 		$response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/currencies' ) );
-        $data = $response->get_data();
+		$data = $response->get_data();
         
         $currencies = array();
         foreach ( get_woocommerce_currencies() as $code => $name ) {

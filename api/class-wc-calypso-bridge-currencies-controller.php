@@ -66,15 +66,15 @@ class WC_Calypso_Bridge_Currencies_Controller extends WC_REST_Controller {
 	 *
 	 */
 	public function get_currencies( $request ) {
-        $currencies = array();
-        foreach ( get_woocommerce_currencies() as $code => $name ) {
-            $currencies[] = array(
-                'code'   => $code,
-                'name'   => $name,
-                'symbol' => html_entity_decode( get_woocommerce_currency_symbol( $code ) ),
-            );
-        }
-        
+		$currencies = array();
+		foreach ( get_woocommerce_currencies() as $code => $name ) {
+			$currencies[] = array(
+				'code'   => $code,
+				'name'   => $name,
+				'symbol' => html_entity_decode( get_woocommerce_currency_symbol( $code ) ),
+			);
+		}
+
 		return rest_ensure_response( $currencies );
 	}
 
