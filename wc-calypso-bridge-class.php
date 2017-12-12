@@ -77,10 +77,12 @@ class WC_Calypso_Bridge {
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php' );
 
 		/** API includes */
+		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-currencies-controller.php' );
+		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php' );
+		
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
 			include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php' );
 		}
-		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php' );
 	}
 
 	/**
@@ -89,13 +91,14 @@ class WC_Calypso_Bridge {
 	 * New endpoints/controllers can be added here.
 	 */
 	public function register_routes() {
-		$controllers = array();
+		$controllers = array(
+			'WC_Calypso_Bridge_Currencies_Controller',
+			'WC_Calypso_Bridge_Settings_Email_Groups_Controller',
+		);
 
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
 				$controllers[] = 'WC_Calypso_Bridge_MailChimp_Settings_Controller';
 		}
-
-		$controllers[] = 'WC_Calypso_Bridge_Settings_Email_Groups_Controller';
 
 		foreach ( $controllers as $controller ) {
 			$controller_instance = new $controller();
