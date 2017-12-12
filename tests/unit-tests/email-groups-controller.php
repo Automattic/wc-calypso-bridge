@@ -35,66 +35,79 @@ class Email_Groups_Controller extends WC_REST_Unit_Test_Case {
 				'id' => 'woocommerce_email_from_name',
 				'value' => 'Test Blog',
 				'group_id' => 'email',
+				'default' => 'Test Blog',
 			),
 			1 => array( 
 				'id' => 'woocommerce_email_from_address',
 				'value' => 'admin@example.org',
 				'group_id' => 'email',
-			),  
+				'default' => 'admin@example.org',
+			),
 			2 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_new_order',
+				'default' => 'yes'
 			),
 			3 => array(
 				'id' => 'recipient',
 				'value' => '',
 				'group_id' => 'email_new_order',
+				'default' => '',
 			),
 			4 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_cancelled_order',
+				'default' => 'yes'
 			),
 			5 => array(
 				'id' => 'recipient',
 				'value' => '',
 				'group_id' => 'email_cancelled_order',
+				'default' => '',
 			),
 			6 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_failed_order',
+				'default' => 'yes',
 			),
 			7 => array(
 				'id' => 'recipient',
 				'value' => '',
 				'group_id' => 'email_failed_order',
+				'default' => '',
 			),
 			8 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_on_hold_order',
+				'default' => 'yes',
 			),
 			9 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_processing_order',
+				'default' => 'yes',
 			),
 			10 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_completed_order',
+				'default' => 'yes',
 			),
 			11 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_refunded_order',
+				'default' => 'yes',
 			),
 			12 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_new_account',
+				'default' => 'yes',
 			),
 		);
 
