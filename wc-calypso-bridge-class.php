@@ -77,8 +77,11 @@ class WC_Calypso_Bridge {
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php' );
 
 		/** API includes */
+<<<<<<< 04584b9aee76edb8836db26933a21ab92ddb7b8e
 		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-currencies-controller.php' );
 		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-send-invoice-controller.php' );
+=======
+>>>>>>> ctrl+z of an endpoint that already exists :facepalm:
 		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php' );
 		
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
@@ -93,7 +96,6 @@ class WC_Calypso_Bridge {
 	 */
 	public function register_routes() {
 		$controllers = array(
-			'WC_Calypso_Bridge_Currencies_Controller',
 			'WC_Calypso_Bridge_Send_Invoice_Controller',
 			'WC_Calypso_Bridge_Settings_Email_Groups_Controller',
 		);
