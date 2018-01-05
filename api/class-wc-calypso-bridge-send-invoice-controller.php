@@ -29,7 +29,7 @@ class WC_Calypso_Bridge_Send_Invoice_Controller extends WC_REST_Controller {
 	 *
 	 * @var string
 	 */
-	protected $rest_base = 'orders/send_invoice';
+	protected $rest_base = 'orders';
 
 	/**
 	 * Post type.
@@ -42,7 +42,8 @@ class WC_Calypso_Bridge_Send_Invoice_Controller extends WC_REST_Controller {
 	 * Register Currency route
 	 */
 	public function register_routes() {
-		register_rest_route( $this->namespace, '/' . $this->rest_base . '/(?P<id>[\d]+)' , array(
+		# POST wc/v3/orders/<id>/send_invoice
+		register_rest_route( $this->namespace, $this->rest_base . '/(?P<id>[\d]+)/send_invoice' , array(
 			'args' => array(
 				'id' => array(
 					'description' => __( 'Unique identifier for the resource.', 'woocommerce' ),
