@@ -50,7 +50,7 @@ class WC_Calypso_Bridge_Send_Invoice_Controller extends WC_REST_Controller {
 				)
 			),
 			array(
-				'methods'             => WP_REST_Server::READABLE,
+				'methods'             => WP_REST_SERVER::EDITABLE,
 				'callback'            => array( $this, 'send_invoice' ),
 				'permission_callback' => array( $this, 'permissions_check' ),
 			)

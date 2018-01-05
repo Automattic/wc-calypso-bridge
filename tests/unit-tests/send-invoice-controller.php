@@ -48,7 +48,7 @@ class Send_Invoice_Controller extends WC_REST_Unit_Test_Case {
     public function test_sending_invoice() {
         wp_set_current_user( $this->user );
 
-        $response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/orders/send_invoice/' . $this->order_id ) );
+        $response = $this->server->dispatch( new WP_REST_Request( 'POST', '/wc/v3/orders/send_invoice/' . $this->order_id ) );
         $note = $response->get_data();
         $this->note_ids[] = $note['id'];
 
@@ -64,7 +64,7 @@ class Send_Invoice_Controller extends WC_REST_Unit_Test_Case {
     public function test_invalid_order_id() {
         wp_set_current_user( $this->user );
 
-        $response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/orders/send_invoice/1111111' ) );
+        $response = $this->server->dispatch( new WP_REST_Request( 'POST', '/wc/v3/orders/send_invoice/1111111' ) );
         $this->assertEquals( 404, $response->get_status() );
         $this->stoppit_and_tidyup();
     }
@@ -73,7 +73,7 @@ class Send_Invoice_Controller extends WC_REST_Unit_Test_Case {
      * Test unauthed requests can not send invoices
      */
     public function test_unauthed_request_fails() {
-        $response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/orders/send_invoice/'  . $this->order_id ) );
+        $response = $this->server->dispatch( new WP_REST_Request( 'POST', '/wc/v3/orders/send_invoice/'  . $this->order_id ) );
         $this->assertEquals( 401, $response->get_status() );
         $this->stoppit_and_tidyup();
     }
