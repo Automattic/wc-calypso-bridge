@@ -62,7 +62,6 @@ class WC_Calypso_Bridge_MailChimp_Settings_Controller extends WC_REST_Controller
 				'callback'            => array( $this, 'update_store_info' ),
 				'permission_callback' => array( $this, 'permissions_check' ),
 			),
-		'schema' => array( $this, 'get_store_info_schema' ),
 		) );
 		register_rest_route( $this->namespace, '/' . $this->rest_base . '/campaign_defaults', array(
 			array(
