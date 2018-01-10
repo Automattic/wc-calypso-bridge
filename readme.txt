@@ -22,6 +22,12 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 0.1.4 =
+* Removed Redundant Currencies Controller
+* Added endpoint to trigger sending order invoices
+* Updated order email template to be current with WooCommerce Core
+* Fixed bug in MailChimp API Controller
+
 = 0.1.3 =
 * Currencies Controller for returning WooCommerce Currency Data
 * Email Groups controller for batch request of Email Settings
