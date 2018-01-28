@@ -7,7 +7,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Current version of the plugin.
 	 */
-	const CURRENT_VERSION = '0.1.4';
+	const CURRENT_VERSION = '0.1.5';
 
 	/**
 	 * Minimum woocommerce version needed to run this plugin.
@@ -79,9 +79,17 @@ class WC_Calypso_Bridge {
 		/** API includes */
 		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-send-invoice-controller.php' );
 		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php' );
-		
+
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
 			include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php' );
+		}
+
+		/**
+		 * Store Stats Testing. woocommerce-analytics will eventually land in Jetpack.
+		 * See https://github.com/Automattic/jetpack/pull/8296 for more details
+		 */
+		if ( class_exists( 'Jetpack' ) && ! class_exists( 'Jetpack_WooCommerce_Analytics' ) ) {
+			include_once( dirname( __FILE__ ) . '/inc/woocommerce-analytics/wp-woocommerce-analytics.php' );
 		}
 	}
 
