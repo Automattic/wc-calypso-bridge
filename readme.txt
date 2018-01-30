@@ -22,6 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 0.1.5 =
+* Add WooCommerce Analytics Module
+* This initial roll out will make its way to all jetpack sites
+* Corresponding Jetpack pull request [here](https://github.com/Automattic/jetpack/pull/8296)
+
 = 0.1.4 =
 * Removed Redundant Currencies Controller
 * Added endpoint to trigger sending order invoices
