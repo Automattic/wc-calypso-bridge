@@ -55,6 +55,10 @@ class Jetpack_WooCommerce_Analytics_Universal {
 	 * Make _wca available to queue events
 	 */
 	public function wp_head_top() {
+		if ( is_cart() || is_checkout() || is_checkout_pay_page() || is_order_received_page() || is_add_payment_method_page() ) {
+			$prevent_referrer_code = "<script>window._wca_prevent_referrer = true;</script>";
+			echo "$prevent_referrer_code\r\n";
+		}
 		$wca_code = "<script>window._wca = window._wca || [];</script>";
 		echo "$wca_code\r\n";
 	}
