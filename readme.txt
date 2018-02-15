@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 0.1.6 =
+* Bug fix for referrers in WooCommerce Analytics
+* Removing email template over-rides
+
 = 0.1.5 =
 * Add WooCommerce Analytics Module
 * This initial roll out will make its way to all jetpack sites
