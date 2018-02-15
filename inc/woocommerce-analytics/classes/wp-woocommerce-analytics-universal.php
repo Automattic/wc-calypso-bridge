@@ -56,6 +56,9 @@ class Jetpack_WooCommerce_Analytics_Universal {
 	 */
 	public function wp_head_top() {
 		$wca_code = "<script>window._wca = window._wca || [];</script>";
+		if ( is_cart() || is_checkout() || is_checkout_pay_page() || is_order_received_page() || is_add_payment_method_page() ) {
+			$wca_code .= "\r\n<script>window._wca_prevent_referrer = true;</script>";
+		}
 		echo "$wca_code\r\n";
 	}
 
