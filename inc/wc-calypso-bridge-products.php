@@ -37,7 +37,7 @@ function wc_calypso_bridge_products_get_context() {
 	);
 
 	foreach ( $known_fragments as $known_fragment => $context ) {
-		if ( false !== strpos( $request_uri, $fragment ) ) {
+		if ( false !== strpos( $request_uri, $known_fragment ) ) {
 			return $context;
 		}
 	}
