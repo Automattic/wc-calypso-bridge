@@ -28,7 +28,7 @@ function wc_calypso_bridge_products_get_context() {
 	}
 
 	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
-	$triggers = array(
+	$known_fragments = array(
 		'/wp-json/wc/v2'          => 'rest-api-v2',
 		'/?rest_route=%2Fwc%2Fv2' => 'rest-api-v2-rest-route',
 		'/wp-json/wc/v3'          => 'rest-api-v3',
@@ -36,8 +36,8 @@ function wc_calypso_bridge_products_get_context() {
 		'/post-new.php'           => 'post-new',
 	);
 
-	foreach ( $triggers as $fragment => $context ) {
-		if ( false !== strpos( $_SERVER[ 'REQUEST_URI' ], $fragment ) ) {
+	foreach ( $known_fragments as $known_fragment => $context ) {
+		if ( false !== strpos( $request_uri, $fragment ) ) {
 			return $context;
 		}
 	}
