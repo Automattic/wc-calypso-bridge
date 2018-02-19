@@ -29,6 +29,7 @@ function wc_calypso_bridge_products_get_context() {
 
 	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
 	$known_fragments = array(
+		'&_via_calypso'           => 'calypso',
 		'/wp-json/wc/v2'          => 'rest-api-v2',
 		'/?rest_route=%2Fwc%2Fv2' => 'rest-api-v2-rest-route',
 		'/wp-json/wc/v3'          => 'rest-api-v3',
@@ -59,4 +60,4 @@ function wc_calypso_bridge_products_wp_insert_post( $post_ID, $post, $update ) {
 	update_post_meta( $post_ID, '_created_via', $created_via );
 }
 
-add_action( 'wp_insert_post', 'wc_calypso_bridge_products_wp_insert_post', 10, 4 );
+add_action( 'wp_insert_post', 'wc_calypso_bridge_products_wp_insert_post', 10, 3 );
