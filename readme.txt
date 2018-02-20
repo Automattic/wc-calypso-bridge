@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 0.1.7 =
+* Determine and sync to Jetpack what client created a product
+
 = 0.1.6 =
 * Bug fix for referrers in WooCommerce Analytics
 * Removing email template over-rides
