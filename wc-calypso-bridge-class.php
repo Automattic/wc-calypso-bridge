@@ -89,7 +89,7 @@ class WC_Calypso_Bridge {
 		 * Store Stats Testing. woocommerce-analytics will eventually land in Jetpack.
 		 * See https://github.com/Automattic/jetpack/pull/8296 for more details
 		 */
-		if ( class_exists( 'Jetpack' ) && ! class_exists( 'Jetpack_WooCommerce_Analytics' ) ) {
+		if ( class_exists( 'Jetpack' ) && version_compare( JETPACK__VERSION, '5.8', '<=' ) && ! class_exists( 'Jetpack_WooCommerce_Analytics' ) ) {
 			include_once( dirname( __FILE__ ) . '/inc/woocommerce-analytics/wp-woocommerce-analytics.php' );
 		}
 	}
