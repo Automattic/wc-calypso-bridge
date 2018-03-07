@@ -44,66 +44,72 @@ class Email_Groups_Controller extends WC_REST_Unit_Test_Case {
 				'default' => 'admin@example.org',
 			),
 			2 => array(
-				'id' => 'enabled',
-				'value' => 'yes',
-				'group_id' => 'email_new_order',
-				'default' => 'yes'
+				'id' => 'woocommerce_email_footer_text',
+				'value' => '{site_title}',
+				'group_id' => 'email',
+				'default' => '{site_title}',
 			),
 			3 => array(
+				'id' => 'enabled',
+				'value' => 'yes',
+				'group_id' => 'email_new_order',
+				'default' => 'yes'
+			),
+			4 => array(
 				'id' => 'recipient',
 				'value' => '',
 				'group_id' => 'email_new_order',
 				'default' => '',
 			),
-			4 => array(
+			5 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_cancelled_order',
 				'default' => 'yes'
 			),
-			5 => array(
+			6 => array(
 				'id' => 'recipient',
 				'value' => '',
 				'group_id' => 'email_cancelled_order',
 				'default' => '',
 			),
-			6 => array(
+			7 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_failed_order',
 				'default' => 'yes',
 			),
-			7 => array(
+			8 => array(
 				'id' => 'recipient',
 				'value' => '',
 				'group_id' => 'email_failed_order',
 				'default' => '',
 			),
-			8 => array(
+			9 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_on_hold_order',
 				'default' => 'yes',
 			),
-			9 => array(
+			10 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_processing_order',
 				'default' => 'yes',
 			),
-			10 => array(
+			11 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_completed_order',
 				'default' => 'yes',
 			),
-			11 => array(
+			12 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_refunded_order',
 				'default' => 'yes',
 			),
-			12 => array(
+			13 => array(
 				'id' => 'enabled',
 				'value' => 'yes',
 				'group_id' => 'email_customer_new_account',
