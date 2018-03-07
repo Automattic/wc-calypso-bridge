@@ -53,6 +53,7 @@ class WC_Calypso_Bridge_Settings_Email_Groups_Controller extends WC_REST_Setting
 		$items = [
 			[ 'group_id' => 'email',                           'id' => 'woocommerce_email_from_name' ],
 			[ 'group_id' => 'email',                           'id' => 'woocommerce_email_from_address' ],
+			[ 'group_id' => 'email',                           'id' => 'woocommerce_email_footer_text' ],
 			[ 'group_id' => 'email_new_order',                 'id' => 'enabled' ],
 			[ 'group_id' => 'email_new_order',                 'id' => 'recipient' ],
 			[ 'group_id' => 'email_cancelled_order',           'id' => 'enabled' ],
