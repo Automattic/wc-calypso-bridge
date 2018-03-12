@@ -11,3 +11,5 @@ Ideally all API functionality will eventually be contained within `wc-api-dev` (
 ### Running the Test Suite
 
 From a test install of WordPress with `wc-api-dev` and `woocommerce` present, run `phpunit` from the root of this plugin directory.
+
+ Code coverage reports can be ran with `phpunit --coverage-html /tmp/coverage`.
