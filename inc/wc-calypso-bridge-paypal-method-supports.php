@@ -1,8 +1,8 @@
 <?php
 /**
  * Properly set if PayPal is configured to support refunds
- *
- * @since 0.1.9
+ * TODO: Remove this when https://github.com/woocommerce/woocommerce/pull/19380/files lands in Woo Core
+ * @since 0.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,9 +22,8 @@ function wc_calypso_bridge_adjust_paypal_method_supports( $response, $gateway, $
 
         // If api username, password or signature is not set, i.e. empty string, we can't support woo-based refunds
         if ( empty( $api_username ) || empty( $api_password ) || empty( $api_signature ) ) {
-            $response->data[ 'method_supports' ] = array(
-                'products',
-            );
+            $supported_methods = array_diff( $gateway->supports, [ 'refunds' ] );
+            $response->data[ 'method_supports' ] = $supported_methods;
         }
 	}
 	return $response;
