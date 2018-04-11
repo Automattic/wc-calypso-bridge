@@ -2,8 +2,8 @@
 Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
-Tested up to: 4.8
-Stable tag: 0.1.9
+Tested up to: 4.9
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,10 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 0.2.0 =
+* Removed WooCommerce Analytics logic which is now in Jetpack.
+* Added deactivate hook to MailChimp plugin to truncate job tables
 
 = 0.1.9 =
 * Added the `woocommerce_email_footer_text` setting to batch email settings endpoint.
