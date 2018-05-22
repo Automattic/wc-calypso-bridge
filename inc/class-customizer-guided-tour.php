@@ -143,8 +143,8 @@ if ( ! class_exists( 'Customizer_NUX_Guided_Tour' ) ) :
 				'altStep'     => array(
 					'buttonText'  => __( 'I\'ll try Storefront!', 'wc_calypso_bridge' ),
 					'action'      => 'expandThemes',
-					'message'     => __( 'Click the thumbnail to get started with Storefront', 'wc_calypso_bridge' ),
-					'section'     => '#customize-control-theme_storefront .theme-screenshot',
+					'message'     => __( 'Click the change button and select Storefront to get started.', 'wc_calypso_bridge' ),
+					'section'     => '#accordion-section-themes',
 					'stat'        => '1-click-try-sf',
 				),
 			);
@@ -180,9 +180,9 @@ if ( ! class_exists( 'Customizer_NUX_Guided_Tour' ) ) :
 
 			$steps[] = array(
 				'message'      => __( '<p>Choose a menu to add shop pages to.</p>', 'wc_calypso_bridge' ),
-				'section'      => '#sub-accordion-panel-nav_menus',
+				'section'      => '#accordion-section-menu_locations .accordion-section-title',
 				'panel'        => 'nav_menus',
-				'panelSection' => '.control-section-nav_menu',
+				'panelSection' => '#accordion-section-menu_locations .accordion-section-title',
 				'action'       => 'updateMenus',
 				'showSkip'     => ( bool ) true,
 				'stat'         => '4-add-menu',

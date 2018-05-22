@@ -163,9 +163,6 @@
 			switch ( step.altStep.action ) {
 				case 'expandThemes':
 					var nextStep, themePanel;
-					themePanel = api.section.instance( 'themes' );
-					themePanel.expand();
-					
 					nextStep = step.altStep;
 					delete( nextStep.buttonText );
 					self._renderStep( nextStep );
