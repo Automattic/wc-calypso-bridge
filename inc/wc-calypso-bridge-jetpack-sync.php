@@ -14,9 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function wc_calypso_bridge_add_post_meta_whitelist( $list ) {
 	$additional_meta = array(
-		'_billing_email',
-		'_billing_first_name',
-		'_billing_last_name',
 		'_created_via',
 	);
 	return array_merge( $list, $additional_meta );
