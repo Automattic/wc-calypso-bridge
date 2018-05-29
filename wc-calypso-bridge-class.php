@@ -7,7 +7,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Current version of the plugin.
 	 */
-	const CURRENT_VERSION = '0.2.1';
+	const CURRENT_VERSION = '0.2.2';
 
 	/**
 	 * Minimum woocommerce version needed to run this plugin.
@@ -81,6 +81,8 @@ class WC_Calypso_Bridge {
 		/** API includes */
 		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-send-invoice-controller.php' );
 		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php' );
+		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-data-counts-controller.php' );
+		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-product-reviews-controller.php' );
 
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
 			include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php' );
@@ -97,6 +99,8 @@ class WC_Calypso_Bridge {
 		$controllers = array(
 			'WC_Calypso_Bridge_Send_Invoice_Controller',
 			'WC_Calypso_Bridge_Settings_Email_Groups_Controller',
+			'WC_Calypso_Bridge_Data_Counts_Controller',
+			'WC_Calypso_Bridge_Product_Reviews_Controller',
 		);
 
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
