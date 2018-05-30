@@ -179,6 +179,7 @@ class WC_Calypso_Bridge_Product_Reviews_Controller extends WC_REST_Controller {
 			case 'spam':
 				$status = 'spam';
 				break;
+			case 'post-trashed':
 			case 'trash':
 				$status = 'trash';
 				break;
