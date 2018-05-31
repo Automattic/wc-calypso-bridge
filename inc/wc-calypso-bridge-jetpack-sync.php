@@ -19,24 +19,25 @@ function wc_calypso_bridge_add_post_meta_whitelist( $list ) {
 	return array_merge( $list, $additional_meta );
 }
 
-add_filter( 'jetpack_sync_post_meta_whitelist', 'wc_calypso_bridge_add_post_meta_whitelist', 10 );
+add_filter( 'jetpack_sync_post_meta_whitelist', 'wc_calypso_bridge_add_post_meta_whitelist' );
 
-// There is no Jetpack sync filter for the comment meta whitelist like there is for postmeta
-// We can still hook into the return value of the option where the whitelist is stored.
-// @TODO We can update this when https://github.com/Automattic/jetpack/issues/8170 is resolved.
+function wc_calypso_bridge_add_options_whitelist( $list ) {
+	$additional_options = array(
+		'woocommerce_currency_pos',
+		'woocommerce_price_thousand_sep',
+		'woocommerce_price_decimal_sep',
+		'woocommerce_price_num_decimals',
+	);
+	return array_merge( $list, $additional_options );
+}
+
+add_filter( 'jetpack_sync_options_whitelist', 'wc_calypso_bridge_add_options_whitelist' );
+
 function wc_calypso_bridge_add_comment_meta_whitelist( $list ) {
-	if ( false === $list ) {
-		return false;
-	}
-
-	if ( ! is_array( $list ) ) {
-		return $list;
-	}
-
 	$additional_meta = array(
 		'rating',
 	);
 	return array_merge( $list, $additional_meta );
 }
 
-add_filter( 'option_jetpack_sync_settings_comment_meta_whitelist', 'wc_calypso_bridge_add_comment_meta_whitelist', 10 );
+add_filter( 'jetpack_sync_comment_meta_whitelist', 'wc_calypso_bridge_add_comment_meta_whitelist' );
