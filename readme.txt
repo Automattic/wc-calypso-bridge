@@ -25,6 +25,7 @@ This section describes how to install the plugin and get it working.
 = 0.2.2 =
 * `data/counts` endpoint added (moved from wc-api-dev)
 * `products/reviews` endpoint added (moved from wc-api-dev)
+* Sync currency info and update comment sync filter
 
 = 0.2.1 =
 * Fixed customizer tour
