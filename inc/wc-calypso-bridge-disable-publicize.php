@@ -31,8 +31,8 @@ function wc_calypso_bridge_maybe_disable_publicize( $submit_post, $post_id, $ser
 			$should_disable_publicize = true;
 			break;
 		}
-	}
-
+    }
+    
     $post_type = get_post_type( $post_id );
 
 	// If not a product, or not a REST API request, return.
