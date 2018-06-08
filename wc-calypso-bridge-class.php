@@ -66,6 +66,7 @@ class WC_Calypso_Bridge {
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php' );
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-disable-publicize.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-order-url.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-hide-alerts.php' );
