@@ -45,8 +45,8 @@ class BACS_Accounts extends WC_REST_Unit_Test_Case {
 			'description'        => "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.",
 			'order'              => '',
 			'enabled'            => false,
-			'method_title'       => 'BACS',
-			'method_description' => 'Allows payments by BACS, more commonly known as direct bank/wire transfer.',
+			'method_title'       => 'Direct bank transfer',
+			'method_description' => 'Take payments in person via BACS. More commonly known as direct bank/wire transfer',
 			'method_supports'    => array( 'products' ),
 			'settings'           => $settings,
 		), $bacs );

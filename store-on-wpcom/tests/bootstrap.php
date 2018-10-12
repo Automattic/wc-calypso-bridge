@@ -34,8 +34,10 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 			$_SERVER['SERVER_NAME'] = 'localhost';
 		}
 
+		define( 'WC_MIN_VERSION', '3.0.0' );
+
 		$this->tests_dir    = dirname( __FILE__ );
-		$this->plugin_dir   = dirname( $this->tests_dir );
+		$this->plugin_dir   = dirname( dirname( $this->tests_dir ) );
 		$this->wc_dir = dirname( $this->plugin_dir ) . '/woocommerce';
 		$this->wc_api_dev_dir = dirname( $this->plugin_dir ) . '/wc-api-dev';
 		$this->wc_tests_dir = dirname( $this->plugin_dir ) . '/woocommerce/tests';
@@ -46,6 +48,9 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 
 		// load WC
 		tests_add_filter( 'muplugins_loaded', array( $this, 'load_wc' ) );
+
+		// load WC API Dev
+		tests_add_filter( 'muplugins_loaded', array( $this, 'load_wc_api_dev' ) );
 
 		// load WC Calypso Bridge
 		tests_add_filter( 'muplugins_loaded', array( $this, 'load_wc_calypso_bridge' ) );
@@ -68,10 +73,17 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	}
 
 	/**
+	 * Load WC API Dev.
+	 */
+	public function load_wc_api_dev() {
+		require_once( $this->wc_api_dev_dir . '/wc-api-dev-class.php' );
+	}
+
+	/**
 	 * Load WC Calypso Bridge.
 	 */
 	public function load_wc_calypso_bridge() {
-		require_once( $this->plugin_dir . '/wc-calypso-bridge-class.php' );
+		require_once( $this->plugin_dir . '/store-on-wpcom/wc-calypso-bridge-class.php' );
 	}
 
 	/**

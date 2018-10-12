@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function wc_calypso_bridge_masterbar_css() {
 	$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
-	wp_enqueue_style( 'wp-calypso-bridge-masterbar', $asset_path . 'assets/css/masterbar.css', array(), WC_Calypso_Bridge::CURRENT_VERSION );
+	wp_enqueue_style( 'wp-calypso-bridge-masterbar', $asset_path . 'assets/css/masterbar.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 }
 
 if ( ! function_exists( 'wc_api_dev_masterbar_css' ) ) {
