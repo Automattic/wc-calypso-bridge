@@ -10,7 +10,7 @@ class BACS_Accounts extends WC_REST_Unit_Test_Case {
 	 */
 	public function setUp() {
 		parent::setUp();
-		$this->endpoint = new WC_REST_DEV_Payment_Gateways_Controller();
+		$this->endpoint = new WC_REST_Payment_Gateways_Controller();
 		$this->user = $this->factory->user->create( array(
 			'role' => 'administrator',
 		) );

@@ -49,9 +49,6 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 		// load WC
 		tests_add_filter( 'muplugins_loaded', array( $this, 'load_wc' ) );
 
-		// load WC API Dev
-		tests_add_filter( 'muplugins_loaded', array( $this, 'load_wc_api_dev' ) );
-
 		// load WC Calypso Bridge
 		tests_add_filter( 'muplugins_loaded', array( $this, 'load_wc_calypso_bridge' ) );
 
@@ -70,13 +67,6 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	 */
 	public function load_wc() {
 		require_once( $this->wc_dir . '/woocommerce.php' );
-	}
-
-	/**
-	 * Load WC API Dev.
-	 */
-	public function load_wc_api_dev() {
-		require_once( $this->wc_api_dev_dir . '/wc-api-dev-class.php' );
 	}
 
 	/**

@@ -18,11 +18,7 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'woocommerce_init', array( $this, 'init' ), 20 );
-    }
-    
-    function init() {
-        error_log( 'testing!' );
+		//add_action( 'woocommerce_init', array( $this, 'init' ), 20 );
     }
 
 	/**
