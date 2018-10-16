@@ -45,9 +45,9 @@ class Email_Groups_Controller extends WC_REST_Unit_Test_Case {
 			),
 			2 => array(
 				'id' => 'woocommerce_email_footer_text',
-				'value' => '{site_title}',
+				'value' => '{site_title}<br/>Powered by <a href="https://woocommerce.com/">WooCommerce</a>',
 				'group_id' => 'email',
-				'default' => '{site_title}',
+				'default' => '{site_title}<br/>Powered by <a href="https://woocommerce.com/">WooCommerce</a>',
 			),
 			3 => array(
 				'id' => 'enabled',

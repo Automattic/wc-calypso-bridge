@@ -23,5 +23,18 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 	}
 }
 
-// Load the class.
+define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '0.2.4' );
+define( 'WC_MIN_VERSION', '3.0.0' );
+
+// TODO Pick a better option name.
+// We can set this during store setup/provisioning so they get the right code loaded.
+//update_option( 'is_atomic_wc', true );
+$is_atomic_wc = get_option( 'is_atomic_wc', false );
+
+if ( ! $is_atomic_wc ) {
+	include_once( dirname( __FILE__ ) . '/store-on-wpcom/wc-calypso-bridge-class.php' );
+	return;
+}
+
 include_once( dirname( __FILE__ ) . '/wc-calypso-bridge-class.php' );
+
