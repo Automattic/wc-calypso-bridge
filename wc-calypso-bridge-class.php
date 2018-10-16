@@ -18,8 +18,21 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
-		//add_action( 'woocommerce_init', array( $this, 'init' ), 20 );
-    }
+		$this->includes();
+	}
+
+	/**
+	 * Loads required functionality, classes, and API endpoints.
+	 */
+	private function includes() {
+		include_once( dirname( __FILE__ ) . '/includes/page-controller.php' );
+		include_once( dirname( __FILE__ ) . '/includes/menus.php' );
+
+		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
+		foreach ( $connect_files as $connect_file ) {
+			include_once( $connect_file );
+		}
+	}
 
 	/**
 	 * Class instance.
