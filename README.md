@@ -10,6 +10,8 @@ Ideally all API functionality will eventually be contained within `wc-api-dev` (
 
 ### Running the Test Suite
 
-From a test install of WordPress with `wc-api-dev` and `woocommerce` present, run `phpunit` from the root of this plugin directory.
+From a test install of WordPress with `wc-api-dev` and `woocommerce` present, run `phpunit` from the `store-on-wpcom` directory to run legacy Store on WP.com hotfix/API tests.
 
- Code coverage reports can be ran with `phpunit --coverage-html /tmp/coverage`.
+Run `phpunit` in the root plugin directory to run the new test suites.
+
+Code coverage reports can be ran with `phpunit --coverage-html /tmp/coverage`.

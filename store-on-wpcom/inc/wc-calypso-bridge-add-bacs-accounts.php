@@ -14,7 +14,6 @@ function wc_calypso_bridge_add_bacs_accounts( $response, $gateway, $request ) {
 	if ( is_wp_error( $response ) ) {
 		return $response;
 	}
-
 	if ( 'bacs' === $gateway->id ) {
 		$response->data[ 'settings' ][ 'accounts' ] = array(
 			'id'    => 'accounts',
@@ -77,6 +76,7 @@ function wc_calypso_bridge_update_bacs_accounts( $response, $handler, $request )
 	) {
 		switch ( $callable_name ) {
 			case 'WC_REST_Dev_Payment_Gateways_Controller::update_item':
+			case 'WC_REST_Payment_Gateways_Controller::update_item':
 				$controller = new WC_REST_Payment_Gateways_Controller;
 				$gateway = $controller->get_gateway( $request );
 
@@ -91,7 +91,6 @@ function wc_calypso_bridge_update_bacs_accounts( $response, $handler, $request )
 					if ( ! wc_calypso_bridge_validate_bacs_accounts( $new_accounts ) ) {
 						return new WP_Error( 'rest_setting_value_invalid', __( 'An invalid setting value was passed.', 'woocommerce' ), array( 'status' => 400 ) );
 					}
-
 					$formatted_accounts = wc_calypso_bridge_format_bacs_accounts( $new_accounts );
 					update_option( 'woocommerce_bacs_accounts', $formatted_accounts );
 				}

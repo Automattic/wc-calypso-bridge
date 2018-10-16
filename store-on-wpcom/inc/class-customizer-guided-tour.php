@@ -63,8 +63,8 @@ if ( ! class_exists( 'Customizer_NUX_Guided_Tour' ) ) :
 			global $storefront_version;
 			$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
 
-			wp_enqueue_style( 'wc-store-nux-tour', $asset_path . 'assets/css/admin/customizer.css', array(), WC_Calypso_Bridge::CURRENT_VERSION, 'all' );
-			wp_enqueue_script( 'wc-store-nux-tour', $asset_path . 'assets/js/admin/customizer.js', array( 'jquery', 'wp-backbone' ), WC_Calypso_Bridge::CURRENT_VERSION, true );
+			wp_enqueue_style( 'wc-store-nux-tour', $asset_path . 'assets/css/admin/customizer.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
+			wp_enqueue_script( 'wc-store-nux-tour', $asset_path . 'assets/js/admin/customizer.js', array( 'jquery', 'wp-backbone' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
 
 			wp_localize_script( 'wc-store-nux-tour', '_wpStoreNuxTourSteps', $this->guided_tour_steps() );
 			wp_localize_script( 'wc-store-nux-tour', '_wpStoreNuxSettings', $this->guided_tour_settings() );
