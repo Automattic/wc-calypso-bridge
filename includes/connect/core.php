@@ -133,3 +133,8 @@ wc_calypso_bridge_connect_page( array(
 	'menu'      => 'edit.php?post_type=product',
 	'submenu'   => 'edit-tags.php?taxonomy=product_cat&post_type=product',
 ) );
+
+wc_calypso_bridge_connect_page( array(
+	'screen_id' => 'woocommerce_page_wc-settings-integration',
+	'menu'      => 'woocommerce',
+) );
