@@ -71,7 +71,7 @@ function wc_calypso_bridge_connect_page( $options ) {
 }
 
 /**
- * Returns if we are on a WooCOmmerce related admin page.
+ * Returns if we are on a WooCommerce related admin page.
  *
  * @return bool True if this is a WooCommerce admin page. False otherwise.
  */

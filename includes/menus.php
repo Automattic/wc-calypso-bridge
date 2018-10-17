@@ -19,8 +19,11 @@ class WC_Calypso_Bridge_Menus {
 	}
 
 	private function __construct() {
-		add_action( 'current_screen', array( $this, 'setup_menu_hooks' ), 20 );
-    }
+		add_action( 'current_screen', array( $this, 'setup_menu_hooks' ) );
+	}
+
+	// TODO If any extensions add new pages to wp-admin's settings section, we will want to copy those over,
+	// just like Calypsoify does in `add_plugin_menus`.
 
 	/**
 	 * Hooks into WordPress to overtake the menu system on WooCommerce pages.
@@ -31,16 +34,15 @@ class WC_Calypso_Bridge_Menus {
 			return;
 		}
 
-		// TODO If any extensions add new pages to wp-admin's settings section, we will want to copy those over,
-		// just like Calypsoify does in `add_plugin_menus`.
-		$late_priority = PHP_INT_MAX;
+		//  We want the menu handler hooks to run late, so that other plugins hooking in here can make changes first.
+		$late_priority = 1000;
 		if ( is_wc_calypso_bridge_page() ) {
 			add_action( 'in_admin_header', array( $this, 'insert_sidebar_html' ) );
 			remove_action( 'in_admin_header', array( Jetpack_Calypsoify::getInstance(), 'insert_sidebar_html' ) );
 
-			add_action( 'admin_head', array( $this, 'woocommerce_menu_handler' ), $late_priority );
+			add_action( 'admin_head', array( $this, 'woocommerce_menu_handler' ) );
 		} else {
-			add_action( 'admin_head', array( $this, 'calypsoify_menu_handler' ), $late_priority );
+			add_action( 'admin_head', array( $this, 'calypsoify_menu_handler' ) );
 		}
 	}
 
