@@ -149,7 +149,6 @@ class WC_Calypso_Bridge_Page_Controller {
 	public function register_menu( $options ) {
 		global $menu, $submenu;
 		$this->menus[] = $options;
-		$this->id_mapping_to_path[ $options['id' ] ] = $options['path'];
 	}
 	/**
 	 * Registers a page.
@@ -174,14 +173,6 @@ class WC_Calypso_Bridge_Page_Controller {
 	 */
 	public function get_registered_menus() {
 		return $this->menus;
-	}
-	/**
-	 * Returns an array of path to ID maps.
-	 *
-	 * @return array Array paths to ids.
-	 */
-	public function get_path_to_id_mapping() {
-		return array_flip( $this->id_mapping_to_path );
 	}
 }
 
