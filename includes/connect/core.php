@@ -138,3 +138,13 @@ wc_calypso_bridge_connect_page( array(
 	'screen_id' => 'woocommerce_page_wc-settings-integration',
 	'menu'      => 'woocommerce',
 ) );
+
+wc_calypso_bridge_connect_page( array(
+	'screen_id' => 'woocommerce_page_wc-reports-taxes',
+	'menu'      => 'woocommerce',
+) );
+
+wc_calypso_bridge_connect_page( array(
+	'screen_id' => 'woocommerce_page_wc-settings-tax',
+	'menu'      => 'woocommerce',
+) );
