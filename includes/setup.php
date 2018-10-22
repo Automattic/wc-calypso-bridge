@@ -22,9 +22,20 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
     private function __construct() {
-		add_filter( 'woocommerce_setup_wizard_steps', array( $this, 'remove_unused_steps' ) );
+        if ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) {
+            add_filter( 'woocommerce_setup_wizard_steps', array( $this, 'remove_unused_steps' ) );
+            add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
+            add_action( 'plugins_loaded', array( $this, 'setup_wizard' ) );
+        }
     }
-    
+
+    /**
+	 * Show the setup wizard.
+	 */
+	public function setup_wizard() {
+		include_once( dirname( __FILE__ ) . '/setup-wizard.php' );
+	}
+
     /**
      * Remove unused steps from the wizard
      * 
