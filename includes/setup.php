@@ -25,7 +25,11 @@ class WC_Calypso_Bridge_Setup {
         if ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) {
             add_filter( 'woocommerce_setup_wizard_steps', array( $this, 'remove_unused_steps' ) );
             add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
+<<<<<<< HEAD
             add_action( 'wp_loaded', array( $this, 'setup_wizard' ), 20 );
+=======
+            add_action( 'plugins_loaded', array( $this, 'setup_wizard' ) );
+>>>>>>> Override WC setup wizard class to add in admin bar
         }
     }
 
