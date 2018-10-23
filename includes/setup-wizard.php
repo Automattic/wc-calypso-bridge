@@ -5,7 +5,7 @@
  * Extends the original WC setup wizard so we can add in new templates to the view.
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) || ! class_exists( 'WC_Admin_Setup_Wizard' ) ) {
 	exit;
 }
 
