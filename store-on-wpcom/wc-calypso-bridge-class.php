@@ -102,9 +102,6 @@ class WC_Calypso_Bridge {
 			$controller_instance = new $controller();
 			$controller_instance->register_routes();
 		}
-
-		// We include it here because rest_api_init is a proper context for mocked add_settings_error function
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-add-settings-error.php' );
 	}
 
 	/**
