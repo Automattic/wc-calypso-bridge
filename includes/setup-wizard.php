@@ -37,10 +37,11 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			<meta name="viewport" content="width=device-width" />
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title><?php esc_html_e( 'WooCommerce &rsaquo; Setup Wizard', 'woocommerce' ); ?></title>
+			<?php do_action( 'admin_head' ); ?>
 			<?php do_action( 'admin_enqueue_scripts' ); ?>
 			<?php wp_print_scripts( 'wc-setup' ); ?>
 			<?php do_action( 'admin_print_styles' ); ?>
-			<?php do_action( 'admin_head' ); ?>
+			<?php do_action( 'admin_print_scripts' ); ?>
 		</head>
 		<body class="wc-setup wp-core-ui">
 			<?php wp_admin_bar_render(); ?>
