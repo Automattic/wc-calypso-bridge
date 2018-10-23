@@ -28,10 +28,10 @@ define( 'WC_MIN_VERSION', '3.0.0' );
 
 // TODO Pick a better option name.
 // We can set this during store setup/provisioning so they get the right code loaded.
-//update_option( 'is_atomic_wc', true );
-$is_atomic_wc = get_option( 'is_atomic_wc', false );
+//update_option( 'is_atomic_ecommerce_plan', true );
+$is_atomic_ecommerce_plan = get_option( 'is_atomic_ecommerce_plan', false );
 
-if ( ! $is_atomic_wc ) {
+if ( ! $is_atomic_ecommerce_plan ) {
 	include_once( dirname( __FILE__ ) . '/store-on-wpcom/wc-calypso-bridge-class.php' );
 	return;
 }
