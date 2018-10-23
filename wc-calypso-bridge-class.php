@@ -27,6 +27,7 @@ class WC_Calypso_Bridge {
 	private function includes() {
 		include_once( dirname( __FILE__ ) . '/includes/page-controller.php' );
 		include_once( dirname( __FILE__ ) . '/includes/menus.php' );
+		include_once( dirname( __FILE__ ) . '/includes/setup.php' );
 
 		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
 		foreach ( $connect_files as $connect_file ) {
