@@ -19,6 +19,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		$this->includes();
+		add_action( 'admin_init', array( $this, 'force_jetpack_calypsoify' ) );
 	}
 
 	/**
@@ -51,6 +52,18 @@ class WC_Calypso_Bridge {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Jetpack Calypsoify
+	 * 
+	 * Forces Jetpack Calpysoify styles and menu hooks regardless of calypsoify URL param
+	 */
+	public function force_jetpack_calypsoify() {
+		remove_action( 'Jetpack_Calypsoify', 'check_param' );
+		if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+			update_user_meta( get_current_user_id(), 'calypsoify', 1 );
+		}
 	}
 }
 
