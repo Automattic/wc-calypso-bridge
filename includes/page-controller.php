@@ -37,6 +37,13 @@ function wc_calypso_bridge_get_current_screen_id() {
 			$current_screen_id = $current_screen_id . '-' . $tab;
 		}
 	}
+
+	$allowed_importers = array( 'woocommerce_coupon_csv', 'woocommerce_customer_csv', 'woocommerce_order_csv' );
+
+	if ( ! empty( $_GET['import'] ) && in_array( $_GET['import'], $allowed_importers ) ) {
+		return 'importer_' . $_GET['import'];
+	}
+
 	return $current_screen_id;
 }
 
