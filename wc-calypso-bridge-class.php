@@ -19,6 +19,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		$this->includes();
+		add_action( 'admin_enqueue_scripts', array( $this, 'possibly_add_calypsoify_styles' ) );
 	}
 
 	/**
@@ -51,6 +52,16 @@ class WC_Calypso_Bridge {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Add calypsoify styles if calypsoify is enabled
+	 */
+	public function possibly_add_calypsoify_styles() {
+		if ( 1 == (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+			$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
+			wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
+		}
 	}
 }
 
