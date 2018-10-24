@@ -10,7 +10,7 @@ class Paypal_Method_supports extends WC_REST_Unit_Test_Case {
      */
     public function setUp() {
         parent::setUp();
-        $this->endpoint = new WC_REST_DEV_Payment_Gateways_Controller();
+        $this->endpoint = new WC_REST_Payment_Gateways_Controller();
         $this->user = $this->factory->user->create( array(
             'role' => 'administrator',
         ) );
@@ -32,17 +32,7 @@ class Paypal_Method_supports extends WC_REST_Unit_Test_Case {
         );
 
         $this->assertEquals( 200, $response->get_status() );
-        $this->assertEquals( array(
-            'id'                 => 'paypal',
-            'title'              => 'PayPal',
-            'description'        => "Pay via PayPal; you can pay with your credit card if you don't have a PayPal account.",
-            'order'              => '',
-            'enabled'            => false,
-            'method_title'       => 'PayPal',
-            'method_description' => 'PayPal Standard sends customers to PayPal to enter their payment information. PayPal IPN requires fsockopen/cURL support to update order statuses after payment. Check the <a href="http://example.org/wp-admin/admin.php?page=wc-status">system status</a> page for more details.',
-            'method_supports'    => array( 'products' ),
-            'settings'           => $settings,
-        ), $paypal );
+        $this->assertEquals( array( 'products' ), $paypal['method_supports'] );
     }
     
     /**
