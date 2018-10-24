@@ -1,0 +1,84 @@
+/**
+ * Styles to override Jetpack Calypsoify styles for OBW and some WooCommerce screens
+ */
+ 
+/* Updates purple notice color to green */
+div.woocommerce-message, .wc-helper .start-container {
+	border-left-color: #46b450 !important;
+}
+
+/* Adds padding between pagination and the table of items on management screens */
+.tablenav .tablenav-pages {
+	margin-bottom: 8px;
+}
+
+/* Update purple buttons to Calypso primary colors */
+.woocommerce-BlankState a.button-primary,
+.wc_addons_wrap .addons-button-solid,
+.woocommerce-BlankState a.button-primary:hover,
+.wc-helper .button,
+.wc-helper .button:hover {
+	background: #00aadc;
+	border-color: #008ab3;
+	text-shadow: none;
+	box-shadow: none;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.woocommerce-BlankState a.button-primary:hover,
+.wc_addons_wrap .addons-button-solid:hover,
+.wc-helper .button:hover {
+	border-color: #005082;
+	opacity: 1;
+}
+
+.wc-helper .button,
+.wc-helper .button:hover {
+	height: 38px;
+}
+
+.subscriptions-header .button {
+	height: 30px;
+	color: #fff;
+	opacity: 1;
+}
+
+.subscriptions-header .button:hover {
+	height: 30px;
+	color: #fff;
+}
+
+/* White background behind the WooCommerce helper extensions navigation */
+.subscription-filter {
+	margin: 10px 0 25px;
+	background: #fff;
+	border: 1px solid rgba(200,215,225,0.5);
+	width: 100%;
+	box-shadow: none;
+	list-style: none;
+	padding: 16px 8px 8px 8px;
+	float: left;
+	color: #666;
+	line-height: normal;
+}
+
+.wc-helper .subscription-filter .count {
+	border: 0;
+}
+
+/* Pill toggle styles */
+.woocommerce-input-toggle {
+	background: #00aadc;
+	border: 2px solid #00aadc;
+}
+
+.woocommerce-input-toggle.woocommerce-input-toggle--disabled {
+	border-color: #a8bece;
+	background: #a8bece;
+}
+
+/* Status enabled checkmarks (email management) */
+.status-enabled::before {
+	color: #00aadc;
+}
