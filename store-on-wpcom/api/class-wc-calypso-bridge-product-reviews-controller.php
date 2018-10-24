@@ -32,7 +32,7 @@ class WC_Calypso_Bridge_Product_Reviews_Controller extends WC_REST_Controller {
 	 *
 	 * @var string
 	 */
-	protected $list_rest_base = 'products/reviews';
+	protected $list_rest_base = 'products/calypso-reviews';
 
 	/**
 	 * Register Routes
