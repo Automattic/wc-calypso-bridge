@@ -40,6 +40,8 @@ div.woocommerce-message, .wc-helper .start-container {
 
 .subscriptions-header .button {
 	height: 30px;
+	line-height: 22px;
+	font-weight: normal;
 	color: #fff;
 	opacity: 1;
 }
@@ -50,17 +52,25 @@ div.woocommerce-message, .wc-helper .start-container {
 }
 
 /* White background behind the WooCommerce helper extensions navigation */
-.subscription-filter {
+.subscription-filter li {
 	margin: 10px 0 25px;
 	background: #fff;
 	border: 1px solid rgba(200,215,225,0.5);
-	width: 100%;
+	border-left: 0;
 	box-shadow: none;
 	list-style: none;
-	padding: 16px 8px 8px 8px;
+	padding: 12px !important;
 	float: left;
 	color: #666;
 	line-height: normal;
+}
+
+.subscription-filter li:first-of-type {
+	border-left: 1px solid rgba(200,215,225,0.5);
+}
+
+.wc-helper .subscription-filter li::before {
+	background-color: transparent;
 }
 
 .wc-helper .subscription-filter .count {
@@ -78,7 +88,20 @@ div.woocommerce-message, .wc-helper .start-container {
 	background: #a8bece;
 }
 
+.form-toggle.active+.form-toggle__label .form-toggle__switch {
+	background: #00aadc;
+}
+
+.form-toggle+.form-toggle__label .form-toggle__switch {
+	background: #a8bece;
+}
+
 /* Status enabled checkmarks (email management) */
 .status-enabled::before {
 	color: #00aadc;
+}
+
+.wc-helper .wp-list-table__row:last-child td {
+	border-bottom: none;
+	box-shadow: none;
 }
