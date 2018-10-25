@@ -46,7 +46,7 @@
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="wc-admin" />
+			<property name="text_domain" type="array" value="wc-calypso-bridge" />
 		</properties>
 	</rule>
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
