@@ -7,10 +7,18 @@ class WC_Calypso_Bridge {
 	 * Paths to assets act oddly in production
 	 */
 	const MU_PLUGIN_ASSET_PATH = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/';
+
+	/**
+	 * Plugin asset path
+	 *
+	 * @var string
+	 */
 	public static $plugin_asset_path = null;
 
 	/**
 	 * Class Instance.
+	 *
+	 * @var WC_Calypso_Bridge instance
 	 */
 	protected static $instance = null;
 
