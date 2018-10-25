@@ -10,6 +10,11 @@
  * Tested up to: 4.9.8
  */
 
+// Return instead of exit to prevent phpcs errors.
+if ( ! defined( 'ABSPATH' ) ) {
+	return;
+}
+
 if ( ! file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
 	// No WooCommerce installed, we don't need this.
 	return;

@@ -6,6 +6,9 @@
 			"wc-calypso-bridge.php"
 		]
 	},
+	"require": {
+		"composer/installers": "~1.2"
+	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "*",
 		"wp-coding-standards/wpcs": "1.1.0",
