@@ -19,6 +19,9 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		$this->includes();
+
+		// Hook on `admin_print_styles`, after some WC CSS is hooked, so we can override a few '!important' styles.
+		add_action( 'admin_print_styles', array( $this, 'possibly_add_calypsoify_styles' ), 11 );
 	}
 
 	/**
@@ -51,6 +54,17 @@ class WC_Calypso_Bridge {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Add calypsoify styles if calypsoify is enabled
+	 */
+	public function possibly_add_calypsoify_styles() {
+		if ( 1 == (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+			$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
+			wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
+			add_filter( 'woocommerce_display_admin_footer_text', '__return_false' );
+		}
 	}
 }
 

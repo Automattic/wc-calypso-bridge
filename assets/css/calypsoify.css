@@ -1,0 +1,130 @@
+/**
+ * Styles to override Jetpack Calypsoify styles for OBW and some WooCommerce screens
+ */
+ 
+/* Updates purple notice color */
+div.woocommerce-message, .wc-helper .start-container {
+	border-left-color: #00a0d2 !important;
+}
+
+/* Adds padding between pagination and the table of items on management screens */
+.tablenav .tablenav-pages {
+	margin-bottom: 8px;
+}
+
+/* Update purple buttons to Calypso primary colors */
+.woocommerce-message a.button-primary,
+.woocommerce-message button.button-primary,
+.woocommerce-BlankState a.button-primary,
+.wc_addons_wrap .addons-button-solid,
+.woocommerce-BlankState a.button-primary:hover,
+.wc-helper .button,
+.wc-helper .button:hover {
+	background: #00aadc;
+	border-color: #008ab3;
+	text-shadow: none;
+	box-shadow: none;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.woocommerce-BlankState a.button-primary:hover,
+.wc_addons_wrap .addons-button-solid:hover,
+.wc-helper .button:hover {
+	border-color: #005082;
+	opacity: 1;
+}
+
+.woocommerce-message a.button-primary:hover,
+.woocommerce-message button.button-primary:hover {
+	background: #008ec2;
+	border-color: #006799;
+	box-shadow: none;
+}
+
+.wc-helper .button,
+.wc-helper .button:hover {
+	height: 38px;
+}
+
+.subscriptions-header .button {
+	height: 30px;
+	line-height: 22px;
+	font-weight: normal;
+	color: #fff;
+	opacity: 1;
+}
+
+.subscriptions-header .button:hover {
+	height: 30px;
+	color: #fff;
+}
+
+/* White background behind the WooCommerce helper extensions navigation */
+.subscription-filter li {
+	margin: 10px 0 25px;
+	background: #fff;
+	border: 1px solid rgba(200,215,225,0.5);
+	border-left: 0;
+	box-shadow: none;
+	list-style: none;
+	padding: 12px !important;
+	float: left;
+	color: #666;
+	line-height: normal;
+}
+
+.subscription-filter li:first-of-type {
+	border-left: 1px solid rgba(200,215,225,0.5);
+}
+
+.wc-helper .subscription-filter li::before {
+	background-color: transparent;
+}
+
+.wc-helper .subscription-filter .count {
+	border: 0;
+}
+
+/* Pill toggle styles */
+.woocommerce-input-toggle {
+	background: #00aadc;
+	border: 2px solid #00aadc;
+}
+
+.woocommerce-input-toggle.woocommerce-input-toggle--disabled {
+	border-color: #a8bece;
+	background: #a8bece;
+}
+
+.form-toggle.active+.form-toggle__label .form-toggle__switch {
+	background: #00aadc;
+}
+
+.form-toggle+.form-toggle__label .form-toggle__switch {
+	background: #a8bece;
+}
+
+/* Status enabled checkmarks (email management) */
+.status-enabled::before {
+	color: #00aadc;
+}
+
+.wc-helper .wp-list-table__row:last-child td {
+	border-bottom: none;
+	box-shadow: none;
+}
+
+/* WooCommerce Checkout Field Editor: field names */
+#wc_checkout_fields strong.core-field {
+	color: #0073aa !important;
+}
+
+/* MailChimp for WooCommerce: Menu item */
+#adminmenu li.current a.menu-top.toplevel_page_mailchimp-woocommerce div.wp-menu-name {
+	color: #fff !important;
+}
+
+#adminmenu li.current a.menu-top.toplevel_page_mailchimp-woocommerce .svg {
+	filter: none;
+}
