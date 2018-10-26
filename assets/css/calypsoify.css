@@ -397,6 +397,14 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 	font-weight: 300;
 	line-height: 14px;
 }
+@media screen and (max-width:600px) {
+	.store-address-container .city-and-postcode {
+		flex-direction: column-reverse;
+	}
+	.store-address-container .city-and-postcode div {
+		margin-right: 0;
+	}
+}
 
 /* Onboarding wizard steps */
 .wc-step-heading {
