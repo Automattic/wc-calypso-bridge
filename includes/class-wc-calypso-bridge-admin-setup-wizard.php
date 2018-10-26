@@ -47,7 +47,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		set_current_screen();
 		?>
 		<!DOCTYPE html>
-		<html <?php language_attributes(); ?>>
+		<html <?php language_attributes(); ?> class="wc-setup-page">
 		<head>
 			<meta name="viewport" content="width=device-width" />
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
