@@ -36,6 +36,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			add_action( 'admin_menu', array( $this, 'admin_menus' ) );
 			add_action( 'admin_init', array( $this, 'setup_wizard' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'possibly_enqueue_calypsoify_scripts' ) );
 		}
 	}
 
@@ -62,6 +63,9 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		<?php
 	}
 	
+	/**
+	 * Output the step header.
+	 */
 	public function setup_wizard_steps() {
 		$step = $this->steps[ $this->step ];
 		?>
@@ -114,6 +118,40 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	}
 
 	/**
+	 * Output the content for the current step.
+	 */
+	public function setup_wizard_content() {
+		echo '<div class="wc-setup-content">';
+		if ( ! empty( $this->steps[ $this->step ]['view'] ) ) {
+			call_user_func( $this->steps[ $this->step ]['view'], $this );
+		}
+		echo '</div>';
+	}
+	
+	/**
+	 * Setup Wizard Footer.
+	 */
+	public function setup_wizard_footer() {
+		?>
+			<div class="wc-setup-footer">
+				<button class="button-primary button button-large" value="<?php esc_attr_e( "Let's go!", 'woocommerce' ); ?>" name="save_step"><?php esc_html_e( "Continue", 'wc-calypso-bridge' ); ?></button>
+			</div>
+			</body>
+		</html>
+		<?php
+	}
+
+	/**
+	 * Enqueue calypsoify scripts if
+	 */
+	public function possibly_enqueue_calypsoify_scripts() {
+		if ( 1 == (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+			$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
+			wp_enqueue_script( 'wc-calypso-bridge-calypsoify-obw', $asset_path . 'assets/js/calypsoify-obw.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		}
+	}
+
+	/**
 	 * Get the URL for the next step's screen.
 	 *
 	 * @param string $step  slug (default: current step).
@@ -137,16 +175,6 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		return add_query_arg( 'step', $keys[ $step_index + 1 ], remove_query_arg( 'activate_error' ) );
 	}
 
-	/**
-	 * Output the content for the current step.
-	 */
-	public function setup_wizard_content() {
-		echo '<div class="wc-setup-content">';
-		if ( ! empty( $this->steps[ $this->step ]['view'] ) ) {
-			call_user_func( $this->steps[ $this->step ]['view'], $this );
-		}
-		echo '</div>';
-	}
     
 }
 
