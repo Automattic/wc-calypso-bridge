@@ -7,10 +7,18 @@ class WC_Calypso_Bridge {
 	 * Paths to assets act oddly in production
 	 */
 	const MU_PLUGIN_ASSET_PATH = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/';
+
+	/**
+	 * Plugin asset path
+	 *
+	 * @var string
+	 */
 	public static $plugin_asset_path = null;
 
 	/**
 	 * Class Instance.
+	 *
+	 * @var WC_Calypso_Bridge instance
 	 */
 	protected static $instance = null;
 
@@ -28,9 +36,9 @@ class WC_Calypso_Bridge {
 	 * Loads required functionality, classes, and API endpoints.
 	 */
 	private function includes() {
-		include_once( dirname( __FILE__ ) . '/includes/page-controller.php' );
-		include_once( dirname( __FILE__ ) . '/includes/menus.php' );
-		include_once( dirname( __FILE__ ) . '/includes/setup.php' );
+		include_once( dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php' );
+		include_once( dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php' );
+		include_once( dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php' );
 
 		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
 		foreach ( $connect_files as $connect_file ) {

@@ -5,5 +5,23 @@
 		"files": [
 			"wc-calypso-bridge.php"
 		]
+	},
+	"require": {
+		"composer/installers": "~1.2"
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "*",
+		"wp-coding-standards/wpcs": "1.1.0",
+		"woocommerce/woocommerce-sniffs": "*",
+		"wimg/php-compatibility": "9.0.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "0.4.4"
+	  },
+	"scripts": {
+		"phpcs": [
+			"phpcs -s -p"
+		],
+		"phpcbf": [
+			"phpcbf -p"
+		]
 	}
 }

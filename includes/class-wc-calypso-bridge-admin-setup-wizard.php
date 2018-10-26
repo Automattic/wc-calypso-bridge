@@ -17,7 +17,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	/**
 	 * Current step
 	 *
-		* @var string
+	 * @var string
 	 */
 	private $step = '';
 
@@ -28,7 +28,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	 */
 	private $steps = array();
 
-    /**
+	/**
 	 * Hook in tabs.
 	 */
 	public function __construct() {
@@ -40,7 +40,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		}
 	}
 
-    /**
+	/**
 	 * Setup Wizard Header.
 	 */
 	public function setup_wizard_header() {
@@ -62,7 +62,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			<?php wp_admin_bar_render(); ?>
 		<?php
 	}
-	
+
 	/**
 	 * Output the step header.
 	 */
@@ -127,7 +127,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		}
 		echo '</div>';
 	}
-	
+
 	/**
 	 * Setup Wizard Footer.
 	 */
@@ -175,7 +175,6 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		return add_query_arg( 'step', $keys[ $step_index + 1 ], remove_query_arg( 'activate_error' ) );
 	}
 
-    
 }
 
 new WC_Calypso_Bridge_Admin_Setup_Wizard();
