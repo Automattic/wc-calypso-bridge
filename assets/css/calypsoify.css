@@ -128,3 +128,36 @@ div.woocommerce-message, .wc-helper .start-container {
 #adminmenu li.current a.menu-top.toplevel_page_mailchimp-woocommerce .svg {
 	filter: none;
 }
+
+/* Onboarding wizard style */
+.wc-setup {
+    background: transparent;
+}
+.wc-step-heading {
+	margin-top: 116px;
+	margin-bottom: 24px;
+}
+.wc-step-heading h1 {
+	font-size: 32px;
+	color: #2E4453;
+	line-height: 1;
+	font-weight: 500;
+	margin-top: 0;
+	margin-bottom: 12px;
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+.wc-step-heading h2 {
+	color: #537994;
+	font-size: 14px;
+	line-height: 1.5;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+@media screen and (max-width:782px) {
+	.wc-step-heading {
+		margin-top: 71px;
+	}
+}

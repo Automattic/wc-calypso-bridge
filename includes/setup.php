@@ -14,9 +14,9 @@ class WC_Calypso_Bridge_Setup {
 	public static function getInstance() {
 		if ( !self::$instance ) {
 			self::$instance = new self;
-		}
-		return self::$instance;
-	}
+        }
+        return self::$instance;
+    }
 
     /**
 	 * Constructor.
