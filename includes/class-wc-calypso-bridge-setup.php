@@ -38,7 +38,7 @@ class WC_Calypso_Bridge_Setup {
 	 * Show the setup wizard.
 	 */
 	public function setup_wizard() {
-		include_once( dirname( __FILE__ ) . '/setup-wizard.php' );
+		include_once( dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-setup-wizard.php' );
 	}
 
 	/**
