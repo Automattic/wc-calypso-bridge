@@ -250,6 +250,14 @@ div.woocommerce-message, .wc-helper .start-container {
 	font-weight: 300;
 	line-height: 14px;
 }
+@media screen and (max-width:600px) {
+	.store-address-container .city-and-postcode {
+		flex-direction: column-reverse;
+	}
+	.store-address-container .city-and-postcode div {
+		margin-right: 0;
+	}
+}
 
 /* Onboarding wizard steps */
 .wc-step-heading {
@@ -292,6 +300,13 @@ div.woocommerce-message, .wc-helper .start-container {
 	height: 40px;
 	line-height: 38px;
 	font-size: 14px;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+@media screen and (max-width: 600px) {
+	.wc-setup .wc-setup-footer .button-primary {
+		width: 100%;
+	}
 }
 
 /* Onboarding wizard toggles */
