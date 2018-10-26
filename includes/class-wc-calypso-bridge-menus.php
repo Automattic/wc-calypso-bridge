@@ -39,7 +39,6 @@ class WC_Calypso_Bridge_Menus {
 	 * Hooks into WordPress to overtake the menu system on WooCommerce pages.
 	 */
 	public function setup_menu_hooks() {
-		// TODO, Figure out correct loading conditions. For now we will use the same user meta as calypsoify.
 		if ( 1 != (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 			return;
 		}
