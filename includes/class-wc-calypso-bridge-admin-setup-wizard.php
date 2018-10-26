@@ -51,7 +51,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		<head>
 			<meta name="viewport" content="width=device-width" />
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title><?php esc_html_e( 'WooCommerce &rsaquo; Setup Wizard', 'woocommerce' ); ?></title>
+			<title><?php esc_html_e( 'WooCommerce &rsaquo; Setup Wizard', 'wc-calypso-bridge' ); ?></title>
 			<?php do_action( 'admin_head' ); ?>
 			<?php do_action( 'admin_enqueue_scripts' ); ?>
 			<?php wp_print_scripts( 'wc-setup' ); ?>
@@ -134,10 +134,150 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	public function setup_wizard_footer() {
 		?>
 			<div class="wc-setup-footer">
-				<button class="button-primary button button-large" value="<?php esc_attr_e( "Let's go!", 'woocommerce' ); ?>" name="save_step"><?php esc_html_e( "Continue", 'wc-calypso-bridge' ); ?></button>
+				<button class="button-primary button button-large" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( "Continue", 'wc-calypso-bridge' ); ?></button>
 			</div>
 			</body>
 		</html>
+		<?php
+	}
+
+	/**
+	 * Initial "store setup" step.
+	 * Location, product type, page setup, and tracking opt-in.
+	 */
+	public function wc_setup_store_setup() {
+		$address        = WC()->countries->get_base_address();
+		$address_2      = WC()->countries->get_base_address_2();
+		$city           = WC()->countries->get_base_city();
+		$state          = WC()->countries->get_base_state();
+		$country        = WC()->countries->get_base_country();
+		$postcode       = WC()->countries->get_base_postcode();
+		$currency       = get_option( 'woocommerce_currency', 'GBP' );
+		$product_type   = get_option( 'woocommerce_product_type', 'both' );
+		$sell_in_person = get_option( 'woocommerce_sell_in_person', 'none_selected' );
+		if ( empty( $country ) ) {
+			$user_location = WC_Geolocation::geolocate_ip();
+			$country       = $user_location['country'];
+			$state         = $user_location['state'];
+		}
+		$locale_info         = include WC()->plugin_path() . '/i18n/locale-info.php';
+		$currency_by_country = wp_list_pluck( $locale_info, 'currency_code' );
+		?>
+		<form method="post" class="address-step">
+			<?php wp_nonce_field( 'wc-setup' ); ?>
+			<p class="store-setup"><?php esc_html_e( 'The following wizard will help you configure your store and get you started quickly.', 'wc-calypso-bridge' ); ?></p>
+
+			<div class="store-address-container">
+
+				<label for="store_address" class="location-prompt"><?php esc_html_e( 'Where is your store based?', 'wc-calypso-bridge' ); ?></label>
+				<input type="text" id="store_address" class="location-input" name="store_address" required value="<?php echo esc_attr( $address ); ?>" />
+				<input type="text" id="store_address_2" class="location-input" name="store_address_2" value="<?php echo esc_attr( $address_2 ); ?>" />
+
+				<div>
+					<label class="location-prompt" for="store_city"><?php esc_html_e( 'City', 'wc-calypso-bridge' ); ?></label>
+					<input type="text" id="store_city" class="location-input" name="store_city" required value="<?php echo esc_attr( $city ); ?>" />
+				</div>
+
+				<div class="store-state-container hidden">
+					<label for="store_state" class="location-prompt">
+						<?php esc_html_e( 'State', 'wc-calypso-bridge' ); ?>
+					</label>
+					<select id="store_state" name="store_state" data-placeholder="<?php esc_attr_e( 'Choose a state&hellip;', 'wc-calypso-bridge' ); ?>" aria-label="<?php esc_attr_e( 'State', 'wc-calypso-bridge' ); ?>" class="location-input wc-enhanced-select dropdown"></select>
+				</div>
+
+				<div class="city-and-postcode">
+					<div>
+						<label class="location-prompt" for="store_country"><?php esc_html_e( 'Country', 'wc-calypso-bridge' ); ?></label>
+						<select id="store_country" name="store_country" required data-placeholder="<?php esc_attr_e( 'Choose a country&hellip;', 'wc-calypso-bridge' ); ?>" aria-label="<?php esc_attr_e( 'Country', 'wc-calypso-bridge' ); ?>" class="location-input wc-enhanced-select dropdown">
+							<?php foreach ( WC()->countries->get_countries() as $code => $label ) : ?>
+								<option <?php selected( $code, $country ); ?> value="<?php echo esc_attr( $code ); ?>"><?php echo esc_html( $label ); ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<div>
+						<label class="location-prompt" for="store_postcode"><?php esc_html_e( 'Postcode / ZIP', 'wc-calypso-bridge' ); ?></label>
+						<input type="text" id="store_postcode" class="location-input" name="store_postcode" required value="<?php echo esc_attr( $postcode ); ?>" />
+					</div>
+				</div>
+			</div>
+
+			<div class="store-currency-container">
+			<label class="location-prompt" for="currency_code">
+				<?php esc_html_e( 'What currency do you accept payments in?', 'wc-calypso-bridge' ); ?>
+			</label>
+			<select
+				id="currency_code"
+				name="currency_code"
+				required
+				data-placeholder="<?php esc_attr_e( 'Choose a currency&hellip;', 'wc-calypso-bridge' ); ?>"
+				class="location-input wc-enhanced-select dropdown"
+			>
+				<option value=""><?php esc_html_e( 'Choose a currency&hellip;', 'wc-calypso-bridge' ); ?></option>
+				<?php foreach ( get_woocommerce_currencies() as $code => $name ) : ?>
+					<option value="<?php echo esc_attr( $code ); ?>" <?php selected( $currency, $code ); ?>>
+						<?php
+						$symbol = get_woocommerce_currency_symbol( $code );
+						if ( $symbol === $code ) {
+							/* translators: 1: currency name 2: currency code */
+							echo esc_html( sprintf( __( '%1$s (%2$s)', 'wc-calypso-bridge' ), $name, $code ) );
+						} else {
+							/* translators: 1: currency name 2: currency symbol, 3: currency code */
+							echo esc_html( sprintf( __( '%1$s (%2$s / %3$s)', 'wc-calypso-bridge' ), $name, get_woocommerce_currency_symbol( $code ), $code ) );
+						}
+						?>
+					</option>
+				<?php endforeach; ?>
+			</select>
+			<script type="text/javascript">
+				var wc_setup_currencies = <?php echo wp_json_encode( $currency_by_country ); ?>;
+				var wc_base_state       = "<?php echo esc_js( $state ); ?>";
+			</script>
+			</div>
+
+			<div class="product-type-container">
+			<label class="location-prompt" for="product_type">
+				<?php esc_html_e( 'What type of products do you plan to sell?', 'wc-calypso-bridge' ); ?>
+			</label>
+			<select id="product_type" name="product_type" required class="location-input wc-enhanced-select dropdown">
+				<option value="both" <?php selected( $product_type, 'both' ); ?>><?php esc_html_e( 'I plan to sell both physical and digital products', 'wc-calypso-bridge' ); ?></option>
+				<option value="physical" <?php selected( $product_type, 'physical' ); ?>><?php esc_html_e( 'I plan to sell physical products', 'wc-calypso-bridge' ); ?></option>
+				<option value="virtual" <?php selected( $product_type, 'virtual' ); ?>><?php esc_html_e( 'I plan to sell digital products', 'wc-calypso-bridge' ); ?></option>
+			</select>
+			</div>
+
+			<input
+				type="checkbox"
+				id="woocommerce_sell_in_person"
+				name="sell_in_person"
+				value="yes"
+				<?php checked( $sell_in_person, true ); ?>
+			/>
+			<label class="location-prompt" for="woocommerce_sell_in_person">
+				<?php esc_html_e( 'I will also be selling products or services in person.', 'wc-calypso-bridge' ); ?>
+			</label>
+
+			<?php
+			if ( 'unknown' === get_option( 'woocommerce_allow_tracking', 'unknown' ) ) {
+				?>
+				<div class="woocommerce-tracker">
+					<p class="checkbox">
+						<input type="checkbox" id="wc_tracker_checkbox" name="wc_tracker_checkbox" value="yes" checked />
+						<label for="wc_tracker_checkbox"><?php esc_html_e( 'Help WooCommerce improve with usage tracking.', 'wc-calypso-bridge' ); ?></label>
+					</p>
+					<p>
+					<?php
+					esc_html_e( 'Gathering usage data allows us to make WooCommerce better &mdash; your store will be considered as we evaluate new features, judge the quality of an update, or determine if an improvement makes sense. If you would rather opt-out, and do not check this box, we will not know this store exists and we will not collect any usage data.', 'wc-calypso-bridge' );
+					echo ' <a target="_blank" href="https://woocommerce.com/usage-tracking/">' . esc_html__( 'Read more about what we collect.', 'wc-calypso-bridge' ) . '</a>';
+					?>
+					</p>
+				</div>
+				<?php
+			}
+			?>
+			<p class="wc-setup-actions step">
+				<button type="submit" class="button-primary button button-large button-next" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( "Let's go!", 'wc-calypso-bridge' ); ?></button>
+			</p>
+		</form>
 		<?php
 	}
 

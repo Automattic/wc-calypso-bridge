@@ -179,6 +179,7 @@ div.woocommerce-message, .wc-helper .start-container {
 /* Onboarding wizard select2 */
 .wc-setup .select2 {
 	max-width: 100%;
+	margin-bottom: 13px;
 }
 .wc-setup .select2-container .select2-selection {
 	border-color: #C8D7E1;
@@ -218,8 +219,15 @@ div.woocommerce-message, .wc-helper .start-container {
 .store-address-container label:first-child {
 	margin-top: 0;
 }
-label[for="woocommerce_sell_in_person"] {
-	margin-top: 13px;
+.location-prompt {
+	margin-top: 10px;
+}
+.store-address-container .city-and-postcode {
+    margin-bottom: 20px;
+}
+.product-type-container {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
