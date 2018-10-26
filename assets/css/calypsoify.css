@@ -287,6 +287,19 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 		margin-right: 0;
 	}
 }
+.wc-setup-content p {
+    color: #2E4453;
+}
+.wc-setup-content button.button.button-large {
+	height: 40px;
+	line-height: 38px;
+	font-size: 14px;
+	padding-bottom: 0;
+	padding-top: 0;
+	min-width: 74px;
+	border-color: #C8D7E1;
+	box-shadow: 0 1px 0 #C8D7E1;
+}
 
 /* Onboarding wizard inputs */
 .wc-setup input[type="text"] {
@@ -466,4 +479,32 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 .wc-wizard-service-item .wc-wizard-service-toggle:before, .wc-wizard-services-list-toggle .wc-wizard-service-toggle:before {
 	width: 20px;
 	height: 20px;
+}
+
+/* Onboarding wizard store address preview */
+.store-address-preview {
+	padding: 6px 16px;
+	border: 1px solid #C8D7E1;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.store-address-preview p {
+	margin: 0;
+	line-height: 24px;
+	cursor: default;
+}
+.store-address-preview button {
+	margin: 0;
+}
+.store-address-preview-container {
+	display: none;
+	margin-bottom: 10px;
+}
+.store-address-preview-mode .store-address-container {
+	display: none;
+}
+.store-address-preview-mode .store-address-preview-container {
+	display: block;
 }

@@ -23,4 +23,12 @@
         $( '#store_address_2' ).show();
     } );
 
+    /**
+     * Edit address on click
+     */
+    $( document ).on( 'click', '.toggle-store_address_edit', function( e ) {
+        e.preventDefault();
+        $( this ).closest( 'form' ).removeClass( 'store-address-preview-mode' );
+    } );
+
 } )( jQuery );
