@@ -1,23 +1,33 @@
 <?php
 /**
  * WC_Calypso_Bridge_Menus.
- * 
+ *
  * Removes WooCommerce plugins/extensions from the main plugin management interface and puts them under a new 'Store' item.
  *
  * wc_calypso_bridge_connect_page, is_wc_calypso_bridge_page, wc_calypso_bridge_get_current_screen_id().
- * 
  */
 class WC_Calypso_Bridge_Menus {
 
-	static $instance = false;
+	/**
+	 * Class instance.
+	 *
+	 * @var WC_Calypso_Bridge_Menus instance
+	 */
+	protected static $instance = false;
 
-	public static function getInstance() {
-		if ( !self::$instance ) {
+	/**
+	 * We want a single instance of this class so we can accurately track registered menus and pages.
+	 */
+	public static function get_instance() {
+		if ( ! self::$instance ) {
 			self::$instance = new self;
 		}
 		return self::$instance;
 	}
 
+	/**
+	 * Constructor
+	 */
 	private function __construct() {
 		add_action( 'current_screen', array( $this, 'setup_menu_hooks' ) );
 	}
@@ -34,7 +44,7 @@ class WC_Calypso_Bridge_Menus {
 			return;
 		}
 
-		//  We want the menu handler hooks to run late, so that other plugins hooking in here can make changes first.
+		// We want the menu handler hooks to run late, so that other plugins hooking in here can make changes first.
 		$late_priority = 1000;
 		if ( is_wc_calypso_bridge_page() ) {
 			add_action( 'in_admin_header', array( $this, 'insert_sidebar_html' ) );
@@ -57,7 +67,7 @@ class WC_Calypso_Bridge_Menus {
 			<svg class="gridicon gridicons-chevron-left" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M14 20l-8-8 8-8 1.414 1.414L8.828 12l6.586 6.586"></path></g></svg>
 			<ul>
 			<li id="calypso-sitename"><?php bloginfo( 'name' ); ?></li>
-			<li id="calypso-plugins"><?php esc_html_e( 'WooCommerce' ); ?></li>
+			<li id="calypso-plugins"><?php esc_html_e( 'WooCommerce', 'wc-calypso-bridge' ); ?></li>
 			</ul>
 		</a>
 		<?php
@@ -76,7 +86,7 @@ class WC_Calypso_Bridge_Menus {
 				unset( $menu[ $menu_key ] );
 			}
 		}
-		
+
 	}
 
 	/**
@@ -95,4 +105,4 @@ class WC_Calypso_Bridge_Menus {
 	}
 }
 
-$WC_Calypso_Bridge_Menus = WC_Calypso_Bridge_Menus::getInstance();
+$wc_calypso_bridge_menus = WC_Calypso_Bridge_Menus::get_instance();
