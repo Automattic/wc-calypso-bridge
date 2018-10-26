@@ -376,7 +376,27 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
     margin-top: 0;
     margin-bottom: 0;
 }
-
+#store_address_2 {
+	display: none;
+}
+.toggle-store_address_2 {
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 600;
+	margin-top: -7px;
+    display: block;
+    margin-bottom: 12px;
+}
+.toggle-store_address_2:before {
+    content: "+";
+    font-size: 16px;
+    top: 2px;
+    position: relative;
+    margin-right: 8px;
+    font-size: 25px;
+	font-weight: 300;
+	line-height: 14px;
+}
 
 /* Onboarding wizard steps */
 .wc-step-heading {
