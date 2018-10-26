@@ -182,7 +182,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 							<?php echo esc_attr( $address_2 ); ?><br>
 						<?php } ?>
 						<?php echo sprintf( '%s, %s %s', esc_attr( $city ), esc_attr( $state ), esc_attr( $postcode ) ); ?><br>
-						<?php echo esc_attr( $country ); ?>
+						<?php echo esc_attr( WC()->countries->countries[ $country ] ); ?>
 					</p>					
 					<button type="button" class="button button-large toggle-store_address_edit" value="<?php esc_attr_e( 'Edit', 'wc-calypso-bridge' ); ?>"><?php esc_html_e( 'Edit', 'wc-calypso-bridge' ); ?></button>
 				</div>
