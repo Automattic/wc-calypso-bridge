@@ -492,6 +492,7 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 }
 .store-address-preview p {
 	margin: 0;
+	padding: 0;
 	line-height: 24px;
 	cursor: default;
 }
@@ -507,4 +508,13 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 }
 .store-address-preview-mode .store-address-preview-container {
 	display: block;
+}
+@media screen and (max-width:600px) {
+	.store-address-preview p {
+		margin-bottom: 10px;
+	}
+	.store-address-preview {
+		flex-direction: column;
+		align-items: baseline;
+	}
 }
