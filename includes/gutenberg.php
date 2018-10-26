@@ -15,7 +15,7 @@ function wc_calypso_bridge_disable_gutenberg_for_post_type( $current_value, $pos
 		'wc_product_tab',
 		'wishlist',
 		'wc_zapier_feed',
- );
+	);
 	if ( in_array( $post_type, $wc_post_types ) ) {
 		return false;
 	}
