@@ -66,9 +66,9 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		$step = $this->steps[ $this->step ];
 		?>
 		<div class="wc-step-heading">
-			<h1><?php echo $step['name']; ?></h1>
+			<h1><?php echo esc_html( $step['name'] ); ?></h1>
 			<?php if ( isset( $step[ 'subheading' ] ) ) {  ?>
-				<h2><?php echo $step['subheading']; ?></h2>
+				<h2><?php echo esc_html( $step['subheading'] ); ?></h2>
 			<?php } ?>
 		</div>
 		<?php
