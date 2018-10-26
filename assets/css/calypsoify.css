@@ -129,10 +129,15 @@ div.woocommerce-message, .wc-helper .start-container {
 	filter: none;
 }
 
-/* Onboarding wizard style */
+/* Onboarding wizard */
 .wc-setup {
     background: transparent;
 }
+.wc-setup-content a {
+    color: #537994;
+}
+
+/* Onboarding wizard steps */
 .wc-step-heading {
 	margin-top: 116px;
 	margin-bottom: 24px;
@@ -160,4 +165,29 @@ div.woocommerce-message, .wc-helper .start-container {
 	.wc-step-heading {
 		margin-top: 71px;
 	}
+}
+
+/* Onboarding wizard footer */
+.wc-setup .wc-setup-actions {
+	display: none;
+}
+.wc-setup .wc-setup-footer {
+	margin-bottom: 80px;
+}
+.wc-setup .wc-setup-footer .button-primary {
+	height: 40px;
+	line-height: 38px;
+	font-size: 14px;
+}
+
+/* Onboarding wizard toggles */
+.wc-wizard-service-item .wc-wizard-service-toggle, .wc-wizard-services-list-toggle .wc-wizard-service-toggle {
+    height: 20px;
+    width: 36px;
+    border: 2px solid #00AADC;
+    background-color: #00AADC;
+}
+.wc-wizard-service-item .wc-wizard-service-toggle:before, .wc-wizard-services-list-toggle .wc-wizard-service-toggle:before {
+    width: 20px;
+    height: 20px;
 }
