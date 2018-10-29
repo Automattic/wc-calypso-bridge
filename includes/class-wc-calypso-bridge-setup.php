@@ -1,8 +1,16 @@
 <?php
 /**
- * WC_Calypso_Bridge_Setup.
- *
  * Adds the functionality needed to bridge the WooCommerce onboarding wizard.
+ *
+ * @package WC_Calypso_Bridge/Classes
+ * @since   1.0.0
+ * @version 1.0.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * WC Calypso Bridge Setup
  */
 class WC_Calypso_Bridge_Setup {
 
@@ -38,7 +46,7 @@ class WC_Calypso_Bridge_Setup {
 	 * Show the setup wizard.
 	 */
 	public function setup_wizard() {
-		include_once( dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-setup-wizard.php' );
+		include_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-setup-wizard.php';
 	}
 
 	/**
@@ -49,7 +57,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function remove_unused_steps( $default_steps ) {
 		$whitelist = array( 'store_setup', 'payment' );
-		$steps = array_intersect_key( $default_steps, array_flip( $whitelist ) );
+		$steps     = array_intersect_key( $default_steps, array_flip( $whitelist ) );
 		return $steps;
 	}
 

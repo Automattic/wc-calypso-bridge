@@ -1,5 +1,19 @@
 <?php
 /**
+ * Manages all of the admin pages that make up WooCommerce + WooCommerce Extensions
+ * This includes registering support  and menu handlig.
+ * Generally, the class is not used directly. The following helper functions can be used instead:
+ *
+ * Functions: wc_calypso_bridge_connect_page, is_wc_calypso_bridge_page, wc_calypso_bridge_get_current_screen_id().
+ *
+ * @package WC_Calypso_Bridge
+ * @since 1.0.0
+ * @version 1.0.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+/**
  * Returns the current screen ID.
  * This is different from WP's get_current_screen, in that it attaches an action,
  * so certain pages like 'add new' pages can have different screen ids & handling.
@@ -18,7 +32,7 @@ function wc_calypso_bridge_get_current_screen_id() {
 		return false;
 	}
 	$current_screen_id = $current_screen->action ? $current_screen->action . '-' . $current_screen->id : $current_screen->id;
-	if ( ! empty( $_GET['taxonomy'] ) && ! empty( $_GET['post_type'] ) && 'product' === $_GET['post_type'] ) {
+	if ( ! empty( $_GET['taxonomy'] ) && ! empty( $_GET['post_type'] ) && 'product' === $_GET['post_type'] ) { // WPCS: CSRF ok.
 		$current_screen_id = 'product_page_product_attributes';
 	}
 	// Default tabs.
@@ -31,11 +45,11 @@ function wc_calypso_bridge_get_current_screen_id() {
 		)
 	);
 	if ( ! empty( $_GET['page'] ) ) {
-		if ( in_array( $_GET['page'], array_keys( $pages_with_tabs ) ) ) {
+		if ( in_array( $_GET['page'], array_keys( $pages_with_tabs ), true ) ) {
 			if ( ! empty( $_GET['tab'] ) ) {
-				$tab = $_GET['tab'];
+				$tab = $_GET['tab']; // WPCS: input var ok, sanitization ok, CSRF ok.
 			} else {
-				$tab = $pages_with_tabs[ $_GET['page'] ];
+				$tab = $pages_with_tabs[ $_GET['page'] ]; // WPCS: input var ok, sanitization ok, CSRF ok.
 			}
 			$current_screen_id = $current_screen_id . '-' . $tab;
 		}
@@ -43,8 +57,8 @@ function wc_calypso_bridge_get_current_screen_id() {
 
 	$allowed_importers = array( 'woocommerce_coupon_csv', 'woocommerce_customer_csv', 'woocommerce_order_csv' );
 
-	if ( ! empty( $_GET['import'] ) && in_array( $_GET['import'], $allowed_importers ) ) {
-		return 'importer_' . $_GET['import'];
+	if ( ! empty( $_GET['import'] ) && in_array( $_GET['import'], $allowed_importers, true ) ) {
+		return 'importer_' . $_GET['import']; // WPCS: input var ok, sanitization ok, CSRF ok.
 	}
 
 	return $current_screen_id;
@@ -69,7 +83,7 @@ function wc_calypso_bridge_connect_page( $options ) {
 	$defaults = array(
 		'menu' => '',
 	);
-	$options = wp_parse_args( $options, $defaults );
+	$options  = wp_parse_args( $options, $defaults );
 
 	$wc_admin_page_controller = WC_Calypso_Bridge_Page_Controller::get_instance();
 
@@ -120,12 +134,6 @@ function wc_calypso_bridge_menu_slugs() {
 
 /**
  * WC_Calypso_Bridge_Page_Controller.
- *
- * Manages all of the admin pages that make up WooCommerce + WooCommerce Extensions
- * This includes registering support  and menu handlig.
- * Generally, the class is not used directly. The following helper functions can be used instead:
- *
- * wc_calypso_bridge_connect_page, is_wc_calypso_bridge_page, wc_calypso_bridge_get_current_screen_id().
  */
 class WC_Calypso_Bridge_Page_Controller {
 

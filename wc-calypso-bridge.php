@@ -44,5 +44,4 @@ if ( ! $is_atomic_ecommerce ) {
 	return;
 }
 
-require_once dirname( __FILE__ ) . '/wc-calypso-bridge-class.php';
-
+require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';

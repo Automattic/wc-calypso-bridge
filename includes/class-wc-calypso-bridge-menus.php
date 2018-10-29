@@ -1,10 +1,16 @@
 <?php
 /**
- * WC_Calypso_Bridge_Menus.
- *
  * Removes WooCommerce plugins/extensions from the main plugin management interface and puts them under a new 'Store' item.
  *
- * wc_calypso_bridge_connect_page, is_wc_calypso_bridge_page, wc_calypso_bridge_get_current_screen_id().
+ * @package WC_Calypso_Bridge/Classes
+ * @since   1.0.0
+ * @version 1.0.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * WC_Calypso_Bridge_Menus
  */
 class WC_Calypso_Bridge_Menus {
 
@@ -20,7 +26,7 @@ class WC_Calypso_Bridge_Menus {
 	 */
 	public static function get_instance() {
 		if ( ! self::$instance ) {
-			self::$instance = new self;
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
@@ -39,10 +45,6 @@ class WC_Calypso_Bridge_Menus {
 	 * Hooks into WordPress to overtake the menu system on WooCommerce pages.
 	 */
 	public function setup_menu_hooks() {
-		if ( 1 != (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
-			return;
-		}
-
 		// We want the menu handler hooks to run late, so that other plugins hooking in here can make changes first.
 		$late_priority = 1000;
 		if ( is_wc_calypso_bridge_page() ) {
@@ -81,7 +83,7 @@ class WC_Calypso_Bridge_Menus {
 		$wc_menus = wc_calypso_bridge_menu_slugs();
 
 		foreach ( $menu as $menu_key => $menu_item ) {
-			if ( ! in_array( $menu_item[2], $wc_menus ) ) {
+			if ( ! in_array( $menu_item[2], $wc_menus, true ) ) {
 				unset( $menu[ $menu_key ] );
 			}
 		}
@@ -97,7 +99,7 @@ class WC_Calypso_Bridge_Menus {
 		$wc_menus = wc_calypso_bridge_menu_slugs();
 
 		foreach ( $menu as $menu_key => $menu_item ) {
-			if ( in_array( $menu_item[2], $wc_menus ) ) {
+			if ( in_array( $menu_item[2], $wc_menus, true ) ) {
 				unset( $menu[ $menu_key ] );
 			}
 		}
