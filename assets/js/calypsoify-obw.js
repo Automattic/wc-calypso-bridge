@@ -20,7 +20,7 @@
     $( document ).on( 'click', '.toggle-store_address_2', function( e ) {
         e.preventDefault();
         $( this ).hide();
-        $( '#store_address_2' ).show();
+        $( '#store_address_2' ).addClass( 'is-visible' );
     } );
 
     /**

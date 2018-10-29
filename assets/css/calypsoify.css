@@ -261,6 +261,9 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 #store_address_2 {
 	display: none;
 }
+#store_address_2.is-visible {
+	display: block;
+}
 .toggle-store_address_2 {
 	text-decoration: none;
 	font-size: 14px;

@@ -191,8 +191,10 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			<div class="store-address-container">
 				<label for="store_address" class="location-prompt"><?php esc_html_e( 'Where is your store based?', 'wc-calypso-bridge' ); ?></label>
 				<input type="text" id="store_address" class="location-input" name="store_address" required value="<?php echo esc_attr( $address ); ?>" />
-				<a href="#" class="toggle-store_address_2"><span class="plus-sign"></span><?php esc_html_e( 'Add address line 2', 'wc-calypso-bridge' ); ?></a>
-				<input type="text" id="store_address_2" class="location-input" name="store_address_2" value="<?php echo esc_attr( $address_2 ); ?>" />
+				<?php if ( empty( $address_2 ) ) { ?>
+					<a href="#" class="toggle-store_address_2"><span class="plus-sign"></span><?php esc_html_e( 'Add address line 2', 'wc-calypso-bridge' ); ?></a>
+				<?php } ?>
+				<input type="text" id="store_address_2" class="location-input <?php echo empty( $address_2 ) ? '' : 'is-visible'; ?>" name="store_address_2" value="<?php echo esc_attr( $address_2 ); ?>" />
 
 				<div>
 					<label class="location-prompt" for="store_city"><?php esc_html_e( 'City', 'wc-calypso-bridge' ); ?></label>
