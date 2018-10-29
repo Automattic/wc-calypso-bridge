@@ -20,7 +20,15 @@
     $( document ).on( 'click', '.toggle-store_address_2', function( e ) {
         e.preventDefault();
         $( this ).hide();
-        $( '#store_address_2' ).show();
+        $( '#store_address_2' ).addClass( 'is-visible' );
+    } );
+
+    /**
+     * Edit address on click
+     */
+    $( document ).on( 'click', '.toggle-store_address_edit', function( e ) {
+        e.preventDefault();
+        $( this ).closest( 'form' ).removeClass( 'store-address-preview-mode' );
     } );
 
 } )( jQuery );
