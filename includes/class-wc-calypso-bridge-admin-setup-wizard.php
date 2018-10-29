@@ -164,17 +164,37 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		}
 		$locale_info         = include WC()->plugin_path() . '/i18n/locale-info.php';
 		$currency_by_country = wp_list_pluck( $locale_info, 'currency_code' );
+		$classes             = array( 'address-step' );
+		if ( $address && $city && $state && $postcode && $country ) {
+			$classes[] = 'store-address-preview-mode';
+		}
 		?>
-		<form method="post" class="address-step">
+		<form method="post" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<?php wp_nonce_field( 'wc-setup' ); ?>
 			<p class="store-setup"><?php esc_html_e( 'The following wizard will help you configure your store and get you started quickly.', 'wc-calypso-bridge' ); ?></p>
 
-			<div class="store-address-container">
+			<div class="store-address-preview-container">
+				<label for="store_address" class="location-prompt"><?php esc_html_e( 'Where is your store based?', 'wc-calypso-bridge' ); ?></label>
+				<div class="store-address-preview">
+					<p>
+						<?php echo esc_attr( $address ); ?><br>
+						<?php if ( $address_2 ) { ?>
+							<?php echo esc_attr( $address_2 ); ?><br>
+						<?php } ?>
+						<?php echo sprintf( '%s, %s %s', esc_attr( $city ), esc_attr( $state ), esc_attr( $postcode ) ); ?><br>
+						<?php echo esc_attr( WC()->countries->countries[ $country ] ); ?>
+					</p>					
+					<button type="button" class="button button-large toggle-store_address_edit" value="<?php esc_attr_e( 'Edit', 'wc-calypso-bridge' ); ?>"><?php esc_html_e( 'Edit', 'wc-calypso-bridge' ); ?></button>
+				</div>
+			</div>
 
+			<div class="store-address-container">
 				<label for="store_address" class="location-prompt"><?php esc_html_e( 'Where is your store based?', 'wc-calypso-bridge' ); ?></label>
 				<input type="text" id="store_address" class="location-input" name="store_address" required value="<?php echo esc_attr( $address ); ?>" />
-				<a href="#" class="toggle-store_address_2"><span class="plus-sign"></span><?php esc_html_e( 'Add address line 2', 'wc-calypso-bridge' ); ?></a>
-				<input type="text" id="store_address_2" class="location-input" name="store_address_2" value="<?php echo esc_attr( $address_2 ); ?>" />
+				<?php if ( empty( $address_2 ) ) { ?>
+					<a href="#" class="toggle-store_address_2"><span class="plus-sign"></span><?php esc_html_e( 'Add address line 2', 'wc-calypso-bridge' ); ?></a>
+				<?php } ?>
+				<input type="text" id="store_address_2" class="location-input <?php echo empty( $address_2 ) ? '' : 'is-visible'; ?>" name="store_address_2" value="<?php echo esc_attr( $address_2 ); ?>" />
 
 				<div>
 					<label class="location-prompt" for="store_city"><?php esc_html_e( 'City', 'wc-calypso-bridge' ); ?></label>
@@ -205,9 +225,9 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			</div>
 
 			<div class="store-currency-container">
-			<label class="location-prompt" for="currency_code">
-				<?php esc_html_e( 'What currency do you accept payments in?', 'wc-calypso-bridge' ); ?>
-			</label>
+				<label class="location-prompt" for="currency_code">
+					<?php esc_html_e( 'What currency do you accept payments in?', 'wc-calypso-bridge' ); ?>
+				</label>
 			<select
 				id="currency_code"
 				name="currency_code"
@@ -238,14 +258,14 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			</div>
 
 			<div class="product-type-container">
-			<label class="location-prompt" for="product_type">
-				<?php esc_html_e( 'What type of products do you plan to sell?', 'wc-calypso-bridge' ); ?>
-			</label>
-			<select id="product_type" name="product_type" required class="location-input wc-enhanced-select dropdown">
-				<option value="both" <?php selected( $product_type, 'both' ); ?>><?php esc_html_e( 'I plan to sell both physical and digital products', 'wc-calypso-bridge' ); ?></option>
-				<option value="physical" <?php selected( $product_type, 'physical' ); ?>><?php esc_html_e( 'I plan to sell physical products', 'wc-calypso-bridge' ); ?></option>
-				<option value="virtual" <?php selected( $product_type, 'virtual' ); ?>><?php esc_html_e( 'I plan to sell digital products', 'wc-calypso-bridge' ); ?></option>
-			</select>
+				<label class="location-prompt" for="product_type">
+					<?php esc_html_e( 'What type of products do you plan to sell?', 'wc-calypso-bridge' ); ?>
+				</label>
+				<select id="product_type" name="product_type" required class="location-input wc-enhanced-select dropdown">
+					<option value="both" <?php selected( $product_type, 'both' ); ?>><?php esc_html_e( 'I plan to sell both physical and digital products', 'wc-calypso-bridge' ); ?></option>
+					<option value="physical" <?php selected( $product_type, 'physical' ); ?>><?php esc_html_e( 'I plan to sell physical products', 'wc-calypso-bridge' ); ?></option>
+					<option value="virtual" <?php selected( $product_type, 'virtual' ); ?>><?php esc_html_e( 'I plan to sell digital products', 'wc-calypso-bridge' ); ?></option>
+				</select>
 			</div>
 
 			<input
