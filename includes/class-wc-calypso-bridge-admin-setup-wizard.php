@@ -223,9 +223,9 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			</div>
 
 			<div class="store-currency-container">
-			<label class="location-prompt" for="currency_code">
-				<?php esc_html_e( 'What currency do you accept payments in?', 'wc-calypso-bridge' ); ?>
-			</label>
+				<label class="location-prompt" for="currency_code">
+					<?php esc_html_e( 'What currency do you accept payments in?', 'wc-calypso-bridge' ); ?>
+				</label>
 			<select
 				id="currency_code"
 				name="currency_code"
@@ -256,14 +256,14 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			</div>
 
 			<div class="product-type-container">
-			<label class="location-prompt" for="product_type">
-				<?php esc_html_e( 'What type of products do you plan to sell?', 'wc-calypso-bridge' ); ?>
-			</label>
-			<select id="product_type" name="product_type" required class="location-input wc-enhanced-select dropdown">
-				<option value="both" <?php selected( $product_type, 'both' ); ?>><?php esc_html_e( 'I plan to sell both physical and digital products', 'wc-calypso-bridge' ); ?></option>
-				<option value="physical" <?php selected( $product_type, 'physical' ); ?>><?php esc_html_e( 'I plan to sell physical products', 'wc-calypso-bridge' ); ?></option>
-				<option value="virtual" <?php selected( $product_type, 'virtual' ); ?>><?php esc_html_e( 'I plan to sell digital products', 'wc-calypso-bridge' ); ?></option>
-			</select>
+				<label class="location-prompt" for="product_type">
+					<?php esc_html_e( 'What type of products do you plan to sell?', 'wc-calypso-bridge' ); ?>
+				</label>
+				<select id="product_type" name="product_type" required class="location-input wc-enhanced-select dropdown">
+					<option value="both" <?php selected( $product_type, 'both' ); ?>><?php esc_html_e( 'I plan to sell both physical and digital products', 'wc-calypso-bridge' ); ?></option>
+					<option value="physical" <?php selected( $product_type, 'physical' ); ?>><?php esc_html_e( 'I plan to sell physical products', 'wc-calypso-bridge' ); ?></option>
+					<option value="virtual" <?php selected( $product_type, 'virtual' ); ?>><?php esc_html_e( 'I plan to sell digital products', 'wc-calypso-bridge' ); ?></option>
+				</select>
 			</div>
 
 			<input
