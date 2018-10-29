@@ -37,14 +37,15 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		}
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-
+		add_action( 'admin_head', array( $this, 'remove_notices' ) );
 		// priority is 20 to run after https://github.com/woocommerce/woocommerce/blob/a55ae325306fc2179149ba9b97e66f32f84fdd9c/includes/admin/class-wc-admin-menus.php#L165.
 		add_action( 'admin_head', array( $this, 'admin_menu_structure' ), 20 );
+	}
 
+	public function remove_notices() {
 		// run early and late
 		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
-			add_action( 'admin_notices', array( $this, 'hide_all_notices_on_setup_page' ), 0 );
-			add_action( 'admin_notices', array( $this, 'after_hide_notices_on_setup_page'), PHP_INT_MAX );
+			remove_all_actions( 'admin_notices' );
 		}
 	}
 
