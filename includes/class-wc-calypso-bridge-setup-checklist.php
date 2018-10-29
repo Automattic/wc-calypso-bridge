@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
-	static $instance = false;
+	protected static $instance = false;
 
 	/**
 	 * Provide only a single instance of this class.
