@@ -129,6 +129,35 @@ div.woocommerce-message, .wc-helper .start-container {
 	filter: none;
 }
 
+/* Shipping zones */
+table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipping-classes td.wc-shipping-zones-blank-state, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state, table.wc-shipping-zones td.wc-shipping-zones-blank-state {
+	background: #fff !important;
+}
+table.wc-shipping-classes td.wc-shipping-zone-method-blank-state li, table.wc-shipping-classes td.wc-shipping-zone-method-blank-state p, table.wc-shipping-classes td.wc-shipping-zones-blank-state li, table.wc-shipping-classes td.wc-shipping-zones-blank-state p, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state li, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state p, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state li, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state p, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state li, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state p, table.wc-shipping-zones td.wc-shipping-zones-blank-state li, table.wc-shipping-zones td.wc-shipping-zones-blank-state p {
+	color: #668eaa;
+	font-size: 14px;
+}
+table.wc-shipping-classes td.wc-shipping-zone-method-blank-state::before, table.wc-shipping-classes td.wc-shipping-zones-blank-state::before, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state::before, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state::before, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state::before, table.wc-shipping-zones td.wc-shipping-zones-blank-state::before {
+    color: #fff;
+}
+table.wc-shipping-classes td.wc-shipping-zone-method-blank-state .button-primary, table.wc-shipping-classes td.wc-shipping-zones-blank-state .button-primary, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state .button-primary, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state .button-primary, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state .button-primary, table.wc-shipping-zones td.wc-shipping-zones-blank-state .button-primary {
+    background-color: #00aadc;
+    border-color: #008ab3;
+	text-shadow: none;
+	padding: 7px;
+    font-size: 12px;
+	line-height: 1;
+	font-weight: 500;
+	border-style: solid;
+    border-width: 1px 1px 2px;
+}
+table.wc-shipping-classes td.wc-shipping-zone-method-blank-state li.main, table.wc-shipping-classes td.wc-shipping-zone-method-blank-state p.main, table.wc-shipping-classes td.wc-shipping-zones-blank-state li.main, table.wc-shipping-classes td.wc-shipping-zones-blank-state p.main, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state li.main, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state p.main, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state li.main, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state p.main, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state li.main, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state p.main, table.wc-shipping-zones td.wc-shipping-zones-blank-state li.main, table.wc-shipping-zones td.wc-shipping-zones-blank-state p.main {
+    font-size: 14px;
+}
+table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipping-classes td.wc-shipping-zones-blank-state, table.wc-shipping-zone-methods td.wc-shipping-zone-method-blank-state, table.wc-shipping-zone-methods td.wc-shipping-zones-blank-state, table.wc-shipping-zones td.wc-shipping-zone-method-blank-state, table.wc-shipping-zones td.wc-shipping-zones-blank-state {
+    padding: 2.5em 3.5%!important;
+}
+
 /* Onboarding wizard */
 .wc-setup {
     background: transparent;
