@@ -14,7 +14,8 @@
 		"wp-coding-standards/wpcs": "1.1.0",
 		"woocommerce/woocommerce-sniffs": "*",
 		"wimg/php-compatibility": "9.0.0",
-		"dealerdirect/phpcodesniffer-composer-installer": "0.4.4"
+		"dealerdirect/phpcodesniffer-composer-installer": "0.4.4",
+		"bjornjohansen/wp-pre-commit-hook": "^0.2.2"
 	  },
 	"scripts": {
 		"phpcs": [
