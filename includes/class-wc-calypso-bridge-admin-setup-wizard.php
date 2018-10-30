@@ -329,7 +329,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		}
 		$keys = array_keys( $this->steps );
 		if ( end( $keys ) === $step ) {
-			return admin_url();
+			return admin_url( '/admin.php?page=wc-setup-checklist' );
 		}
 		$step_index = array_search( $step, $keys, true );
 		if ( false === $step_index ) {
