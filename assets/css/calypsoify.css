@@ -158,6 +158,39 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 	padding: 2.5em 3.5%!important;
 }
 
+/* Generic tables */
+
+.hndle a, .widefat tfoot td, .widefat th, .widefat thead td{
+	font-weight: 600;
+	color: #2e4453;
+	padding: 16px;
+}
+
+th.sortable a, th.sorted a{
+	color: #0087be;
+}
+
+/* Makes all rows have white background */
+.striped>tbody>:nth-child(odd), ul.striped>:nth-child(odd){
+	background-color: #fff !important;
+}
+
+/* Hides table footer*/
+.wp-list-table tfoot{
+	display: none;
+}
+/* Removes table shadow */
+table.widefat{
+	border-color: #c8d7e1;
+	box-shadow: none;
+}
+
+/* Removes table footer actions */
+
+.tablenav.bottom{
+	display: none;
+}
+
 /* Onboarding wizard */
 .wc-setup-page {
 	background: #F3F6F8;
@@ -553,7 +586,7 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 }
 .wc-wizard-service-item .wc-wizard-service-description p {
 	margin: 0;
-	color: #537994;	
+	color: #537994;
 }
 .wc-wizard-service-item .wc-wizard-service-name, .wc-wizard-services-list-toggle .wc-wizard-service-name {
 	min-width: 100px;
