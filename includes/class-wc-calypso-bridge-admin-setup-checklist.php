@@ -1,27 +1,32 @@
 <?php
 /**
- * Setup Checklist
- *
  * Adds a new WC setup page with a checklist of steps for setting up your store.
+ *
+ * @package WC_Calypso_Bridge/Classes
+ * @since   1.0.0
+ * @version 1.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 /**
  * WC_Calypso_Bridge_Admin_Setup_Checklist class.
  */
 class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
+	/**
+	 * Instance variable
+	 *
+	 * @var WC_Calypso_Bridge_Admin_Setup_Checklist instance
+	 */
 	protected static $instance = false;
 
 	/**
 	 * Provide only a single instance of this class.
 	 */
-	public static function getInstance() {
-		if ( !self::$instance ) {
-			self::$instance = new self;
+	public static function get_instance() {
+		if ( ! self::$instance ) {
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
@@ -42,8 +47,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		add_action( 'admin_head', array( $this, 'admin_menu_structure' ), 20 );
 	}
 
+	/**
+	 * Remove all admin notices
+	 */
 	public function remove_notices() {
-		// run early and late
 		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
 			remove_all_actions( 'admin_notices' );
 		}
@@ -53,10 +60,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Adds a new page for the setup checklist.
 	 */
 	public function admin_menu() {
-		if ( 1 != (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
-			return;
-		}
-
 		add_submenu_page(
 			'woocommerce',
 			__( 'Setup', 'wc-calypso-bridge' ),
@@ -79,10 +82,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			return;
 		}
 
-		if ( 1 != (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
-			return;
-		}
-		
 		$setup_key = null;
 		foreach ( $submenu['woocommerce'] as $submenu_key => $submenu_item ) {
 			if ( 'wc-setup-checklist' === $submenu_item[2] ) {
@@ -94,7 +93,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		if ( ! $setup_key ) {
 			return;
 		}
-	
+
 		$menu = $submenu['woocommerce'][ $setup_key ];
 
 		// Move menu item to top of array.
@@ -103,26 +102,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	}
 
 	/**
-	 * Runs before admin notices action and hides them all.
+	 * Render the checklist
 	 */
-	function hide_all_notices_on_setup_page() {
-		echo '<div class="woocommerce__notice-list-hide">';
-		echo '<div class="wp-header-end"></div>'; // https://github.com/WordPress/WordPress/blob/f6a37e7d39e2534d05b9e542045174498edfe536/wp-admin/js/common.js#L737.
-	}
-
-	/**
-	 * Runs after admin notices and closes hidden div.
-	 */
-	function after_hide_notices_on_setup_page() {
-		echo '</div>';
-	}
-
-
-
 	public function checklist() {
 
 	}
 
 }
 
-$WC_Calypso_Bridge_Admin_Setup_Checklist = WC_Calypso_Bridge_Admin_Setup_Checklist::getInstance();
+$wc_calypso_bridge_admin_setup_checklist = WC_Calypso_Bridge_Admin_Setup_Checklist::get_instance();
