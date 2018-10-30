@@ -56,12 +56,6 @@ div.woocommerce-message, .wc-helper .start-container {
 	-webkit-transform: none;
 	transform: none;
 }
-.wp-core-ui .button[disabled], .wp-core-ui .button:disabled, .wp-core-ui .button.disabled {
-	color: #e9eff3 !important;
-	background: #fff !important;
-	border-color: #e9eff3 !important;
-	text-shadow: none !important;
-}
 .wp-core-ui .button span[class$=-icon] {
 	width: 14px;
 	height: 14px;
@@ -113,6 +107,24 @@ div.woocommerce-message, .wc-helper .start-container {
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
+}
+
+/* Disabled buttons */
+.wp-core-ui .button[disabled],
+.wp-core-ui .button:disabled,
+.wp-core-ui .button.disabled {
+	color: #e9eff3 !important;
+	background: #fff !important;
+	border-color: #e9eff3 !important;
+	text-shadow: none !important;
+}
+.wp-core-ui .button[disabled]:hover,
+.wp-core-ui .button:disabled:hover,
+.wp-core-ui .button.disabled:hover {
+	color: #e9eff3 !important;
+	background: #fff !important;
+	border-color: #e9eff3 !important;
+	text-shadow: none !important;
 }
 
 /* Specific Buttons */
