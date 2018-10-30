@@ -12,52 +12,137 @@ div.woocommerce-message, .wc-helper .start-container {
 	margin-bottom: 8px;
 }
 
-/* Update purple buttons to Calypso primary colors */
-.woocommerce-message a.button-primary,
-.woocommerce-message button.button-primary,
-.woocommerce-BlankState a.button-primary,
-.wc_addons_wrap .addons-button-solid,
-.woocommerce-BlankState a.button-primary:hover,
-.wc-helper .button,
-.wc-helper .button:hover {
-	background: #00aadc;
-	border-color: #008ab3;
-	text-shadow: none;
-	box-shadow: none;
-	border-width: 1px;
+/* Secondary Buttons */
+.wp-core-ui .button,
+.wp-core-ui .button-secondary,
+.wc_addons_wrap .addons-button-outline-green,
+.wc_addons_wrap .addons-button-outline-white {
+	color: #2e4453;
+	background: #fff;
+	border-color: #c8d7e1;
 	border-style: solid;
+	border-width: 1px 1px 2px;
+	font-size: 12px;
+	height: auto;
+	padding: 7px;
+	line-height: 1;
+	border-radius: 4px;
+	box-shadow: none;
+	width: auto;
+}
+.wp-core-ui .button:hover,
+.wp-core-ui .button:focus,
+.wp-core-ui .button-secondary:hover,
+.wp-core-ui .button-secondary:focus,
+.wc_addons_wrap .addons-button-outline-green:hover,
+.wc_addons_wrap .addons-button-outline-green:focus,
+.wc_addons_wrap .addons-button-outline-white:hover,
+.wc_addons_wrap .addons-button-outline-white:focus {
+	color: #2e4453;
+	border-color: #a8bece;
+	background: #fff;
+	box-shadow: none;
+	outline: none;
+	opacity: 1;
+}
+.wp-core-ui .button:active,
+.wp-core-ui .button-secondary:active,
+.wc_addons_wrap .addons-button-outline-green:active,
+.wc_addons_wrap .addons-button-outline-white:active {
+	box-shadow: none;
+	outline: none;
+	background: #fff;
+	border-width: 2px 1px 1px;
+	-webkit-transform: none;
+	transform: none;
+}
+.wp-core-ui .button span[class$=-icon] {
+	width: 14px;
+	height: 14px;
+}
+.wp-core-ui .button	 span[class$=-icon]:before {
+	font: 400 14px/1 dashicons !important;
 }
 
-.woocommerce-BlankState a.button-primary:hover,
+/* Primary Buttons */
+.wp-core-ui .button-primary,
+.wrap .page-title-action,
+.wc-helper .button,
+.wc_addons_wrap .addons-button-solid {
+	background: #00aadc !important;
+	border-color: #008ab3 !important;
+	border-width: 1px 1px 2px !important;	
+	border-style: solid;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	padding: 7px !important;
+	font-size: 12px !important;
+	font-weight: 500 !important;
+	line-height: 1 !important;
+	color: #fff;
+	height: auto;
+	width: auto;
+	min-width: 0;
+	opacity: 1;
+	text-transform: none !important;
+}
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary:focus,
+.wrap .page-title-action:hover,
+.wrap .page-title-action:focus,
+.wc-helper .button:hover,
+.wc-helper .button:focus,
 .wc_addons_wrap .addons-button-solid:hover,
-.wc-helper .button:hover {
-	border-color: #005082;
+.wc_addons_wrap .addons-button-solid:focus {
+	background: #00aadc !important;
+	border-color: #005082 !important;
+	color: #fff;
+	box-shadow: none !important;
+	outline: none;
 	opacity: 1;
 }
 
-.woocommerce-message a.button-primary:hover,
-.woocommerce-message button.button-primary:hover {
-	background: #008ec2;
-	border-color: #006799;
+/* Large Buttons */
+.wp-core-ui button.button.button-large {
+	font-size: 14px !important;
+	padding: 7px 14px 9px !important;
+	line-height: 21px !important;
+}
+
+/* Disabled buttons */
+.wp-core-ui .button[disabled],
+.wp-core-ui .button:disabled,
+.wp-core-ui .button.disabled {
+	color: #e9eff3 !important;
+	background: #fff !important;
+	border-color: #e9eff3 !important;
+	text-shadow: none !important;
+}
+.wp-core-ui .button[disabled]:hover,
+.wp-core-ui .button:disabled:hover,
+.wp-core-ui .button.disabled:hover {
+	color: #e9eff3 !important;
+	background: #fff !important;
+	border-color: #e9eff3 !important;
+	text-shadow: none !important;
+}
+
+/* Specific Buttons */
+.wp-core-ui .button-primary:active,
+.wrap .page-title-action:active,
+.wc-helper .button:active,
+.wc_addons_wrap .addons-button-solid:active {
+	border-width: 2px 1px 1px !important;
 	box-shadow: none;
 }
-
-.wc-helper .button,
-.wc-helper .button:hover {
-	height: 38px;
+.wc_addons_wrap .addons-button {
+	align-self: flex-start;
 }
-
-.subscriptions-header .button {
-	height: 30px;
-	line-height: 22px;
-	font-weight: normal;
-	color: #fff;
-	opacity: 1;
+.wp-core-ui .button-group.button-large .button, .wp-core-ui .button.button-large {
+	height: auto;
 }
-
-.subscriptions-header .button:hover {
-	height: 30px;
-	color: #fff;
+.wc-helper .button-update .dashicons, .wc-helper .button-update:hover .dashicons {
+	height: 13px;
 }
 
 /* White background behind the WooCommerce helper extensions navigation */
@@ -177,16 +262,6 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 }
 .wc-setup-content p {
 	color: #2E4453;
-}
-.wc-setup-content button.button.button-large {
-	height: 40px;
-	line-height: 38px;
-	font-size: 14px;
-	padding-bottom: 0;
-	padding-top: 0;
-	min-width: 74px;
-	border-color: #C8D7E1;
-	box-shadow: 0 1px 0 #C8D7E1;
 }
 
 /* Onboarding wizard inputs */
@@ -464,13 +539,6 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 }
 .wc-setup .wc-setup-footer {
 	margin-bottom: 80px;
-}
-.wc-setup .wc-setup-footer .button-primary {
-	height: 40px;
-	line-height: 38px;
-	font-size: 14px;
-	padding-bottom: 0;
-	padding-top: 0;
 }
 @media screen and (max-width: 600px) {
 	.wc-setup .wc-setup-footer .button-primary {
