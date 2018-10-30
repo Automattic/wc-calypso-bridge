@@ -179,6 +179,10 @@ th.sortable a, th.sorted a{
 .wp-list-table tfoot{
 	display: none;
 }
+
+.wp-list-table .row-title{
+	color: #0087be;
+}
 /* Removes table shadow */
 table.widefat{
 	border-color: #c8d7e1;
