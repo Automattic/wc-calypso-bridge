@@ -558,9 +558,37 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 .wc-wizard-service-item .wc-wizard-service-name, .wc-wizard-services-list-toggle .wc-wizard-service-name {
 	min-width: 100px;
 	padding: 20px;
+	display: flex;
+	align-items: center;
 }
 .wc-wizard-service-item .wc-wizard-service-enable, .wc-wizard-services-list-toggle .wc-wizard-service-enable {
 	align-self: center;
+}
+.wc-wizard-service-item.square-logo .wc-wizard-service-name, .wc-wizard-services-list-toggle.square-logo .wc-wizard-service-name,
+.wc-wizard-service-item.klarna-logo .wc-wizard-service-name, .wc-wizard-services-list-toggle.klarna-logo .wc-wizard-service-name {
+	background: #fff;
+}
+.wc-wizard-service-item.square-logo .wc-wizard-service-name:before,
+.wc-wizard-service-item.klarna-logo .wc-wizard-service-name:before {
+	content: '';
+	display: block;
+	margin: 0 auto;
+	padding: 2px 0;
+	width: 75px;
+	height: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.wc-wizard-service-item.square-logo .wc-wizard-service-name:before {
+	background-image: url(../images/square.png);
+}
+.wc-wizard-service-item.klarna-logo .wc-wizard-service-name:before {
+	background-image: url(../images/klarna.png);
+}
+.wc-wizard-service-item.square-logo .wc-wizard-service-name img,
+.wc-wizard-service-item.klarna-logo .wc-wizard-service-name img {
+	display: none;
 }
 @media screen and (max-width:600px) {
 	.wc-wizard-service-item, .wc-wizard-services-list-toggle {
@@ -588,5 +616,8 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 		position: absolute;
 		right: 0;
 		top: 0;
+	}
+	.wc-wizard-service-item.square-logo .wc-wizard-service-name:before, .wc-wizard-service-item.klarna-logo .wc-wizard-service-name:before {
+		margin: 0;
 	}
 }
