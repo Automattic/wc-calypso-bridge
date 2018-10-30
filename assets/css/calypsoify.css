@@ -621,3 +621,8 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 		margin: 0;
 	}
 }
+
+/* Breadcrumbs */
+.wc-calypso-bridge-breadcrumbs + h2 {
+	display: none;
+}
