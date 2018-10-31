@@ -71,7 +71,7 @@ div.woocommerce-message, .wc-helper .start-container {
 .wc_addons_wrap .addons-button-solid {
 	background: #00aadc !important;
 	border-color: #008ab3 !important;
-	border-width: 1px 1px 2px !important;	
+	border-width: 1px 1px 2px !important;
 	border-style: solid;
 	text-shadow: none !important;
 	box-shadow: none !important;
@@ -314,6 +314,29 @@ table.widefat {
 }
 .wc-setup-content p {
 	color: #2E4453;
+}
+
+/* Forms */
+
+#post-body-content {
+	background-color: #fff;
+	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	box-sizing: border-box;
+	padding: 24px;
+}
+
+#title-prompt-text {
+	color: #2e4453 !important;
+	display: block;
+	font-size: 14px !important;
+	font-weight: 600;
+	margin-bottom: 5px !important;
+	padding: 0 !important;
+	position: static !important;
+}
+
+#wp-content-editor-tools {
+	background: #fff;
 }
 
 /* Onboarding wizard inputs */
