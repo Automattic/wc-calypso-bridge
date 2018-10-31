@@ -339,6 +339,78 @@ table.widefat {
 	background: #fff;
 }
 
+/* Adds card layout style to forms */
+
+#mainform h2,
+#mainform h3 {
+	background-color: #fff;
+	border: 1px solid rgba(200,215,225,0.5);
+	border-bottom: none;
+	color: #2e4453;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 28px;
+	margin-bottom: 0;
+	padding: 16px 24px;
+}
+
+#mainform h2.woocommerce-BlankState-message {
+	border: none;
+	padding: 0;
+}
+
+#mainform h2 + div {
+	background-color: #fff;
+	border-left: 1px solid rgba(200,215,225,0.5);
+	border-right: 1px solid rgba(200,215,225,0.5);
+	margin: -15px 0 0 0;
+	padding-bottom: 11px;
+}
+
+#mainform h2 + div p,
+#mainform h2 + p {
+	color: #537994;
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0;
+	padding: 0 24px 8px;
+}
+
+#mainform h2 + p {
+	background-color: #fff;
+	border-left: 1px solid rgba(200,215,225,0.5);
+	border-right: 1px solid rgba(200,215,225,0.5);
+	margin: -15px 0 0 0;
+	padding-bottom: 16px;
+}
+
+#mainform .form-table {
+	background-color: #fff;
+	border: 1px solid rgba(200,215,225,0.5);
+}
+
+#mainform  .form-table th {
+	padding-left: 24px;
+}
+
+#mainform  .form-table td {
+	padding: 15px 24px 15px 10px;
+}
+
+.wc_payment_gateways_wrapper,
+.wc_emails_wrapper {
+	padding: 0 !important;
+}
+
+.wc_payment_gateways_wrapper .widefat,
+.wc_emails_wrapper .widefat {
+	border: none !important;
+}
+
+.wc-shipping-zones.widefat {
+	border: 1px solid rgba(200,215,225,0.5);
+}
+
 /* Onboarding wizard inputs */
 .wc-setup input[type="text"] {
 	height: 40px;
