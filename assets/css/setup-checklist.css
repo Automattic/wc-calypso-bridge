@@ -411,3 +411,10 @@
 	-webkit-transition: width 200ms;
 	transition: width 200ms;
 }
+
+
+/** Removes klarna setup banner from top of setup screen */
+
+#klarna-kp-banner, #klarna-banner {
+	display: none;
+}
