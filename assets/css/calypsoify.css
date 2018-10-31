@@ -326,13 +326,17 @@ table.widefat {
 }
 
 #title-prompt-text {
+	clip: initial !important; /*avoid clipping when field is on focus */
+	clip-path: initial;
 	color: #2e4453 !important;
 	display: block;
 	font-size: 14px !important;
 	font-weight: 600;
-	margin-bottom: 5px !important;
+	height: auto;
+	margin: 0 0 5px 0 !important;
 	padding: 0 !important;
 	position: static !important;
+	width: auto;
 }
 
 #wp-content-editor-tools {
