@@ -181,7 +181,7 @@ th.sortable a, th.sorted a{
 }
 
 /* Add on hover background color to rows*/
-.widefat tr:hover {
+.widefat tbody tr:hover {
 	background: #fafbfc !important;
 }
 
