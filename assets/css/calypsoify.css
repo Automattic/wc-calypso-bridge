@@ -103,7 +103,15 @@ div.woocommerce-message, .wc-helper .start-container {
 }
 
 /* Large Buttons */
-.wp-core-ui button.button.button-large {
+.wp-core-ui button.button.button-large,
+.wp-core-ui input.button.button-large,
+#postbox-container-1 .button-primary,
+.wp-core-ui .woocommerce-save-button,
+.wc_addons_wrap .addons-button-solid,
+.wc_addons_wrap .addons-button-outline-green,
+.wc_addons_wrap .addons-button-outline-white,
+.edit-tag-actions .button-primary,
+.woocommerce-BlankState a.button {
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
@@ -143,6 +151,18 @@ div.woocommerce-message, .wc-helper .start-container {
 }
 .wc-helper .button-update .dashicons, .wc-helper .button-update:hover .dashicons {
 	height: 13px;
+}
+
+/* Delete buttons */
+#all-plugins-table .plugins a.delete, #delete-link a.delete, #media-items a.delete, #media-items a.delete-permanently, #nav-menu-footer .menu-delete, #search-plugins-table .plugins a.delete, .plugins a.delete, .row-actions span.delete a, .row-actions span.spam a, .row-actions span.trash a, .submitbox .submitdelete {
+	color: #d94f4f;
+}
+#delete-link {
+    line-height: 38px;
+    margin-left: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #d94f4f;
 }
 
 /* White background behind the WooCommerce helper extensions navigation */
@@ -212,6 +232,15 @@ div.woocommerce-message, .wc-helper .start-container {
 
 #adminmenu li.current a.menu-top.toplevel_page_mailchimp-woocommerce .svg {
 	filter: none;
+}
+
+/* WooCommercer Orders */
+.order_actions li.wide {
+	display: flex;
+	align-items: center;
+}
+.order_actions li .save_order {
+	margin-left: auto;
 }
 
 /* Shipping zones */
