@@ -267,6 +267,7 @@
 	-ms-flex-align: start;
 	align-items: start;
 	padding-left: 10px;
+	justify-content: flex-end;
 }
 
 @media (max-width: 480px) {

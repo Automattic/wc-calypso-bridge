@@ -206,7 +206,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description' => __( 'Connect your Stripe account to accept credit and debit card payments.', 'wc-calypso-bridge' ),
 				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=checkout&section=ppec_paypal',
+				'link' => 'admin.php?page=wc-settings&tab=checkout&section=stripe',
 				'learn_more' => 'https://woocommerce.com/products/stripe/',
 				'condition' => false, // TODO Condition logic here.
 				'extension' => 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php',
@@ -255,7 +255,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'title' => __( 'Enable automatic tax rates with Taxjar', 'wc-calypso-bridge' ),
+				'title' => __( 'Enable automatic tax rates with TaxJar', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description' => __( 'Automatically collect sales tax at checkout by connecting with TaxJar.', 'wc-calypso-bridge' ),
 				'estimate' => '2',
@@ -350,58 +350,52 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	public function render_task( $task ) {
 		$task_url = admin_url( $task['link'] );
 		?>
-		<div class="checklist-card checklist__task has-actionlink is-compact
-		<?php
-		if ( true === $task['condition'] ) {
-			echo ' is-completed';
-		}
-		?>
-		">
-		<div class="checklist__task-primary">
-			<h3 class="checklist__task-title">
-				<?php
-					echo '<a href="' . esc_url( $task_url ) . '" class="' . ( true === $task['condition'] ? 'task-is-completed' : '' ) . '">' . esc_html( $task['title'] ) . '</a>';
-				?>
-			</h3>
-			<p class="checklist__task-description">
-				<?php echo esc_html( $task['description'] ); ?>
-				<?php
-				if ( ! empty( $task['learn_more'] ) ) {
-					echo '<a href="' . esc_html( $task['learn_more'] ) . '" target="_blank"> ' . esc_html__( 'Learn more.', 'wc-calypso-bridge' ) . '</a>';
-				}
-				?>
-			</p>
-			<small class="checklist__task-duration">
-				<?php
-				/* translators: %s: Estimated amount of minutes for the task. */
-				printf( esc_html__( 'Estimated time: %d minutes', 'wc-calypso-bridge' ), intval( $task['estimate'] ) );
-				?>
-			</small>
-		</div>
-		<div class="checklist__task-secondary">
-			<?php
-			if ( true === $task['condition'] ) {
-				$action_link_secondary_class = 'checklist__task-action';
-				$title = $task['completed_title'];
-			} else {
-				$action_link_secondary_class = 'button-primary';
-				$title = $task['title'];
-			}
-			echo '<a href="' . esc_url( $task_url ) . '" class=" ' . esc_html( $action_link_secondary_class ) . '">' . esc_html( $title ) . '</a>';
-			?>
-			<small class="checklist__task-duration">
-				<?php
-				/* translators: %s: Estimated amount of minutes for the task. */
-				printf( esc_html__( 'Estimated time: %d minutes', 'wc-calypso-bridge' ), intval( $task['estimate'] ) );
-				?>
-			</small>
-		</div>
-		<?php if ( true === $task['condition'] ) { ?>
-			<div class="checklist__task-icon">
-				<svg class="gridicon gridicons-checkmark" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M9 19.414l-6.707-6.707 1.414-1.414L9 16.586 20.293 5.293l1.414 1.414"></path></g></svg>
+		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>">
+			<div class="checklist__task-primary">
+				<h3 class="checklist__task-title">
+					<?php
+						echo '<a href="' . esc_url( $task_url ) . '" class="' . ( true === $task['condition'] ? 'task-is-completed' : '' ) . '">' . esc_html( $task['title'] ) . '</a>';
+					?>
+				</h3>
+				<p class="checklist__task-description">
+					<?php echo esc_html( $task['description'] ); ?>
+					<?php
+					if ( ! empty( $task['learn_more'] ) ) {
+						echo '<a href="' . esc_html( $task['learn_more'] ) . '" target="_blank"> ' . esc_html__( 'Learn more.', 'wc-calypso-bridge' ) . '</a>';
+					}
+					?>
+				</p>
+				<small class="checklist__task-duration">
+					<?php
+					/* translators: %s: Estimated amount of minutes for the task. */
+					printf( esc_html__( 'Estimated time: %d minutes', 'wc-calypso-bridge' ), intval( $task['estimate'] ) );
+					?>
+				</small>
 			</div>
-		<?php } ?>
-		</div>
+			<div class="checklist__task-secondary">
+				<?php
+				if ( true === $task['condition'] ) {
+					$action_link_secondary_class = 'checklist__task-action';
+					$title = $task['completed_title'];
+				} else {
+					$action_link_secondary_class = 'button-primary';
+					$title = __( 'Do it', 'wc-calypso-bridge' );
+				}
+				echo '<a href="' . esc_url( $task_url ) . '" class=" ' . esc_html( $action_link_secondary_class ) . '">' . esc_html( $title ) . '</a>';
+				?>
+				<small class="checklist__task-duration">
+					<?php
+					/* translators: %s: Estimated amount of minutes for the task. */
+					printf( esc_html__( 'Estimated time: %d minutes', 'wc-calypso-bridge' ), intval( $task['estimate'] ) );
+					?>
+				</small>
+			</div>
+			<?php if ( true === $task['condition'] ) { ?>
+				<div class="checklist__task-icon">
+					<svg class="gridicon gridicons-checkmark" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M9 19.414l-6.707-6.707 1.414-1.414L9 16.586 20.293 5.293l1.414 1.414"></path></g></svg>
+				</div>
+			<?php } ?>
+			</div>
 		<?php
 	}
 }
