@@ -320,7 +320,7 @@ table.widefat {
 }
 
 /* Removes table footer actions */
-.tablenav.bottom {
+.tablenav.bottom .actions, .tablenav.bottom .tablenav-pages {
 	display: none;
 }
 
