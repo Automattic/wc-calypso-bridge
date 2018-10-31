@@ -160,7 +160,7 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 
 /* Generic tables */
 
-.hndle a, .widefat tfoot td, .widefat th, .widefat thead td{
+.hndle a, .widefat tfoot td, .widefat th, .widefat thead td {
 	font-weight: 600;
 	color: #2e4453;
 	padding: 16px;
@@ -171,31 +171,42 @@ th.sortable a, th.sorted a{
 }
 
 /* Makes all rows have white background */
-.striped>tbody>:nth-child(odd), ul.striped>:nth-child(odd){
+.striped>tbody > :nth-child(odd), ul.striped > :nth-child(odd) {
 	background-color: #fff !important;
 }
+
 /* Add border to rows */
-.widefat th, .widefat td{
+.widefat th, .widefat td {
 	border-bottom: 1px solid #e9eff3;
 }
 
+/* Add on hover background color to rows*/
+.widefat tr:hover {
+	background: #fafbfc !important;
+}
+
+/* Adds border to placeholder image */
+table.wp-list-table td.column-thumb img {
+	border: 1px solid #f3f6f8;
+}
+
 /* Hides table footer*/
-.wp-list-table tfoot{
+.wp-list-table tfoot {
 	display: none;
 }
 
-.wp-list-table .row-title{
+.wp-list-table .row-title {
 	color: #0087be;
 }
+
 /* Removes table shadow */
-table.widefat{
+table.widefat {
 	border-color: #c8d7e1;
 	box-shadow: none;
 }
 
 /* Removes table footer actions */
-
-.tablenav.bottom{
+.tablenav.bottom {
 	display: none;
 }
 
