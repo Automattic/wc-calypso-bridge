@@ -764,3 +764,22 @@ table.widefat {
 .wc-calypso-bridge-breadcrumbs + h2 {
 	display: none;
 }
+
+/* Masterbar hover styles.
+TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497/ is released */
+
+#wpadminbar .ab-top-menu > li.hover > .ab-item,
+#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item {
+	background: #0099d8 !important;
+	color: #fff;
+}
+ #wpadminbar ul li#wp-admin-bar-ab-new-post:hover,
+#wpadminbar ul li#wp-admin-bar-ab-new-post:hover > .ab-item {
+	background: #fff !important;
+	opacity: 1;
+	border-radius: 5px;
+}
+ #wpadminbar ul li#wp-admin-bar-notes.active,
+#wpadminbar ul li#wp-admin-bar-notes.active > .ab-item {
+	background: #004967 !important;
+}
