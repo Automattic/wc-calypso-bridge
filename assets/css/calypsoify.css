@@ -105,6 +105,7 @@ div.woocommerce-message, .wc-helper .start-container {
 /* Large Buttons */
 .wp-core-ui button.button.button-large,
 .wp-core-ui input.button.button-large,
+.checklist__task-secondary .button-primary,
 #postbox-container-1 .button-primary,
 .wp-core-ui .woocommerce-save-button,
 .wc_addons_wrap .addons-button-solid,
