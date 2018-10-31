@@ -962,3 +962,97 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	width: 20%;
 	height: auto;
 }
+/* Notices */
+.wc-calypso-bridge-notices {
+	position: fixed;
+	top: 73px;
+	right: 32px;
+	z-index: 100;
+	max-width: calc( 100% - 64px);
+}
+
+.wc-calypso-bridge-notices .notice,
+.wc-calypso-bridge-notices div.updated, 
+.wc-calypso-bridge-notices div.error {
+	display: flex;
+	position: relative;
+	width: 100%;
+	margin: 0 0 24px 0;
+	padding: 0;
+	box-sizing: border-box;
+	animation: appear .3s ease-in-out;
+	background: #2e4453;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 1.5;
+	border: 0;
+	overflow: hidden;
+}
+.wc-calypso-bridge-notices .notice p,
+.wc-calypso-bridge-notices div.updated p, 
+.wc-calypso-bridge-notices div.error p {
+	padding: 13px;
+	margin: 0;
+}
+.wc-calypso-bridge-notices a {
+	color: #fff;
+}
+.wc-calypso-bridge-notices p.submit {
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 0;
+    margin: 0 0 0 auto !important;
+    padding: 13px 16px;
+}
+.wc-calypso-bridge-notices p.submit a.button-primary {
+	color: #a8bece;
+	background: transparent !important;
+	border-width: 0 !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	padding: 0 !important;
+}
+.wc-calypso-bridge-notices p.submit a.button-primary:hover {
+	color: #fff;
+}
+.wc-calypso-bridge-notices p.submit a.button-primary:active {
+	border-width: 0;
+}
+
+.wc-calypso-bridge-notice-icon-wrapper {
+	position: relative;
+    background: #537994;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    width: 47px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 3px 0 0 3px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -ms-flex-item-align: stretch;
+	align-self: stretch;
+	align-items: center;
+}
+.wc-calypso-bridge-notice-icon-wrapper svg path {
+    fill: #fff;
+}
+.error .wc-calypso-bridge-notice-icon-wrapper {
+    background: #ea4149;
+}
+.notice-success .wc-calypso-bridge-notice-icon-wrapper {
+    background: #4ab866;
+}

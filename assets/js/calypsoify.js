@@ -42,5 +42,20 @@
             );
         }
     } );
+    
+    /**
+     * Move admin notices
+     */
+    $( document ).ready( function() {
+        $( 'body' ).append( '<div class="wc-calypso-bridge-notices"></div>' );
+        $( 'div.updated, div.error, div.notice' ).not( '.inline, .below-h2' ).appendTo( $( '.wc-calypso-bridge-notices' ) );
+    } );
+
+    /**
+     * Append icons to notices
+     */
+    $( 'div.notice:not(.notice-success), div.updated:not(.notice-success)' ).prepend( '<span class="wc-calypso-bridge-notice-icon-wrapper"><svg class="gridicon gridicons-info" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></g></svg></span>' );
+    $( 'div.error' ).prepend( '<span class="wc-calypso-bridge-notice-icon-wrapper"><svg class="gridicon gridicons-notice" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-2h2v2zm0-4h-2l-.5-6h3l-.5 6z"/></g></svg></span>' );
+    $( 'div.notice-success' ).prepend( '<span class="wc-calypso-bridge-notice-icon-wrapper"><svg class="gridicon gridicons-checkmark" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M9 19.414l-6.707-6.707 1.414-1.414L9 16.586 20.293 5.293l1.414 1.414"/></g></svg></span>' );
 
 } )( jQuery );
