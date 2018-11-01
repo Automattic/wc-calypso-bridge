@@ -967,14 +967,13 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	position: fixed;
 	top: 73px;
 	right: 32px;
-	z-index: 100;
+	z-index: 10000;
 	max-width: calc( 100% - 64px);
 }
-
-.wc-calypso-bridge-notices .notice,
-.wc-calypso-bridge-notices div.updated, 
-.wc-calypso-bridge-notices div.error {
-	display: flex;
+div.notice,
+div.updated, 
+div.error {
+	display: flex !important;
 	position: relative;
 	width: 100%;
 	margin: 0 0 24px 0;
@@ -989,29 +988,39 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	border: 0;
 	overflow: hidden;
 }
-.wc-calypso-bridge-notices .notice p,
-.wc-calypso-bridge-notices div.updated p, 
-.wc-calypso-bridge-notices div.error p {
+div.notice p,
+div.updated p, 
+div.error p {
 	padding: 13px;
 	margin: 0;
 }
-.wc-calypso-bridge-notices a {
+div.notice a,
+div.updated a, 
+div.error a {
 	color: #fff;
 }
-.wc-calypso-bridge-notices p.submit {
-    -ms-flex-negative: 1;
-    flex-shrink: 1;
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-radius: 0;
-    margin: 0 0 0 auto !important;
-    padding: 13px 16px;
+div.notice p.submit,
+div.updated p.submit, 
+div.error p.submit {
+	display: flex;
+	-ms-flex-negative: 1;
+	flex-shrink: 1;
+	-webkit-box-flex: 0;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border-radius: 0;
+	margin: 0 0 0 auto !important;
+	padding: 13px 16px;
 }
-.wc-calypso-bridge-notices p.submit a.button-primary {
+div.notice .button,
+div.notice .button-primary,
+div.updated .button, 
+div.updated .button-primary, 
+div.error .button,
+div.error .button-primary {
 	color: #a8bece;
 	background: transparent !important;
 	border-width: 0 !important;
@@ -1019,40 +1028,69 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	font-weight: 400 !important;
 	padding: 0 !important;
 }
-.wc-calypso-bridge-notices p.submit a.button-primary:hover {
+div.notice .button:hover,
+div.notice .button-primary:hover,
+div.updated .button:hover, 
+div.updated .button-primary:hover, 
+div.error .button:hover,
+div.error .button-primary:hover {
 	color: #fff;
+	background: transparent !important;
 }
-.wc-calypso-bridge-notices p.submit a.button-primary:active {
-	border-width: 0;
+div.notice .button:active,
+div.notice .button-primary:active,
+div.updated .button:active, 
+div.updated .button-primary:active, 
+div.error .button:active,
+div.error .button-primary:active {
+	vertical-align: baseline;
 }
 
 .wc-calypso-bridge-notice-icon-wrapper {
 	position: relative;
-    background: #537994;
-    color: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
-    width: 47px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    border-radius: 3px 0 0 3px;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    -ms-flex-item-align: stretch;
+	background: #537994;
+	color: #fff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	width: 47px;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	border-radius: 3px 0 0 3px;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	-ms-flex-item-align: stretch;
 	align-self: stretch;
 	align-items: center;
 }
 .wc-calypso-bridge-notice-icon-wrapper svg path {
-    fill: #fff;
+	fill: #fff;
 }
 .error .wc-calypso-bridge-notice-icon-wrapper {
-    background: #ea4149;
+	background: #ea4149;
 }
 .notice-success .wc-calypso-bridge-notice-icon-wrapper {
-    background: #4ab866;
+	background: #4ab866;
+}
+.notice-warning .wc-calypso-bridge-notice-icon-wrapper {
+	background: #f0b849;
+}
+.notice-dismiss {
+	height: 100%;
+}
+.notice-dismiss:before {
+	display: none;
+}
+.notice-dismiss:focus {
+	box-shadow: none;
+}
+.notice-dismiss svg path {
+	fill: #a8bece;
+}
+.notice-dismiss:hover svg path {
+	fill: #fff;
 }
