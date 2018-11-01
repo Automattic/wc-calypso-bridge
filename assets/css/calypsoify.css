@@ -1002,9 +1002,11 @@ div.error > p,
 .wc-calypso-bridge-notice-content {
 	padding: 8px 13px;
 	margin: 0;
+	flex-direction: column;
 }
 .wc-calypso-bridge-notice-content p {
 	margin: 5px 0;
+	font-size: 14px;
 }
 div.notice a,
 div.updated a, 
@@ -1020,12 +1022,9 @@ div.error p.submit {
 	-webkit-box-flex: 0;
 	-ms-flex-positive: 0;
 	flex-grow: 0;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	border-radius: 0;
 	margin: 0 0 0 auto !important;
 	padding: 13px 16px;
+	justify-content: center;
 }
 div.notice .button,
 div.notice .button-primary,
@@ -1092,6 +1091,9 @@ div.error .button-primary:active {
 }
 .notice-dismiss {
 	height: 100%;
+	margin: 0 0 0 auto !important;
+	position: static;
+	padding: 9px !important;
 }
 .notice-dismiss:before {
 	display: none;
