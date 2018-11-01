@@ -65,10 +65,21 @@
     } );
 
     /**
-     * Replace dismissal buttons
+     * Replace dismissal buttons in notices
      */
     $( document ).ready( function() {
         $( '.notice-dismiss' ).html( '<svg class="gridicon gridicons-cross" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M18.36 19.78L12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"/></g></svg>' );
+    } );
+
+    /**
+     * Place notice content inside it's own tag
+     * 
+     * Used to prevent side by side content in flexbox when multiple paragraphs exist.
+     */
+    $( 'div.notice, div.error, div.updated, div.warning' ).each( function() {
+        var $noticeContent = $( '<div class="wc-calypso-bridge-notice-content"></div>' );
+        $( this ).find( '.wc-calypso-bridge-notice-icon-wrapper' ).after( $noticeContent );
+        $( this ).find( 'p:not(.submit)' ).appendTo( $noticeContent );
     } );
 
 } )( jQuery );

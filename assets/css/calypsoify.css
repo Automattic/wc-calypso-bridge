@@ -973,6 +973,11 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 div.notice,
 div.updated, 
 div.error {
+	display: none !important;
+}
+.wc-calypso-bridge-notices div.notice,
+.wc-calypso-bridge-notices div.updated, 
+.wc-calypso-bridge-notices div.error {
 	display: flex !important;
 	position: relative;
 	width: 100%;
@@ -988,11 +993,15 @@ div.error {
 	border: 0;
 	overflow: hidden;
 }
-div.notice p,
-div.updated p, 
-div.error p {
-	padding: 13px;
+div.notice > p,
+div.updated > p, 
+div.error > p,
+.wc-calypso-bridge-notice-content {
+	padding: 8px 13px;
 	margin: 0;
+}
+.wc-calypso-bridge-notice-content p {
+	margin: 5px 0;
 }
 div.notice a,
 div.updated a, 
@@ -1045,7 +1054,6 @@ div.error .button:active,
 div.error .button-primary:active {
 	vertical-align: baseline;
 }
-
 .wc-calypso-bridge-notice-icon-wrapper {
 	position: relative;
 	background: #537994;
