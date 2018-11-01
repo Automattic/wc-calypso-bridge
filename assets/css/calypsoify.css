@@ -927,3 +927,31 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 	background: transparent;
 	color: #00a0d2;
 }
+
+/* Site title fix for long titles.
+TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507 is released */
+#calypso-sidebar-header ul li#calypso-sitename {
+	overflow: hidden;
+	white-space: nowrap;
+	width: 225px;
+}
+
+#calypso-sidebar-header ul li#calypso-sitename:after {
+	content: '';
+	display: block;
+	position: absolute;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(90%, #fff));
+	background: linear-gradient(to right, rgba(255,255,255,0), #fff 90%);
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: auto;
+	width: 20%;
+	height: auto;
+}
