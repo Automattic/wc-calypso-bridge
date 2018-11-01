@@ -1105,3 +1105,23 @@ div.error .button-primary:active {
 .notice-dismiss:hover svg path {
 	fill: #fff;
 }
+@media screen and (max-width: 480px) {
+	.wc-calypso-bridge-notices {
+		top: auto;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		max-width: 100%;
+	}
+	.wc-calypso-bridge-notices div.notice,
+	.wc-calypso-bridge-notices div.updated,
+	.wc-calypso-bridge-notices div.error {
+		margin-bottom: 0;
+		border-radius: 0;
+	}
+	.wc-calypso-bridge-notices p,
+	.wc-calypso-bridge-notices a.button,
+	.wc-calypso-bridge-notices a.button-primary {
+		font-size: 12px !important;
+	}
+}
