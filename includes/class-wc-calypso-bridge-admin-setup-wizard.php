@@ -107,6 +107,8 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 
 		// @codingStandardsIgnoreStart
 		if ( ! empty( $_POST['save_step'] ) && isset( $this->steps[ $this->step ]['handler'] ) ) {
+			$current_user = wp_get_current_user();
+			jetpack_tracks_record_event( $current_user, 'atomic_wc_obw_step_complete', array( 'name' =>  $this->step ) );
 			call_user_func( $this->steps[ $this->step ]['handler'], $this );
 		}
 		// @codingStandardsIgnoreEnd
