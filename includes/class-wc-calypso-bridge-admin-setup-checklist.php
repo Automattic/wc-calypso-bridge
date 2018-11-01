@@ -49,11 +49,51 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		// priority is 20 to run after https://github.com/woocommerce/woocommerce/blob/a55ae325306fc2179149ba9b97e66f32f84fdd9c/includes/admin/class-wc-admin-menus.php#L165.
 		add_action( 'admin_head', array( $this, 'admin_menu_structure' ), 20 );
+		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
+
+		$this->clear_uncompleted_steps_cache();
 
 		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
 			add_action( 'admin_head', array( $this, 'remove_notices' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_checklist_styles' ) );
 		}
+
+		if ( isset( $_GET['wc-setup-step'] ) ) {
+			add_action( 'admin_init', array( $this, 'track_step_click' ) );
+		}
+	}
+
+	/**
+	 * Clears the cache for the number of uncompleted steps when a setting is updated.
+	 */
+	public function clear_uncompleted_steps_cache() {
+		$track_settings_update = array(
+			'woocommerce_ups_settings',
+			'woocommerce_square_merchant_access_token',
+			'woocommerce_ppec_paypal_settings',
+			'woocommerce_stripe_settings',
+			'woocommerce_klarna_payments_settings',
+			'woocommerce_kco_setting',
+			'woocommerce_eway_settings',
+			'woocommerce_payfast_settings',
+			'woocommerce_taxjar-integration_settings',
+			'woocommerce_facebookcommerce_settings',
+			'mailchimp-woocommerce',
+			'woocommerce_setup_checklist_clicks',
+			'wc_canada_post_merchant_username',
+			'wc_canada_post_merchant_password',
+		);
+
+		foreach ( $track_settings_update as $setting ) {
+			add_action( "update_option_{$setting}", array( $this, 'clear_uncompleted_steps_cache_handler' ) );
+		}
+	}
+
+	/**
+	 * Deletes the transient/cache for the number of uncompleted setup steps.
+	 */
+	public function clear_uncompleted_steps_cache_handler() {
+		delete_transient( 'woocommerce_setup_checklist_uncompleted_steps' );
 	}
 
 	/**
@@ -116,6 +156,50 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		array_unshift( $submenu['woocommerce'], $menu );
 	}
 
+	/**
+	 * Tracks a step has completed after visting a specific setup link.
+	 */
+	public function track_step_click() {
+		if ( ! isset( $_GET['wc-setup-step'] ) ) {
+			return;
+		}
+
+		$whitelist = array( 'customize', 'shipping', 'product' );
+		$step = $_GET['wc-setup-step']; // WPCS: CSRF ok, sanitization ok.
+		if ( ! in_array( $step, $whitelist ) ) {
+			return;
+		}
+
+		$click_settings = get_option( 'woocommerce_setup_checklist_clicks', array() );
+		$click_settings[ $step ] = true;
+
+		update_option( 'woocommerce_setup_checklist_clicks', $click_settings );
+	}
+
+	/**
+	 * Adds a count of uncompleted tasks to the navigation sidebar.
+	 */
+	public function menu_order_count() {
+		global $submenu;
+		if ( isset( $submenu['woocommerce'] ) ) {
+			$cache_key = 'woocommerce_setup_checklist_uncompleted_steps';
+			$setup_count = get_transient( $cache_key );
+			if ( false === $setup_count ) {
+				$data = $this->get_task_data();
+				$setup_count = $data['uncompleted'];
+				set_transient( $cache_key, $setup_count, 12 * HOUR_IN_SECONDS );
+			}
+
+			if ( current_user_can( 'manage_woocommerce' ) && $setup_count ) {
+				foreach ( $submenu['woocommerce'] as $key => $menu_item ) {
+					if ( 0 === strpos( $menu_item[0], _x( 'Setup', 'Admin menu name', 'wc-calypso-bridge' ) ) ) {
+						$submenu['woocommerce'][ $key ][0] .= ' <span class="update-plugins count-' . esc_attr( $setup_count ) . '"><span class="setup-count">' . esc_html( number_format_i18n( $setup_count ) ) . '</span></span>'; // WPCS: override ok.
+						break;
+					}
+				}
+			}
+		}
+	}
 
 	/**
 	 * Returns an array of relevent setup tasks and meta information (completed tasks, uncompleted, etc).
@@ -132,11 +216,22 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 */
 	private function get_task_data() {
 		// TODO Double check against setup tasks in the spreadsheet. Needs Canada Post here.
-		// Variables used in the conditions below.
-		$count_posts    = wp_count_posts( 'product' );
-		$total_products = $count_posts->publish;
-		$ups_settings   = get_option( 'woocommerce_ups_settings' );
+		// If more settings are added, please add them to `clear_uncompleted_steps_cache`.
+		$ups_settings                 = get_option( 'woocommerce_ups_settings' );
 		$square_merchant_access_token = get_option( 'woocommerce_square_merchant_access_token' );
+		$paypal_settings              = get_option( 'woocommerce_ppec_paypal_settings' );
+		$stripe_settings              = get_option( 'woocommerce_stripe_settings' );
+		$klarna_payments_settings     = get_option( 'woocommerce_klarna_payments_settings' );
+		$kco_settings                 = get_option( 'woocommerce_kco_settings' );
+		$eway_settings                = get_option( 'woocommerce_eway_settings' );
+		$payfast_settings             = get_option( 'woocommerce_payfast_settings' );
+		$taxjar_settings              = get_option( 'woocommerce_taxjar-integration_settings' );
+		$facebook_settings            = get_option( 'woocommerce_facebookcommerce_settings' );
+		$mailchimp_settings           = get_option( 'mailchimp-woocommerce' );
+		$click_settings               = get_option( 'woocommerce_setup_checklist_clicks' );
+
+		$wc_canada_post_merchant_username = get_option( 'wc_canada_post_merchant_username' );
+		$wc_canada_post_merchant_password = get_option( 'wc_canada_post_merchant_password' );
 
 		$all_tasks = array(
 			array(
@@ -144,8 +239,8 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'completed_title' => __( 'Add another product', 'wc-calypso-bridge' ),
 				'description' => __( 'Start by adding your first product to your store.', 'wc-calypso-bridge' ),
 				'estimate' => '2',
-				'link' => 'post-new.php?post_type=product',
-				'condition' => $total_products > 0,
+				'link' => 'post-new.php?post_type=product&wc-setup-step=product',
+				'condition' => isset( $click_settings['product'] ) && true === (bool) $click_settings['product'],
 			),
 
 			array(
@@ -153,8 +248,8 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'completed_title' => __( 'Open customizer', 'wc-calypso-bridge' ),
 				'description' => __( 'You have access to a few themes with your plan. See the options, chose the right one for you and customize your store.', 'wc-calypso-bridge' ),
 				'estimate' => '2',
-				'link' => 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist',
-				'condition' => false, // TODO Condition logic here. Based on click?
+				'link' => 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize',
+				'condition' => isset( $click_settings['customize'] ) && true === (bool) $click_settings['customize'],
 			),
 
 			array(
@@ -162,8 +257,8 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description' => __( "We've set up a few shipping options based on your store location. Check them out to see if they're right for you.", 'wc-calypso-bridge' ),
 				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=shipping',
-				'condition' => false, // TODO Condition logic here. Based on click?
+				'link' => 'admin.php?page=wc-settings&tab=shipping&wc-setup-step=shipping',
+				'condition' => isset( $click_settings['shipping'] ) && true === (bool) $click_settings['shipping'],
 			),
 
 			array(
@@ -177,6 +272,17 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 							   ! empty( $ups_settings['access_key'] ) &&
 							   ! empty( $ups_settings['shipper_number'] ),
 				'extension' => 'woocommerce-shipping-ups/woocommerce-shipping-ups.php',
+			),
+
+			array(
+				'title' => __( 'Add live rates with Canada Post', 'wc-calypso-bridge' ),
+				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
+				'description' => __( 'Get shipping rates for domestic and international parcels.', 'wc-calypso-bridge' ),
+				'estimate' => '2',
+				'link' => 'https://woocommerce.com/wc-api/canada_post_registration?return_url=' . WC()->api_request_url( 'canada_post_return' ),
+				'condition' => ! empty( $wc_canada_post_merchant_username ) &&
+							   ! empty( $wc_canada_post_merchant_password ),
+				'extension' => 'woocommerce-shipping-canada-post/woocommerce-shipping-canada-post.php',
 			),
 
 			array(
@@ -197,7 +303,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate' => '2',
 				'link' => 'admin.php?page=wc-settings&tab=checkout&section=ppec_paypal',
 				'learn_more' => 'https://woocommerce.com/products/woocommerce-gateway-paypal-checkout/',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => ! empty( $paypal_settings['api_username'] ) &&
+							   ! empty( $paypal_settings['api_password'] ) &&
+							   ! empty( $paypal_settings['api_signature'] ) &&
+							   'yes' === $paypal_settings['enabled'],
 				'extension' => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
 			),
 
@@ -208,7 +317,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate' => '2',
 				'link' => 'admin.php?page=wc-settings&tab=checkout&section=stripe',
 				'learn_more' => 'https://woocommerce.com/products/stripe/',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => ! empty( $stripe_settings['publishable_key'] ) &&
+							   ! empty( $stripe_settings['secret_key'] ) &&
+							   'yes' === $stripe_settings['enabled'],
 				'extension' => 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php',
 			),
 
@@ -219,7 +330,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate' => '2',
 				'link' => 'admin.php?page=wc-settings&tab=checkout&section=klarna_payments',
 				'learn_more' => 'https://woocommerce.com/products/klarna-payments/',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => 'yes' === $klarna_payments_settings['enabled'],
 				'extension' => 'klarna-payments-for-woocommerce/klarna-payments-for-woocommerce.php',
 			),
 
@@ -230,7 +341,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate' => '2',
 				'link' => 'admin.php?page=wc-settings&tab=checkout&section=kco',
 				'learn_more' => 'https://woocommerce.com/products/klarna-checkout/',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => 'yes' === $kco_settings['enabled'],
 				'extension' => 'klarna-checkout-for-woocommerce/klarna-checkout-for-woocommerce.php',
 			),
 
@@ -240,7 +351,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'description' => __( 'Connect your eWay account to take credit card payments directly on your store.', 'wc-calypso-bridge' ),
 				'estimate' => '2',
 				'link' => 'admin.php?page=wc-settings&tab=checkout&section=eway',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => ! empty( $eway_settings['customer_api'] ) &&
+							   ! empty( $eway_settings['customer_password'] ) &&
+							   'yes' === $eway_settings['enabled'],
 				'extension' => 'woocommerce-gateway-eway/woocommerce-gateway-eway.php',
 			),
 
@@ -250,7 +363,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'description' => __( 'Connect your PayFast account to accept payments by credit card and Electronic Fund Transfer.', 'wc-calypso-bridge' ),
 				'estimate' => '2',
 				'link' => 'admin.php?page=wc-settings&tab=checkout&section=payfast',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => ! empty( $payfast_settings['merchant_id'] ) &&
+							   ! empty( $payfast_settings['merchant_key'] ) &&
+							   ! empty( $payfast_settings['pass_phrase'] ) &&
+							   'yes' === $payfast_settings['enabled'],
 				'extension' => 'woocommerce-payfast-gateway/gateway-payfast.php',
 			),
 
@@ -260,7 +376,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'description' => __( 'Automatically collect sales tax at checkout by connecting with TaxJar.', 'wc-calypso-bridge' ),
 				'estimate' => '2',
 				'link' => 'admin.php?page=wc-settings&tab=integration&section=taxjar-integration',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => ! empty( $taxjar_settings['api_token'] ),
 				'extension' => 'taxjar-simplified-taxes-for-woocommerce/taxjar-woocommerce.php',
 			),
 
@@ -271,7 +387,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate' => '20',
 				'link' => 'admin.php?page=wc-settings&tab=integration&section=facebookcommerce',
 				'learn_more' => 'https://www.facebook.com/business/help/900699293402826',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => ! empty( $facebook_settings['fb_api_key'] ),
 				'extension' => 'facebook-for-woocommerce/facebook-for-woocommerce.php',
 			),
 
@@ -282,7 +398,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate' => '20',
 				'link' => 'options-general.php?page=mailchimp-woocommerce',
 				'learn_more' => 'https://wordpress.org/plugins/mailchimp-for-woocommerce/',
-				'condition' => false, // TODO Condition logic here.
+				'condition' => ! empty( $mailchimp_settings['mailchimp_api_key'] ),
 				'extension' => 'mailchimp-for-woocommerce/mailchimp-woocommerce.php',
 			),
 		);
@@ -348,7 +464,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * @param array $task Array of task information.
 	 */
 	public function render_task( $task ) {
-		$task_url = admin_url( $task['link'] );
+		$task_url = $task['link'];
+		if ( substr( $task_url, 0, 4 ) !== 'http' ) {
+			$task_url = admin_url( $task_url );
+		}
 		?>
 		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>">
 			<div class="checklist__task-primary">
