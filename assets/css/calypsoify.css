@@ -320,22 +320,22 @@ table.widefat {
 
 #post-body-content {
 	background-color: #fff;
-	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	box-shadow: 0 0 0 1px #e4eaef;
 	box-sizing: border-box;
 	padding: 24px;
 }
 
-#title-prompt-text {
-	clip: initial !important; /*avoid clipping when field is on focus */
+#titlediv #title-prompt-text {
+	clip: initial; /*avoid clipping when field is on focus */
 	clip-path: initial;
-	color: #2e4453 !important;
+	color: #2e4453;
 	display: block;
-	font-size: 14px !important;
+	font-size: 14px;
 	font-weight: 600;
 	height: auto;
-	margin: 0 0 5px 0 !important;
-	padding: 0 !important;
-	position: static !important;
+	margin: 0 0 5px 0;
+	padding: 0;
+	position: static;
 	width: auto;
 }
 
@@ -348,7 +348,7 @@ table.widefat {
 #mainform h2,
 #mainform h3 {
 	background-color: #fff;
-	border: 1px solid rgba(200,215,225,0.5);
+	border: 1px solid #e4eaef;
 	border-bottom: none;
 	color: #2e4453;
 	font-size: 18px;
