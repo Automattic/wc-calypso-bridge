@@ -44,6 +44,7 @@ class WC_Calypso_Bridge {
 	 * Load calypsoify plugins if query param / user setting is set
 	 */
 	public function possibly_load_calypsoify() {
+		add_action( 'admin_init', array( $this, 'track_calypsoify_toggle' ) );
 		if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 			$this->includes();
 			// Hook on `admin_print_styles`, after some WC CSS is hooked, so we can override a few '!important' styles.
@@ -105,6 +106,27 @@ class WC_Calypso_Bridge {
 				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
 				wp_safe_redirect( admin_url( 'admin.php?page=wc-setup-checklist' ) );
 				exit;
+			}
+		}
+	}
+
+	/**
+	 * Track Calypsoify events when turned on or off
+	 */
+	public function track_calypsoify_toggle() {
+		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
+			$current_user      = wp_get_current_user();
+			$calypsoify_status = (int) get_user_meta( $current_user->ID, 'calypsoify', true );
+			if ( 1 === $calypsoify_status && 0 === (int) $_GET['calypsoify'] ) { // WPCS: CSRF ok.
+				jetpack_tracks_record_event(
+					$current_user,
+					'atomic_wc_calypsoify_off'
+				);
+			} elseif ( 0 === $calypsoify_status && 1 === (int) $_GET['calypsoify'] ) { // WPCS: CSRF ok.
+				jetpack_tracks_record_event(
+					$current_user,
+					'atomic_wc_calypsoify_on'
+				);
 			}
 		}
 	}
