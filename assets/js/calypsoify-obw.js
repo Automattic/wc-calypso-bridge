@@ -29,6 +29,7 @@
     $( document ).on( 'click', '.toggle-store_address_edit', function( e ) {
         e.preventDefault();
         $( this ).closest( 'form' ).removeClass( 'store-address-preview-mode' );
+        window.jpTracksAJAX.record_ajax_event( 'atomic_wc_obw_edit_address', 'click' );
     } );
 
 } )( jQuery );
