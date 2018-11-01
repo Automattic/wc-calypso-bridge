@@ -37,6 +37,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 1 );
+		add_action( 'init', array( $this, 'check_setup_param' ) );
 	}
 
 	/**
@@ -92,6 +93,19 @@ class WC_Calypso_Bridge {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
 		add_filter( 'woocommerce_display_admin_footer_text', '__return_false' );
+	}
+
+	/**
+	 * Activates Calypsoify if the setup page is visited directly and it's not previously active.
+	 */
+	public function check_setup_param() {
+		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
+			if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
+				wp_safe_redirect( admin_url( 'admin.php?page=wc-setup-checklist' ) );
+				exit;
+			}
+		}
 	}
 
 }
