@@ -35,7 +35,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Hooks into WordPress to add our new setup checklist.
 	 */
 	private function __construct() {
-
 		// If setup has been completed, do nothing.
 		if ( true === (bool) get_option( 'atomic-ecommerce-setup-checklist-complete', false ) ) {
 			// Redirect to orders if setup is complete.
@@ -56,6 +55,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
 			add_action( 'admin_head', array( $this, 'remove_notices' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_checklist_styles' ) );
+
+			if ( isset( $_GET['finished'] ) ) {
+				add_action( 'admin_init', array( $this, 'mark_finished_and_redirect' ) );
+			}
 		}
 
 		if ( isset( $_GET['wc-setup-step'] ) ) {
@@ -97,6 +100,15 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	}
 
 	/**
+	 * Mark's the setup screen as complete (and redirects the user to the orders page)
+	 */
+	public function mark_finished_and_redirect() {
+		update_option( 'atomic-ecommerce-setup-checklist-complete', true );
+		wp_redirect( admin_url( 'edit.php?post_type=shop_order' ) );
+		exit;
+	}
+
+	/**
 	 * Remove all admin notices
 	 */
 	public function remove_notices() {
@@ -108,7 +120,17 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 */
 	public function load_checklist_styles() {
 		$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wc-calypso-bridge-setup-checklist', $asset_path . 'assets/css/setup-checklist.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
+		wp_enqueue_style( 'wc-calypso-bridge-setup-checklist-style', $asset_path . 'assets/css/setup-checklist.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
+		wp_enqueue_script( 'wc-calypso-bridge-setup-checklist', $asset_path . 'assets/js/setup-checklist.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+
+		wp_localize_script(
+			'wc-calypso-bridge-setup-checklist',
+			'i18nstrings',
+			array(
+				'hide' => esc_html__( 'Hide completed', 'wc-calypso-bridge' ),
+				'show' => esc_html__( 'Show completed', 'wc-calypso-bridge' ),
+			)
+		);
 	}
 
 	/**
@@ -434,8 +456,17 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	public function checklist() {
 		$data = $this->get_task_data();
 		$percentage = floor( ( $data['completed'] / $data['total'] ) * 100 );
+
+		$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
 		?>
-			<div class="checklist">
+			<div class="setup-header">
+				<img src="<?php echo esc_attr( $asset_path . 'assets/images/woocommerce-setup.svg' ); ?>" width="160" alt="" />
+				<div>
+					<h2><?php esc_html_e( 'Get ready to start selling.', 'wc-calypso-bridge' ); ?></h2>
+					<p><?php esc_html_e( "Here are the things you'll need to do to get started.", 'wc-calypso-bridge' ); ?></p>
+				</div>
+			</div>
+			<div id="checklist" class="checklist is-expanded">
 				<div class="checklist-card checklist__header is-compact">
 					<div class="checklist__header-main">
 						<div class="checklist__header-progress">
@@ -446,6 +477,13 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 							<div class="progress-bar__progress" style="width: <?php echo intval( $percentage ); ?>%;"></div>
 						</div>
 					</div>
+					<div class="checklist__header-secondary">
+						<label for="checklist__header-action" class="checklist__header-summary checklist__toggle checklist__header-complete-label">Hide completed</label>
+						<button id="checklist__header-action" class="checklist__header-action checklist__toggle">
+							<span class="screen-reader-text checklist__header-complete-label">Hide completed</span>
+							<svg class="gridicon gridicons-chevron-down" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M20 9l-8 8-8-8 1.414-1.414L12 14.172l6.586-6.586"></path></g></svg>
+						</button>
+					</div>
 				</div>
 				<div class="checklist__tasks">
 					<?php
@@ -454,6 +492,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 					}
 					?>
 				</div>
+			</div>
+			<div class="setup-footer">
+				<a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=wc-setup-checklist&finished=1' ) ); ?>"><?php esc_html_e( "I'm done setting up", 'wc-calypso-bridge' ); ?></a>
 			</div>
 		<?php
 	}

@@ -1,4 +1,32 @@
-/** Copied from Calypso code generated on 10/29/2018 */
+/** Styles for the header and footer of the setup checklist page */
+.setup-header {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	margin-top: 40px;
+}
+
+.setup-header h2 {
+	font-size: 2.25em;
+}
+
+.setup-header p {
+	line-height: 0;
+}
+
+.setup-footer {
+	text-align: center;
+}
+
+.setup-footer a {
+	font-weight: bold;
+}
+
+/** Checklist styles - copied from Calypso code generated on 10/29/2018 */
 
 .checklist {
 	margin: 20px 30px 25px 15px;
@@ -65,7 +93,9 @@
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
-	max-width: 40%;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
 }
 
 .checklist__header-progress {
@@ -101,6 +131,27 @@
 	color: #537994;
 	padding-left: 1em;
 }
+
+.checklist__header-secondary {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-flex: 2;
+	-ms-flex: 2 1;
+	flex: 2 1;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	padding-right: 36px;
+}
+
 
 .checklist__header-summary {
 	font-size: 12px;

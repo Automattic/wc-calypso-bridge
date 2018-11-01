@@ -912,3 +912,8 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 #wpadminbar ul li#wp-admin-bar-notes.active > .ab-item {
 	background: #004967 !important;
 }
+
+/* Hide "Thank you for creating with WordPress." and "You are using version ___" footer text. */
+#footer-thankyou, #footer-upgrade {
+	display: none;
+}
