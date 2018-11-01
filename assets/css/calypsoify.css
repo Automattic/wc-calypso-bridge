@@ -171,6 +171,24 @@ div.woocommerce-message, .wc-helper .start-container {
 	border: 0;
 }
 
+/* Navigation tabs */
+.woocommerce nav.woo-nav-tab-wrapper {
+	width: 100%;
+}
+.nav-tab, .subsubsub a, .filter-links li>a {
+	color: #00aadc;
+}
+.nav-tab-active, .nav-tab-active:focus, .nav-tab-active:focus:active, .nav-tab-active:hover {
+	border-bottom: 2px solid #2e4453;
+	color: #000;
+}
+.subsubsub a.current, .filter-links .current {
+	border-bottom: 2px solid #2e4453;
+}
+.subsubsub a.current {
+	font-weight: 400;
+}
+
 /* Pill toggle styles */
 .woocommerce-input-toggle {
 	background: #00aadc;
@@ -844,4 +862,23 @@ table.widefat {
 /* Breadcrumbs */
 .wc-calypso-bridge-breadcrumbs + h2 {
 	display: none;
+}
+
+/* Masterbar hover styles.
+TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497/ is released */
+
+#wpadminbar .ab-top-menu > li.hover > .ab-item,
+#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item {
+	background: #0099d8 !important;
+	color: #fff;
+}
+ #wpadminbar ul li#wp-admin-bar-ab-new-post:hover,
+#wpadminbar ul li#wp-admin-bar-ab-new-post:hover > .ab-item {
+	background: #fff !important;
+	opacity: 1;
+	border-radius: 5px;
+}
+ #wpadminbar ul li#wp-admin-bar-notes.active,
+#wpadminbar ul li#wp-admin-bar-notes.active > .ab-item {
+	background: #004967 !important;
 }
