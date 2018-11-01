@@ -510,7 +510,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			$task_url = admin_url( $task_url );
 		}
 		?>
-		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>">
+		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>" data-title="<?php echo esc_html( $task['title'] ); ?>">
 			<div class="checklist__task-primary">
 				<h3 class="checklist__task-title">
 					<?php
