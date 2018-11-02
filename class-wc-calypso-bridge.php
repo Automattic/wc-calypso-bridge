@@ -115,20 +115,34 @@ class WC_Calypso_Bridge {
 	 */
 	public function track_calypsoify_toggle() {
 		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
-			$current_user      = wp_get_current_user();
 			$calypsoify_status = (int) get_user_meta( $current_user->ID, 'calypsoify', true );
 			if ( 1 === $calypsoify_status && 0 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
 				|| 0 === $calypsoify_status && 1 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
 			) {
-				jetpack_tracks_record_event(
-					$current_user,
+				$this->record_event(
 					'atomic_wc_calypsoify_toggle',
-					array(
-						'blog_id' => Jetpack_Options::get_option( 'id' ),
-						'status'  => intval( $_GET['calypsoify'] ) ? 'on' : 'off', // WPCS: CSRF ok.
-					)
+					array( 'status' => intval( $_GET['calypsoify'] ) ? 'on' : 'off' ) // WPCS: CSRF ok.
 				);
 			}
+		}
+	}
+
+	/**
+	 * Record event using JetPack if enabled
+	 *
+	 * @param string $event_name Name of the event.
+	 * @param array  $event_params Custom event params to capture.
+	 */
+	public static function record_event( $event_name, $event_params ) {
+		if ( function_exists( 'jetpack_tracks_record_event' ) ) {
+			$current_user         = wp_get_current_user();
+			$default_event_params = array( 'blog_id' => Jetpack_Options::get_option( 'id' ) );
+			$event_params         = array_merge( $default_event_params, $event_params );
+			jetpack_tracks_record_event(
+				$current_user,
+				$event_name,
+				$event_params
+			);
 		}
 	}
 
