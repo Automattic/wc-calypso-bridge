@@ -30,15 +30,17 @@
         var complete = progressNumber[0];
         var total = progressNumber[1];
         var percentage = parseFloat( complete / total ).toFixed( 2 ) * 100;
-        window.jpTracksAJAX.record_ajax_event(
-            'atomic_wc_tasklist_finish',
-            'click',
-            { 
-                complete: complete,
-                total: total,
-                percentage: percentage
-            }
-        );
+        if (window.jpTracksAJAX) {
+            window.jpTracksAJAX.record_ajax_event(
+                'atomic_wc_tasklist_finish',
+                'click',
+                { 
+                    complete: complete,
+                    total: total,
+                    percentage: percentage
+                }
+            );
+        }
     } );
 
 } )( jQuery );
