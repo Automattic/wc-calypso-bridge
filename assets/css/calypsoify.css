@@ -936,6 +936,13 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	width: 225px;
 }
 
+@media screen and (max-width:782px) {
+	#calypso-sidebar-header ul li#calypso-sitename {
+		width: 150px;
+	}
+}
+
+
 #calypso-sidebar-header ul li#calypso-sitename:after {
 	content: '';
 	display: block;
