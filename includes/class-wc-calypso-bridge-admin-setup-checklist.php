@@ -187,12 +187,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		}
 
 		$whitelist = array( 'customize', 'shipping', 'product' );
-		$step = $_GET['wc-setup-step']; // WPCS: CSRF ok, sanitization ok.
+		$step      = $_GET['wc-setup-step']; // WPCS: CSRF ok, sanitization ok.
 		if ( ! in_array( $step, $whitelist ) ) {
 			return;
 		}
 
-		$click_settings = get_option( 'woocommerce_setup_checklist_clicks', array() );
+		$click_settings          = get_option( 'woocommerce_setup_checklist_clicks', array() );
 		$click_settings[ $step ] = true;
 
 		update_option( 'woocommerce_setup_checklist_clicks', $click_settings );
@@ -204,10 +204,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	public function menu_order_count() {
 		global $submenu;
 		if ( isset( $submenu['woocommerce'] ) ) {
-			$cache_key = 'woocommerce_setup_checklist_uncompleted_steps';
+			$cache_key   = 'woocommerce_setup_checklist_uncompleted_steps';
 			$setup_count = get_transient( $cache_key );
 			if ( false === $setup_count ) {
-				$data = $this->get_task_data();
+				$data        = $this->get_task_data();
 				$setup_count = $data['uncompleted'];
 				set_transient( $cache_key, $setup_count, 12 * HOUR_IN_SECONDS );
 			}
@@ -257,171 +257,186 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 		$all_tasks = array(
 			array(
-				'title' => __( 'Add a product', 'wc-calypso-bridge' ),
+				'id'              => 1,
+				'title'           => __( 'Add a product', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'Add another product', 'wc-calypso-bridge' ),
-				'description' => __( 'Start by adding your first product to your store.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'post-new.php?post_type=product&wc-setup-step=product',
-				'condition' => isset( $click_settings['product'] ) && true === (bool) $click_settings['product'],
+				'description'     => __( 'Start by adding your first product to your store.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'post-new.php?post_type=product&wc-setup-step=product',
+				'condition'       => isset( $click_settings['product'] ) && true === (bool) $click_settings['product'],
 			),
 
 			array(
-				'title' => __( 'View and customize', 'wc-calypso-bridge' ),
+				'id'              => 2,
+				'title'           => __( 'View and customize', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'Open customizer', 'wc-calypso-bridge' ),
-				'description' => __( 'You have access to a few themes with your plan. See the options, chose the right one for you and customize your store.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize',
-				'condition' => isset( $click_settings['customize'] ) && true === (bool) $click_settings['customize'],
+				'description'     => __( 'You have access to a few themes with your plan. See the options, chose the right one for you and customize your store.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize',
+				'condition'       => isset( $click_settings['customize'] ) && true === (bool) $click_settings['customize'],
 			),
 
 			array(
-				'title' => __( 'Review shipping', 'wc-calypso-bridge' ),
+				'id'              => 3,
+				'title'           => __( 'Review shipping', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( "We've set up a few shipping options based on your store location. Check them out to see if they're right for you.", 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=shipping&wc-setup-step=shipping',
-				'condition' => isset( $click_settings['shipping'] ) && true === (bool) $click_settings['shipping'],
+				'description'     => __( "We've set up a few shipping options based on your store location. Check them out to see if they're right for you.", 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=shipping&wc-setup-step=shipping',
+				'condition'       => isset( $click_settings['shipping'] ) && true === (bool) $click_settings['shipping'],
 			),
 
 			array(
-				'title' => __( 'Add live rates with UPS', 'wc-calypso-bridge' ),
+				'id'              => 4,
+				'title'           => __( 'Add live rates with UPS', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( "Showing shipping rates directly from UPS during checkout ensures you're charging customers the right amount for shipping.", 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=shipping&section=ups',
-				'condition' => ! empty( $ups_settings['user_id'] ) &&
+				'description'     => __( "Showing shipping rates directly from UPS during checkout ensures you're charging customers the right amount for shipping.", 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=shipping&section=ups',
+				'condition'       => ! empty( $ups_settings['user_id'] ) &&
 							   ! empty( $ups_settings['password'] ) &&
 							   ! empty( $ups_settings['access_key'] ) &&
 							   ! empty( $ups_settings['shipper_number'] ),
-				'extension' => 'woocommerce-shipping-ups/woocommerce-shipping-ups.php',
+				'extension'       => 'woocommerce-shipping-ups/woocommerce-shipping-ups.php',
 			),
 
 			array(
-				'title' => __( 'Add live rates with Canada Post', 'wc-calypso-bridge' ),
+				'id'              => 5,
+				'title'           => __( 'Add live rates with Canada Post', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Get shipping rates for domestic and international parcels.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'https://woocommerce.com/wc-api/canada_post_registration?return_url=' . WC()->api_request_url( 'canada_post_return' ),
-				'condition' => ! empty( $wc_canada_post_merchant_username ) &&
+				'description'     => __( 'Get shipping rates for domestic and international parcels.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'https://woocommerce.com/wc-api/canada_post_registration?return_url=' . WC()->api_request_url( 'canada_post_return' ),
+				'condition'       => ! empty( $wc_canada_post_merchant_username ) &&
 							   ! empty( $wc_canada_post_merchant_password ),
-				'extension' => 'woocommerce-shipping-canada-post/woocommerce-shipping-canada-post.php',
+				'extension'       => 'woocommerce-shipping-canada-post/woocommerce-shipping-canada-post.php',
 			),
 
 			array(
-				'title' => __( 'Setup payments with Square', 'wc-calypso-bridge' ),
+				'id'              => 6,
+				'title'           => __( 'Setup payments with Square', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Connect your Square account to accept credit and debit card, to track sales and sync inventory.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=integration&section=squareconnect',
-				'learn_more' => 'https://woocommerce.com/products/square/',
-				'condition' => ! empty( $square_merchant_access_token ),
-				'extension' => 'woocommerce-square/woocommerce-square.php',
+				'description'     => __( 'Connect your Square account to accept credit and debit card, to track sales and sync inventory.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=integration&section=squareconnect',
+				'learn_more'      => 'https://woocommerce.com/products/square/',
+				'condition'       => ! empty( $square_merchant_access_token ),
+				'extension'       => 'woocommerce-square/woocommerce-square.php',
 			),
 
 			array(
-				'title' => __( 'Setup payments with PayPal', 'wc-calypso-bridge' ),
+				'id'              => 7,
+				'title'           => __( 'Setup payments with PayPal', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Connect your PayPal account to let customers to conveniently checkout directly with PayPal.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=checkout&section=ppec_paypal',
-				'learn_more' => 'https://woocommerce.com/products/woocommerce-gateway-paypal-checkout/',
-				'condition' => ! empty( $paypal_settings['api_username'] ) &&
+				'description'     => __( 'Connect your PayPal account to let customers to conveniently checkout directly with PayPal.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=ppec_paypal',
+				'learn_more'      => 'https://woocommerce.com/products/woocommerce-gateway-paypal-checkout/',
+				'condition'       => ! empty( $paypal_settings['api_username'] ) &&
 							   ! empty( $paypal_settings['api_password'] ) &&
 							   ! empty( $paypal_settings['api_signature'] ) &&
 							   'yes' === $paypal_settings['enabled'],
-				'extension' => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
+				'extension'       => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
 			),
 
 			array(
-				'title' => __( 'Setup payments with Stripe', 'wc-calypso-bridge' ),
+				'id'              => 8,
+				'title'           => __( 'Setup payments with Stripe', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Connect your Stripe account to accept credit and debit card payments.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=checkout&section=stripe',
-				'learn_more' => 'https://woocommerce.com/products/stripe/',
-				'condition' => ! empty( $stripe_settings['publishable_key'] ) &&
+				'description'     => __( 'Connect your Stripe account to accept credit and debit card payments.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=stripe',
+				'learn_more'      => 'https://woocommerce.com/products/stripe/',
+				'condition'       => ! empty( $stripe_settings['publishable_key'] ) &&
 							   ! empty( $stripe_settings['secret_key'] ) &&
 							   'yes' === $stripe_settings['enabled'],
-				'extension' => 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php',
+				'extension'       => 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php',
 			),
 
 			array(
-				'title' => __( 'Setup payments with Klarna', 'wc-calypso-bridge' ),
+				'id'              => 9,
+				'title'           => __( 'Setup payments with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Connect your Klarna account to take payments with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=checkout&section=klarna_payments',
-				'learn_more' => 'https://woocommerce.com/products/klarna-payments/',
-				'condition' => 'yes' === $klarna_payments_settings['enabled'],
-				'extension' => 'klarna-payments-for-woocommerce/klarna-payments-for-woocommerce.php',
+				'description'     => __( 'Connect your Klarna account to take payments with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=klarna_payments',
+				'learn_more'      => 'https://woocommerce.com/products/klarna-payments/',
+				'condition'       => 'yes' === $klarna_payments_settings['enabled'],
+				'extension'       => 'klarna-payments-for-woocommerce/klarna-payments-for-woocommerce.php',
 			),
 
 			array(
-				'title' => __( 'Setup checkout with Klarna', 'wc-calypso-bridge' ),
+				'id'              => 10,
+				'title'           => __( 'Setup checkout with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Setup to provide a full checkout experience with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=checkout&section=kco',
-				'learn_more' => 'https://woocommerce.com/products/klarna-checkout/',
-				'condition' => 'yes' === $kco_settings['enabled'],
-				'extension' => 'klarna-checkout-for-woocommerce/klarna-checkout-for-woocommerce.php',
+				'description'     => __( 'Setup to provide a full checkout experience with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=kco',
+				'learn_more'      => 'https://woocommerce.com/products/klarna-checkout/',
+				'condition'       => 'yes' === $kco_settings['enabled'],
+				'extension'       => 'klarna-checkout-for-woocommerce/klarna-checkout-for-woocommerce.php',
 			),
 
 			array(
-				'title' => __( 'Setup payments with eWAY', 'wc-calypso-bridge' ),
+				'id'              => 11,
+				'title'           => __( 'Setup payments with eWAY', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Connect your eWay account to take credit card payments directly on your store.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=checkout&section=eway',
-				'condition' => ! empty( $eway_settings['customer_api'] ) &&
+				'description'     => __( 'Connect your eWay account to take credit card payments directly on your store.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=eway',
+				'condition'       => ! empty( $eway_settings['customer_api'] ) &&
 							   ! empty( $eway_settings['customer_password'] ) &&
 							   'yes' === $eway_settings['enabled'],
-				'extension' => 'woocommerce-gateway-eway/woocommerce-gateway-eway.php',
+				'extension'       => 'woocommerce-gateway-eway/woocommerce-gateway-eway.php',
 			),
 
 			array(
-				'title' => __( 'Setup payments with PayFast', 'wc-calypso-bridge' ),
+				'id'              => 12,
+				'title'           => __( 'Setup payments with PayFast', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Connect your PayFast account to accept payments by credit card and Electronic Fund Transfer.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=checkout&section=payfast',
-				'condition' => ! empty( $payfast_settings['merchant_id'] ) &&
+				'description'     => __( 'Connect your PayFast account to accept payments by credit card and Electronic Fund Transfer.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=payfast',
+				'condition'       => ! empty( $payfast_settings['merchant_id'] ) &&
 							   ! empty( $payfast_settings['merchant_key'] ) &&
 							   ! empty( $payfast_settings['pass_phrase'] ) &&
 							   'yes' === $payfast_settings['enabled'],
-				'extension' => 'woocommerce-payfast-gateway/gateway-payfast.php',
+				'extension'       => 'woocommerce-payfast-gateway/gateway-payfast.php',
 			),
 
 			array(
-				'title' => __( 'Enable automatic tax rates with TaxJar', 'wc-calypso-bridge' ),
+				'id'              => 13,
+				'title'           => __( 'Enable automatic tax rates with TaxJar', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Automatically collect sales tax at checkout by connecting with TaxJar.', 'wc-calypso-bridge' ),
-				'estimate' => '2',
-				'link' => 'admin.php?page=wc-settings&tab=integration&section=taxjar-integration',
-				'condition' => ! empty( $taxjar_settings['api_token'] ),
-				'extension' => 'taxjar-simplified-taxes-for-woocommerce/taxjar-woocommerce.php',
+				'description'     => __( 'Automatically collect sales tax at checkout by connecting with TaxJar.', 'wc-calypso-bridge' ),
+				'estimate'        => '2',
+				'link'            => 'admin.php?page=wc-settings&tab=integration&section=taxjar-integration',
+				'condition'       => ! empty( $taxjar_settings['api_token'] ),
+				'extension'       => 'taxjar-simplified-taxes-for-woocommerce/taxjar-woocommerce.php',
 			),
 
 			array(
-				'title' => __( 'Integrate with Facebook', 'wc-calypso-bridge' ),
+				'id'              => 14,
+				'title'           => __( 'Integrate with Facebook', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Integrating Facebook with your store and drive sales.', 'wc-calypso-bridge' ),
-				'estimate' => '20',
-				'link' => 'admin.php?page=wc-settings&tab=integration&section=facebookcommerce',
-				'learn_more' => 'https://www.facebook.com/business/help/900699293402826',
-				'condition' => ! empty( $facebook_settings['fb_api_key'] ),
-				'extension' => 'facebook-for-woocommerce/facebook-for-woocommerce.php',
+				'description'     => __( 'Integrating Facebook with your store and drive sales.', 'wc-calypso-bridge' ),
+				'estimate'        => '20',
+				'link'            => 'admin.php?page=wc-settings&tab=integration&section=facebookcommerce',
+				'learn_more'      => 'https://www.facebook.com/business/help/900699293402826',
+				'condition'       => ! empty( $facebook_settings['fb_api_key'] ),
+				'extension'       => 'facebook-for-woocommerce/facebook-for-woocommerce.php',
 			),
 
 			array(
-				'title' => __( 'Integrate with Mailchimp', 'wc-calypso-bridge' ),
+				'id'              => 15,
+				'title'           => __( 'Integrate with Mailchimp', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
-				'description' => __( 'Connect your store to bring the power of email marketing to your business.', 'wc-calypso-bridge' ),
-				'estimate' => '20',
-				'link' => 'options-general.php?page=mailchimp-woocommerce',
-				'learn_more' => 'https://wordpress.org/plugins/mailchimp-for-woocommerce/',
-				'condition' => ! empty( $mailchimp_settings['mailchimp_api_key'] ),
-				'extension' => 'mailchimp-for-woocommerce/mailchimp-woocommerce.php',
+				'description'     => __( 'Connect your store to bring the power of email marketing to your business.', 'wc-calypso-bridge' ),
+				'estimate'        => '20',
+				'link'            => 'options-general.php?page=mailchimp-woocommerce',
+				'learn_more'      => 'https://wordpress.org/plugins/mailchimp-for-woocommerce/',
+				'condition'       => ! empty( $mailchimp_settings['mailchimp_api_key'] ),
+				'extension'       => 'mailchimp-for-woocommerce/mailchimp-woocommerce.php',
 			),
 		);
 
@@ -454,7 +469,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Renders the checklist display.
 	 */
 	public function checklist() {
-		$data = $this->get_task_data();
+		$data       = $this->get_task_data();
 		$percentage = floor( ( $data['completed'] / $data['total'] ) * 100 );
 
 		$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
@@ -510,7 +525,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			$task_url = admin_url( $task_url );
 		}
 		?>
-		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>" data-title="<?php echo esc_html( $task['title'] ); ?>">
+		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>" data-id="<?php echo intval( $task['id'] ); ?>" data-title="<?php echo esc_html( $task['title'] ); ?>">
 			<div class="checklist__task-primary">
 				<h3 class="checklist__task-title">
 					<?php
@@ -536,10 +551,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				<?php
 				if ( true === $task['condition'] ) {
 					$action_link_secondary_class = 'checklist__task-action';
-					$title = $task['completed_title'];
+					$title                       = $task['completed_title'];
 				} else {
 					$action_link_secondary_class = 'button-primary';
-					$title = __( 'Do it', 'wc-calypso-bridge' );
+					$title                       = __( 'Do it', 'wc-calypso-bridge' );
 				}
 				echo '<a href="' . esc_url( $task_url ) . '" class=" ' . esc_html( $action_link_secondary_class ) . '">' . esc_html( $title ) . '</a>';
 				?>
