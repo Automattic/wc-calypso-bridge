@@ -257,7 +257,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 		$all_tasks = array(
 			array(
-				'id'              => 1,
+				'id'              => 'add-product',
 				'title'           => __( 'Add a product', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'Add another product', 'wc-calypso-bridge' ),
 				'description'     => __( 'Start by adding your first product to your store.', 'wc-calypso-bridge' ),
@@ -267,7 +267,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 2,
+				'id'              => 'customize',
 				'title'           => __( 'View and customize', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'Open customizer', 'wc-calypso-bridge' ),
 				'description'     => __( 'You have access to a few themes with your plan. See the options, chose the right one for you and customize your store.', 'wc-calypso-bridge' ),
@@ -277,7 +277,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 3,
+				'id'              => 'shipping',
 				'title'           => __( 'Review shipping', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( "We've set up a few shipping options based on your store location. Check them out to see if they're right for you.", 'wc-calypso-bridge' ),
@@ -287,7 +287,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 4,
+				'id'              => 'ups',
 				'title'           => __( 'Add live rates with UPS', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( "Showing shipping rates directly from UPS during checkout ensures you're charging customers the right amount for shipping.", 'wc-calypso-bridge' ),
@@ -301,7 +301,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 5,
+				'id'              => 'canada-post',
 				'title'           => __( 'Add live rates with Canada Post', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Get shipping rates for domestic and international parcels.', 'wc-calypso-bridge' ),
@@ -313,7 +313,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 6,
+				'id'              => 'square',
 				'title'           => __( 'Setup payments with Square', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Square account to accept credit and debit card, to track sales and sync inventory.', 'wc-calypso-bridge' ),
@@ -325,7 +325,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 7,
+				'id'              => 'paypal',
 				'title'           => __( 'Setup payments with PayPal', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your PayPal account to let customers to conveniently checkout directly with PayPal.', 'wc-calypso-bridge' ),
@@ -340,7 +340,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 8,
+				'id'              => 'stripe',
 				'title'           => __( 'Setup payments with Stripe', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Stripe account to accept credit and debit card payments.', 'wc-calypso-bridge' ),
@@ -354,7 +354,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 9,
+				'id'              => 'klarna-payments',
 				'title'           => __( 'Setup payments with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Klarna account to take payments with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
@@ -366,7 +366,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 10,
+				'id'              => 'klarna-checkout',
 				'title'           => __( 'Setup checkout with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Setup to provide a full checkout experience with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
@@ -378,7 +378,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 11,
+				'id'              => 'eway',
 				'title'           => __( 'Setup payments with eWAY', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your eWay account to take credit card payments directly on your store.', 'wc-calypso-bridge' ),
@@ -391,7 +391,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 12,
+				'id'              => 'payfast',
 				'title'           => __( 'Setup payments with PayFast', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your PayFast account to accept payments by credit card and Electronic Fund Transfer.', 'wc-calypso-bridge' ),
@@ -405,7 +405,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 13,
+				'id'              => 'taxjar',
 				'title'           => __( 'Enable automatic tax rates with TaxJar', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Automatically collect sales tax at checkout by connecting with TaxJar.', 'wc-calypso-bridge' ),
@@ -416,7 +416,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 14,
+				'id'              => 'facebook',
 				'title'           => __( 'Integrate with Facebook', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Integrating Facebook with your store and drive sales.', 'wc-calypso-bridge' ),
@@ -428,7 +428,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 
 			array(
-				'id'              => 15,
+				'id'              => 'mailchimp',
 				'title'           => __( 'Integrate with Mailchimp', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your store to bring the power of email marketing to your business.', 'wc-calypso-bridge' ),
@@ -525,7 +525,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			$task_url = admin_url( $task_url );
 		}
 		?>
-		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>" data-id="<?php echo intval( $task['id'] ); ?>" data-title="<?php echo esc_html( $task['title'] ); ?>">
+		<div class="checklist-card checklist__task has-actionlink is-compact <?php echo $task['condition'] ? 'is-completed' : ''; ?>" data-id="<?php echo esc_html( $task['id'] ); ?>" data-title="<?php echo esc_html( $task['title'] ); ?>">
 			<div class="checklist__task-primary">
 				<h3 class="checklist__task-title">
 					<?php

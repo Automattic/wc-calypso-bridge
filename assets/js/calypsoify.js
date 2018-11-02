@@ -14,7 +14,7 @@
             'atomic_wc_tasklist_click',
             'click',
             {
-                id: parseInt( taskId ),
+                id: taskId,
                 title: taskTitle, 
                 status: status,
             }
