@@ -10,7 +10,7 @@
         var taskTitle = $task.data('title');
 
         window.jpTracksAJAX.record_ajax_event(
-            'atomic_wc_tasklist_clicked',
+            'atomic_wc_tasklist_click',
             'click',
             { 
                 title: taskTitle, 
@@ -29,7 +29,7 @@
         var total = progressNumber[1];
         var percentage = parseFloat( complete / total ).toFixed( 2 ) * 100;
         window.jpTracksAJAX.record_ajax_event(
-            'atomic_wc_tasklist_finished',
+            'atomic_wc_tasklist_finish',
             'click',
             { 
                 complete: complete,
