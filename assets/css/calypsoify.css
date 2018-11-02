@@ -894,6 +894,12 @@ table.widefat {
 	display: none;
 }
 
+/* Masterbar */
+/* @TODO: can be removed if https://github.com/Automattic/jetpack/pull/10523 is merged*/
+#wpadminbar {
+	position: fixed;
+}
+
 /* Masterbar hover styles.
 TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497/ is released */
 
