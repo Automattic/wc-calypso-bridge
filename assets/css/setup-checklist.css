@@ -11,11 +11,17 @@
 }
 
 .setup-header h2 {
-	font-size: 2.25em;
+    font-size: 32px;
+	font-weight: 500;
+	line-height: 40px;
+	margin-bottom: 14px;
 }
 
 .setup-header p {
-	line-height: 0;
+	line-height: 1.5;
+	color: #6a748e;
+	margin: 0;
+	font-size: 14px;
 }
 
 .setup-footer {
@@ -24,6 +30,20 @@
 
 .setup-footer a {
 	font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+	.setup-header {
+		flex-direction: column;
+		text-align: center;
+	}
+	.setup-header h2 {
+		margin-top: 0;
+	}
+	.setup-header img {
+		max-width: 107px;
+		margin: 0 auto;
+	}
 }
 
 /** Checklist styles - copied from Calypso code generated on 10/29/2018 */
@@ -468,4 +488,62 @@
 
 #klarna-kp-banner, #klarna-banner {
 	display: none;
+}
+
+/* Checklist overrides */
+
+.checklist__header-action {
+    background: #fff;
+}
+.checklist__header-summary {
+    font-size: 13px;
+}
+.checklist__header-progress {
+    font-size: 15px;
+}
+.checklist__header-progress-text {
+    font-size: 15px;
+}
+.checklist__task-title {
+    margin-bottom: 5px;
+}
+.checklist__task-description {
+	line-height: 16px;
+}
+.checklist__task-duration {
+    font-size: 13px;
+}
+.checklist__task-icon {
+	left: 25px;
+	border-width: 1px;
+	cursor: default;
+}
+.checklist-card:not(.is-completed) .checklist__task-icon:hover,
+.checklist-card:not(.is-completed) .checklist__task-icon:focus {
+    background: #fff;
+	border-color: #c8d7e1;
+	cursor: default;
+}
+
+@media (max-width: 480px) {
+	.wp-core-ui .checklist__task-secondary .button-primary {
+		color: #2e4453 !important;
+		background: #fff !important;
+		border-color: #c8d7e1 !important;
+	}
+	.wp-core-ui .checklist__task-secondary .button-primary:hover,
+	.wp-core-ui .checklist__task-secondary .button-primary:focus {
+		color: #2e4453 !important;
+		border-color: #a8bece !important;
+		background: #fff !important;
+	}
+	.checklist__task-secondary {
+		justify-content: flex-start;
+	}
+}
+
+@media (max-width: 600px) {
+	.checklist {
+		margin: 20px 0px 25px -15px;
+	}
 }

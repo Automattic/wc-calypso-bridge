@@ -112,7 +112,8 @@ div.woocommerce-message, .wc-helper .start-container {
 .wc_addons_wrap .addons-button-outline-green,
 .wc_addons_wrap .addons-button-outline-white,
 .edit-tag-actions .button-primary,
-.woocommerce-BlankState a.button {
+.woocommerce-BlankState a.button,
+.setup-footer a {
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
