@@ -117,15 +117,15 @@ class WC_Calypso_Bridge {
 		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
 			$current_user      = wp_get_current_user();
 			$calypsoify_status = (int) get_user_meta( $current_user->ID, 'calypsoify', true );
-			if ( 1 === $calypsoify_status && 0 === (int) $_GET['calypsoify'] ) { // WPCS: CSRF ok.
+			if ( 1 === $calypsoify_status && 0 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
+				|| 0 === $calypsoify_status && 1 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
+			) {
 				jetpack_tracks_record_event(
 					$current_user,
-					'atomic_wc_calypsoify_off'
-				);
-			} elseif ( 0 === $calypsoify_status && 1 === (int) $_GET['calypsoify'] ) { // WPCS: CSRF ok.
-				jetpack_tracks_record_event(
-					$current_user,
-					'atomic_wc_calypsoify_on'
+					'atomic_wc_calypsoify_toggle',
+					array(
+						'status' => intval( $_GET['calypsoify'] ) ? 'on' : 'off', // WPCS: CSRF ok.
+					)
 				);
 			}
 		}
