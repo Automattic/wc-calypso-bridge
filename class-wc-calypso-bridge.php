@@ -124,7 +124,8 @@ class WC_Calypso_Bridge {
 					$current_user,
 					'atomic_wc_calypsoify_toggle',
 					array(
-						'status' => intval( $_GET['calypsoify'] ) ? 'on' : 'off', // WPCS: CSRF ok.
+						'blog_id' => Jetpack_Options::get_option( 'id' ),
+						'status'  => intval( $_GET['calypsoify'] ) ? 'on' : 'off', // WPCS: CSRF ok.
 					)
 				);
 			}
