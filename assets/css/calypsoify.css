@@ -919,6 +919,11 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 	background: #004967 !important;
 }
 
+/* Fix title padding */
+.wp-admin .wrap h1, .wp-admin .wrap h2 {
+	padding-left: 0;
+}
+
 /* Hide "Thank you for creating with WordPress." and "You are using version ___" footer text. */
 #footer-thankyou, #footer-upgrade {
 	display: none;
