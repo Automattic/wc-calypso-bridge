@@ -159,11 +159,11 @@ div.woocommerce-message, .wc-helper .start-container {
 	color: #d94f4f;
 }
 #delete-link {
-    line-height: 38px;
-    margin-left: 12px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #d94f4f;
+	line-height: 38px;
+	margin-left: 12px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #d94f4f;
 }
 
 /* White background behind the WooCommerce helper extensions navigation */
@@ -894,6 +894,12 @@ table.widefat {
 	display: none;
 }
 
+/* Masterbar */
+/* @TODO: can be removed if https://github.com/Automattic/jetpack/pull/10523 is merged*/
+#wpadminbar {
+	position: fixed;
+}
+
 /* Masterbar hover styles.
 TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497/ is released */
 
@@ -902,13 +908,13 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 	background: #0099d8 !important;
 	color: #fff;
 }
- #wpadminbar ul li#wp-admin-bar-ab-new-post:hover,
+#wpadminbar ul li#wp-admin-bar-ab-new-post:hover,
 #wpadminbar ul li#wp-admin-bar-ab-new-post:hover > .ab-item {
 	background: #fff !important;
 	opacity: 1;
 	border-radius: 5px;
 }
- #wpadminbar ul li#wp-admin-bar-notes.active,
+#wpadminbar ul li#wp-admin-bar-notes.active,
 #wpadminbar ul li#wp-admin-bar-notes.active > .ab-item {
 	background: #004967 !important;
 }
@@ -1103,5 +1109,15 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	.wrap div.updated a.button,
 	.wrap div.updated a.button-primary {
 		font-size: 12px !important;
+	}
+}
+/* Admin menu */
+/* Can be removed pending merge of https://github.com/Automattic/jetpack/pull/10552 */
+@media screen and (max-width: 600px) {
+	#calypso-sidebar-header {
+		top: 32px;
+	}
+	.auto-fold #adminmenu {
+		top: 32px;
 	}
 }
