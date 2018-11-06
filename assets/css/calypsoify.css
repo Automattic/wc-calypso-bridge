@@ -894,6 +894,12 @@ table.widefat {
 	display: none;
 }
 
+/* Masterbar */
+/* @TODO: can be removed if https://github.com/Automattic/jetpack/pull/10523 is merged*/
+#wpadminbar {
+	position: fixed;
+}
+
 /* Masterbar hover styles.
 TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497/ is released */
 
@@ -916,4 +922,207 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 /* Fix title padding */
 .wp-admin .wrap h1, .wp-admin .wrap h2 {
 	padding-left: 0;
+}
+
+/* Hide "Thank you for creating with WordPress." and "You are using version ___" footer text. */
+#footer-thankyou, #footer-upgrade {
+	display: none;
+}
+
+/* Connected to WooCommerce.com dropdown on extension subscription page */
+.wc-helper .user-info section a {
+	color: #0073aa;
+}
+
+.wc-helper .user-info section a:hover {
+	background: transparent;
+	color: #00a0d2;
+}
+
+/* Site title fix for long titles.
+TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507 is released */
+#calypso-sidebar-header ul li#calypso-sitename {
+	overflow: hidden;
+	white-space: nowrap;
+	width: 225px;
+}
+
+@media screen and (max-width:782px) {
+	#calypso-sidebar-header ul li#calypso-sitename {
+		width: 150px;
+	}
+}
+
+
+#calypso-sidebar-header ul li#calypso-sitename:after {
+	content: '';
+	display: block;
+	position: absolute;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(90%, #fff));
+	background: linear-gradient(to right, rgba(255,255,255,0), #fff 90%);
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: auto;
+	width: 20%;
+	height: auto;
+}
+/* Notices */
+.wrap div.notice,
+.wrap div.updated, 
+.wrap div.error {
+	display: flex;
+	position: relative;
+	width: 100%;
+	margin: 0 0 24px 0;
+	padding: 0;
+	box-sizing: border-box;
+	animation: appear .3s ease-in-out;
+	background: #2e4453;
+	color: #fff;
+	border-radius: 3px;
+	font-size: 14px;
+	line-height: 1.5;
+	border: 0;
+	overflow: hidden;
+}
+.wrap div.notice > p,
+.wrap div.updated > p, 
+.wrap div.error > p,
+.wc-calypso-bridge-notice-content {
+	padding: 8px 13px;
+	margin: 0;
+	flex-direction: column;
+}
+.wc-calypso-bridge-notice-content p {
+	margin: 5px 0;
+	font-size: 14px;
+}
+.wrap div.notice a,
+.wrap div.updated a, 
+.wrap div.error a {
+	color: #fff;
+}
+.wrap div.notice p.submit,
+.wrap div.updated p.submit, 
+.wrap div.error p.submit {
+	display: flex;
+	-ms-flex-negative: 1;
+	flex-shrink: 1;
+	-webkit-box-flex: 0;
+	-ms-flex-positive: 0;
+	flex-grow: 0;
+	margin: 0 0 0 auto !important;
+	padding: 13px 16px;
+	justify-content: center;
+}
+.wrap div.notice .button,
+.wrap div.notice .button-primary,
+.wrap div.updated .button, 
+.wrap div.updated .button-primary, 
+.wrap div.error .button,
+.wrap div.error .button-primary {
+	color: #a8bece;
+	background: transparent !important;
+	border-width: 0 !important;
+	font-size: 14px !important;
+	font-weight: 400 !important;
+	padding: 0 !important;
+}
+.wrap div.notice .button:hover,
+.wrap div.notice .button-primary:hover,
+.wrap div.updated .button:hover, 
+.wrap div.updated .button-primary:hover, 
+.wrap div.error .button:hover,
+.wrap div.error .button-primary:hover {
+	color: #fff;
+	background: transparent !important;
+}
+.wrap div.notice .button:active,
+.wrap div.notice .button-primary:active,
+.wrap div.updated .button:active, 
+.wrap div.updated .button-primary:active, 
+.wrap div.error .button:active,
+.wrap div.error .button-primary:active {
+	vertical-align: baseline;
+}
+.wc-calypso-bridge-notice-icon-wrapper {
+	position: relative;
+	background: #537994;
+	color: #fff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	width: 47px;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	border-radius: 3px 0 0 3px;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	-ms-flex-item-align: stretch;
+	align-self: stretch;
+	align-items: center;
+}
+.wc-calypso-bridge-notice-icon-wrapper svg path {
+	fill: #fff;
+}
+.error .wc-calypso-bridge-notice-icon-wrapper {
+	background: #ea4149;
+}
+.notice-success .wc-calypso-bridge-notice-icon-wrapper {
+	background: #4ab866;
+}
+.notice-warning .wc-calypso-bridge-notice-icon-wrapper {
+	background: #f0b849;
+}
+.notice-dismiss {
+	height: 100%;
+	margin: 0 0 0 auto !important;
+	position: static;
+	padding: 9px !important;
+}
+.notice-dismiss:before {
+	display: none;
+}
+.notice-dismiss:focus {
+	box-shadow: none;
+}
+.notice-dismiss svg path {
+	fill: #a8bece;
+}
+.notice-dismiss:hover svg path {
+	fill: #fff;
+}
+@media screen and (max-width: 480px) {
+	.wrap div.notice p,
+	.wrap div.notice a.button,
+	.wrap div.notice a.button-primary,
+	.wrap div.error p,
+	.wrap div.error a.button,
+	.wrap div.error a.button-primary,
+	.wrap div.updated p,
+	.wrap div.updated a.button,
+	.wrap div.updated a.button-primary {
+		font-size: 12px !important;
+	}
+}
+/* Admin menu */
+/* Can be removed pending merge of https://github.com/Automattic/jetpack/pull/10552 */
+@media screen and (max-width: 600px) {
+	#calypso-sidebar-header {
+		top: 32px;
+	}
+	.auto-fold #adminmenu {
+		top: 32px;
+	}
 }

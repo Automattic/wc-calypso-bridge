@@ -37,16 +37,19 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 1 );
+		add_action( 'init', array( $this, 'check_setup_param' ) );
 	}
 
 	/**
 	 * Load calypsoify plugins if query param / user setting is set
 	 */
 	public function possibly_load_calypsoify() {
+		add_action( 'admin_init', array( $this, 'track_calypsoify_toggle' ) );
 		if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 			$this->includes();
 			// Hook on `admin_print_styles`, after some WC CSS is hooked, so we can override a few '!important' styles.
-			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_styles' ), 11 );
+			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
+			add_action( 'admin_init', array( $this, 'remove_woocommerce_footer_text' ) );
 		}
 	}
 
@@ -88,10 +91,66 @@ class WC_Calypso_Bridge {
 	/**
 	 * Add calypsoify styles
 	 */
-	public function enqueue_calypsoify_styles() {
+	public function enqueue_calypsoify_scripts() {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
+		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
+	}
+
+	/**
+	 * Remove WooCommerce footer text
+	 */
+	public function remove_woocommerce_footer_text() {
 		add_filter( 'woocommerce_display_admin_footer_text', '__return_false' );
+	}
+
+	/**
+	 * Activates Calypsoify if the setup page is visited directly and it's not previously active.
+	 */
+	public function check_setup_param() {
+		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
+			if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
+				wp_safe_redirect( admin_url( 'admin.php?page=wc-setup-checklist' ) );
+				exit;
+			}
+		}
+	}
+
+	/**
+	 * Track Calypsoify events when turned on or off
+	 */
+	public function track_calypsoify_toggle() {
+		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
+			$calypsoify_status = (int) get_user_meta( $current_user->ID, 'calypsoify', true );
+			if ( 1 === $calypsoify_status && 0 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
+				|| 0 === $calypsoify_status && 1 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
+			) {
+				$this->record_event(
+					'atomic_wc_calypsoify_toggle',
+					array( 'status' => intval( $_GET['calypsoify'] ) ? 'on' : 'off' ) // WPCS: CSRF ok.
+				);
+			}
+		}
+	}
+
+	/**
+	 * Record event using JetPack if enabled
+	 *
+	 * @param string $event_name Name of the event.
+	 * @param array  $event_params Custom event params to capture.
+	 */
+	public static function record_event( $event_name, $event_params ) {
+		if ( function_exists( 'jetpack_tracks_record_event' ) ) {
+			$current_user         = wp_get_current_user();
+			$default_event_params = array( 'blog_id' => Jetpack_Options::get_option( 'id' ) );
+			$event_params         = array_merge( $default_event_params, $event_params );
+			jetpack_tracks_record_event(
+				$current_user,
+				$event_name,
+				$event_params
+			);
+		}
 	}
 
 }
