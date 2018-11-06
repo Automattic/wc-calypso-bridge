@@ -963,9 +963,9 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	height: auto;
 }
 /* Notices */
-div.notice,
-div.updated, 
-div.error {
+.wrap div.notice,
+.wrap div.updated, 
+.wrap div.error {
 	display: flex;
 	position: relative;
 	width: 100%;
@@ -981,9 +981,9 @@ div.error {
 	border: 0;
 	overflow: hidden;
 }
-div.notice > p,
-div.updated > p, 
-div.error > p,
+.wrap div.notice > p,
+.wrap div.updated > p, 
+.wrap div.error > p,
 .wc-calypso-bridge-notice-content {
 	padding: 8px 13px;
 	margin: 0;
@@ -993,14 +993,14 @@ div.error > p,
 	margin: 5px 0;
 	font-size: 14px;
 }
-div.notice a,
-div.updated a, 
-div.error a {
+.wrap div.notice a,
+.wrap div.updated a, 
+.wrap div.error a {
 	color: #fff;
 }
-div.notice p.submit,
-div.updated p.submit, 
-div.error p.submit {
+.wrap div.notice p.submit,
+.wrap div.updated p.submit, 
+.wrap div.error p.submit {
 	display: flex;
 	-ms-flex-negative: 1;
 	flex-shrink: 1;
@@ -1011,12 +1011,12 @@ div.error p.submit {
 	padding: 13px 16px;
 	justify-content: center;
 }
-div.notice .button,
-div.notice .button-primary,
-div.updated .button, 
-div.updated .button-primary, 
-div.error .button,
-div.error .button-primary {
+.wrap div.notice .button,
+.wrap div.notice .button-primary,
+.wrap div.updated .button, 
+.wrap div.updated .button-primary, 
+.wrap div.error .button,
+.wrap div.error .button-primary {
 	color: #a8bece;
 	background: transparent !important;
 	border-width: 0 !important;
@@ -1024,21 +1024,21 @@ div.error .button-primary {
 	font-weight: 400 !important;
 	padding: 0 !important;
 }
-div.notice .button:hover,
-div.notice .button-primary:hover,
-div.updated .button:hover, 
-div.updated .button-primary:hover, 
-div.error .button:hover,
-div.error .button-primary:hover {
+.wrap div.notice .button:hover,
+.wrap div.notice .button-primary:hover,
+.wrap div.updated .button:hover, 
+.wrap div.updated .button-primary:hover, 
+.wrap div.error .button:hover,
+.wrap div.error .button-primary:hover {
 	color: #fff;
 	background: transparent !important;
 }
-div.notice .button:active,
-div.notice .button-primary:active,
-div.updated .button:active, 
-div.updated .button-primary:active, 
-div.error .button:active,
-div.error .button-primary:active {
+.wrap div.notice .button:active,
+.wrap div.notice .button-primary:active,
+.wrap div.updated .button:active, 
+.wrap div.updated .button-primary:active, 
+.wrap div.error .button:active,
+.wrap div.error .button-primary:active {
 	vertical-align: baseline;
 }
 .wc-calypso-bridge-notice-icon-wrapper {
@@ -1093,15 +1093,15 @@ div.error .button-primary:active {
 	fill: #fff;
 }
 @media screen and (max-width: 480px) {
-	div.notice p,
-	div.notice a.button,
-	div.notice a.button-primary,
-	div.error p,
-	div.error a.button,
-	div.error a.button-primary,
-	div.updated p,
-	div.updated a.button,
-	div.updated a.button-primary {
+	.wrap div.notice p,
+	.wrap div.notice a.button,
+	.wrap div.notice a.button-primary,
+	.wrap div.error p,
+	.wrap div.error a.button,
+	.wrap div.error a.button-primary,
+	.wrap div.updated p,
+	.wrap div.updated a.button,
+	.wrap div.updated a.button-primary {
 		font-size: 12px !important;
 	}
 }
