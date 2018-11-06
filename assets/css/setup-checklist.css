@@ -11,7 +11,7 @@
 }
 
 .setup-header h2 {
-    font-size: 32px;
+	font-size: 32px;
 	font-weight: 500;
 	line-height: 40px;
 	margin-bottom: 14px;
@@ -493,25 +493,25 @@
 /* Checklist overrides */
 
 .checklist__header-action {
-    background: #fff;
+	background: #fff;
 }
 .checklist__header-summary {
-    font-size: 13px;
+	font-size: 13px;
 }
 .checklist__header-progress {
-    font-size: 15px;
+	font-size: 15px;
 }
 .checklist__header-progress-text {
-    font-size: 15px;
+	font-size: 15px;
 }
 .checklist__task-title {
-    margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 .checklist__task-description {
 	line-height: 16px;
 }
 .checklist__task-duration {
-    font-size: 13px;
+	font-size: 13px;
 }
 .checklist__task-icon {
 	left: 25px;
@@ -520,7 +520,7 @@
 }
 .checklist-card:not(.is-completed) .checklist__task-icon:hover,
 .checklist-card:not(.is-completed) .checklist__task-icon:focus {
-    background: #fff;
+	background: #fff;
 	border-color: #c8d7e1;
 	cursor: default;
 }
