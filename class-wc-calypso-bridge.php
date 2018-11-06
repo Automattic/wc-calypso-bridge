@@ -36,8 +36,31 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 1 );
+		add_action( 'init', array( $this, 'check_calyposify_param' ), 1 );
 		add_action( 'init', array( $this, 'check_setup_param' ) );
+		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 2 );
+	}
+
+	/**
+	 * Check for calypsoify param in URL
+	 *
+	 * We use our own check since Jetpack's does not load fast enough and
+	 * only hooks on admin_init which won't be run by wc-setup
+	 */
+	public function check_calyposify_param() {
+		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
+			if ( 1 === (int) $_GET['calypsoify'] ) { // WPCS: CSRF ok.
+				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
+			} else {
+				update_user_meta( get_current_user_id(), 'calypsoify', 0 );
+			}
+
+			if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+				$page = remove_query_arg( 'calypsoify', wp_basename( $_SERVER['REQUEST_URI'] ) ); // WPCS: Sanitization ok.
+				wp_safe_redirect( admin_url( $page ) );
+				exit;
+			}
+		}
 	}
 
 	/**
@@ -108,7 +131,7 @@ class WC_Calypso_Bridge {
 	 * Activates Calypsoify if the setup page is visited directly and it's not previously active.
 	 */
 	public function check_setup_param() {
-		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
+		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) { // WPCS: CSRF ok.
 			if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
 				wp_safe_redirect( admin_url( 'admin.php?page=wc-setup-checklist' ) );
@@ -154,5 +177,6 @@ class WC_Calypso_Bridge {
 	}
 
 }
-
-WC_Calypso_Bridge::instance();
+if ( is_admin() ) {
+	WC_Calypso_Bridge::instance();
+}
