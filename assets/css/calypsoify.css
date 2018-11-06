@@ -963,21 +963,9 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	height: auto;
 }
 /* Notices */
-.wc-calypso-bridge-notices {
-	position: fixed;
-	top: 73px;
-	right: 32px;
-	z-index: 10000;
-	max-width: calc( 100% - 64px);
-}
 div.notice,
 div.updated, 
 div.error {
-	display: none;
-}
-.wc-calypso-bridge-notices div.notice,
-.wc-calypso-bridge-notices div.updated, 
-.wc-calypso-bridge-notices div.error {
 	display: flex;
 	position: relative;
 	width: 100%;
@@ -992,9 +980,6 @@ div.error {
 	line-height: 1.5;
 	border: 0;
 	overflow: hidden;
-}
-.wc-calypso-bridge-notices div:not(.hidden) {
-	display: flex !important;
 }
 div.notice > p,
 div.updated > p, 
@@ -1108,22 +1093,15 @@ div.error .button-primary:active {
 	fill: #fff;
 }
 @media screen and (max-width: 480px) {
-	.wc-calypso-bridge-notices {
-		top: auto;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		max-width: 100%;
-	}
-	.wc-calypso-bridge-notices div.notice,
-	.wc-calypso-bridge-notices div.updated,
-	.wc-calypso-bridge-notices div.error {
-		margin-bottom: 0;
-		border-radius: 0;
-	}
-	.wc-calypso-bridge-notices p,
-	.wc-calypso-bridge-notices a.button,
-	.wc-calypso-bridge-notices a.button-primary {
+	div.notice p,
+	div.notice a.button,
+	div.notice a.button-primary,
+	div.error p,
+	div.error a.button,
+	div.error a.button-primary,
+	div.updated p,
+	div.updated a.button,
+	div.updated a.button-primary {
 		font-size: 12px !important;
 	}
 }

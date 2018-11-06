@@ -42,14 +42,6 @@
             );
         }
     } );
-    
-    /**
-     * Move admin notices
-     */
-    $( document ).ready( function() {
-        $( 'body' ).append( '<div class="wc-calypso-bridge-notices"></div>' );
-        $( 'div.updated, div.error, div.notice' ).not( '.inline, .below-h2' ).appendTo( $( '.wc-calypso-bridge-notices' ) );
-    } );
 
     /**
      * Append icons to notices
