@@ -16,3 +16,6 @@ Thumbs.db
 # Unit tests
 /tmp
 /tests/bin/tmp
+
+# Vendor
+vendor/

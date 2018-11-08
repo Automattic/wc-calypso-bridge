@@ -121,7 +121,7 @@ if ( ! class_exists( 'Customizer_NUX_Guided_Tour' ) ) :
 			return array(
 				'autoStartTour' => ( bool ) $show_tour,
 				'showTourAlert' => ( bool ) ! $theme_supports_woo && ! in_array( $current_theme, $supported_themes ),
-				'alertMessage'  => sprintf( __( '%1$sYour current theme isn\'t ready for store features yet%2$s. Consequently your shop and product page layouts might display incorrectly.%3$sWe reccomend switching themes to %1$sStorefront%2$s. %4$sClick here%5$s to get started.%3$s %6$sLearn more about Storefront%5$s', 'storefront' ), '<strong>', '</strong>', '<br><br>', '<a href="/wp-admin/customize.php?theme=storefront&sf_guided_tour=1&sf_tasks=homepage">', '</a>', '<a href="https://woocommerce.com/storefront/" target="_blank">' ),
+				'alertMessage'  => sprintf( __( '%1$sYour current theme isn\'t ready for store features yet%2$s. Consequently, your shop and product page layouts might display incorrectly.%3$sWe recommend switching themes to %1$sStorefront%2$s. %4$sClick here%5$s to get started.%3$s %6$sLearn more about Storefront%5$s', 'storefront' ), '<strong>', '</strong>', '<br><br>', '<a href="/wp-admin/customize.php?theme=storefront&sf_guided_tour=1&sf_tasks=homepage">', '</a>', '<a href="https://woocommerce.com/storefront/" target="_blank">' ),
 			);
 		}
 
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Customizer_NUX_Guided_Tour' ) ) :
 
 			$steps[] = array(
 				'title'       => __( 'Customize Your Store', 'wc_calypso_bridge' ),
-				'message'     => __( '<p>Your current theme isn\'t ready for store features yet. Consequently your shop and product page layouts might display incorrectly.</p><p>We recommend switching themes to <strong>Storefront</strong> which will bring out the best in your shop. Don\'t worry, if you try Storefront now, it won\'t be activated until you save your changes in the Customizer</p>', 'wc_calypso_bridge' ),
+				'message'     => __( '<p>Your current theme isn\'t ready for store features yet. Consequently, your shop and product page layouts might display incorrectly.</p><p>We recommend switching themes to <strong>Storefront</strong> which will bring out the best in your shop. Don\'t worry, if you try Storefront now, it won\'t be activated until you save your changes in the Customizer</p>', 'wc_calypso_bridge' ),
 				'buttonText'  => __( 'I\'ll keep my current theme', 'wc_calypso_bridge' ),
 				'section'     => '#customize-info',
 				'className'   => 'sf-button-secondary',
