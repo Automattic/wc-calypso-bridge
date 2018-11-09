@@ -1169,6 +1169,39 @@ table.widefat {
 	}
 }
 
+/* Admin menu */
+@media only screen and (min-width: 661px) and (max-width: 960px) {
+	.autofold .adminmenuwrap,
+	#wpadminbar li#wp-admin-bar-menu-toggle {
+		display: none;
+	}
+	#calypso-sidebar-header {
+		width: 190px;
+		display: block;
+		position: absolute;
+		top: 0;
+	}
+	#calypso-sidebar-header ul {
+		display: block;
+	}
+	#adminmenu,
+	#adminmenuwrap,
+	#adminmenuback,
+	#adminmenu
+	.wp-submenu {
+		width: 190px;
+		position: relative !important;
+	}
+	#wpcontent, #wpfooter {
+		margin-left: 190px;
+	}
+}
+@media only screen and (min-width: 661px) and (max-width: 783px) {
+	#calypso-sidebar-header {
+		left: -190px;
+	}
+}
+
 /* Breadcrumbs */
 .wc-calypso-bridge-breadcrumbs + h2 {
 	display: none;
@@ -1227,9 +1260,10 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	width: 225px;
 }
 
-@media screen and (max-width:782px) {
+@media screen and (max-width:960px) {
 	#calypso-sidebar-header ul li#calypso-sitename {
 		width: 150px;
+		overflow: hidden;
 	}
 }
 
