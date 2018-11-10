@@ -110,4 +110,13 @@
      */
     $( '.taxonomy-form-cancel-button' ).appendTo( '#addtag p.submit' );
 
+    /**
+     * Move search box to subnav
+     */
+    var $subNav = $( '.subsubsub' );
+    if ( $subNav.length ) {
+        var $searchBoxListItem = $( '<li class="subsubsub-search"></li>').appendTo( $subNav );
+        $( '#posts-filter .search-box' ).appendTo( $searchBoxListItem );
+    }
+
 } )( jQuery );
