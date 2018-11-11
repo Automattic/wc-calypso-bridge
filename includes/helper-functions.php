@@ -27,7 +27,11 @@ class WC_Calypso_Bridge_Helper_Functions {
 
     /**
      * Remove Class Filter Without Access to Class Object
-     *
+     * 
+     * Original Attribution:
+     * Github Gist Code: https://gist.github.com/tripflex/c6518efc1753cf2392559866b4bd1a53
+     * WordPress Developer Handbook: https://developer.wordpress.org/reference/functions/remove_action/#comment-2256
+     * 
      * In order to use the core WordPress remove_filter() on a filter added with the callback
      * to a class, you either have to have access to that class object, or it has to be a call
      * to a static method.  This method allows you to remove filters with a callback to a class
@@ -111,7 +115,11 @@ class WC_Calypso_Bridge_Helper_Functions {
 
     /**
      * Remove Class Action Without Access to Class Object
-     *
+     * 
+     * Original Attribution:
+     * Github Gist Code: https://gist.github.com/tripflex/c6518efc1753cf2392559866b4bd1a53
+     * WordPress Developer Handbook: https://developer.wordpress.org/reference/functions/remove_action/#comment-2256
+     * 
      * In order to use the core WordPress remove_action() on an action added with the callback
      * to a class, you either have to have access to that class object, or it has to be a call
      * to a static method.  This method allows you to remove actions with a callback to a class
