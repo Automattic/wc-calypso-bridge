@@ -1213,3 +1213,15 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 		top: 32px;
 	}
 }
+
+/* Taxonomy page */
+.edit-tags-php #col-left {
+	width: 100%;
+	display: none;
+}
+.edit-tags-php #col-right {
+	width: 100%;
+}
+.wp-core-ui .button.taxonomy-form-cancel-button {
+	display: none;
+}
