@@ -72,8 +72,9 @@ class WC_Calypso_Bridge_Themes_Setup {
 														'Klarna_Checkout_For_WooCommerce' 	=> array( '10' => 'order_management_check' ),
 														'WC_Gateway_PayFast'				=> array( '10' => 'admin_notices' ),
 														'WC_Connect_Nux'					=> array( '9' => 'show_banner_before_connection' ),
-														'Storefront_NUX_Admin' 				=> array( '99' => 'admin_notices' )
-												);
+                                                        'Storefront_NUX_Admin' 				=> array( '99' => 'admin_notices' ),
+                                                        'WC_Gateway_PPEC_Plugin'            => array( '10' => 'show_bootstrap_warning' )
+                                                );
 		foreach ( $extension_admin_notices_to_suppress as $class_name => $function_to_suppress ) {
 			WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', $class_name, current( $function_to_suppress ), key( $function_to_suppress ) );
 		}
