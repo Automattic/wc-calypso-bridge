@@ -12,18 +12,22 @@ div.woocommerce-message, .wc-helper .start-container {
 	display: none;
 }
 .tablenav.bottom .wc-calypso-brdige-pagination.tablenav-pages {
-	display: block;
+	float: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 16px;
 }
 .tablenav .tablenav-pages a,
 .tablenav-pages-navspan,
 .tablenav-pages span.current,
 .tablenav .dots {
 	padding: 8px 12px;
-    background-color: #fff;
-    border: solid 1px #c8d7e1;
-    border-right: none;
-    font-size: 14px;
-    line-height: 18px;
+	background-color: #fff;
+	border: solid 1px #c8d7e1;
+	border-right: none;
+	font-size: 14px;
+	line-height: 18px;
 	color: #537994;
 	float: left;
 	font-weight: 500;
@@ -49,7 +53,7 @@ div.woocommerce-message, .wc-helper .start-container {
 .tablenav .gridicon,
 .tablenav .gridicon {
 	vertical-align: middle;
-    width: 18px;
+	width: 18px;
 	height: 18px;
 	fill: #537994;
 }
@@ -70,7 +74,7 @@ div.woocommerce-message, .wc-helper .start-container {
 }
 .tablenav-pages-navspan.disabled {
 	color: #e9eff3;
-    cursor: default;
+	cursor: default;
 }
 .tablenav-pages-navspan.disabled svg {
 	fill: #e9eff3;
