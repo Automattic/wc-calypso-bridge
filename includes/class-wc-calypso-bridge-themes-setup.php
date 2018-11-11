@@ -73,11 +73,18 @@ class WC_Calypso_Bridge_Themes_Setup {
 														'WC_Gateway_PayFast'				=> array( '10' => 'admin_notices' ),
 														'WC_Connect_Nux'					=> array( '9' => 'show_banner_before_connection' ),
                                                         'Storefront_NUX_Admin' 				=> array( '99' => 'admin_notices' ),
-                                                        'WC_Gateway_PPEC_Plugin'            => array( '10' => 'show_bootstrap_warning' )
+                                                        'WC_Gateway_PPEC_Plugin'            => array( '10' => 'show_bootstrap_warning' ),
+                                                        'WC_RoyalMail'                      => array( '10' => 'environment_check' )
                                                 );
 		foreach ( $extension_admin_notices_to_suppress as $class_name => $function_to_suppress ) {
 			WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', $class_name, current( $function_to_suppress ), key( $function_to_suppress ) );
-		}
+        }
+        // Canada Post Specific - refactor after launch to be included in the above loop
+        WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'WC_Shipping_Canada_Post_Init', 'connect_canada_post', 10 );
+        WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'WC_Shipping_Canada_Post_Init', 'environment_check', 10 );
+        // Square Specific - refactor after launch to be included in the above loop
+        WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'Woocommerce_Square', 'check_environment', 10 );
+        WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'Woocommerce_Square', 'is_connected_to_square', 10 );        
 		// List of extensions that do not use class level functions for admin notices.
 		$other_admin_notices = array( 'woocommerce_gateway_paypal_express_upgrade_notice', 'woocommerce_gateway_klarna_welcome_notice' );
 		foreach ( $other_admin_notices as $function_to_suppress ) {
