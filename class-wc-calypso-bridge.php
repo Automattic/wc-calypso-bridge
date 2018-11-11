@@ -83,6 +83,7 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
