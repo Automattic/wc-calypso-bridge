@@ -59,7 +59,6 @@ class WC_Calypso_Bridge_Themes_Setup {
 		 * List of extension specific and themes class level functions to suppress
 		 * 'CLASS_NAME' => array( 'FUNCTION_PRIORITY' => 'FUNCTION_NAME' )
 		 */ 
-		echo 'DEBUG';
 		$extension_admin_notices_to_suppress = array(	'WC_Shipping_Australia_Post_Init' 	=> array( '10' => 'environment_check' ),
 														'WC_Facebookcommerce_Integration' 	=> array( '10' => 'checks' ),	
 														'WC_USPS' 							=> array( '10' => 'environment_check' ),
@@ -80,8 +79,13 @@ class WC_Calypso_Bridge_Themes_Setup {
 		foreach ( $other_admin_notices as $function_to_suppress ) {
 			remove_action( 'admin_notices', $function_to_suppress );
 		}
-		// Suppress: Looking for the store notice setting? It can now be found in the Customizer.
-		$updated = update_user_meta( get_current_user_id(), 'dismissed_store_notice_setting_moved_notice', true );
+        // Suppress: Looking for the store notice setting? It can now be found in the Customizer.
+        $user_id = get_current_user_id();
+        $user_meta_key = 'dismissed_store_notice_setting_moved_notice';
+        $current_user_meta_value = get_user_meta( $user_id, $user_meta_key, true);
+        if ( ! $current_user_meta_value ) {
+            $updated_user_meta_value = update_user_meta( $user_id, $user_meta_key, true );    
+        }
 		// Suppress: Product Add Ons Activation Notice
 		$deleted = delete_option( 'wpa_activation_notice' );
 		// Suppress all other WC Admin Notices not specified above
