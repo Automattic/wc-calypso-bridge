@@ -193,6 +193,12 @@ div.woocommerce-message, .wc-helper .start-container {
 	border: 0;
 }
 
+/* Page title actions */
+.page-title-actions {
+	float: right;
+	padding-top: 12px;
+}
+
 /* Navigation tabs */
 .woocommerce nav.woo-nav-tab-wrapper {
 	width: 100%;

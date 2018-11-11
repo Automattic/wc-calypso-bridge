@@ -74,4 +74,11 @@
         $( this ).find( 'p:not(.submit)' ).appendTo( $noticeContent );
     } );
 
+    /**
+     * Wrap page title actions to align right
+     */
+    var $pageTitleActionsContainer = $( '<div class="page-title-actions"></div>' );
+    $pageTitleActionsContainer.insertAfter( 'h1.wp-heading-inline' );
+    $( '.page-title-action' ).appendTo( $pageTitleActionsContainer );
+
 } )( jQuery );
