@@ -46,41 +46,4 @@ if ( ! $is_atomic_ecommerce ) {
 
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
-// Remove default Storefront Footer Credit
-if ( ! function_exists( 'remove_storefront_default_footer_credit' ) ) {
-	add_action( 'init', 'remove_storefront_default_footer_credit', 10 );
-	/**
-	 * Unhooks Storefront footer credit
-	 *
-	 */
-	function remove_storefront_default_footer_credit() {
-		remove_action( 'storefront_footer', 'storefront_credit', 20 );
-		add_action( 'storefront_footer', 'wpcom_ecommerce_plan_storefront_credit', 20 );
-	}
-}
-
-// Output for eCommerce plan Storefront Footer Credit 
-if ( ! function_exists( 'wpcom_ecommerce_plan_storefront_credit' ) ) {
-	/**
-	 * Display the new WordPress.com like theme credit
-	 *
-	 * @since  1.0.0
-	 * @return void
-	 */
-	function wpcom_ecommerce_plan_storefront_credit() {
-		?>
-		<div class="site-info">
-			<?php echo esc_html( apply_filters( 'storefront_copyright_text', $content = '&copy; ' . get_bloginfo( 'name' ) . ' ' . date( 'Y' ) ) ); ?>
-			<?php if ( apply_filters( 'storefront_credit_link', true ) ) { ?>
-			<br />
-				<?php
-				if ( apply_filters( 'storefront_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
-					the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
-				}
-				?>
-				<?php echo '<a href="https://wordpress.com/?ref=footer_website" target="_blank" title="' . esc_attr__( 'WordPress.com - The Best eCommerce Platform for WordPress', 'storefront' ) . '" rel="author">' . esc_html__( 'Built with Storefront &amp; WordPress.com', 'storefront' ) . '</a>.'; ?>
-			<?php } ?>
-		</div><!-- .site-info -->
-		<?php
-	}
-}
+require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-frontend.php';
