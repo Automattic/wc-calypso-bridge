@@ -35,7 +35,7 @@ class WC_Calypso_Bridge_Taxonomies {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'all_admin_notices', array( $this, 'add_new_button' ) );
+		add_action( 'add_tag_form_pre', array( $this, 'add_new_button' ) );
 		add_action( 'init', array( $this, 'remove_taxonomy_form_description' ), 100 );
 	}
 
