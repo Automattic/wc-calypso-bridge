@@ -44,10 +44,10 @@ class WC_Calypso_Bridge_Taxonomies {
 	 */
 	public function add_new_button() {
 		?>
-		<button class="button button-primary taxonomy-form-toggle">
+		<button class="page-title-action button button-primary taxonomy-form-toggle">
 			<?php esc_html_e( 'Add New', 'wc-calypso-bridge' ); ?>
 		</button>
-		<button class="button button-secondary taxonomy-form-toggle taxonomy-form-cancel-button">
+		<button class="page-title-action button button-secondary taxonomy-form-toggle taxonomy-form-cancel-button">
 			<?php esc_html_e( 'Cancel', 'wc-calypso-bridge' ); ?>
 		</button>
 		<?php
