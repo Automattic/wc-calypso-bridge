@@ -170,6 +170,18 @@ textarea:focus {
 	-moz-outline: none;
 	-moz-user-focus: ignore;
 }
+input[type="text"]::placeholder,
+input[type="search"]::placeholder,
+input[type="email"]::placeholder,
+input[type="number"]::placeholder,
+input[type="password"]::placeholder,
+input[type=checkbox]::placeholder,
+input[type=radio]::placeholder,
+input[type="tel"]::placeholder,
+input[type="url"]::placeholder,
+textarea::placeholder {
+    color: #87a6bc;
+}
 .form-wrap {
 	display: block;
 	margin: 0 auto 10px auto;
