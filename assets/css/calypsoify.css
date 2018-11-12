@@ -170,6 +170,20 @@ textarea:focus {
 	-moz-outline: none;
 	-moz-user-focus: ignore;
 }
+.form-wrap {
+	display: block;
+	margin: 0 auto 10px auto;
+	padding: 16px;
+	background: #fff;
+	-webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+}
+.form-wrap > h2:first-child {
+	font-size: 24px;
+	font-weight: 300;
+	margin: 0 0 20px 0;
+	line-height: 36px;
+}
 .post-type-product .tablenav input,
 .post-type-product .tablenav select,
 .post-type-shop_order .tablenav input,
