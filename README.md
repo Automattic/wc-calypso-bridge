@@ -2,6 +2,17 @@
 
 This repository houses various fixes and extensions for wp-admin to enhance the experience for users of the WordPress.com Store.
 
+## Getting Started
+
+To get started with development run `composer install` from the this repo's root directory.  This will:
+* Install all vendor dependencies
+* Create pre-commit hooks to catch lint and WPCS errors
+
+To check WPCS and lint errors via CLI, run the following from the root directory.
+`./vendor/bin/phpcs [filename]`
+To automatically fix errors and beautify files, run the following from the root directory.
+`./vendor/bin/phpcbf [filename]`
+
 ## Test Suite
 
 This repository does have a test suite, which depends upon `wc-api-dev`, and `woocommerce` both being present witin the same `wp-content/plugins` directory. Much like the test suite in `wc-api-dev` it borrows heavily from the base `woocommerce` API test suite to enable quick testing via all of the core helper methods.
