@@ -67,7 +67,7 @@ class WC_Calypso_Bridge_Frontend {
 					the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
 				}
 				?>
-				<?php echo '<a href="https://wordpress.com/?ref=footer_website" target="_blank" title="' . esc_attr__( 'WordPress.com - The Best eCommerce Platform for WordPress', 'storefront' ) . '" rel="author">' . esc_html__( 'Built with Storefront &amp; WordPress.com', 'storefront' ) . '</a>.'; ?>
+				<?php echo '<a href="https://wordpress.com/?ref=footer_website" target="_blank" title="' . esc_attr__( 'WordPress.com - The Best eCommerce Platform for WordPress', 'wc-calypso-bridge' ) . '" rel="author">' . esc_html__( 'Built with Storefront &amp; WordPress.com', 'wc-calypso-bridge' ) . '</a>.'; ?>
 			<?php } ?>
 		</div><!-- .site-info -->
 		<?php
