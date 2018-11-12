@@ -35,14 +35,14 @@ class WC_Calypso_Bridge_Taxonomies {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'add_tag_form_pre', array( $this, 'add_new_button' ) );
+		add_action( 'add_tag_form_pre', array( $this, 'add_action_button' ) );
 		add_action( 'init', array( $this, 'remove_taxonomy_form_description' ), 100 );
 	}
 
 	/**
 	 * Add new button to toggle taxonomy form
 	 */
-	public function add_new_button() {
+	public function add_action_button() {
 		?>
 		<button class="page-title-action button button-primary taxonomy-form-toggle">
 			<?php esc_html_e( 'Add New', 'wc-calypso-bridge' ); ?>
