@@ -122,7 +122,6 @@ class WC_Calypso_Bridge {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
 		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
-
 		$icons = array(
 			'info'      => get_gridicon( 'gridicons-info' ),
 			'checkmark' => get_gridicon( 'gridicons-checkmark' ),
@@ -134,6 +133,13 @@ class WC_Calypso_Bridge {
 			'icons',
 			$icons
 		);
+
+		$translations = array(
+			'openSearchText'  => __( 'Open Search', 'wc-calypso-bridge' ),
+			'closeSearchText' => __( 'Close Search', 'wc-calypso-bridge' ),
+		);
+		wp_localize_script( 'wc-calypso-bridge-calypsoify', 'wcb', $translations );
+
 	}
 
 	/**
