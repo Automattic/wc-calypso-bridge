@@ -112,6 +112,10 @@ div.woocommerce-message, .wc-helper .start-container {
 	box-shadow: none;
 	outline: none;
 	opacity: 1;
+	font-size: 12px;
+	height: auto;
+	padding: 7px;
+	line-height: 1;
 }
 .wp-core-ui .button:active,
 .wp-core-ui .button-secondary:active,
@@ -134,7 +138,7 @@ div.woocommerce-message, .wc-helper .start-container {
 
 /* Primary Buttons */
 .wp-core-ui .button-primary,
-.wrap .page-title-action,
+.wrap .page-title-action:not(.button-secondary),
 .wc-helper .button,
 .wc_addons_wrap .addons-button-solid {
 	background: #00aadc !important;
@@ -156,8 +160,8 @@ div.woocommerce-message, .wc-helper .start-container {
 }
 .wp-core-ui .button-primary:hover,
 .wp-core-ui .button-primary:focus,
-.wrap .page-title-action:hover,
-.wrap .page-title-action:focus,
+.wrap .page-title-action:not(.button-secondary):hover,
+.wrap .page-title-action:not(.button-secondary):focus,
 .wc-helper .button:hover,
 .wc-helper .button:focus,
 .wc_addons_wrap .addons-button-solid:hover,
