@@ -1234,3 +1234,20 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 .edit-tags-php #col-left > .col-wrap > p:first-child {
 	display: none;
 }
+
+/* Search box */
+.search-box {
+	height: 50px;
+    display: flex;
+    background: #fff;
+	padding: 0;
+    margin: 0 0 17px 0;
+    -webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+    box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+}
+.search-box input[name="s"] {
+	height: 100%;
+	border: none;
+	font-size: 16px;
+	color: #2e4453;
+}
