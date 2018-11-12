@@ -116,7 +116,11 @@
     var $subNav = $( '.subsubsub' );
     if ( $subNav.length ) {
         var $searchBoxListItem = $( '<li class="subsubsub__search-item"></li>').appendTo( $subNav );
-        $( '#posts-filter .search-box' ).appendTo( $searchBoxListItem );
+        var $searchBox = $( '#posts-filter .search-box' );
+        var uniqueId = Math.floor(Math.random() * 26) + Date.now();
+        $searchBox.closest( 'form' ).attr( 'data-form-id', uniqueId );
+        $searchBox.attr( 'data-target-form-id', uniqueId );
+        $searchBox.appendTo( $searchBoxListItem );
         $subNav.addClass( 'has-search' );
     }
 
@@ -167,5 +171,28 @@
     $( document ).on( 'blur', 'input[name="s"]', function() {
         $( this ).closest( '.search-box' ).removeClass( 'has-focus' );
     } );
+
+    /**
+     * Fix search for inputs outside of forms by appending inputs on enter/click
+     */
+    function appendInputsToForm( e ) {
+        if ( e.type === 'click' || e.which === 13 ) {
+            e.preventDefault();
+            var formId = $( this ).closest( '.search-box' ).data( 'target-form-id' );
+            var $form = $( 'form[data-form-id="' + formId + '"' );
+            var $searchInput = $( this ).closest( '.search-box' ).find( 'input[type="search"]' );
+            $( '<input>' ).attr(
+                {
+                    type: 'hidden',
+                    id: $searchInput.attr( 'id' ),
+                    name: $searchInput.attr( 'name' ),
+                    value: $searchInput.val(),
+                }
+            ).appendTo( $form );
+            $form.submit();
+        }
+    }
+    $( document ).on( 'click', '.subsubsub .search-box input[type=submit]', appendInputsToForm );
+    $( document ).on( 'keypress', '.subsubsub .search-box input[type=search]', appendInputsToForm );
 
 } )( jQuery );
