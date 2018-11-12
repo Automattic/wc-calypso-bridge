@@ -117,6 +117,7 @@
     if ( $subNav.length ) {
         var $searchBoxListItem = $( '<li class="subsubsub__search-item"></li>').appendTo( $subNav );
         $( '#posts-filter .search-box' ).appendTo( $searchBoxListItem );
+        $subNav.addClass( 'has-search' );
     }
 
     /**
