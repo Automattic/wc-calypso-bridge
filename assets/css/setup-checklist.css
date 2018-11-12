@@ -518,6 +518,10 @@
 	border-width: 1px;
 	cursor: default;
 }
+.checklist__task-icon svg {
+	max-width: 18px;
+	max-height: 18px;
+}
 .checklist-card:not(.is-completed) .checklist__task-icon:hover,
 .checklist-card:not(.is-completed) .checklist__task-icon:focus {
 	background: #fff;

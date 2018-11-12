@@ -65,10 +65,10 @@ class WC_Calypso_Bridge_Menus {
 	 */
 	public function insert_sidebar_html() { ?>
 		<a href="<?php echo esc_url( 'https://wordpress.com/stats/day/' . Jetpack::build_raw_urls( home_url() ) ); ?>" id="calypso-sidebar-header">
-			<svg class="gridicon gridicons-chevron-left" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M14 20l-8-8 8-8 1.414 1.414L8.828 12l6.586 6.586"></path></g></svg>
+			<?php echo get_gridicon( 'gridicons-chevron-left' ); // WPCS: XSS ok. ?>
 			<ul>
-			<li id="calypso-sitename"><?php bloginfo( 'name' ); ?></li>
-			<li id="calypso-plugins"><?php esc_html_e( 'WooCommerce', 'wc-calypso-bridge' ); ?></li>
+				<li id="calypso-sitename"><?php bloginfo( 'name' ); ?></li>
+				<li id="calypso-plugins"><?php esc_html_e( 'WooCommerce', 'wc-calypso-bridge' ); ?></li>
 			</ul>
 		</a>
 		<?php

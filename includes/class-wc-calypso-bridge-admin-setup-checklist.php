@@ -496,7 +496,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 						<label for="checklist__header-action" class="checklist__header-summary checklist__toggle checklist__header-complete-label">Hide completed</label>
 						<button id="checklist__header-action" class="checklist__header-action checklist__toggle">
 							<span class="screen-reader-text checklist__header-complete-label">Hide completed</span>
-							<svg class="gridicon gridicons-chevron-down" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M20 9l-8 8-8-8 1.414-1.414L12 14.172l6.586-6.586"></path></g></svg>
+							<?php echo get_gridicon( 'gridicons-chevron-down' ); // WPCS: XSS ok. ?>
 						</button>
 					</div>
 				</div>
@@ -566,7 +566,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				</small>
 			</div>
 			<div class="checklist__task-icon">
-				<svg class="gridicon gridicons-checkmark" height="18" width="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M9 19.414l-6.707-6.707 1.414-1.414L9 16.586 20.293 5.293l1.414 1.414"></path></g></svg>
+				<?php echo get_gridicon( 'gridicons-checkmark' ); // WPCS: XSS ok. ?>
 			</div>
 		</div>
 		<?php

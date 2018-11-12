@@ -87,6 +87,7 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
+		include_once dirname( __FILE__ ) . '/vendor/automattic/gridicons/php/gridicons.php';
 
 		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
 		foreach ( $connect_files as $connect_file ) {
@@ -119,6 +120,18 @@ class WC_Calypso_Bridge {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
 		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
+
+		$icons = array(
+			'info'      => get_gridicon( 'gridicons-info' ),
+			'checkmark' => get_gridicon( 'gridicons-checkmark' ),
+			'notice'    => get_gridicon( 'gridicons-notice' ),
+			'cross'     => get_gridicon( 'gridicons-cross' ),
+		);
+		wp_localize_script(
+			'wc-calypso-bridge-calypsoify',
+			'icons',
+			$icons
+		);
 	}
 
 	/**
