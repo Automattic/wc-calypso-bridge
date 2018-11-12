@@ -276,10 +276,14 @@ div.woocommerce-message, .wc-helper .start-container {
 	position: relative;
 	border: 0;
 	-webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
-    box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	box-sizing: border-box;	
+}
+.subsubsub.has-search {
+	padding-right: 50px;
 }
 .subsubsub a, .filter-links li>a {
-    padding: 11px 15px;
+	padding: 11px 15px;
 }
 .woocommerce nav.woo-nav-tab-wrapper {
 	width: 100%;
@@ -1248,11 +1252,11 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 p.search-box {
 	height: 50px;
 	width: 100%;
-    display: flex;
-    background: #fff;
+	display: flex;
+	background: #fff;
 	padding: 0;
-    margin: 0 0 17px 0;
-    -webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	margin: 0 0 17px 0;
+	-webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
 	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
 	align-items: center;
 	transition: all 0.15s ease-in-out;
@@ -1284,8 +1288,8 @@ p.search-box {
 	box-shadow: none;
 	padding: 0;
 	display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 .search-box__close-icon {
 	display: none;
@@ -1304,22 +1308,17 @@ p.search-box {
 .search-box.is-expanded {
 	position: absolute;
 	height: 100%;
-    width: 100%;
-    top: 0;
-    right: 0;
-}
-.subsubsub .search-box {
-	margin-bottom: 0;
-	position: absolute;
-    right: 0;
+	width: 100%;
+	top: 0;
+	right: 0;
 }
 .subsubsub .search-box {
 	margin-bottom: 0;
 	position: absolute;
 	right: 0;
 	top: 0;
-	width: auto;
 	width: 50px;
+	height: 100%;
 	overflow: hidden;
 }
 .subsubsub .search-box:not(.is-expanded) {
