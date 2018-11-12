@@ -99,7 +99,8 @@ class WC_Calypso_Bridge_Themes_Setup {
         }
 		// Suppress: Product Add Ons Activation Notice
 		$deleted = delete_option( 'wpa_activation_notice' );
-		// Suppress all other WC Admin Notices not specified above
+        // Suppress all other WC Admin Notices not specified above
+        WC_Admin_Notices::remove_notice( 'wootenberg' );
 		WC_Admin_Notices::remove_all_notices();
     }
     
@@ -114,8 +115,8 @@ class WC_Calypso_Bridge_Themes_Setup {
             set_theme_mod( 'sp_product_layout', 'full-width' ); // enables Full width single product page.
             set_theme_mod( 'sp_shop_layout', 'full-width' ); // enables Full width shop archive pages.
             set_theme_mod( 'sph_hero_enable', 'enable' ); // enables Parallax Hero on homepage.
-            set_theme_mod( 'sph_hero_heading_text', esc_attr__( 'Welcome Test', 'storefront' ) ); // Heading Text for Parallax Hero.
-            set_theme_mod( 'sph_hero_text', sprintf( esc_attr__( 'This is your homepage which is what most visitors will see when they first visit your shop.%sYou can change this text by editing the "Parallax Hero" Section via the "Powerpack" settings in the Customizer on the left hand side of your screen.', 'storefront' ), PHP_EOL . PHP_EOL ) ); // Content for Parallax Hero.
+            set_theme_mod( 'sph_hero_heading_text', esc_attr__( 'Welcome', 'wc-calypso-bridge' ) ); // Heading Text for Parallax Hero.
+            set_theme_mod( 'sph_hero_text', sprintf( esc_attr__( 'This is your homepage which is what most visitors will see when they first visit your shop.%sYou can change this text by editing the "Parallax Hero" Section via the "Powerpack" settings in the Customizer on the left hand side of your screen.', 'wc-calypso-bridge' ), PHP_EOL . PHP_EOL ) ); // Content for Parallax Hero.
             if ( 0 < wc_get_page_id( 'shop' ) ) {
                 set_theme_mod( 'sph_hero_button_url', get_permalink( wc_get_page_id( 'shop' ) ) ); // Set button url to the shop page instead of home if the shop page exists.
             }
@@ -125,10 +126,75 @@ class WC_Calypso_Bridge_Themes_Setup {
             set_theme_mod( 'sp_homepage_best_sellers', false ); // Removes Best Sellers Products area from starter content.
             update_option( 'woocommerce_demo_store', 'yes' ); // enables demo store notice.
 
+            // Create default homepage
+            $page_slug = esc_attr__( 'Welcome', 'wc-calypso-bridge' );
+            $page_options =  'woocommerce_welcome_page_id';
+            $page_title = $page_slug;
+            $page_content = sprintf( esc_attr__( 'This is your homepage which is what most visitors will see when they first visit your shop.%sYou can change this text by editing the "Parallax Hero" Section via the "Powerpack" settings in the Customizer on the left hand side of your screen.', 'wc-calypso-bridge' ), PHP_EOL . PHP_EOL );
+            $post_parent = 0;
+            $welcome_page_id = wc_create_page( esc_sql( $page_slug ), $page_options, $page_title, $page_content, $post_parent );
+            // Set page as Static Front Page with homepage template and attach default image.
+            if ( 0 < $welcome_page_id ) {
+                $this->set_default_page_template( $welcome_page_id );
+                $this->attach_storefront_image( $welcome_page_id );
+                update_option( 'page_on_front', $welcome_page_id );
+                update_option( 'show_on_front', 'page' );
+            }
+
             // Save option that says the setup has been run already.
             update_option( 'wpcom_ec_plan_theme_defaults', true );
         }
-    }    
+    }
+    
+    /**
+     * Sets page template for specified page id
+     *
+     * @param integer $page_id
+     * @param string $page_template
+     * @return void
+     */
+    private function set_default_page_template( $page_id = 0, $page_template = 'template-homepage.php' ) {
+        if ( 0 < $page_id ) {
+            update_post_meta( $page_id, '_wp_page_template', $page_template );
+        }
+    }
+    /**
+     * Attaches Storefront images to default content
+     *
+     * Original Attribution: https://gist.github.com/hissy/7352933
+     * 
+     * @param integer $parent_post_id
+     * @param string $filename
+     * @return void
+     */
+    private function attach_storefront_image( $parent_post_id = 0, $file = 'assets/images/customizer/starter-content/hero.jpg' ) {
+        
+        if ( 0 < $parent_post_id ) {
+            // Get the path to the upload directory.
+            $file = trailingslashit( get_theme_root_uri() ) . trailingslashit( 'storefront' ) . $file;
+            $filename = basename($file);
+            
+            $upload_file = wp_upload_bits($filename, null, file_get_contents($file));
+            if (!$upload_file['error']) {
+                $wp_filetype = wp_check_filetype($filename, null );
+                $attachment = array(
+                    'post_mime_type' => $wp_filetype['type'],
+                    'post_parent' => $parent_post_id,
+                    'post_title' => preg_replace('/\.[^.]+$/', '', $filename),
+                    'post_content' => '',
+                    'post_status' => 'inherit'
+                );
+                $attachment_id = wp_insert_attachment( $attachment, $upload_file['file'], $parent_post_id );
+                if (!is_wp_error($attachment_id)) {
+                    require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+                    $attachment_data = wp_generate_attachment_metadata( $attachment_id, $upload_file['file'] );
+                    wp_update_attachment_metadata( $attachment_id,  $attachment_data );
+                    set_post_thumbnail( $parent_post_id, $attachment_id );
+                }
+            }
+        }
+
+    }
 
 }
 
