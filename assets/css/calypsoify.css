@@ -272,6 +272,15 @@ div.woocommerce-message, .wc-helper .start-container {
 }
 
 /* Navigation tabs */
+.subsubsub {
+	position: relative;
+	border: 0;
+	-webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+    box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+}
+.subsubsub a, .filter-links li>a {
+    padding: 11px 15px;
+}
 .woocommerce nav.woo-nav-tab-wrapper {
 	width: 100%;
 }
@@ -1236,18 +1245,100 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 }
 
 /* Search box */
-.search-box {
+p.search-box {
 	height: 50px;
+	width: 100%;
     display: flex;
     background: #fff;
 	padding: 0;
     margin: 0 0 17px 0;
     -webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
-    box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	align-items: center;
+	transition: all 0.15s ease-in-out;
+}
+.search-box.has-focus {
+	box-shadow: 0 0 0 1px #0087be, 0 0 0 4px #78dcfa;
 }
 .search-box input[name="s"] {
 	height: 100%;
 	border: none;
 	font-size: 16px;
 	color: #2e4453;
+	box-shadow: none;
+	flex: 1;
+}
+.search-box input[type="submit"] {
+	margin-right: 13px;
+}
+.search-box.is-expanded input[type="submit"] {
+	margin-right: 0;
+}
+.search-box__search-icon,
+.search-box__close-icon {
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	box-shadow: none;
+	padding: 0;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-box__close-icon {
+	display: none;
+}
+.search-box__search-icon:focus,
+.search-box__close-icon:focus {
+	outline: none;
+	box-shadow: none;
+}
+.search-box svg {
+	fill: #3d596d;
+}
+.search-box input[name="s"]::-webkit-search-cancel-button {
+	display: none;
+}
+.search-box.is-expanded {
+	position: absolute;
+	height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+}
+.subsubsub .search-box {
+	margin-bottom: 0;
+	position: absolute;
+    right: 0;
+}
+.subsubsub .search-box {
+	margin-bottom: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: auto;
+	width: 50px;
+	overflow: hidden;
+}
+.subsubsub .search-box:not(.is-expanded) {
+	box-shadow: none;
+}
+.subsubsub .search-box.is-expanded {
+	width: 100%;
+}
+.subsubsub .search-box input {
+	display: none;
+	margin: 0 !important;
+}
+.subsubsub .search-box:not(.is-expanded) .search-box__search-icon svg {
+	fill: #0087be;
+}
+.subsubsub .search-box:not(.is-expanded) .search-box__search-icon:hover svg {
+	fill: #3d596d;
+}
+.subsubsub .search-box.is-expanded .search-box__close-icon,
+.subsubsub .search-box.is-expanded input {
+	display: block;
 }

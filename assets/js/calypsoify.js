@@ -115,8 +115,56 @@
      */
     var $subNav = $( '.subsubsub' );
     if ( $subNav.length ) {
-        var $searchBoxListItem = $( '<li class="subsubsub-search"></li>').appendTo( $subNav );
+        var $searchBoxListItem = $( '<li class="subsubsub__search-item"></li>').appendTo( $subNav );
         $( '#posts-filter .search-box' ).appendTo( $searchBoxListItem );
     }
+
+    /**
+     * Add icons to search boxes
+     */
+    $( '.search-box' ).prepend( '<button class="search-box__search-icon" aria-label="' + wcb.openSearchText + '"><svg class="gridicon gridicons-search" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M21 19l-5.154-5.154C16.574 12.742 17 11.42 17 10c0-3.866-3.134-7-7-7s-7 3.134-7 7 3.134 7 7 7c1.42 0 2.742-.426 3.846-1.154L19 21l2-2zM5 10c0-2.757 2.243-5 5-5s5 2.243 5 5-2.243 5-5 5-5-2.243-5-5z"/></g></svg></button>' );
+    $( '.search-box' ).append( '<button class="search-box__close-icon" aria-label="' + wcb.closeSearchText + '"><svg class="gridicon gridicons-cross" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M18.36 19.78L12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"/></g></svg></button>' );
+
+    /**
+     * Focus search input on open icon click
+     */
+    $( document ).on( 'click', '.search-box__search-icon', function(e) {
+        e.preventDefault();
+        $( this ).closest( '.search-box' ).addClass( 'has-focus' );
+        // Defer focus when expanding since input is not displayed
+        var $searchInput = $( this ).siblings( 'input[name="s"]' );
+        setTimeout( function() {
+            $searchInput.focus();
+        }, 0 );
+    } );
+
+    /**
+     * Open search when inside nav
+     */
+    $( document ).on( 'click', '.subsubsub .search-box__search-icon', function(e) {
+        $( this ).closest( '.search-box' ).addClass( 'is-expanded' );
+    } );
+
+    /**
+     * Close search when inside nav
+     */
+    $( document ).on( 'click', '.subsubsub .search-box__close-icon', function(e) {
+        e.preventDefault();
+        $( this ).closest( '.search-box' ).removeClass( 'is-expanded' );
+    } );
+
+    /**
+     * Add focus class to search box wrapper on focus
+     */
+    $( document ).on( 'focus', 'input[name="s"]', function() {
+        $( this ).closest( '.search-box' ).addClass( 'has-focus' );
+    } );
+
+    /**
+     * Remove focus on blur
+     */
+    $( document ).on( 'blur', 'input[name="s"]', function() {
+        $( this ).closest( '.search-box' ).removeClass( 'has-focus' );
+    } );
 
 } )( jQuery );
