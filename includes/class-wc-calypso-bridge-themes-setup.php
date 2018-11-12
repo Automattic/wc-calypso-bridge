@@ -137,6 +137,7 @@ class WC_Calypso_Bridge_Themes_Setup {
             if ( 0 < $welcome_page_id ) {
                 $this->set_default_page_template( $welcome_page_id );
                 $this->attach_storefront_image( $welcome_page_id );
+                $this->set_default_storefront_widgets();
                 update_option( 'page_on_front', $welcome_page_id );
                 update_option( 'show_on_front', 'page' );
             }
@@ -194,6 +195,82 @@ class WC_Calypso_Bridge_Themes_Setup {
             }
         }
 
+    }
+
+    /**
+     * Sets up default Storefront Widgets into the footer widgets area.
+     */
+    private function set_default_storefront_widgets( ) {
+        
+        // text_about starter content widget
+        $this->my_add_widget( 'footer-1', 'text',
+            array(
+                'title' => _x( 'About This Site', 'wc-calypso-bridge' ),
+                'text' => _x( 'This may be a good place to introduce yourself and your site or include some credits.', 'wc-calypso-bridge' ),
+                'filter' => false,
+            )
+        );
+
+        // text_business_info starter content widget populated from WC data
+        $store_address = get_option( 'woocommerce_store_address' );
+        $store_address_line_2 = get_option( 'woocommerce_store_address_2' );
+        if ( '' != trim( $store_address_line_2 ) ) {
+            $store_address .= "<br/>" . $store_address_line_2;
+        }
+		$store_city = get_option( 'woocommerce_store_city' );
+		$store_postcode = get_option( 'woocommerce_store_postcode' );
+
+        $this->my_add_widget( 'footer-2', 'text',
+            array(
+                'title' => _x( 'Find Us', 'wc-calypso-bridge' ),
+                'text' => join( '', array(
+					'<strong>' . _x( 'Address', 'wc-calypso-bridge' ) . "</strong>" . "<br/>",
+					$store_address . "<br/>" . $store_city . "<br/>" . $store_postcode . "<br/>" . "<br/>",
+					'<strong>' . _x( 'Hours', 'wc-calypso-bridge' ) . "</strong>" . "<br/>",
+					_x( 'Monday&mdash;Friday: 9:00AM&ndash;5:00PM', 'wc-calypso-bridge' ) . "<br/>" . _x( 'Saturday &amp; Sunday: 11:00AM&ndash;3:00PM', 'wc-calypso-bridge' )
+				) ),
+                'filter' => false,
+            )
+        );
+    }
+
+    /**
+     * Pre-configure and save a widget, designed for plugin and theme activation.
+     * 
+     * @link    http://wordpress.stackexchange.com/q/138242/1685
+     *
+     * @param   string  $sidebar    The database name of the sidebar to add the widget to.
+     * @param   string  $name       The database name of the widget.
+     * @param   mixed   $args       The widget arguments (optional).
+     */
+    private function my_add_widget( $sidebar, $name, $args = array() ) {
+    
+        if ( ! $sidebars = get_option( 'sidebars_widgets' ) )
+        $sidebars = array();
+
+        // Create the sidebar if it doesn't exist.
+        if ( ! isset( $sidebars[ $sidebar ] ) )
+            $sidebars[ $sidebar ] = array();
+
+        // Check for existing saved widgets.
+        if ( $widget_opts = get_option( "widget_$name" ) ) {
+            // Get next insert id.
+            ksort( $widget_opts );
+            end( $widget_opts );
+            $insert_id = key( $widget_opts );
+        } else {
+            // None existing, start fresh.
+            $widget_opts = array( '_multiwidget' => 1 );
+            $insert_id = 0;
+        }
+
+        // Add our settings to the stack.
+        $widget_opts[ ++$insert_id ] = $args;
+        // Add our widget!
+        $sidebars[ $sidebar ][] = "$name-$insert_id";
+
+        update_option( 'sidebars_widgets', $sidebars );
+        update_option( "widget_$name", $widget_opts );
     }
 
 }
