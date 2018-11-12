@@ -36,7 +36,7 @@ class WC_Calypso_Bridge_Taxonomies {
 	 */
 	private function __construct() {
 		add_action( 'add_tag_form_pre', array( $this, 'add_action_button' ) );
-		add_action( 'init', array( $this, 'remove_taxonomy_form_description' ), 100 );
+		add_action( 'wp_loaded', array( $this, 'remove_taxonomy_form_description' ) );
 	}
 
 	/**
@@ -60,7 +60,8 @@ class WC_Calypso_Bridge_Taxonomies {
 	 * to WC Calypso Bridge.
 	 */
 	public function remove_taxonomy_form_description() {
-		remove_action( 'product_cat_pre_add_form', array( 'WC_Admin_Taxonomies', 'product_cat_description' ) );
+		// @TODO: Uncomment the following line if https://github.com/woocommerce/woocommerce/pull/21884 is merged into WC core.
+		// remove_action( 'product_cat_pre_add_form', array( WC_Admin_Taxonomies::get_instance(), 'product_cat_description' ), 10 );
 	}
 }
 $wc_calypso_bridge_taxonomies = WC_Calypso_Bridge_Taxonomies::get_instance();
