@@ -75,8 +75,10 @@ class WC_Calypso_Bridge_Action_Header {
 	 */
 	public function site_icon() {
 		$site_icon = get_site_icon_url();
+		$site_url  = get_site_url();
+		$site_name = get_bloginfo( 'name' );
 		?>
-		<a href="https://jonsnowjackets.com" aria-label="Jon Snow's Jacket Emporium">
+		<a href="<?php echo esc_url( $site_url ); ?>" aria-label="<?php echo esc_html( $site_name ); ?>">
 			<div class="site-icon <?php echo $site_icon ? '' : 'is-blank'; ?>">
 				<?php if ( $site_icon ) { ?>
 					<img src="<?php echo esc_url( $site_icon ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
