@@ -210,4 +210,11 @@
         }
     } );
 
+    /** 
+     * Disable autocomplete for search inputs
+     */
+    $( document ).on( 'focus', 'input[type=search]', function() {
+        $( this ).attr( 'autocomplete', 'off' );
+    } );
+
 } )( jQuery );
