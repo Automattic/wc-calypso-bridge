@@ -934,6 +934,10 @@ table.widefat {
 .wc-wizard-service-item.klarna-logo .wc-wizard-service-name img {
 	display: none;
 }
+.wc-wizard-service-item.checked .wc-wizard-service-settings,
+.wc-wizard-services-list-toggle.checked .wc-wizard-service-settings {
+	display: none;
+}
 @media screen and (max-width:600px) {
 	.wc-wizard-service-item, .wc-wizard-services-list-toggle {
 		flex-flow: row wrap;
