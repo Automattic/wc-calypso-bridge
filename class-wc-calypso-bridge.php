@@ -86,6 +86,7 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 
 		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
