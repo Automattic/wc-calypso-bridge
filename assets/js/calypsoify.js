@@ -195,4 +195,14 @@
     $( document ).on( 'click', '.subsubsub .search-box input[type=submit]', appendInputsToForm );
     $( document ).on( 'keypress', '.subsubsub .search-box input[type=search]', appendInputsToForm );
 
+    /**
+     * Submit regular search forms on enter
+     */
+    $( document ).on( 'keypress', 'div:not(.subsubsub) .search-box input[type=search]', function( e ) {
+        if ( e.which === 13 ) {
+            e.preventDefault();
+            $( this ).closest( 'form' ).submit();
+        }
+    } );
+
 } )( jQuery );

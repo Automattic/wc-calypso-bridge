@@ -279,9 +279,6 @@ div.woocommerce-message, .wc-helper .start-container {
 	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
 	box-sizing: border-box;	
 }
-.subsubsub.has-search {
-	padding-right: 50px;
-}
 .subsubsub a, .filter-links li>a {
 	padding: 11px 15px;
 }
@@ -1321,6 +1318,13 @@ p.search-box {
 	height: 100%;
 	overflow: hidden;
 }
+.subsubsub.has-search {
+	padding-right: 50px;
+}
+.search-box .button,
+.search-box input[type="submit"] {
+	display: none;
+}
 .subsubsub .search-box:not(.is-expanded) {
 	box-shadow: none;
 }
@@ -1338,6 +1342,6 @@ p.search-box {
 	fill: #3d596d;
 }
 .subsubsub .search-box.is-expanded .search-box__close-icon,
-.subsubsub .search-box.is-expanded input {
-	display: block;
+.subsubsub .search-box.is-expanded input[type="search"] {
+	display: flex;
 }
