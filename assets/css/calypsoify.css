@@ -371,6 +371,10 @@ table.widefat {
 	color: #2E4453;
 }
 
+.wc-wizard-services.manual {
+	display: none;
+}
+
 /* Forms */
 
 #post-body-content {
