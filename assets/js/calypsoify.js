@@ -117,11 +117,16 @@
     if ( $subNav.length ) {
         var $searchBoxListItem = $( '<li class="subsubsub__search-item"></li>').appendTo( $subNav );
         var $searchBox = $( '#posts-filter .search-box' );
+        var $searchInput = $searchBox.find( 'input[type=search]' );
         var uniqueId = Math.floor(Math.random() * 26) + Date.now();
+
         $searchBox.closest( 'form' ).attr( 'data-form-id', uniqueId );
         $searchBox.attr( 'data-target-form-id', uniqueId );
         $searchBox.appendTo( $searchBoxListItem );
         $subNav.addClass( 'has-search' );
+        if ( $searchInput.val().length ) {
+            $searchBox.addClass( 'is-expanded' );
+        }
     }
 
     /**
