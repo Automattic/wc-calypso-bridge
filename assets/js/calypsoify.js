@@ -81,4 +81,18 @@
     $pageTitleActionsContainer.insertAfter( 'h1.wp-heading-inline' );
     $( '.page-title-action' ).appendTo( $pageTitleActionsContainer );
 
+
+    /** 
+     * Move notices on pages with sub navigation
+     * 
+     * WP Core moves notices with jQuery so this is needed to move them again since
+     * we can't control their position.
+     */
+    $( document ).ready(function() {
+        var $subNavigation = $( '.wrap > form > .subsubsub' );
+        if ( $subNavigation.length ) {
+            $( 'div.notice, div.error, div.updated, div.warning' ).insertAfter( $subNavigation );
+        }
+    } );
+
 } )( jQuery );
