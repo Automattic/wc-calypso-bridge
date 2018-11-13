@@ -271,6 +271,9 @@ div.woocommerce-message, .wc-helper .start-container {
 .woocommerce nav.woo-nav-tab-wrapper {
 	width: 100%;
 }
+.wrap .subsubsub {
+	margin-bottom: 1em;
+}
 .nav-tab, .subsubsub a, .filter-links li>a {
 	color: #00aadc;
 }
@@ -1190,6 +1193,12 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 		font-size: 12px !important;
 	}
 }
+.wrap div.notice + br.clear,
+.wrap div.updated + br.clear,
+.wrap div.error + br.clear {
+	display: none;
+}
+
 /* Admin menu */
 /* Can be removed pending merge of https://github.com/Automattic/jetpack/pull/10552 */
 @media screen and (max-width: 600px) {
