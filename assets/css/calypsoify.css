@@ -264,7 +264,7 @@ div.woocommerce-message, .wc-helper .start-container {
 	background: #fff;
 	border-bottom: 1px solid #c8d7e1;
 	position: fixed;
-	z-index: 200000;
+	z-index: 10000;
 	top: 46px;
 	left: 0px;
 }
@@ -592,6 +592,9 @@ table.widefat {
 /* Onboarding wizard */
 .wc-setup-page {
 	background: #F3F6F8;
+}
+.wc-setup-page .action-header {
+	display: none;
 }
 .wc-setup {
 	background: transparent;
