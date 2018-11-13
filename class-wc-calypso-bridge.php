@@ -88,6 +88,7 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 		include_once dirname( __FILE__ ) . '/vendor/automattic/gridicons/php/gridicons.php';
 
