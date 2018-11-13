@@ -1269,6 +1269,9 @@ p.search-box {
 	box-shadow: none;
 	flex: 1;
 }
+.search-box input[name="s"]:-webkit-autofill {
+	box-shadow: none;
+}
 .search-box input[type="submit"] {
 	margin-right: 13px;
 }
