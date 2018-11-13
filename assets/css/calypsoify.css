@@ -392,6 +392,9 @@ html.wp-toolbar {
 .action-header__breadcrumbs	span {
 	display: inline-block;
 }
+.action-header__breadcrumbs	a {
+	text-decoration: none;
+}
 .action-header__breadcrumbs	span + span::before {
 	content: ' / ';
 	color: #87a6bc;
