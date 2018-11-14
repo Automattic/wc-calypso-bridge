@@ -217,4 +217,24 @@
         $( this ).attr( 'autocomplete', 'off' );
     } );
 
+    /**
+     * Clear the search query when clicking the close icon not inside subnav
+     */
+    $( document ).on( 'click', 'div:not(.subsubsub) .search-box__close-icon', function(e) {
+        e.preventDefault();
+        $( this ).closest( '.search-box' ).find( 'input[type=search]' ).val( '' );
+        $( this ).closest( '.search-box' ).removeClass( 'has-value' );
+    } );
+
+    /**
+     * Add has-value class on type
+     */
+    $( document ).on( 'keyup', '.search-box input[type="search"]', function(e) {
+        if ( $( this ).val() ) {
+            $( this ).closest( '.search-box' ).addClass( 'has-value' );
+        } else {
+            $( this ).closest( '.search-box' ).removeClass( 'has-value' );
+        }
+    } );
+
 } )( jQuery );
