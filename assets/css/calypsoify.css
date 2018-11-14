@@ -1200,6 +1200,10 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 }
 
 /* Fix title padding */
+.wp-admin .wrap > h1:first-child,
+.wp-admin .wrap > h2:first-child  {
+	display: none;
+}
 .wp-admin .wrap h1, .wp-admin .wrap h2 {
 	padding-left: 0;
 }
