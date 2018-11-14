@@ -328,6 +328,9 @@ li#wp-admin-bar-menu-toggle {
 	padding: 0;
 	text-align: center;
 }
+.action-header .action-header__ground-control-back:focus {
+	box-shadow: none;
+}
 @media screen and ( max-width: 660px ) {
 	.action-header .action-header__ground-control-back {
 		padding-top: 11px;
@@ -1450,17 +1453,6 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 .wrap div.updated + br.clear,
 .wrap div.error + br.clear {
 	display: none;
-}
-
-/* Admin menu */
-/* Can be removed pending merge of https://github.com/Automattic/jetpack/pull/10552 */
-@media screen and (max-width: 600px) {
-	#calypso-sidebar-header {
-		top: 32px;
-	}
-	.auto-fold #adminmenu {
-		top: 32px;
-	}
 }
 
 /* Taxonomy page */
