@@ -95,4 +95,19 @@
         }
     } );
 
+    /**
+     * Toggle taxonomy form
+     */
+    $( '.taxonomy-form-toggle' ).click( function(e) {
+        e.preventDefault();
+        $( '#col-container > #col-left' ).toggle();
+        $( '#col-container > #col-right' ).toggle();
+        $( '.taxonomy-form-toggle' ).toggle();
+    } );
+
+    /**
+     * Move cancel button
+     */
+    $( '.taxonomy-form-cancel-button' ).appendTo( '#addtag p.submit' );
+
 } )( jQuery );
