@@ -33,13 +33,24 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '1.0.0' );
 define( 'WC_MIN_VERSION', '3.0.0' );
 
-// TODO Pick a better option name.
-// We can set this during store setup/provisioning so they get the right code loaded.
-// @codingStandardsIgnoreLine
-// update_option( 'is-atomic-ecommerce', true );
-$is_atomic_ecommerce = get_option( 'is-atomic-ecommerce', false );
+/**
+ * Returns if a site is an eCommerce plan site or not.
+ * The `at_options` array is created during provisioning. Usually it is 'business' or 'ecommerce'
+ * To Test: update_option( 'at_options', array( 'plan_slug' => 'ecommerce' ) );
+ *
+ * @return bool True if the site is an ecommerce site.
+ */
+function wc_calypso_bridge_is_ecommerce_plan() {
+	$at_options = get_option( 'at_options', array() );
 
-if ( ! $is_atomic_ecommerce ) {
+	if ( array_key_exists( 'plan_slug', $at_options ) && 'ecommerce' === $at_options['plan_slug'] ) {
+		return true;
+	}
+
+	return false;
+}
+
+if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/wc-calypso-bridge-class.php';
 	return;
 }
