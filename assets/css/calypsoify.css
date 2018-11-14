@@ -1344,6 +1344,9 @@ p.search-box {
 .subsubsub .search-box:not(.is-expanded) .search-box__search-icon:hover svg {
 	fill: #3d596d;
 }
+.search-box.has-value .search-box__close-icon {
+	display: flex;
+}
 .subsubsub .search-box.is-expanded .search-box__close-icon,
 .subsubsub .search-box.is-expanded input[type="search"] {
 	display: flex;
