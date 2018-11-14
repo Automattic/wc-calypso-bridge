@@ -259,6 +259,22 @@ html.wp-toolbar {
 .auto-fold #adminmenu {
 	top: 0;
 }
+@media screen and ( max-width: 660px ) {
+	.auto-fold #adminmenu,
+	.auto-fold #adminmenuback,
+	.auto-fold #adminmenuwrap {
+		width: 100%;
+	}
+	.auto-fold #adminmenuwrap {
+		display: block;
+		transform: translateX(-100%);
+		transition: transform 0.15s ease-in-out;
+	}
+	.auto-fold .wp-responsive-open #adminmenuwrap {
+		display: block;
+		transform: translateX(0%);
+	}
+}
 @media screen and ( min-width: 661px ) {
 	html.wp-toolbar {
 		padding-top: 93px;
@@ -314,6 +330,9 @@ html.wp-toolbar {
 	.action-header .gridicons-cross {
 		display: flex;
 	}
+}
+li#wp-admin-bar-menu-toggle {
+	display: none;
 }
 .action-header .action-header__ground-control-back {
 	align-items: center;

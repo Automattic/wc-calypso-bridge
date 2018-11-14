@@ -2,6 +2,16 @@
     'use strict';
 
     /**
+     * Action header mobile navigation
+     */
+    $( document ).on( 'click', '.action-header__ground-control-back', function( e ) {
+        if ( $( window ).width() < 661 ) {
+            e.preventDefault();
+            $( '#wp-admin-bar-menu-toggle .ab-item' ).click();
+        }
+    } );
+
+    /**
      * Record checklist task click
      */
     $( '.checklist__task-title a, .checklist__task-secondary a' ).click( function() {
