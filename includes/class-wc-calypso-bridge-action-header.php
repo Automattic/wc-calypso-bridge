@@ -35,14 +35,15 @@ class WC_Calypso_Bridge_Action_Header {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'wp_after_admin_bar_render', array( $this, 'render' ) );
+		add_action( 'wp_after_admin_bar_render', array( $this, 'render_action_header' ) );
+		add_action( 'in_admin_header', array( $this, 'render_sidebar_header' ) );
 		add_action( 'wp_loaded', array( $this, 'remove_calypso_sidebar_header' ) );
 	}
 
 	/**
 	 * Render action header
 	 */
-	public function render() {
+	public function render_action_header() {
 		?>
 		<div class="action-header">
 			<?php $this->back_button(); ?>
@@ -54,6 +55,23 @@ class WC_Calypso_Bridge_Action_Header {
 				</div>
 			</div>
 			<div class="action-header__actions"></div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Render sidebar header
+	 */
+	public function render_sidebar_header() {
+		?>
+		<div class="action-header action-header-sidebar">
+			<?php $this->back_button(); ?>
+			<div class="action-header__content">
+				<?php $this->site_icon(); ?>
+				<div class="action-header__details">
+					<?php $this->site_title(); ?>
+				</div>
+			</div>
 		</div>
 		<?php
 	}
