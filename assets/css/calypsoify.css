@@ -1221,13 +1221,14 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 /* Taxonomy page */
 .edit-tags-php #col-left {
 	width: 100%;
-	/* display: none; */
+	display: none;
 }
 .edit-tags-php #col-right {
 	width: 100%;
 }
 .wp-core-ui .button.taxonomy-form-cancel-button {
 	display: none;
+	margin-left: 10px;
 }
 /* @TODO: Remove the following selector if https://github.com/woocommerce/woocommerce/pull/21884 is merged into WC core. */
 .edit-tags-php #col-left > .col-wrap > p:first-child {

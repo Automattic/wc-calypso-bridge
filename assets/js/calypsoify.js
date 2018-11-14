@@ -105,4 +105,9 @@
         $( '.taxonomy-form-toggle' ).toggle();
     } );
 
+    /**
+     * Move cancel button
+     */
+    $( '.taxonomy-form-cancel-button' ).appendTo( '#addtag p.submit' );
+
 } )( jQuery );
