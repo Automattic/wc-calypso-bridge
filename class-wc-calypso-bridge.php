@@ -134,6 +134,13 @@ class WC_Calypso_Bridge {
 			'icons',
 			$icons
 		);
+
+		$translations = array(
+			'openSearchText'  => __( 'Open Search', 'wc-calypso-bridge' ),
+			'closeSearchText' => __( 'Close Search', 'wc-calypso-bridge' ),
+		);
+		wp_localize_script( 'wc-calypso-bridge-calypsoify', 'wcb', $translations );
+
 	}
 
 	/**
