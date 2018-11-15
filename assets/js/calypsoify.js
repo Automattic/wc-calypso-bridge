@@ -190,9 +190,9 @@
     function appendInputsToForm( e ) {
         if ( e.type === 'click' || e.which === 13 ) {
             e.preventDefault();
-            var formId = $( this ).closest( '.search-box' ).data( 'target-form-id' );
-            var $form = $( 'form[data-form-id="' + formId + '"' );
-            var $searchInput = $( this ).closest( '.search-box' ).find( 'input[type="search"]' );
+            const formId = $( this ).closest( '.search-box' ).data( 'target-form-id' );
+            const $form = $( 'form[data-form-id="' + formId + '"' );
+            const $searchInput = $( this ).closest( '.search-box' ).find( 'input[type="search"]' );
             $( '<input>' ).attr(
                 {
                     type: 'hidden',
@@ -256,5 +256,23 @@
     }
     $( window ).on( 'resize', removeAutoFold );
     $( document ).on( 'ready', removeAutoFold );
+
+    /**
+     * Table scrolling shadow
+     */
+    function checkTableScroll() {
+        const scrolledToEnd = $( this )[0].scrollWidth - $( this )[0].scrollLeft <= $( this )[0].offsetWidth;
+        if ( ! scrolledToEnd ) {
+            $( this ).parent().addClass( 'is-scrollable' )
+        } else {
+            $( this ).parent().removeClass( 'is-scrollable' );
+        }
+    }
+    $( '.wp-list-table-wrapper__inner' ).scroll( checkTableScroll );
+    $( '.wp-list-table-wrapper__inner' ).scroll();
+    $( window ).resize( function() {
+        $( '.wp-list-table-wrapper__inner' ).scroll();
+    } );
+
 
 } )( jQuery );

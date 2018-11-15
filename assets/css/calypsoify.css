@@ -8,12 +8,29 @@ div.woocommerce-message, .wc-helper .start-container {
 }
 
 /* Tables */
-.wp-list-table__wrapper {
+.wp-list-table-wrapper {
+	position: relative;
+}
+.wp-list-table-wrapper:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 41px;
+	height: 100%;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+	visibility: hidden;
+}
+.wp-list-table-wrapper__inner {
 	overflow-x: auto;
 	width: 100%;
 	border: 1px solid #c8d7e1;
+	box-sizing: border-box;
 }
-.wp-list-table__wrapper table {
+.wp-list-table-wrapper.is-scrollable:after {
+	visibility: visible;
+}
+.wp-list-table-wrapper table {
 	table-layout: initial;
 	border: none;
 }

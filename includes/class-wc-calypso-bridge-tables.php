@@ -46,7 +46,7 @@ class WC_Calypso_Bridge_Tables {
 	 */
 	public function wrap_before_table( $which ) {
 		if ( 'top' === $which ) {
-			echo '</div><div class="wp-list-table__wrapper"><div class="wp-list-table-wrapper__fake-inner">';
+			echo '</div><div class="wp-list-table-wrapper"><div class="wp-list-table-wrapper__inner"><div class="wp-list-table-wrapper__fake-inner">';
 		}
 	}
 
@@ -57,7 +57,7 @@ class WC_Calypso_Bridge_Tables {
 	 */
 	public function wrap_after_table( $which ) {
 		if ( 'bottom' === $which ) {
-			echo '</div></div><div class="tablenav bottom secondary">';
+			echo '</div></div></div><div class="tablenav bottom secondary">';
 		}
 	}
 
