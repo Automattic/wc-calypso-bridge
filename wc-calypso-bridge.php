@@ -56,3 +56,5 @@ if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 }
 
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
+
+require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-frontend.php';
