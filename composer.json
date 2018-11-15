@@ -21,8 +21,7 @@
 		}
 	],
 	"require": {
-		"composer/installers": "~1.2",
-		"automattic/gridicons": "*"
+		"composer/installers": "~1.2"
 	},
 	"require-dev": {
 		"squizlabs/php_codesniffer": "*",
