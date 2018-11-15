@@ -297,7 +297,8 @@ input[type=radio]:checked:before {
 .wp-core-ui .button,
 .wp-core-ui .button-secondary,
 .wc_addons_wrap .addons-button-outline-green,
-.wc_addons_wrap .addons-button-outline-white {
+.wc_addons_wrap .addons-button-outline-white,
+.woocommerce_page_wc-status .woocommerce-message a.docs {
 	color: #2e4453;
 	background: #fff;
 	border-color: #c8d7e1;
@@ -318,7 +319,8 @@ input[type=radio]:checked:before {
 .wc_addons_wrap .addons-button-outline-green:hover,
 .wc_addons_wrap .addons-button-outline-green:focus,
 .wc_addons_wrap .addons-button-outline-white:hover,
-.wc_addons_wrap .addons-button-outline-white:focus {
+.wc_addons_wrap .addons-button-outline-white:focus,
+.woocommerce_page_wc-status .woocommerce-message a.docs:hover {
 	color: #2e4453;
 	border-color: #a8bece;
 	background: #fff;
@@ -353,7 +355,9 @@ input[type=radio]:checked:before {
 .wp-core-ui .button-primary,
 .action-header .page-title-action,
 .wc-helper .button,
-.wc_addons_wrap .addons-button-solid {
+.wc_addons_wrap .addons-button-solid,
+.woocommerce_page_wc-status .woocommerce-message a.debug-report,
+.woocommerce_page_wc-status .woocommerce-message #copy-for-support {
 	background: #00aadc !important;
 	border-color: #008ab3 !important;
 	border-width: 1px 1px 2px !important;
@@ -379,7 +383,11 @@ input[type=radio]:checked:before {
 .wc-helper .button:hover,
 .wc-helper .button:focus,
 .wc_addons_wrap .addons-button-solid:hover,
-.wc_addons_wrap .addons-button-solid:focus {
+.wc_addons_wrap .addons-button-solid:focus,
+.woocommerce_page_wc-status .woocommerce-message a.debug-report:hover,
+.woocommerce_page_wc-status .woocommerce-message a.debug-report:focus,
+.woocommerce_page_wc-status .woocommerce-message #copy-for-support:focus,
+.woocommerce_page_wc-status .woocommerce-message #copy-for-support:hover {
 	background: #00aadc !important;
 	border-color: #005082 !important;
 	color: #fff;
@@ -1624,7 +1632,7 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 .wrap div.notice .button,
 .wrap div.notice .button-primary,
 .wrap div.updated .button, 
-.wrap div.updated .button-primary, 
+.wrap div.updated .button-primary:not( .debug-report ),
 .wrap div.error .button,
 .wrap div.error .button-primary {
 	color: #a8bece;
@@ -1637,7 +1645,7 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 .wrap div.notice .button:hover,
 .wrap div.notice .button-primary:hover,
 .wrap div.updated .button:hover, 
-.wrap div.updated .button-primary:hover, 
+.wrap div.updated .button-primary:hover:not( .debug-report ),
 .wrap div.error .button:hover,
 .wrap div.error .button-primary:hover {
 	color: #fff;
@@ -1843,4 +1851,29 @@ p.search-box {
 .subsubsub .search-box.is-expanded .search-box__close-icon,
 .subsubsub .search-box.is-expanded input[type="search"] {
 	display: flex;
+}
+
+/* Fix display of the "Please copy and paste this information in your ticket when contacting support" notice displayed on the system status page */
+
+.woocommerce_page_wc-status .woocommerce-message .debug-report {
+	margin-right: 16px;
+}
+
+.woocommerce_page_wc-status .woocommerce-message.inline {
+	display: block;
+	background: #fff;
+	color: #000;
+	border: 1px solid #c8d7e1 !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+}
+
+.woocommerce_page_wc-status .woocommerce-message.inline .submit {
+	flex-direction: row;
+	-ms-flex-direction: row;
+	float: left;
+}
+
+.woocommerce_page_wc-status .woocommerce-message.inline .gridicon {
+	display: none;
 }
