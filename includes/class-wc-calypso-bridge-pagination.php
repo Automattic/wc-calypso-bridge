@@ -50,7 +50,7 @@ class WC_Calypso_Bridge_Pagination {
 	 */
 	private function __construct() {
 		add_action( 'wp', array( $this, 'set_page_vars' ) );
-		add_action( 'manage_posts_extra_tablenav', array( $this, 'render_pagination' ) );
+		add_action( 'manage_posts_extra_tablenav', array( $this, 'render_pagination' ), PHP_INT_MAX - 1 );
 	}
 
 
