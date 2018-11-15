@@ -160,13 +160,6 @@ class WC_Calypso_Bridge_Page_Controller {
 	private $pages = array();
 
 	/**
-	 * Constructor
-	 */
-	private function __construct() {
-		add_action( 'admin_menu', array( $this, 'remove_menu_items' ), 100 );
-	}
-
-	/**
 	 * We want a single instance of this class so we can accurately track registered menus and pages.
 	 */
 	public static function get_instance() {
@@ -210,12 +203,6 @@ class WC_Calypso_Bridge_Page_Controller {
 		return $this->menus;
 	}
 
-	/**
-	 * Remove unneeded menu items
-	 */
-	public function remove_menu_items() {
-		remove_submenu_page( 'edit.php?post_type=product', 'post-new.php?post_type=product' );
-	}
 }
 
 $wc_calypso_bridge_page_controller = WC_Calypso_Bridge_Page_Controller::get_instance();
