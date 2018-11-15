@@ -441,6 +441,18 @@ input[type=radio]:checked:before {
 .wc-helper .button-update .dashicons, .wc-helper .button-update:hover .dashicons {
 	height: 13px;
 }
+#publishing-action {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+#major-publishing-actions {
+	position: relative;
+	min-height: 40px;
+}
+#major-publishing-actions > div {
+	max-width: 130px;
+}
 
 /* Delete buttons */
 #all-plugins-table .plugins a.delete, #delete-link a.delete, #media-items a.delete, #media-items a.delete-permanently, #nav-menu-footer .menu-delete, #search-plugins-table .plugins a.delete, .plugins a.delete, .row-actions span.delete a, .row-actions span.spam a, .row-actions span.trash a, .submitbox .submitdelete {
