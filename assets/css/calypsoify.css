@@ -7,12 +7,51 @@ div.woocommerce-message, .wc-helper .start-container {
 	border-left-color: #00a0d2 !important;
 }
 
+/* Tables */
+.wp-list-table-wrapper {
+	position: relative;
+}
+.wp-list-table-wrapper:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 41px;
+	height: 100%;
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
+	visibility: hidden;
+}
+.wp-list-table-wrapper__inner {
+	overflow-x: auto;
+	width: 100%;
+	border: 1px solid #c8d7e1;
+	box-sizing: border-box;
+}
+.wp-list-table-wrapper.is-scrollable:after {
+	visibility: visible;
+}
+.wp-list-table-wrapper table {
+	table-layout: initial;
+	border: none;
+}
+.wp-list-table-wrapper__fake-inner {
+	height: 0;
+}
+
 /* Pagination */
 .tablenav {
 	height: auto;
+	display: inline-block;
+	width: 100%;
 }
-.tablenav.bottom .actions, .tablenav .tablenav-pages {
+.tablenav-pages {
 	display: none;
+}
+.tablenav.bottom {
+	display: none;
+}
+.tablenav.bottom.secondary {
+	display: inline-block;
 }
 .tablenav.bottom .wc-calypso-brdige-pagination.tablenav-pages {
 	float: none;
