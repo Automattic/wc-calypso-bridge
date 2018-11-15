@@ -97,7 +97,11 @@ class WC_Calypso_Bridge {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tables.php';
 			include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
-			include_once dirname( __FILE__ ) . '/vendor/automattic/gridicons/php/gridicons.php';
+
+			// TODO Add composer.json to GridIcons, and pull this in via wpcomsh instead.
+			if ( ! function_exists( 'get_gridicon' ) ) {
+				include_once dirname( __FILE__ ) . '/includes/gridicons.php';
+			}
 
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
 			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
