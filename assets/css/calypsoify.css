@@ -351,13 +351,14 @@ input[type=radio]:checked:before {
 
 /* Primary Buttons */
 .wp-core-ui .button-primary,
-.wrap .page-title-action:not(.button-secondary),
+.action-header .page-title-action,
 .wc-helper .button,
 .wc_addons_wrap .addons-button-solid {
 	background: #00aadc !important;
 	border-color: #008ab3 !important;
 	border-width: 1px 1px 2px !important;
 	border-style: solid;
+	border-radius: 4px;
 	text-shadow: none !important;
 	box-shadow: none !important;
 	padding: 7px !important;
@@ -373,8 +374,8 @@ input[type=radio]:checked:before {
 }
 .wp-core-ui .button-primary:hover,
 .wp-core-ui .button-primary:focus,
-.wrap .page-title-action:not(.button-secondary):hover,
-.wrap .page-title-action:not(.button-secondary):focus,
+.action-header .page-title-action:hover,
+.action-header .page-title-action:focus,
 .wc-helper .button:hover,
 .wc-helper .button:focus,
 .wc_addons_wrap .addons-button-solid:hover,
@@ -398,7 +399,8 @@ input[type=radio]:checked:before {
 .wc_addons_wrap .addons-button-outline-white,
 .edit-tag-actions .button-primary,
 .woocommerce-BlankState a.button,
-.setup-footer a {
+.setup-footer a,
+.action-header .page-title-action {
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
@@ -424,7 +426,7 @@ input[type=radio]:checked:before {
 
 /* Specific Buttons */
 .wp-core-ui .button-primary:active,
-.wrap .page-title-action:active,
+.action-header .page-title-action:active,
 .wc-helper .button:active,
 .wc_addons_wrap .addons-button-solid:active {
 	border-width: 2px 1px 1px !important;
@@ -629,8 +631,12 @@ li#wp-admin-bar-menu-toggle {
 .action-header__actions {
 	flex-grow: 1;
 	flex-shrink: 2;
-	overflow: hidden;
 	text-align: right;
+	margin-top: -3px;
+}
+.action-header__actions a {
+	margin-left: 12px;
+	text-decoration: none;
 }
 @media screen and ( min-width: 661px ) {
 	.action-header__actions {
@@ -714,12 +720,6 @@ li#wp-admin-bar-menu-toggle {
 
 .wc-helper .subscription-filter .count {
 	border: 0;
-}
-
-/* Page title actions */
-.page-title-actions {
-	float: right;
-	padding-top: 12px;
 }
 
 /* Navigation tabs */
@@ -1502,6 +1502,10 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 }
 
 /* Fix title padding */
+.wp-admin .wrap > h1:first-child,
+.wp-admin .wrap > h2:first-child  {
+	display: none;
+}
 .wp-admin .wrap h1, .wp-admin .wrap h2 {
 	padding-left: 0;
 }
