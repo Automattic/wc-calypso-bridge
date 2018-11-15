@@ -85,11 +85,9 @@
     } );
 
     /**
-     * Wrap page title actions to align right
+     * Move page actions to action header
      */
-    var $pageTitleActionsContainer = $( '<div class="page-title-actions"></div>' );
-    $pageTitleActionsContainer.insertAfter( 'h1.wp-heading-inline' );
-    $( '.page-title-action' ).appendTo( $pageTitleActionsContainer );
+    $( '.page-title-action' ).appendTo( '#action-header .action-header__actions' );
 
     /** 
      * Move notices on pages with sub navigation
