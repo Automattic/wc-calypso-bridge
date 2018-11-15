@@ -255,6 +255,13 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		$wc_canada_post_merchant_username = get_option( 'wc_canada_post_merchant_username' );
 		$wc_canada_post_merchant_password = get_option( 'wc_canada_post_merchant_password' );
 
+		$count_wc_product_posts = wp_count_posts( 'product' );
+		$wc_published_products_count = $count_wc_product_posts->publish;
+		$customize_extra_params = '';
+		if ( 0 === absint( $wc_published_products_count ) ) {
+			$customize_extra_params = esc_attr( '&sf_starter_content=1&sf_tasks=homepage,products&action=storefront_starter_content' );
+		}
+
 		$all_tasks = array(
 			array(
 				'id'              => 'add-product',
@@ -272,7 +279,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'completed_title' => __( 'Open customizer', 'wc-calypso-bridge' ),
 				'description'     => __( 'You have access to a few themes with your plan. See the options, chose the right one for you and customize your store.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
-				'link'            => 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize',
+				'link'            => 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize' . $customize_extra_params,
 				'condition'       => isset( $click_settings['customize'] ) && true === (bool) $click_settings['customize'],
 			),
 
