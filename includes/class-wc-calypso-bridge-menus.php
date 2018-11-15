@@ -46,8 +46,6 @@ class WC_Calypso_Bridge_Menus {
 	 * Hooks into WordPress to overtake the menu system on WooCommerce pages.
 	 */
 	public function setup_menu_hooks() {
-		// We want the menu handler hooks to run late, so that other plugins hooking in here can make changes first.
-		$late_priority = 1000;
 		if ( is_wc_calypso_bridge_page() ) {
 			remove_action( 'in_admin_header', array( Jetpack_Calypsoify::getInstance(), 'insert_sidebar_html' ) );
 

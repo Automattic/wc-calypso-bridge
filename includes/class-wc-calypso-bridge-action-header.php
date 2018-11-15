@@ -129,6 +129,7 @@ class WC_Calypso_Bridge_Action_Header {
 		$crumbs      = array( array( 'name' => get_admin_page_title() ) );
 		$page_parent = get_admin_page_parent();
 
+		$parent = false;
 		foreach ( $menu as $top_level_menu_item ) {
 			if ( $top_level_menu_item[2] === $page_parent && $crumbs[0]['name'] !== $top_level_menu_item[0] ) {
 				$parent = $top_level_menu_item;

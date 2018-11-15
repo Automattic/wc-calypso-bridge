@@ -69,32 +69,35 @@ class WC_Calypso_Bridge {
 	public function possibly_load_calypsoify() {
 		add_action( 'admin_init', array( $this, 'track_calypsoify_toggle' ) );
 		if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
-			$this->includes();
-			// Hook on `admin_print_styles`, after some WC CSS is hooked, so we can override a few '!important' styles.
-			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
+
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
+			$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
+			foreach ( $connect_files as $connect_file ) {
+				include_once $connect_file;
+			}
+
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_footer_text' ) );
+			add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
 		}
 	}
 
 	/**
-	 * Loads required functionality, classes, and API endpoints.
+	 * Updates required UI elements for calypso bridge pages only.
 	 */
-	private function includes() {
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
-		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
-		include_once dirname( __FILE__ ) . '/vendor/automattic/gridicons/php/gridicons.php';
+	public function load_ui_elements() {
+		if ( is_wc_calypso_bridge_page() || ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) ) {
+			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
 
-		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
-		foreach ( $connect_files as $connect_file ) {
-			include_once $connect_file;
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
+			include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
+			include_once dirname( __FILE__ ) . '/vendor/automattic/gridicons/php/gridicons.php';
 		}
 	}
 
