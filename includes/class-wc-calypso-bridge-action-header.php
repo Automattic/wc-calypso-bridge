@@ -35,14 +35,15 @@ class WC_Calypso_Bridge_Action_Header {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'wp_after_admin_bar_render', array( $this, 'render' ) );
+		add_action( 'wp_after_admin_bar_render', array( $this, 'render_action_header' ) );
+		add_action( 'in_admin_header', array( $this, 'render_sidebar_header' ) );
 		add_action( 'wp_loaded', array( $this, 'remove_calypso_sidebar_header' ) );
 	}
 
 	/**
 	 * Render action header
 	 */
-	public function render() {
+	public function render_action_header() {
 		?>
 		<div class="action-header">
 			<?php $this->back_button(); ?>
@@ -59,11 +60,28 @@ class WC_Calypso_Bridge_Action_Header {
 	}
 
 	/**
+	 * Render sidebar header
+	 */
+	public function render_sidebar_header() {
+		?>
+		<div class="action-header action-header-sidebar">
+			<?php $this->back_button(); ?>
+			<div class="action-header__content">
+				<?php $this->site_icon(); ?>
+				<div class="action-header__details">
+					<?php $this->site_title(); ?>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Back button
 	 */
 	public function back_button() {
 		?>
-		<a class="button action-header__ground-control-back" aria-label="<?php esc_html_e( 'Close Store', 'wc-calypso-bridge' ); ?>">
+		<a class="action-header__ground-control-back" aria-label="<?php esc_html_e( 'Close Store', 'wc-calypso-bridge' ); ?>" href="<?php echo esc_url( 'https://wordpress.com/stats/day/' . Jetpack::build_raw_urls( home_url() ) ); ?>">
 			<svg class="gridicon gridicons-cross" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M18.36 19.78L12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"></path></g></svg>
 			<svg class="gridicon gridicons-chevron-left" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M14 20l-8-8 8-8 1.414 1.414L8.828 12l6.586 6.586"></path></g></svg>
 		</a>

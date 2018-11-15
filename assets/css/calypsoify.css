@@ -454,7 +454,7 @@ input[type=radio]:checked:before {
 
 /* Layout */
 html.wp-toolbar {
-	padding-top: 95px;
+	padding-top: 106px;
 }
 #wpcontent {
 	height: 100%;
@@ -471,9 +471,6 @@ html.wp-toolbar {
 }
 #adminmenu {
 	margin-top: 0;
-}
-.auto-fold #adminmenu {
-	top: 0;
 }
 @media screen and ( min-width: 661px ) {
 	html.wp-toolbar {
@@ -531,6 +528,9 @@ html.wp-toolbar {
 		display: flex;
 	}
 }
+li#wp-admin-bar-menu-toggle {
+	display: none;
+}
 .action-header .action-header__ground-control-back {
 	align-items: center;
 	display: flex;
@@ -543,6 +543,16 @@ html.wp-toolbar {
 	min-width: 40px;
 	padding: 0;
 	text-align: center;
+}
+.action-header .action-header__ground-control-back:focus {
+	box-shadow: none;
+}
+@media screen and ( max-width: 660px ) {
+	.action-header .action-header__ground-control-back {
+		padding-top: 11px;
+		padding-bottom: 8px;
+		margin-left: 0;
+	}
 }
 .action-header__ground-control-back svg {
 	fill: #537994;
@@ -635,6 +645,49 @@ html.wp-toolbar {
 }
 .action-header__actions-list .button {
 	flex-basis: auto;
+}
+
+/* Sidebar header */
+.auto-fold #adminmenu {
+	top: 0;
+}
+.action-header.action-header-sidebar {
+	display: none;
+}
+.action-header.action-header-sidebar .action-header__site-title {
+	margin-top: 8px;
+	color: #2e4453;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 1.4;
+}
+.action-header.action-header-sidebar .gridicons-chevron-left {
+	display: none;
+}
+.action-header.action-header-sidebar .gridicons-cross {
+	display: block;
+}
+@media screen and ( max-width: 660px ) {
+	.auto-fold #adminmenu,
+	.auto-fold #adminmenuback,
+	.auto-fold #adminmenuwrap {
+		width: 100%;
+	}
+	.auto-fold #adminmenuwrap {
+		display: block;
+	}
+	.action-header.action-header-sidebar {
+		display: flex;
+	}
+	.auto-fold #adminmenuwrap,
+	.action-header.action-header-sidebar {
+		transform: translateX(-100%);
+		transition: transform 0.15s ease-in-out;
+	}
+	.auto-fold .wp-responsive-open #adminmenuwrap,
+	.wp-responsive-open .action-header.action-header-sidebar {
+		transform: translateX(0%);
+	}
 }
 
 /* White background behind the WooCommerce helper extensions navigation */
