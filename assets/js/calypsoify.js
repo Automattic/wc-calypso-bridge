@@ -81,7 +81,6 @@
     $pageTitleActionsContainer.insertAfter( 'h1.wp-heading-inline' );
     $( '.page-title-action' ).appendTo( $pageTitleActionsContainer );
 
-
     /** 
      * Move notices on pages with sub navigation
      * 
@@ -236,5 +235,18 @@
             $( this ).closest( '.search-box' ).removeClass( 'has-value' );
         }
     } );
+
+    /**
+     * Remove auto-fold for admin sidebar menu
+     */
+    function removeAutoFold() {
+        if ( $(this).width() > 660 && $(this).width() <= 960 ) {
+            $( 'body' ).removeClass('auto-fold');
+        } else {
+            $( 'body' ).addClass('auto-fold');
+        }
+    }
+    $( window ).on( 'resize', removeAutoFold );
+    $( document ).on( 'ready', removeAutoFold );
 
 } )( jQuery );

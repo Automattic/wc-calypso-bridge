@@ -460,6 +460,9 @@ html.wp-toolbar {
 	height: 100%;
 	padding: 30px;
 }
+#wpbody {
+	padding-top: 0;
+}
 #wpwrap {
 	top: 0;
 }
@@ -1382,6 +1385,39 @@ table.widefat {
 	}
 }
 
+/* Admin menu */
+@media only screen and (min-width: 661px) and (max-width: 960px) {
+	.autofold .adminmenuwrap,
+	#wpadminbar li#wp-admin-bar-menu-toggle {
+		display: none;
+	}
+	#calypso-sidebar-header {
+		width: 190px;
+		display: block;
+		position: absolute;
+		top: 0;
+	}
+	#calypso-sidebar-header ul {
+		display: block;
+	}
+	#adminmenu,
+	#adminmenuwrap,
+	#adminmenuback,
+	#adminmenu
+	.wp-submenu {
+		width: 190px;
+		position: relative !important;
+	}
+	#wpcontent, #wpfooter {
+		margin-left: 190px;
+	}
+}
+@media only screen and (min-width: 661px) and (max-width: 783px) {
+	#calypso-sidebar-header {
+		left: -190px;
+	}
+}
+
 /* Breadcrumbs */
 .wc-calypso-bridge-breadcrumbs + h2 {
 	display: none;
@@ -1440,9 +1476,10 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	width: 225px;
 }
 
-@media screen and (max-width:782px) {
+@media screen and (max-width:960px) {
 	#calypso-sidebar-header ul li#calypso-sitename {
 		width: 150px;
+		overflow: hidden;
 	}
 }
 
@@ -1613,17 +1650,6 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 .wrap div.updated + br.clear,
 .wrap div.error + br.clear {
 	display: none;
-}
-
-/* Admin menu */
-/* Can be removed pending merge of https://github.com/Automattic/jetpack/pull/10552 */
-@media screen and (max-width: 600px) {
-	#calypso-sidebar-header {
-		top: 32px;
-	}
-	.auto-fold #adminmenu {
-		top: 32px;
-	}
 }
 
 /* Taxonomy page */
