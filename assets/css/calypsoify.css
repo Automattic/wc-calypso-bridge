@@ -635,6 +635,12 @@ li#wp-admin-bar-menu-toggle {
 	margin-right: 8px;
 	text-align: center;
 }
+
+.action-header__content .site-icon img {
+	height: 32px;
+	width: 32px;
+}
+
 .action-header__content .site-icon svg {
 	fill: #fff;
 }
