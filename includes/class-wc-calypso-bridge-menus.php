@@ -36,6 +36,7 @@ class WC_Calypso_Bridge_Menus {
 	 */
 	private function __construct() {
 		add_action( 'current_screen', array( $this, 'setup_menu_hooks' ) );
+		add_action( 'admin_menu', array( $this, 'remove_create_new_menu_items' ), 100 );
 	}
 
 	// TODO If any extensions add new pages to wp-admin's settings section, we will want to copy those over,
@@ -69,7 +70,6 @@ class WC_Calypso_Bridge_Menus {
 				unset( $menu[ $menu_key ] );
 			}
 		}
-
 	}
 
 	/**
@@ -84,6 +84,26 @@ class WC_Calypso_Bridge_Menus {
 			if ( in_array( $menu_item[2], $wc_menus, true ) ) {
 				unset( $menu[ $menu_key ] );
 			}
+		}
+	}
+
+	/**
+	 * Remove all create new pages for custom post types
+	 */
+	public function remove_create_new_menu_items() {
+		$post_types = (array) get_post_types(
+			array(
+				'show_ui'      => true,
+				'_builtin'     => false,
+				'show_in_menu' => true,
+			)
+		);
+
+		foreach ( $post_types as $post_type ) {
+			$post_type_object = get_post_type_object( $post_type );
+			$singular_name    = strtolower( $post_type_object->labels->singular_name );
+			remove_submenu_page( 'edit.php?post_type=' . $post_type, 'post-new.php?post_type=' . $singular_name );
+			remove_submenu_page( 'edit.php?post_type=' . $post_type, 'create_' . $singular_name );
 		}
 	}
 }
