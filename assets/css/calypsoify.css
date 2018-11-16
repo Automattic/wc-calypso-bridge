@@ -1626,9 +1626,14 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	height: auto;
 }
 /* Notices */
-.wrap div.notice,
-.wrap div.updated, 
-.wrap div.error {
+div.notice,
+div.updated, 
+div.error {
+	display: none;
+}
+.wp-admin .wrap div.notice,
+.wp-admin .wrap div.updated, 
+.wp-admin .wrap div.error {
 	display: flex;
 	position: relative;
 	width: 100%;
@@ -1644,9 +1649,9 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	border: 0;
 	overflow: hidden;
 }
-.wrap div.notice > p,
-.wrap div.updated > p, 
-.wrap div.error > p,
+.wp-admin div.notice > p,
+.wp-admin div.updated > p, 
+.wp-admin div.error > p,
 .wc-calypso-bridge-notice-content {
 	padding: 8px 13px;
 	margin: 0;
@@ -1656,14 +1661,14 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	margin: 5px 0;
 	font-size: 14px;
 }
-.wrap div.notice a,
-.wrap div.updated a, 
-.wrap div.error a {
+.wp-admin div.notice a,
+.wp-admin div.updated a, 
+.wp-admin div.error a {
 	color: #fff;
 }
-.wrap div.notice p.submit,
-.wrap div.updated p.submit, 
-.wrap div.error p.submit {
+.wp-admin div.notice p.submit,
+.wp-admin div.updated p.submit, 
+.wp-admin div.error p.submit {
 	display: flex;
 	-ms-flex-negative: 1;
 	flex-shrink: 1;
@@ -1674,12 +1679,12 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	padding: 13px 16px;
 	justify-content: center;
 }
-.wrap div.notice .button,
-.wrap div.notice .button-primary,
-.wrap div.updated .button, 
-.wrap div.updated .button-primary:not( .debug-report ),
-.wrap div.error .button,
-.wrap div.error .button-primary {
+.wp-admin div.notice .button,
+.wp-admin div.notice .button-primary,
+.wp-admin div.updated .button, 
+.wp-admin div.updated .button-primary:not( .debug-report ),
+.wp-admin div.error .button,
+.wp-admin div.error .button-primary {
 	color: #a8bece;
 	background: transparent !important;
 	border-width: 0 !important;
@@ -1687,21 +1692,21 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	font-weight: 400 !important;
 	padding: 0 !important;
 }
-.wrap div.notice .button:hover,
-.wrap div.notice .button-primary:hover,
-.wrap div.updated .button:hover, 
-.wrap div.updated .button-primary:hover:not( .debug-report ),
-.wrap div.error .button:hover,
-.wrap div.error .button-primary:hover {
+.wp-admin div.notice .button:hover,
+.wp-admin div.notice .button-primary:hover,
+.wp-admin div.updated .button:hover, 
+.wp-admin div.updated .button-primary:hover:not( .debug-report ),
+.wp-admin div.error .button:hover,
+.wp-admin div.error .button-primary:hover {
 	color: #fff;
 	background: transparent !important;
 }
-.wrap div.notice .button:active,
-.wrap div.notice .button-primary:active,
-.wrap div.updated .button:active, 
-.wrap div.updated .button-primary:active, 
-.wrap div.error .button:active,
-.wrap div.error .button-primary:active {
+.wp-admin div.notice .button:active,
+.wp-admin div.notice .button-primary:active,
+.wp-admin div.updated .button:active, 
+.wp-admin div.updated .button-primary:active, 
+.wp-admin div.error .button:active,
+.wp-admin div.error .button-primary:active {
 	vertical-align: baseline;
 }
 .wc-calypso-bridge-notice-icon-wrapper {
@@ -1756,21 +1761,21 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 	fill: #fff;
 }
 @media screen and (max-width: 480px) {
-	.wrap div.notice p,
-	.wrap div.notice a.button,
-	.wrap div.notice a.button-primary,
-	.wrap div.error p,
-	.wrap div.error a.button,
-	.wrap div.error a.button-primary,
-	.wrap div.updated p,
-	.wrap div.updated a.button,
-	.wrap div.updated a.button-primary {
+	.wp-admin div.notice p,
+	.wp-admin div.notice a.button,
+	.wp-admin div.notice a.button-primary,
+	.wp-admin div.error p,
+	.wp-admin div.error a.button,
+	.wp-admin div.error a.button-primary,
+	.wp-admin div.updated p,
+	.wp-admin div.updated a.button,
+	.wp-admin div.updated a.button-primary {
 		font-size: 12px !important;
 	}
 }
-.wrap div.notice + br.clear,
-.wrap div.updated + br.clear,
-.wrap div.error + br.clear {
+.wp-admin div.notice + br.clear,
+.wp-admin div.updated + br.clear,
+.wp-admin div.error + br.clear {
 	display: none;
 }
 
