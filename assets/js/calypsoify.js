@@ -96,7 +96,7 @@
      * we can't control their position.
      */
     $( document ).ready(function() {
-        var $subNavigation = $( '.wrap > form > .subsubsub' );
+        var $subNavigation = $( '.wrap .subsubsub' );
         if ( $subNavigation.length ) {
             $( 'div.notice, div.error, div.updated, div.warning' ).insertAfter( $subNavigation );
         }
