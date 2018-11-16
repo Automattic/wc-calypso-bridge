@@ -39,6 +39,48 @@ class WC_Calypso_Bridge {
 		add_action( 'init', array( $this, 'check_calyposify_param' ), 1 );
 		add_action( 'init', array( $this, 'check_setup_param' ) );
 		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 2 );
+		if ( class_exists( 'Storefront_Powerpack' ) ) {
+			$this->disable_powerpack_features();
+		}
+	}
+
+	/**
+	 * Disables Specific Features within the Powerpack extension for Storefront.
+	 */
+	public function disable_powerpack_features() {
+		/**
+		 * List of Powerpack features able to disable
+		 *
+		 * 'storefront_powerpack_helpers_enabled'
+		 * 'storefront_powerpack_admin_enabled'
+		 * 'storefront_powerpack_frontend_enabled'
+		 * 'storefront_powerpack_customizer_enabled'
+		 * 'storefront_powerpack_header_enabled'
+		 * 'storefront_powerpack_footer_enabled'
+		 * 'storefront_powerpack_designer_enabled'
+		 * 'storefront_powerpack_layout_enabled'
+		 * 'storefront_powerpack_integrations_enabled'
+		 * 'storefront_powerpack_mega_menus_enabled'
+		 * 'storefront_powerpack_parallax_hero_enabled'
+		 * 'storefront_powerpack_checkout_enabled'
+		 * 'storefront_powerpack_homepage_enabled'
+		 * 'storefront_powerpack_messages_enabled'
+		 * 'storefront_powerpack_product_details_enabled'
+		 * 'storefront_powerpack_shop_enabled'
+		 * 'storefront_powerpack_pricing_tables_enabled'
+		 * 'storefront_powerpack_reviews_enabled'
+		 * 'storefront_powerpack_product_hero_enabled'
+		 * 'storefront_powerpack_blog_customizer_enabled'
+		 */
+		$disabled_powerpack_features = array(
+			'storefront_powerpack_designer_enabled',
+			'storefront_powerpack_mega_menus_enabled',
+			'storefront_powerpack_pricing_tables_enabled',
+		);
+
+		foreach ( $disabled_powerpack_features as $feature_filter_name ) {
+			add_filter( $feature_filter_name, '__return_false' );
+		}
 	}
 
 	/**
@@ -72,6 +114,7 @@ class WC_Calypso_Bridge {
 
 			include_once( dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php' );
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
