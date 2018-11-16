@@ -135,16 +135,38 @@ class WC_Calypso_Bridge_Action_Header {
 				$parent = $top_level_menu_item;
 			}
 		}
+
 		if ( $parent ) {
 			array_unshift(
 				$crumbs,
 				array(
 					'name' => $parent[0],
-					'url' => $parent[2],
+					'url'  => $this->get_parent_url( $parent[2] ),
 				)
 			);
 		}
 		return $crumbs;
+	}
+
+	/**
+	 * Get parent page URL from slug
+	 *
+	 * @param string $parent_menu_slug Parent page slug.
+	 */
+	public function get_parent_url( $parent_menu_slug ) {
+		global $submenu;
+		$submenu_items = $submenu[ $parent_menu_slug ];
+		if ( $submenu_items ) {
+			$first_menu_item = array_pop( array_reverse( $submenu_items ) );
+			$menu_hook       = get_plugin_page_hook( $first_menu_item[2], $parent_menu_slug );
+
+			if ( ! empty( $menu_hook ) ) {
+				return 'admin.php?page=' . $first_menu_item[2];
+			} else {
+				return $first_menu_item[2];
+			}
+		}
+		return null;
 	}
 
 	/**
