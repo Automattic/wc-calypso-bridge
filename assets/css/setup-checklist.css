@@ -491,7 +491,9 @@
 }
 
 /* Checklist overrides */
-
+.checklist {
+	margin: 20px 0 25px 0;
+}
 .checklist__header-action {
 	background: #fff;
 }
@@ -546,8 +548,8 @@
 	}
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
 	.checklist {
-		margin: 20px 0px 25px -15px;
+		margin: 20px -15px 25px -15px;
 	}
 }
