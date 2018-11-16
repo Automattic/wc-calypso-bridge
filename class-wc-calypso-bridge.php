@@ -70,8 +70,8 @@ class WC_Calypso_Bridge {
 		add_action( 'admin_init', array( $this, 'track_calypsoify_toggle' ) );
 		if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 
+			include_once( dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php' );
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
