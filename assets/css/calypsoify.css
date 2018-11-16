@@ -201,13 +201,14 @@ textarea::placeholder {
 }
 
 /* Checkboxes and radios */
-input[type=checkbox], input[type=radio] {
+input[type=checkbox],
+input[type=radio] {
 	clear: none;
 	cursor: pointer;
 	display: inline-block;
 	line-height: 0;
 	height: 16px;
-	margin: 2px 0 0;
+	margin: -4px 5px 0 0;
 	outline: 0;
 	padding: 0;
 	text-align: center;
