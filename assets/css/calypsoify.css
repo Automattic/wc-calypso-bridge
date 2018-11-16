@@ -11,6 +11,9 @@ div.woocommerce-message, .wc-helper .start-container {
 .wp-list-table-wrapper {
 	position: relative;
 }
+.wp-list-table-wrapper table.wp-list-table {
+	margin: 0 !important;
+}
 .wp-list-table-wrapper:after {
 	content: '';
 	position: absolute;
