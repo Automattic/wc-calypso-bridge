@@ -517,9 +517,19 @@ input[type=radio]:checked:before {
 html.wp-toolbar {
 	padding-top: 106px;
 }
-#wpcontent {
+.wp-admin #wpcontent {
 	height: 100%;
-	padding: 30px;
+	padding: 20px 32px;
+}
+@media (max-width: 960px) {
+	.wp-admin #wpcontent {
+		padding: 24px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.wp-admin #wpcontent {
+		padding: 16px;
+	}
 }
 #wpbody {
 	padding-top: 0;
