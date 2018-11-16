@@ -1,7 +1,7 @@
 <?php
 /**
  * Frontend functions for Calypso Bridge
- * 
+ *
  * Mostly related to the Customizer, Storefront, and its extensions
  *
  * @package WC_Calypso_Bridge_Frontend/Classes
@@ -38,12 +38,11 @@ class WC_Calypso_Bridge_Frontend {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'remove_storefront_default_footer_credit' ), 10 );	
-    }
-    
-    /**
+		add_action( 'init', array( $this, 'remove_storefront_default_footer_credit' ), 10 );
+	}
+
+	/**
 	 * Unhooks Storefront footer credit
-	 *
 	 */
 	public function remove_storefront_default_footer_credit() {
 		remove_action( 'storefront_footer', 'storefront_credit', 20 );
@@ -76,7 +75,7 @@ class WC_Calypso_Bridge_Frontend {
 	/**
 	 * Class instance.
 	 */
-	public static function instance() {
+	public static function get_instance() {
 		if ( is_null( self::$instance ) ) {
 			// If this is a traditionally installed plugin, set plugin_url for the proper asset path.
 			if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
@@ -95,4 +94,4 @@ class WC_Calypso_Bridge_Frontend {
 
 }
 
-WC_Calypso_Bridge_Frontend::instance();
+WC_Calypso_Bridge_Frontend::get_instance();
