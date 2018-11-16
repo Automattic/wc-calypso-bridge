@@ -110,7 +110,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function possibly_load_calypsoify() {
 		add_action( 'admin_init', array( $this, 'track_calypsoify_toggle' ) );
-		if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+		if ( $this->dependencies_satisfied() ) {
 
 			include_once( dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php' );
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
@@ -126,6 +126,32 @@ class WC_Calypso_Bridge {
 
 			add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
 		}
+	}
+
+	/**
+	 * Check if dependencies are met to load Calypsoify
+	 *
+	 * @return bool
+	 */
+	public function dependencies_satisfied() {
+		if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+			return false;
+		}
+		if ( ! class_exists( 'Jetpack' ) || ! class_exists( 'Jetpack_Calypsoify' ) ) {
+			return false;
+		}
+		if (
+			! Jetpack::is_active()
+			&& ! Jetpack::is_development_mode()
+			&& ! Jetpack::is_onboarding()
+			&& (
+				! is_multisite()
+				|| ! get_site_option( 'jetpack_protect_active' )
+			)
+		) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
