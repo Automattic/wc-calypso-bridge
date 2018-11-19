@@ -832,6 +832,114 @@ li#wp-admin-bar-menu-toggle {
 	font-weight: 400;
 }
 
+/* Navigation dropdown */
+.subsubsub-wrapper {
+	margin-bottom: 17px;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+.wrap .subsubsub-wrapper .subsubsub {
+	margin-bottom: 0;
+}
+.subsubsub-toggle {
+	display: none;
+	align-items: center;
+	padding: 15px;
+	font-size: 14px;
+	line-height: 16px;
+	height: 46px;
+	color: #2e4453;
+	font-weight: 600;
+	cursor: pointer;
+	position: relative;
+	width: 100%;
+	margin: 0;
+	background: #fff;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
+}
+.subsubsub-toggle__current-page {
+	margin-right: 4px;
+}
+.subsubsub-toggle .gridicons-chevron-down {
+	width: 18px;
+	height: 18px;
+	transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275), -webkit-transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	fill: #4f748e;
+}
+@media screen and (max-width:480px) {
+	.subsubsub-wrapper {
+		margin-bottom: 9px;
+	}
+	.subsubsub-wrapper.is-open {
+		-webkit-box-shadow: 0 0 0 1px #87a6bc, 0 2px 4px #c8d7e1;
+		box-shadow: 0 0 0 1px #87a6bc, 0 2px 4px #c8d7e1;
+	}
+	.subsubsub-wrapper.is-open .subsubsub li {
+		display: block;
+		text-align: left;
+	}
+	.subsubsub-wrapper.is-open .subsubsub-toggle .gridicons-chevron-down {
+		-webkit-transform: rotate(-180deg);
+		transform: rotate(-180deg);
+	}
+	.subsubsub-toggle {
+		display: flex;
+	}
+	.subsubsub-wrapper .subsubsub.has-search {
+		padding-right: 0;
+	}
+	.subsubsub-wrapper .subsubsub {
+		margin-top: 0;
+		margin-bottom: 0;
+		position: static;
+		display: contents;
+	}
+	.subsubsub-wrapper .subsubsub li:not(.subsubsub__search-item) {
+		display: none;
+		text-align: left;
+	}
+	.subsubsub-wrapper.is-open .subsubsub li {
+		display: block;
+	}
+	.subsubsub-wrapper .subsubsub__search-item {
+		display: list-item;
+	}
+	.subsubsub-wrapper .subsubsub li a {
+		color: #2e4453;
+		display: flex;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 15px;
+		width: 100%;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 18px;
+	}
+	.subsubsub-wrapper .subsubsub li a:not(.current):hover {
+		color: #00aadc;
+	}
+	.subsubsub-wrapper .subsubsub a.current {
+		color: #fff;
+		background-color: #00aadc;
+		border-bottom: 0;
+	}
+	.subsubsub-wrapper .subsubsub a.current > * {
+		color: #fff;
+		border-color: #fff;
+	}
+	.subsubsub-wrapper .subsubsub .search-box {
+		height: 46px;
+	}
+}
+
+
 /* Pill toggle styles */
 .woocommerce-input-toggle {
 	background: #00aadc;
