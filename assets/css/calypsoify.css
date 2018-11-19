@@ -1828,11 +1828,11 @@ p.search-box {
 
 /* Fix display of the "Please copy and paste this information in your ticket when contacting support" notice displayed on the system status page */
 
-.woocommerce_page_wc-status .woocommerce-message .debug-report {
+.wp-admin.woocommerce_page_wc-status .woocommerce-message .debug-report {
 	margin-right: 16px;
 }
 
-.woocommerce_page_wc-status .woocommerce-message.inline {
+.wp-admin.woocommerce_page_wc-status .woocommerce-message.inline {
 	display: block;
 	background: #fff;
 	color: #000;
@@ -1841,13 +1841,13 @@ p.search-box {
 	border-radius: 0 !important;
 }
 
-.woocommerce_page_wc-status .woocommerce-message.inline .submit {
+.wp-admin.woocommerce_page_wc-status .woocommerce-message.inline .submit {
 	flex-direction: row;
 	-ms-flex-direction: row;
 	float: left;
 }
 
-.woocommerce_page_wc-status .woocommerce-message.inline .gridicon {
+.wp-admin.woocommerce_page_wc-status .woocommerce-message.inline .gridicon {
 	display: none;
 }
 
