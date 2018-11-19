@@ -894,13 +894,24 @@ li#wp-admin-bar-menu-toggle {
 	color: #0073aa !important;
 }
 
-/* MailChimp for WooCommerce: Menu item */
-#adminmenu li.current a.menu-top.toplevel_page_mailchimp-woocommerce div.wp-menu-name {
+
+/* Fix selected styles for WooCommerce menu items */
+#adminmenu li.current div.wp-menu-name {
 	color: #fff !important;
 }
 
-#adminmenu li.current a.menu-top.toplevel_page_mailchimp-woocommerce .svg {
+#adminmenu li.current .svg {
 	filter: none;
+}
+
+#adminmenu li.wp-has-current-submenu:hover div.wp-menu-image:before,
+#adminmenu .wp-has-current-submenu div.wp-menu-image:before,
+#adminmenu .current div.wp-menu-image:before,
+#adminmenu a.wp-has-current-submenu:hover div.wp-menu-image:before,
+#adminmenu a.current:hover div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu a:focus div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu.opensub div.wp-menu-image:before {
+	color: #fff !important;
 }
 
 /* WooCommercer Orders */
