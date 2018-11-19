@@ -41,12 +41,18 @@ div.woocommerce-message, .wc-helper .start-container {
 	height: 0;
 }
 
-/* Pagination */
+/* Table nav */
 .tablenav {
 	height: auto;
 	display: inline-block;
 	width: 100%;
 }
+.tablenav .actions {
+	padding: 0;
+	margin-right: 8px;
+}
+
+/* Pagination */
 .tablenav-pages {
 	display: none;
 }
@@ -503,6 +509,21 @@ input[type=radio]:checked:before {
 }
 #major-publishing-actions > div {
 	max-width: 130px;
+}
+.tablenav .button {
+	line-height: 24px;
+	height: 41px;
+}
+
+/* Taller secondary buttons near select dropdowns */
+.tablenav .button {
+	line-height: 24px;
+	height: 41px;
+}
+.tablenav .button:hover,
+.tablenav .button:focus {
+	line-height: 24px;
+	height: 41px;
 }
 
 /* Delete buttons */
