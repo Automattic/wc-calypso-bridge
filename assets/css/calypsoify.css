@@ -1439,8 +1439,20 @@ table.widefat {
 		width: 190px;
 		position: relative !important;
 	}
+	#adminmenu .wp-has-current-submenu .wp-submenu {
+		display: block;
+		top: 0 !important;
+		left: 0;
+		width: 100%;
+	}
+	#adminmenu li.wp-menu-open {
+		background: #f3f6f8 !important;
+	}
 	#wpcontent, #wpfooter {
 		margin-left: 190px;
+	}
+	#adminmenuback {
+		position: fixed !important;
 	}
 }
 @media only screen and (min-width: 661px) and (max-width: 783px) {
