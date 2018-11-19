@@ -1569,6 +1569,9 @@ div.error {
 	border: 0;
 	overflow: hidden;
 }
+.wp-admin .wrap div.hidden {
+	display: none;
+}
 .wp-admin div.notice > p,
 .wp-admin div.updated > p, 
 .wp-admin div.error > p,
