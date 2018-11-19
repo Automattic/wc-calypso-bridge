@@ -70,6 +70,7 @@ class WC_Calypso_Bridge_Themes_Setup {
 			set_theme_mod( 'sp_homepage_on_sale', false ); // Removes On Sale Products area from starter content.
 			set_theme_mod( 'sp_homepage_best_sellers', false ); // Removes Best Sellers Products area from starter content.
 			update_option( 'woocommerce_demo_store', 'yes' ); // enables demo store notice.
+			update_option( 'woocommerce_demo_store_notice', __( 'This is an example of a sitewide notice - you can change or remove this text in the Customizer under "Store Notice"', 'wc-calypso-bridge' ) ); // Default store notice message.
 			// Force Fresh Site.
 			update_option( 'fresh_site', true );
 			// Save option that says the setup has been run already.
