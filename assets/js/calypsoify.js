@@ -131,7 +131,7 @@
         $searchBox.attr( 'data-target-form-id', uniqueId );
         $searchBox.appendTo( $searchBoxListItem );
         $subNav.addClass( 'has-search' );
-        if ( $searchInput.val().length ) {
+        if ( $searchInput.val() && $searchInput.val().length ) {
             $searchBox.addClass( 'is-expanded' );
         }
     }
