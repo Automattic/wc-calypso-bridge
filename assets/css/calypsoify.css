@@ -1895,15 +1895,12 @@ p.search-box {
 /** WooCommerce Services / Modal */
 
 .wcs-pointer-page-dimmer {
-	z-index: 100200 !important; /* cover header too, like Calypso */
-	background-color: rgba(233,239,243,0.8) !important;
-}
 
-.wp-pointer {
-	z-index: 100201 !important;
+	background-color: rgba(233,239,243,0.8) !important;
 }
 
 .post-type-shop_order.post-new-php .jitm-card, .post-type-shop_order.post-php .jitm-card {
 	/* Hide JITM card on add/edit page, because the NUX walkthrough already deals with setup, and the notice is present on other pages */
 	display: none;
 }
+
