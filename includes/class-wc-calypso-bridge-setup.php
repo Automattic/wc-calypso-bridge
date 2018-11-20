@@ -39,6 +39,12 @@ class WC_Calypso_Bridge_Setup {
 			add_filter( 'woocommerce_setup_wizard_steps', array( $this, 'remove_unused_steps' ) );
 			add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
 			add_action( 'wp_loaded', array( $this, 'setup_wizard' ), 20 );
+
+			$jetpack_calypsoify = Jetpack_Calypsoify::getInstance();
+			$wc_calypso_bridge  = WC_Calypso_Bridge::instance();
+
+			add_action( 'admin_enqueue_scripts', array( $jetpack_calypsoify, 'enqueue' ) );
+			add_action( 'admin_print_styles', array( $wc_calypso_bridge, 'enqueue_calypsoify_scripts' ), 11 );
 		}
 	}
 
@@ -46,6 +52,8 @@ class WC_Calypso_Bridge_Setup {
 	 * Show the setup wizard.
 	 */
 	public function setup_wizard() {
+		// Always tell Calypsoify to run during the setup wizard.
+		update_user_meta( get_current_user_id(), 'calypsoify', 1 );
 		include_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-setup-wizard.php';
 	}
 
