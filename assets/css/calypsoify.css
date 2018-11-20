@@ -1661,7 +1661,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 .wp-admin div.updated > p, 
 .wp-admin div.error > p,
 .wc-calypso-bridge-notice-content {
-	padding: 8px 13px;
+	padding: 6px 13px;
 	margin: 0;
 	flex-direction: column;
 }
@@ -1754,7 +1754,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	height: 100%;
 	margin: 0 0 0 auto !important;
 	position: static;
-	padding: 9px !important;
+	padding: 12px !important;
 }
 .notice-dismiss:before {
 	display: none;
