@@ -120,7 +120,8 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		if ( $this->dependencies_satisfied() ) {
-			include_once( dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php' );
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
@@ -169,7 +170,6 @@ class WC_Calypso_Bridge {
 			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
 
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
