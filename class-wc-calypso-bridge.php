@@ -99,7 +99,8 @@ class WC_Calypso_Bridge {
 
 			if ( isset( $_SERVER['REQUEST_URI'] ) ) {
 				$page = remove_query_arg( 'calypsoify', wp_basename( $_SERVER['REQUEST_URI'] ) ); // WPCS: Sanitization ok.
-				wp_safe_redirect( admin_url( $page ) );
+				header( 'Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0' );
+				wp_safe_redirect( admin_url( $page ), 307 );
 				exit;
 			}
 		}
