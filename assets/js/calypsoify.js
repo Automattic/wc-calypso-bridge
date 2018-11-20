@@ -98,7 +98,7 @@
     $( document ).ready(function() {
         var $subNavigation = $( '.wrap .subsubsub' );
         if ( $subNavigation.length ) {
-            $( 'div.notice, div.error, div.updated, div.warning' ).insertAfter( $subNavigation );
+            $( 'div.notice, div.error, div.updated, div.warning' ).insertAfter( $subNavigation.first() );
         }
     } );
 
