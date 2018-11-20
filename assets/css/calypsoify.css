@@ -1135,6 +1135,19 @@ table.widefat {
 	font: normal 21px/1 dashicons;
 	display: inline-block;
 }
+.wc-setup-content .checkbox input[type=checkbox]+label::before,
+.wc-setup-content .checkbox input[type=checkbox]+label::after {
+	display: none;
+}
+.wc-setup-content .checkbox input[type=checkbox] {
+	opacity: 1;
+	position: static;
+	left: 0;
+	margin-top: -1px;
+}
+.wc-setup-content .checkbox label {
+	padding-left: 0;
+}
 
 .wc-setup label {
 	color: #2E4453;
