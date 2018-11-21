@@ -15,20 +15,28 @@
      * Record checklist task click
      */
     $( '.checklist__task-title a, .checklist__task-secondary a' ).click( function() {
-        var $task = $( this ).closest( '.checklist__task' )
-        var status = $task.hasClass( 'is-completed' ) ? 'complete' : 'incomplete';
-        var taskId = $task.data('id');
-        var taskTitle = $task.data('title');
+        const $task = $( this ).closest( '.checklist__task' )
+        const status = $task.hasClass( 'is-completed' ) ? 'complete' : 'incomplete';
+        const taskId = $task.data('id');
+        const taskTitle = $task.data('title');
+        const href = $( this ).attr('href');
 
-        window.jpTracksAJAX.record_ajax_event(
-            'atomic_wc_tasklist_click',
-            'click',
-            {
-                id: taskId,
-                title: taskTitle, 
-                status: status,
-            }
-        );
+        if ( window.jpTracksAJAX ) {
+            const trackedEvent = window.jpTracksAJAX.record_ajax_event(
+                'atomic_wc_tasklist_click',
+                'click',
+                {
+                    id: taskId,
+                    title: taskTitle, 
+                    status: status,
+                }
+            );
+            trackedEvent.complete( function() {
+                window.location = href;
+            } );
+        } else {
+            window.location = href;
+        }
     } );
 
     /**
@@ -36,12 +44,13 @@
      */
     $( '.setup-footer a' ).click( function(e) {
         e.preventDefault();
-        var progressNumber = $( '.checklist__header-progress-number' ).text().split( '/' );
-        var complete = progressNumber[0];
-        var total = progressNumber[1];
-        var percentage = parseFloat( complete / total ).toFixed( 2 ) * 100;
-        if (window.jpTracksAJAX) {
-            window.jpTracksAJAX.record_ajax_event(
+        const progressNumber = $( '.checklist__header-progress-number' ).text().split( '/' );
+        const complete = progressNumber[0];
+        const total = progressNumber[1];
+        const percentage = parseFloat( complete / total ).toFixed( 2 ) * 100;
+        const href = $( this ).attr('href');
+        if ( window.jpTracksAJAX ) {
+            const trackedEvent = window.jpTracksAJAX.record_ajax_event(
                 'atomic_wc_tasklist_finish',
                 'click',
                 { 
@@ -50,6 +59,11 @@
                     percentage: percentage
                 }
             );
+            trackedEvent.complete( function() {
+                window.location = href;
+            } );
+        } else {
+            window.location = href;
         }
     } );
 
