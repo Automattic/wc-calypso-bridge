@@ -126,6 +126,7 @@ class WC_Calypso_Bridge {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
 			include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 			$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
 			foreach ( $connect_files as $connect_file ) {
