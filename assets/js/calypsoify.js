@@ -102,6 +102,27 @@
         }
     } );
 
+
+    /**
+     * Append subnav dropdown for mobile
+     */
+    $( document ).ready(function() {
+        const $subNavigation = $( '.wrap .subsubsub' );
+        if ( $subNavigation.length ) {
+            const currentPage = $subNavigation.find( 'a.current' ).text();
+            const $toggle = $( '<div class="subsubsub-toggle"><span class="subsubsub-toggle__current-page">' + currentPage + '</span>' + icons.chevronDown + '</div>' );
+            $subNavigation.first().wrap( '<div class="subsubsub-wrapper"></div>' );
+            $( '.subsubsub-wrapper' ).prepend( $toggle );
+        }
+    } );
+
+    /**
+     * Append subnav dropdown for mobile
+     */
+    $( document ).on( 'click', '.subsubsub-toggle', function() {
+        $( this ).parent().toggleClass( 'is-open' );
+    } );
+
     /**
      * Toggle taxonomy form
      */
