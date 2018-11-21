@@ -126,11 +126,19 @@
     /**
      * Toggle taxonomy form
      */
-    $( '.taxonomy-form-toggle' ).click( function(e) {
-        e.preventDefault();
+    function toggleTaxonomyForm() {
         $( '#col-container > #col-left' ).toggle();
         $( '#col-container > #col-right' ).toggle();
         $( '.taxonomy-form-toggle' ).toggle();
+        $( '.wrap .search-form' ).toggle();
+    }
+
+    /**
+     * Click handler for taxonomy add new/cancel buttons
+     */
+    $( '.taxonomy-form-toggle' ).click( function(e) {
+        e.preventDefault();
+        toggleTaxonomyForm();
     } );
 
     /**
@@ -160,8 +168,8 @@
     /**
      * Add icons to search boxes
      */
-    $( '.search-box' ).prepend( '<button class="search-box__search-icon" aria-label="' + wcb.openSearchText + '"><svg class="gridicon gridicons-search" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M21 19l-5.154-5.154C16.574 12.742 17 11.42 17 10c0-3.866-3.134-7-7-7s-7 3.134-7 7 3.134 7 7 7c1.42 0 2.742-.426 3.846-1.154L19 21l2-2zM5 10c0-2.757 2.243-5 5-5s5 2.243 5 5-2.243 5-5 5-5-2.243-5-5z"/></g></svg></button>' );
-    $( '.search-box' ).append( '<button class="search-box__close-icon" aria-label="' + wcb.closeSearchText + '"><svg class="gridicon gridicons-cross" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M18.36 19.78L12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"/></g></svg></button>' );
+    $( '.search-box' ).prepend( '<button class="search-box__search-icon" aria-label="' + wcb.openSearch + '"><svg class="gridicon gridicons-search" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M21 19l-5.154-5.154C16.574 12.742 17 11.42 17 10c0-3.866-3.134-7-7-7s-7 3.134-7 7 3.134 7 7 7c1.42 0 2.742-.426 3.846-1.154L19 21l2-2zM5 10c0-2.757 2.243-5 5-5s5 2.243 5 5-2.243 5-5 5-5-2.243-5-5z"/></g></svg></button>' );
+    $( '.search-box' ).append( '<button class="search-box__close-icon" aria-label="' + wcb.closeSearch + '"><svg class="gridicon gridicons-cross" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M18.36 19.78L12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"/></g></svg></button>' );
 
     /**
      * Focus search input on open icon click
@@ -294,6 +302,44 @@
     $( window ).resize( function() {
         $( '.wp-list-table-wrapper__inner' ).scroll();
     } );
+
+    /**
+     * Detect changes to tag/category table
+     */
+    var addedTags = [];
+    $( window ).load( function() {
+        $( 'body' ).on( 'DOMSubtreeModified', '#the-list[data-wp-lists="list:tag"]', function() {
+            var tagName = $( this ).find( 'tr:first .name .row-title' ).text();
+            if ( $.inArray( tagName, addedTags ) === -1 ) {
+                addedTags.push( tagName );
+                toggleTaxonomyForm();
+                appendNotice( wcb.taxonomySuccess.replace( '{name}', tagName ), 'success' );
+            }
+        } );
+    } );
+
+    /**
+     * Append notice
+     */
+    function appendNotice( content, type ) {
+        var html = '';
+        var icon = icons.info;
+        var classes = [ 'notice' ];
+        if ( 'success' === type ) {
+            icon = icons.checkmark;
+            classes.push( 'notice-success' );
+        } else if ( 'error' === type ) {
+            icon = icons.notice;
+            classes.push( 'error' );
+        }
+        html += '<div class="' + classes.join( ' ' ) + '">';
+        html += '<span class="wc-calypso-bridge-notice-icon-wrapper">';
+        html += icon;
+        html += '</span>';
+        html += '<div class="wc-calypso-bridge-notice-content"><p>' + content + '</p></div>'
+        html += '</div>';
+        $( html ).insertAfter( 'h1.wp-heading-inline:first' );
+    }
 
 
 } )( jQuery );
