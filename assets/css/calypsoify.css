@@ -45,6 +45,7 @@ div.woocommerce-message, .wc-helper .start-container {
 .tablenav {
 	height: auto;
 	display: inline-block;
+	margin: 6px 0 5px;
 	width: 100%;
 }
 .tablenav .actions {
@@ -248,11 +249,11 @@ input[type=radio]:checked:before {
 	0% {
 		transform: scale(0.3);
 	}
-	
+
 	60% {
 		transform: scale(1.15);
 	}
-	
+
 	100% {
 		transform: scale(1);
 	}
@@ -276,32 +277,31 @@ input[type=radio]:checked:before {
 
 /* Select2 inputs */
 .wp-admin select, .select2-container .select2-selection--single {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 	background: #fff url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPmFycm93LWRvd248L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJhcnJvdy1kb3duIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiBmaWxsPSIjQzhEN0UxIj4gICAgICAgICAgICA8cGF0aCBkPSJNMTUuNSw2IEwxNyw3LjUgTDEwLjI1LDE0LjI1IEwzLjUsNy41IEw1LDYgTDEwLjI1LDExLjI1IEwxNS41LDYgWiIgaWQ9IkRvd24tQXJyb3ciIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==) no-repeat right 10px center;
 	border-color: #c8d7e1;
 	border-style: solid;
 	border-radius: 4px;
 	border-width: 1px 1px 2px;
 	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	color: #2e4453;
 	cursor: pointer;
 	display: inline-block;
+	font-size: 14px;
+	font-weight: 600;
+	height: 43px;
+	line-height: 1.4em;
 	margin: 0;
 	outline: 0;
 	overflow: hidden;
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 1.4em;
+	padding: 11px 42px 9px 14px !important;
 	text-overflow: ellipsis;
 	text-decoration: none;
-	vertical-align: top;
+	/*vertical-align: top;*/
 	white-space: nowrap;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 7px 32px 9px 14px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	height: auto;
 }
 .post-type-shop_order .tablenav .select2-container {
 	width: auto !important;
@@ -330,9 +330,17 @@ input[type=radio]:checked:before {
 #doaction2,
 #post-query-submit,
 .wp-admin select + .button {
+	font-size: 14px;
+	font-weight: 600;
 	line-height: 1.4em;
-	height: 41px;
+	height: 43px;
 	margin-top: 0px;
+	margin-bottom: 5px;
+}
+.wp-admin select + .button,
+.wp-admin select + .button:hover,
+.wp-admin select + .button:focus {
+	padding: 7px 14px;
 }
 .button.wc-reload::after {
 	line-height: 38px;
@@ -839,7 +847,7 @@ li#wp-admin-bar-menu-toggle {
 	border: 0;
 	-webkit-box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
 	box-shadow: 0 0 0 1px rgba(200,215,225,0.5), 0 1px 2px #e9eff3;
-	box-sizing: border-box;	
+	box-sizing: border-box;
 }
 .subsubsub a, .filter-links li>a {
 	padding: 11px 15px;
@@ -1717,12 +1725,12 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507
 
 /* Notices and Jetpack JITM */
 div.notice,
-div.updated, 
+div.updated,
 div.error {
 	display: none;
 }
 .wp-admin .wrap div.notice,
-.wp-admin .wrap div.updated, 
+.wp-admin .wrap div.updated,
 .wp-admin .wrap div.error,
 div.jitm-card {
 	display: flex;
@@ -1770,7 +1778,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	display: none;
 }
 .wp-admin div.notice > p,
-.wp-admin div.updated > p, 
+.wp-admin div.updated > p,
 .wp-admin div.error > p,
 .wc-calypso-bridge-notice-content {
 	padding: 6px 13px;
@@ -1782,12 +1790,12 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	font-size: 14px;
 }
 .wp-admin div.notice a,
-.wp-admin div.updated a, 
+.wp-admin div.updated a,
 .wp-admin div.error a {
 	color: #fff;
 }
 .wp-admin div.notice p.submit,
-.wp-admin div.updated p.submit, 
+.wp-admin div.updated p.submit,
 .wp-admin div.error p.submit {
 	display: flex;
 	-ms-flex-negative: 1;
@@ -1801,7 +1809,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 }
 .wp-admin div.notice .button,
 .wp-admin div.notice .button-primary,
-.wp-admin div.updated .button, 
+.wp-admin div.updated .button,
 .wp-admin div.updated .button-primary:not( .debug-report ),
 .wp-admin div.error .button,
 .wp-admin div.error .button-primary {
@@ -1814,7 +1822,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 }
 .wp-admin div.notice .button:hover,
 .wp-admin div.notice .button-primary:hover,
-.wp-admin div.updated .button:hover, 
+.wp-admin div.updated .button:hover,
 .wp-admin div.updated .button-primary:hover:not( .debug-report ),
 .wp-admin div.error .button:hover,
 .wp-admin div.error .button-primary:hover {
@@ -1823,8 +1831,8 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 }
 .wp-admin div.notice .button:active,
 .wp-admin div.notice .button-primary:active,
-.wp-admin div.updated .button:active, 
-.wp-admin div.updated .button-primary:active, 
+.wp-admin div.updated .button:active,
+.wp-admin div.updated .button-primary:active,
 .wp-admin div.error .button:active,
 .wp-admin div.error .button-primary:active {
 	vertical-align: baseline;
@@ -2081,4 +2089,3 @@ p.search-box {
 	/* Hide JITM card on add/edit page, because the NUX walkthrough already deals with setup, and the notice is present on other pages */
 	display: none;
 }
-
