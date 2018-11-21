@@ -38,6 +38,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		add_action( 'admin_init', array( $this, 'hide_woo_obw_alert' ) );
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
+		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
 	}
 
 	/**
