@@ -20,6 +20,7 @@
         const taskId = $task.data('id');
         const taskTitle = $task.data('title');
         const href = $( this ).attr('href');
+        $( this ).addClass( 'disabled' );
 
         if ( window.jpTracksAJAX ) {
             const trackedEvent = window.jpTracksAJAX.record_ajax_event(
@@ -49,6 +50,8 @@
         const total = progressNumber[1];
         const percentage = parseFloat( complete / total ).toFixed( 2 ) * 100;
         const href = $( this ).attr('href');
+        $( this ).addClass( 'disabled' );
+
         if ( window.jpTracksAJAX ) {
             const trackedEvent = window.jpTracksAJAX.record_ajax_event(
                 'atomic_wc_tasklist_finish',
