@@ -687,6 +687,10 @@ li#wp-admin-bar-menu-toggle {
 	color: #668eaa;
 	margin: 2px 0 -3px;
 }
+.action-header .page-title-action,
+.action-header .button {
+	padding: 5px 14px 7px !important;
+}
 @media screen and (max-width: 782px) {
 	.action-header__site-title {
 		max-width: 150px;
@@ -1748,7 +1752,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 }
 
 .jitm-banner__content {
-    padding: 13px 13px 13px 0px;
+	padding: 13px 13px 13px 0px;
 }
 
 .jp-emblem svg {
@@ -1759,7 +1763,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	height: 24px;
 	width: 24px;
 	background-image:
-        url("data:image/svg+xml;utf8,<svg class='gridicon gridicons-notice' height='24' width='24' fill='#fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g><path d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-2h2v2zm0-4h-2l-.5-6h3l-.5 6z'></path></g></svg>");
+	url("data:image/svg+xml;utf8,<svg class='gridicon gridicons-notice' height='24' width='24' fill='#fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g><path d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm1 15h-2v-2h2v2zm0-4h-2l-.5-6h3l-.5 6z'></path></g></svg>");
 }
 
 .wp-admin .wrap div.hidden {
@@ -1906,6 +1910,9 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 .wp-core-ui .button.taxonomy-form-cancel-button {
 	display: none;
 	margin-left: 10px;
+}
+#col-right .col-wrap {
+	padding: 0;
 }
 /* @TODO: Remove the following selector if https://github.com/woocommerce/woocommerce/pull/21884 is merged into WC core. */
 .edit-tags-php #col-left > .col-wrap > p:first-child {
@@ -2067,7 +2074,6 @@ p.search-box {
 /** WooCommerce Services / Modal */
 
 .wcs-pointer-page-dimmer {
-
 	background-color: rgba(233,239,243,0.8) !important;
 }
 
