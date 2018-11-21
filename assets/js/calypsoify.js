@@ -126,12 +126,19 @@
     /**
      * Toggle taxonomy form
      */
-    $( '.taxonomy-form-toggle' ).click( function(e) {
-        e.preventDefault();
+    function toggleTaxonomyForm() {
         $( '#col-container > #col-left' ).toggle();
         $( '#col-container > #col-right' ).toggle();
         $( '.taxonomy-form-toggle' ).toggle();
         $( '.wrap .search-form' ).toggle();
+    }
+
+    /**
+     * Click handler for taxonomy add new/cancel buttons
+     */
+    $( '.taxonomy-form-toggle' ).click( function(e) {
+        e.preventDefault();
+        toggleTaxonomyForm();
     } );
 
     /**
@@ -295,6 +302,44 @@
     $( window ).resize( function() {
         $( '.wp-list-table-wrapper__inner' ).scroll();
     } );
+
+    /**
+     * Detect changes to tag/category table
+     */
+    var addedTags = [];
+    $( window ).load( function() {
+        $( 'body' ).on( 'DOMSubtreeModified', '#the-list[data-wp-lists="list:tag"]', function() {
+            var tagName = $( this ).find( 'tr:first .name .row-title' ).text();
+            if ( $.inArray( tagName, addedTags ) === -1 ) {
+                addedTags.push( tagName );
+                toggleTaxonomyForm();
+                appendNotice( 'The tag "' + tagName + '" was successfully added.', 'success' );
+            }
+        } );
+    } );
+
+    /**
+     * Append notice
+     */
+    function appendNotice( content, type ) {
+        var html = '';
+        var icon = icons.info;
+        var classes = [ 'notice' ];
+        if ( 'success' === type ) {
+            icon = icons.checkmark;
+            classes.push( 'notice-success' );
+        } else if ( 'error' === type ) {
+            icon = icons.notice;
+            classes.push( 'error' );
+        }
+        html += '<div class="' + classes.join( ' ' ) + '">';
+        html += '<span class="wc-calypso-bridge-notice-icon-wrapper">';
+        html += icon;
+        html += '</span>';
+        html += '<div class="wc-calypso-bridge-notice-content"><p>' + content + '</p></div>'
+        html += '</div>';
+        $( html ).insertAfter( 'h1.wp-heading-inline:first' );
+    }
 
 
 } )( jQuery );
