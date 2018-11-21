@@ -131,6 +131,7 @@
         $( '#col-container > #col-left' ).toggle();
         $( '#col-container > #col-right' ).toggle();
         $( '.taxonomy-form-toggle' ).toggle();
+        $( '.wrap .search-form' ).toggle();
     } );
 
     /**
