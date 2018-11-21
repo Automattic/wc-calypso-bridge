@@ -105,12 +105,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		$this->steps = apply_filters( 'wc_calypso_bridge_setup_wizard_steps', $default_steps );
 		$this->step  = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) ); // WPCS: CSRF ok, input var ok.
 
-		// @codingStandardsIgnoreStart
-		if ( ! empty( $_POST['save_step'] ) && isset( $this->steps[ $this->step ]['handler'] ) ) {
-			WC_Calypso_Bridge::record_event( 'atomic_wc_obw_step_complete', array( 'name' => $this->step ) );
-			call_user_func( $this->steps[ $this->step ]['handler'], $this );
-		}
-		// @codingStandardsIgnoreEnd
+		$this->save_step();
 
 		ob_start();
 		$this->setup_wizard_header();
@@ -337,6 +332,47 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			return '';
 		}
 		return add_query_arg( 'step', $keys[ $step_index + 1 ], remove_query_arg( 'activate_error' ) );
+	}
+
+	/**
+	 * Save step after continuing to next step
+	 */
+	public function save_step() {
+		// @codingStandardsIgnoreStart
+		if ( ! empty( $_POST['save_step'] ) && isset( $this->steps[ $this->step ]['handler'] ) ) {
+			WC_Calypso_Bridge::record_event( 'atomic_wc_obw_step_complete', array( 'name' => $this->step ) );
+			if ( method_exists( $this, 'pre_' . $this->steps[ $this->step ]['handler'][1] ) ) {
+				$pre_save_handler    = $this->steps[ $this->step ]['handler'];
+				$pre_save_handler[1] = 'pre_' . $this->steps[ $this->step ]['handler'][1];
+				call_user_func( $pre_save_handler, $this );
+			}
+			call_user_func( $this->steps[ $this->step ]['handler'], $this );
+		}
+		// @codingStandardsIgnoreEnd
+	}
+
+	/**
+	 * Activate geo-based shipping plugins automatically
+	 */
+	public function pre_wc_setup_store_setup_save() {
+		if ( isset( $_POST['store_country'] ) ) { // WPCS: CSRF ok.
+			$country = sanitize_text_field( $_POST['store_country'] ); // WPCS: Sanitization ok, input var ok.
+			switch ( $country ) {
+				case 'US':
+					activate_plugin( 'woocommerce-shipping-usps/woocommerce-shipping-usps.php' );
+					break;
+				case 'CA':
+					activate_plugin( 'woocommerce-shipping-canada-post/woocommerce-shipping-canada-post.php' );
+					break;
+				case 'AU':
+					activate_plugin( 'woocommerce-shipping-australia-post/woocommerce-shipping-australia-post.php' );
+					break;
+				case 'GB':
+					activate_plugin( 'woocommerce-shipping-royalmail/woocommerce-shipping-royalmail.php' );
+					break;
+			}
+		}
+		activate_plugin( 'woocommerce-shipping-ups/woocommerce-shipping-ups.php' );
 	}
 
 }
