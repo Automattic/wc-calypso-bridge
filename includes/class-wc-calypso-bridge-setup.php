@@ -43,7 +43,7 @@ class WC_Calypso_Bridge_Setup {
 			$jetpack_calypsoify = Jetpack_Calypsoify::getInstance();
 			$wc_calypso_bridge  = WC_Calypso_Bridge::instance();
 
-			add_action( 'admin_enqueue_scripts', array( $jetpack_calypsoify, 'enqueue' ) );
+			add_action( 'admin_enqueue_scripts', array( $jetpack_calypsoify, 'enqueue' ), 20 );
 			add_action( 'admin_print_styles', array( $wc_calypso_bridge, 'enqueue_calypsoify_scripts' ), 11 );
 		}
 	}
