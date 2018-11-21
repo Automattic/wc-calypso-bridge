@@ -220,8 +220,9 @@ class WC_Calypso_Bridge {
 		);
 
 		$translations = array(
-			'openSearchText'  => __( 'Open Search', 'wc-calypso-bridge' ),
-			'closeSearchText' => __( 'Close Search', 'wc-calypso-bridge' ),
+			'openSearch'      => __( 'Open Search', 'wc-calypso-bridge' ),
+			'closeSearch'     => __( 'Close Search', 'wc-calypso-bridge' ),
+			'taxonomySuccess' => __( '"{name}" was successfully added.', 'wc-calypso-bridge' ),
 		);
 		wp_localize_script( 'wc-calypso-bridge-calypsoify', 'wcb', $translations );
 
