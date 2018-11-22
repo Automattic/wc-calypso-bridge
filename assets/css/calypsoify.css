@@ -249,11 +249,11 @@ input[type=radio]:checked:before {
 	0% {
 		transform: scale(0.3);
 	}
-
+	
 	60% {
 		transform: scale(1.15);
 	}
-
+	
 	100% {
 		transform: scale(1);
 	}
@@ -290,17 +290,17 @@ input[type=radio]:checked:before {
 	color: #2e4453;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 14px;
-	font-weight: 600;
-	height: 43px;
+	font-size: 16px;
+	font-weight: 400;
+	height: 41px;
 	line-height: 1.4em;
 	margin: 0;
 	outline: 0;
 	overflow: hidden;
-	padding: 11px 42px 9px 14px !important;
+	padding: 7px 32px 9px 14px;
+	vertical-align: top;
 	text-overflow: ellipsis;
 	text-decoration: none;
-	/*vertical-align: top;*/
 	white-space: nowrap;
 }
 .post-type-shop_order .tablenav .select2-container {
@@ -331,9 +331,9 @@ input[type=radio]:checked:before {
 #post-query-submit,
 .wp-admin select + .button {
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 400;
 	line-height: 1.4em;
-	height: 43px;
+	height: 41px;
 	margin-top: 0px;
 	margin-bottom: 5px;
 	max-width: 240px;
@@ -342,6 +342,7 @@ input[type=radio]:checked:before {
 .wp-admin select + .button:hover,
 .wp-admin select + .button:focus {
 	padding: 7px 14px;
+	line-height: 1 !important;
 }
 .button.wc-reload::after {
 	line-height: 38px;
