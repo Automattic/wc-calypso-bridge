@@ -161,7 +161,14 @@
     /**
      * Move cancel button
      */
-    $( '.taxonomy-form-cancel-button' ).appendTo( '#addtag p.submit' );
+    $( '.taxonomy-form-cancel-button' ).appendTo( 'p.submit' );
+
+    /**
+     * Product attributes form is not AJAX'ed so toggle back if any errors
+     */
+    if ( $( '#woocommerce_errors' ).length ) {
+        toggleTaxonomyForm();
+    }
 
     /**
      * Move search box to subnav

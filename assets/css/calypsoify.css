@@ -1909,11 +1909,13 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 }
 
 /* Taxonomy page */
-.edit-tags-php #col-left {
+.edit-tags-php #col-left,
+.product_page_product_attributes #col-left {
 	width: 100%;
 	display: none;
 }
-.edit-tags-php #col-right {
+.edit-tags-php #col-right,
+.product_page_product_attributes #col-right {
 	width: 100%;
 }
 .wp-core-ui .button.taxonomy-form-cancel-button {
@@ -1924,7 +1926,8 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	padding: 0;
 }
 /* @TODO: Remove the following selector if https://github.com/woocommerce/woocommerce/pull/21884 is merged into WC core. */
-.edit-tags-php #col-left > .col-wrap > p:first-child {
+.edit-tags-php #col-left > .col-wrap > p:first-child,
+.product_page_product_attributes #col-left > .col-wrap > p:first-child {
 	display: none;
 }
 
