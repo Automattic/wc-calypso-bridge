@@ -41,6 +41,52 @@ div.woocommerce-message, .wc-helper .start-container {
 	height: 0;
 }
 
+/* Product tables */
+@media screen and (max-width: 782px) {
+	.post-type-product .wp-list-table .column-primary .toggle-row {
+		display: none;
+	}
+	.post-type-product .wp-list-table .row-actions {
+		display: none;
+	}
+	.post-type-product .wp-list-table tr th.check-column,
+	.post-type-product .wp-list-table tr td.check-column {
+		display: none;
+	}
+	.post-type-product .wp-list-table .column-thumb {
+		border: none;
+		float: left;
+	}
+	.post-type-product .wp-list-table td {
+		border-bottom: none;
+	}
+	.post-type-product .wp-list-table #the-list tr td {
+		clear: none;
+		padding: 16px 8px;
+		border: none;
+	}
+	.post-type-product .wp-list-table tr {
+		border-bottom: 1px solid #e9eff3;
+		display: flex;
+		align-items: center;
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	.post-type-product .wp-list-table tr:last-child {
+		border-bottom: none;
+	}
+	.post-type-product .wp-list-table thead tr:first-child {
+		border-bottom: 1px solid #c8d7e1;
+	}
+	.post-type-product .wp-list-table thead tr:first-child th {
+		border: none;
+	}
+	.post-type-product th.sortable a,
+	.post-type-product th.sorted a {
+		padding: 16px 8px;
+	}
+}
+
 /* Table nav */
 .tablenav {
 	height: auto;
@@ -249,11 +295,11 @@ input[type=radio]:checked:before {
 	0% {
 		transform: scale(0.3);
 	}
-
+	
 	60% {
 		transform: scale(1.15);
 	}
-
+	
 	100% {
 		transform: scale(1);
 	}
