@@ -1204,7 +1204,9 @@ table.widefat {
 }
 
 #mainform h2 + div p,
-#mainform h2 + p {
+#mainform h2 + p,
+#mainform h3 + div p,
+#mainform h3 + p {
 	color: #537994;
 	font-size: 12px;
 	line-height: 18px;
@@ -1212,7 +1214,8 @@ table.widefat {
 	padding: 0 24px 8px;
 }
 
-#mainform h2 + p {
+#mainform h2 + p,
+#mainform h3 + p {
 	background-color: #fff;
 	border-left: 1px solid rgba(200,215,225,0.5);
 	border-right: 1px solid rgba(200,215,225,0.5);
