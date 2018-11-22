@@ -104,7 +104,7 @@
     /**
      * Move page actions to action header
      */
-    $( '.page-title-action' ).appendTo( '#action-header .action-header__actions' );
+    $( '.page-title-action, .add-new-h2' ).appendTo( '#action-header .action-header__actions' );
 
     /** 
      * Move notices on pages with sub navigation

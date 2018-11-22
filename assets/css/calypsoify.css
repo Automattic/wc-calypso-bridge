@@ -249,11 +249,11 @@ input[type=radio]:checked:before {
 	0% {
 		transform: scale(0.3);
 	}
-
+	
 	60% {
 		transform: scale(1.15);
 	}
-
+	
 	100% {
 		transform: scale(1);
 	}
@@ -412,6 +412,7 @@ input[type=radio]:checked:before {
 /* Primary Buttons */
 .wp-core-ui .button-primary,
 .action-header .page-title-action,
+.action-header .add-new-h2,
 .wc-helper .button,
 .wc_addons_wrap .addons-button-solid,
 .woocommerce_page_wc-status .woocommerce-message a.debug-report,
@@ -438,6 +439,8 @@ input[type=radio]:checked:before {
 .wp-core-ui .button-primary:focus,
 .action-header .page-title-action:hover,
 .action-header .page-title-action:focus,
+.action-header .add-new-h2:hover,
+.action-header .add-new-h2:focus,
 .wc-helper .button:hover,
 .wc-helper .button:focus,
 .wc_addons_wrap .addons-button-solid:hover,
@@ -466,7 +469,8 @@ input[type=radio]:checked:before {
 .edit-tag-actions .button-primary,
 .woocommerce-BlankState a.button,
 .setup-footer a,
-.action-header .page-title-action {
+.action-header .page-title-action,
+.action-header .add-new-h2 {
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
@@ -493,6 +497,7 @@ input[type=radio]:checked:before {
 /* Specific Buttons */
 .wp-core-ui .button-primary:active,
 .action-header .page-title-action:active,
+.action-header .add-new-h2:active,
 .wc-helper .button:active,
 .wc_addons_wrap .addons-button-solid:active {
 	border-width: 2px 1px 1px !important;
@@ -696,10 +701,6 @@ li#wp-admin-bar-menu-toggle {
 	color: #668eaa;
 	margin: 2px 0 -3px;
 }
-.action-header .page-title-action,
-.action-header .button {
-	padding: 5px 14px 7px !important;
-}
 @media screen and (max-width: 782px) {
 	.action-header__site-title {
 		max-width: 150px;
@@ -746,11 +747,12 @@ li#wp-admin-bar-menu-toggle {
 	flex-shrink: 2;
 	text-align: right;
 }
-.action-header .action-header__actions a {
+.action-header .action-header__actions a,
+.action-header .action-header__actions button {
 	margin-left: 12px;
 	text-decoration: none;
 	display: none;
-	padding: 6px 14px 8px !important;
+	padding: 5px 14px 7px !important;
 }
 .action-header__actions a:first-child {
 	display: inline-block;
@@ -759,7 +761,8 @@ li#wp-admin-bar-menu-toggle {
 	.action-header__actions {
 		margin-left: 40px;
 	}
-	.action-header .action-header__actions a {
+	.action-header .action-header__actions a,
+	.action-header .action-header__actions button {
 		display: inline-block;
 	}
 }
