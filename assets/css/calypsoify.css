@@ -249,18 +249,19 @@ input[type=radio]:checked:before {
 	0% {
 		transform: scale(0.3);
 	}
-
+	
 	60% {
 		transform: scale(1.15);
 	}
-
+	
 	100% {
 		transform: scale(1);
 	}
 }
 
 /* Form wraps */
-.form-wrap {
+.form-wrap,
+#edittag {
 	display: block;
 	margin: 0 auto 10px auto;
 	padding: 16px;
@@ -456,6 +457,7 @@ input[type=radio]:checked:before {
 
 /* Large Buttons */
 .wp-core-ui button.button.button-large,
+.wp-core-ui a.button.button-large,
 .wp-core-ui input.button.button-large,
 .checklist__task-secondary .button-primary,
 #postbox-container-1 .button-primary,
@@ -522,6 +524,12 @@ input[type=radio]:checked:before {
 .tablenav .button {
 	line-height: 24px;
 	height: 41px;
+}
+.edit-tag-actions .taxonomy-edit-cancel-button {
+	margin-left: 5px;
+}
+.edit-tag-actions #delete-link {
+	display: none;
 }
 
 /* Taller secondary buttons near select dropdowns */
