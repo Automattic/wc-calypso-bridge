@@ -36,6 +36,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	public function __construct() {
 		if ( current_user_can( 'manage_woocommerce' ) ) {
 			add_action( 'admin_menu', array( $this, 'admin_menus' ) );
+			add_action( 'admin_init', array( $this, 'skip_empty_payment_step' ), 9 );
 			add_action( 'admin_init', array( $this, 'setup_wizard' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_calypsoify_scripts' ) );
@@ -373,6 +374,18 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			}
 		}
 		activate_plugin( 'woocommerce-shipping-ups/woocommerce-shipping-ups.php' );
+	}
+
+	/**
+	 * Skip the empty payment step if no gateways are present
+	 */
+	public function skip_empty_payment_step() {
+		if ( isset( $_GET['step'] ) && 'payment' === $_GET['step'] ) { // WPCS: CSRF ok.
+			$gateways = $this->get_wizard_in_cart_payment_gateways();
+			if ( empty( $gateways ) ) {
+				wp_safe_redirect( admin_url( 'admin.php?page=wc-setup-checklist' ) );
+			}
+		}
 	}
 
 }
