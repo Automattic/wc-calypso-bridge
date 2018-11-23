@@ -324,6 +324,9 @@
      * Detect changes to tag/category table
      */
     var addedTags = [];
+    $( '#the-list[data-wp-lists="list:tag"] tr .name .row-title' ).each( function() {
+        addedTags.push( $( this ).text() );
+    } );
     $( window ).load( function() {
         $( 'body' ).on( 'DOMSubtreeModified', '#the-list[data-wp-lists="list:tag"]', function() {
             var tagName = $( this ).find( 'tr:first .name .row-title' ).text();
