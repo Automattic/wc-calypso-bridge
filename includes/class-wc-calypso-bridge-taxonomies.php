@@ -36,6 +36,7 @@ class WC_Calypso_Bridge_Taxonomies {
 	 */
 	private function __construct() {
 		add_action( 'add_tag_form_pre', array( $this, 'add_action_button' ) );
+		add_action( 'woocommerce_after_add_attribute_fields', array( $this, 'add_action_button' ) );
 		add_action( 'wp_loaded', array( $this, 'remove_taxonomy_form_description' ) );
 	}
 
