@@ -272,7 +272,9 @@ input[type=radio]:checked:before {
 
 /* Form wraps */
 .form-wrap,
-#edittag {
+#edittag,
+.product_page_addons .wrap > form,
+.product_page_addons .wrap > div:not([class]) {
 	display: block;
 	margin: 0 auto 10px auto;
 	padding: 16px;
@@ -285,6 +287,15 @@ input[type=radio]:checked:before {
 	font-weight: 300;
 	margin: 0 0 20px 0;
 	line-height: 36px;
+}
+.product_page_addons .wrap > div:not([class]) {
+	margin: 0;
+	color: #537994;
+    font-size: 12px;
+    line-height: 18px;
+}
+.product_page_addons .wrap > div:not([class]) + br {
+	display: none;
 }
 
 /* Select2 inputs */
@@ -1706,7 +1717,9 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 
 /* Fix title padding */
 .wp-admin .wrap > h1:first-child,
-.wp-admin .wrap > h2:first-child  {
+.wp-admin .wrap > h2:first-child,
+.wp-admin .wrap > h1:nth-child(2),
+.wp-admin .wrap > h2:nth-child(2) {
 	display: none;
 }
 .wp-admin .wrap h1, .wp-admin .wrap h2 {
