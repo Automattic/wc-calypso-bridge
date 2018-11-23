@@ -53,6 +53,17 @@ div.woocommerce-message, .wc-helper .start-container {
 	margin-right: 8px;
 }
 
+/* WC Bookings Tables */
+.post-type-wc_booking .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
+	display: table-cell;
+}
+.post-type-wc_booking .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
+	display: none;
+}
+.post-type-wc_booking .wp-list-table tr .booking_actions a.button {
+	width: 30px;
+}
+
 /* Pagination */
 .tablenav-pages {
 	display: none;
