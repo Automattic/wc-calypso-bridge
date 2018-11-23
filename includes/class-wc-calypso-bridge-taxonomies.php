@@ -38,6 +38,7 @@ class WC_Calypso_Bridge_Taxonomies {
 		add_action( 'add_tag_form_pre', array( $this, 'add_action_button' ) );
 		add_action( 'woocommerce_after_add_attribute_fields', array( $this, 'add_action_button' ) );
 		add_action( 'wp_loaded', array( $this, 'remove_taxonomy_form_description' ) );
+		add_action( 'admin_head', array( $this, 'localize_taxonomy_url' ) );
 	}
 
 	/**
@@ -64,5 +65,20 @@ class WC_Calypso_Bridge_Taxonomies {
 		// @TODO: Uncomment the following line if https://github.com/woocommerce/woocommerce/pull/21884 is merged into WC core.
 		// remove_action( 'product_cat_pre_add_form', array( WC_Admin_Taxonomies::get_instance(), 'product_cat_description' ), 10 );
 	}
+
+	/**
+	 * Create taxonomy url for cancel button
+	 */
+	public function localize_taxonomy_url() {
+		$screen = get_current_screen();
+		if ( 'term' === $screen->base ) {
+			$list_url = admin_url( 'edit-tags.php?taxonomy=' . $screen->taxonomy . '&post_type=' . $screen->post_type );
+			$taxonomy = array(
+				'listUrl' => $list_url,
+			);
+			wp_localize_script( 'wc-calypso-bridge-calypsoify', 'taxonomy', $taxonomy );
+		}
+	}
+
 }
 $wc_calypso_bridge_taxonomies = WC_Calypso_Bridge_Taxonomies::get_instance();
