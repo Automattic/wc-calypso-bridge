@@ -273,7 +273,8 @@ input[type=radio]:checked:before {
 /* Form wraps */
 .form-wrap,
 #edittag,
-.product_page_addons .wrap > form {
+.product_page_addons .wrap > form,
+.product_page_addons .wrap > div:not([class]) {
 	display: block;
 	margin: 0 auto 10px auto;
 	padding: 16px;
@@ -286,6 +287,15 @@ input[type=radio]:checked:before {
 	font-weight: 300;
 	margin: 0 0 20px 0;
 	line-height: 36px;
+}
+.product_page_addons .wrap > div:not([class]) {
+	margin: 0;
+	color: #537994;
+    font-size: 12px;
+    line-height: 18px;
+}
+.product_page_addons .wrap > div:not([class]) + br {
+	display: none;
 }
 
 /* Select2 inputs */
