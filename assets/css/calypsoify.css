@@ -1079,11 +1079,25 @@ table.wc-shipping-classes td.wc-shipping-zone-method-blank-state, table.wc-shipp
 .hndle a, .widefat tfoot td, .widefat th, .widefat thead td {
 	font-weight: 600;
 	color: #2e4453;
-	padding: 16px;
 }
-
 th.sortable a, th.sorted a{
 	color: #0087be;
+	padding: 8px 0;
+	margin-top: -8px;
+	margin-bottom: -8px;
+}
+.wp-list-table-wrapper .wp-list-table.widefat thead th,
+.wp-list-table-wrapper .wp-list-table.widefat thead td {
+	padding: 16px 8px;
+	border-bottom-color: rgb(200, 215, 225);
+	line-height: 1.5;
+}
+.wp-list-table-wrapper .wp-list-table.widefat td,
+.widefat thead td.check-column,
+.widefat tbody th.check-column,
+.updates-table tbody td.check-column,
+.widefat tfoot td.check-column  {
+	padding: 16px 8px;
 }
 
 /* Makes all rows have white background */
