@@ -390,6 +390,48 @@ input[type=radio]:checked:before {
 	color: #2e4453;
 }
 
+/* Select2 tags/tokens */
+.select2-container .select2-selection {
+	border-color: #c8d7e1;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+	line-height: 24px;
+	background: #4f748e;
+	color: #fff;
+	border: 0;
+	padding: 0 0 0 6px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    float: right;
+	padding-left: 6px;
+	padding-right: 6px;
+	margin: 0 0 0 4px;
+	font-size: 0;
+	transition: all .2s cubic-bezier(.4,1,.4,1);
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:after {
+	content: '\2715';
+	font-size: 15px;
+	color: #c8d7e1;
+	display: block;
+	float: right;
+	line-height: 1.5;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover:after {
+	color: #fff;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
+	background: #668eaa;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.wp-admin .select2-container .select2-search--inline .select2-search__field {
+	padding: 0;
+}
+.select2-container .select2-selection--multiple {
+    padding: 3px;
+}
+
 /* Fixes for button height next to select dropdowns */
 .post-type-product .tablenav input,
 .post-type-product .tablenav select,
