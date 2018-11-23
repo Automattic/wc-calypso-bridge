@@ -883,6 +883,7 @@ li#wp-admin-bar-menu-toggle {
 }
 .wrap .subsubsub-wrapper .subsubsub {
 	margin-bottom: 0;
+	text-align: left;
 }
 .subsubsub-toggle {
 	display: none;
