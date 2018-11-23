@@ -124,19 +124,18 @@
      * Append subnav dropdown for mobile
      */
     $( document ).ready(function() {
-        const $subNavigation = $( '.wrap .subsubsub' );
-        if ( $subNavigation.length ) {
-            const currentPage = $subNavigation.find( 'a.current' ).text();
-            const $toggle = $( '<div class="subsubsub-toggle"><span class="subsubsub-toggle__current-page">' + currentPage + '</span>' + icons.chevronDown + '</div>' );
-            $subNavigation.first().wrap( '<div class="subsubsub-wrapper"></div>' );
-            $( '.subsubsub-wrapper' ).prepend( $toggle );
-        }
+        $( '.wrap .subsubsub, .wrap .nav-tab-wrapper' ).each( function() {
+            const currentText = $( this ).find( 'a.current, .nav-tab-active' ).text();
+            const $toggle = $( '<div class="nav-tab-toggle"><span class="nav-tab-toggle__current-page">' + currentText + '</span>' + icons.chevronDown + '</div>' );
+            $( this ).wrap( '<div class="nav-tab-container"></div>' );
+            $( this ).before( $toggle );
+        } );
     } );
 
     /**
      * Append subnav dropdown for mobile
      */
-    $( document ).on( 'click', '.subsubsub-toggle', function() {
+    $( document ).on( 'click', '.nav-tab-toggle', function() {
         $( this ).parent().toggleClass( 'is-open' );
     } );
 
