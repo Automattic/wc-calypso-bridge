@@ -208,11 +208,12 @@ class WC_Calypso_Bridge {
 		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
 
 		$icons = array(
-			'info'        => get_gridicon( 'gridicons-info' ),
 			'checkmark'   => get_gridicon( 'gridicons-checkmark' ),
-			'notice'      => get_gridicon( 'gridicons-notice' ),
-			'cross'       => get_gridicon( 'gridicons-cross' ),
 			'chevronDown' => get_gridicon( 'gridicons-chevron-down' ),
+			'cross'       => get_gridicon( 'gridicons-cross' ),
+			'info'        => get_gridicon( 'gridicons-info' ),
+			'notice'      => get_gridicon( 'gridicons-notice' ),
+			'search'      => get_gridicon( 'gridicons-search' ),
 		);
 		wp_localize_script(
 			'wc-calypso-bridge-calypsoify',

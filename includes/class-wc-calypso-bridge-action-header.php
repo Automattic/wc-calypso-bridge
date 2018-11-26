@@ -80,10 +80,28 @@ class WC_Calypso_Bridge_Action_Header {
 	 * Back button
 	 */
 	public function back_button() {
+		$svg_atts = array(
+			'svg'   => array(
+				'class'           => true,
+				'aria-hidden'     => true,
+				'aria-labelledby' => true,
+				'role'            => true,
+				'xmlns'           => true,
+				'width'           => true,
+				'height'          => true,
+				'viewbox'         => true,
+			),
+			'g'     => array( 'fill' => true ),
+			'title' => array( 'title' => true ),
+			'path'  => array(
+				'd'    => true,
+				'fill' => true,
+			),
+		);
 		?>
 		<a class="action-header__ground-control-back" aria-label="<?php esc_html_e( 'Close Store', 'wc-calypso-bridge' ); ?>" href="<?php echo esc_url( 'https://wordpress.com/stats/day/' . Jetpack::build_raw_urls( home_url() ) ); ?>">
-			<svg class="gridicon gridicons-cross" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M18.36 19.78L12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"></path></g></svg>
-			<svg class="gridicon gridicons-chevron-left" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M14 20l-8-8 8-8 1.414 1.414L8.828 12l6.586 6.586"></path></g></svg>
+			<?php echo wp_kses( get_gridicon( 'gridicons-cross' ), $svg_atts ); ?>
+			<?php echo wp_kses( get_gridicon( 'gridicons-chevron-left' ), $svg_atts ); ?>
 		</a>
 		<?php
 	}
