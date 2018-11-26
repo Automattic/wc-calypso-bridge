@@ -1177,6 +1177,18 @@ li#wp-admin-bar-menu-toggle {
 
 
 /* Fix selected styles for WooCommerce menu items */
+#adminmenu #toplevel_page_woocommerce .menu-icon-generic div.wp-menu-image::before {
+	content: '';
+}
+#adminmenu #toplevel_page_woocommerce .menu-icon-generic div.wp-menu-image {
+	background-image: url( '../images/cart-dark.png' ) !important;
+	background-size: 24px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+#adminmenu #toplevel_page_woocommerce.wp-has-current-submenu .menu-icon-generic div.wp-menu-image {
+	background-image: url( '../images/cart-white.png' ) !important;
+}
 #adminmenu li.current div.wp-menu-name {
 	color: #fff !important;
 }

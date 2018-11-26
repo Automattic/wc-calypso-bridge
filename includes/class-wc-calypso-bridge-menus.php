@@ -36,6 +36,7 @@ class WC_Calypso_Bridge_Menus {
 	 */
 	private function __construct() {
 		add_action( 'current_screen', array( $this, 'setup_menu_hooks' ) );
+		add_action( 'admin_menu', array( $this, 'change_woocommerce_menu_item_name' ), 100 );
 		add_action( 'admin_menu', array( $this, 'remove_create_new_menu_items' ), 100 );
 	}
 
@@ -81,6 +82,20 @@ class WC_Calypso_Bridge_Menus {
 		foreach ( $menu as $menu_key => $menu_item ) {
 			if ( in_array( $menu_item[2], $wc_menus, true ) ) {
 				unset( $menu[ $menu_key ] );
+			}
+		}
+	}
+
+	/**
+	 * Change the default WooCommerce menu item name to "Store"
+	 */
+	public function change_woocommerce_menu_item_name() {
+		global $menu;
+		foreach ( $menu as $key => $item ) {
+			if ( 'woocommerce' === $item[2] ) {
+				// @codingStandardsIgnoreStart
+				$GLOBALS['menu'][ $key ][0] = esc_attr__( 'Store', 'wc-calypso-bridge' );
+				// @codingStandardsIgnoreEnd
 			}
 		}
 	}
