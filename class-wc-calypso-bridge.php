@@ -146,6 +146,16 @@ class WC_Calypso_Bridge {
 		if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 			return false;
 		}
+		if (
+			! class_exists( 'woocommerce' ) ||
+			version_compare(
+				get_option( 'woocommerce_db_version' ),
+				WC_MIN_VERSION,
+				'<'
+			)
+		) {
+			return false;
+		}
 		if ( ! class_exists( 'Jetpack' ) || ! class_exists( 'Jetpack_Calypsoify' ) ) {
 			return false;
 		}
