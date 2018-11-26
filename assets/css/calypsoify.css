@@ -1965,7 +1965,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	margin: 0;
 	flex-direction: column;
 }
-.wc-calypso-bridge-notice-content p {
+.wp-admin .wc-calypso-bridge-notice-content p {
 	margin: 5px 0;
 	font-size: 14px;
 }
