@@ -390,6 +390,15 @@ input[type=radio]:checked:before {
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
 	color: #2e4453;
 }
+.select2-container--default .select2-selection--single .select2-selection__clear {
+	font-size: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__clear:before {
+	content: '\2715';
+	color: #c3d7e2;
+	font-size: 14px;
+	line-height: 24px;
+}
 
 /* Select2 tags/tokens */
 .select2-container .select2-selection {
@@ -2294,4 +2303,9 @@ p.search-box {
 .post-type-shop_order.post-new-php .jitm-card, .post-type-shop_order.post-php .jitm-card {
 	/* Hide JITM card on add/edit page, because the NUX walkthrough already deals with setup, and the notice is present on other pages */
 	display: none;
+}
+
+/* WC Settings */
+.woocommerce_page_wc-settings .select2-selection.select2-selection--single {
+	min-width: 300px;
 }
