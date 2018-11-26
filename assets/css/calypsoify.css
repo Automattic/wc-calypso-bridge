@@ -583,7 +583,9 @@ input[type=radio]:checked:before {
 .woocommerce-BlankState a.button,
 .setup-footer a,
 .action-header .page-title-action,
-.action-header .add-new-h2 {
+.action-header .add-new-h2,
+.wp-core-ui p.submit input,
+.wp-core-ui p.submit button {
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
