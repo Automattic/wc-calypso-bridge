@@ -208,8 +208,8 @@
     /**
      * Add icons to search boxes
      */
-    $( '.search-box' ).prepend( '<button class="search-box__search-icon" aria-label="' + translations.openSearch + '"><svg class="gridicon gridicons-search" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M21 19l-5.154-5.154C16.574 12.742 17 11.42 17 10c0-3.866-3.134-7-7-7s-7 3.134-7 7 3.134 7 7 7c1.42 0 2.742-.426 3.846-1.154L19 21l2-2zM5 10c0-2.757 2.243-5 5-5s5 2.243 5 5-2.243 5-5 5-5-2.243-5-5z"/></g></svg></button>' );
-    $( '.search-box' ).append( '<button class="search-box__close-icon" aria-label="' + translations.closeSearch + '"><svg class="gridicon gridicons-cross" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M18.36 19.78L12 13.41l-6.36 6.37-1.42-1.42L10.59 12 4.22 5.64l1.42-1.42L12 10.59l6.36-6.36 1.41 1.41L13.41 12l6.36 6.36z"/></g></svg></button>' );
+    $( '.search-box' ).prepend( '<button class="search-box__search-icon" aria-label="' + translations.openSearch + '">' + icons.search + '</button>' );
+    $( '.search-box' ).append( '<button class="search-box__close-icon" aria-label="' + translations.closeSearch + '">' + icons.cross + '</button>' );
 
     /**
      * Focus search input on open icon click
