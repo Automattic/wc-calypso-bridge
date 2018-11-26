@@ -345,7 +345,8 @@ input[type=radio]:checked:before {
 }
 
 /* Select2 inputs */
-.wp-admin select, .select2-container .select2-selection--single {
+.wp-admin #wpwrap select,
+.select2-container .select2-selection--single {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
