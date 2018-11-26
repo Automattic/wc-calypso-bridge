@@ -163,7 +163,15 @@
     $( '.taxonomy-form-toggle' ).click( function(e) {
         e.preventDefault();
         toggleTaxonomyForm();
+        history.pushState( {}, $( '.action-header__breadcrumbs span:last' ).text(), window.location );
     } );
+
+    /**
+     * Toggle form on back button
+     */
+    $( window ).on( 'popstate', function( e ) {
+        toggleTaxonomyForm();
+    });
 
     /**
      * Move cancel button
