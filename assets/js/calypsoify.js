@@ -124,7 +124,7 @@
      * Append subnav dropdown for mobile
      */
     $( document ).ready(function() {
-        $( '.wrap .subsubsub, .wrap .nav-tab-wrapper' ).each( function() {
+        $( '#wpbody-content .subsubsub, #wpbody-content .nav-tab-wrapper' ).each( function() {
             const currentText = $( this ).find( 'a.current, .nav-tab-active' ).text();
             const $toggle = $( '<div class="nav-tab-toggle"><span class="nav-tab-toggle__current-page">' + currentText + '</span>' + icons.chevronDown + '</div>' );
             $( this ).wrap( '<div class="nav-tab-container"></div>' );
