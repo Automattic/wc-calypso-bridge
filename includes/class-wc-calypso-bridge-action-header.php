@@ -149,8 +149,10 @@ class WC_Calypso_Bridge_Action_Header {
 
 		$parent = false;
 		foreach ( $menu as $top_level_menu_item ) {
-			if ( $top_level_menu_item[2] === $page_parent && $crumbs[0]['name'] !== $top_level_menu_item[0] ) {
+			$parent_name = ! empty( $top_level_menu_item[3] ) ? $top_level_menu_item[3] : $top_level_menu_item[0];
+			if ( $top_level_menu_item[2] === $page_parent && $crumbs[0]['name'] !== $parent_name ) {
 				$parent = $top_level_menu_item;
+				break;
 			}
 		}
 
@@ -158,7 +160,7 @@ class WC_Calypso_Bridge_Action_Header {
 			array_unshift(
 				$crumbs,
 				array(
-					'name' => $parent[0],
+					'name' => $parent_name,
 					'url'  => $this->get_parent_url( $parent[2] ),
 				)
 			);
@@ -199,7 +201,7 @@ class WC_Calypso_Bridge_Action_Header {
 					<?php if ( isset( $crumb['url'] ) ) { ?>
 						<a href="<?php echo esc_url( admin_url( $crumb['url'] ) ); ?>">
 					<?php } ?>
-						<?php echo esc_html( $crumb['name'] ); ?>
+						<?php echo esc_html( wp_strip_all_tags( $crumb['name'] ) ); ?>
 					<?php if ( isset( $crumb['url'] ) ) { ?>
 						</a>
 					<?php } ?>
