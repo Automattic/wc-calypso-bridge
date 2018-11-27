@@ -48,10 +48,14 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		// priority is 20 to run after https://github.com/woocommerce/woocommerce/blob/a55ae325306fc2179149ba9b97e66f32f84fdd9c/includes/admin/class-wc-admin-menus.php#L165.
 		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
+		add_action( 'admin_notices', array( $this, 'return_notice' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_checklist_styles' ) );
+		add_action( 'wp_ajax_set_woocommerce_setup_active_task', array( $this, 'set_active_task_ajax' ) );
+		add_action( 'wp_ajax_clear_woocommerce_setup_active_task', array( $this, 'clear_active_task_ajax' ) );
 
 		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
+			add_action( 'admin_init', array( $this, 'clear_active_task' ) );
 			add_action( 'admin_head', array( $this, 'remove_notices' ) );
-			add_action( 'admin_enqueue_scripts', array( $this, 'load_checklist_styles' ) );
 
 			if ( isset( $_GET['finished'] ) ) {
 				add_action( 'admin_init', array( $this, 'mark_finished_and_redirect' ) );
@@ -85,7 +89,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	public function load_checklist_styles() {
 		$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wc-calypso-bridge-setup-checklist-style', $asset_path . 'assets/css/setup-checklist.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
-		wp_enqueue_script( 'wc-calypso-bridge-setup-checklist', $asset_path . 'assets/js/setup-checklist.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_script( 'wc-calypso-bridge-setup-checklist', $asset_path . 'assets/js/setup-checklist.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
 
 		wp_localize_script(
 			'wc-calypso-bridge-setup-checklist',
@@ -93,6 +97,14 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			array(
 				'hide' => esc_html__( 'Hide completed', 'wc-calypso-bridge' ),
 				'show' => esc_html__( 'Show completed', 'wc-calypso-bridge' ),
+			)
+		);
+		wp_localize_script(
+			'wc-calypso-bridge-setup-checklist',
+			'wccb',
+			array(
+				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+				'nonce' => wp_create_nonce( 'woocommerce_setup_active_task' ),
 			)
 		);
 	}
@@ -110,6 +122,61 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			'dashicons-admin-tools',
 			0
 		);
+	}
+
+	/**
+	 * Sets the active step
+	 */
+	public function set_active_task_ajax() {
+		check_ajax_referer( 'woocommerce_setup_active_task', 'nonce' );
+		if ( isset( $_GET['taskId'] ) ) {
+			update_option( 'woocommerce_setup_active_task', sanitize_text_field( wp_unslash( $_GET['taskId'] ) ) ); // WPCS: CSRF ok.
+		}
+	}
+
+	/**
+	 * Removes the active task
+	 */
+	public function clear_active_task() {
+		delete_option( 'woocommerce_setup_active_task' );
+	}
+
+	/**
+	 * Removes the active task via AJAX
+	 */
+	public function clear_active_task_ajax() {
+		check_ajax_referer( 'woocommerce_setup_active_task', 'nonce' );
+		$this->clear_active_task();
+	}
+
+	/**
+	 * Shows a return notice if an active task is set and condition is met
+	 */
+	public function return_notice() {
+		$task_id = get_option( 'woocommerce_setup_active_task', false );
+		if ( $task_id ) {
+			$data = $this->get_task_data();
+			foreach ( $data['tasks'] as $task ) {
+				if ( $task_id === $task['id'] ) {
+					$active_task = $task;
+				}
+			}
+			if ( $active_task && $active_task['condition'] ) {
+				?>
+				<div class="notice notice-success is-dismissible" id="woocommerce-setup-return-notice">
+					<p>
+						<?php
+						echo sprintf(
+							wp_kses( 'You\'ve completed the task "%s!"  Ready to continue with the setup checklist?  <a href="%s">Back to setup</a>.', 'wc-calypso-brigde' ),
+							esc_attr( $active_task['title'] ),
+							esc_url( admin_url( 'admin.php?page=wc-setup-checklist' ) )
+						);
+						?>
+					</p>
+				</div>
+				<?php
+			}
+		}
 	}
 
 	/**
