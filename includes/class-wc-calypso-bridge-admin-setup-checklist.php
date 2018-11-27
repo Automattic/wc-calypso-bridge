@@ -47,7 +47,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		// priority is 20 to run after https://github.com/woocommerce/woocommerce/blob/a55ae325306fc2179149ba9b97e66f32f84fdd9c/includes/admin/class-wc-admin-menus.php#L165.
-		add_action( 'admin_head', array( $this, 'admin_menu_structure' ), 20 );
 		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
 
 		$this->clear_uncompleted_steps_cache();
@@ -137,45 +136,15 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Adds a new page for the setup checklist.
 	 */
 	public function admin_menu() {
-		add_submenu_page(
-			'woocommerce',
+		add_menu_page(
 			__( 'Setup', 'wc-calypso-bridge' ),
 			__( 'Setup', 'wc-calypso-bridge' ),
 			'manage_woocommerce',
 			'wc-setup-checklist',
-			array( $this, 'checklist' )
+			array( $this, 'checklist' ),
+			'dashicons-admin-tools',
+			0
 		);
-	}
-
-	/**
-	 * Puts the 'Setup' menu item at the very top of the WooCommerce link.
-	 * We have to do some shuffling, because WooCommerce does some overwriting with the 'Orders' link.
-	 */
-	public function admin_menu_structure() {
-		global $submenu;
-
-		// User does not have capabilites to see the submenu.
-		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			return;
-		}
-
-		$setup_key = null;
-		foreach ( $submenu['woocommerce'] as $submenu_key => $submenu_item ) {
-			if ( 'wc-setup-checklist' === $submenu_item[2] ) {
-				$setup_key = $submenu_key;
-				break;
-			}
-		}
-
-		if ( ! $setup_key ) {
-			return;
-		}
-
-		$menu = $submenu['woocommerce'][ $setup_key ];
-
-		// Move menu item to top of array.
-		unset( $submenu['woocommerce'][ $setup_key ] );
-		array_unshift( $submenu['woocommerce'], $menu );
 	}
 
 	/**
@@ -202,22 +171,20 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Adds a count of uncompleted tasks to the navigation sidebar.
 	 */
 	public function menu_order_count() {
-		global $submenu;
-		if ( isset( $submenu['woocommerce'] ) ) {
-			$cache_key   = 'woocommerce_setup_checklist_uncompleted_steps';
-			$setup_count = get_transient( $cache_key );
-			if ( false === $setup_count ) {
-				$data        = $this->get_task_data();
-				$setup_count = $data['uncompleted'];
-				set_transient( $cache_key, $setup_count, 12 * HOUR_IN_SECONDS );
-			}
+		global $menu;
+		foreach ( $menu as $key => $menu_item ) {
+			if ( 'wc-setup-checklist' === $menu_item[2] ) {
+				$cache_key   = 'woocommerce_setup_checklist_uncompleted_steps';
+				$setup_count = get_transient( $cache_key );
+				if ( false === $setup_count ) {
+					$data        = $this->get_task_data();
+					$setup_count = $data['uncompleted'];
+					set_transient( $cache_key, $setup_count, 12 * HOUR_IN_SECONDS );
+				}
 
-			if ( current_user_can( 'manage_woocommerce' ) && $setup_count ) {
-				foreach ( $submenu['woocommerce'] as $key => $menu_item ) {
-					if ( 0 === strpos( $menu_item[0], _x( 'Setup', 'Admin menu name', 'wc-calypso-bridge' ) ) ) {
-						$submenu['woocommerce'][ $key ][0] .= ' <span class="update-plugins count-' . esc_attr( $setup_count ) . '"><span class="setup-count">' . esc_html( number_format_i18n( $setup_count ) ) . '</span></span>'; // WPCS: override ok.
+				if ( current_user_can( 'manage_woocommerce' ) && $setup_count ) {
+						$menu[ $key ][0] .= ' <span class="update-plugins count-' . esc_attr( $setup_count ) . '"><span class="setup-count">' . esc_html( number_format_i18n( $setup_count ) ) . '</span></span>'; // WPCS: override ok.
 						break;
-					}
 				}
 			}
 		}
