@@ -450,7 +450,7 @@ input[type=radio]:checked:before {
 #doaction,
 #doaction2,
 #post-query-submit,
-.wp-admin select + .button {
+.wp-core-ui.wp-admin select + .button {
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 1.4em;
@@ -459,10 +459,11 @@ input[type=radio]:checked:before {
 	margin-bottom: 5px;
 	max-width: 240px;
 }
-.wp-admin select + .button,
-.wp-admin select + .button:hover,
-.wp-admin select + .button:focus {
-	padding: 7px 14px;
+.wp-core-ui.wp-admin select + .button,
+.wp-core-ui.wp-admin select + .button:hover,
+.wp-core-ui.wp-admin select + .button:focus {
+	font-size: 14px;
+	padding: 12px 14px !important;
 	line-height: 1 !important;
 }
 .button.wc-reload::after {
@@ -474,8 +475,8 @@ input[type=radio]:checked:before {
 }
 
 /* Secondary Buttons */
-.wp-core-ui .button,
-.wp-core-ui .button-secondary,
+.wp-core-ui.wp-admin .button,
+.wp-core-ui.wp-admin .button-secondary,
 .wc_addons_wrap .addons-button-outline-green,
 .wc_addons_wrap .addons-button-outline-white,
 .woocommerce_page_wc-status .woocommerce-message a.docs {
@@ -492,10 +493,10 @@ input[type=radio]:checked:before {
 	box-shadow: none;
 	width: auto;
 }
-.wp-core-ui .button:hover,
-.wp-core-ui .button:focus,
-.wp-core-ui .button-secondary:hover,
-.wp-core-ui .button-secondary:focus,
+.wp-core-ui.wp-admin .button:hover,
+.wp-core-ui.wp-admin .button:focus,
+.wp-core-ui.wp-admin .button-secondary:hover,
+.wp-core-ui.wp-admin .button-secondary:focus,
 .wc_addons_wrap .addons-button-outline-green:hover,
 .wc_addons_wrap .addons-button-outline-green:focus,
 .wc_addons_wrap .addons-button-outline-white:hover,
@@ -512,8 +513,8 @@ input[type=radio]:checked:before {
 	padding: 7px;
 	line-height: 1;
 }
-.wp-core-ui .button:active,
-.wp-core-ui .button-secondary:active,
+.wp-core-ui.wp-admin .button:active,
+.wp-core-ui.wp-admin .button-secondary:active,
 .wc_addons_wrap .addons-button-outline-green:active,
 .wc_addons_wrap .addons-button-outline-white:active {
 	box-shadow: none;
@@ -523,16 +524,17 @@ input[type=radio]:checked:before {
 	-webkit-transform: none;
 	transform: none;
 }
-.wp-core-ui .button span[class$=-icon] {
+.wp-core-ui.wp-admin .button span[class$=-icon] {
 	width: 14px;
 	height: 14px;
 }
-.wp-core-ui .button	 span[class$=-icon]:before {
+.wp-core-ui.wp-admin .button	 span[class$=-icon]:before {
 	font: 400 14px/1 dashicons !important;
 }
 
 /* Primary Buttons */
-.wp-core-ui .button-primary,
+.wp-core-ui.wp-admin .button-primary,
+.wp-core-ui.wp-admin .button.is-primary,
 .action-header .page-title-action,
 .action-header .add-new-h2,
 .wc-helper .button,
@@ -557,8 +559,10 @@ input[type=radio]:checked:before {
 	opacity: 1;
 	text-transform: none !important;
 }
-.wp-core-ui .button-primary:hover,
-.wp-core-ui .button-primary:focus,
+.wp-core-ui.wp-admin .button-primary:hover,
+.wp-core-ui.wp-admin .button-primary:focus,
+.wp-core-ui.wp-admin .button.is-primary:hover,
+.wp-core-ui.wp-admin .button.is-primary:focus,
 .action-header .page-title-action:hover,
 .action-header .page-title-action:focus,
 .action-header .add-new-h2:hover,
@@ -580,12 +584,12 @@ input[type=radio]:checked:before {
 }
 
 /* Large Buttons */
-.wp-core-ui button.button.button-large,
-.wp-core-ui a.button.button-large,
-.wp-core-ui input.button.button-large,
+.wp-core-ui.wp-admin button.button.button-large,
+.wp-core-ui.wp-admin a.button.button-large,
+.wp-core-ui.wp-admin input.button.button-large,
 .checklist__task-secondary .button-primary,
 #postbox-container-1 .button-primary,
-.wp-core-ui .woocommerce-save-button,
+.wp-core-ui.wp-admin .woocommerce-save-button,
 .wc_addons_wrap .addons-button-solid,
 .wc_addons_wrap .addons-button-outline-green,
 .wc_addons_wrap .addons-button-outline-white,
@@ -594,25 +598,27 @@ input[type=radio]:checked:before {
 .setup-footer a,
 .action-header .page-title-action,
 .action-header .add-new-h2,
-.wp-core-ui p.submit input,
-.wp-core-ui p.submit button {
+.wp-core-ui.wp-admin p.submit input,
+.wp-core-ui.wp-admin p.submit button,
+.wp-core-ui.wp-admin .wcc-root .button.is-primary,
+.browser.button.button-hero {
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
 }
 
 /* Disabled buttons */
-.wp-core-ui .button[disabled],
-.wp-core-ui .button:disabled,
-.wp-core-ui .button.disabled {
+.wp-core-ui.wp-admin .button[disabled],
+.wp-core-ui.wp-admin .button:disabled,
+.wp-core-ui.wp-admin .button.disabled {
 	color: #e9eff3 !important;
 	background: #fff !important;
 	border-color: #e9eff3 !important;
 	text-shadow: none !important;
 }
-.wp-core-ui .button[disabled]:hover,
-.wp-core-ui .button:disabled:hover,
-.wp-core-ui .button.disabled:hover {
+.wp-core-ui.wp-admin .button[disabled]:hover,
+.wp-core-ui.wp-admin .button:disabled:hover,
+.wp-core-ui.wp-admin .button.disabled:hover {
 	color: #e9eff3 !important;
 	background: #fff !important;
 	border-color: #e9eff3 !important;
@@ -620,7 +626,8 @@ input[type=radio]:checked:before {
 }
 
 /* Specific Buttons */
-.wp-core-ui .button-primary:active,
+.wp-core-ui.wp-admin .button-primary:active,
+.wp-core-ui.wp-admin .button.is-primary:active,
 .action-header .page-title-action:active,
 .action-header .add-new-h2:active,
 .wc-helper .button:active,
@@ -631,7 +638,8 @@ input[type=radio]:checked:before {
 .wc_addons_wrap .addons-button {
 	align-self: flex-start;
 }
-.wp-core-ui .button-group.button-large .button, .wp-core-ui .button.button-large {
+.wp-core-ui.wp-admin .button-group.button-large .button,
+.wp-core-ui.wp-admin .button.button-large {
 	height: auto;
 }
 .wc-helper .button-update .dashicons, .wc-helper .button-update:hover .dashicons {
