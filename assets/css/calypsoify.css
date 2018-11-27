@@ -2119,6 +2119,11 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	display: none;
 }
 
+/* Akismet notices */
+#akismet-privacy-notice-admin-notice .notice-dismiss {
+	display: none;
+}
+
 /* Taxonomy page */
 .edit-tags-php #col-left,
 .product_page_product_attributes #col-left {
