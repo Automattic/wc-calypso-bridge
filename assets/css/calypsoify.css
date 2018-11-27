@@ -732,7 +732,8 @@ html.wp-toolbar {
 .post-type-product.edit-php .wrap,
 .post-type-product.post-php .wrap,
 .toplevel_page_wcpv-commissions .wrap,
-.post-type-wc_booking .wrap {
+.post-type-wc_booking .wrap,
+.post-new-php .wrap {
 	max-width: none;
 }
 #edittag {
