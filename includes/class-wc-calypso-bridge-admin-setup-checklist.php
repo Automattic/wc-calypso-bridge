@@ -104,7 +104,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			'wccb',
 			array(
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'nonce' => wp_create_nonce( 'woocommerce_setup_active_task' ),
+				'nonce'   => wp_create_nonce( 'woocommerce_setup_active_task' ),
 			)
 		);
 	}
@@ -167,7 +167,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 					<p>
 						<?php
 						echo sprintf(
-							wp_kses( 'You\'ve completed the task "%s!"  Ready to continue with the setup checklist?  <a href="%s">Back to setup</a>.', 'wc-calypso-brigde' ),
+							wp_kses( 'You\'ve completed the task "%s!"  Ready to continue with the setup checklist?  <a href="%s">Back to setup</a>.', 'wc-calypso-bridge' ),
 							esc_attr( $active_task['title'] ),
 							esc_url( admin_url( 'admin.php?page=wc-setup-checklist' ) )
 						);
