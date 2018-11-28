@@ -127,13 +127,20 @@ class WC_Calypso_Bridge {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tables.php';
 			include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 			$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
 			foreach ( $connect_files as $connect_file ) {
 				include_once $connect_file;
 			}
 
-			add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
+			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
+			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
+			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
 		}
 	}
 
@@ -171,24 +178,6 @@ class WC_Calypso_Bridge {
 			return false;
 		}
 		return true;
-	}
-
-	/**
-	 * Updates required UI elements for calypso bridge pages only.
-	 */
-	public function load_ui_elements() {
-		if ( is_wc_calypso_bridge_page() || ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) ) {
-			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
-
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tables.php';
-
-			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
-			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
-		}
 	}
 
 	/**
