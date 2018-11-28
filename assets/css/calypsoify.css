@@ -476,7 +476,8 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin .button-secondary,
 .wc_addons_wrap .addons-button-outline-green,
 .wc_addons_wrap .addons-button-outline-white,
-.woocommerce_page_wc-status .woocommerce-message a.docs {
+.woocommerce_page_wc-status .woocommerce-message a.docs,
+.wcc-root .stripe__connect-account .stripe__connect-account-body .stripe__connect-account-details .stripe__connect-account-disconnect {
 	color: #2e4453;
 	background: #fff;
 	border-color: #c8d7e1;
@@ -537,7 +538,8 @@ input[type=radio]:checked:before {
 .wc-helper .button,
 .wc_addons_wrap .addons-button-solid,
 .woocommerce_page_wc-status .woocommerce-message a.debug-report,
-.woocommerce_page_wc-status .woocommerce-message #copy-for-support {
+.woocommerce_page_wc-status .woocommerce-message #copy-for-support,
+.notice.wcs-nux__notice .wcs-nux__notice-content .wcs-nux__notice-content-button {
 	background: #00aadc !important;
 	border-color: #008ab3 !important;
 	border-width: 1px 1px 2px !important;
@@ -571,7 +573,8 @@ input[type=radio]:checked:before {
 .woocommerce_page_wc-status .woocommerce-message a.debug-report:hover,
 .woocommerce_page_wc-status .woocommerce-message a.debug-report:focus,
 .woocommerce_page_wc-status .woocommerce-message #copy-for-support:focus,
-.woocommerce_page_wc-status .woocommerce-message #copy-for-support:hover {
+.woocommerce_page_wc-status .woocommerce-message #copy-for-support:hover,
+.notice.wcs-nux__notice .wcs-nux__notice-content .wcs-nux__notice-content-button:hover {
 	background: #00aadc !important;
 	border-color: #005082 !important;
 	color: #fff;
@@ -2351,6 +2354,61 @@ p.search-box {
 	margin-left: 4px;
 }
 
+/** WooCommerce Services / Stripe */
+.wcc-root .stripe__connect-account .stripe__connect-account-body {
+	background: #fff;
+	border: 1px solid rgba(200,215,225,0.5);
+	border-top: 0;
+	max-width: 100%;
+}
+
+.wcc-root.wc-connect-stripe-connect-account {
+	max-width: 100%;
+}
+
+h3#woocommerce_stripe_connection_status {
+	padding-bottom: 0;
+}
+
+.wcc-root .stripe__connect-account .stripe__connect-account-body .stripe__connect-account-details .stripe__connect-account-status.account-not-activated,
+.wcc-root .stripe__connect-account .stripe__connect-account-body .stripe__connect-account-details .stripe__connect-account-status.account-activated {
+	vertical-align: super;
+}
+
+.wp-admin .wrap .wc-connect-stripe-connect-account .notice {
+	background: #fff;
+	color: #537994;
+	font-size: 12px;
+	line-height: 18px;
+	padding: 0 24px 8px 14px;
+	border: 1px solid rgba(200,215,225,0.5);
+	border-top: 0;
+	box-shadow: none;
+}
+
+.wc-connect-stripe-connect-account .notice__icon-wrapper {
+	display: none;
+}
+
+.wcc-root .stripe-connect-account__placeholder-container .stripe-connect-account__placeholder-body {
+	max-width: 100%;
+	background: #fff;
+	border: 1px solid rgba(200,215,225,0.5);
+	border-top: 0;
+}
+
+.wcs-nux__notice .wcs-nux__notice-logo.is-compact .wcs-nux__notice-logo-graphic {
+	display: none;
+}
+
+.wcs-nux__notice .wcs-nux__notice-content .wcs-nux__notice-content-title {
+	display: none;
+}
+
+.notice.wcs-nux__notice .wcs-nux__notice-content-text {
+	padding-top: 8px;
+}
+
 /** WooCommerce Services / Modal */
 
 .wcs-pointer-page-dimmer {
@@ -2366,3 +2424,4 @@ p.search-box {
 .woocommerce_page_wc-settings .select2-selection.select2-selection--single {
 	min-width: 300px;
 }
+
