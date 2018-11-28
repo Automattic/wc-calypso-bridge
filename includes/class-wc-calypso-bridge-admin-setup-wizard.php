@@ -374,6 +374,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			}
 		}
 		activate_plugin( 'woocommerce-shipping-ups/woocommerce-shipping-ups.php' );
+		flush_rewrite_rules();
 	}
 
 	/**
