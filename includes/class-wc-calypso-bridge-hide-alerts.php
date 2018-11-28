@@ -74,6 +74,10 @@ class WC_Calypso_Bridge_Hide_Alerts {
 			'Storefront_NUX_Admin'            => array( '99' => 'admin_notices' ),
 			'WC_Gateway_PPEC_Plugin'          => array( '10' => 'show_bootstrap_warning' ),
 			'WC_RoyalMail'                    => array( '10' => 'environment_check' ),
+			'Storefront_Blog_Customiser'      => array( '10' => 'customizer_notice' ),
+			'Storefront_Parallax_Hero'        => array( '10' => 'customizer_notice' ),
+			'Storefront_Product_Hero'         => array( '10' => 'sprh_customizer_notice' ),
+			'Storefront_Reviews'              => array( '10' => 'customizer_notice' ),
 		);
 
 		foreach ( $extension_admin_notices_to_suppress as $class_name => $function_to_suppress ) {
