@@ -1797,9 +1797,16 @@ html.wc-setup-page:after {
 .wc-wizard-service-item.klarna-logo .wc-wizard-service-name img {
 	display: none;
 }
-.wc-wizard-service-item.checked .wc-wizard-service-settings,
-.wc-wizard-services-list-toggle.checked .wc-wizard-service-settings {
-	display: none;
+.wc-wizard-service-setting-ppec_paypal_reroute_requests .payment-checkbox-input,
+.wc-wizard-service-setting-stripe_create_account .payment-checkbox-input {
+	width: auto;
+	margin-top: 3px;
+	position: relative;
+}
+.wc-wizard-service-setting-ppec_paypal_reroute_requests .payment-checkbox-input:before,
+.wc-wizard-service-setting-stripe_create_account .payment-checkbox-input:before {
+	position: absolute;
+	left: 0;
 }
 @media screen and (max-width:600px) {
 	.wc-wizard-service-item, .wc-wizard-services-list-toggle {
