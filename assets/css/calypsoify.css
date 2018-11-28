@@ -1299,6 +1299,13 @@ th.sortable a, th.sorted a{
 .widefat tfoot td.check-column  {
 	padding: 16px 8px;
 }
+.wp-list-table-wrapper .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
+	display: table-cell;
+	clear: none;
+}
+.wp-list-table-wrapper .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
+    display: none;
+}
 
 /* Makes all rows have white background */
 .striped>tbody > :nth-child(odd), ul.striped > :nth-child(odd) {
