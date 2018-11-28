@@ -188,7 +188,7 @@
     /**
      * Add cancel button to taxonomy edit forms
      */
-    $( '.edit-tag-actions #delete-link' ).before(
+    $( '.edit-tag-actions .button:first' ).after(
         '<a href="' + ( 'undefined' !== typeof taxonomy ? taxonomy.listUrl : '#' ) + '" class="button button-secondary button-large taxonomy-edit-cancel-button">' + translations.cancel + '</a>'
     );
 
