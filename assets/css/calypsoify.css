@@ -584,6 +584,7 @@ input[type=radio]:checked:before {
 }
 
 /* Large Buttons */
+.wp-core-ui.wc-setup button.button.button-large,
 .wp-core-ui.wp-admin button.button.button-large,
 .wp-core-ui.wp-admin a.button.button-large,
 .wp-core-ui.wp-admin input.button.button-large,
@@ -602,9 +603,11 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin p.submit button,
 .wp-core-ui.wp-admin .wcc-root .button.is-primary,
 .browser.button.button-hero {
+	height: auto;
 	font-size: 14px !important;
 	padding: 7px 14px 9px !important;
 	line-height: 21px !important;
+	font-weight: 500;
 }
 
 /* Disabled buttons */
@@ -1344,10 +1347,16 @@ table.widefat {
 }
 .wc-setup {
 	background: transparent;
-	max-width: 500px;
+	max-width: 960px;
 }
 .wc-setup-content {
+	max-width: 500px;
 	padding: 24px;
+	margin: 0 auto 20px;
+	box-sizing: border-box;
+}
+.store-address-preview-container label:first-child {
+	margin-top: 0;
 }
 .wc-setup-content a {
 	color: #537994;
@@ -1617,23 +1626,43 @@ table.widefat {
 }
 
 /* Onboarding wizard steps */
+html.wc-setup-page:before,
+html.wc-setup-page:after {
+	content: "";
+    background: #e9eff3;
+    display: block;
+    position: fixed;
+    width: 250px;
+    height: 350px;
+    transform: rotate(-10deg);
+    left: -30px;
+    bottom: -30px;
+    z-index: -1;
+}
+html.wc-setup-page:after {
+	left: auto;
+    bottom: auto;
+    top: -30px;
+    right: -30px;
+    z-index: -1;
+}
 .wc-step-heading {
 	margin-top: 116px;
-	margin-bottom: 24px;
+	margin-bottom: 30px;
 }
 .wc-step-heading h1 {
-	font-size: 32px;
-	color: #2E4453;
+	font-size: 50px;
+	color: #2e4453;
 	line-height: 1;
-	font-weight: 500;
+	font-weight: 700;
 	margin-top: 0;
 	margin-bottom: 12px;
 	padding-bottom: 0;
 	border-bottom: 0;
 }
 .wc-step-heading h2 {
-	color: #537994;
-	font-size: 14px;
+	color: #4f748e;
+	font-size: 20px;
 	line-height: 1.5;
 	margin-bottom: 0;
 	padding-bottom: 0;
@@ -1652,6 +1681,9 @@ table.widefat {
 }
 .wc-setup .wc-setup-footer {
 	margin-bottom: 80px;
+}
+.wc-setup .wc-setup-footer button {
+	min-width: 180px;
 }
 @media screen and (max-width: 600px) {
 	.wc-setup .wc-setup-footer .button-primary {
