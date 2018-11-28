@@ -1,3 +1,5 @@
+var pagenow = 'wc-setup';
+
 ( function( $ ) {
     'use strict';
     
