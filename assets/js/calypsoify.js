@@ -392,5 +392,14 @@
         $( html ).insertAfter( 'h1.wp-heading-inline:first' );
     }
 
+    /**
+     * Focus select2 input on click
+     */
+    $( document ).on( 'click', '.select2', function() {
+        setTimeout( function() {
+            $( '.select2-container--open .select2-search__field' ).focus();
+        }, 0 );
+    } );
+
 
 } )( jQuery );
