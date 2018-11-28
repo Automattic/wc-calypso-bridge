@@ -98,6 +98,9 @@ div.woocommerce-message, .wc-helper .start-container {
 	padding: 0;
 	margin-right: 8px;
 }
+#wpwrap .tablenav .actions select {
+	margin-right: 6px;
+}
 
 /* WC Bookings Tables */
 .post-type-wc_booking .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
@@ -437,10 +440,10 @@ input[type=radio]:checked:before {
 }
 
 /* Fixes for button height next to select dropdowns */
-.post-type-product .tablenav input,
-.post-type-product .tablenav select,
-.post-type-shop_order .tablenav input,
-.post-type-shop_order .tablenav select,
+.post-type-product #wpwrap .tablenav input,
+.post-type-product #wpwrap .tablenav select,
+.post-type-shop_order #wpwrap .tablenav input,
+.post-type-shop_order #wpwrap .tablenav select,
 #doaction,
 #doaction2,
 #post-query-submit,
