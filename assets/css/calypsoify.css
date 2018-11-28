@@ -391,13 +391,7 @@ input[type=radio]:checked:before {
 	color: #2e4453;
 }
 .select2-container--default .select2-selection--single .select2-selection__clear {
-	font-size: 0;
-}
-.select2-container--default .select2-selection--single .select2-selection__clear:before {
-	content: '\2715';
-	color: #c3d7e2;
-	font-size: 14px;
-	line-height: 24px;
+	display: none;
 }
 
 /* Select2 tags/tokens */
