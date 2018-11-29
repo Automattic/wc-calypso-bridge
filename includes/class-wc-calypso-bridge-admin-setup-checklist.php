@@ -310,7 +310,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 								true === (bool) $click_settings['paypal'] &&
 								! empty( $paypal_settings['api_username'] ) &&
 								! empty( $paypal_settings['api_password'] ) &&
-								! empty( $paypal_settings['api_signature'] ) &&
+								( ! empty( $paypal_settings['api_signature'] ) || ! empty( $paypal_settings['api_certificate'] ) ) &&
 								'yes' === $paypal_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
 			),
