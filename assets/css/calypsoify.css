@@ -340,8 +340,8 @@ input[type=radio]:checked:before {
 .product_page_addons .wrap > div:not([class]) {
 	margin: 0;
 	color: #537994;
-    font-size: 12px;
-    line-height: 18px;
+	font-size: 12px;
+	line-height: 18px;
 }
 .product_page_addons .wrap > div:not([class]) + br {
 	display: none;
@@ -409,7 +409,7 @@ input[type=radio]:checked:before {
 	padding: 0 0 0 6px;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-    float: right;
+	float: right;
 	padding-left: 6px;
 	padding-right: 6px;
 	margin: 0 0 0 4px;
@@ -436,7 +436,7 @@ input[type=radio]:checked:before {
 	padding: 0;
 }
 .select2-container .select2-selection--multiple {
-    padding: 3px;
+	padding: 3px;
 }
 
 /* Fixes for button height next to select dropdowns */
@@ -741,12 +741,12 @@ html.wp-toolbar {
 	max-width: none;
 }
 #edittag {
-    max-width: 100%;
+	max-width: 100%;
 }
 #wpbody-content > .nav-tab-container {
 	max-width: 1040px;
 	margin: 0 auto 17px !important;
-    display: block;
+	display: block;
 }
 
 /* Action header */
@@ -1311,7 +1311,7 @@ th.sortable a, th.sorted a{
 	clear: none;
 }
 .wp-list-table-wrapper .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
-    display: none;
+	display: none;
 }
 
 /* Makes all rows have white background */
@@ -1422,8 +1422,9 @@ table.widefat {
 
 /* Adds card layout style to forms */
 
-#mainform > h2,
-#mainform > h3 {
+#mainform h2,
+#mainform h3,
+.wp-admin .wrap form[name="cleanup_options"] > h2 {
 	background-color: #fff;
 	border: 1px solid #e4eaef;
 	border-bottom: none;
@@ -1448,10 +1449,11 @@ table.widefat {
 	padding-bottom: 11px;
 }
 
-#mainform > h2 + div p,
-#mainform > h2 + p,
-#mainform > h3 + div p,
-#mainform > h3 + p {
+#mainform h2 + div p,
+#mainform h2 + p,
+#mainform h3 + div p,
+#mainform h3 + p,
+.wp-admin .wrap form[name="cleanup_options"] > h2 ~ p:not(.submit) {
 	color: #537994;
 	font-size: 12px;
 	line-height: 18px;
@@ -1459,8 +1461,9 @@ table.widefat {
 	padding: 0 24px 8px;
 }
 
-#mainform > h2 + p,
-#mainform > h3 + p {
+#mainform h2 + p,
+#mainform h3 + p,
+.wp-admin .wrap form[name="cleanup_options"] > h2 ~ p:not(.submit) {
 	background-color: #fff;
 	border-left: 1px solid rgba(200,215,225,0.5);
 	border-right: 1px solid rgba(200,215,225,0.5);
@@ -1501,6 +1504,51 @@ table.widefat {
 
 .wc-shipping-zones.widefat {
 	border: 1px solid rgba(200,215,225,0.5);
+}
+
+/* Mailchimp form / card */
+form[name="cleanup_options"] fieldset {
+	padding: 16px 24px;
+	background: white;
+	border-left: 1px solid rgba(200,215,225,0.5);
+	border-right: 1px solid rgba(200,215,225,0.5);
+}
+form[name="cleanup_options"] fieldset:first-of-type,
+form[name="cleanup_options"] fieldset:nth-of-type(9) {
+	border-top: 1px solid rgba(200,215,225,0.5);
+}
+form[name="cleanup_options"] fieldset:last-of-type,
+form[name="cleanup_options"] fieldset:nth-of-type(8) {
+	border-bottom: 1px solid rgba(200,215,225,0.5);
+}
+form[name="cleanup_options"] p.submit {
+	margin-top: 20px !important;
+}
+form[name="cleanup_options"] fieldset label {
+	display: flex;
+	flex-direction: column;
+}
+form[name="cleanup_options"] fieldset label span {
+	padding-right: 20px;
+	order: 0;
+	margin: 5px 0;
+}
+form[name="cleanup_options"] fieldset label input,
+form[name="cleanup_options"] fieldset label select {
+	order: 1;
+	width: 100%;
+}
+@media screen and (min-width:601px) {
+	form[name="cleanup_options"] fieldset label {
+		flex-direction: row;
+		align-items: center;
+	}
+	form[name="cleanup_options"] fieldset label span {
+		min-width: 250px;
+	}
+	form[name="cleanup_options"] fieldset label input {
+		width: 400px !important;
+	}
 }
 
 /* Onboarding wizard inputs */
@@ -1658,22 +1706,22 @@ table.widefat {
 html.wc-setup-page:before,
 html.wc-setup-page:after {
 	content: "";
-    background: #e9eff3;
-    display: block;
-    position: fixed;
-    width: 250px;
-    height: 350px;
-    transform: rotate(-10deg);
-    left: -30px;
-    bottom: -30px;
-    z-index: -1;
+	background: #e9eff3;
+	display: block;
+	position: fixed;
+	width: 250px;
+	height: 350px;
+	transform: rotate(-10deg);
+	left: -30px;
+	bottom: -30px;
+	z-index: -1;
 }
 html.wc-setup-page:after {
 	left: auto;
-    bottom: auto;
-    top: -30px;
-    right: -30px;
-    z-index: -1;
+	bottom: auto;
+	top: -30px;
+	right: -30px;
+	z-index: -1;
 }
 .wc-step-heading {
 	margin-top: 116px;
