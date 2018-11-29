@@ -588,7 +588,7 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin button.button.button-large,
 .wp-core-ui.wp-admin a.button.button-large,
 .wp-core-ui.wp-admin input.button.button-large,
-.checklist__task-secondary .button-primary,
+.wp-core-ui.wp-admin .checklist__task-secondary .button-primary,
 #postbox-container-1 .button-primary,
 .wp-core-ui.wp-admin .woocommerce-save-button,
 .wc_addons_wrap .addons-button-solid,
