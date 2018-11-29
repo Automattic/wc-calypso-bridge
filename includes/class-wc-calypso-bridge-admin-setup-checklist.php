@@ -155,7 +155,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			return;
 		}
 
-		$whitelist = array( 'customize', 'shipping', 'product', 'stripe' );
+		$whitelist = array( 'customize', 'shipping', 'product', 'stripe', 'paypal' );
 		$step      = $_GET['wc-setup-step']; // WPCS: CSRF ok, sanitization ok.
 		if ( ! in_array( $step, $whitelist, true ) ) {
 			return;
@@ -304,12 +304,14 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your PayPal account to let customers to conveniently checkout directly with PayPal.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
-				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=ppec_paypal',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=ppec_paypal&&return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=paypal',
 				'learn_more'      => 'https://woocommerce.com/products/woocommerce-gateway-paypal-checkout/',
-				'condition'       => ! empty( $paypal_settings['api_username'] ) &&
-							   ! empty( $paypal_settings['api_password'] ) &&
-							   ! empty( $paypal_settings['api_signature'] ) &&
-							   'yes' === $paypal_settings['enabled'],
+				'condition'       => isset( $click_settings['paypal'] ) &&
+								true === (bool) $click_settings['paypal'] &&
+								! empty( $paypal_settings['api_username'] ) &&
+								! empty( $paypal_settings['api_password'] ) &&
+								( ! empty( $paypal_settings['api_signature'] ) || ! empty( $paypal_settings['api_certificate'] ) ) &&
+								'yes' === $paypal_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
 			),
 
@@ -321,7 +323,11 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate'        => '2',
 				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=stripe&return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=stripe',
 				'learn_more'      => 'https://woocommerce.com/products/stripe/',
-				'condition'       => isset( $click_settings['stripe'] ) && true === (bool) $click_settings['stripe'],
+				'condition'       => isset( $click_settings['stripe'] ) &&
+								true === (bool) $click_settings['stripe'] &&
+								! empty( $stripe_settings['publishable_key'] ) &&
+								! empty( $stripe_settings['secret_key'] ) &&
+								'yes' === $stripe_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php',
 			),
 
