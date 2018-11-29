@@ -2360,6 +2360,7 @@ p.search-box {
 	border: 1px solid rgba(200,215,225,0.5);
 	border-top: 0;
 	max-width: 100%;
+	padding-left: 24px;
 }
 
 .wcc-root.wc-connect-stripe-connect-account {
