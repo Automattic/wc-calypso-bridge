@@ -123,17 +123,18 @@ div.woocommerce-message, .wc-helper .start-container {
 .tablenav.bottom.secondary {
 	display: inline-block;
 }
-.tablenav.bottom .wc-calypso-brdige-pagination.tablenav-pages {
+.tablenav.bottom .wc-calypso-brdige-pagination.tablenav-pages,
+.edit-tags-php .wc-calypso-brdige-pagination.tablenav-pages {
 	float: none;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-top: 16px;
 }
-.tablenav .tablenav-pages a,
+.wp-admin .tablenav-pages a,
 .tablenav-pages-navspan,
 .tablenav-pages span.current,
-.tablenav .dots {
+.wp-admin .dots {
 	padding: 8px 12px;
 	background-color: #fff;
 	border: solid 1px #c8d7e1;
@@ -147,14 +148,16 @@ div.woocommerce-message, .wc-helper .start-container {
 	display: flex;
 	align-content: center;
 	height: auto;
+	text-decoration: none;
 }
-.tablenav .tablenav-pages a:hover,
-.tablenav .tablenav-pages a:focus {
+.wp-admin .tablenav-pages a:hover,
+.wp-admin .tablenav-pages a:focus {
 	color: #2e4453;
 	background: #fff;
-	border-color: #C8D7E1
+	border-color: #C8D7E1;
+	box-shadow: none;
 }
-.tablenav .tablenav-pages a:hover .gridicon {
+.wp-admin .tablenav-pages a:hover .gridicon {
 	fill: #2e4453;
 }
 .tablenav-pages span.current {
@@ -162,26 +165,26 @@ div.woocommerce-message, .wc-helper .start-container {
 	background-color: #00aadc;
 	color: #fff;
 }
-.tablenav .gridicon,
-.tablenav .gridicon {
+.wp-admin .gridicon,
+.wp-admin .gridicon {
 	vertical-align: middle;
 	width: 18px;
 	height: 18px;
 	fill: #537994;
 }
-.tablenav .tablenav-pages > *:first-child {
+.wp-admin .tablenav-pages > *:first-child {
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
 }
-.tablenav .tablenav-pages > *:first-child .gridicon {
+.wp-admin .tablenav-pages > *:first-child .gridicon {
 	margin-right: 2px;
 }
-.tablenav .tablenav-pages > *:last-child {
+.wp-admin .tablenav-pages > *:last-child {
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 	border-right: 1px solid #c8d7e1;
 }
-.tablenav .tablenav-pages > *:last-child .gridicon {
+.wp-admin .tablenav-pages > *:last-child .gridicon {
 	margin-left: 2px;
 }
 .tablenav-pages-navspan.disabled {

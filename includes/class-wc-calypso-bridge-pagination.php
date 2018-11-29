@@ -49,18 +49,35 @@ class WC_Calypso_Bridge_Pagination {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'wp', array( $this, 'set_page_vars' ) );
+		add_action( 'wp', array( $this, 'set_wp_query_page_vars' ) );
 		add_action( 'manage_posts_extra_tablenav', array( $this, 'render_pagination' ), PHP_INT_MAX - 1 );
+		$taxonomies = get_taxonomies();
+		if ( ! empty( $taxonomies ) ) {
+			foreach ( $taxonomies as $taxonomy ) {
+				add_action( 'after-' . $taxonomy . '-table', array( $this, 'set_terms_page_vars' ) );
+				add_action( 'after-' . $taxonomy . '-table', array( $this, 'render_pagination' ) );
+			}
+		}
 	}
-
 
 	/**
 	 * Set pagination vars after wp is ready
 	 */
-	public function set_page_vars() {
+	public function set_wp_query_page_vars() {
 		global $wp_query;
 		$this->current_page = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
 		$this->max_pages    = $wp_query->max_num_pages;
+	}
+
+	/**
+	 * Set pagination vars after wp is ready
+	 */
+	public function set_terms_page_vars() {
+		$screen             = get_current_screen();
+		$total_items        = wp_count_terms( $screen->taxonomy, compact( 'search' ) );
+		$items_per_page     = get_option( 'edit_' . $screen->taxonomy . '_per_page' ) ? (int) get_option( 'edit_' . $screen->taxonomy . '_per_page' ) : 20;
+		$this->max_pages    = ceil( $total_items / $items_per_page );
+		$this->current_page = isset( $_GET['paged'] ) ? absint( $_GET['paged'] ) : 1; // WPCS: CSRF ok.
 	}
 
 	/**
