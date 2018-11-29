@@ -37,7 +37,8 @@ class WC_Calypso_Bridge_Taxonomies {
 	private function __construct() {
 		add_action( 'add_tag_form_pre', array( $this, 'add_action_button' ) );
 		add_action( 'woocommerce_after_add_attribute_fields', array( $this, 'add_action_button' ) );
-		add_action( 'wp_loaded', array( $this, 'remove_taxonomy_form_description' ) );
+		add_action( 'admin_head', array( $this, 'remove_taxonomy_form_description' ) );
+		add_action( 'admin_head', array( $this, 'remove_product_attribute_description' ) );
 		add_action( 'admin_head', array( $this, 'localize_taxonomy_url' ) );
 	}
 
@@ -64,6 +65,19 @@ class WC_Calypso_Bridge_Taxonomies {
 	public function remove_taxonomy_form_description() {
 		// @TODO: Uncomment the following line if https://github.com/woocommerce/woocommerce/pull/21884 is merged into WC core.
 		// remove_action( 'product_cat_pre_add_form', array( WC_Admin_Taxonomies::get_instance(), 'product_cat_description' ), 10 );
+	}
+
+	/**
+	 * Remove product attribute descriptions
+	 */
+	public function remove_product_attribute_description() {
+		$attribute_taxonomies = wc_get_attribute_taxonomies();
+
+		if ( ! empty( $attribute_taxonomies ) ) {
+			foreach ( $attribute_taxonomies as $attribute ) {
+				WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'pa_' . $attribute->attribute_name . '_pre_add_form', 'WC_Admin_Taxonomies', 'product_attribute_description', 10 );
+			}
+		}
 	}
 
 	/**
