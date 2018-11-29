@@ -39,6 +39,8 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
+
+		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
 	}
 
 	/**
@@ -47,6 +49,16 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	public function hide_woo_obw_alert() {
 		if ( class_exists( 'WC_Admin_Notices' ) ) {
 			WC_Admin_Notices::remove_notice( 'install' );
+		}
+	}
+
+	/**
+	 * Prevents some alerts like the Apple Pay alert and Akismet from being shown on pages besides settings pages / core wp-admin pages.
+	 */
+	public function hide_alerts_on_non_settings_pages() {
+		if ( is_wc_calypso_bridge_page() && ( empty( $_GET['page'] ) || 'wc-settings' !== $_GET['page'] ) ) {
+			WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'WC_Stripe_Apple_Pay_Registration', 'admin_notices', 10 );
+			remove_action( 'admin_notices', array( 'Akismet_Admin', 'display_notice' ) );
 		}
 	}
 
