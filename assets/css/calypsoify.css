@@ -1322,6 +1322,16 @@ th.sortable a, th.sorted a{
 	background: #fafbfc !important;
 }
 
+/* WC Helper Tables */
+.wc-helper .wp-list-table__row td,
+.wc-helper .wp-list-table__row.is-ext-header td {
+	background: transparent;
+}
+.wc-helper .wp-list-table__row.is-ext-header,
+.wc-helper .wp-list-table__row.wp-list-table__ext-updates {
+	background: #fff !important;
+}
+
 /* Adds border to placeholder image */
 table.wp-list-table td.column-thumb img {
 	border: 1px solid #f3f6f8;
