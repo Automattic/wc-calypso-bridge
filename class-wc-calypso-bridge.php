@@ -296,7 +296,10 @@ class WC_Calypso_Bridge {
 	 * Activates Calypsoify if the setup page is visited directly and it's not previously active.
 	 */
 	public function check_setup_param() {
-		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) { // WPCS: CSRF ok.
+		if ( current_user_can( 'manage_woocommerce' )
+			&& isset( $_GET['page'] ) // WPCS: CSRF ok.
+			&& 'wc-setup-checklist' === $_GET['page'] // WPCS: CSRF ok.
+		) {
 			if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
 				wp_safe_redirect( admin_url( 'admin.php?page=wc-setup-checklist' ) );
