@@ -49,8 +49,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		// priority is 20 to run after https://github.com/woocommerce/woocommerce/blob/a55ae325306fc2179149ba9b97e66f32f84fdd9c/includes/admin/class-wc-admin-menus.php#L165.
 		add_action( 'admin_head', array( $this, 'menu_order_count' ) );
 
-		$this->clear_uncompleted_steps_cache();
-
 		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
 			add_action( 'admin_head', array( $this, 'remove_notices' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_checklist_styles' ) );
@@ -63,39 +61,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		if ( isset( $_GET['wc-setup-step'] ) ) {
 			add_action( 'admin_init', array( $this, 'track_step_click' ) );
 		}
-	}
-
-	/**
-	 * Clears the cache for the number of uncompleted steps when a setting is updated.
-	 */
-	public function clear_uncompleted_steps_cache() {
-		$track_settings_update = array(
-			'woocommerce_ups_settings',
-			'woocommerce_square_merchant_access_token',
-			'woocommerce_ppec_paypal_settings',
-			'woocommerce_stripe_settings',
-			'woocommerce_klarna_payments_settings',
-			'woocommerce_kco_setting',
-			'woocommerce_eway_settings',
-			'woocommerce_payfast_settings',
-			'woocommerce_taxjar-integration_settings',
-			'woocommerce_facebookcommerce_settings',
-			'mailchimp-woocommerce',
-			'woocommerce_setup_checklist_clicks',
-			'wc_canada_post_merchant_username',
-			'wc_canada_post_merchant_password',
-		);
-
-		foreach ( $track_settings_update as $setting ) {
-			add_action( "update_option_{$setting}", array( $this, 'clear_uncompleted_steps_cache_handler' ) );
-		}
-	}
-
-	/**
-	 * Deletes the transient/cache for the number of uncompleted setup steps.
-	 */
-	public function clear_uncompleted_steps_cache_handler() {
-		delete_transient( 'woocommerce_setup_checklist_uncompleted_steps' );
 	}
 
 	/**
@@ -174,13 +139,8 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		global $menu;
 		foreach ( $menu as $key => $menu_item ) {
 			if ( 'wc-setup-checklist' === $menu_item[2] ) {
-				$cache_key   = 'woocommerce_setup_checklist_uncompleted_steps';
-				$setup_count = get_transient( $cache_key );
-				if ( false === $setup_count ) {
-					$data        = $this->get_task_data();
-					$setup_count = $data['uncompleted'];
-					set_transient( $cache_key, $setup_count, 12 * HOUR_IN_SECONDS );
-				}
+				$data        = $this->get_task_data();
+				$setup_count = $data['uncompleted'];
 
 				if ( current_user_can( 'manage_woocommerce' ) && $setup_count ) {
 						$menu[ $key ][0] .= ' <span class="update-plugins count-' . esc_attr( $setup_count ) . '"><span class="setup-count">' . esc_html( number_format_i18n( $setup_count ) ) . '</span></span>'; // WPCS: override ok.
@@ -204,21 +164,18 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * condition - A conditional to determine if the task is completed or not.
 	 */
 	private function get_task_data() {
-		// TODO Double check against setup tasks in the spreadsheet. Needs Canada Post here.
-		// If more settings are added, please add them to `clear_uncompleted_steps_cache`.
-		$ups_settings                 = get_option( 'woocommerce_ups_settings' );
-		$square_merchant_access_token = get_option( 'woocommerce_square_merchant_access_token' );
-		$paypal_settings              = get_option( 'woocommerce_ppec_paypal_settings' );
-		$stripe_settings              = get_option( 'woocommerce_stripe_settings' );
-		$klarna_payments_settings     = get_option( 'woocommerce_klarna_payments_settings' );
-		$kco_settings                 = get_option( 'woocommerce_kco_settings' );
-		$eway_settings                = get_option( 'woocommerce_eway_settings' );
-		$payfast_settings             = get_option( 'woocommerce_payfast_settings' );
-		$taxjar_settings              = get_option( 'woocommerce_taxjar-integration_settings' );
-		$facebook_settings            = get_option( 'woocommerce_facebookcommerce_settings' );
-		$mailchimp_settings           = get_option( 'mailchimp-woocommerce' );
-		$click_settings               = get_option( 'woocommerce_setup_checklist_clicks' );
-
+		$ups_settings                     = get_option( 'woocommerce_ups_settings' );
+		$square_merchant_access_token     = get_option( 'woocommerce_square_merchant_access_token' );
+		$paypal_settings                  = get_option( 'woocommerce_ppec_paypal_settings' );
+		$stripe_settings                  = get_option( 'woocommerce_stripe_settings' );
+		$klarna_payments_settings         = get_option( 'woocommerce_klarna_payments_settings' );
+		$kco_settings                     = get_option( 'woocommerce_kco_settings' );
+		$eway_settings                    = get_option( 'woocommerce_eway_settings' );
+		$payfast_settings                 = get_option( 'woocommerce_payfast_settings' );
+		$taxjar_settings                  = get_option( 'woocommerce_taxjar-integration_settings' );
+		$facebook_settings                = get_option( 'woocommerce_facebookcommerce_settings' );
+		$mailchimp_settings               = get_option( 'mailchimp-woocommerce' );
+		$click_settings                   = get_option( 'woocommerce_setup_checklist_clicks' );
 		$wc_canada_post_merchant_username = get_option( 'wc_canada_post_merchant_username' );
 		$wc_canada_post_merchant_password = get_option( 'wc_canada_post_merchant_password' );
 
