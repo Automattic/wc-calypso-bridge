@@ -123,7 +123,8 @@ div.woocommerce-message, .wc-helper .start-container {
 .tablenav.bottom.secondary {
 	display: inline-block;
 }
-.wc-calypso-brdige-pagination.tablenav-pages {
+.tablenav.bottom .wc-calypso-brdige-pagination.tablenav-pages,
+.edit-tags-php .wc-calypso-brdige-pagination.tablenav-pages {
 	float: none;
 	display: flex;
 	align-items: center;
