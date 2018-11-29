@@ -424,6 +424,7 @@
 
 .checklist__task.is-completed .gridicons-checkmark {
 	display: block;
+	fill: #fff;
 }
 
 .checklist__task.is-completed .checklist__task-description,
