@@ -37,8 +37,8 @@ class WC_Calypso_Bridge_Taxonomies {
 	private function __construct() {
 		add_action( 'add_tag_form_pre', array( $this, 'add_action_button' ) );
 		add_action( 'woocommerce_after_add_attribute_fields', array( $this, 'add_action_button' ) );
-		add_action( 'wp_loaded', array( $this, 'remove_taxonomy_form_description' ) );
-		add_action( 'wp_loaded', array( $this, 'remove_product_attribute_description' ) );
+		add_action( 'admin_head', array( $this, 'remove_taxonomy_form_description' ) );
+		add_action( 'admin_head', array( $this, 'remove_product_attribute_description' ) );
 		add_action( 'admin_head', array( $this, 'localize_taxonomy_url' ) );
 	}
 
