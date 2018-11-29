@@ -1510,12 +1510,15 @@ table.widefat {
 form[name="cleanup_options"] fieldset {
 	padding: 16px 24px;
 	background: white;
-	border: 1px solid rgba(200,215,225,0.5);
+	border-left: 1px solid rgba(200,215,225,0.5);
+	border-right: 1px solid rgba(200,215,225,0.5);
 }
-form[name="cleanup_options"] fieldset + fieldset {
-	border-top: 0;
+form[name="cleanup_options"] fieldset:first-of-type,
+form[name="cleanup_options"] fieldset:nth-of-type(9) {
+	border-top: 1px solid rgba(200,215,225,0.5);
 }
-form[name="cleanup_options"] fieldset:last-child {
+form[name="cleanup_options"] fieldset:last-of-type,
+form[name="cleanup_options"] fieldset:nth-of-type(8) {
 	border-bottom: 1px solid rgba(200,215,225,0.5);
 }
 form[name="cleanup_options"] p.submit {
