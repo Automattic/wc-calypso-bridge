@@ -1405,8 +1405,8 @@ table.widefat {
 
 /* Adds card layout style to forms */
 
-#mainform h2,
-#mainform h3 {
+#mainform > h2,
+#mainform > h3 {
 	background-color: #fff;
 	border: 1px solid #e4eaef;
 	border-bottom: none;
@@ -1418,12 +1418,12 @@ table.widefat {
 	padding: 16px 24px;
 }
 
-#mainform h2.woocommerce-BlankState-message {
+#mainform > h2.woocommerce-BlankState-message {
 	border: none;
 	padding: 0;
 }
 
-#mainform h2 + div {
+#mainform > h2 + div {
 	background-color: #fff;
 	border-left: 1px solid rgba(200,215,225,0.5);
 	border-right: 1px solid rgba(200,215,225,0.5);
@@ -1431,10 +1431,10 @@ table.widefat {
 	padding-bottom: 11px;
 }
 
-#mainform h2 + div p,
-#mainform h2 + p,
-#mainform h3 + div p,
-#mainform h3 + p {
+#mainform > h2 + div p,
+#mainform > h2 + p,
+#mainform > h3 + div p,
+#mainform > h3 + p {
 	color: #537994;
 	font-size: 12px;
 	line-height: 18px;
@@ -1442,13 +1442,21 @@ table.widefat {
 	padding: 0 24px 8px;
 }
 
-#mainform h2 + p,
-#mainform h3 + p {
+#mainform > h2 + p,
+#mainform > h3 + p {
 	background-color: #fff;
 	border-left: 1px solid rgba(200,215,225,0.5);
 	border-right: 1px solid rgba(200,215,225,0.5);
 	margin: -15px 0 0 0;
 	padding-bottom: 16px;
+}
+
+#mainform > h2 + p + p {
+	background-color: #fff;
+	border-left: 1px solid rgba(200,215,225,0.5);
+	border-right: 1px solid rgba(200,215,225,0.5);
+	margin: 0;
+	padding: 0 24px 16px 24px;
 }
 
 #mainform .form-table {
