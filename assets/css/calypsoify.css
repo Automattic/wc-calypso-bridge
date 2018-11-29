@@ -1020,6 +1020,9 @@ li#wp-admin-bar-menu-toggle {
 .wrap .subsubsub {
 	margin-bottom: 1em;
 }
+.wc_addons_wrap .subsubsub li::after {
+	display: none;
+}
 .nav-tab, .subsubsub a, .filter-links li>a {
 	color: #00aadc;
 }
