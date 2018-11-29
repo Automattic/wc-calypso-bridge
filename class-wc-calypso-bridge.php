@@ -37,7 +37,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'check_calyposify_param' ), 1 );
-		add_action( 'admin_init', array( $this, 'check_setup_param' ) );
+		add_action( 'init', array( $this, 'check_setup_param' ) );
 		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 2 );
 		if ( class_exists( 'Storefront_Powerpack' ) ) {
 			$this->disable_powerpack_features();
