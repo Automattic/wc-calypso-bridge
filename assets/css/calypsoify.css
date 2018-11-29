@@ -535,7 +535,7 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin .button.is-primary,
 .action-header .page-title-action,
 .action-header .add-new-h2,
-.wc-helper .button,
+.wp-core-ui.wp-admin .wc-helper .button,
 .wc_addons_wrap .addons-button-solid,
 .woocommerce_page_wc-status .woocommerce-message a.debug-report,
 .woocommerce_page_wc-status .woocommerce-message #copy-for-support,
@@ -566,8 +566,8 @@ input[type=radio]:checked:before {
 .action-header .page-title-action:focus,
 .action-header .add-new-h2:hover,
 .action-header .add-new-h2:focus,
-.wc-helper .button:hover,
-.wc-helper .button:focus,
+.wp-core-ui.wp-admin .wc-helper .button:hover,
+.wp-core-ui.wp-admin .wc-helper .button:focus,
 .wc_addons_wrap .addons-button-solid:hover,
 .wc_addons_wrap .addons-button-solid:focus,
 .woocommerce_page_wc-status .woocommerce-message a.debug-report:hover,
@@ -633,7 +633,7 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin .button.is-primary:active,
 .action-header .page-title-action:active,
 .action-header .add-new-h2:active,
-.wc-helper .button:active,
+.wp-core-ui.wp-admin .wc-helper .button:active,
 .wc_addons_wrap .addons-button-solid:active {
 	border-width: 2px 1px 1px !important;
 	box-shadow: none;
@@ -645,7 +645,8 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin .button.button-large {
 	height: auto;
 }
-.wc-helper .button-update .dashicons, .wc-helper .button-update:hover .dashicons {
+.wp-core-ui.wp-admin .wc-helper .button-update .dashicons,
+.wp-core-ui.wp-admin .wc-helper .button-update:hover .dashicons {
 	height: 13px;
 }
 #publishing-action {
