@@ -12,65 +12,6 @@
     } );
 
     /**
-     * Record checklist task click
-     */
-    $( '.checklist__task-title a, .checklist__task-secondary a' ).click( function() {
-        const $task = $( this ).closest( '.checklist__task' )
-        const status = $task.hasClass( 'is-completed' ) ? 'complete' : 'incomplete';
-        const taskId = $task.data('id');
-        const taskTitle = $task.data('title');
-        const href = $( this ).attr('href');
-        $( this ).addClass( 'disabled' );
-
-        if ( window.jpTracksAJAX ) {
-            const trackedEvent = window.jpTracksAJAX.record_ajax_event(
-                'atomic_wc_tasklist_click',
-                'click',
-                {
-                    id: taskId,
-                    title: taskTitle, 
-                    status: status,
-                }
-            );
-            trackedEvent.complete( function() {
-                window.location = href;
-            } );
-        } else {
-            window.location = href;
-        }
-    } );
-
-    /**
-     * Track 'I'm done' completion on task list
-     */
-    $( '.setup-footer a' ).click( function(e) {
-        e.preventDefault();
-        const progressNumber = $( '.checklist__header-progress-number' ).text().split( '/' );
-        const complete = progressNumber[0];
-        const total = progressNumber[1];
-        const percentage = parseFloat( complete / total ).toFixed( 2 ) * 100;
-        const href = $( this ).attr('href');
-        $( this ).addClass( 'disabled' );
-
-        if ( window.jpTracksAJAX ) {
-            const trackedEvent = window.jpTracksAJAX.record_ajax_event(
-                'atomic_wc_tasklist_finish',
-                'click',
-                { 
-                    complete: complete,
-                    total: total,
-                    percentage: percentage
-                }
-            );
-            trackedEvent.complete( function() {
-                window.location = href;
-            } );
-        } else {
-            window.location = href;
-        }
-    } );
-
-    /**
      * Append icons to notices
      */
     $( 'div.notice, div.error, div.updated, div.warning' ).each( function() {
