@@ -4,14 +4,14 @@
  * installed extensions don't show in search results.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   1.0.0
- * @version 1.0.0
+ * @since   1.0.6
+ * @version 1.0.6
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * WC Calypso Bridge Breadcrumbs
+ * WC Calypso Bridge Addons
  */
 class WC_Calypso_Bridge_Addons {
 
@@ -23,7 +23,7 @@ class WC_Calypso_Bridge_Addons {
 	protected static $instance = false;
 
 	/**
-	 * Get class instance
+	 * Get class instance.
 	 */
 	public static function get_instance() {
 		if ( ! self::$instance ) {
@@ -32,6 +32,9 @@ class WC_Calypso_Bridge_Addons {
 		return self::$instance;
 	}
 
+	/**
+	 * Hook into WordPress's menu system.
+	 */
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'remove_old_extensions_menu' ), 90 );
 		add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
@@ -49,7 +52,7 @@ class WC_Calypso_Bridge_Addons {
 	 * Load the class for the modified Addons menu.
 	 */
 	public function load_modified_addons_menu() {
-		require( 'class-wc-modified-admin-addons.php' );
+		require 'class-wc-modified-admin-addons.php';
 	}
 
 	/**
