@@ -259,9 +259,12 @@ textarea:focus {
 	-moz-outline: none;
 	-moz-user-focus: ignore;
 }
-input::-ms-clear {
+
+input::-ms-clear,
+select::-ms-expand {
 	display: none;
 }
+
 input[type="text"]::placeholder,
 input[type="search"]::placeholder,
 input[type="email"]::placeholder,
