@@ -260,6 +260,9 @@ textarea:focus {
 	-moz-outline: none;
 	-moz-user-focus: ignore;
 }
+input::-ms-clear {
+	display: none;
+}
 input[type="text"]::placeholder,
 input[type="search"]::placeholder,
 input[type="email"]::placeholder,
