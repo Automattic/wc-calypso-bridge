@@ -56,7 +56,8 @@
     $( document ).ready(function() {
         var $subNavigation = $( '.wrap .subsubsub' );
         if ( $subNavigation.length ) {
-            $( 'div.notice, div.error, div.updated, div.warning' ).insertAfter( $subNavigation.first() );
+			$( 'div.notice, div.error, div.updated, div.warning' ).insertAfter( $subNavigation.first() );
+			$( '.jetpack-jitm-message, .jitm-card' ).insertAfter( $subNavigation.first() );
         }
     } );
 
