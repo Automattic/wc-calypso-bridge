@@ -167,8 +167,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 					<p>
 						<?php
 						echo sprintf(
-							wp_kses( 'You\'ve completed the task "%s!"  Ready to continue with the setup checklist?  <a href="%s">Back to setup</a>.', 'wc-calypso-bridge' ),
-							esc_attr( $active_task['title'] ),
+							wp_kses( 'Ready to continue with the setup checklist?  <a href="%s">Back to setup</a>.', 'wc-calypso-bridge' ),
 							esc_url( admin_url( 'admin.php?page=wc-setup-checklist' ) )
 						);
 						?>
