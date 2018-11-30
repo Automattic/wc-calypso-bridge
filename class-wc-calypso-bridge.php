@@ -39,15 +39,16 @@ class WC_Calypso_Bridge {
 		add_action( 'init', array( $this, 'check_calyposify_param' ), 1 );
 		add_action( 'init', array( $this, 'check_setup_param' ) );
 		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 2 );
-		if ( class_exists( 'Storefront_Powerpack' ) ) {
-			$this->disable_powerpack_features();
-		}
+		add_action( 'plugins_loaded', array( $this, 'disable_powerpack_features' ), 2 );
 	}
 
 	/**
 	 * Disables Specific Features within the Powerpack extension for Storefront.
 	 */
 	public function disable_powerpack_features() {
+		if ( ! class_exists( 'Storefront_Powerpack' ) ) {
+			return;
+		}
 		/**
 		 * List of Powerpack features able to disable
 		 *
