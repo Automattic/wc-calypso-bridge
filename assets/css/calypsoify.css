@@ -1309,7 +1309,7 @@ th.sortable a, th.sorted a{
 .widefat tfoot td.check-column  {
 	padding: 16px 8px;
 }
-.wp-list-table-wrapper .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column) {
+.wp-list-table-wrapper .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.check-column):not(.hidden) {
 	display: table-cell;
 	clear: none;
 }
