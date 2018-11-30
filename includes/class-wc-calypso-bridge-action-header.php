@@ -100,7 +100,6 @@ class WC_Calypso_Bridge_Action_Header {
 		);
 		?>
 		<a class="action-header__ground-control-back" aria-label="<?php esc_html_e( 'Close Store', 'wc-calypso-bridge' ); ?>" href="<?php echo esc_url( 'https://wordpress.com/stats/day/' . Jetpack::build_raw_urls( home_url() ) ); ?>">
-			<?php echo wp_kses( get_gridicon( 'gridicons-cross' ), $svg_atts ); ?>
 			<?php echo wp_kses( get_gridicon( 'gridicons-chevron-left' ), $svg_atts ); ?>
 		</a>
 		<?php
