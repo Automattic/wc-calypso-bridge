@@ -846,8 +846,10 @@ li#wp-admin-bar-menu-toggle {
 .action-header__content .site-icon {
 	height: 32px;
 	width: 32px;
-	line-height: 32px;
 	font-size: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin-right: 8px;
 	text-align: center;
 }
