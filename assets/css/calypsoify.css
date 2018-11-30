@@ -947,6 +947,10 @@ li#wp-admin-bar-menu-toggle {
 }
 
 /* Sidebar header */
+#adminmenu>li.wp-first-item {
+	border-bottom: 0;
+}
+
 .auto-fold #adminmenu {
 	top: 0;
 }
