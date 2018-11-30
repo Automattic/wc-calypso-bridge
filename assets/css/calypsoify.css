@@ -157,6 +157,12 @@ div.woocommerce-message, .wc-helper .start-container {
 	border-color: #C8D7E1;
 	box-shadow: none;
 }
+.wp-admin .tablenav-pages .gridicon {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	fill: #537994;
+}
 .wp-admin .tablenav-pages a:hover .gridicon {
 	fill: #2e4453;
 }
@@ -164,13 +170,6 @@ div.woocommerce-message, .wc-helper .start-container {
 	border-color: #00aadc;
 	background-color: #00aadc;
 	color: #fff;
-}
-.wp-admin .gridicon,
-.wp-admin .gridicon {
-	vertical-align: middle;
-	width: 18px;
-	height: 18px;
-	fill: #537994;
 }
 .wp-admin .tablenav-pages > *:first-child {
 	border-top-left-radius: 4px;
