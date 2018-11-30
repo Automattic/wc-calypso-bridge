@@ -844,9 +844,9 @@ li#wp-admin-bar-menu-toggle {
 	height: 32px;
 	width: 32px;
 	font-size: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin-right: 8px;
 	text-align: center;
 }
