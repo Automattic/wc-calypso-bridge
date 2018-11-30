@@ -9,6 +9,11 @@
 	flex-direction: row;
 }
 
+.setup-header img {
+	width: 120px;
+	margin-right: 20px;
+}
+
 .setup-header h2 {
 	font-size: 32px;
 	font-weight: 500;
