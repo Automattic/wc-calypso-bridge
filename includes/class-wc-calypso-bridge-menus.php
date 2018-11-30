@@ -32,12 +32,43 @@ class WC_Calypso_Bridge_Menus {
 	}
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	private function __construct() {
 		add_action( 'current_screen', array( $this, 'setup_menu_hooks' ) );
 		add_action( 'admin_menu', array( $this, 'change_woocommerce_menu_item_name' ), 100 );
 		add_action( 'admin_menu', array( $this, 'remove_create_new_menu_items' ), 100 );
+
+		add_action( 'admin_menu', array( $this, 'add_calypso_link' ), -10 ); // Before Setup.
+	}
+
+	/**
+	 * Adds a link back to Calypso.
+	 */
+	public function add_calypso_link() {
+		add_menu_page(
+			__( 'Manage site', 'wc-calypso-bridge' ),
+			__( 'Manage site', 'wc-calypso-bridge' ),
+			'manage_woocommerce',
+			'wc-wp-manage-site',
+			array( $this, 'manage_site' ),
+			'dashicons-arrow-left-alt2',
+			0
+		);
+	}
+
+	/**
+	 * Redirects the user back to Calypso.
+	 */
+	public function manage_site() {
+		$strip_http = '/.*?:\/\//i';
+		$site_slug  = preg_replace( $strip_http, '', get_home_url() );
+		$site_slug  = str_replace( '/', '::', $site_slug );
+
+		$redirect_url = 'https://wordpress.com/stats/day/' . $site_slug;
+
+		wp_redirect( $redirect_url );
+		exit;
 	}
 
 	// TODO If any extensions add new pages to wp-admin's settings section, we will want to copy those over,

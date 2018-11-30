@@ -819,7 +819,6 @@ li#wp-admin-bar-menu-toggle {
 	flex: 0 0 auto;
 	margin: 0 0 0 7px;
 	border: none;
-	min-width: 40px;
 	padding: 0;
 	text-align: center;
 }
@@ -948,6 +947,10 @@ li#wp-admin-bar-menu-toggle {
 }
 
 /* Sidebar header */
+#adminmenu>li.wp-first-item {
+	border-bottom: 0;
+}
+
 .auto-fold #adminmenu {
 	top: 0;
 }
