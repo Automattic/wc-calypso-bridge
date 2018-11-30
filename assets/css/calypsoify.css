@@ -2531,3 +2531,23 @@ h3#woocommerce_stripe_connection_status {
 	min-width: 300px;
 }
 
+/* Order page */
+#order_data .order_data_column {
+	width: 45%;
+}
+
+#order_data .order_data_column:first-child {
+	width: 100%;
+}
+
+.post-type-shop_order .date-picker[name="order_date"] {
+	margin-right: 8px;
+}
+
+.post-type-shop_order .hour[name="order_date_hour"] {
+	margin-right: 4px;
+}
+
+.post-type-shop_order .minute[name="order_date_minute"] {
+	margin-left: 2px;
+}
