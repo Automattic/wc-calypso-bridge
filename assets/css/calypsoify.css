@@ -539,8 +539,8 @@ input[type=radio]:checked:before {
 /* Primary Buttons */
 .wp-core-ui.wp-admin .button-primary,
 .wp-core-ui.wp-admin .button.is-primary,
-.action-header .page-title-action,
-.action-header .add-new-h2,
+.wp-core-ui.wp-admin .action-header .page-title-action,
+.wp-core-ui.wp-admin .action-header .add-new-h2,
 .wp-core-ui.wp-admin .wc-helper .button,
 .wc_addons_wrap .addons-button-solid,
 .woocommerce_page_wc-status .woocommerce-message a.debug-report,
@@ -568,8 +568,8 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin .button-primary:focus,
 .wp-core-ui.wp-admin .button.is-primary:hover,
 .wp-core-ui.wp-admin .button.is-primary:focus,
-.action-header .page-title-action:hover,
-.action-header .page-title-action:focus,
+.wp-core-ui.wp-admin .action-header .page-title-action:hover,
+.wp-core-ui.wp-admin .action-header .page-title-action:focus,
 .action-header .add-new-h2:hover,
 .action-header .add-new-h2:focus,
 .wp-core-ui.wp-admin .wc-helper .button:hover,
@@ -603,8 +603,8 @@ input[type=radio]:checked:before {
 .wp-core-ui.wp-admin .edit-tag-actions .button-primary,
 .woocommerce-BlankState a.button,
 .setup-footer a,
-.action-header .page-title-action,
-.action-header .add-new-h2,
+.wp-core-ui.wp-admin .action-header .page-title-action,
+.wp-core-ui.wp-admin .action-header .add-new-h2,
 .wp-core-ui.wp-admin p.submit input,
 .wp-core-ui.wp-admin p.submit button,
 .wp-core-ui.wp-admin .wcc-root .button.is-primary,
@@ -916,22 +916,22 @@ li#wp-admin-bar-menu-toggle {
 	flex-shrink: 2;
 	text-align: right;
 }
-.action-header .action-header__actions a,
-.action-header .action-header__actions button {
+.wp-admin.wp-core-ui .action-header .action-header__actions a,
+.wp-admin.wp-core-ui .action-header .action-header__actions button {
 	margin-left: 12px;
 	text-decoration: none;
 	display: none;
 	padding: 5px 14px 7px !important;
 }
-.action-header__actions a:first-child {
+.wp-admin.wp-core-ui .action-header__actions a:first-child {
 	display: inline-block;
 }
 @media screen and ( min-width: 661px ) {
 	.action-header__actions {
 		margin-left: 40px;
 	}
-	.action-header .action-header__actions a,
-	.action-header .action-header__actions button {
+	.wp-admin.wp-core-ui .action-header .action-header__actions a,
+	.wp-admin.wp-core-ui .action-header .action-header__actions button {
 		display: inline-block;
 	}
 }
