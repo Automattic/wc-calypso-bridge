@@ -1329,6 +1329,27 @@ th.sortable a, th.sorted a{
 .wp-list-table-wrapper .wp-list-table tr:not(.inline-edit-row):not(.no-items) td:not(.column-primary)::before {
 	display: none;
 }
+@media screen and (max-width: 782px) {
+	.wp-list-table-wrapper .wp-list-table th.column-primary ~ th,
+	.wp-list-table-wrapper .wp-list-table tr:not(.inline-edit-row):not(.no-items) td.column-primary ~ td:not(.check-column) {
+		display: none;
+	}
+	.post-type-shop_order .wp-list-table td.column-order_date, .post-type-shop_order .wp-list-table td.column-order_status {
+		display: table-cell !important;
+		padding: 16px 8px !important;
+	}
+	th#order_date,
+	th#order_status {
+		display: table-cell !important;
+	}
+	.post-type-shop_order .wp-list-table td.column-order_status {
+		float: none;
+		text-align: right;
+	}
+	th#order_status {
+		text-align: right;
+	}
+}
 
 /* Makes all rows have white background */
 .striped>tbody > :nth-child(odd), ul.striped > :nth-child(odd) {
