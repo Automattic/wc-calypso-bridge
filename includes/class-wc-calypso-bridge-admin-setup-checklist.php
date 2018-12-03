@@ -52,6 +52,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_checklist_styles' ) );
 		add_action( 'wp_ajax_set_woocommerce_setup_active_task', array( $this, 'set_active_task_ajax' ) );
 		add_action( 'wp_ajax_clear_woocommerce_setup_active_task', array( $this, 'clear_active_task_ajax' ) );
+		add_action( 'admin_post_storefront_ecommerce_plan_starter_content', array( $this, 'redirect_customizer' ) );
 
 		if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
 			add_action( 'admin_init', array( $this, 'clear_active_task' ) );
@@ -65,6 +66,56 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		if ( isset( $_GET['wc-setup-step'] ) ) {
 			add_action( 'admin_init', array( $this, 'track_step_click' ) );
 		}
+	}
+
+	/**
+	 * Handles redirect to the customizer for starter content.
+	 */
+	public function redirect_customizer() {
+		check_admin_referer( 'storefront_ecommerce_plan_starter_content' );
+
+		if ( current_user_can( 'manage_options' ) ) {
+
+			// Dismiss notice.
+			update_option( 'storefront_nux_dismissed', true );
+		}
+
+			$args = array( 'sf_starter_content' => '1' );
+
+			$tasks = array();
+
+		if ( ! empty( $_REQUEST['homepage'] ) && 'on' === $_REQUEST['homepage'] ) {
+			if ( current_user_can( 'edit_pages' ) && 'page' === get_option( 'show_on_front' ) ) {
+				WC_Calypso_Bridge_Helper_Functions::_assign_page_template( get_option( 'page_on_front' ), 'template-homepage.php' );
+			} else {
+				$tasks[] = 'homepage';
+			}
+		}
+
+		if ( ! empty( $_REQUEST['products'] ) && 'on' === $_REQUEST['products'] ) {
+			$tasks[] = 'products';
+		}
+
+		if ( ! empty( $tasks ) ) {
+			$args['sf_tasks'] = implode( ',', $tasks );
+
+			if ( current_user_can( 'manage_options' ) ) {
+
+				// Make sure the fresh_site flag is set to true.
+				update_option( 'fresh_site', true );
+
+				if ( current_user_can( 'edit_pages' ) && true === (bool) get_option( 'storefront_nux_fresh_site' ) ) {
+					WC_Calypso_Bridge_Helper_Functions::_set_woocommerce_pages_full_width();
+				}
+			}
+		}
+
+			// Redirect to the Checklist screen when exiting the Customizer.
+			$args['return'] = urlencode( admin_url( 'admin.php?page=wc-setup-checklist&wc-setup-step=customize' ) );
+
+			wp_safe_redirect( add_query_arg( $args, admin_url( 'customize.php' ) ) );
+
+			die();
 	}
 
 	/**
@@ -245,11 +296,15 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		$wc_canada_post_merchant_username = get_option( 'wc_canada_post_merchant_username' );
 		$wc_canada_post_merchant_password = get_option( 'wc_canada_post_merchant_password' );
 
-		$count_wc_product_posts = wp_count_posts( 'product' );
+		$count_wc_product_posts      = wp_count_posts( 'product' );
 		$wc_published_products_count = $count_wc_product_posts->publish;
-		$customize_extra_params = '';
+		$customize_extra_params      = '';
+		$sf_nonce                    = wp_create_nonce( 'storefront_ecommerce_plan_starter_content' );
 		if ( 0 === absint( $wc_published_products_count ) ) {
-			$customize_extra_params = esc_attr( '&sf_starter_content=1&sf_tasks=homepage,products&action=storefront_starter_content' );
+			$customize_extra_params = esc_attr( 'sf_starter_content=1&homepage=on&products=on&action=storefront_ecommerce_plan_starter_content&_wpnonce=' . $sf_nonce );
+			$customizer_link        = 'admin-post.php?' . $customize_extra_params;
+		} else {
+			$customizer_link = 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize';
 		}
 
 		$all_tasks = array(
@@ -269,7 +324,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'completed_title' => __( 'Open customizer', 'wc-calypso-bridge' ),
 				'description'     => __( 'You have access to a few themes with your plan. See the options, chose the right one for you and customize your store.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
-				'link'            => 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize' . $customize_extra_params,
+				'link'            => $customizer_link,
 				'condition'       => isset( $click_settings['customize'] ) && true === (bool) $click_settings['customize'],
 			),
 
