@@ -147,6 +147,66 @@ class WC_Calypso_Bridge_Helper_Functions {
 		self::remove_class_filter( $tag, $class_name, $method_name, $priority );
 	}
 
+	/**
+	 * Given a page id assign a given page template to it.
+	 * For Storefront Starter Content
+	 *
+	 * @param int    $page_id    Page ID.
+	 * @param string $template    Template file name.
+	 */
+	public static function _assign_page_template( $page_id, $template ) {
+		if ( empty( $page_id ) || empty( $template ) || '' === locate_template( $template ) ) {
+			return false;
+		}
+
+		update_post_meta( $page_id, '_wp_page_template', $template );
+	}
+
+	/**
+	 * Set WooCommerce pages to use the full width template.
+	 * For Storefront Starter Content
+	 */
+	public static function _set_woocommerce_pages_full_width() {
+		$wc_pages = self::get_woocommerce_pages();
+
+		foreach ( $wc_pages as $option => $page_id ) {
+			self::_assign_page_template( $page_id, 'template-fullwidth.php' );
+		}
+	}
+
+	/**
+	 * Get WooCommerce page ids.
+	 * For Storefront Starter Content
+	 */
+	public static function get_woocommerce_pages() {
+		$woocommerce_pages = array();
+
+		$wc_pages_options = apply_filters(
+			'storefront_page_option_names',
+			array(
+				'woocommerce_cart_page_id',
+				'woocommerce_checkout_page_id',
+				'woocommerce_myaccount_page_id',
+				'woocommerce_shop_page_id',
+				'woocommerce_terms_page_id',
+			)
+		);
+
+		foreach ( $wc_pages_options as $option ) {
+			$page_id = get_option( $option );
+
+			if ( ! empty( $page_id ) ) {
+				$page_id = intval( $page_id );
+
+				if ( null !== get_post( $page_id ) ) {
+					$woocommerce_pages[ $option ] = $page_id;
+				}
+			}
+		}
+
+		return $woocommerce_pages;
+	}
+
 }
 
 $wc_calypso_bridge_helper_functions = WC_Calypso_Bridge_Helper_Functions::get_instance();
