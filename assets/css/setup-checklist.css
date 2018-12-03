@@ -537,13 +537,13 @@
 }
 
 @media (max-width: 480px) {
-	.wp-core-ui .checklist__task-secondary .button-primary {
+	.wp-admin.wp-core-ui .checklist__task-secondary .button-primary {
 		color: #2e4453 !important;
 		background: #fff !important;
 		border-color: #c8d7e1 !important;
 	}
-	.wp-core-ui .checklist__task-secondary .button-primary:hover,
-	.wp-core-ui .checklist__task-secondary .button-primary:focus {
+	.wp-admin.wp-core-ui .checklist__task-secondary .button-primary:hover,
+	.wp-admin.wp-core-ui .checklist__task-secondary .button-primary:focus {
 		color: #2e4453 !important;
 		border-color: #a8bece !important;
 		background: #fff !important;
