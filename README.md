@@ -48,6 +48,52 @@ Adding the Calypsoify param `calypsoify=1` to the URL will Calypsoify any WooCom
 If you manually visit a route that is not able to be Calypsoified (i.e, visiting `wp-admin/*` directly via URL) you will be bumped out of Calypsoify mode and need to add the param to the URL once again to reactivate it.
 
 
+### Plugin Integrations
+
+The ecommerce plan comes bundled with a number of plugins that this plugin integrates with if activated.  To fully test this plugin's functionality, the following plugins can be installed.
+
+* Payments
+    * [WooCommerce Stripe Payment Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-gateway-stripe/)
+    * [WooCommerce PayPal Checkout Payment Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-gateway-paypal-express-checkout/)
+    * [WooCommerce Square](https://href.li/?https://wordpress.org/plugins/woocommerce-square/)
+    * [Klarna Payments for WooCommerce](https://href.li/?https://wordpress.org/plugins/klarna-payments-for-woocommerce/)
+    * [Klarna Checkout for WooCommerce](https://href.li/?https://wordpress.org/plugins/klarna-checkout-for-woocommerce/)
+    * [WooCommerce eWAY Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-gateway-eway/)
+    * [WooCommerce PayFast Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-payfast-gateway/)
+* Taxes:
+    * [TaxJar -- Sales Tax Automation for WooCommerce](https://href.li/?https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
+* Shipping:
+    * [WooCommerce Services](https://href.li/?https://wordpress.org/plugins/woocommerce-services/)
+* Marketing:
+    * [MailChimp for WooCommerce](https://href.li/?https://wordpress.org/plugins/mailchimp-for-woocommerce/)
+    * [Facebook  for WooCommerce](https://href.li/?https://woocommerce.com/products/facebook/)
+* Store Management:
+    * [TaxJar -- Sales Tax Automation for WooCommerce](https://href.li/?https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
+
+* Theme:
+    * [Storefront](https://href.li/?https://woocommerce.com/storefront/)
+
+#### Paid extensions
+
+* Shipping (everywhere):
+    * [UPS Shipping Method](https://href.li/?https://woocommerce.com/products/ups-shipping-method/)
+* Shipping (based on geo):
+    * [USPS Shipping Method](https://href.li/?https://woocommerce.com/products/usps-shipping-method/)
+    * [Canada Post shipping](https://href.li/?https://woocommerce.com/products/canada-post-shipping-method/)
+    * [Royal Mail](https://href.li/?https://woocommerce.com/products/royal-mail/)
+    * [Australia Post Shipping Method](https://href.li/?https://woocommerce.com/products/australia-post-shipping-method/)
+* Product Page Features:
+    * [Product Add-Ons](https://href.li/?https://woocommerce.com/products/product-add-ons/)
+* Storefront premium options
+    * [Galleria](https://href.li/?https://woocommerce.com/products/galleria/)
+    * [Homestore](https://href.li/?https://woocommerce.com/products/homestore/)
+    * [Bookshop](https://href.li/?https://woocommerce.com/products/bookshop/)
+    * [Storefront Powerpack design options](https://href.li/?https://woocommerce.com/products/storefront-powerpack/)
+    * [Blog Customizer](https://woocommerce.com/products/storefront-blog-customiser/)
+    * [Parallax Hero](https://woocommerce.com/products/storefront-parallax-hero/)
+    * [Product Hero](https://woocommerce.com/products/storefront-product-hero/)
+    * [Reviews](https://woocommerce.com/products/storefront-reviews/)
+
 ## Test Suite
 
 This repository does have a test suite, which depends upon `wc-api-dev`, and `woocommerce` both being present witin the same `wp-content/plugins` directory. Much like the test suite in `wc-api-dev` it borrows heavily from the base `woocommerce` API test suite to enable quick testing via all of the core helper methods.
