@@ -35,15 +35,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Hooks into WordPress to add our new setup checklist.
 	 */
 	private function __construct() {
-		// If setup has been completed, do nothing.
-		if ( true === (bool) get_option( 'atomic-ecommerce-setup-checklist-complete', false ) ) {
-			// Redirect to orders if setup is complete.
-			if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
-				wp_redirect( admin_url( 'edit.php?post_type=shop_order' ) );
-				exit;
-			}
-			return;
-		}
+		$this->handle_redirects();
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		// priority is 20 to run after https://github.com/woocommerce/woocommerce/blob/a55ae325306fc2179149ba9b97e66f32f84fdd9c/includes/admin/class-wc-admin-menus.php#L165.
@@ -66,6 +58,40 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		if ( isset( $_GET['wc-setup-step'] ) ) {
 			add_action( 'admin_init', array( $this, 'track_step_click' ) );
 		}
+	}
+
+	/**
+	 * Handles a few different cases depending on how far along a user is.
+	 * If they have finished the checklist and clicked "I'm done", they get sent to the orders page.
+	 * If they haven't even gone through the wizard yet, they are sent there.
+	 */
+	private function handle_redirects() {
+		if ( empty( $_GET['page'] ) || 'wc-setup-checklist' !== $_GET['page'] ) {
+			return;
+		}
+
+		// If setup has been completed, redirect to orders page.
+		// TODO Redirect to wc-admin once we launch it on eCommerce plans.
+		if ( $this->is_checklist_done() ) {
+			wp_safe_redirect( admin_url( 'edit.php?post_type=shop_order' ) );
+			exit;
+		}
+
+		// If the setup wizard was never complete, redirect to the setup wizard.
+		$notices = WC_Admin_Notices::get_notices();
+		if ( in_array( 'install', $notices ) ) {
+			wp_safe_redirect( admin_url( 'admin.php?page=wc-setup' ) );
+			exit;
+		}
+	}
+
+	/**
+	 * Returns if the checklist is "done" via the user clicking the "I'm done" button.
+	 *
+	 * @return bool True if the done button has been clicked.
+	 */
+	private function is_checklist_done() {
+		return (bool) get_option( 'atomic-ecommerce-setup-checklist-complete', false );
 	}
 
 	/**
@@ -164,6 +190,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Adds a new page for the setup checklist.
 	 */
 	public function admin_menu() {
+		if ( $this->is_checklist_done() ) {
+			return;
+		}
+
 		add_menu_page(
 			__( 'Setup', 'wc-calypso-bridge' ),
 			__( 'Setup', 'wc-calypso-bridge' ),
@@ -254,6 +284,10 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 */
 	public function menu_order_count() {
 		global $menu;
+		if ( $this->is_checklist_done() ) {
+			return;
+		}
+
 		foreach ( $menu as $key => $menu_item ) {
 			if ( 'wc-setup-checklist' === $menu_item[2] ) {
 				$data        = $this->get_task_data();
