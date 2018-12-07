@@ -2594,3 +2594,8 @@ h3#woocommerce_stripe_connection_status {
 .post-type-shop_order .minute[name="order_date_minute"] {
 	margin-left: 2px;
 }
+
+/* WooCommerce Footer help text */
+.woocommerce-help-text {
+	text-align: center;
+}

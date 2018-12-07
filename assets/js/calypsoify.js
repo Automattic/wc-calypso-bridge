@@ -341,7 +341,41 @@
         setTimeout( function() {
             $( '.select2-container--open .select2-search__field' ).focus();
         }, 0 );
-    } );
+	} );
+
+	$( document ).ready( function() {
+		$( '.toplevel_page_wc-support' ).attr( 'target', '_blank' );
+	} );
+
+	/**
+	 * Support link click event
+	 */
+	$( '.wc-support-link' ).unbind("click").click( function( e ) {
+		const source = $( this ).data( 'source' )
+		const href = $( this ).attr('href');
+		trackSupportClick( source, href );
+	} );
+
+	/**
+	 * Track support link clicks in Jetpack if enabled
+	 *
+	 * @param {string} source Source of click (footer or sidebar)
+	 * @param {string} href Link location
+	 */
+	function trackSupportClick( source, href ) {
+		if ( window.jpTracksAJAX ) {
+			return window.jpTracksAJAX.record_ajax_event(
+				'atomic_wc_support_link_click',
+				'click',
+				{
+					href,
+					source,
+				}
+			);
+		} else {
+			return true;
+		}
+	}
 
 
 } )( jQuery );
