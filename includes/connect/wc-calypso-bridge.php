@@ -20,3 +20,10 @@ wc_calypso_bridge_connect_page(
 		'menu'      => 'wc-wp-manage-site',
 	)
 );
+
+wc_calypso_bridge_connect_page(
+	array(
+		'screen_id' => 'toplevel_page_wc-support',
+		'menu'      => 'wc-support',
+	)
+);

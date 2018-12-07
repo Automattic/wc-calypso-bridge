@@ -40,6 +40,7 @@ class WC_Calypso_Bridge_Menus {
 		add_action( 'admin_menu', array( $this, 'remove_create_new_menu_items' ), 100 );
 
 		add_action( 'admin_menu', array( $this, 'add_calypso_link' ), -10 ); // Before Setup.
+		add_action( 'admin_menu', array( $this, 'add_support_link' ) );
 	}
 
 	/**
@@ -68,6 +69,36 @@ class WC_Calypso_Bridge_Menus {
 		$redirect_url = 'https://wordpress.com/stats/day/' . $site_slug;
 
 		wp_redirect( $redirect_url );
+		exit;
+	}
+
+	/**
+	 * Adds a support link to the sidebar.
+	 */
+	public function add_support_link() {
+		add_menu_page(
+			__( 'Support', 'wc-calypso-bridge' ),
+			__( 'Support', 'wc-calypso-bridge' ),
+			'manage_woocommerce',
+			'wc-support',
+			array( $this, 'support_link' ),
+			'dashicons-editor-help',
+			1000
+		);
+	}
+
+	/**
+	 * Redirects the user to support.
+	 */
+	public function support_link() {
+		WC_Calypso_Bridge::record_event(
+			'jetpack_atomic_wc_support_link_click',
+			array(
+				'source' => 'sidebar',
+				'href'   => 'https://wordpress.com/help/contact',
+			)
+		);
+		wp_redirect( 'https://wordpress.com/help/contact' );
 		exit;
 	}
 

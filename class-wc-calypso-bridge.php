@@ -291,8 +291,16 @@ class WC_Calypso_Bridge {
 			</g>
 		</svg>';
 
+		$help_text = sprintf(
+			// translators: "Need help? Read the {link to support document}eCommerce plan support document{/link to support document} or {link to help}get in touch with support{/link to help}.".
+			__( 'Need help? Read the <a href="%1$s" class="wc-support-link" data-source="footer" target="_blank">eCommerce plan support document</a> or <a href="%2$s" class="wc-support-link" data-source="footer" target="_blank">get in touch with support</a>.', 'wc-calypso-bridge' ),
+			'https://en.support.wordpress.com/ecommerce-plan/',
+			'https://wordpress.com/help/contact'
+		);
+
 		// translators: "Powered by <WooCommerce Logo SVG>".
 		echo '<div class="woocommerce-colophon"><span>' . sprintf( __( 'Powered by %s', 'wc-calypso-bridge' ), $svg ) . '</span></div>'; // WPCS: XSS ok.
+		echo '<p class="woocommerce-help-text">' . $help_text . '</p>'; // WPCS: XSS ok.
 	}
 
 	/**
