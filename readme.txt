@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,12 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 1.0.8 =
+* Add support links (with tracking) to the interface
+* Redirect checlist to setup if the setup wizard hasn't ran yet
+* Add testing instructions to README
+* Fix some IE11 styles
 
 = 1.0.7 =
 * Storefront customizer setup nonce fix
