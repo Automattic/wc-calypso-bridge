@@ -330,16 +330,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		$wc_canada_post_merchant_username = get_option( 'wc_canada_post_merchant_username' );
 		$wc_canada_post_merchant_password = get_option( 'wc_canada_post_merchant_password' );
 
-		$count_wc_product_posts      = wp_count_posts( 'product' );
-		$wc_published_products_count = $count_wc_product_posts->publish;
-		$customize_extra_params      = '';
-		$sf_nonce                    = wp_create_nonce( 'storefront_ecommerce_plan_starter_content' );
-		if ( 0 === absint( $wc_published_products_count ) ) {
-			$customize_extra_params = esc_attr( 'sf_starter_content=1&homepage=on&products=on&action=storefront_ecommerce_plan_starter_content&_wpnonce=' . $sf_nonce );
-			$customizer_link        = 'admin-post.php?' . $customize_extra_params;
-		} else {
-			$customizer_link = 'customize.php?return=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwc-setup-checklist&wc-setup-step=customize';
-		}
+		$sf_nonce               = wp_create_nonce( 'storefront_ecommerce_plan_starter_content' );
+		$customize_extra_params = esc_attr( 'sf_starter_content=1&homepage=on&products=on&action=storefront_ecommerce_plan_starter_content&_wpnonce=' . $sf_nonce );
+		$customizer_link        = 'admin-post.php?' . $customize_extra_params;
 
 		$all_tasks = array(
 			array(
