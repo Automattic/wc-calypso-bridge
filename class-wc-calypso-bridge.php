@@ -36,7 +36,7 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'check_calyposify_param' ), 1 );
+		add_action( 'init', array( $this, 'check_calypsoify_param' ), 1 );
 		add_action( 'init', array( $this, 'check_setup_param' ) );
 		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 2 );
 		add_action( 'plugins_loaded', array( $this, 'disable_powerpack_features' ), 2 );
@@ -90,7 +90,7 @@ class WC_Calypso_Bridge {
 	 * We use our own check since Jetpack's does not load fast enough and
 	 * only hooks on admin_init which won't be run by wc-setup
 	 */
-	public function check_calyposify_param() {
+	public function check_calypsoify_param() {
 		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
 			if ( 1 === (int) $_GET['calypsoify'] ) { // WPCS: CSRF ok.
 				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
