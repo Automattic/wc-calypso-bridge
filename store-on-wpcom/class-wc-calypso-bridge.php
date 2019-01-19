@@ -65,7 +65,6 @@ class WC_Calypso_Bridge {
 	 */
 	public function includes() {
 		/** Patches includes */
-		include_once dirname( __FILE__ ) . '/inc/class-customizer-guided-tour.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php';
