@@ -26,7 +26,7 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	 * Setup the unit testing environment.
 	 */
 	public function __construct() {
-		ini_set( 'display_errors','on' );
+		ini_set( 'display_errors', 'on' );
 		error_reporting( E_ALL );
 
 		// Ensure server variable is set for WP email functions.
@@ -92,7 +92,9 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 		if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
 			$GLOBALS['wp_roles']->reinit();
 		} else {
+			// phpcs:disable
 			$GLOBALS['wp_roles'] = null;
+			// phpcs:enable
 			wp_roles();
 		}
 
@@ -106,28 +108,28 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	public function includes() {
 		// framework
 		require_once( $this->wc_tests_dir . '/framework/class-wc-unit-test-factory.php' );
-		require_once( $this->wc_tests_dir  . '/framework/class-wc-mock-session-handler.php' );
-		require_once( $this->wc_tests_dir  . '/framework/class-wc-mock-wc-data.php' );
-		require_once( $this->wc_tests_dir  . '/framework/class-wc-mock-wc-object-query.php' );
-		require_once( $this->wc_tests_dir  . '/framework/class-wc-payment-token-stub.php' );
-		require_once( $this->wc_tests_dir  . '/framework/vendor/class-wp-test-spy-rest-server.php' );
+		require_once( $this->wc_tests_dir . '/framework/class-wc-mock-session-handler.php' );
+		require_once( $this->wc_tests_dir . '/framework/class-wc-mock-wc-data.php' );
+		require_once( $this->wc_tests_dir . '/framework/class-wc-mock-wc-object-query.php' );
+		require_once( $this->wc_tests_dir . '/framework/class-wc-payment-token-stub.php' );
+		require_once( $this->wc_tests_dir . '/framework/vendor/class-wp-test-spy-rest-server.php' );
 
 		// test cases
-		require_once( $this->wc_tests_dir  . '/includes/wp-http-testcase.php' );
-		require_once( $this->wc_tests_dir  . '/framework/class-wc-unit-test-case.php' );
-		require_once( $this->wc_tests_dir  . '/framework/class-wc-api-unit-test-case.php' );
-		require_once( $this->wc_tests_dir  . '/framework/class-wc-rest-unit-test-case.php' );
+		require_once( $this->wc_tests_dir . '/includes/wp-http-testcase.php' );
+		require_once( $this->wc_tests_dir . '/framework/class-wc-unit-test-case.php' );
+		require_once( $this->wc_tests_dir . '/framework/class-wc-api-unit-test-case.php' );
+		require_once( $this->wc_tests_dir . '/framework/class-wc-rest-unit-test-case.php' );
 
 		// Helpers
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-product.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-coupon.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-fee.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-shipping.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-customer.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-order.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-shipping-zones.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-payment-token.php' );
-		require_once( $this->wc_tests_dir  . '/framework/helpers/class-wc-helper-settings.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-product.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-coupon.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-fee.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-shipping.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-customer.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-order.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-shipping-zones.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-payment-token.php' );
+		require_once( $this->wc_tests_dir . '/framework/helpers/class-wc-helper-settings.php' );
 	}
 
 	/**

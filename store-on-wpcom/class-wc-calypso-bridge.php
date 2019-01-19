@@ -1,5 +1,11 @@
 <?php
 /**
+ * WC Calypso Bridge File
+ *
+ * @package WC_Calypso_bridge
+ */
+
+/**
  * WC Calypso Bridge
  */
 class WC_Calypso_Bridge {
@@ -7,11 +13,18 @@ class WC_Calypso_Bridge {
 	/**
 	 * Paths to assets act oddly in production
 	 */
-	const MU_PLUGIN_ASSET_PATH = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/store-on-wpcom/';
+	const MU_PLUGIN_ASSET_PATH       = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/store-on-wpcom/';
+	/**
+	 * Plugin asset path.
+	 *
+	 * @var string
+	 */
 	public static $plugin_asset_path = null;
 
 	/**
-	 * Class Instance.
+	 * Class instance.
+	 *
+	 * @var WC_Calypso_Bridge
 	 */
 	protected static $instance = null;
 
@@ -25,10 +38,10 @@ class WC_Calypso_Bridge {
 	/**
 	 * Loads API includes and registers routes.
 	 */
-	function init() {
+	private function init() {
 		if ( $this->is_woocommerce_valid() ) {
 			$this->includes();
-			// Ensure wc-api-dev has already registered routes
+			// Ensure wc-api-dev has already registered routes.
 			add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
 		}
 	}
@@ -52,31 +65,31 @@ class WC_Calypso_Bridge {
 	 */
 	public function includes() {
 		/** Patches includes */
-		include_once( dirname( __FILE__ ) . '/inc/class-customizer-guided-tour.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-disable-publicize.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-order-url.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-hide-alerts.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-hotfixes.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-sync.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-deactivate-hook.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-no-redirect.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-method-supports.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-products.php' );
+		include_once dirname( __FILE__ ) . '/inc/class-customizer-guided-tour.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-disable-publicize.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-email-order-url.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-hide-alerts.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-hotfixes.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-sync.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-deactivate-hook.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-method-supports.php';
+		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-products.php';
 
 		/** API includes */
-		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-send-invoice-controller.php' );
-		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php' );
-		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-data-counts-controller.php' );
-		include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-product-reviews-controller.php' );
+		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-send-invoice-controller.php';
+		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php';
+		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-data-counts-controller.php';
+		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-product-reviews-controller.php';
 
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
-			include_once( dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php' );
+			include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php';
 		}
 
 	}
