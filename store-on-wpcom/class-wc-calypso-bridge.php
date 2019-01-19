@@ -62,7 +62,7 @@ class WC_Calypso_Bridge {
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-hide-alerts.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-hotfixes.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-sync.php' );
-		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-deactivate-hook.php' );		
+		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-deactivate-hook.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-no-redirect.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php' );
 		include_once( dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php' );
