@@ -37,6 +37,16 @@ class WC_Calypso_Bridge_Themes_Setup {
 	private function __construct() {
 		// Set default theme values.
 		add_action( 'init', array( $this, 'set_theme_default_values' ) );
+		add_action( 'customize_save_after', array( $this, 'mark_import_as_completed' ) );
+	}
+
+	/**
+	 * Sets starter content import of products to complete.
+	 *
+	 * @return void
+	 */
+	public function mark_import_as_completed() {
+		update_option( 'wpcom_ec_plan_starter_content_imported', true );
 	}
 
 	/**
