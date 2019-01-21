@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.0.9
+Stable tag: 1.0.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,11 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 1.0.10 =
+* eCommerce Plan: Fix blank state button size.
+* eCommerce Plan: Forces the customizer setup checklist link to load the Starter Content.
+* eCommerce Plan: Fix typo in method name.
 
 = 1.0.9 =
 * Fix for fatal errors that can occur when deactivating MailChimp on Store on WP.com stores.
