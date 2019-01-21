@@ -622,7 +622,7 @@ input[type=radio]:checked:before {
 .wc_addons_wrap .addons-button-outline-green,
 .wc_addons_wrap .addons-button-outline-white,
 .wp-core-ui.wp-admin .edit-tag-actions .button-primary,
-.woocommerce-BlankState a.button,
+.wp-core-ui.wp-admin .woocommerce-BlankState a.button,
 .setup-footer a,
 .wp-core-ui.wp-admin .action-header .page-title-action,
 .wp-core-ui.wp-admin .action-header .add-new-h2,
