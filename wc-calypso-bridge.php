@@ -51,7 +51,7 @@ function wc_calypso_bridge_is_ecommerce_plan() {
 }
 
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-	include_once dirname( __FILE__ ) . '/store-on-wpcom/wc-calypso-bridge-class.php';
+	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
 }
 
