@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* 1.0.11 =
+* eCommerce Plan: Fix duplicated "manage your subscriptions" banner.
+
 = 1.0.10 =
 * eCommerce Plan: Fix blank state button size.
 * eCommerce Plan: Forces the customizer setup checklist link to load the Starter Content.
