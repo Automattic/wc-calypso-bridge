@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 * 1.0.11 =
+* Store on WP.com: Update API endpoint load order.
 * eCommerce Plan: Fix duplicated "manage your subscriptions" banner.
 
 = 1.0.10 =

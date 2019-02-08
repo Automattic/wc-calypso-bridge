@@ -32,7 +32,10 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'woocommerce_init', array( $this, 'init' ), 20 );
+		if ( $this->is_woocommerce_valid() ) {
+			$this->includes();
+			add_action( 'rest_api_init', array( $this, 'register_routes' ) );
+		}
 	}
 
 	/**
@@ -86,11 +89,6 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php';
 		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-data-counts-controller.php';
 		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-product-reviews-controller.php';
-
-		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
-			include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php';
-		}
-
 	}
 
 	/**
@@ -107,7 +105,8 @@ class WC_Calypso_Bridge {
 		);
 
 		if ( class_exists( 'MailChimp_Woocommerce' ) ) {
-				$controllers[] = 'WC_Calypso_Bridge_MailChimp_Settings_Controller';
+			include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php';
+			$controllers[] = 'WC_Calypso_Bridge_MailChimp_Settings_Controller';
 		}
 
 		foreach ( $controllers as $controller ) {
