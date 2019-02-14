@@ -434,9 +434,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'learn_more'      => 'https://woocommerce.com/products/woocommerce-gateway-paypal-checkout/',
 				'condition'       => isset( $click_settings['paypal'] ) &&
 								true === (bool) $click_settings['paypal'] &&
-								! empty( $paypal_settings['api_username'] ) &&
-								! empty( $paypal_settings['api_password'] ) &&
-								( ! empty( $paypal_settings['api_signature'] ) || ! empty( $paypal_settings['api_certificate'] ) ) &&
 								'yes' === $paypal_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
 			),
