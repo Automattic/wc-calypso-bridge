@@ -55,6 +55,15 @@ if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	return;
 }
 
+/**
+ * Loads language files for the plugin
+ */
+function wc_calypso_bridge_init() {
+	$plugin_rel_path = basename( dirname( __FILE__ ) ) . '/languages'; /* Relative to WP_PLUGIN_DIR */
+	load_plugin_textdomain( 'wc-calypso-bridge', false, $plugin_rel_path );
+}
+add_action( 'plugins_loaded', 'wc_calypso_bridge_init' );
+
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-frontend.php';
