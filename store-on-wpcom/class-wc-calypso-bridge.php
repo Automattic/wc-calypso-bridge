@@ -38,7 +38,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Loads API includes and registers routes.
 	 */
-	private function init() {
+	public function init() {
 		if ( $this->is_woocommerce_valid() ) {
 			$this->includes();
 			// Ensure wc-api-dev has already registered routes.
