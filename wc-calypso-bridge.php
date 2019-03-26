@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Calypso Bridge
  * Plugin URI: https://wordpress.com/
  * Description: A feature plugin to provide ux enhancments for users of Store on WordPress.com.
- * Version: 1.0.13
+ * Version: 1.0.14
  * Author: Automattic
  * Author URI: https://wordpress.com/
  * Requires at least: 4.4
