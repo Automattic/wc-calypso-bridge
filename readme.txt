@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.0.13
+Stable tag: 1.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,9 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+* 1.0.14 =
+* Fix for Core Woo REST controllers only being loaded on rest requests in 3.6 beta 1 
 
 * 1.0.11 =
 * eCommerce Plan: Fix duplicated "manage your subscriptions" banner.
