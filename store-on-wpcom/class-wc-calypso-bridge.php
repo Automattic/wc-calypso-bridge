@@ -80,7 +80,14 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-method-supports.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-products.php';
+	}
 
+	/**
+	 * Register REST API routes.
+	 *
+	 * New endpoints/controllers can be added here.
+	 */
+	public function register_routes() {
 		/** API includes */
 		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-send-invoice-controller.php';
 		include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-settings-email-groups-controller.php';
@@ -91,14 +98,6 @@ class WC_Calypso_Bridge {
 			include_once dirname( __FILE__ ) . '/api/class-wc-calypso-bridge-mailchimp-settings-controller.php';
 		}
 
-	}
-
-	/**
-	 * Register REST API routes.
-	 *
-	 * New endpoints/controllers can be added here.
-	 */
-	public function register_routes() {
 		$controllers = array(
 			'WC_Calypso_Bridge_Send_Invoice_Controller',
 			'WC_Calypso_Bridge_Settings_Email_Groups_Controller',
