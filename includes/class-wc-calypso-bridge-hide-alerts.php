@@ -39,6 +39,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
+		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 
 		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
 	}
