@@ -56,7 +56,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 			<title><?php esc_html_e( 'WooCommerce &rsaquo; Setup Wizard', 'wc-calypso-bridge' ); ?></title>
 			<?php do_action( 'admin_enqueue_scripts' ); ?>
-			<?php wp_print_scripts( 'wc-setup' ); ?>
+			<?php wp_print_scripts( array( 'wc-setup', 'wc-calypso-bridge-calypsoify-obw' ) ); ?>
 			<?php do_action( 'admin_print_styles' ); ?>
 			<?php do_action( 'admin_print_scripts' ); ?>
 			<?php do_action( 'admin_head' ); ?>
@@ -290,7 +290,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	 */
 	public function enqueue_calypsoify_scripts() {
 		$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_script( 'wc-calypso-bridge-calypsoify-obw', $asset_path . 'assets/js/calypsoify-obw.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_register_script( 'wc-calypso-bridge-calypsoify-obw', $asset_path . 'assets/js/calypsoify-obw.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
 	}
 
 	/**
