@@ -23,14 +23,10 @@ To Calypsoify the dashboard and test various functionality in this plugin, there
 
 Note that the plugin expects to find these plugins in their original folders, so renaming these folders may prevent the plugin from running.
 
-#### Jetpack Connection
-You will need either a connected Jetpack site or set your Jetpack development environment constants.  To enable Jetpack's dev mode, add this to your `wp-config.php` file:
+#### Jetpack Connection && Option Values
+You will need either a connected Jetpack site or use the following filter to force Jetpack into development mode:
 
-`define( 'JETPACK_DEV_DEBUG', true );`
-
-However, if your site is still not connected via Jetpack, you will not be able to fully test the Masterbar.  If you're working locally, you can Ngrok your local site to connect via Jetpack.  Also note that the `JETPACK_DEV_DEBUG` constant above will prevent making a new Jetpack connection.
-
-#### Option Values
+`add_filter( 'jetpack_development_mode', '__return_true' );`
 
 To make the bridge work, the site must have the ecommerce plan option set under the `at_options` option.  You can add this to your site by temporarily adding this to the plugin file:
 
@@ -39,6 +35,8 @@ To make the bridge work, the site must have the ecommerce plan option set under 
 Clicking the "I'm Done Setting Up" button on the Setup Checklist page will mark the option `atomic-ecommerce-setup-checklist-complete` as true.  If you need to access this page again, you can update this in your database or temporarily add the following to your plugin file:
 
 `update_option( 'atomic-ecommerce-setup-checklist-complete', false );`
+
+If you would like to skip all of the above, [just download this gist](https://gist.github.com/timmyc/72061e99f2e6893a94845ba93e6db6ca) as a plugin and activate it :).
 
 #### Calypsoify Param
 Adding the Calypsoify param `calypsoify=1` to the URL will Calypsoify any WooCommerce or WC Calypso Bridge route once the above dependencies have been met.
