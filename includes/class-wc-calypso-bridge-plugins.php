@@ -46,7 +46,7 @@ class WC_Calypso_Bridge_Plugins {
 	 * Remove Mailchimp redirect
 	 */
 	public function remove_mailchimp_redirect() {
-		delete_option( 'mailchimp_woocommerce_plugin_do_activation_redirect' );
+		update_option( 'mailchimp_woocommerce_plugin_do_activation_redirect', false );
 	}
 
 	/**
