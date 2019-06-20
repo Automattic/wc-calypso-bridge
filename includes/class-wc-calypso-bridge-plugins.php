@@ -35,18 +35,10 @@ class WC_Calypso_Bridge_Plugins {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'admin_init', array( $this, 'remove_mailchimp_redirect' ), 5 );
 		add_filter( 'plugin_action_links', array( $this, 'remove_woocommerce_deactivation_link' ), 10, 2 );
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
 		add_action( 'current_screen', array( $this, 'prevent_woocommerce_deactiation_route' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactiation_notice' ), 10, 2 );
-	}
-
-	/**
-	 * Remove Mailchimp redirect
-	 */
-	public function remove_mailchimp_redirect() {
-		update_option( 'mailchimp_woocommerce_plugin_do_activation_redirect', false );
 	}
 
 	/**
