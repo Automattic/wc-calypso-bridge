@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* 1.0.16
+* Ensure that redirect to Mailchimp for WooCommerce settings is canceled when visiting WooCommerce setup wizard (wc-setup).
+
 * 1.0.14 =
 * Fix for Core Woo REST controllers only being loaded on rest requests in 3.6 beta 1
 
