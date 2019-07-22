@@ -42,7 +42,7 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'admin_body_class', array( $this, 'add_calypsoify_class' ) );
 
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
-		$has_finshed_setup = get_option( 'atomic-ecommerce-setup-checklist-complete', false );
+		$has_finshed_setup = (bool) get_option( 'atomic-ecommerce-setup-checklist-complete' );
 		if ( ! $has_finshed_setup ) {
 			add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
 		}
