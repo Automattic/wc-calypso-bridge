@@ -35,6 +35,10 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
+		if ( ! class_exists( 'Jetpack_Calypsoify', false ) ) {
+			return;
+		}
+
 		if ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) {
 			add_filter( 'woocommerce_setup_wizard_steps', array( $this, 'remove_unused_steps' ) );
 			add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
