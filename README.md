@@ -28,9 +28,21 @@ You will need either a connected Jetpack site or use the following filter to for
 
 `add_filter( 'jetpack_development_mode', '__return_true' );`
 
-To make the bridge work, the site must have the ecommerce plan option set under the `at_options` option.  You can add this to your site by temporarily adding this to the plugin file:
+Enable the Jetpack Calypso module:
 
-`update_option( 'at_options', array( 'plan_slug' => 'ecommerce' ) );`
+```
+add_filter( 'jetpack_tools_to_include', function( $tools ) {
+    return array_merge( $tools, [ 'calypsoify/class.jetpack-calypsoify.php' ] );
+} );
+```
+
+To make the bridge work, the site must have the ecommerce plan option set under the `at_options` option:
+
+```
+add_filter( 'pre_option_at_options', function() {
+	return [ 'plan_slug' => 'ecommerce' ];
+});
+```
 
 Clicking the "I'm Done Setting Up" button on the Setup Checklist page will mark the option `atomic-ecommerce-setup-checklist-complete` as true.  If you need to access this page again, you can update this in your database or temporarily add the following to your plugin file:
 
