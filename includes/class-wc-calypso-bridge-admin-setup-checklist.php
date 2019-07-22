@@ -330,6 +330,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 		$wc_canada_post_merchant_username = get_option( 'wc_canada_post_merchant_username' );
 		$wc_canada_post_merchant_password = get_option( 'wc_canada_post_merchant_password' );
 		$has_starter_content_imported     = get_option( 'wpcom_ec_plan_starter_content_imported', false );
+		$products                         = wp_count_posts( 'product' );
 
 		if ( ! $has_starter_content_imported ) {
 			$sf_nonce               = wp_create_nonce( 'storefront_ecommerce_plan_starter_content' );
@@ -347,7 +348,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'description'     => __( 'Start by adding your first product to your store.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
 				'link'            => 'post-new.php?post_type=product&wc-setup-step=product',
-				'condition'       => isset( $click_settings['product'] ) && true === (bool) $click_settings['product'],
+				'condition'       => (int) $products->publish > 0 || (int) $products->draft > 0,
 			),
 
 			array(
