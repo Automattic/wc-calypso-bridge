@@ -174,9 +174,10 @@ class WC_Calypso_Bridge_Action_Header {
 	 */
 	public function get_parent_url( $parent_menu_slug ) {
 		global $submenu;
-		$submenu_items = $submenu[ $parent_menu_slug ];
-		if ( $submenu_items ) {
-			$first_menu_item = array_pop( array_reverse( $submenu_items ) );
+
+		if ( ! empty( $submenu[ $parent_menu_slug ] ) ) {
+			$submenu_items   = $submenu[ $parent_menu_slug ];
+			$first_menu_item = array_shift( $submenu_items );
 			$menu_hook       = get_plugin_page_hook( $first_menu_item[2], $parent_menu_slug );
 
 			if ( ! empty( $menu_hook ) ) {
