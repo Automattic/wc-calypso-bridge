@@ -399,7 +399,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'square',
-				'title'           => __( 'Setup payments with Square', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with Square', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Square account to accept credit and debit card, to track sales and sync inventory.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -412,7 +412,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'stripe',
-				'title'           => __( 'Setup payments with Stripe', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with Stripe', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Stripe account to accept credit and debit card payments.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -429,7 +429,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'paypal',
-				'title'           => __( 'Setup payments with PayPal', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with PayPal', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your PayPal account to let customers to conveniently checkout directly with PayPal.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -447,7 +447,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'klarna-payments',
-				'title'           => __( 'Setup payments with Klarna', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Klarna account to take payments with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -460,7 +460,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'klarna-checkout',
-				'title'           => __( 'Setup checkout with Klarna', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up checkout with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Setup to provide a full checkout experience with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -473,7 +473,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'eway',
-				'title'           => __( 'Setup payments with eWAY', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with eWAY', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your eWay account to take credit card payments directly on your store.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -487,7 +487,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'payfast',
-				'title'           => __( 'Setup payments with PayFast', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with PayFast', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your PayFast account to accept payments by credit card and Electronic Fund Transfer.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
