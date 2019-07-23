@@ -2016,30 +2016,6 @@ form[name="cleanup_options"] fieldset label select {
 }
 
 /* Masterbar */
-/* @TODO: can be removed if https://github.com/Automattic/jetpack/pull/10523 is merged*/
-#wpadminbar {
-	position: fixed;
-}
-
-/* Masterbar hover styles.
-TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497/ is released */
-
-#wpadminbar .ab-top-menu > li.hover > .ab-item,
-#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item {
-	background: #0099d8 !important;
-	color: #fff;
-}
-#wpadminbar ul li#wp-admin-bar-ab-new-post:hover,
-#wpadminbar ul li#wp-admin-bar-ab-new-post:hover > .ab-item {
-	background: #fff !important;
-	opacity: 1;
-	border-radius: 5px;
-}
-#wpadminbar ul li#wp-admin-bar-notes.active,
-#wpadminbar ul li#wp-admin-bar-notes.active > .ab-item {
-	background: #004967 !important;
-}
-
 /* Fix title padding */
 .wp-admin .wrap > h1:first-child,
 .wp-admin .wrap > h2:first-child,
@@ -2064,42 +2040,6 @@ TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10497
 .wc-helper .user-info section a:hover {
 	background: transparent;
 	color: #00a0d2;
-}
-
-/* Site title fix for long titles.
-TODO: This can be removed after https://github.com/Automattic/jetpack/pull/10507 is released */
-#calypso-sidebar-header ul li#calypso-sitename {
-	overflow: hidden;
-	white-space: nowrap;
-	width: 225px;
-}
-
-@media screen and (max-width:960px) {
-	#calypso-sidebar-header ul li#calypso-sitename {
-		width: 150px;
-		overflow: hidden;
-	}
-}
-
-
-#calypso-sidebar-header ul li#calypso-sitename:after {
-	content: '';
-	display: block;
-	position: absolute;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	pointer-events: none;
-	background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(90%, #fff));
-	background: linear-gradient(to right, rgba(255,255,255,0), #fff 90%);
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: auto;
-	width: 20%;
-	height: auto;
 }
 
 /* Notices and Jetpack JITM */
@@ -2329,11 +2269,6 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 }
 #col-right .col-wrap {
 	padding: 0;
-}
-/* @TODO: Remove the following selector if https://github.com/woocommerce/woocommerce/pull/21884 is merged into WC core. */
-.edit-tags-php #col-left > .col-wrap > p:first-child,
-.product_page_product_attributes #col-left > .col-wrap > p:first-child {
-	display: none;
 }
 
 /* Search box */
