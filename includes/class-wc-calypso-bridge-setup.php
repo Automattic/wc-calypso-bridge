@@ -42,7 +42,7 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'admin_body_class', array( $this, 'add_calypsoify_class' ) );
 
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
-		$has_finshed_setup = (bool) get_option( 'atomic-ecommerce-setup-checklist-complete' );
+		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
 		if ( ! $has_finshed_setup ) {
 			add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
 		}
@@ -103,7 +103,7 @@ class WC_Calypso_Bridge_Setup {
 		if ( 'admin.php?page=mailchimp-woocommerce' === $location ) {
 			// Delete the redirect option so we don't end up here anymore
 			delete_option( 'mailchimp_woocommerce_plugin_do_activation_redirect' );
-			$location = '/wp-admin/admin.php?page=wc-setup-checklist&calypsoify=1';
+			$location = admin_url( 'admin.php?page=wc-setup-checklist&calypsoify=1' );
 		}
 
 		return $location;
