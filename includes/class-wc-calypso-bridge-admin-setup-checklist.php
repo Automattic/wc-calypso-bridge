@@ -407,6 +407,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'learn_more'      => 'https://woocommerce.com/products/square/',
 				'condition'       => ! empty( $square_merchant_access_token ),
 				'extension'       => 'woocommerce-square/woocommerce-square.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -423,6 +424,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 								! empty( $stripe_settings['secret_key'] ) &&
 								'yes' === $stripe_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -440,6 +442,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 								( ! empty( $paypal_settings['api_signature'] ) || ! empty( $paypal_settings['api_certificate'] ) ) &&
 								'yes' === $paypal_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -452,6 +455,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'learn_more'      => 'https://woocommerce.com/products/klarna-payments/',
 				'condition'       => 'yes' === $klarna_payments_settings['enabled'],
 				'extension'       => 'klarna-payments-for-woocommerce/klarna-payments-for-woocommerce.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -464,6 +468,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'learn_more'      => 'https://woocommerce.com/products/klarna-checkout/',
 				'condition'       => 'yes' === $kco_settings['enabled'],
 				'extension'       => 'klarna-checkout-for-woocommerce/klarna-checkout-for-woocommerce.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -477,6 +482,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 							   ! empty( $eway_settings['customer_password'] ) &&
 							   'yes' === $eway_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-eway/woocommerce-gateway-eway.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -491,6 +497,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 							   ! empty( $payfast_settings['pass_phrase'] ) &&
 							   'yes' === $payfast_settings['enabled'],
 				'extension'       => 'woocommerce-payfast-gateway/gateway-payfast.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -529,8 +536,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 		);
 
-		$completed = 0;
-		$tasks     = array();
+		$completed                  = 0;
+		$tasks                      = array();
+		$payment_gateways_installed = false;
 		foreach ( $all_tasks as $task ) {
 			// Remove tasks for extensions that are not active.
 			if ( isset( $task['extension'] ) ) {
@@ -539,11 +547,43 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				}
 			}
 
+			if ( isset( $task['type'] ) && 'payment' === $task['type'] ) {
+				$payment_gateways_installed = true;
+			}
+
 			$tasks[] = $task;
 			if ( true === $task['condition'] ) {
 				$completed++;
 			}
 		}
+
+		// Add default payment gateway if no payment gateways are installed.
+		if ( ! $payment_gateways_installed ) {
+			$payment_gateways         = WC()->payment_gateways->get_available_payment_gateways();
+			$enabled_payment_gateways = array();
+			foreach ( $payment_gateways as $payment_gateway ) {
+				if ( 'yes' === $payment_gateway->enabled ) {
+					$enabled_payment_gateways[] = $payment_gateway;
+				}
+			}
+			$has_enabled_payment_gateways = count( $enabled_payment_gateways ) > 0;
+
+			$tasks[] = array(
+				'id'              => 'payment-gateway',
+				'title'           => __( 'Set up a payment gateway', 'wc-calypso-bridge' ),
+				'completed_title' => __( 'View payment gateways', 'wc-calypso-bridge' ),
+				'description'     => __( 'Set up a payment gateway to start collecting payments with your store.', 'wc-calypso-bridge' ),
+				'estimate'        => '5',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout',
+				'learn_more'      => 'https://woocommerce.com/product-category/woocommerce-extensions/payment-gateways/',
+				'condition'       => $has_enabled_payment_gateways,
+			);
+
+			if ( $has_enabled_payment_gateways ) {
+				$completed++;
+			}
+		}
+
 		$total = count( $tasks );
 
 		return( array(
