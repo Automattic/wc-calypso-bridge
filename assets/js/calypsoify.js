@@ -377,5 +377,35 @@
 		}
 	}
 
+	/**
+	 * Copy WooCommerce Admin breadcrumbs to Calypso header.
+	 */
+	var wca_crumb_retry = 0;
+	function wca_update_crumbs() {
+		if ( ! $( '.wrap > #root' ).length ) {
+			return;
+		}
+
+		var wc_breadcrumbs = $( '.woocommerce-layout__header-breadcrumbs' ).children();
+		var cb_crumb_wrap  = $( '.action-header__breadcrumbs' );
+
+		if ( ! wc_breadcrumbs.length ) {
+			if ( 20 < ++wca_crumb_retry ) {
+				setTimeout( wca_update_crumbs, 100 );
+			} else {
+				wca_crumb_retry = 0;
+			}
+
+			return;
+		}
+
+		wca_crumb_retry = 0;
+		cb_crumb_wrap.children().remove();
+		wc_breadcrumbs.clone().appendTo( cb_crumb_wrap );
+	}
+
+	$('#wpwrap').click( wca_update_crumbs );
+
+	wca_update_crumbs();
 
 } )( jQuery );
