@@ -39,6 +39,8 @@ class WC_Calypso_Bridge_Setup {
 			return;
 		}
 
+		add_filter( 'admin_body_class', array( $this, 'add_calypsoify_class' ) );
+
 		if ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) {
 			add_filter( 'woocommerce_setup_wizard_steps', array( $this, 'remove_unused_steps' ) );
 			add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
@@ -73,6 +75,16 @@ class WC_Calypso_Bridge_Setup {
 		return $steps;
 	}
 
+	/**
+	 * Add the calypsoify classes to the body tag.
+	 *
+	 * @param array $classes Array of body classes.
+	 * @return array
+	 */
+	public static function add_calypsoify_class( $classes ) {
+		$classes .= ' calypsoify-active';
+		return $classes;
+	}
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
