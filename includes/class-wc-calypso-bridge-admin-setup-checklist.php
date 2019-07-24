@@ -72,7 +72,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 		// If setup has been completed, redirect to orders page.
 		// TODO Redirect to wc-admin once we launch it on eCommerce plans.
-		if ( $this->is_checklist_done() ) {
+		if ( self::is_checklist_done() ) {
 			wp_safe_redirect( admin_url( 'edit.php?post_type=shop_order' ) );
 			exit;
 		}
@@ -91,7 +91,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 *
 	 * @return bool
 	 */
-	private function is_checklist_done() {
+	public static function is_checklist_done() {
 		if ( apply_filters( 'wc_calypso_bridge_development_mode', false ) ) {
 			return false;
 		}
@@ -203,7 +203,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Adds a new page for the setup checklist.
 	 */
 	public function admin_menu() {
-		if ( $this->is_checklist_done() ) {
+		if ( self::is_checklist_done() ) {
 			return;
 		}
 
@@ -297,7 +297,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 */
 	public function menu_order_count() {
 		global $menu;
-		if ( $this->is_checklist_done() ) {
+		if ( self::is_checklist_done() ) {
 			return;
 		}
 
