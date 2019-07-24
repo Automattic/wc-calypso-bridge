@@ -13,6 +13,10 @@ To check WPCS and lint errors via CLI, run the following from the root directory
 To automatically fix errors and beautify files, run the following from the root directory.
 `./vendor/bin/phpcbf [filename]`
 
+To turn on development mode for this plugin and prevent the setup checklist from being completed, the following filter can be added:
+
+`add_filter( 'wc_calypso_bridge_development_mode', '__return_true' );`
+
 ### Activating Calypsoify
 
 To Calypsoify the dashboard and test various functionality in this plugin, there are a number of conditions that must be met.

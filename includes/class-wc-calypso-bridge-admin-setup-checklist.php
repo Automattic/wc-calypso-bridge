@@ -72,7 +72,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 		// If setup has been completed, redirect to orders page.
 		// TODO Redirect to wc-admin once we launch it on eCommerce plans.
-		if ( $this->is_checklist_done() ) {
+		if ( self::is_checklist_done() ) {
 			wp_safe_redirect( admin_url( 'edit.php?post_type=shop_order' ) );
 			exit;
 		}
@@ -86,12 +86,25 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	}
 
 	/**
-	 * Returns if the checklist is "done" via the user clicking the "I'm done" button.
+	 * Returns if the checklist is "done" via the user clicking the "I'm done" button
+	 * or if the store already contains any orders.
 	 *
-	 * @return bool True if the done button has been clicked.
+	 * @return bool
 	 */
-	private function is_checklist_done() {
-		return (bool) get_option( 'atomic-ecommerce-setup-checklist-complete', false );
+	public static function is_checklist_done() {
+		if ( apply_filters( 'wc_calypso_bridge_development_mode', false ) ) {
+			return false;
+		}
+
+		global $wpdb;
+		$order_count = (int) $wpdb->get_var(
+			"SELECT COUNT( DISTINCT posts.ID )
+				FROM {$wpdb->posts} as posts
+				WHERE posts.post_type = 'shop_order'
+				LIMIT 1"
+		);
+
+		return $order_count > 0 || (bool) get_option( 'atomic-ecommerce-setup-checklist-complete', false );
 	}
 
 	/**
@@ -190,7 +203,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Adds a new page for the setup checklist.
 	 */
 	public function admin_menu() {
-		if ( $this->is_checklist_done() ) {
+		if ( self::is_checklist_done() ) {
 			return;
 		}
 
@@ -284,7 +297,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 */
 	public function menu_order_count() {
 		global $menu;
-		if ( $this->is_checklist_done() ) {
+		if ( self::is_checklist_done() ) {
 			return;
 		}
 
