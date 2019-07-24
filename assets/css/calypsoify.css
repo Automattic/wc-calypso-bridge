@@ -1264,6 +1264,21 @@ li#wp-admin-bar-menu-toggle {
 #adminmenu li.wp-has-current-submenu.opensub div.wp-menu-image:before {
 	color: #016087 !important;
 }
+#adminmenu ul.wp-submenu > li > a {
+	padding-left: 47px;
+	font-weight: 500 !important;
+}
+#adminmenu ul.wp-submenu > li.current > a {
+	background: #d8dee4;
+	color: #016087 !important;
+}
+#adminmenu li.wp-menu-open,
+#adminmenu li.wp-menu-open:hover {
+	background: transparent;
+}
+#adminmenu .wp-has-current-submenu > a {
+	background: transparent !important;
+}
 
 /* Fix selected styles for WooCommerce menu items */
 #adminmenu #toplevel_page_woocommerce .menu-icon-generic div.wp-menu-image::before {
