@@ -399,7 +399,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 
 			array(
 				'id'              => 'square',
-				'title'           => __( 'Setup payments with Square', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with Square', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Square account to accept credit and debit card, to track sales and sync inventory.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -407,11 +407,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'learn_more'      => 'https://woocommerce.com/products/square/',
 				'condition'       => ! empty( $square_merchant_access_token ),
 				'extension'       => 'woocommerce-square/woocommerce-square.php',
+				'type'            => 'payment',
 			),
 
 			array(
 				'id'              => 'stripe',
-				'title'           => __( 'Setup payments with Stripe', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with Stripe', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Stripe account to accept credit and debit card payments.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -423,11 +424,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 								! empty( $stripe_settings['secret_key'] ) &&
 								'yes' === $stripe_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-stripe/woocommerce-gateway-stripe.php',
+				'type'            => 'payment',
 			),
 
 			array(
 				'id'              => 'paypal',
-				'title'           => __( 'Setup payments with PayPal', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with PayPal', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your PayPal account to let customers to conveniently checkout directly with PayPal.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -440,11 +442,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 								( ! empty( $paypal_settings['api_signature'] ) || ! empty( $paypal_settings['api_certificate'] ) ) &&
 								'yes' === $paypal_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-paypal-express-checkout/woocommerce-gateway-paypal-express-checkout.php',
+				'type'            => 'payment',
 			),
 
 			array(
 				'id'              => 'klarna-payments',
-				'title'           => __( 'Setup payments with Klarna', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your Klarna account to take payments with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -452,11 +455,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'learn_more'      => 'https://woocommerce.com/products/klarna-payments/',
 				'condition'       => 'yes' === $klarna_payments_settings['enabled'],
 				'extension'       => 'klarna-payments-for-woocommerce/klarna-payments-for-woocommerce.php',
+				'type'            => 'payment',
 			),
 
 			array(
 				'id'              => 'klarna-checkout',
-				'title'           => __( 'Setup checkout with Klarna', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up checkout with Klarna', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Setup to provide a full checkout experience with pay now, pay later and slice it.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -464,11 +468,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'learn_more'      => 'https://woocommerce.com/products/klarna-checkout/',
 				'condition'       => 'yes' === $kco_settings['enabled'],
 				'extension'       => 'klarna-checkout-for-woocommerce/klarna-checkout-for-woocommerce.php',
+				'type'            => 'payment',
 			),
 
 			array(
 				'id'              => 'eway',
-				'title'           => __( 'Setup payments with eWAY', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with eWAY', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your eWay account to take credit card payments directly on your store.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -477,11 +482,12 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 							   ! empty( $eway_settings['customer_password'] ) &&
 							   'yes' === $eway_settings['enabled'],
 				'extension'       => 'woocommerce-gateway-eway/woocommerce-gateway-eway.php',
+				'type'            => 'payment',
 			),
 
 			array(
 				'id'              => 'payfast',
-				'title'           => __( 'Setup payments with PayFast', 'wc-calypso-bridge' ),
+				'title'           => __( 'Set up payments with PayFast', 'wc-calypso-bridge' ),
 				'completed_title' => __( 'View Settings', 'wc-calypso-bridge' ),
 				'description'     => __( 'Connect your PayFast account to accept payments by credit card and Electronic Fund Transfer.', 'wc-calypso-bridge' ),
 				'estimate'        => '2',
@@ -491,6 +497,7 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 							   ! empty( $payfast_settings['pass_phrase'] ) &&
 							   'yes' === $payfast_settings['enabled'],
 				'extension'       => 'woocommerce-payfast-gateway/gateway-payfast.php',
+				'type'            => 'payment',
 			),
 
 			array(
@@ -529,8 +536,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 			),
 		);
 
-		$completed = 0;
-		$tasks     = array();
+		$completed                  = 0;
+		$tasks                      = array();
+		$payment_gateways_installed = false;
 		foreach ( $all_tasks as $task ) {
 			// Remove tasks for extensions that are not active.
 			if ( isset( $task['extension'] ) ) {
@@ -539,11 +547,43 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				}
 			}
 
+			if ( isset( $task['type'] ) && 'payment' === $task['type'] ) {
+				$payment_gateways_installed = true;
+			}
+
 			$tasks[] = $task;
 			if ( true === $task['condition'] ) {
 				$completed++;
 			}
 		}
+
+		// Add default payment gateway if no payment gateways are installed.
+		if ( ! $payment_gateways_installed ) {
+			$payment_gateways         = WC()->payment_gateways->get_available_payment_gateways();
+			$enabled_payment_gateways = array();
+			foreach ( $payment_gateways as $payment_gateway ) {
+				if ( 'yes' === $payment_gateway->enabled ) {
+					$enabled_payment_gateways[] = $payment_gateway;
+				}
+			}
+			$has_enabled_payment_gateways = count( $enabled_payment_gateways ) > 0;
+
+			$tasks[] = array(
+				'id'              => 'payment-gateway',
+				'title'           => __( 'Set up a payment gateway', 'wc-calypso-bridge' ),
+				'completed_title' => __( 'View payment gateways', 'wc-calypso-bridge' ),
+				'description'     => __( 'Set up a payment gateway to start collecting payments with your store.', 'wc-calypso-bridge' ),
+				'estimate'        => '5',
+				'link'            => 'admin.php?page=wc-settings&tab=checkout',
+				'learn_more'      => 'https://woocommerce.com/product-category/woocommerce-extensions/payment-gateways/',
+				'condition'       => $has_enabled_payment_gateways,
+			);
+
+			if ( $has_enabled_payment_gateways ) {
+				$completed++;
+			}
+		}
+
 		$total = count( $tasks );
 
 		return( array(
