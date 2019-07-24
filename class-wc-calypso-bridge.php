@@ -118,13 +118,13 @@ class WC_Calypso_Bridge {
 		}
 
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		if ( $this->dependencies_satisfied() ) {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-menus.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
