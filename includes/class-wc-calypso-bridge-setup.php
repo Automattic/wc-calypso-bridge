@@ -78,8 +78,8 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Add the calypsoify classes to the body tag.
 	 *
-	 * @param array $classes Array of body classes.
-	 * @return array
+	 * @param string $classes Space separated string of body classes.
+	 * @return string
 	 */
 	public static function add_calypsoify_class( $classes ) {
 		$classes .= ' calypsoify-active';
