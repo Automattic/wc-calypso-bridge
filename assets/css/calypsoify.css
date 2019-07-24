@@ -1243,36 +1243,47 @@ li#wp-admin-bar-menu-toggle {
 	color: #0073aa !important;
 }
 
+/* Fix to match Calypso style menus */
+#adminmenu div.wp-menu-name {
+	font-weight: 600;
+}
+#adminmenu div.wp-menu-image:before {
+	color: #636d75 !important;
+	transition: none;
+}
+#adminmenu li:hover div.wp-menu-image:before {
+	color: #2b2d2f !important;
+}
+#adminmenu li.wp-has-current-submenu:hover div.wp-menu-image:before,
+#adminmenu .wp-has-current-submenu div.wp-menu-image:before,
+#adminmenu li.current div.wp-menu-name,
+#adminmenu .current div.wp-menu-image:before,
+#adminmenu a.wp-has-current-submenu:hover div.wp-menu-image:before,
+#adminmenu a.current:hover div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu a:focus div.wp-menu-image:before,
+#adminmenu li.wp-has-current-submenu.opensub div.wp-menu-image:before {
+	color: #016087 !important;
+}
 
 /* Fix selected styles for WooCommerce menu items */
 #adminmenu #toplevel_page_woocommerce .menu-icon-generic div.wp-menu-image::before {
 	content: '';
 }
 #adminmenu #toplevel_page_woocommerce .menu-icon-generic div.wp-menu-image {
-	background-image: url( '../images/cart-dark.png' ) !important;
-	background-size: 24px;
+	background-image: url( '../images/cart-default.png' ) !important;
+	background-size: 20px;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 }
-#adminmenu #toplevel_page_woocommerce.wp-has-current-submenu .menu-icon-generic div.wp-menu-image {
-	background-image: url( '../images/cart-white.png' ) !important;
+#adminmenu #toplevel_page_woocommerce .menu-icon-generic:hover div.wp-menu-image {
+	background-image: url( '../images/cart-hovered.png' ) !important;
 }
-#adminmenu li.current div.wp-menu-name {
-	color: #fff !important;
+#adminmenu #toplevel_page_woocommerce.wp-has-current-submenu .menu-icon-generic div.wp-menu-image {
+	background-image: url( '../images/cart-active.png' ) !important;
 }
 
 #adminmenu li.current .svg {
 	filter: none;
-}
-
-#adminmenu li.wp-has-current-submenu:hover div.wp-menu-image:before,
-#adminmenu .wp-has-current-submenu div.wp-menu-image:before,
-#adminmenu .current div.wp-menu-image:before,
-#adminmenu a.wp-has-current-submenu:hover div.wp-menu-image:before,
-#adminmenu a.current:hover div.wp-menu-image:before,
-#adminmenu li.wp-has-current-submenu a:focus div.wp-menu-image:before,
-#adminmenu li.wp-has-current-submenu.opensub div.wp-menu-image:before {
-	color: #fff !important;
 }
 
 /* WooCommercer Orders */
