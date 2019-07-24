@@ -2115,6 +2115,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 	content: '\f335';
 }
 
+/* TODO remove after https://github.com/Automattic/jetpack/pull/13126 is released */
 .wp-admin .wrap div.hidden {
 	display: none;
 }
@@ -2247,6 +2248,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 .wp-admin div.error + br.clear {
 	display: none;
 }
+/* End TODO */
 
 /* Akismet notices */
 #akismet-privacy-notice-admin-notice .notice-dismiss {
