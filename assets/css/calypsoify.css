@@ -2520,3 +2520,14 @@ h3#woocommerce_stripe_connection_status {
 .woocommerce-help-text {
 	text-align: center;
 }
+
+/**
+ * Styles for WooCommerce Admin
+ */
+.calypsoify-active .woocommerce-layout__header {
+	top: 93px;
+}
+
+.calypsoify-active .woocommerce-layout__header-breadcrumbs {
+	display: none;
+}
