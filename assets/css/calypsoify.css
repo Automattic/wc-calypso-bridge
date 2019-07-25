@@ -1244,6 +1244,7 @@ li#wp-admin-bar-menu-toggle {
 }
 
 /* Fix to match Calypso style menus */
+/* @todo Remove this code if this PR gets merged - https://github.com/Automattic/jetpack/pull/13129 */
 #adminmenu div.wp-menu-name {
 	font-weight: 600;
 }
