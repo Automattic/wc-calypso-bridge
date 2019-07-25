@@ -1482,7 +1482,8 @@ table.widefat {
 
 #mainform h2,
 #mainform h3,
-.wp-admin .wrap form[name="cleanup_options"] > h2 {
+.wp-admin .wrap form[name="cleanup_options"] > h2,
+.wp-admin .wrap form[name="cleanup_options"] > h4 {
 	background-color: #fff;
 	border: 1px solid #e4eaef;
 	border-bottom: none;
@@ -1591,10 +1592,14 @@ form[name="cleanup_options"] fieldset label span {
 	order: 0;
 	margin: 5px 0;
 }
-form[name="cleanup_options"] fieldset label input,
+form[name="cleanup_options"] fieldset label input:not([type="radio"]):not([type="checkbox"]),
 form[name="cleanup_options"] fieldset label select {
 	order: 1;
 	width: 100%;
+}
+form[name="cleanup_options"] fieldset label input[type="radio"],
+form[name="cleanup_options"] fieldset label input[type="checkbox"] {
+	margin-top: 0px;
 }
 @media screen and (min-width:601px) {
 	form[name="cleanup_options"] fieldset label {
@@ -1604,7 +1609,7 @@ form[name="cleanup_options"] fieldset label select {
 	form[name="cleanup_options"] fieldset label span {
 		min-width: 250px;
 	}
-	form[name="cleanup_options"] fieldset label input {
+	form[name="cleanup_options"] fieldset label input:not([type="radio"]):not([type="checkbox"]) {
 		width: 400px !important;
 	}
 }
