@@ -132,7 +132,7 @@ div.woocommerce-message, .wc-helper .start-container {
 	margin-top: 16px;
 }
 .wp-admin .tablenav-pages a,
-.tablenav-pages-navspan,
+.wp-admin .tablenav .tablenav-pages-navspan,
 .tablenav-pages span.current,
 .wp-admin .dots {
 	padding: 8px 12px;
@@ -145,15 +145,17 @@ div.woocommerce-message, .wc-helper .start-container {
 	float: left;
 	font-weight: 500;
 	min-width: 0;
+	min-height: auto;
 	display: flex;
 	align-content: center;
 	height: auto;
 	text-decoration: none;
 }
+.wp-admin .tablenav .tablenav-pages-navspan:hover,
 .wp-admin .tablenav-pages a:hover,
 .wp-admin .tablenav-pages a:focus {
 	color: #2e4453;
-	background: #fff;
+	background: #f6f6f6;
 	border-color: #C8D7E1;
 	box-shadow: none;
 }
@@ -167,8 +169,8 @@ div.woocommerce-message, .wc-helper .start-container {
 	fill: #2e4453;
 }
 .tablenav-pages span.current {
-	border-color: #00aadc;
-	background-color: #00aadc;
+	border-color: #016087;
+	background-color: #016087;
 	color: #fff;
 }
 .wp-admin .tablenav-pages > *:first-child {
