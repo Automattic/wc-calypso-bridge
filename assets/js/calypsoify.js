@@ -11,10 +11,15 @@
         }
     } );
 
+// TODO Remove the notice handlers after https://github.com/Automattic/jetpack/pull/13126 has been released.
     /**
      * Append icons to notices
      */
     $( 'div.notice, div.error, div.updated, div.warning' ).each( function() {
+	if ( $( this ).children( '.wc-calypso-bridge-notice-content' ).length ) {
+		return;
+	}
+
         var icon = icons.info;
         if ( $( this ).hasClass( 'notice-success') ) {
             icon = icons.checkmark;
@@ -37,10 +42,15 @@
      * Used to prevent side by side content in flexbox when multiple paragraphs exist.
      */
     $( 'div.notice, div.error, div.updated, div.warning' ).each( function() {
-        var $noticeContent = $( '<div class="wc-calypso-bridge-notice-content"></div>' );
-        $( this ).find( '.wc-calypso-bridge-notice-icon-wrapper' ).after( $noticeContent );
-        $( this ).find( 'p:not(.submit)' ).appendTo( $noticeContent );
+	if ( $( this ).children( '.wc-calypso-bridge-notice-content' ).length ) {
+		return;
+	}
+
+	var $noticeContent = $( '<div class="wc-calypso-bridge-notice-content"></div>' );
+	$( this ).find( '.wc-calypso-bridge-notice-icon-wrapper' ).after( $noticeContent );
+	$( this ).find( 'p:not(.submit)' ).appendTo( $noticeContent );
     } );
+// TODO End
 
     /**
      * Move page actions to action header
