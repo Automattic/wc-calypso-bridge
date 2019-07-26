@@ -1480,6 +1480,18 @@ table.widefat {
 	display: none;
 }
 
+/* WooCommerce Admin Onboarding */
+.woocommerce-admin-full-screen #wpcontent {
+	padding: 0;
+}
+.woocommerce-admin-full-screen .action-header,
+.woocommerce-admin-is-loading .action-header {
+	display: none;
+}
+.woocommerce-admin-full-screen .wrap {
+	max-width: 100%;
+}
+
 /* Forms */
 
 #post-body-content {
