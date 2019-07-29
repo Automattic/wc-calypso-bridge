@@ -202,23 +202,23 @@ label {
 	font-weight: 600;
 	margin-bottom: 5px;
 }
-input[type="text"],
-input[type="password"],
-input[type="checkbox"],
-input[type="color"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="search"],
-input[type="radio"],
-input[type="tel"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-textarea {
+*:not(.components-base-control__field) > input[type="text"],
+*:not(.components-base-control__field) > input[type="password"],
+*:not(.components-base-control__field) > input[type="checkbox"],
+*:not(.components-base-control__field) > input[type="color"],
+*:not(.components-base-control__field) > input[type="date"],
+*:not(.components-base-control__field) > input[type="datetime"],
+*:not(.components-base-control__field) > input[type="datetime-local"],
+*:not(.components-base-control__field) > input[type="email"],
+*:not(.components-base-control__field) > input[type="month"],
+*:not(.components-base-control__field) > input[type="number"],
+*:not(.components-base-control__field) > input[type="search"],
+*:not(.components-base-control__field) > input[type="radio"],
+*:not(.components-base-control__field) > input[type="tel"],
+*:not(.components-base-control__field) > input[type="time"],
+*:not(.components-base-control__field) > input[type="url"],
+*:not(.components-base-control__field) > input[type="week"],
+*:not(.components-base-control__field) > textarea {
 	margin: 0;
 	padding: 7px 14px;
 	color: #2e4453;
@@ -228,23 +228,23 @@ textarea {
 	box-shadow: none;
 	height: auto;
 }
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="checkbox"]:focus,
-input[type="color"]:focus,
-input[type="date"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="email"]:focus,
-input[type="month"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="radio"]:focus,
-input[type="tel"]:focus,
-input[type="time"]:focus,
-input[type="url"]:focus,
-input[type="week"]:focus,
-textarea:focus {
+*:not(.components-base-control__field) > input[type="text"]:focus,
+*:not(.components-base-control__field) > input[type="password"]:focus,
+*:not(.components-base-control__field) > input[type="checkbox"]:focus,
+*:not(.components-base-control__field) > input[type="color"]:focus,
+*:not(.components-base-control__field) > input[type="date"]:focus,
+*:not(.components-base-control__field) > input[type="datetime"]:focus,
+*:not(.components-base-control__field) > input[type="datetime-local"]:focus,
+*:not(.components-base-control__field) > input[type="email"]:focus,
+*:not(.components-base-control__field) > input[type="month"]:focus,
+*:not(.components-base-control__field) > input[type="number"]:focus,
+*:not(.components-base-control__field) > input[type="search"]:focus,
+*:not(.components-base-control__field) > input[type="radio"]:focus,
+*:not(.components-base-control__field) > input[type="tel"]:focus,
+*:not(.components-base-control__field) > input[type="time"]:focus,
+*:not(.components-base-control__field) > input[type="url"]:focus,
+*:not(.components-base-control__field) > input[type="week"]:focus,
+*:not(.components-base-control__field) > textarea:focus {
 	box-shadow: none;
 	border: 1px solid #c8d7e1;
 	-webkit-box-shadow: 0 0 0 2px #78dcfa;
@@ -265,43 +265,43 @@ select::-ms-expand {
 	display: none;
 }
 @media all and (-ms-high-contrast:none) {
-	input[type="text"],
-	input[type="password"],
-	input[type="checkbox"],
-	input[type="color"],
-	input[type="date"],
-	input[type="datetime"],
-	input[type="datetime-local"],
-	input[type="email"],
-	input[type="month"],
-	input[type="number"],
-	input[type="search"],
-	input[type="radio"],
-	input[type="tel"],
-	input[type="time"],
-	input[type="url"],
-	input[type="week"] {
+	*:not(.components-base-control__field) > input[type="text"],
+	*:not(.components-base-control__field) > input[type="password"],
+	*:not(.components-base-control__field) > input[type="checkbox"],
+	*:not(.components-base-control__field) > input[type="color"],
+	*:not(.components-base-control__field) > input[type="date"],
+	*:not(.components-base-control__field) > input[type="datetime"],
+	*:not(.components-base-control__field) > input[type="datetime-local"],
+	*:not(.components-base-control__field) > input[type="email"],
+	*:not(.components-base-control__field) > input[type="month"],
+	*:not(.components-base-control__field) > input[type="number"],
+	*:not(.components-base-control__field) > input[type="search"],
+	*:not(.components-base-control__field) > input[type="radio"],
+	*:not(.components-base-control__field) > input[type="tel"],
+	*:not(.components-base-control__field) > input[type="time"],
+	*:not(.components-base-control__field) > input[type="url"],
+	*:not(.components-base-control__field) > input[type="week"] {
 		height: 38px;
 		line-height: 1;
 	}
 }
 
-input[type="text"]::placeholder,
-input[type="search"]::placeholder,
-input[type="email"]::placeholder,
-input[type="number"]::placeholder,
-input[type="password"]::placeholder,
-input[type=checkbox]::placeholder,
-input[type=radio]::placeholder,
-input[type="tel"]::placeholder,
-input[type="url"]::placeholder,
+*:not(.components-base-control__field) > input[type="text"]::placeholder,
+*:not(.components-base-control__field) > input[type="search"]::placeholder,
+*:not(.components-base-control__field) > input[type="email"]::placeholder,
+*:not(.components-base-control__field) > input[type="number"]::placeholder,
+*:not(.components-base-control__field) > input[type="password"]::placeholder,
+*:not(.components-base-control__field) > input[type=checkbox]::placeholder,
+*:not(.components-base-control__field) > input[type=radio]::placeholder,
+*:not(.components-base-control__field) > input[type="tel"]::placeholder,
+*:not(.components-base-control__field) > input[type="url"]::placeholder,
 textarea::placeholder {
 	color: #87a6bc;
 }
 
 /* Checkboxes and radios */
-input[type=checkbox],
-input[type=radio] {
+*:not(.components-base-control__field) > input[type=checkbox],
+*:not(.components-base-control__field) > input[type=radio] {
 	clear: none;
 	cursor: pointer;
 	display: inline-block;
@@ -318,10 +318,10 @@ input[type=radio] {
 	-moz-appearance: none;
 	appearance: none;
 }
-input[type=checkbox] {
+*:not(.components-base-control__field) > input[type=checkbox] {
 	border-radius: 2px;
 }
-input[type=radio]:checked:before {
+*:not(.components-base-control__field) > input[type=radio]:checked:before {
 	display: inline-block;
 	content: '\2022';
 	margin: 3px;
@@ -377,7 +377,7 @@ input[type=radio]:checked:before {
 }
 
 /* Select2 inputs */
-.wp-admin #wpwrap select,
+.wp-admin #wpwrap *:not(.components-base-control__field) > select,
 .select2-container .select2-selection--single {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -1478,6 +1478,18 @@ table.widefat {
 
 .wc-wizard-services.manual {
 	display: none;
+}
+
+/* WooCommerce Admin Onboarding */
+.woocommerce-admin-full-screen #wpcontent {
+	padding: 0;
+}
+.woocommerce-admin-full-screen .action-header,
+.woocommerce-admin-is-loading .action-header {
+	display: none;
+}
+.woocommerce-admin-full-screen .wrap {
+	max-width: 100%;
 }
 
 /* Forms */
