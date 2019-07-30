@@ -46,7 +46,7 @@
 			return;
 		}
 
-	var $noticeContent = $( '<div class="wc-calypso-bridge-notice-content"></div>' );
+		var $noticeContent = $( '<div class="wc-calypso-bridge-notice-content"></div>' );
 		$( this ).find( '.wc-calypso-bridge-notice-icon-wrapper' ).after( $noticeContent );
 		$( this ).find( 'p:not(.submit)' ).appendTo( $noticeContent );
 	} );
