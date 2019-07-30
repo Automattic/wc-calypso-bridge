@@ -2042,7 +2042,7 @@ form[name="cleanup_options"] fieldset label select {
 	color: #00a0d2;
 }
 
-/* TODO remove after https://github.com/Automattic/jetpack/pull/13126 is released */
+/* @todo remove after https://github.com/Automattic/jetpack/pull/13126 is released */
 /* Notices and Jetpack JITM */
 div.notice,
 div.updated,
@@ -2248,7 +2248,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 .wp-admin div.error + br.clear {
 	display: none;
 }
-/* End TODO */
+/* End @todo */
 
 /* Akismet notices */
 #akismet-privacy-notice-admin-notice .notice-dismiss {
