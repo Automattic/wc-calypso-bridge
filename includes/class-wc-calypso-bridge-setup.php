@@ -88,7 +88,12 @@ class WC_Calypso_Bridge_Setup {
 	 * @return string
 	 */
 	public static function add_calypsoify_class( $classes ) {
-		$classes .= ' calypsoify-active';
+		include_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-page-controller.php';
+
+		if ( function_exists( 'is_wc_calypso_bridge_page' ) && is_wc_calypso_bridge_page() ) {
+			$classes .= ' calypsoify-active';
+		}
+
 		return $classes;
 	}
 
@@ -101,7 +106,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function prevent_mailchimp_redirect( $location, $status ) {
 		if ( 'admin.php?page=mailchimp-woocommerce' === $location ) {
-			// Delete the redirect option so we don't end up here anymore
+			// Delete the redirect option so we don't end up here anymore.
 			delete_option( 'mailchimp_woocommerce_plugin_do_activation_redirect' );
 			$location = admin_url( 'admin.php?page=wc-setup-checklist&calypsoify=1' );
 		}
