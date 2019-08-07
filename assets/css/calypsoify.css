@@ -2088,6 +2088,7 @@ form[name="cleanup_options"] fieldset label input[type="checkbox"] {
 	color: #00a0d2;
 }
 
+/* @todo remove after https://github.com/Automattic/jetpack/pull/13126 is released */
 /* Notices and Jetpack JITM */
 div.notice,
 div.updated,
@@ -2293,6 +2294,7 @@ div.jitm-card  .jitm-banner__info .jitm-banner__title, div.jitm-card  .jitm-bann
 .wp-admin div.error + br.clear {
 	display: none;
 }
+/* End @todo */
 
 /* Akismet notices */
 #akismet-privacy-notice-admin-notice .notice-dismiss {
