@@ -39,8 +39,6 @@ class WC_Calypso_Bridge_Setup {
 			return;
 		}
 
-		add_filter( 'admin_body_class', array( $this, 'add_calypsoify_class' ) );
-
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
 		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
 		if ( ! $has_finshed_setup ) {
@@ -79,22 +77,6 @@ class WC_Calypso_Bridge_Setup {
 		$whitelist = array( 'store_setup', 'payment' );
 		$steps     = array_intersect_key( $default_steps, array_flip( $whitelist ) );
 		return $steps;
-	}
-
-	/**
-	 * Add the calypsoify classes to the body tag.
-	 *
-	 * @param string $classes Space separated string of body classes.
-	 * @return string
-	 */
-	public static function add_calypsoify_class( $classes ) {
-		include_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-page-controller.php';
-
-		if ( function_exists( 'is_wc_calypso_bridge_page' ) && is_wc_calypso_bridge_page() ) {
-			$classes .= ' calypsoify-active';
-		}
-
-		return $classes;
 	}
 
 	/**

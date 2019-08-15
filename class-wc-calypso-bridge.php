@@ -141,6 +141,7 @@ class WC_Calypso_Bridge {
 				include_once $connect_file;
 			}
 
+			add_action( 'admin_body_class', array( $this, 'add_calypsoify_class' ) );
 			add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
 		}
 	}
@@ -197,6 +198,17 @@ class WC_Calypso_Bridge {
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
 			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
 		}
+	}
+
+	/**
+	 * Add the calypsoify classes to the body tag.
+	 *
+	 * @param string $classes Space separated string of body classes.
+	 * @return string
+	 */
+	public static function add_calypsoify_class( $classes ) {
+		$classes .= ' calypsoify-active';
+		return $classes;
 	}
 
 	/**
