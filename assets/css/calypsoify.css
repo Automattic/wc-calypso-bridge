@@ -2568,3 +2568,20 @@ h3#woocommerce_stripe_connection_status {
 .woocommerce-help-text {
 	text-align: center;
 }
+
+/* WooCommerce Admin */
+.woocommerce-embed-page .woocommerce-layout__primary {
+	padding: 0;
+}
+.woocommerce-embed-page .wrap {
+	padding: 0;
+}
+.woocommerce-layout__primary {
+	margin: 0;
+}
+.woocommerce_page_wc-admin .wrap {
+	max-width: 100%;
+}
+.woocommerce-layout .woocommerce-layout__main {
+	padding-right: 0;
+}

@@ -39,8 +39,6 @@ class WC_Calypso_Bridge_Setup {
 			return;
 		}
 
-		add_filter( 'admin_body_class', array( $this, 'add_calypsoify_class' ) );
-
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
 		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
 		if ( ! $has_finshed_setup ) {
@@ -82,17 +80,6 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Add the calypsoify classes to the body tag.
-	 *
-	 * @param string $classes Space separated string of body classes.
-	 * @return string
-	 */
-	public static function add_calypsoify_class( $classes ) {
-		$classes .= ' calypsoify-active';
-		return $classes;
-	}
-
-	/**
 	 * Prevent MailChimp redirect on initial setup.
 	 *
 	 * @param string $location Redirect location.
@@ -101,7 +88,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function prevent_mailchimp_redirect( $location, $status ) {
 		if ( 'admin.php?page=mailchimp-woocommerce' === $location ) {
-			// Delete the redirect option so we don't end up here anymore
+			// Delete the redirect option so we don't end up here anymore.
 			delete_option( 'mailchimp_woocommerce_plugin_do_activation_redirect' );
 			$location = admin_url( 'admin.php?page=wc-setup-checklist&calypsoify=1' );
 		}
