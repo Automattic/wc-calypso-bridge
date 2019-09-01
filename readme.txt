@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.0.17
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,23 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+* 1.1.0
+* decrease padding on table per page select in Calypso
+* Add support for wc-admin layout
+* Fix wc-admin onboarding layout and input issues
+* Update menu item colors to match Calypso
+* Override default WP navspan class styles
+* Add calypsoify class to body tag
+* Fix up card form styling in plugins
+* use jQuery to copy WC Admin breadcrumbs to Calypso
+* Add default payment gateway task
+* Mark checklist complete if orders exist
+* Setup: Ensure MailChimp does not redirect
+* Check Jetpack dependencies before modifying the WooCommerce setup wizard
+* Check for product count instead of click in checklist
+* update readme with current dev environment set up instructions
+* add WooCommerce Admin top level pages to bridge
 
 * 1.0.17
 * Update styles for WooCommerce setup.
