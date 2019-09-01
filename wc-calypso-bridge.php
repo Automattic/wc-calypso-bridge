@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Calypso Bridge
  * Plugin URI: https://wordpress.com/
  * Description: A feature plugin to provide ux enhancments for users of Store on WordPress.com.
- * Version: 1.0.17
+ * Version: 1.1.0
  * Author: Automattic
  * Author URI: https://wordpress.com/
  * Requires at least: 4.4
@@ -61,7 +61,7 @@ if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 function wc_calypso_bridge_init() {
 	$plugin_path = dirname( __FILE__ ) . '/languages';
 	$locale = apply_filters( 'plugin_locale', determine_locale(), 'wc-calypso-bridge' );
-	$mofile = $plugin_path . '/wc-calypso-bridge' . '-' . $locale . '.mo';
+	$mofile = $plugin_path . '/wc-calypso-bridge-' . $locale . '.mo';
 
 	load_textdomain( 'wc-calypso-bridge', $mofile );
 }
