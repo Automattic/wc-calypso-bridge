@@ -36,10 +36,18 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
+	}
+
+	public function initialize() {
+		// if woo is not active, then bail.
+		if ( ! function_exists( 'WC' ) ) {
+			return;
+		}
 		add_action( 'init', array( $this, 'check_calypsoify_param' ), 1 );
 		add_action( 'init', array( $this, 'check_setup_param' ) );
 		add_action( 'init', array( $this, 'possibly_load_calypsoify' ), 2 );
-		add_action( 'plugins_loaded', array( $this, 'disable_powerpack_features' ), 2 );
+		$this->disable_powerpack_features();
 	}
 
 	/**
