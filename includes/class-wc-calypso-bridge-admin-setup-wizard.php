@@ -169,6 +169,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 		}
 		?>
 		<form method="post" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+			<input type="hidden" name="save_step" value="store_setup" />
 			<?php wp_nonce_field( 'wc-setup' ); ?>
 			<p class="store-setup"><?php esc_html_e( 'The following wizard will help you configure your store and get you started quickly.', 'wc-calypso-bridge' ); ?></p>
 
@@ -277,9 +278,10 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			<label class="location-prompt" for="woocommerce_sell_in_person">
 				<?php esc_html_e( 'I will also be selling products or services in person.', 'wc-calypso-bridge' ); ?>
 			</label>
-
+			<input type="checkbox" id="wc_tracker_checkbox" name="wc_tracker_checkbox" value="yes" />
+			<?php $this->tracking_modal(); ?>
 			<p class="wc-setup-actions step">
-				<button type="submit" class="button-primary button button-large button-next" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( "Let's go!", 'wc-calypso-bridge' ); ?></button>
+				<button class="button-primary button button-large button-next" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( "Let's go!", 'wc-calypso-bridge' ); ?></button>
 			</p>
 		</form>
 		<?php
