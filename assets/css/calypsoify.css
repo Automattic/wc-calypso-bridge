@@ -2585,3 +2585,34 @@ h3#woocommerce_stripe_connection_status {
 .woocommerce-layout .woocommerce-layout__main {
 	padding-right: 0;
 }
+
+.wc-setup-step__new_onboarding .wc-setup-step__new_onboarding-wrapper .wc-logo {
+	display: block;
+}
+
+.wc-setup-step__new_onboarding .wc-setup-step__new_onboarding-wrapper p {
+	text-align: center;
+}
+
+.wc-setup-step__new_onboarding .wc-setup-step__new_onboarding-wrapper .wc-setup-step__new_onboarding-welcome,
+.wc-setup-step__new_onboarding .wc-setup-step__new_onboarding-wrapper .wc-setup-step__new_onboarding-plugin-info {
+	color: #7c7c7c;
+	font-size: 12px;
+}
+
+.wc-setup-step__new_onboarding .wc-setup-actions {
+	display: block;
+}
+
+.wc-setup-step__new_onboarding .wc-setup-actions .button-primary {
+	background: #007cba;
+	border-color: #007cba;
+	text-shadow: none;
+}
+
+.wc-setup-step__new_onboarding .wc-setup-actions .button-primary:hover,
+.wc-setup-step__new_onboarding .wc-setup-actions .button-primary:active,
+.wc-setup-step__new_onboarding .wc-setup-actions .button-primary:focus {
+	background-color: #3582c4;
+	border-color: #007cba;
+}

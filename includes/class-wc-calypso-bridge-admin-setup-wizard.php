@@ -61,7 +61,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			<?php do_action( 'admin_print_scripts' ); ?>
 			<?php do_action( 'admin_head' ); ?>
 		</head>
-		<body class="wc-setup wp-core-ui">
+		<body class="wc-setup wp-core-ui <?php echo esc_attr( 'wc-setup-step__' . $this->step ); ?>">
 			<?php wp_admin_bar_render(); ?>
 		<?php
 	}
@@ -89,6 +89,11 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			return;
 		}
 		$default_steps = array(
+			'new_onboarding' => array(
+				'name'       => '',
+				'view'       => array( $this, 'wc_setup_new_onboarding' ),
+				'handler'    => array( $this, 'wc_setup_new_onboarding_save' ),
+			),
 			'store_setup' => array(
 				'name'       => __( 'Let\'s start setting up.', 'wc-calypso-bridge' ),
 				'subheading' => __( 'First we need to determine some basic information about your store.', 'wc-calypso-bridge' ),
@@ -133,7 +138,11 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	public function setup_wizard_footer() {
 		?>
 			<div class="wc-setup-footer">
-				<button class="button-primary button button-large" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( 'Continue', 'wc-calypso-bridge' ); ?></button>
+				<?php if ( 'new_onboarding' === $this->step ) : ?>
+					<a class="wc-setup-footer-links" href="<?php echo esc_url( $this->get_next_step_link() ); ?>"><?php esc_html_e( 'Continue with the old setup wizard', 'wc-calypso-bridge' ); ?></a>
+				<?php else : ?>
+					<button class="button-primary button button-large" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( 'Continue', 'wc-calypso-bridge' ); ?></button>
+				<?php endif; ?>
 			</div>
 			<?php do_action( 'admin_footer', '' ); ?>
 			<?php do_action( 'admin_print_footer_scripts' ); ?>
