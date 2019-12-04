@@ -108,6 +108,11 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			),
 		);
 
+		// Hide the new/improved onboarding experience screen if the user is not part of the a/b test.
+		if ( ! method_exists( $this, 'should_show_wc_admin_onboarding' ) || ! $this->should_show_wc_admin_onboarding() ) {
+			unset( $default_steps['new_onboarding'] );
+		}
+
 		$this->steps = apply_filters( 'wc_calypso_bridge_setup_wizard_steps', $default_steps );
 		$this->step  = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) ); // WPCS: CSRF ok, input var ok.
 
