@@ -2616,3 +2616,23 @@ h3#woocommerce_stripe_connection_status {
 	background-color: #3582c4;
 	border-color: #007cba;
 }
+
+/* New WooCommerce Onboarding resets to play nicely with Calypsoify */
+.woocommerce-profile-wizard__body label, .woocommerce-task-dashboard__container label {
+	font-weight: normal;
+}
+
+.woocommerce-profile-wizard__body .woocommerce-profile-wizard__checkbox-group svg.dashicon.components-checkbox-control__checked {
+	left: 0px;
+	top: -2px;
+}
+
+
+.woocommerce-profile-wizard__body input[type=checkbox] {
+	vertical-align: top;
+	margin-top: 0;
+}
+
+.woocommerce-profile-wizard__body .woocommerce-profile-wizard__checkbox-group .components-checkbox-control__label {
+	font-size: 16px;
+}
