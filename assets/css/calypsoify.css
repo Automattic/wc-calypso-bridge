@@ -2636,3 +2636,16 @@ h3#woocommerce_stripe_connection_status {
 .woocommerce-profile-wizard__body .woocommerce-profile-wizard__checkbox-group .components-checkbox-control__label {
 	font-size: 16px;
 }
+
+.woocommerce-task-dashboard__body .woocommerce-task-card .woocommerce-card__body {
+	border-top: 1px solid #ccd0d4;
+	border-left: 1px solid #ccd0d4;
+	border-right: 1px solid #ccd0d4;
+}
+
+.woocommerce-task-dashboard__body .woocommerce-task-card .woocommerce-card__header {
+	border-top: 1px solid #ccd0d4;
+	border-right: 1px solid #ccd0d4;
+	border-left: 1px solid #ccd0d4;
+	border-radius: 0;
+}
