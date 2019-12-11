@@ -2649,3 +2649,8 @@ h3#woocommerce_stripe_connection_status {
 	border-left: 1px solid #ccd0d4;
 	border-radius: 0;
 }
+
+.wc-tax-rates-search {
+	padding: 8px;
+    margin-top: 24px;
+}
