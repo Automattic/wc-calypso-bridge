@@ -10,7 +10,7 @@ var pagenow = 'wc-setup';
         e.preventDefault();
         $( '.wc-setup .button-next' ).click();
 
-        var form = $( '.wc-setup .button-next' ).parents( 'form' ).get( 0 );
+        var form = $( '.wc-setup-step__new_onboarding .button-primary, .wc-setup .button-next' ).parents( 'form' ).get( 0 );
 		if ( ( 'function' !== typeof form.checkValidity ) || form.checkValidity() ) {
 			$( this ).attr( 'disabled', true );
 		}
