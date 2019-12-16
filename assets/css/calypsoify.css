@@ -1,3 +1,7 @@
+:root {
+	--studio-wordpress-blue-60: #004e6e;
+}
+
 /**
 * Styles to override Jetpack Calypsoify styles for OBW and some WooCommerce screens
 */
@@ -2661,26 +2665,71 @@ h3#woocommerce_stripe_connection_status {
 
 .woocommerce-progress-form-wrapper .wc-progress-steps li.active,
 .woocommerce-progress-form-wrapper .wc-progress-steps li.done {
-	border-color: #135e96;
-	color: #135e96;
+	border-color: var( --studio-wordpress-blue-60 );
+	color: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-progress-form-wrapper .wc-progress-steps li.active::before {
-	border-color: #135e96;
+	border-color: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-progress-form-wrapper .wc-progress-steps li.done::before {
-	border-color: #135e96;
-	background: #135e96;
+	border-color: var( --studio-wordpress-blue-60 );
+	background: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-progress-form-wrapper .woocommerce-importer .woocommerce-importer-done::before {
-	color: #135e96;
+	color: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-exporter-wrapper .woocommerce-exporter progress::-webkit-progress-value,
 .woocommerce-importer-wrapper .woocommerce-importer progress::-webkit-progress-value,
 .woocommerce-progress-form-wrapper .wc-progress-form-content progress::-webkit-progress-value {
-	background: #135e96 !important;
-	background: linear-gradient(to bottom, #135e96, #043959), #135e96 !important;
+	background: var( --studio-wordpress-blue-60 ) !important;
+	background: linear-gradient(to bottom, var( --studio-wordpress-blue-60 ), var( --studio-wordpress-blue-80 )), var( --studio-wordpress-blue-60 ) !important;
+}
+
+.woocommerce-onboarding .woocommerce-stepper .woocommerce-stepper__step.is-active .woocommerce-stepper__step-icon,
+.woocommerce-onboarding .woocommerce-stepper .woocommerce-stepper__step.is-complete .woocommerce-stepper__step-icon {
+	background: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-layout input[type=checkbox]:checked, .woocommerce-layout input[type=radio]:checked {
+	background: var( --studio-wordpress-blue-60 );
+	border-color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-layout input[type=checkbox]:focus:checked {
+	border-color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-profile-wizard__body .woocommerce-select-control__control.is-active {
+	border-color: var( --studio-wordpress-blue-60 );
+	box-shadow: 0 0 0 1px var( --studio-wordpress-blue-60 );
+}
+
+body.woocommerce-page .components-form-toggle.is-checked .components-form-toggle__track {
+	background: var( --studio-wordpress-blue-60 );
+	border-color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-profile-wizard__themes-tab-panel .components-tab-panel__tabs button.is-active {
+	border-color: var( --studio-wordpress-blue-60 );
+	color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-task-dashboard__body .woocommerce-list .woocommerce-list__item-before i {
+	color: var( --studio-wordpress-blue-60 );
+}
+
+.muriel-input-text.active:not(.has-error) {
+	box-shadow: 0 0 0 2px var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-onboarding .woocommerce-stepper .woocommerce-stepper__step .woocommerce-spinner {
+	background: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-task-payments .woocommerce-task-payments__woocommerce-services-options svg.dashicon.components-checkbox-control__checked {
+	left: -39px;
 }
