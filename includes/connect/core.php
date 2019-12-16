@@ -1,4 +1,10 @@
 <?php
+/**
+ * Core pages to connect to the Calypsoify layout
+ *
+ * @package WC_Calypso_Bridge/Connect
+ */
+
 wc_calypso_bridge_connect_page(
 	array(
 		'screen_id' => 'edit-shop_coupon',
@@ -68,6 +74,12 @@ wc_calypso_bridge_connect_page(
 		'screen_id' => 'product',
 		'menu'      => 'edit.php?post_type=product',
 		'submenu'   => 'edit.php?post_type=product',
+	)
+);
+
+wc_calypso_bridge_connect_page(
+	array(
+		'screen_id' => 'product_page_product_importer',
 	)
 );
 

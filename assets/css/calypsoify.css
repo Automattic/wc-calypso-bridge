@@ -2654,3 +2654,33 @@ h3#woocommerce_stripe_connection_status {
 	padding: 8px;
     margin-top: 24px;
 }
+
+.woocommerce-progress-form-wrapper {
+	max-width: 90%;
+}
+
+.woocommerce-progress-form-wrapper .wc-progress-steps li.active,
+.woocommerce-progress-form-wrapper .wc-progress-steps li.done {
+	border-color: #135e96;
+	color: #135e96;
+}
+
+.woocommerce-progress-form-wrapper .wc-progress-steps li.active::before {
+	border-color: #135e96;
+}
+
+.woocommerce-progress-form-wrapper .wc-progress-steps li.done::before {
+	border-color: #135e96;
+	background: #135e96;
+}
+
+.woocommerce-progress-form-wrapper .woocommerce-importer .woocommerce-importer-done::before {
+	color: #135e96;
+}
+
+.woocommerce-exporter-wrapper .woocommerce-exporter progress::-webkit-progress-value,
+.woocommerce-importer-wrapper .woocommerce-importer progress::-webkit-progress-value,
+.woocommerce-progress-form-wrapper .wc-progress-form-content progress::-webkit-progress-value {
+	background: #135e96 !important;
+	background: linear-gradient(to bottom, #135e96, #043959), #135e96 !important;
+}
