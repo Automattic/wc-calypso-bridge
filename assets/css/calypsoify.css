@@ -1,3 +1,33 @@
+/* From Color Studio v2.2.0 */
+:root {
+	--studio-pink-0: #f5e9ed;
+	--studio-pink-5: #f2ceda;
+	--studio-pink-10: #f7a8c3;
+	--studio-pink-20: #f283aa;
+	--studio-pink-30: #eb6594;
+	--studio-pink-40: #e34c84;
+	--studio-pink-50: #c9356e;
+	--studio-pink-60: #ab235a;
+	--studio-pink-70: #8c1749;
+	--studio-pink-80: #700f3b;
+	--studio-pink-90: #4f092a;
+	--studio-pink-100: #260415;
+	--studio-pink: #c9356e;
+	--studio-wordpress-blue-0: #e6f1f5;
+	--studio-wordpress-blue-5: #bedae6;
+	--studio-wordpress-blue-10: #98c6d9;
+	--studio-wordpress-blue-20: #6ab3d0;
+	--studio-wordpress-blue-30: #3895ba;
+	--studio-wordpress-blue-40: #187aa2;
+	--studio-wordpress-blue-50: #006088;
+	--studio-wordpress-blue-60: #004e6e;
+	--studio-wordpress-blue-70: #003c56;
+	--studio-wordpress-blue-80: #002c40;
+	--studio-wordpress-blue-90: #001d2d;
+	--studio-wordpress-blue-100: #00101c;
+	--studio-wordpress-blue: #006088;
+}
+
 /**
 * Styles to override Jetpack Calypsoify styles for OBW and some WooCommerce screens
 */
@@ -2661,26 +2691,84 @@ h3#woocommerce_stripe_connection_status {
 
 .woocommerce-progress-form-wrapper .wc-progress-steps li.active,
 .woocommerce-progress-form-wrapper .wc-progress-steps li.done {
-	border-color: #135e96;
-	color: #135e96;
+	border-color: var( --studio-wordpress-blue-60 );
+	color: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-progress-form-wrapper .wc-progress-steps li.active::before {
-	border-color: #135e96;
+	border-color: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-progress-form-wrapper .wc-progress-steps li.done::before {
-	border-color: #135e96;
-	background: #135e96;
+	border-color: var( --studio-wordpress-blue-60 );
+	background: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-progress-form-wrapper .woocommerce-importer .woocommerce-importer-done::before {
-	color: #135e96;
+	color: var( --studio-wordpress-blue-60 );
 }
 
 .woocommerce-exporter-wrapper .woocommerce-exporter progress::-webkit-progress-value,
 .woocommerce-importer-wrapper .woocommerce-importer progress::-webkit-progress-value,
 .woocommerce-progress-form-wrapper .wc-progress-form-content progress::-webkit-progress-value {
-	background: #135e96 !important;
-	background: linear-gradient(to bottom, #135e96, #043959), #135e96 !important;
+	background: var( --studio-wordpress-blue-60 ) !important;
+	background: linear-gradient(to bottom, var( --studio-wordpress-blue-60 ), var( --studio-wordpress-blue-80 )), var( --studio-wordpress-blue-60 ) !important;
+}
+
+.woocommerce-onboarding .woocommerce-stepper .woocommerce-stepper__step.is-active .woocommerce-stepper__step-icon,
+.woocommerce-onboarding .woocommerce-stepper .woocommerce-stepper__step.is-complete .woocommerce-stepper__step-icon {
+	background: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-layout input[type=checkbox]:checked, .woocommerce-layout input[type=radio]:checked {
+	background: var( --studio-wordpress-blue-60 );
+	border-color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-layout input[type=checkbox]:focus:checked {
+	border-color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-profile-wizard__body .woocommerce-select-control__control.is-active {
+	border-color: var( --studio-wordpress-blue-60 );
+	box-shadow: 0 0 0 1px var( --studio-wordpress-blue-60 );
+}
+
+body.woocommerce-page .components-form-toggle.is-checked .components-form-toggle__track {
+	background: var( --studio-wordpress-blue-60 );
+	border-color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-profile-wizard__themes-tab-panel .components-tab-panel__tabs button.is-active {
+	border-color: var( --studio-wordpress-blue-60 );
+	color: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-task-dashboard__body .woocommerce-list .woocommerce-list__item-before i {
+	color: var( --studio-wordpress-blue-60 );
+}
+
+.muriel-input-text.active:not(.has-error) {
+	box-shadow: 0 0 0 2px var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-onboarding .woocommerce-stepper .woocommerce-stepper__step .woocommerce-spinner {
+	background: var( --studio-wordpress-blue-60 );
+}
+
+.woocommerce-task-payments .woocommerce-task-payments__woocommerce-services-options svg.dashicon.components-checkbox-control__checked {
+	left: -39px;
+}
+
+.wp-core-ui.wp-admin .button-primary,
+.wp-core-ui.wp-admin .action-header .page-title-action {
+	background: var( --studio-pink-50 ) !important;
+	border-color: var( --studio-pink-50 ) !important;
+	border-radius: 3px;
+}
+
+.wp-core-ui.wp-admin .button-primary:hover,
+.wp-core-ui.wp-admin .action-header .page-title-action:hover {
+	border-color: var( --studio-pink-60 ) !important;
+	background: var( --studio-pink-60 ) !important;
 }
