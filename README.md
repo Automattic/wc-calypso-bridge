@@ -43,9 +43,7 @@ add_filter( 'jetpack_tools_to_include', function( $tools ) {
 To make the bridge work, the site must have the ecommerce plan option set under the `at_options` option:
 
 ```
-add_filter( 'pre_option_at_options', function() {
-	return [ 'plan_slug' => 'ecommerce' ];
-});
+update_option( 'at_options', array( 'plan_slug' => 'ecommerce' ) );
 ```
 
 Clicking the "I'm Done Setting Up" button on the Setup Checklist page will mark the option `atomic-ecommerce-setup-checklist-complete` as true.  If you need to access this page again, you can update this in your database or temporarily add the following to your plugin file:
