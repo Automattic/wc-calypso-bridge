@@ -50,6 +50,13 @@ Clicking the "I'm Done Setting Up" button on the Setup Checklist page will mark 
 
 `update_option( 'atomic-ecommerce-setup-checklist-complete', false );`
 
+Note that this checklist can't work simultaneously with the new WooCommerce Admin onboarding experience.  To use the checklist in this plugin, make sure that you opt out of the new onboarding experience:
+
+```
+update_option( 'woocommerce_setup_ab_wc_admin_onboarding', 'a' );
+update_option( 'wc_onboarding_opt_in', 'no' );
+```
+
 If you would like to skip all of the above, [just download this gist](https://gist.github.com/timmyc/72061e99f2e6893a94845ba93e6db6ca) as a plugin and activate it :).
 
 #### Calypsoify Param
