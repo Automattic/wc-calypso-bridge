@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* 1.1.4
+* Disable new setup checklist to prep for WooCommerce 4.0
+* Added styling to hide WooCommerce Admin nav when in calypsoify view
+
 * 1.1.3
 * Improved compatibility with the new onboarding experience being tested in WooCommerce Core.
 * Fixed search box display on the tax settings page.
