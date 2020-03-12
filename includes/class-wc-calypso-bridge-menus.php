@@ -66,7 +66,7 @@ class WC_Calypso_Bridge_Menus {
 		$site_slug  = preg_replace( $strip_http, '', get_home_url() );
 		$site_slug  = str_replace( '/', '::', $site_slug );
 
-		$redirect_url = 'https://wordpress.com/stats/day/' . $site_slug;
+		$redirect_url = 'https://wordpress.com/sites/' . $site_slug;
 
 		wp_redirect( $redirect_url );
 		exit;
