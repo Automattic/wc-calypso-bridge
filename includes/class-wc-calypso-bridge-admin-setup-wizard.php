@@ -89,11 +89,6 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 			return;
 		}
 		$default_steps = array(
-			'new_onboarding' => array(
-				'name'       => '',
-				'view'       => array( $this, 'wc_setup_new_onboarding' ),
-				'handler'    => array( $this, 'wc_setup_new_onboarding_save' ),
-			),
 			'store_setup' => array(
 				'name'       => __( 'Let\'s start setting up.', 'wc-calypso-bridge' ),
 				'subheading' => __( 'First we need to determine some basic information about your store.', 'wc-calypso-bridge' ),
@@ -107,11 +102,6 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 				'handler'    => array( $this, 'wc_setup_payment_save' ),
 			),
 		);
-
-		// Hide the new/improved onboarding experience screen if the user is not part of the a/b test.
-		if ( ! method_exists( $this, 'should_show_wc_admin_onboarding' ) || ! $this->should_show_wc_admin_onboarding() ) {
-			unset( $default_steps['new_onboarding'] );
-		}
 
 		$this->steps = apply_filters( 'wc_calypso_bridge_setup_wizard_steps', $default_steps );
 		$this->step  = isset( $_GET['step'] ) ? sanitize_key( $_GET['step'] ) : current( array_keys( $this->steps ) ); // WPCS: CSRF ok, input var ok.
