@@ -74,7 +74,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @return array
 	 */
 	public function remove_unused_steps( $default_steps ) {
-		$whitelist = array( 'new_onboarding', 'store_setup', 'payment' );
+		$whitelist = array( 'store_setup', 'payment' );
 		$steps     = array_intersect_key( $default_steps, array_flip( $whitelist ) );
 		return $steps;
 	}

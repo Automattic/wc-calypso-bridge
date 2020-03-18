@@ -37,7 +37,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 		add_filter( 'pre_option_woocommerce_task_list_hidden', array( $this, 'disable_new_task_list' ) );
 		add_filter( 'pre_option_woocommerce_onboarding_opt_in', array( $this, 'disable_onboarding_opt_in' ) );
-		add_filter( 'pre_option_woocommerce_setup_ab_wc_admin_onboarding', array( $this, 'disable_onboarding_a_b_test' ) );
 	}
 
 	/**
@@ -65,13 +64,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	 */
 	public function disable_onboarding_opt_in() {
 		return 'no';
-	}
-
-	/**
-	 * Always disable the new onboarding opt-in.
-	 */
-	public function disable_onboarding_a_b_test() {
-		return 'a';
 	}
 }
 

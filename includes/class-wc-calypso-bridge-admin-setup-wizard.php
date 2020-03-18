@@ -133,11 +133,7 @@ class WC_Calypso_Bridge_Admin_Setup_Wizard extends WC_Admin_Setup_Wizard {
 	public function setup_wizard_footer() {
 		?>
 			<div class="wc-setup-footer">
-				<?php if ( 'new_onboarding' === $this->step ) : ?>
-					<a class="wc-setup-footer-links" href="<?php echo esc_url( $this->get_next_step_link() ); ?>"><?php esc_html_e( 'Continue with the old setup wizard', 'wc-calypso-bridge' ); ?></a>
-				<?php else : ?>
-					<button class="button-primary button button-large" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( 'Continue', 'wc-calypso-bridge' ); ?></button>
-				<?php endif; ?>
+				<button class="button-primary button button-large" value="<?php esc_attr_e( "Let's go!", 'wc-calypso-bridge' ); ?>" name="save_step"><?php esc_html_e( 'Continue', 'wc-calypso-bridge' ); ?></button>
 			</div>
 			<?php do_action( 'admin_footer', '' ); ?>
 			<?php do_action( 'admin_print_footer_scripts' ); ?>
