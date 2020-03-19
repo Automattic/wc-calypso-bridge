@@ -35,17 +35,6 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 	 * Hooks into WordPress to add our new setup checklist.
 	 */
 	private function __construct() {
-		// If the user opted into the new WooCommerce Onboarding wizard, don't show this task list.
-		$onboarding_ab_test = get_option( 'woocommerce_setup_ab_wc_admin_onboarding' );
-		$onboarding_opt_in  = get_option( 'wc_onboarding_opt_in', 'no' );
-		if ( 'b' === $onboarding_ab_test && 'yes' === $onboarding_opt_in ) {
-			if ( isset( $_GET['page'] ) && 'wc-setup-checklist' === $_GET['page'] ) {
-				wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
-				exit;
-			}
-			return;
-		}
-
 		$this->handle_redirects();
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
