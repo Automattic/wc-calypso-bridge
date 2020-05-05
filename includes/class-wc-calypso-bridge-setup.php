@@ -41,6 +41,10 @@ class WC_Calypso_Bridge_Setup {
 
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
 		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
+
+		// Allow the legacy OBW to be used until we are fully transitioned to the new profile wizard.
+		add_filter( 'woocommerce_setup_wizard_force_legacy', '__return_true' );
+
 		if ( ! $has_finshed_setup ) {
 			add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
 		}
