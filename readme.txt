@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,11 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+* 1.1.6
+* Add support for global `host` Tracks prop
+* Register TaxJar settings page
+* Register new Marketing Tab for Woo 4.1
 
 * 1.1.5
 * Update Manage Site link to redirect to WordPress.com MySites root.
