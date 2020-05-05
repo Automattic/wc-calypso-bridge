@@ -9,7 +9,7 @@
 
 wc_calypso_bridge_connect_page(
 	array(
-		'screen_id' => 'woocommerce_page_wc-settings-taxjarz-integration',
+		'screen_id' => 'woocommerce_page_wc-settings-taxjar-integration',
 		'menu'      => 'woocommerce',
 	)
 );
