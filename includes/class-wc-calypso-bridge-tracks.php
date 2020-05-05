@@ -37,6 +37,7 @@ class WC_Calypso_Bridge_Tracks {
 	private function __construct() {
 		add_filter( 'admin_footer', array( $this, 'add_tracks_js_filter' ) );
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
+		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
 	}
 
 	/**
@@ -61,10 +62,23 @@ class WC_Calypso_Bridge_Tracks {
 
 	/**
 	 * Add filter to PHP-based tracks events.
+	 *
+	 * @param array  $properties Current event properties array.
+	 * @param string $event_name Nmae of the event.
 	 */
 	public function add_tracks_php_filter( $properties, $event_name ) {
 		$properties['host'] = 'ecommplan';
 		return $properties;
+	}
+
+	/**
+	 * Hide the display of the WooCommerce.com settings.
+	 *
+	 * @param array $settings Current settings array.
+	 */
+	public function hide_woocommerce_com_settings( $settings ) {
+		unset( $settings['woocommerce_com'] );
+		return $settings;
 	}
 }
 
