@@ -38,6 +38,11 @@ class WC_Calypso_Bridge_Tracks {
 		add_filter( 'admin_footer', array( $this, 'add_tracks_js_filter' ) );
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
 		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
+
+		// Always opt-in to Tracks, WPCOM user tracks preferences take priority.
+		add_filter( 'woocommerce_apply_tracking', '__return_true' );
+		add_filter( 'woocommerce_apply_user_tracking', '__return_true' );
+		add_filter( 'pre_option_woocommerce_allow_tracking', array( $this, 'always_enable_tracking' ) );
 	}
 
 	/**
@@ -58,6 +63,13 @@ class WC_Calypso_Bridge_Tracks {
 			}
 		</script>
 		<?php
+	}
+
+	/**
+	 * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
+	 */
+	public function always_enable_tracking() {
+		return 'yes';
 	}
 
 	/**
