@@ -466,7 +466,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate'        => '2',
 				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=klarna_payments',
 				'learn_more'      => 'https://woocommerce.com/products/klarna-payments/',
-				'condition'       => 'yes' === $klarna_payments_settings['enabled'],
+				'condition'       => ! empty( $klarna_payments_settings ) &&
+								! empty( $klarna_payments_settings['enabled'] ) &&
+								'yes' === $klarna_payments_settings['enabled'],
 				'extension'       => 'klarna-payments-for-woocommerce/klarna-payments-for-woocommerce.php',
 				'type'            => 'payment',
 			),
@@ -479,7 +481,9 @@ class WC_Calypso_Bridge_Admin_Setup_Checklist {
 				'estimate'        => '2',
 				'link'            => 'admin.php?page=wc-settings&tab=checkout&section=kco',
 				'learn_more'      => 'https://woocommerce.com/products/klarna-checkout/',
-				'condition'       => 'yes' === $kco_settings['enabled'],
+				'condition'       => ! empty( $kco_settings ) &&
+								! empty( $kco_settings['enabled'] ) &&
+								'yes' === $kco_settings['enabled'],
 				'extension'       => 'klarna-checkout-for-woocommerce/klarna-checkout-for-woocommerce.php',
 				'type'            => 'payment',
 			),
