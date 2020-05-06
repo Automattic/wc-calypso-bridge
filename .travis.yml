@@ -1,0 +1,23 @@
+language: php
+dist: xenial
+
+matrix:
+  include:
+  - name: "PHP 7.3 unit tests, PHP Coding standards check and JS tests"
+    php: 7.3
+    env: WP_VERSION=latest WP_MULTISITE=0 WP_CORE_DIR=/tmp/wordpress RUN_PHPCS=1 COMPOSER_DEV=1
+
+before_script:
+  - phpenv config-rm xdebug.ini
+  - export PATH="$WP_CORE_DIR/wp-content/plugins/wc-calypso-bridge/vendor/bin:$PATH"
+  - bash bin/install-wp-tests.sh wc_admin_test root '' localhost $WP_VERSION
+  - bash bin/travis.sh before
+  - timedatectl
+
+script:
+  - bash bin/phpunit.sh
+  - bash bin/phpcs.sh
+
+branches:
+  only:
+    - master
