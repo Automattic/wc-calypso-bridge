@@ -1,6 +1,11 @@
 language: php
 dist: xenial
 
+# Since Xenial services are not started by default, we need to instruct it below to start.
+services:
+  - xvfb
+  - mysql
+
 matrix:
   include:
   - name: "PHP 7.3 unit tests, PHP Coding standards check and JS tests"
@@ -10,7 +15,7 @@ matrix:
 before_script:
   - phpenv config-rm xdebug.ini
   - export PATH="$WP_CORE_DIR/wp-content/plugins/wc-calypso-bridge/vendor/bin:$PATH"
-  - bash bin/install-wp-tests.sh wc_admin_test root '' localhost $WP_VERSION
+  - bash bin/install-wp-tests.sh wc_calypso_test root '' localhost $WP_VERSION
   - bash bin/travis.sh before
   - timedatectl
 
