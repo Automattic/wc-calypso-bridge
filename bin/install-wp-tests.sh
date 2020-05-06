@@ -160,7 +160,6 @@ install_deps() {
 	# Script Variables
 	WP_SITE_URL="http://local.wordpress.test"
 	WORKING_DIR="$PWD"
-	PLUGIN_SLUG=`echo $REPO | cut -f2 -d/`
 
 	# Set up WordPress using wp-cli
 	mkdir -p "$WP_CORE_DIR"
@@ -199,6 +198,7 @@ install_deps() {
 		# Checkout plugin via Git so all files are gathered.
 		cd "$WP_CORE_DIR/wp-content/plugins"
 		git clone https://github.com/$REPO.git
+		PLUGIN_SLUG=`echo $TRAVIS_REPO_SLUG | cut -f2 -d/`
 		cd $PLUGIN_SLUG
 		git fetch origin $BRANCH
 		git checkout -B $BRANCH origin/$BRANCH
