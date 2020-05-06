@@ -1,16 +1,14 @@
 language: php
-dist: xenial
-
-# Since Xenial services are not started by default, we need to instruct it below to start.
-services:
-  - xvfb
-  - mysql
+dist: trusty
 
 matrix:
   include:
   - name: "PHP 7.3 unit tests, PHP Coding standards check and JS tests"
     php: 7.3
     env: WP_VERSION=latest WP_MULTISITE=0 WP_CORE_DIR=/tmp/wordpress RUN_PHPCS=1 COMPOSER_DEV=1
+
+before_install:
+  - nvm install 'lts/*'
 
 before_script:
   - phpenv config-rm xdebug.ini
