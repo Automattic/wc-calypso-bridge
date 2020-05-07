@@ -39,6 +39,9 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 		$this->wc_dir = dirname( $this->plugin_dir ) . '/woocommerce';
 		$this->wc_api_dev_dir = dirname( $this->plugin_dir ) . '/wc-api-dev';
 		$this->wc_tests_dir = dirname( $this->plugin_dir ) . '/woocommerce/tests';
+		if ( ! is_dir( $this->wc_tests_dir . '/framework' ) ) {
+			$this->wc_tests_dir .= '/legacy';
+		}
 		$this->wp_tests_dir = getenv( 'WP_TESTS_DIR' ) ? getenv( 'WP_TESTS_DIR' ) : '/tmp/wordpress-tests-lib';
 
 		// load test function so tests_add_filter() is available
