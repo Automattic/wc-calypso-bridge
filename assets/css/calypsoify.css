@@ -1789,53 +1789,6 @@ form[name="cleanup_options"] fieldset label input[type="checkbox"] {
 	}
 }
 
-/* Onboarding wizard store setup */
-.store-setup {
-	display: none;
-}
-.store-address-container label:first-child {
-	margin-top: 0;
-}
-.location-prompt {
-	margin-top: 10px;
-}
-.store-address-container .city-and-postcode {
-	margin-bottom: 20px;
-}
-.product-type-container {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-#store_address_2 {
-	display: none;
-}
-.toggle-store_address_2 {
-	text-decoration: none;
-	font-size: 14px;
-	font-weight: 600;
-	margin-top: -7px;
-	display: block;
-	margin-bottom: 12px;
-}
-.toggle-store_address_2:before {
-	content: "+";
-	font-size: 16px;
-	top: 2px;
-	position: relative;
-	margin-right: 8px;
-	font-size: 25px;
-	font-weight: 300;
-	line-height: 14px;
-}
-@media screen and (max-width:600px) {
-	.store-address-container .city-and-postcode {
-		flex-direction: column-reverse;
-	}
-	.store-address-container .city-and-postcode div {
-		margin-right: 0;
-	}
-}
-
 /* Onboarding wizard steps */
 .wc-step-heading {
 	margin: 16px 0;
