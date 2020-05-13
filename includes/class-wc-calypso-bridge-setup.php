@@ -40,6 +40,7 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
+		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
 
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
 		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
