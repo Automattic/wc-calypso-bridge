@@ -39,6 +39,9 @@ class WC_Calypso_Bridge {
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
 
+	/**
+	 * Initialize only if WC is present.
+	 */
 	public function initialize() {
 		// if woo is not active, then bail.
 		if ( ! function_exists( 'WC' ) ) {
