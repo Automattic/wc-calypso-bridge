@@ -39,6 +39,8 @@ class WC_Calypso_Bridge_Setup {
 			return;
 		}
 
+		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
+
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
 		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
 		if ( ! $has_finshed_setup ) {
@@ -120,6 +122,25 @@ class WC_Calypso_Bridge_Setup {
 		return ! isset( $product_type['product'] );
 	}
 
+	/**
+	 * Store Profiler: Set business_extenstions to empty array.
+	 *
+	 * @param array $option Array of properties for OBW Profile.
+	 * @return array
+	 */
+	public function set_business_extensions_empty( $option ) {
+		// Ensuring the option is an array by default.
+		// By having an empty array of 'business_extensions' all options are toggled off by default in the OBW.
+		if ( ! is_array( $option ) ) {
+			$option = array(
+				'business_extensions' => array(),
+			);
+		} else {
+			$option['business_extensions'] = array();
+		}
+
+		return $option;
+	}
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
