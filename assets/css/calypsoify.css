@@ -1766,9 +1766,9 @@ form[name="cleanup_options"] fieldset label input[type="checkbox"] {
 	text-decoration: none;
 	font-size: 14px;
 	font-weight: 600;
-	margin-top: -7px;
+	margin-top: 12px;
 	display: block;
-	margin-bottom: 12px;
+	margin-bottom: 9px;
 }
 .toggle-store_address_2:before {
 	content: "+";
