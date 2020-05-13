@@ -41,6 +41,7 @@ class WC_Calypso_Bridge_Setup {
 
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
+		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ), 10, 1 );
 
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
 		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
@@ -141,6 +142,27 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		return $option;
+	}
+
+	/**
+	 * Remove non-installed ( paid ) themes from the Onboarding data source.
+	 *
+	 * @param array $themes Array of themes comprised of locally installed themes + marketplace themes.
+	 * @return array
+	 */
+	public function remove_non_installed_themes( $themes ) {
+		$local_themes = array_filter( $themes, array( $this, 'is_theme_installed' ) );
+		return $local_themes;
+	}
+
+	/**
+	 * Conditional method to determine if a theme is installed locally.
+	 *
+	 * @param array $theme Theme attributes.
+	 * @return boolean
+	 */
+	public function is_theme_installed( $theme ) {
+		return isset( $theme['is_installed'] ) && $theme['is_installed'];
 	}
 }
 
