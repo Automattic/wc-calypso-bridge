@@ -36,7 +36,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	public function init() {
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 		add_filter( 'pre_option_woocommerce_task_list_hidden', array( $this, 'disable_new_task_list' ) );
-		add_filter( 'pre_option_woocommerce_onboarding_opt_in', array( $this, 'disable_onboarding_opt_in' ) );
 	}
 
 	/**
@@ -59,12 +58,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 		return 'yes';
 	}
 
-	/**
-	 * Force the woocommerce_onboarding_opt_in option to always be no so the new checklist is never shown
-	 */
-	public function disable_onboarding_opt_in() {
-		return 'no';
-	}
 }
 
 WC_Calypso_Bridge_WooCommerce_Admin::factory()->init();
