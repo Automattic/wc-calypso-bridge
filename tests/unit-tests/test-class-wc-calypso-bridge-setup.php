@@ -23,9 +23,9 @@ class WC_Calypso_Bridge_Setup_Test extends WC_Calypso_Bridge_Test {
 				'product'     => '12345',
 			),
 		);
-		$filtered_products       = $wc_calypso_bridge_setup::remove_paid_extension_upsells( $product_types );
+		$filtered_products       = $wc_calypso_bridge_setup->remove_paid_extension_upsells( $product_types );
 		$this->assertEquals( count( $filtered_products ), 1 );
-		$this->assertEquals( $filtered_products['physical']['label'], 'Physical Products' );
+		$this->assertEquals( $filtered_products['physical']['label'], 'Physical products' );
 	}
 
 }
