@@ -56,6 +56,8 @@ class WC_Calypso_Bridge_Setup {
 			add_action( 'admin_enqueue_scripts', array( $jetpack_calypsoify, 'enqueue' ), 20 );
 			add_action( 'admin_print_styles', array( $wc_calypso_bridge, 'enqueue_calypsoify_scripts' ), 11 );
 		}
+
+		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 	}
 
 	/**
@@ -94,6 +96,28 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		return $location;
+	}
+
+	/**
+	 * Site Profiler OBW: Remove Paid Extensions
+	 *
+	 * @param  array $product_types Array of product types.
+	 * @return array
+	 */
+	public function remove_paid_extension_upsells( $product_types ) {
+		// Product Types are fetched from https://woocommerce.com/wp-json/wccom-extensions/1.0/search?category=product-type .
+		$filtered_product_types = array_filter( $product_types, array( $this, 'filter_product_types' ) );
+		return $filtered_product_types;
+	}
+
+	/**
+	 * Site Profiler OBW: Filter method for product_types to remove items with product.
+	 *
+	 * @param  array $product_type Array of product type data.
+	 * @return boolean
+	 */
+	public function filter_product_types( $product_type ) {
+		return ! isset( $product_type['product'] );
 	}
 
 }

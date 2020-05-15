@@ -75,6 +75,7 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	 */
 	public function load_wc_calypso_bridge() {
 		require_once( $this->plugin_dir . '/class-wc-calypso-bridge.php' );
+		WC_Calypso_Bridge::instance()->initialize();
 	}
 
 	/**
