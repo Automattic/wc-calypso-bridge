@@ -70,3 +70,5 @@ add_action( 'plugins_loaded', 'wc_calypso_bridge_init' );
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-frontend.php';
+
+require_once __DIR__ . '/includes/class-wc-ecomm-bridge.php';
