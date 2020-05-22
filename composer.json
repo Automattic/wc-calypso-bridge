@@ -32,6 +32,11 @@
 		"dealerdirect/phpcodesniffer-composer-installer": "0.4.4",
 		"bjornjohansen/wp-pre-commit-hook": "^0.2.2"
 	},
+	"config": {
+		"platform": {
+			"php": "7.1"
+		}
+	},
 	"scripts": {
 		"test": [
 			"phpunit"
