@@ -9,6 +9,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * WC EComm Bridge
+ */
 class WC_EComm_Bridge {
 
 	/**
@@ -44,7 +47,7 @@ class WC_EComm_Bridge {
 	 * @return array
 	 */
 	public function filter_wc_admin_enabled_features( $features ) {
-		$features[ 'homepage' ]  = false;
+		$features['homepage']  = false;
 
 		return $features;
 	}
