@@ -37,7 +37,6 @@ class WC_EComm_Bridge {
 		}
 
 		add_filter( 'woocommerce_admin_features_to_enable_disable', array( $this, 'filter_wc_admin_enabled_features' ) );
-		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 	}
 
 	/**
@@ -49,16 +48,6 @@ class WC_EComm_Bridge {
 	public function filter_wc_admin_enabled_features( $features ) {
 		$features['homepage']  = false;
 
-		return $features;
-	}
-
-	/**
-	 * Set feature list for WooCommerce Admin backend at run time.
-	 *
-	 * @param array $features List of feature names.
-	 * @return array
-	 */
-	public function filter_wc_admin_features( $features ) {
 		return $features;
 	}
 
