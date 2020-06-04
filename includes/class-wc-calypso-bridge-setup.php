@@ -39,6 +39,10 @@ class WC_Calypso_Bridge_Setup {
 			return;
 		}
 
+		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
+		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
+		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ), 10, 1 );
+
 		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
 		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
 		if ( ! $has_finshed_setup ) {
@@ -56,6 +60,8 @@ class WC_Calypso_Bridge_Setup {
 			add_action( 'admin_enqueue_scripts', array( $jetpack_calypsoify, 'enqueue' ), 20 );
 			add_action( 'admin_print_styles', array( $wc_calypso_bridge, 'enqueue_calypsoify_scripts' ), 11 );
 		}
+
+		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 	}
 
 	/**
@@ -96,6 +102,68 @@ class WC_Calypso_Bridge_Setup {
 		return $location;
 	}
 
+	/**
+	 * Site Profiler OBW: Remove Paid Extensions
+	 *
+	 * @param  array $product_types Array of product types.
+	 * @return array
+	 */
+	public function remove_paid_extension_upsells( $product_types ) {
+		// Product Types are fetched from https://woocommerce.com/wp-json/wccom-extensions/1.0/search?category=product-type .
+		$filtered_product_types = array_filter( $product_types, array( $this, 'filter_product_types' ) );
+		return $filtered_product_types;
+	}
+
+	/**
+	 * Site Profiler OBW: Filter method for product_types to remove items with product.
+	 *
+	 * @param  array $product_type Array of product type data.
+	 * @return boolean
+	 */
+	public function filter_product_types( $product_type ) {
+		return ! isset( $product_type['product'] );
+	}
+
+	/**
+	 * Store Profiler: Set business_extenstions to empty array.
+	 *
+	 * @param array $option Array of properties for OBW Profile.
+	 * @return array
+	 */
+	public function set_business_extensions_empty( $option ) {
+		// Ensuring the option is an array by default.
+		// By having an empty array of 'business_extensions' all options are toggled off by default in the OBW.
+		if ( ! is_array( $option ) ) {
+			$option = array(
+				'business_extensions' => array(),
+			);
+		} else {
+			$option['business_extensions'] = array();
+		}
+
+		return $option;
+	}
+
+	/**
+	 * Remove non-installed ( paid ) themes from the Onboarding data source.
+	 *
+	 * @param array $themes Array of themes comprised of locally installed themes + marketplace themes.
+	 * @return array
+	 */
+	public function remove_non_installed_themes( $themes ) {
+		$local_themes = array_filter( $themes, array( $this, 'is_theme_installed' ) );
+		return $local_themes;
+	}
+
+	/**
+	 * Conditional method to determine if a theme is installed locally.
+	 *
+	 * @param array $theme Theme attributes.
+	 * @return boolean
+	 */
+	public function is_theme_installed( $theme ) {
+		return isset( $theme['is_installed'] ) && $theme['is_installed'];
+	}
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();

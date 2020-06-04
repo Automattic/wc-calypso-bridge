@@ -2729,3 +2729,12 @@ body.woocommerce-page .components-form-toggle.is-checked .components-form-toggle
 	border-color: var( --studio-pink-60 ) !important;
 	background: var( --studio-pink-60 ) !important;
 }
+
+/* Hide business extensions in Profiler > Business Details */
+.woocommerce-profile-wizard__body .woocommerce-profile-wizard__container div .woocommerce-profile-wizard__benefit {
+	display: none;
+}
+/* Hides Theme Tabs ( All | Free | Paid ) since we only show installed themes */
+.woocommerce-profile-wizard__body .woocommerce-profile-wizard__themes-tab-panel .components-tab-panel__tabs {
+	display: none;
+}

@@ -39,6 +39,9 @@ class WC_Calypso_Bridge {
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
 
+	/**
+	 * Initialize only if WC is present.
+	 */
 	public function initialize() {
 		// if woo is not active, then bail.
 		if ( ! function_exists( 'WC' ) ) {
@@ -195,7 +198,7 @@ class WC_Calypso_Bridge {
 	 * Updates required UI elements for calypso bridge pages only.
 	 */
 	public function load_ui_elements() {
-		if ( is_wc_calypso_bridge_page() || ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) ) {
+		if ( is_wc_calypso_bridge_page() ) {
 			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
 
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
