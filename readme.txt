@@ -22,6 +22,16 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* 1.1.7
+* Add connect logic for WooCommerce Payments
+* Site Profiler: Remove non installed themes
+* Site Profiler: Remove business extensions
+* Enable new Site Profile Wizard
+* Tweak address 2 toggle margins
+* Add Travis configuration
+* Opt ecom sites into tracks by default
+* Fix debug warnings in admin checklist setup
+
 * 1.1.6
 * Add support for global `host` Tracks prop
 * Register TaxJar settings page
