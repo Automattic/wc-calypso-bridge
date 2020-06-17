@@ -33,6 +33,13 @@ class WC_Calypso_Bridge {
 	protected static $instance = null;
 
 	/**
+	 * Plugin host attribute for tracks.
+	 *
+	 * @var string
+	 */
+	public static $tracks_host_value = 'ecommplan-wp-admin';
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -132,7 +139,12 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-setup-checklist.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
+		// We want to adjust tracks settings regardless of if in Calypsoify UI or not.
+		require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
+
 		if ( $this->dependencies_satisfied() ) {
+			// Set the host prop specific to calypsoified views for tracks.
+			self::$tracks_host_value = 'ecommplan';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
@@ -143,7 +155,6 @@ class WC_Calypso_Bridge {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
 			include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 			require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin.php';
-			require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
 
 			// Shared with store-on-wpcom.
 			include_once dirname( __FILE__ ) . '/store-on-wpcom/inc/wc-calypso-bridge-mailchimp-no-redirect.php';

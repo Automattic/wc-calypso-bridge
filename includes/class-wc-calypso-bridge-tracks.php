@@ -54,7 +54,7 @@ class WC_Calypso_Bridge_Tracks {
 		<script type="text/javascript">
 			woocommerceTracksFilterProperties = function( properties, eventName ) {
 				// let's add a host prop for all events.
-				properties.host = 'ecommplan';
+				properties.host = '<?php echo esc_attr( WC_Calypso_Bridge::$tracks_host_value ); ?>';
 				return properties;
 			}
 	
@@ -79,7 +79,7 @@ class WC_Calypso_Bridge_Tracks {
 	 * @param string $event_name Nmae of the event.
 	 */
 	public function add_tracks_php_filter( $properties, $event_name ) {
-		$properties['host'] = 'ecommplan';
+		$properties['host'] = WC_Calypso_Bridge::$tracks_host_value;
 		return $properties;
 	}
 
