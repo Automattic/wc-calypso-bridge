@@ -22,6 +22,14 @@ class WC_Calypso_Bridge_Tracks {
 	protected static $instance = false;
 
 	/**
+	 * Plugin host attribute for tracks.
+	 *
+	 * @var string
+	 */
+	public static $tracks_host_value = '';
+
+
+	/**
 	 * Get class instance
 	 */
 	public static function get_instance() {
@@ -35,6 +43,7 @@ class WC_Calypso_Bridge_Tracks {
 	 * Constructor.
 	 */
 	private function __construct() {
+		$this->set_tracks_host_value();
 		add_filter( 'admin_footer', array( $this, 'add_tracks_js_filter' ) );
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
 		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
@@ -46,6 +55,26 @@ class WC_Calypso_Bridge_Tracks {
 	}
 
 	/**
+	 * Set's the value for the tracks host property.
+	 */
+	public function set_tracks_host_value() {
+		// Default value assumes business plan, inside wp-admin.
+		$host_value = 'bizplan-wp-admin';
+
+		// If an ecomm plan site, update host value.
+		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+			if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+				// Calypsoify UI.
+				$host_value = 'ecommplan';
+			} else {
+				// wp-admin view.
+				$host_value = 'ecommplan-wp-admin';
+			}
+		}
+		self::$tracks_host_value = $host_value;
+	}
+
+	/**
 	 * Add filter to js-based tracks events. This will add the host prop on all admin page tracks.
 	 */
 	public function add_tracks_js_filter() {
@@ -54,7 +83,7 @@ class WC_Calypso_Bridge_Tracks {
 		<script type="text/javascript">
 			woocommerceTracksFilterProperties = function( properties, eventName ) {
 				// let's add a host prop for all events.
-				properties.host = '<?php echo esc_attr( WC_Calypso_Bridge::$tracks_host_value ); ?>';
+				properties.host = '<?php echo esc_attr( self::$tracks_host_value ); ?>';
 				return properties;
 			}
 	
@@ -79,7 +108,7 @@ class WC_Calypso_Bridge_Tracks {
 	 * @param string $event_name Nmae of the event.
 	 */
 	public function add_tracks_php_filter( $properties, $event_name ) {
-		$properties['host'] = WC_Calypso_Bridge::$tracks_host_value;
+		$properties['host'] = self::$tracks_host_value;
 		return $properties;
 	}
 
