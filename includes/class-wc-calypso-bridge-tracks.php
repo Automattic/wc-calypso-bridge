@@ -122,5 +122,3 @@ class WC_Calypso_Bridge_Tracks {
 		return $settings;
 	}
 }
-
-$wc_calypso_bridge_setup = WC_Calypso_Bridge_Tracks::get_instance();
