@@ -33,21 +33,23 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '1.1.3' );
 define( 'WC_MIN_VERSION', '3.0.0' );
 
-/**
- * Returns if a site is an eCommerce plan site or not.
- * The `at_options` array is created during provisioning. Usually it is 'business' or 'ecommerce'
- * To Test: update_option( 'at_options', array( 'plan_slug' => 'ecommerce' ) );
- *
- * @return bool True if the site is an ecommerce site.
- */
-function wc_calypso_bridge_is_ecommerce_plan() {
-	$at_options = get_option( 'at_options', array() );
+if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
+	/**
+	 * Returns if a site is an eCommerce plan site or not.
+	 * The `at_options` array is created during provisioning. Usually it is 'business' or 'ecommerce'
+	 * To Test: update_option( 'at_options', array( 'plan_slug' => 'ecommerce' ) );
+	 *
+	 * @return bool True if the site is an ecommerce site.
+	 */
+	function wc_calypso_bridge_is_ecommerce_plan() {
+		$at_options = get_option( 'at_options', array() );
 
-	if ( array_key_exists( 'plan_slug', $at_options ) && 'ecommerce' === $at_options['plan_slug'] ) {
-		return true;
+		if ( array_key_exists( 'plan_slug', $at_options ) && 'ecommerce' === $at_options['plan_slug'] ) {
+			return true;
+		}
+
+		return false;
 	}
-
-	return false;
 }
 
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
@@ -55,15 +57,17 @@ if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	return;
 }
 
-/**
- * Loads language files for the plugin
- */
-function wc_calypso_bridge_init() {
-	$plugin_path = dirname( __FILE__ ) . '/languages';
-	$locale = apply_filters( 'plugin_locale', determine_locale(), 'wc-calypso-bridge' );
-	$mofile = $plugin_path . '/wc-calypso-bridge-' . $locale . '.mo';
+if ( ! function_exists( 'wc_calypso_bridge_init' ) ) {
+	/**
+	 * Loads language files for the plugin
+	 */
+	function wc_calypso_bridge_init() {
+		$plugin_path = dirname( __FILE__ ) . '/languages';
+		$locale = apply_filters( 'plugin_locale', determine_locale(), 'wc-calypso-bridge' );
+		$mofile = $plugin_path . '/wc-calypso-bridge-' . $locale . '.mo';
 
-	load_textdomain( 'wc-calypso-bridge', $mofile );
+		load_textdomain( 'wc-calypso-bridge', $mofile );
+	}
 }
 add_action( 'plugins_loaded', 'wc_calypso_bridge_init' );
 
