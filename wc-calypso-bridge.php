@@ -50,6 +50,10 @@ function wc_calypso_bridge_is_ecommerce_plan() {
 	return false;
 }
 
+// We want to adjust tracks settings for business, ecomm, in calypsoified and wp-admin views.
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
+add_action( 'init', array( 'WC_Calypso_Bridge_Tracks', 'get_instance' ) );
+
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
