@@ -6,6 +6,7 @@ project.properties
 .project
 .settings*
 .idea
+*.swp
 
 # OS X metadata
 .DS_Store
