@@ -127,6 +127,8 @@ class WC_Calypso_Bridge {
 		if ( ! function_exists( 'get_gridicon' ) ) {
 			include_once dirname( __FILE__ ) . '/includes/gridicons.php';
 		}
+		// We always want the Calypso branded OBW to run on eCommerce plan sites.
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		if ( $this->dependencies_satisfied() ) {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
