@@ -35,7 +35,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	 */
 	public function init() {
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
-		add_filter( 'pre_option_woocommerce_task_list_hidden', array( $this, 'disable_new_task_list' ) );
 	}
 
 	/**
@@ -50,14 +49,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 
 		return $features;
 	}
-
-	/**
-	 * Force the woocommerce_task_list_hidden option to always be yes so the new checklist is never shown
-	 */
-	public function disable_new_task_list() {
-		return 'yes';
-	}
-
 }
 
 WC_Calypso_Bridge_WooCommerce_Admin::factory()->init();
