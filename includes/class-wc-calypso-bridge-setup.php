@@ -42,47 +42,8 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ), 10, 1 );
-
-		// If setup has yet to complete, make sure MailChimp doesn't redirect the flow.
-		$has_finshed_setup = (bool) WC_Calypso_Bridge_Admin_Setup_Checklist::is_checklist_done();
-		if ( ! $has_finshed_setup ) {
-			add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
-		}
-
-		if ( isset( $_GET['page'] ) && 'wc-setup' === $_GET['page'] ) {
-			add_filter( 'woocommerce_setup_wizard_steps', array( $this, 'remove_unused_steps' ) );
-			add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
-			add_action( 'wp_loaded', array( $this, 'setup_wizard' ), 20 );
-
-			$jetpack_calypsoify = Jetpack_Calypsoify::getInstance();
-			$wc_calypso_bridge  = WC_Calypso_Bridge::instance();
-
-			add_action( 'admin_enqueue_scripts', array( $jetpack_calypsoify, 'enqueue' ), 20 );
-			add_action( 'admin_print_styles', array( $wc_calypso_bridge, 'enqueue_calypsoify_scripts' ), 11 );
-		}
-
+		add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
-	}
-
-	/**
-	 * Show the setup wizard.
-	 */
-	public function setup_wizard() {
-		// Always tell Calypsoify to run during the setup wizard.
-		update_user_meta( get_current_user_id(), 'calypsoify', 1 );
-		include_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-setup-wizard.php';
-	}
-
-	/**
-	 * Remove unused steps from the wizard
-	 *
-	 * @param array $default_steps Default steps used by WC wizard.
-	 * @return array
-	 */
-	public function remove_unused_steps( $default_steps ) {
-		$whitelist = array( 'store_setup', 'payment' );
-		$steps     = array_intersect_key( $default_steps, array_flip( $whitelist ) );
-		return $steps;
 	}
 
 	/**
