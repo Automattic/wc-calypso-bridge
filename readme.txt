@@ -22,6 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.1.8 =
+* Make host prop conditional in tracks
+* Remove Legacy OBW
+* Enable Woo Core setup checklist
+
 = 1.1.7 =
 * Add connect logic for WooCommerce Payments
 * Site Profiler: Remove non installed themes
