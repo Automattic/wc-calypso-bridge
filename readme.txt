@@ -7,7 +7,7 @@ Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A feature plugin to provide ux enhancments for users of Store on WordPress.com.
+A feature plugin to provide UX enhancements for users of Store on WordPress.com.
 
 == Description ==
 
@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-* 1.1.7
+= 1.1.7 =
 * Add connect logic for WooCommerce Payments
 * Site Profiler: Remove non installed themes
 * Site Profiler: Remove business extensions
@@ -32,31 +32,31 @@ This section describes how to install the plugin and get it working.
 * Opt ecom sites into tracks by default
 * Fix debug warnings in admin checklist setup
 
-* 1.1.6
+= 1.1.6 =
 * Add support for global `host` Tracks prop
 * Register TaxJar settings page
 * Register new Marketing Tab for Woo 4.1
 
-* 1.1.5
+= 1.1.5 =
 * Update Manage Site link to redirect to WordPress.com MySites root.
 * Force use of legacy obw to ensure woo pages are setup.
 
-* 1.1.4
+= 1.1.4 =
 * Disable new setup checklist to prep for WooCommerce 4.0
 * Added styling to hide WooCommerce Admin nav when in calypsoify view
 
-* 1.1.3
+= 1.1.3 =
 * Improved compatibility with the new onboarding experience being tested in WooCommerce Core.
 * Fixed search box display on the tax settings page.
 * Fix the product importer layout and styles.
 
-* 1.1.2
+= 1.1.2 =
 * Fix for OBW bug in Woo 3.8
 
-* 1.1.1
+= 1.1.1 =
 * Bail early if Woo is not active or present
 
-* 1.1.0
+= 1.1.0 =
 * decrease padding on table per page select in Calypso
 * Add support for wc-admin layout
 * Fix wc-admin onboarding layout and input issues
@@ -73,16 +73,16 @@ This section describes how to install the plugin and get it working.
 * update readme with current dev environment set up instructions
 * add WooCommerce Admin top level pages to bridge
 
-* 1.0.17
+= 1.0.17 =
 * Update styles for WooCommerce setup.
 
-* 1.0.16
+= 1.0.16 =
 * Ensure that redirect to Mailchimp for WooCommerce settings is canceled when visiting WooCommerce setup wizard (wc-setup).
 
-* 1.0.14 =
+= 1.0.14 =
 * Fix for Core Woo REST controllers only being loaded on rest requests in 3.6 beta 1
 
-* 1.0.11 =
+= 1.0.11 =
 * eCommerce Plan: Fix duplicated "manage your subscriptions" banner.
 
 = 1.0.10 =
@@ -95,7 +95,7 @@ This section describes how to install the plugin and get it working.
 
 = 1.0.8 =
 * Add support links (with tracking) to the interface
-* Redirect checlist to setup if the setup wizard hasn't ran yet
+* Redirect checklist to setup if the setup wizard hasn't ran yet
 * Add testing instructions to README
 * Fix some IE11 styles
 
