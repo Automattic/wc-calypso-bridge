@@ -57,7 +57,7 @@ class WC_Calypso_Bridge_Setup {
 		if ( 'admin.php?page=mailchimp-woocommerce' === $location ) {
 			// Delete the redirect option so we don't end up here anymore.
 			delete_option( 'mailchimp_woocommerce_plugin_do_activation_redirect' );
-			$location = admin_url( 'admin.php?page=wc-setup-checklist&calypsoify=1' );
+			$location = admin_url( 'admin.php?page=wc-setup&calypsoify=1' );
 		}
 
 		return $location;
