@@ -25,6 +25,14 @@ wc_calypso_bridge_connect_page(
 
 wc_calypso_bridge_connect_page(
 	array(
+		'screen_id' => 'woocommerce-revenue',
+		'menu'      => 'wc-admin&path=/analytics/revenue',
+		'submenu'   => 'wc-admin&path=/analytics/revenue',
+	)
+);
+
+wc_calypso_bridge_connect_page(
+	array(
 		'screen_id' => 'woocommerce-marketing',
 		'menu'      => 'wc-admin&path=/marketing',
 		'submenu'   => 'wc-admin&path=/marketing',
