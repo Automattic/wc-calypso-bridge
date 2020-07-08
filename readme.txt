@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.2.0 =
+* Correct the menu path for analytics so that it shows in the main menu
+
 = 1.1.9 =
 * Remove redirects to wc-setup-checklist
 
