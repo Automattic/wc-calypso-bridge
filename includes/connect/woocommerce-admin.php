@@ -18,6 +18,14 @@ wc_calypso_bridge_connect_page(
 wc_calypso_bridge_connect_page(
 	array(
 		'screen_id' => 'woocommerce-revenue',
+		'menu'      => 'wc-admin&path=/analytics/overview',
+		'submenu'   => 'wc-admin&path=/analytics/overview',
+	)
+);
+
+wc_calypso_bridge_connect_page(
+	array(
+		'screen_id' => 'woocommerce-revenue',
 		'menu'      => 'wc-admin&path=/analytics/revenue',
 		'submenu'   => 'wc-admin&path=/analytics/revenue',
 	)
