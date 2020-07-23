@@ -34,7 +34,7 @@ wc_calypso_bridge_connect_page(
 wc_calypso_bridge_connect_page(
 	array(
 		'screen_id' => 'woocommerce-marketing',
-		'menu'      => 'wc-admin&path=/marketing',
+		'menu'      => 'woocommerce-marketing',
 		'submenu'   => 'wc-admin&path=/marketing',
 	)
 );
