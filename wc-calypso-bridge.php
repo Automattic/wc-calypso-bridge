@@ -78,3 +78,5 @@ add_action( 'plugins_loaded', 'wc_calypso_bridge_init' );
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-frontend.php';
+
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
