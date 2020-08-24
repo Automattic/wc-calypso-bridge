@@ -42,7 +42,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	/**
 	 * Set feature flags for WooCommerce Admin front end at run time.
 	 *
-	 * @param array $features List of features 'feature' => bool indicating whether the feature is enabled.
+	 * @param array $features Array of woocommerce-admin features that are enabled by default for the current env.
 	 * @return array
 	 */
 	public function filter_wc_admin_enabled_features( $features ) {
