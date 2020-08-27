@@ -161,6 +161,8 @@ class WC_Calypso_Bridge {
 	 * @return bool
 	 */
 	public function dependencies_satisfied() {
+		// just short circuit all of this for now.
+		return true;
 		if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 			return false;
 		}
@@ -196,16 +198,16 @@ class WC_Calypso_Bridge {
 	 */
 	public function load_ui_elements() {
 		if ( is_wc_calypso_bridge_page() ) {
-			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
+			//add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
 
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tables.php';
+			//include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
+			//include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
+			//include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
+			//include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
+			//include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tables.php';
 
-			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
-			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
+			//add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
+			//add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
 		}
 	}
 
@@ -243,8 +245,8 @@ class WC_Calypso_Bridge {
 	 */
 	public function enqueue_calypsoify_scripts() {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
-		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
+		//wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
+		//wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
 
 		$icons = array(
 			'checkmark'   => get_gridicon( 'gridicons-checkmark' ),
