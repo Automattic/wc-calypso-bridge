@@ -39,34 +39,28 @@ class WC_Calypso_Bridge_Menus {
 		add_action( 'admin_menu', array( $this, 'change_woocommerce_menu_item_name' ), 100 );
 		add_action( 'admin_menu', array( $this, 'remove_create_new_menu_items' ), 100 );
 
-		add_action( 'admin_menu', array( $this, 'add_calypso_link' ), -10 ); // Before Setup.
 		add_action( 'admin_menu', array( $this, 'add_support_link' ) );
 	}
 
 	/**
-	 * Adds a link back to Calypso.
+	 * Manage site URL for Calypso
+	 * 
+	 * @return String URL to manage site on Calypso.
 	 */
-	public function add_calypso_link() {
-		add_menu_page(
-			__( 'Manage site', 'wc-calypso-bridge' ),
-			__( 'Manage site', 'wc-calypso-bridge' ),
-			'manage_woocommerce',
-			'wc-wp-manage-site',
-			array( $this, 'manage_site' ),
-			'dashicons-arrow-left-alt2',
-			0
-		);
+	public function manage_site_link(){
+		$strip_http = '/.*?:\/\//i';
+		$site_slug  = preg_replace( $strip_http, '', get_home_url() );
+		$site_slug  = str_replace( '/', '::', $site_slug );
+
+		$manage_site_url = 'https://wordpress.com/sites/' . $site_slug;
+		return $manage_site_url;
 	}
 
 	/**
 	 * Redirects the user back to Calypso.
 	 */
 	public function manage_site() {
-		$strip_http = '/.*?:\/\//i';
-		$site_slug  = preg_replace( $strip_http, '', get_home_url() );
-		$site_slug  = str_replace( '/', '::', $site_slug );
-
-		$redirect_url = 'https://wordpress.com/sites/' . $site_slug;
+		$redirect_url = $this->manage_site_link();
 
 		wp_redirect( $redirect_url );
 		exit;
@@ -111,12 +105,28 @@ class WC_Calypso_Bridge_Menus {
 	public function setup_menu_hooks() {
 		if ( is_wc_calypso_bridge_page() ) {
 			remove_action( 'in_admin_header', array( Jetpack_Calypsoify::getInstance(), 'insert_sidebar_html' ) );
-
+			add_action( 'in_admin_header', array( $this, 'insert_sidebar_html' ) );
 			add_action( 'admin_head', array( $this, 'woocommerce_menu_handler' ) );
 		} else {
 			add_action( 'admin_head', array( $this, 'calypsoify_menu_handler' ) );
 		}
 	}
+
+	public function insert_sidebar_html() {
+		$heading  =  __( 'Store', 'wc-calypso-bridge' );
+		$home_url = $this->manage_site_link();
+		?>
+		<a href="<?php echo esc_url( $home_url ); ?>" id="calypso-sidebar-header">
+			<svg class="gridicon gridicons-chevron-left" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M14 20l-8-8 8-8 1.414 1.414L8.828 12l6.586 6.586"></path></g></svg>
+
+			<ul>
+				<li id="calypso-sitename"><?php bloginfo( 'name' ); ?></li>
+				<li id="calypso-plugins"><?php echo esc_html( $heading ); ?></li>
+			</ul>
+		</a>
+		<?php
+	}
+	
 
 	/**
 	 * Updates the menu handling on WooCommerce pages to only show WooCommerce navigation.

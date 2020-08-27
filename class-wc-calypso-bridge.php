@@ -200,8 +200,6 @@ class WC_Calypso_Bridge {
 
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tables.php';
 
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
@@ -243,8 +241,8 @@ class WC_Calypso_Bridge {
 	 */
 	public function enqueue_calypsoify_scripts() {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
-		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
+		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), time(), 'all' );
+		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), time(), true );
 
 		$icons = array(
 			'checkmark'   => get_gridicon( 'gridicons-checkmark' ),

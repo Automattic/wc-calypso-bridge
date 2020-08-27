@@ -53,11 +53,6 @@
 // @todo End
 
 	/**
-	 * Move page actions to action header.
-	 */
-	$( '.page-title-action, .add-new-h2' ).appendTo( '#action-header .action-header__actions' );
-
-	/**
 	 * Move notices on pages with sub navigation.
 	 *
 	 * WP Core moves notices with jQuery so this is needed to move them again since
@@ -91,187 +86,6 @@
 	} );
 
 	/**
-	 * Toggle taxonomy form.
-	 */
-	function toggleTaxonomyForm() {
-		$( '#col-container > #col-left' ).toggle();
-		$( '#col-container > #col-right' ).toggle();
-		$( '.taxonomy-form-toggle' ).toggle();
-		$( '.wrap .search-form' ).toggle();
-		$( '.form-wrap h2:first' ).hide();
-		const formTitle = $( '.form-wrap h2:first' ).text();
-		if ( ! $( '#breadcrumb-taxonomy' ).length ) {
-			$( '.action-header__breadcrumbs' ).append(
-				'<span id="breadcrumb-taxonomy" style="display: none;">' + formTitle + '</span>'
-			);
-		}
-		$( '#breadcrumb-taxonomy' ).toggle();
-	}
-
-	/**
-	 * Click handler for taxonomy add new/cancel buttons.
-	 */
-	$( '.taxonomy-form-toggle' ).click( function( e ) {
-		e.preventDefault();
-		toggleTaxonomyForm();
-		history.pushState( {}, $( '.action-header__breadcrumbs span:last' ).text(), window.location );
-	} );
-
-	/**
-	 * Toggle form on back button.
-	 */
-	$( window ).on( 'popstate', function( e ) {
-		toggleTaxonomyForm();
-	} );
-
-	/**
-	 * Move cancel button.
-	 */
-	$( '.taxonomy-form-cancel-button' ).appendTo( 'p.submit' );
-
-	/**
-	 * Product attributes form is not AJAX'ed so toggle back if any errors.
-	 */
-	if ( $( '#woocommerce_errors' ).length ) {
-		toggleTaxonomyForm();
-	}
-
-	/**
-	 * Add cancel button to taxonomy edit forms.
-	 */
-	$( '.edit-tag-actions .button:first' ).after(
-		'<a href="' + ( 'undefined' !== typeof taxonomy ? taxonomy.listUrl : '#' ) + '" class="button button-secondary button-large taxonomy-edit-cancel-button">' + translations.cancel + '</a>'
-	);
-
-	/**
-	 * Move search box to subnav.
-	 */
-	var $subNav = $( '.subsubsub' );
-	if ( $subNav.length ) {
-		var $searchBoxListItem = $( '<li class="subsubsub__search-item"></li>' ).appendTo( $subNav );
-		var $searchBox = $( '#posts-filter .search-box' );
-		var $searchInput = $searchBox.find( 'input[type=search]' );
-		var $searchLabel = $searchInput.siblings( 'label' );
-		var uniqueId = Math.floor( Math.random() * 26 ) + Date.now();
-
-		$searchInput.attr( 'placeholder', $searchLabel.text().replace( /\:$/, '' ) );
-		$searchBox.closest( 'form' ).attr( 'data-form-id', uniqueId );
-		$searchBox.attr( 'data-target-form-id', uniqueId );
-		$searchBox.appendTo( $searchBoxListItem );
-		$subNav.addClass( 'has-search' );
-		if ( $searchInput.val() && $searchInput.val().length ) {
-			$searchBox.addClass( 'is-expanded' );
-		}
-	}
-
-	/**
-	 * Add icons to search boxes.
-	 */
-	$( '.search-box' ).prepend( '<button class="search-box__search-icon" aria-label="' + translations.openSearch + '">' + icons.search + '</button>' );
-	$( '.search-box' ).append( '<button class="search-box__close-icon" aria-label="' + translations.closeSearch + '">' + icons.cross + '</button>' );
-
-	/**
-	 * Focus search input on open icon click.
-	 */
-	$( document ).on( 'click', '.search-box__search-icon', function( e ) {
-		e.preventDefault();
-		$( this ).closest( '.search-box' ).addClass( 'has-focus' );
-		// Defer focus when expanding since input is not displayed
-		var $searchInput = $( this ).siblings( 'input[name="s"]' );
-		setTimeout( function() {
-			$searchInput.focus();
-		}, 0 );
-	} );
-
-	/**
-	 * Open search when inside nav.
-	 */
-	$( document ).on( 'click', '.subsubsub .search-box__search-icon', function( e ) {
-		$( this ).closest( '.search-box' ).addClass( 'is-expanded' );
-	} );
-
-	/**
-	 * Close search when inside nav.
-	 */
-	$( document ).on( 'click', '.subsubsub .search-box__close-icon', function( e ) {
-		e.preventDefault();
-		$( this ).closest( '.search-box' ).removeClass( 'is-expanded' );
-	} );
-
-	/**
-	 * Add focus class to search box wrapper on focus.
-	 */
-	$( document ).on( 'focus', 'input[name="s"]', function() {
-		$( this ).closest( '.search-box' ).addClass( 'has-focus' );
-	} );
-
-	/**
-	 * Remove focus on blur.
-	 */
-	$( document ).on( 'blur', 'input[name="s"]', function() {
-		$( this ).closest( '.search-box' ).removeClass( 'has-focus' );
-	} );
-
-	/**
-	 * Fix search for inputs outside of forms by appending inputs on enter/click.
-	 */
-	function appendInputsToForm( e ) {
-		if ( e.type === 'click' || e.which === 13 ) {
-			e.preventDefault();
-			const formId = $( this ).closest( '.search-box' ).data( 'target-form-id' );
-			const $form = $( 'form[data-form-id="' + formId + '"' );
-			const $searchInput = $( this ).closest( '.search-box' ).find( 'input[type="search"]' );
-			$( '<input>' ).attr( {
-					type: 'hidden',
-					id: $searchInput.attr( 'id' ),
-					name: $searchInput.attr( 'name' ),
-					value: $searchInput.val(),
-				}
-			).appendTo( $form );
-			$form.submit();
-		}
-	}
-	$( document ).on( 'click', '.subsubsub .search-box input[type=submit]', appendInputsToForm );
-	$( document ).on( 'keypress', '.subsubsub .search-box input[type=search]', appendInputsToForm );
-
-	/**
-	 * Submit regular search forms on enter.
-	 */
-	$( document ).on( 'keypress', 'div:not(.subsubsub) .search-box input[type=search]', function( e ) {
-		if ( e.which === 13 ) {
-			e.preventDefault();
-			$( this ).closest( 'form' ).submit();
-		}
-	} );
-
-	/**
-	 * Disable autocomplete for search inputs.
-	 */
-	$( document ).on( 'focus', 'input[type=search]', function() {
-		$( this ).attr( 'autocomplete', 'off' );
-	} );
-
-	/**
-	 * Clear the search query when clicking the close icon not inside subnav.
-	 */
-	$( document ).on( 'click', 'div:not(.subsubsub) .search-box__close-icon', function( e ) {
-		e.preventDefault();
-		$( this ).closest( '.search-box' ).find( 'input[type=search]' ).val( '' );
-		$( this ).closest( '.search-box' ).removeClass( 'has-value' );
-	} );
-
-	/**
-	 * Add has-value class on type.
-	 */
-	$( document ).on( 'keyup', '.search-box input[type="search"]', function( e ) {
-		if ( $( this ).val() ) {
-			$( this ).closest( '.search-box' ).addClass( 'has-value' );
-		} else {
-			$( this ).closest( '.search-box' ).removeClass( 'has-value' );
-		}
-	} );
-
-	/**
 	 * Remove auto-fold for admin sidebar menu.
 	 */
 	function removeAutoFold() {
@@ -299,24 +113,6 @@
 	$( '.wp-list-table-wrapper__inner' ).scroll();
 	$( window ).resize( function() {
 		$( '.wp-list-table-wrapper__inner' ).scroll();
-	} );
-
-	/**
-	 * Detect changes to tag/category table.
-	 */
-	var addedTags = [];
-	$( '#the-list[data-wp-lists="list:tag"] tr .name .row-title' ).each( function() {
-		addedTags.push( $( this ).text() );
-	} );
-	$( window ).load( function() {
-		$( 'body' ).on( 'DOMSubtreeModified', '#the-list[data-wp-lists="list:tag"]', function() {
-			var tagName = $( this ).find( 'tr:first .name .row-title' ).text();
-			if ( $.inArray( tagName, addedTags ) === -1 ) {
-				addedTags.push( tagName );
-				toggleTaxonomyForm();
-				appendNotice( translations.taxonomySuccess.replace( '{name}', tagName ), 'success' );
-			}
-		} );
 	} );
 
 	/**
@@ -384,36 +180,5 @@
 			return true;
 		}
 	}
-
-	/**
-	 * Copy WooCommerce Admin breadcrumbs to Calypso header.
-	 */
-	var wca_crumb_retry = 0;
-	function wca_update_crumbs() {
-		if ( ! $( '.wrap > #root' ).length ) {
-			return;
-		}
-
-		var wc_breadcrumbs = $( '.woocommerce-layout__header-breadcrumbs' ).children();
-		var cb_crumb_wrap  = $( '.action-header__breadcrumbs' );
-
-		if ( ! wc_breadcrumbs.length ) {
-			if ( 20 < ++wca_crumb_retry ) {
-				setTimeout( wca_update_crumbs, 100 );
-			} else {
-				wca_crumb_retry = 0;
-			}
-
-			return;
-		}
-
-		wca_crumb_retry = 0;
-		cb_crumb_wrap.children().remove();
-		wc_breadcrumbs.clone().appendTo( cb_crumb_wrap );
-	}
-
-	$('#wpwrap').click( wca_update_crumbs );
-
-	wca_update_crumbs();
 
 } )( jQuery );
