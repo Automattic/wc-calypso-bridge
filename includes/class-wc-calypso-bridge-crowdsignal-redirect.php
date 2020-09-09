@@ -44,10 +44,10 @@ class WC_Calypso_Bridge_Crowdsignal_Redirect {
 	}
 
 	/**
-	 * When the option to redirect is added, update to false.
+	 * When the option to redirect is added, delete the option.
 	 */
 	public function disable_crowdsignal_redirect() {
-		update_option( 'crowdsignal_forms_do_activation_redirect', false );
+		delete_option( 'crowdsignal_forms_do_activation_redirect' );
 	}
 
 
