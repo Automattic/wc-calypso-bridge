@@ -44,6 +44,26 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ), 10, 1 );
 		add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
+		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
+		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'remove_features_settings' ) );
+	}
+
+	/**
+	 * Opt all sites into using WooCommerec Home Screen.
+	 */
+	public function always_enable_homescreen() {
+		return 'yes';
+	}
+
+	/**
+	 * Remove the Features Settings Panel.
+	 *
+	 * @param array $sections Array of Settings Panel Sections.
+	 * @return array
+	 */
+	public function remove_features_settings( $sections ) {
+		unset( $sections['features'] );
+		return $sections;
 	}
 
 	/**
