@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.4.0 =
+* Enable Home Screen for all users
+* Prevent Crowdsignal Forms from redirecting
+
 = 1.3.0 =
 * Enable Remote Inbox Notifications
 
