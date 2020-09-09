@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * WC Calypso Bridge Hide Alerts
+ * WC Calypso Bridge Crowdsignal Redirect
  */
 class WC_Calypso_Bridge_Crowdsignal_Redirect {
 
