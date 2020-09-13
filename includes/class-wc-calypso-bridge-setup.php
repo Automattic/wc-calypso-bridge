@@ -42,6 +42,7 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ), 10, 1 );
+		add_filter( 'woocommerce_admin_onboarding_industries', array( $this, 'remove_not_allowed_industries' ), 10, 1 );
 		add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 	}
@@ -114,6 +115,28 @@ class WC_Calypso_Bridge_Setup {
 	public function remove_non_installed_themes( $themes ) {
 		$local_themes = array_filter( $themes, array( $this, 'is_theme_installed' ) );
 		return $local_themes;
+	}
+
+	/**
+	 * Site Profiler OBW: Remove CBD industry
+	 *
+	 * @param  array $industries Array of industries.
+	 * @return array
+	 */
+	public function remove_not_allowed_industries( $industries ) {
+		$filtered_industries = array_filter( $industries, array( $this, 'filter_industries' ) );
+		return $filtered_industries;
+	}
+
+	/**
+	 * Site Profiler OBW: Filter method for industries to remove `CBD and other hemp-derived products` option.
+	 *
+	 * @param  array $industries Array of industries.
+	 * @return array
+	 */
+	public function filter_industries( $industries ) {
+		unset( $industries['cbd-other-hemp-derived-products'] );
+		return $industries;
 	}
 
 	/**
