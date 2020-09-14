@@ -118,28 +118,6 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Site Profiler OBW: Remove CBD industry
-	 *
-	 * @param  array $industries Array of industries.
-	 * @return array
-	 */
-	public function remove_not_allowed_industries( $industries ) {
-		$filtered_industries = array_filter( $industries, array( $this, 'filter_industries' ) );
-		return $filtered_industries;
-	}
-
-	/**
-	 * Site Profiler OBW: Filter method for industries to remove `CBD and other hemp-derived products` option.
-	 *
-	 * @param  array $industries Array of industries.
-	 * @return array
-	 */
-	public function filter_industries( $industries ) {
-		unset( $industries['cbd-other-hemp-derived-products'] );
-		return $industries;
-	}
-
-	/**
 	 * Conditional method to determine if a theme is installed locally.
 	 *
 	 * @param array $theme Theme attributes.
@@ -148,6 +126,18 @@ class WC_Calypso_Bridge_Setup {
 	public function is_theme_installed( $theme ) {
 		return isset( $theme['is_installed'] ) && $theme['is_installed'];
 	}
+
+	/**
+	 * Site Profiler OBW: Remove CBD industry from industries list
+	 *
+	 * @param  array $industries Array of industries.
+	 * @return array
+	 */
+	public function remove_not_allowed_industries( $industries ) {
+		unset( $industries['cbd-other-hemp-derived-products'] );
+		return $industries;
+	}
+
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
