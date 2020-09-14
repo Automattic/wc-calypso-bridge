@@ -31,7 +31,6 @@ class WC_Calypso_Bridge_Setup_Test extends WC_Calypso_Bridge_Test {
 	/**
 	 * Test removing CBD industry from industries list.
 	 *
-	 * @since 3.5.0
 	 */
 	public function test_remove_not_allowed_industries() {
 		$wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
