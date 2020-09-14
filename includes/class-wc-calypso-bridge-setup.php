@@ -134,10 +134,23 @@ class WC_Calypso_Bridge_Setup {
 	 * @return array
 	 */
 	public function remove_not_allowed_industries( $industries ) {
-		unset( $industries['cbd-other-hemp-derived-products'] );
+		if ( isset( $industries['cbd-other-hemp-derived-products'] ) ) {
+			unset( $industries['cbd-other-hemp-derived-products'] );
+		} else {
+			$industries = array_filter( $industries, array( $this, 'filter_industries' ) );
+		}
 		return $industries;
 	}
 
+	/**
+	 * Site Profiler OBW: Filter method for industries to remove `CBD and other hemp-derived products` option.
+	 *
+	 * @param  array $industry Array of industries.
+	 * @return boolean
+	 */
+	public function filter_industries( $industry ) {
+		return 'cbd-other-hemp-derived-products' !== $industry['slug'];
+	}
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();

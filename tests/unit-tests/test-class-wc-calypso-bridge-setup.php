@@ -33,8 +33,8 @@ class WC_Calypso_Bridge_Setup_Test extends WC_Calypso_Bridge_Test {
 	 *
 	 */
 	public function test_remove_not_allowed_industries() {
-		$wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
-		$industries              = array(
+		$wc_calypso_bridge_setup       = WC_Calypso_Bridge_Setup::get_instance();
+		$industries                    = array(
 			'fashion-apparel-accessories'     => array(
 				'label'             => 'Fashion, apparel, and accessories',
 				'use_description'   => false,
@@ -51,8 +51,15 @@ class WC_Calypso_Bridge_Setup_Test extends WC_Calypso_Bridge_Test {
 				'description_label' => 'Description',
 			),
 		);
-		$filtered_industries     = $wc_calypso_bridge_setup->remove_not_allowed_industries( $industries );
+		$industries_variation          = array(
+			array( 'slug' => 'fashion-apparel-accessories' ),
+			array( 'slug' => 'cbd-other-hemp-derived-products' ),
+			array( 'slug' => 'other' ),
+		);
+		$filtered_industries           = $wc_calypso_bridge_setup->remove_not_allowed_industries( $industries );
+		$filtered_industries_variation = $wc_calypso_bridge_setup->remove_not_allowed_industries( $industries_variation );
 		$this->assertEquals( count( $filtered_industries ), 2 );
+		$this->assertEquals( count( $filtered_industries_variation ), 2 );
 	}
 
 }
