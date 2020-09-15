@@ -52,6 +52,10 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	}
 }
 
+// Filters we want to add for ecommerce plan.
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-filters.php';
+add_action( 'init', array( 'WC_Calypso_Bridge_Filters', 'get_instance' ) );
+
 // We want to adjust tracks settings for business, ecomm, in calypsoified and wp-admin views.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
 add_action( 'init', array( 'WC_Calypso_Bridge_Tracks', 'get_instance' ) );
@@ -67,8 +71,8 @@ if ( ! function_exists( 'wc_calypso_bridge_init' ) ) {
 	 */
 	function wc_calypso_bridge_init() {
 		$plugin_path = dirname( __FILE__ ) . '/languages';
-		$locale = apply_filters( 'plugin_locale', determine_locale(), 'wc-calypso-bridge' );
-		$mofile = $plugin_path . '/wc-calypso-bridge-' . $locale . '.mo';
+		$locale      = apply_filters( 'plugin_locale', determine_locale(), 'wc-calypso-bridge' );
+		$mofile      = $plugin_path . '/wc-calypso-bridge-' . $locale . '.mo';
 
 		load_textdomain( 'wc-calypso-bridge', $mofile );
 	}
