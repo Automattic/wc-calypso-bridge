@@ -45,17 +45,7 @@ class WC_Calypso_Bridge_Action_Header {
 	 */
 	public function render_action_header() {
 		?>
-		<div class="action-header" id="action-header">
-			<?php $this->back_button(); ?>
-			<div class="action-header__content">
-				<?php $this->site_icon(); ?>
-				<div class="action-header__details">
-					<?php $this->site_title(); ?>
-					<?php $this->breadcrumbs(); ?>
-				</div>
-			</div>
-			<div class="action-header__actions"></div>
-		</div>
+		<div class="action-header" id="action-header"></div>
 		<?php
 	}
 
