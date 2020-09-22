@@ -1495,6 +1495,10 @@ table.widefat {
 	display: none;
 }
 
+.submit > .taxonomy-edit-cancel-button {
+	margin-left: 15px;
+}
+
 /* WooCommerce Admin Onboarding */
 .woocommerce-admin-full-screen #wpcontent {
 	padding: 0;
