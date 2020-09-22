@@ -783,7 +783,7 @@ html.wp-toolbar {
 	max-width: 1040px;
 }
 #adminmenu {
-	margin-top: 0;
+	margin-top: 9px;
 }
 @media screen and ( min-width: 661px ) {
 	html.wp-toolbar {
@@ -2589,6 +2589,7 @@ h3#woocommerce_stripe_connection_status {
 }
 .woocommerce-embed-page .wrap {
 	padding: 0;
+	padding-top: 15px !important;
 }
 .woocommerce-layout__primary {
 	margin: 0;
