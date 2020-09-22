@@ -53,11 +53,6 @@
 // @todo End
 
 	/**
-	 * Move page actions to action header.
-	 */
-	$( '.page-title-action, .add-new-h2' ).appendTo( '#action-header .action-header__actions' );
-
-	/**
 	 * Move notices on pages with sub navigation.
 	 *
 	 * WP Core moves notices with jQuery so this is needed to move them again since
@@ -123,11 +118,6 @@
 	$( window ).on( 'popstate', function( e ) {
 		toggleTaxonomyForm();
 	} );
-
-	/**
-	 * Move cancel button.
-	 */
-	$( '.taxonomy-form-cancel-button' ).appendTo( 'p.submit' );
 
 	/**
 	 * Product attributes form is not AJAX'ed so toggle back if any errors.

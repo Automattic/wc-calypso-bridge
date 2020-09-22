@@ -810,32 +810,17 @@ html.wp-toolbar {
 
 /* Action header */
 .action-header {
-	width: 100%;
-	min-height: 47px;
-	margin: 0 0 8px;
-	padding: 8px 16px 8px 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	color: #2e4453;
-	background: #fff;
-	border-bottom: 1px solid #c8d7e1;
-	position: fixed;
-	z-index: 10000;
-	top: 46px;
-	left: 0px;
+  width: 100%;
+  min-height: 56px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #2e4453;
+  background: #fff;
+  border-bottom: 1px solid #c8d7e1;
+  position: fixed;
+  z-index: 10000;
+  top: 46px;
+  left: 0px;
 }
 @media screen and ( min-width: 481px ) {
 	.action-header {
@@ -2554,7 +2539,49 @@ h3#woocommerce_stripe_connection_status {
 
 /* WooCommerce Admin */
 .woocommerce-layout__header {
-	display: none;
+  width: 100%;
+  min-height: 56px;
+  margin: 0 0 8px;
+  padding: 8px 16px 8px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #2e4453;
+  border-bottom: 1px solid #c8d7e1;
+  position: fixed;
+  z-index: 10000;
+  top: 46px;
+  left: 0px;
+}
+
+.woocommerce-layout__header-breadcrumbs {
+  flex: unset !important;
+  height: unset !important;
+  line-height: unset !important;
+  padding: 0 0 0 var(--large-gap) !important;
+}
+
+.woocommerce-layout__activity-panel-tabs {
+  height: 30px;
+}
+.woocommerce-layout {
+  padding-top: 0px !important;
+}
+
+.woocommerce-store-alerts {
+  margin: 20px !important;
 }
 
 .woocommerce-embed-page .woocommerce-layout__primary {
