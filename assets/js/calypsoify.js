@@ -52,6 +52,34 @@
 	} );
 // @todo End
 
+  /**
+   * Get the URL params.
+   */
+  function getUrlParams( locationSearch ) {
+    if ( locationSearch ) {
+      return locationSearch
+        .substr( 1 )
+        .split( '&' )
+        .reduce( ( params, query ) => {
+          const chunks = query.split( '=' );
+          const key = chunks[ 0 ];
+          let value = decodeURIComponent( chunks[ 1 ] );
+          value = isNaN( Number( value ) ) ? value : Number( value );
+          return ( params[ key ] = value ), params;
+        }, {} );
+    }
+    return {};
+  }
+  
+  /**
+   * Move page actions to action header.
+   */
+  const searchParams = getUrlParams( window.location.search );
+  if ( searchParams.post_type?.includes( 'product' ) ) {
+    $( '.page-title-action, .add-new-h2' ).prependTo( '#col-container' );
+  }
+
+
 	/**
 	 * Move notices on pages with sub navigation.
 	 *
@@ -93,6 +121,8 @@
 		$( '#col-container > #col-right' ).toggle();
 		$( '.taxonomy-form-toggle' ).toggle();
 		$( '.wrap .search-form' ).toggle();
+		$( '.col-wrap > .taxonomy-form-cancel-button').toggle();
+		$( 'form > .taxonomy-form-cancel-button').toggle();
 		$( '.form-wrap h2:first' ).hide();
 		const formTitle = $( '.form-wrap h2:first' ).text();
 		if ( ! $( '#breadcrumb-taxonomy' ).length ) {
@@ -129,7 +159,7 @@
 	/**
 	 * Add cancel button to taxonomy edit forms.
 	 */
-	$( '.edit-tag-actions .button:first' ).after(
+	$( '#submit' ).after(
 		'<a href="' + ( 'undefined' !== typeof taxonomy ? taxonomy.listUrl : '#' ) + '" class="button button-secondary button-large taxonomy-edit-cancel-button">' + translations.cancel + '</a>'
 	);
 
