@@ -52,33 +52,30 @@
 	} );
 // @todo End
 
-  /**
-   * Get the URL params.
-   */
-  function getUrlParams( locationSearch ) {
-    if ( locationSearch ) {
-      return locationSearch
-        .substr( 1 )
-        .split( '&' )
-        .reduce( ( params, query ) => {
-          const chunks = query.split( '=' );
-          const key = chunks[ 0 ];
-          let value = decodeURIComponent( chunks[ 1 ] );
-          value = isNaN( Number( value ) ) ? value : Number( value );
-          return ( params[ key ] = value ), params;
-        }, {} );
-    }
-    return {};
-  }
-  
-  /**
-   * Move page actions to action header.
-   */
-  const searchParams = getUrlParams( window.location.search );
-  if ( searchParams.post_type?.includes( 'product' ) ) {
-    $( '.page-title-action, .add-new-h2' ).prependTo( '#col-container' );
-  }
-
+	/**
+	 * Move page actions to action header.
+	 */
+	$( document ).ready( function() {
+		const $actions = $( '.page-title-action, .add-new-h2' );
+		if ( ! $actions.is( 'button' ) ) {
+			const buttons = [];
+			$actions.each( function( index, anAction ) {
+				const { className, href, text } = anAction;
+				const button = $( '<button/>' ,{
+					class: 'button button-primary',
+					text,
+				} );
+				buttons.push( $( '<a/>' ,{
+			  	class: className,
+					href
+				} ).append( button ) );
+			} );
+			$( '.woocommerce-layout__activity-panel' ).prepend( buttons );
+			$actions.remove();
+		} else {
+			$actions.prependTo( '.woocommerce-layout__activity-panel' );
+		}
+	} );
 
 	/**
 	 * Move notices on pages with sub navigation.
