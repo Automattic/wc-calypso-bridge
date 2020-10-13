@@ -52,6 +52,14 @@
 	} );
 // @todo End
 
+
+	/**
+	 * Show content wrapper.
+	 */
+	$( document ).ready( function() {
+		$( '.wrap' ).fadeIn();
+	} );
+
 	/**
 	 * Move page actions to action header.
 	 */
