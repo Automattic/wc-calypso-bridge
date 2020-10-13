@@ -56,18 +56,17 @@
 	 * Move page actions to action header.
 	 */
 	$( document ).ready( function() {
-		const $actions = $( '.page-title-action, .add-new-h2' );
+		var $actions = $( '.page-title-action, .add-new-h2' );
 		if ( ! $actions.is( 'button' ) ) {
-			const buttons = [];
+			var buttons = [];
 			$actions.each( function( index, anAction ) {
-				const { className, href, text } = anAction;
-				const button = $( '<button/>' ,{
+				var button = $( '<button/>' ,{
 					class: 'button button-primary',
-					text,
+					text: anAction.text,
 				} );
 				buttons.push( $( '<a/>' ,{
-			  	class: className,
-					href
+			  	class: anAction.className,
+					href: anAction.href
 				} ).append( button ) );
 			} );
 			$( '.woocommerce-layout__activity-panel' ).prepend( buttons );
@@ -96,8 +95,8 @@
 	 */
 	$( document ).ready( function() {
 		$( '#wpbody-content .subsubsub, #wpbody-content .nav-tab-wrapper' ).each( function() {
-			const currentText = $( this ).find( 'a.current, .nav-tab-active' ).text();
-			const $toggle = $( '<div class="nav-tab-toggle"><span class="nav-tab-toggle__current-page">' + currentText + '</span>' + icons.chevronDown + '</div>' );
+			var currentText = $( this ).find( 'a.current, .nav-tab-active' ).text();
+			var $toggle = $( '<div class="nav-tab-toggle"><span class="nav-tab-toggle__current-page">' + currentText + '</span>' + icons.chevronDown + '</div>' );
 			$( this ).wrap( '<div class="nav-tab-container"></div>' );
 			$( this ).before( $toggle );
 		} );
@@ -121,7 +120,7 @@
 		$( '.col-wrap > .taxonomy-form-cancel-button').toggle();
 		$( 'form > .taxonomy-form-cancel-button').toggle();
 		$( '.form-wrap h2:first' ).hide();
-		const formTitle = $( '.form-wrap h2:first' ).text();
+		var formTitle = $( '.form-wrap h2:first' ).text();
 		if ( ! $( '#breadcrumb-taxonomy' ).length ) {
 			$( '.action-header__breadcrumbs' ).append(
 				'<span id="breadcrumb-taxonomy" style="display: none;">' + formTitle + '</span>'
@@ -235,9 +234,9 @@
 	function appendInputsToForm( e ) {
 		if ( e.type === 'click' || e.which === 13 ) {
 			e.preventDefault();
-			const formId = $( this ).closest( '.search-box' ).data( 'target-form-id' );
-			const $form = $( 'form[data-form-id="' + formId + '"' );
-			const $searchInput = $( this ).closest( '.search-box' ).find( 'input[type="search"]' );
+			var formId = $( this ).closest( '.search-box' ).data( 'target-form-id' );
+			var $form = $( 'form[data-form-id="' + formId + '"' );
+			var $searchInput = $( this ).closest( '.search-box' ).find( 'input[type="search"]' );
 			$( '<input>' ).attr( {
 					type: 'hidden',
 					id: $searchInput.attr( 'id' ),
@@ -305,7 +304,7 @@
 	 * Table scrolling shadow.
 	 */
 	function checkTableScroll() {
-		const scrolledToEnd = $( this )[0].scrollWidth - $( this )[0].scrollLeft <= $( this )[0].offsetWidth;
+		var scrolledToEnd = $( this )[0].scrollWidth - $( this )[0].scrollLeft <= $( this )[0].offsetWidth;
 		if ( ! scrolledToEnd ) {
 			$( this ).parent().addClass( 'is-scrollable' )
 		} else {
@@ -376,8 +375,8 @@
 	 * Support link click event.
 	 */
 	$( '.wc-support-link' ).unbind( 'click' ).click( function( e ) {
-		const source = $( this ).data( 'source' )
-		const href = $( this ).attr( 'href' );
+		var source = $( this ).data( 'source' )
+		var href = $( this ).attr( 'href' );
 		trackSupportClick( source, href );
 	} );
 
