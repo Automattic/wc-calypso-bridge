@@ -123,13 +123,8 @@ class WC_Calypso_Bridge {
 	public function possibly_load_calypsoify() {
 		add_action( 'admin_init', array( $this, 'track_calypsoify_toggle' ) );
 
-		// TODO Add composer.json to GridIcons, and pull this in via wpcomsh instead.
-		if ( ! function_exists( 'get_gridicon' ) ) {
-			include_once dirname( __FILE__ ) . '/includes/gridicons.php';
-		}
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
-
 		if ( $this->dependencies_satisfied() ) {
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
@@ -150,8 +145,8 @@ class WC_Calypso_Bridge {
 				include_once $connect_file;
 			}
 
-			add_action( 'admin_body_class', array( $this, 'add_calypsoify_class' ) );
-			add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
+			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
+			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
 		}
 	}
 
@@ -192,24 +187,6 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
-	 * Updates required UI elements for calypso bridge pages only.
-	 */
-	public function load_ui_elements() {
-		if ( is_wc_calypso_bridge_page() ) {
-			add_action( 'admin_print_styles', array( $this, 'enqueue_calypsoify_scripts' ), 11 );
-
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-breadcrumbs.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-pagination.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-taxonomies.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-action-header.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tables.php';
-
-			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
-			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
-		}
-	}
-
-	/**
 	 * Add the calypsoify classes to the body tag.
 	 *
 	 * @param string $classes Space separated string of body classes.
@@ -241,34 +218,6 @@ class WC_Calypso_Bridge {
 	/**
 	 * Add calypsoify styles
 	 */
-	public function enqueue_calypsoify_scripts() {
-		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/css/calypsoify.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, 'all' );
-		wp_enqueue_script( 'wc-calypso-bridge-calypsoify', $asset_path . 'assets/js/calypsoify.js', array( 'jquery' ), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
-
-		$icons = array(
-			'checkmark'   => get_gridicon( 'gridicons-checkmark' ),
-			'chevronDown' => get_gridicon( 'gridicons-chevron-down' ),
-			'cross'       => get_gridicon( 'gridicons-cross' ),
-			'info'        => get_gridicon( 'gridicons-info' ),
-			'notice'      => get_gridicon( 'gridicons-notice' ),
-			'search'      => get_gridicon( 'gridicons-search' ),
-		);
-		wp_localize_script(
-			'wc-calypso-bridge-calypsoify',
-			'icons',
-			$icons
-		);
-
-		$translations = array(
-			'openSearch'      => __( 'Open Search', 'wc-calypso-bridge' ),
-			'closeSearch'     => __( 'Close Search', 'wc-calypso-bridge' ),
-			'cancel'          => __( 'Cancel', 'wc-calypso-bridge' ),
-			'taxonomySuccess' => __( '"{name}" was successfully added.', 'wc-calypso-bridge' ),
-		);
-		wp_localize_script( 'wc-calypso-bridge-calypsoify', 'translations', $translations );
-
-	}
 
 	/**
 	 * Remove WooCommerce footer text
