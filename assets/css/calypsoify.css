@@ -2041,7 +2041,7 @@ form[name="cleanup_options"] fieldset label input[type="checkbox"] {
 .wp-admin .wrap > h2:nth-child(2) {
 	display: none;
 }
-.wp-admin .wrap h1, .wp-admin .wrap h2 {
+.wp-admin .wrap h2 {
 	padding-left: 0;
 }
 
@@ -2543,13 +2543,8 @@ h3#woocommerce_stripe_connection_status {
 
 /* WooCommerce Admin */
 .woocommerce-layout__header {
-  width: 100%;
-  min-height: 56px;
-  margin: 0 0 8px;
-  padding: 8px 16px 8px 0;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
@@ -2566,7 +2561,7 @@ h3#woocommerce_stripe_connection_status {
   border-bottom: 1px solid #c8d7e1;
   position: fixed;
   z-index: 10000;
-  top: 46px;
+  top: 43px;
   left: 0px;
 }
 
@@ -2576,6 +2571,17 @@ h3#woocommerce_stripe_connection_status {
   line-height: unset !important;
   padding: 0 0 0 var(--large-gap) !important;
 }
+
+
+.woocommerce-layout__header-heading {
+	background: none !important;
+	height: 59px !important;
+}
+
+.woocommerce-layout__activity-panel-tabs button{
+	height: 57px !important;
+}
+
 .woocommerce-layout {
   padding-top: 0px !important;
 }
