@@ -783,7 +783,7 @@ html.wp-toolbar {
 	max-width: 1040px;
 }
 #adminmenu {
-	margin-top: 0;
+	margin-top: 9px;
 }
 @media screen and ( min-width: 661px ) {
 	html.wp-toolbar {
@@ -810,32 +810,17 @@ html.wp-toolbar {
 
 /* Action header */
 .action-header {
-	width: 100%;
-	min-height: 47px;
-	margin: 0 0 8px;
-	padding: 8px 16px 8px 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	color: #2e4453;
-	background: #fff;
-	border-bottom: 1px solid #c8d7e1;
-	position: fixed;
-	z-index: 10000;
-	top: 46px;
-	left: 0px;
+  width: 100%;
+  min-height: 56px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #2e4453;
+  background: #fff;
+  border-bottom: 1px solid #c8d7e1;
+  position: fixed;
+  z-index: 10000;
+  top: 46px;
+  left: 0px;
 }
 @media screen and ( min-width: 481px ) {
 	.action-header {
@@ -1510,6 +1495,10 @@ table.widefat {
 	display: none;
 }
 
+.submit > .taxonomy-edit-cancel-button {
+	margin-left: 15px;
+}
+
 /* WooCommerce Admin Onboarding */
 .woocommerce-admin-full-screen #wpcontent {
 	padding: 0;
@@ -2052,7 +2041,7 @@ form[name="cleanup_options"] fieldset label input[type="checkbox"] {
 .wp-admin .wrap > h2:nth-child(2) {
 	display: none;
 }
-.wp-admin .wrap h1, .wp-admin .wrap h2 {
+.wp-admin .wrap h2 {
 	padding-left: 0;
 }
 
@@ -2554,23 +2543,85 @@ h3#woocommerce_stripe_connection_status {
 
 /* WooCommerce Admin */
 .woocommerce-layout__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #2e4453;
+  border-bottom: 1px solid #c8d7e1;
+  position: fixed;
+  z-index: 10000;
+  top: 43px;
+  left: 0px;
+}
+
+.woocommerce-layout__header-breadcrumbs {
+  flex: unset !important;
+  height: unset !important;
+  line-height: unset !important;
+  padding: 0 0 0 var(--large-gap) !important;
+}
+
+
+.woocommerce-layout__header-heading {
+	background: none !important;
+	height: 59px !important;
+}
+
+.woocommerce-layout__activity-panel-tabs button{
+	height: 57px !important;
+}
+
+.woocommerce-layout {
+  padding-top: 0px !important;
+}
+
+.woocommerce-store-alerts {
+  margin: 20px !important;
+}
+
+.wrap {
 	display: none;
 }
 
 .woocommerce-embed-page .woocommerce-layout__primary {
 	padding: 0;
 }
+
 .woocommerce-embed-page .wrap {
 	padding: 0;
+	padding-top: 15px !important;
 }
+
 .woocommerce-layout__primary {
 	margin: 0;
 }
+
 .woocommerce_page_wc-admin .wrap {
 	max-width: 100%;
 }
+
 .woocommerce-layout .woocommerce-layout__main {
 	padding-right: 0;
+}
+
+.woocommerce-layout__activity-panel {
+	top: 45px;
+}
+
+.woocommerce-layout__activity-panel .page-title-action {
+	margin: 0 5px 0 0 !important;
+	width: 100% !important;
 }
 
 .wc-setup-step__new_onboarding .wc-setup-step__new_onboarding-wrapper .wc-logo {
