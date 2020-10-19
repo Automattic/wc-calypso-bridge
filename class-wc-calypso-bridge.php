@@ -339,7 +339,7 @@ class WC_Calypso_Bridge {
 		) {
 			if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
 				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
-				wp_safe_redirect( admin_url( 'admin.php?page=wc-setup' ) );
+				wp_safe_redirect( admin_url( 'admin.php?page=wc-admin&path=/setup-wizard' ) );
 				exit;
 			}
 		}
