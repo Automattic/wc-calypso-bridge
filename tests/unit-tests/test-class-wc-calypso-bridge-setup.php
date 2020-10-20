@@ -27,5 +27,4 @@ class WC_Calypso_Bridge_Setup_Test extends WC_Calypso_Bridge_Test {
 		$this->assertEquals( count( $filtered_products ), 1 );
 		$this->assertEquals( $filtered_products['physical']['label'], 'Physical products' );
 	}
-
 }
