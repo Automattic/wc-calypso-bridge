@@ -52,6 +52,10 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	}
 }
 
+// Filters we want to add for ecommerce plan.
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-filters.php';
+add_action( 'init', array( 'WC_Calypso_Bridge_Filters', 'get_instance' ) );
+
 // We want to adjust tracks settings for business, ecomm, in calypsoified and wp-admin views.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
 add_action( 'init', array( 'WC_Calypso_Bridge_Tracks', 'get_instance' ) );
