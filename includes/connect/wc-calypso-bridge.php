@@ -9,13 +9,6 @@
 
 wc_calypso_bridge_connect_page(
 	array(
-		'screen_id' => 'toplevel_page_wc-setup-checklist',
-		'menu'      => 'wc-setup-checklist',
-	)
-);
-
-wc_calypso_bridge_connect_page(
-	array(
 		'screen_id' => 'toplevel_page_wc-wp-manage-site',
 		'menu'      => 'wc-wp-manage-site',
 	)
