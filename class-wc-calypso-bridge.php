@@ -132,7 +132,16 @@ class WC_Calypso_Bridge {
 		if ( is_wc_calypso_bridge_page() ) {
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
 			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 		}
+	}
+
+	/**
+	 * Add styles for ecommerce plan.
+	 */
+	public function add_ecommerce_plan_styles() {
+		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 
 	/**
