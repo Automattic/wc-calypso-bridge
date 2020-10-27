@@ -1,6 +1,6 @@
 <?php
 /**
- * Core pages to connect to the Calypsoify layout
+ * Core pages to connect to the ecommerce plan layout
  *
  * @package WC_Calypso_Bridge/Connect
  */
