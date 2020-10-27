@@ -17,9 +17,9 @@ To turn on development mode for this plugin and prevent the setup checklist from
 
 `add_filter( 'wc_calypso_bridge_development_mode', '__return_true' );`
 
-### Activating Calypsoify
+### Activating the Ecommerce Plan Layout
 
-To Calypsoify the dashboard and test various functionality in this plugin, there are a number of conditions that must be met.
+To use the ecommerce plan changes in the dashboard and test various functionality in this plugin, there are a number of conditions that must be met.
 
 #### Plugin Dependencies
 * WooCommerce >= 3.0.0
@@ -31,14 +31,6 @@ Note that the plugin expects to find these plugins in their original folders, so
 You will need either a connected Jetpack site or use the following filter to force Jetpack into development mode:
 
 `add_filter( 'jetpack_development_mode', '__return_true' );`
-
-Enable the Jetpack Calypso module:
-
-```
-add_filter( 'jetpack_tools_to_include', function( $tools ) {
-    return array_merge( $tools, [ 'calypsoify/class.jetpack-calypsoify.php' ] );
-} );
-```
 
 To make the bridge work, the site must have the ecommerce plan option set under the `at_options` option:
 
@@ -58,13 +50,6 @@ update_option( 'wc_onboarding_opt_in', 'no' );
 ```
 
 If you would like to skip all of the above, [just download this gist](https://gist.github.com/timmyc/72061e99f2e6893a94845ba93e6db6ca) as a plugin and activate it :).
-
-#### Calypsoify Param
-Adding the Calypsoify param `calypsoify=1` to the URL will Calypsoify any WooCommerce or WC Calypso Bridge route once the above dependencies have been met.
-
-`/wp-admin/edit.php?post_type=shop_order&calypsoify=1`
-
-If you manually visit a route that is not able to be Calypsoified (i.e, visiting `wp-admin/*` directly via URL) you will be bumped out of Calypsoify mode and need to add the param to the URL once again to reactivate it.
 
 
 ### Plugin Integrations
