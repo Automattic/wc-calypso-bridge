@@ -14,7 +14,7 @@ To check WPCS and lint errors via CLI, run the following from the root directory
 To automatically fix errors and beautify files, run the following from the root directory.
 `./vendor/bin/phpcbf [filename]`
 
-To turn on development mode for this plugin and prevent the setup checklist from being completed, the following filter can be added:
+To turn on development mode for this plugin, the following filter can be added:
 
 `add_filter( 'wc_calypso_bridge_development_mode', '__return_true' );`
 
@@ -33,21 +33,9 @@ Note that the plugin expects to find these plugins in their original folders, so
 
 You will need either a connected Jetpack site or use the following filter to force Jetpack into development mode:
 
-`add_filter( 'jetpack_development_mode', '__return_true' );`
-
-Enable the Jetpack Calypso module:
-
-```
-add_filter( 'jetpack_tools_to_include', function( $tools ) {
-    return array_merge( $tools, [ 'calypsoify/class.jetpack-calypsoify.php' ] );
-} );
-```
+`add_filter( 'jetpack_offline_mode', '__return_true' );`
 
 To make bridge work, the site must have the eCommerce plan.
-
-Clicking the "I'm Done Setting Up" button on the Setup Checklist page will mark the option `atomic-ecommerce-setup-checklist-complete` as true. If you need to access this page again, you can update this in your database or temporarily add the following to your plugin file:
-
-`update_option( 'atomic-ecommerce-setup-checklist-complete', false );`
 
 Note that this checklist can't work simultaneously with the new WooCommerce Admin onboarding experience. To use the checklist in this plugin, make sure that you opt out of the new onboarding experience:
 
