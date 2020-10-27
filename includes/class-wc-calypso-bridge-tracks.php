@@ -63,13 +63,7 @@ class WC_Calypso_Bridge_Tracks {
 
 		// If an ecomm plan site, update host value.
 		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
-			if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
-				// Calypsoify UI.
-				$host_value = 'ecommplan';
-			} else {
-				// wp-admin view.
-				$host_value = 'ecommplan-wp-admin';
-			}
+			$host_value = 'ecommplan';
 		}
 		self::$tracks_host_value = $host_value;
 	}
@@ -86,7 +80,7 @@ class WC_Calypso_Bridge_Tracks {
 				properties.host = '<?php echo esc_attr( self::$tracks_host_value ); ?>';
 				return properties;
 			}
-	
+
 			if ( window.wp && window.wp.hooks && window.wp.hooks.addFilter ) {
 				window.wp.hooks.addFilter( "woocommerce_tracks_client_event_properties", "woocommerce", woocommerceTracksFilterProperties );
 			}
