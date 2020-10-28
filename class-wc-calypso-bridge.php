@@ -99,30 +99,26 @@ class WC_Calypso_Bridge {
 	public function load_ecommerce_plan_ui() {
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
+		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
+		require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin.php';
 
-		// @todo Do we want to provide a way to break out of these changes?
-		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons.php';
-			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
-			include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
-			require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin.php';
+		// Shared with store-on-wpcom.
+		include_once dirname( __FILE__ ) . '/store-on-wpcom/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
 
-			// Shared with store-on-wpcom.
-			include_once dirname( __FILE__ ) . '/store-on-wpcom/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
-
-			// @todo This should rely on the navigation pages instead
-			$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
-			foreach ( $connect_files as $connect_file ) {
-				include_once $connect_file;
-			}
-
-			add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
+		// @todo This should rely on the navigation screens instead.
+		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
+		foreach ( $connect_files as $connect_file ) {
+			include_once $connect_file;
 		}
+
+		add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
 	}
 
 	/**
