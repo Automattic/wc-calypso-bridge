@@ -118,7 +118,10 @@ class WC_Calypso_Bridge {
 			include_once $connect_file;
 		}
 
+		// Decalypsoify ecommerce plans in case the user meta has already been previously set.
+		add_filter( 'get_user_metadata', array( $this, 'decalypsoify_ecommerce_plan' ), 10, 3 );
 		add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
+
 	}
 
 	/**
@@ -130,6 +133,22 @@ class WC_Calypso_Bridge {
 			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 		}
+	}
+
+	/**
+	 * Remove calypsoify styles to prevent styling conflicts.
+	 *
+	 * @param null   $null Always null.
+	 * @param int    $object_id Object ID.
+	 * @param string $meta_key Meta key.
+	 * @return null|bool
+	 */
+	public function decalypsoify_ecommerce_plan( $null, $object_id, $meta_key ) {
+		if ( 'calypsoify' === $meta_key ) {
+			return false;
+		}
+
+		return $null;
 	}
 
 	/**
