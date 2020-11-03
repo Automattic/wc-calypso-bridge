@@ -50,6 +50,10 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			$features[] = 'remote-inbox-notifications';
 		}
 
+		if ( ! array_key_exists( 'navigation', $features ) && 'yes' === get_option( 'woocommerce_navigation_enabled', 'yes' ) ) {
+			$features[] = 'navigation';
+		}
+
 		return $features;
 	}
 
