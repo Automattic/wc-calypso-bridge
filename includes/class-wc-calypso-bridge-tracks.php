@@ -63,7 +63,7 @@ class WC_Calypso_Bridge_Tracks {
 
 		// If an ecomm plan site, update host value.
 		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
-			if ( 1 === (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+			if ( Jetpack_Calypsoify::get_instance()->is_calypsoify_enabled ) {
 				// Calypsoify UI.
 				$host_value = 'ecommplan';
 			} else {
