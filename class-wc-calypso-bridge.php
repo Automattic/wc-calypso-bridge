@@ -102,18 +102,8 @@ class WC_Calypso_Bridge {
 	 * only hooks on admin_init which won't be run by wc-setup
 	 */
 	public function check_calypsoify_param() {
-		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
-			if ( 1 === (int) $_GET['calypsoify'] ) { // WPCS: CSRF ok.
-				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
-			} else {
-				update_user_meta( get_current_user_id(), 'calypsoify', 0 );
-			}
-
-			if ( isset( $_SERVER['REQUEST_URI'] ) ) {
-				$page = remove_query_arg( 'calypsoify', wp_basename( $_SERVER['REQUEST_URI'] ) ); // WPCS: Sanitization ok.
-				wp_safe_redirect( admin_url( $page ) );
-				exit;
-			}
+		if ( isset( $_GET['calypsoify'] ) && 1 === (int) $_GET['calypsoify'] && class_exists( 'Jetpack_Calypsoify' ) ) { // WPCS: CSRF ok.
+			Jetpack_Calypsoify::get_instance()->is_calypsoify_enabled = true;
 		}
 	}
 
@@ -121,16 +111,14 @@ class WC_Calypso_Bridge {
 	 * Load calypsoify plugins if query param / user setting is set
 	 */
 	public function possibly_load_calypsoify() {
-		add_action( 'admin_init', array( $this, 'track_calypsoify_toggle' ) );
-
 		// TODO Add composer.json to GridIcons, and pull this in via wpcomsh instead.
 		if ( ! function_exists( 'get_gridicon' ) ) {
 			include_once dirname( __FILE__ ) . '/includes/gridicons.php';
 		}
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		if ( $this->dependencies_satisfied() ) {
+			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 			include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
@@ -161,7 +149,10 @@ class WC_Calypso_Bridge {
 	 * @return bool
 	 */
 	public function dependencies_satisfied() {
-		if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
+		if ( ! class_exists( 'Jetpack' ) || ! class_exists( 'Jetpack_Calypsoify' ) ) {
+			return false;
+		}
+		if ( ! Jetpack_Calypsoify::get_instance()->is_calypsoify_enabled ) {
 			return false;
 		}
 		if (
@@ -172,9 +163,6 @@ class WC_Calypso_Bridge {
 				'<'
 			)
 		) {
-			return false;
-		}
-		if ( ! class_exists( 'Jetpack' ) || ! class_exists( 'Jetpack_Calypsoify' ) ) {
 			return false;
 		}
 		if (
@@ -336,29 +324,11 @@ class WC_Calypso_Bridge {
 		if ( current_user_can( 'manage_woocommerce' )
 			&& isset( $_GET['page'] ) // WPCS: CSRF ok.
 			&& 'wc-setup' === $_GET['page'] // WPCS: CSRF ok.
-		) {
-			if ( 1 !== (int) get_user_meta( get_current_user_id(), 'calypsoify', true ) ) {
-				update_user_meta( get_current_user_id(), 'calypsoify', 1 );
-			}
-			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin&path=/setup-wizard' ) );
-			exit;
-		}
-	}
+			&& ( ! isset( $_GET['calypsoify'] ) || 1 !== $_GET['page'] ) // WPCS: CSRF ok.
 
-	/**
-	 * Track Calypsoify events when turned on or off
-	 */
-	public function track_calypsoify_toggle() {
-		if ( isset( $_GET['calypsoify'] ) ) { // WPCS: CSRF ok.
-			$calypsoify_status = (int) get_user_meta( $current_user->ID, 'calypsoify', true );
-			if ( 1 === $calypsoify_status && 0 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
-				|| 0 === $calypsoify_status && 1 === (int) $_GET['calypsoify'] // WPCS: CSRF ok.
-			) {
-				$this->record_event(
-					'atomic_wc_calypsoify_toggle',
-					array( 'status' => intval( $_GET['calypsoify'] ) ? 'on' : 'off' ) // WPCS: CSRF ok.
-				);
-			}
+		) {
+			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin&path=/setup-wizard&calypsoify=1' ) );
+			exit;
 		}
 	}
 
