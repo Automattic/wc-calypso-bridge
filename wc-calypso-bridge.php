@@ -42,10 +42,8 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	 * @return bool True if the site is an ecommerce site.
 	 */
 	function wc_calypso_bridge_is_ecommerce_plan() {
-		$at_options = get_option( 'at_options', array() );
-
-		if ( array_key_exists( 'plan_slug', $at_options ) && 'ecommerce' === $at_options['plan_slug'] ) {
-			return true;
+		if ( class_exists( 'Atomic_Plan_Manager' ) ) {
+			return Atomic_Plan_Manager::current_plan_slug() === Atomic_Plan_Manager::ECOMMERCE_PLAN_SLUG;
 		}
 
 		return false;
