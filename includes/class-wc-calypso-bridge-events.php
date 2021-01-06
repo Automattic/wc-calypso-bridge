@@ -1,6 +1,8 @@
 <?php
 /**
  * Handle cron events.
+ *
+ * @package WC_Calypso_Bridge/Classes
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -22,8 +24,10 @@ class WC_Calypso_Bridge_Events {
 	 * @return void
 	 */
 	protected function __construct() {
-		add_action( 'wc_calypso_bridge_daily', array( $this, 'do_wc_calypso_bridge_daily' ) );
-    }
+		register_activation_hook( WC_CALYSPO_BRIDGE_PLUGIN_FILE, array( $this, 'on_plugin_activation' ) );
+		register_deactivation_hook( WC_CALYSPO_BRIDGE_PLUGIN_FILE, array( $this, 'on_plugin_deactivation' ) );
+		add_action( 'plugins_loaded', array( $this, 'init' ) );
+	}
 
 	/**
 	 * Get class instance.
@@ -38,11 +42,36 @@ class WC_Calypso_Bridge_Events {
 	}
 
 	/**
+	 * Initialize daily events.
+	 */
+	public function init() {
+		add_action( 'wc_calypso_bridge_daily', array( $this, 'do_wc_calypso_bridge_daily' ) );
+	}
+
+	/**
+	 * Registers the daily cron event.
+	 */
+	public function on_plugin_activation() {
+		if ( ! wp_next_scheduled( 'wc_calypso_bridge_daily' ) ) {
+			wp_schedule_event( time(), 'daily', 'wc_calypso_bridge_daily' );
+		}
+	}
+
+	/**
+	 * Clear scheduled cron events.
+	 */
+	public function on_plugin_deactivation() {
+		wp_clear_scheduled_hook( 'wc_calypso_bridge_daily' );
+	}
+
+	/**
 	 * Daily events to run.
 	 */
 	public function do_wc_calypso_bridge_daily() {
-        include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-navigation-learn-more-note.php';
+		include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-navigation-learn-more-note.php';
 
-        WC_Calypso_Bridge_Navigation_Learn_More_Note::possibly_add_note();
+		WC_Calypso_Bridge_Navigation_Learn_More_Note::possibly_add_note();
 	}
 }
+
+WC_Calypso_Bridge_Events::get_instance();

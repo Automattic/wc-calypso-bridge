@@ -30,6 +30,7 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 	}
 }
 
+define( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE', __FILE__ );
 define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '1.5.1' );
 define( 'WC_MIN_VERSION', '3.0.0' );
 
@@ -50,29 +51,6 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	}
 }
 
-if ( ! function_exists( 'wc_calypso_bridge_on_activation' ) ) {
-	/**
-	 * Registers the daily cron event.
-	 */
-	function wc_calypso_bridge_on_activation() {
-		if ( ! wp_next_scheduled( 'wc_calypso_bridge_daily' ) ) {
-			wp_schedule_event( time(), 'daily', 'wc_calypso_bridge_daily' );
-		}
-	}
-}
-
-if ( ! function_exists( 'wc_calypso_bridge_on_deactivation' ) ) {
-	/**
-	 * Clear scheduled cron events.
-	 */
-	function wc_calypso_bridge_on_deactivation() {
-		wp_clear_scheduled_hook( 'wc_calypso_bridge_daily' );
-	}
-}
-
-register_activation_hook( __FILE__, 'wc_calypso_bridge_on_activation' );
-register_deactivation_hook( __FILE__, 'wc_calypso_bridge_on_deactivation' );
-
 // Filters we want to add for ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-filters.php';
 add_action( 'init', array( 'WC_Calypso_Bridge_Filters', 'get_instance' ) );
@@ -83,7 +61,6 @@ add_action( 'init', array( 'WC_Calypso_Bridge_Tracks', 'get_instance' ) );
 
 // Load cron events.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-events.php';
-add_action( 'plugins_loaded', array( 'WC_Calypso_Bridge_Events', 'get_instance' ) );
 
 // Also prevent Crowdsignal from redirecting during onboarding in all both wp-admin and calypsoified ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
