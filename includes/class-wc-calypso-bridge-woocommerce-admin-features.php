@@ -37,7 +37,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		}
 
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
-		add_filter( 'woocommerce_get_sections_advanced', array( __CLASS__, 'add_features_section' ) );
+		add_filter( 'woocommerce_get_sections_advanced', array( __CLASS__, 'add_features_section' ), 20 );
 		add_filter( 'woocommerce_get_settings_advanced', array( __CLASS__, 'add_features_settings' ), 20, 2 );
 	}
 
