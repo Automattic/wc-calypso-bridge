@@ -30,22 +30,9 @@ To use the ecommerce plan changes in the dashboard and test various functionalit
 Note that the plugin expects to find these plugins in their original folders, so renaming these folders may prevent the plugin from running.
 
 #### Jetpack Connection && Option Values
-<<<<<<< HEAD
 
 You will need either a connected Jetpack site or use the following filter to force Jetpack into development mode:
-=======
-You will need either a connected Jetpack site or use the following filter to force Jetpack into development mode:
 
-`add_filter( 'jetpack_offline_mode', '__return_true' );`
-
-To make the bridge work, the site must have the ecommerce plan option set under the `at_options` option:
-
-```
-update_option( 'at_options', array( 'plan_slug' => 'ecommerce' ) );
-```
->>>>>>> 198c79f... Remove remaining references to calypsoify
-
-<<<<<<< HEAD
 `add_filter( 'jetpack_offline_mode', '__return_true' );`
 
 To make bridge work, the site must have the eCommerce plan.
@@ -57,14 +44,8 @@ update_option( 'woocommerce_setup_ab_wc_admin_onboarding', 'a' );
 update_option( 'wc_onboarding_opt_in', 'no' );
 ```
 
-=======
->>>>>>> ce907b7... Delete bridge setup checklist
 If you would like to skip all of the above, [just download this gist](https://gist.github.com/timmyc/72061e99f2e6893a94845ba93e6db6ca) as a plugin and activate it :).
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 198c79f... Remove remaining references to calypsoify
 ### Plugin Integrations
 
 The ecommerce plan comes bundled with a number of plugins that this plugin integrates with if activated. To fully test this plugin's functionality, the following plugins can be installed.
