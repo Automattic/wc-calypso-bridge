@@ -44,7 +44,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	/**
 	 * Set feature flags for WooCommerce Admin front end at run time.
 	 *
-	 * @param array $features Array of woocommerce-admin features that are enabled by default for the current env.
+	 * @param array $features Array of wc-calypso-bridge features that are enabled by default for the current env.
 	 * @return array
 	 */
 	public function filter_wc_admin_enabled_features( $features ) {
@@ -69,7 +69,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 */
 	public static function add_features_section( $sections ) {
 		if ( ! isset( $sections['features'] ) ) {
-			$sections['features'] = __( 'Features', 'woocommerce-admin' );
+			$sections['features'] = __( 'Features', 'wc-calypso-bridge' );
 		}
 
 		return $sections;
@@ -101,14 +101,14 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			'woocommerce_settings_features',
 			array(
 				array(
-					'title' => __( 'Features', 'woocommerce-admin' ),
+					'title' => __( 'Features', 'wc-calypso-bridge' ),
 					'type'  => 'title',
-					'desc'  => __( 'Start using new features that are being progressively rolled out to improve the store management experience.', 'woocommerce-admin' ),
+					'desc'  => __( 'Start using new features that are being progressively rolled out to improve the store management experience.', 'wc-calypso-bridge' ),
 					'id'    => 'features_options',
 				),
 				array(
-					'title' => __( 'Navigation', 'woocommerce-admin' ),
-					'desc'  => __( 'Adds the new WooCommerce navigation experience to the dashboard', 'woocommerce-admin' ),
+					'title' => __( 'Navigation', 'wc-calypso-bridge' ),
+					'desc'  => __( 'Adds the new WooCommerce navigation experience to the dashboard', 'wc-calypso-bridge' ),
 					'id'    => 'woocommerce_navigation_enabled',
 					'type'  => 'checkbox',
 				),
