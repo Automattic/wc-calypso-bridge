@@ -35,22 +35,12 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'admin_init', array( $this, 'hide_woo_obw_alert' ) );
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 
 		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
-	}
-
-	/**
-	 * Prevents the OBW admin alert from Woo Core from being shown
-	 */
-	public function hide_woo_obw_alert() {
-		if ( class_exists( 'WC_Admin_Notices' ) ) {
-			WC_Admin_Notices::remove_notice( 'install' );
-		}
 	}
 
 	/**

@@ -1,0 +1,14 @@
+/* Hide business extensions in Profiler > Business Details */
+.woocommerce-profile-wizard__body .woocommerce-profile-wizard__container div .woocommerce-profile-wizard__benefit {
+	display: none;
+}
+
+/* Hides Theme Tabs ( All | Free | Paid ) since we only show installed themes */
+.woocommerce-profile-wizard__body .woocommerce-profile-wizard__themes-tab-panel .components-tab-panel__tabs {
+	display: none;
+}
+
+/* Hides pricing toggle on Profiler > Product Types */
+.woocommerce-profile-wizard__body .woocommerce-profile-wizard__product-types .woocommerce-card__body .woocommerce-profile-wizard__product-types-pricing-toggle.woocommerce-profile-wizard__checkbox {
+	display: none;
+}

@@ -35,17 +35,13 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
-		if ( ! class_exists( 'Jetpack_Calypsoify', false ) ) {
-			return;
-		}
-
-		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
-		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ), 10, 1 );
-		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ), 10, 1 );
+		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
+		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
+		add_filter( 'default_option_woocommerce_navigation_enabled', array( $this, 'enable_navigation_by_default' ) );
+		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
-		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'remove_features_settings' ) );
 	}
 
 	/**
@@ -53,17 +49,6 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function always_enable_homescreen() {
 		return 'yes';
-	}
-
-	/**
-	 * Remove the Features Settings Panel.
-	 *
-	 * @param array $sections Array of Settings Panel Sections.
-	 * @return array
-	 */
-	public function remove_features_settings( $sections ) {
-		unset( $sections['features'] );
-		return $sections;
 	}
 
 	/**
@@ -77,7 +62,7 @@ class WC_Calypso_Bridge_Setup {
 		if ( 'admin.php?page=mailchimp-woocommerce' === $location ) {
 			// Delete the redirect option so we don't end up here anymore.
 			delete_option( 'mailchimp_woocommerce_plugin_do_activation_redirect' );
-			$location = admin_url( 'admin.php?page=wc-setup&calypsoify=1' );
+			$location = admin_url( 'admin.php?page=wc-admin' );
 		}
 
 		return $location;
@@ -123,6 +108,15 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		return $option;
+	}
+
+	/**
+	 * Enable the navigation feature by default.
+	 *
+	 * @return string
+	 */
+	public function enable_navigation_by_default() {
+		return 'yes';
 	}
 
 	/**
