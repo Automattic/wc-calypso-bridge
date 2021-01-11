@@ -1,6 +1,8 @@
 <?php
 /**
  * WooCommerce Calypso Bridge Navigation Learn More Note
+ *
+ * @package WC_Calypso_Bridge/Notes
  */
 
 use Automattic\WooCommerce\Admin\Notes\Note;
@@ -41,16 +43,16 @@ class WC_Calypso_Bridge_Navigation_Learn_More_Note {
 			return;
 		}
 
-		$content = __( 'Introducing a streamlined, commerce-first navigation experience, to help you save time and find the things that matter.', 'woocommerce-admin' );
+		$content = __( 'Introducing a streamlined, commerce-first navigation experience, to help you save time and find the things that matter.', 'wc-calypso-bridge' );
 
 		$note = new Note();
-		$note->set_title( __( 'Welcome your new WooCommerce Navigation', 'woocommerce-admin' ) );
+		$note->set_title( __( 'Welcome your new WooCommerce Navigation', 'wc-calypso-bridge' ) );
 		$note->set_content( $content );
 		$note->set_content_data( (object) array() );
 		$note->set_type( Note::E_WC_ADMIN_NOTE_INFORMATIONAL );
 		$note->set_name( self::NOTE_NAME );
-		$note->set_source( 'woocommerce-admin' );
-		$note->add_action( 'learn-more', __( 'Learn more', 'woocommerce-admin' ), 'https://automattic.survey.fm/new-navigation' );
+		$note->set_source( 'wc-calypso-bridge' );
+		$note->add_action( 'learn-more', __( 'Learn more', 'wc-calypso-bridge' ), 'https://wordpress.com/support/?page_id=177515' );
 		return $note;
 	}
 }
