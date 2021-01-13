@@ -30,6 +30,7 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 	}
 }
 
+define( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE', __FILE__ );
 define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '1.5.1' );
 define( 'WC_MIN_VERSION', '3.0.0' );
 
@@ -57,6 +58,9 @@ add_action( 'init', array( 'WC_Calypso_Bridge_Filters', 'get_instance' ) );
 // We want to adjust tracks settings for business, ecomm, in calypsoified and wp-admin views.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
 add_action( 'init', array( 'WC_Calypso_Bridge_Tracks', 'get_instance' ) );
+
+// Load cron events.
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-events.php';
 
 // Also prevent Crowdsignal from redirecting during onboarding in all both wp-admin and calypsoified ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';

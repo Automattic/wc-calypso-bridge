@@ -36,6 +36,10 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
+			return;
+		}
+
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
 
@@ -108,6 +112,7 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 		require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin.php';
+		require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-notes.php';
 
 		// Shared with store-on-wpcom.
 		include_once dirname( __FILE__ ) . '/store-on-wpcom/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
@@ -257,6 +262,4 @@ class WC_Calypso_Bridge {
 	}
 
 }
-if ( is_admin() ) {
-	WC_Calypso_Bridge::instance();
-}
+WC_Calypso_Bridge::instance();
