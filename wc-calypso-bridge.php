@@ -65,6 +65,9 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-events.php
 // Also prevent Crowdsignal from redirecting during onboarding in all both wp-admin and calypsoified ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
 
+// Force on various WooCommerce Admin features by default.
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
+
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
@@ -87,5 +90,3 @@ add_action( 'plugins_loaded', 'wc_calypso_bridge_init' );
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-frontend.php';
-
-require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
