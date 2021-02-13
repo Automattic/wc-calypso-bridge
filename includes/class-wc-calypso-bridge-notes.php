@@ -44,6 +44,16 @@ class WC_Calypso_Bridge_Notes {
 		include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-navigation-learn-more-note.php';
 
 		$navigation_learn_more_note = new WC_Calypso_Bridge_Navigation_Learn_More_Note();
+
+		// Turn off email notifications.
+		add_filter( 'pre_option_woocommerce_merchant_email_notifications', array( $this, 'disable_email_notes' ) );
+	}
+
+	/**
+	 * Disable email based notifications.
+	 */
+	function disable_email_notes(){
+		return 'no';
 	}
 
 	/**
