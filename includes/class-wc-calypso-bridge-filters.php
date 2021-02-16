@@ -38,7 +38,7 @@ class WC_Calypso_Bridge_Filters {
 		add_action( 'woocommerce_admin_onboarding_industries', array( $this, 'remove_not_allowed_industries' ), 10, 1 );
 
 		// Turn off email notifications.
-		//add_filter( 'pre_option_woocommerce_merchant_email_notifications', array( $this, 'disable_email_notes' ) );
+		add_filter( 'pre_option_woocommerce_merchant_email_notifications', array( $this, 'disable_email_notes' ) );
 	}
 
 	/**
