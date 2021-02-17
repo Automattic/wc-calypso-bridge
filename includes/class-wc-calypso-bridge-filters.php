@@ -69,7 +69,7 @@ class WC_Calypso_Bridge_Filters {
 	/**
 	 * Disable email based notifications.
 	 */
-	function disable_email_notes(){
+	public function disable_email_notes() {
 		return 'no';
 	}
 }
