@@ -47,6 +47,7 @@ class WC_Calypso_Bridge_Tracks {
 		add_filter( 'admin_footer', array( $this, 'add_tracks_js_filter' ) );
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
 		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
+		add_filter( 'woocommerce_admin_survey_query', array( $this, 'set_survey_source' ) );
 
 		// Always opt-in to Tracks, WPCOM user tracks preferences take priority.
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );
@@ -114,5 +115,16 @@ class WC_Calypso_Bridge_Tracks {
 	public function hide_woocommerce_com_settings( $settings ) {
 		unset( $settings['woocommerce_com'] );
 		return $settings;
+	}
+
+	/**
+	 * Set the survey source for survey URLs in WooCommerce Admin.
+	 *
+	 * @param array $query Query of arguments appended to URL.
+	 * @return array
+	 */
+	public function set_survey_source( $query ) {
+		$query['source'] = self::$tracks_host_value;
+		return $query;
 	}
 }
