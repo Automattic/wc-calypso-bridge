@@ -81,16 +81,16 @@ class WC_Calypso_Bridge_Filters {
 		?>
 		<!-- WooCommerce JS Help documentation filter -->
 		<script type="text/javascript">
-			filterCalypsoDocumentation = function( documentationList ) {
-				if ( documentationList ) {
-					documentationList.map( ( item ) => {
+			filterCalypsoDocumentation = function( helpDocumentationList ) {
+				if ( helpDocumentationList ) {
+					helpDocumentationList.map( ( item ) => {
 						if ( item.title === 'Get Support' ) {
 							item.link = 'https://wordpress.com/help';
 						}
 						return item;
 					} )
 				}
-				return documentationList;
+				return helpDocumentationList;
 			}
 
 			if ( window.wp && window.wp.hooks && window.wp.hooks.addFilter ) {
