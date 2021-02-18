@@ -36,6 +36,7 @@ class WC_Calypso_Bridge_Filters {
 	 */
 	private function __construct() {
 		add_action( 'woocommerce_admin_onboarding_industries', array( $this, 'remove_not_allowed_industries' ), 10, 1 );
+		add_filter( 'admin_footer', array( $this, 'add_documentation_js_filter' ) );
 
 		// Turn off email notifications.
 		add_filter( 'pre_option_woocommerce_merchant_email_notifications', array( $this, 'disable_email_notes' ) );
@@ -71,6 +72,32 @@ class WC_Calypso_Bridge_Filters {
 	 */
 	public function disable_email_notes() {
 		return 'no';
+	}
+
+	/**
+	 * Add filter to js-based help documentation. This will modify the "Get Support" target link in the help documentation.
+	 */
+	public function add_documentation_js_filter() {
+		?>
+		<!-- WooCommerce JS Help documentation filter -->
+		<script type="text/javascript">
+			filterCalypsoDocumentation = function( documentationList ) {
+				if ( documentationList ) {
+					documentationList.map( ( item ) => {
+						if ( item.title === 'Get Support' ) {
+							item.link = 'https://wordpress.com/help';
+						}
+						return item;
+					} )
+				}
+				return documentationList;
+			}
+
+			if ( window.wp && window.wp.hooks && window.wp.hooks.addFilter ) {
+				window.wp.hooks.addFilter( "woocommerce_admin_setup_task_help_items", "woocommerce", filterCalypsoDocumentation );
+			}
+		</script>
+		<?php
 	}
 }
 
