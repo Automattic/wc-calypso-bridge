@@ -27,6 +27,7 @@ This section describes how to install the plugin and get it working.
 * Set survey source with wpcom plan #638
 * Disable email based inbox notifications #641
 * Add Get Support link to WordPress.com support page #650
+* Remove filtered link in store manager order confirmation email #651
 
 = 1.6.0 =
 
