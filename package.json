@@ -20,8 +20,8 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^12.2.1",
+		"@woocommerce/dependency-extraction-webpack-plugin": "1.4.0",
 		"@woocommerce/eslint-plugin": "1.1.0",
-		"@woocommerce/dependency-extraction-webpack-plugin": "1.4.0"
+		"@wordpress/scripts": "^13.0.3"
 	}
 }
