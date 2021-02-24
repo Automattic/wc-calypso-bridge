@@ -18,6 +18,15 @@ To turn on development mode for this plugin, the following filter can be added:
 
 `add_filter( 'wc_calypso_bridge_development_mode', '__return_true' );`
 
+For working with front-end components, run the following commands:
+
+```text
+npm install
+npm start
+```
+
+See [wp-scripts](https://github.com/WordPress/gutenberg/tree/master/packages/scripts) for more usage information.
+
 ### Activating the Ecommerce Plan Layout
 
 To use the ecommerce plan changes in the dashboard and test various functionality in this plugin, there are a number of conditions that must be met.
@@ -107,14 +116,6 @@ Run `phpunit` in the root plugin directory to run the new test suites.
 
 Code coverage reports can be ran with `phpunit --coverage-html /tmp/coverage`.
 
-## Development
 
-To get started, run the following commands:
 
-```text
-npm install
-npm start
-```
-
-See [wp-scripts](https://github.com/WordPress/gutenberg/tree/master/packages/scripts) for more usage information.
 
