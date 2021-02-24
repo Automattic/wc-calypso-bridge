@@ -44,7 +44,7 @@ update_option( 'woocommerce_setup_ab_wc_admin_onboarding', 'a' );
 update_option( 'wc_onboarding_opt_in', 'no' );
 ```
 
-If you would like to skip all of the above, [just download this gist](https://gist.github.com/timmyc/e03579355a7696fb3c5b7cd4b536d8f4) (be sure to reference the comments) as a plugin and activate it :).
+If you would like to skip all of the above, [just download this gist](https://gist.github.com/psealock/531205e2c3d37be1d8ac4d3ef4f346bc) as a plugin and activate it :).
 
 ### Plugin Integrations
 
