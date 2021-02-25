@@ -8,6 +8,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+use Automattic\WooCommerce\Admin\Notes\Notes;
 
 /**
  * WC Calypso Bridge Filters
@@ -40,8 +41,43 @@ class WC_Calypso_Bridge_Filters {
 
 		// Turn off email notifications.
 		add_filter( 'pre_option_woocommerce_merchant_email_notifications', array( $this, 'disable_email_notes' ) );
+
+		// Hides all WooCommerce Database update notices.
+		add_filter( 'woocommerce_rest_notes_object_query', array( $this, 'remove_update_note_type_from_args' ), 10, 2 );
+		// Run after Automattic\WooCommerce\Admin\Loader.
+		add_filter( 'woocommerce_components_settings', array( $this, 'component_settings' ), 30 );
+		add_filter( 'woocommerce_shared_settings', array( $this, 'component_settings' ), 30 );
 	}
 
+	/**
+	 * Adjust alert count to the component settings, to prevent loading state from being shown on db updates.
+	 *
+	 * @param array $settings Component settings.
+	 */
+	public function component_settings( $settings ) {
+		$settings['alertCount'] = Notes::get_notes_count( array( 'error' ), array( 'unactioned' ) );
+		return $settings;
+	}
+
+	/**
+	 * Remove the "update" note type from REST API requests to surpress db notices from being displayed.
+	 *
+	 * @param array  $args REST request args
+	 * @param object $request WP_REST_Request
+	 */
+	public function remove_update_note_type_from_args( $args, $request ) {
+		// We only want to filter on the get notes route, and on requests that have a type arg.
+		if ( '/wc-analytics/admin/notes' !== $request->get_route() || ! isset( $args[ 'type' ] ) ) {
+			return $args;
+		}
+
+		// If the type `update` is being requested, remove it from args.
+		$update_type_index = array_search( Automattic\WooCommerce\Admin\Notes\Note::E_WC_ADMIN_NOTE_UPDATE, $args[ 'type' ] );
+		if ( $update_type_index ) {
+			unset( $args[ 'type' ][ $update_type_index ] );
+		}
+		return $args;
+	}
 	/**
 	 * Remove `CBD and other hemp-derived products` option from industries list
 	 *
