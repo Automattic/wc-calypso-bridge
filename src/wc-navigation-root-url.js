@@ -8,10 +8,19 @@ import { addFilter } from '@wordpress/hooks';
  */
 import storage from './utils/storage';
 
+const LOCAL_STORAGE_PROP = 'wc_nav_root_url_referrer';
+
+const rootUrlStorage = storage( LOCAL_STORAGE_PROP, null );
+
+const getRedirectUrl = ( homeUrl ) => {
+	const protocolRegex = /.*?:\/\//i;
+	const slug = homeUrl.replace( protocolRegex, '' ).replace( '/', '::' );
+
+	return `https://wordpress.com/home/${ slug }`;
+};
+
 export default () => {
-	const rootUrlStorage = storage( 'wc-nav-root-url', null );
-	const isWooPage =
-		window.wcCalypsoBridge && window.wcCalypsoBridge.isWooPage;
+	const { isWooPage, homeUrl } = window.wcCalypsoBridge;
 	const fromCalypso =
 		document.referrer.indexOf( 'https://wordpress.com' ) === 0;
 
@@ -21,15 +30,12 @@ export default () => {
 		rootUrlStorage.set( 'wcadmin' );
 	}
 
-	addFilter(
-		'woocommerce_navigation_root_back_url',
-		'plugin-domain',
-		( rootUrl ) => {
-			if ( rootUrlStorage.get() === 'calypso' ) {
-				return 'https://wordpress.com/home/';
-			}
+	// Only continue to add filter if referred by Calypso
+	if ( ! ( rootUrlStorage.get() === 'calypso' ) ) {
+		return;
+	}
 
-			return rootUrl;
-		}
+	addFilter( 'woocommerce_navigation_root_back_url', 'plugin-domain', () =>
+		getRedirectUrl( homeUrl )
 	);
 };

@@ -153,7 +153,10 @@ class WC_Calypso_Bridge {
 		);
 
 		wp_add_inline_script( 'wc-calypso-bridge', 'window.wcCalypsoBridge = ' . wp_json_encode(
-			array('isWooPage' => $is_woo_page)
+			array(
+				'isWooPage' => $is_woo_page,
+				'homeUrl'   => get_home_url()
+			)
 		), 'before' );
 	
 		wp_enqueue_script( 'wc-calypso-bridge' );

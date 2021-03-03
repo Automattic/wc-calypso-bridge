@@ -1,6 +1,6 @@
 /**
  * Internal dependencies
  */
-import wcAdminNavCheckRoot from './wc-navigation-root-url';
+import wcNavFilterRootUrl from './wc-navigation-root-url';
 
-wcAdminNavCheckRoot();
+wcNavFilterRootUrl();
