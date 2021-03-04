@@ -19,10 +19,8 @@ export default ( storageId, defaultValue = null ) => {
 		} ),
 
 		get: errorWrapper( () => {
-			return (
-				JSON.parse( window.localStorage.getItem( storageId ) ) ||
-				defaultValue
-			);
+			const val = JSON.parse( window.localStorage.getItem( storageId ) );
+			return typeof val === 'boolean' || val ? val : defaultValue;
 		} ),
 
 		reset: () => {
