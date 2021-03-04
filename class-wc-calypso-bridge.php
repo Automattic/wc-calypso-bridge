@@ -114,7 +114,6 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 		require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin.php';
-		require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin-navigation.php';
 		require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-notes.php';
 
 		// Shared with store-on-wpcom.
@@ -133,9 +132,10 @@ class WC_Calypso_Bridge {
 	}
 
 	function add_extension_register_script() {
-		if ( ! class_exists( 'Automattic\WooCommerce\Admin\Loader' ) || ! \Automattic\WooCommerce\Admin\Loader::is_admin_or_embed_page() ) {
-			return;
-		}
+		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\Loader' ) 
+			&& \Automattic\WooCommerce\Admin\Loader::is_admin_or_embed_page() 
+			? true 
+			: false;
 		
 		$script_path       = '/build/index.js';
 		$script_asset_path = dirname( __FILE__ ) . '/build/index.asset.php';
@@ -143,7 +143,7 @@ class WC_Calypso_Bridge {
 			? require( $script_asset_path )
 			: array( 'dependencies' => array(), 'version' => filemtime( $script_path ) );
 		$script_url = plugins_url( $script_path, __FILE__ );
-	
+
 		wp_register_script(
 			'wc-calypso-bridge',
 			$script_url,
@@ -151,6 +151,13 @@ class WC_Calypso_Bridge {
 			$script_asset['version'],
 			true
 		);
+
+		wp_add_inline_script( 'wc-calypso-bridge', 'window.wcCalypsoBridge = ' . wp_json_encode(
+			array(
+				'isWooPage' => $is_woo_page,
+				'homeUrl'   => get_home_url()
+			)
+		), 'before' );
 	
 		wp_enqueue_script( 'wc-calypso-bridge' );
 	}
