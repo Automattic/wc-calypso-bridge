@@ -1,28 +1,36 @@
-export default ( storageId, defaultValue ) => {
-	const storage = {
-		set: ( query ) => {
-			window.localStorage.setItem( storageId, JSON.stringify( query ) );
-		},
-
-		get: () => {
+export default ( storageId, defaultValue = null ) => {
+	const errorWrapper = ( fn ) => {
+		return ( ...args ) => {
 			try {
-				return (
-					JSON.parse( window.localStorage.getItem( storageId ) ) ||
-					defaultValue
-				);
+				return fn( ...args );
 			} catch ( e ) {
 				/* eslint-disable no-console */
 				console.warn(
-					`Unable to parse localstorage property ${ storageId }`,
+					`Error encountered when attempting to use localStorage: `,
 					e.message
 				);
+
+				return null;
 			}
-		},
+		};
+	};
+
+	const storage = {
+		set: errorWrapper( ( query ) => {
+			window.localStorage.setItem( storageId, JSON.stringify( query ) );
+		} ),
+
+		get: errorWrapper( () => {
+			return (
+				JSON.parse( window.localStorage.getItem( storageId ) ) ||
+				defaultValue
+			);
+		} ),
 
 		reset: () => {
 			storage.set( defaultValue );
 		},
 	};
 
-	return window.localStorage ? storage : null;
+	return storage;
 };
