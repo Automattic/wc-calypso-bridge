@@ -23,5 +23,8 @@
 		"@woocommerce/dependency-extraction-webpack-plugin": "1.4.0",
 		"@woocommerce/eslint-plugin": "1.1.0",
 		"@wordpress/scripts": "^13.0.3"
+	},
+	"dependencies": {
+		"@wordpress/hooks": "^2.11.1"
 	}
 }

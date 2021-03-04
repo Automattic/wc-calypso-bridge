@@ -115,7 +115,3 @@ From a test install of WordPress with `wc-api-dev` and `woocommerce` present, ru
 Run `phpunit` in the root plugin directory to run the new test suites.
 
 Code coverage reports can be ran with `phpunit --coverage-html /tmp/coverage`.
-
-
-
-
