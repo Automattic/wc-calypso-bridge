@@ -35,7 +35,7 @@ export default () => {
 		return;
 	}
 
-	addFilter( 'woocommerce_navigation_root_back_url', 'plugin-domain', () =>
+	addFilter( 'woocommerce_navigation_root_back_url', 'wc-calypso-bridge', () =>
 		getRedirectUrl( homeUrl )
 	);
 };
