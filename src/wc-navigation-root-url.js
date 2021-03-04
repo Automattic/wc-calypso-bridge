@@ -31,7 +31,7 @@ export default () => {
 	}
 
 	// Only continue to add filter if referred by Calypso
-	if ( ! ( rootUrlStorage.get() === 'calypso' ) ) {
+	if ( rootUrlStorage.get() !== 'calypso' ) {
 		return;
 	}
 
