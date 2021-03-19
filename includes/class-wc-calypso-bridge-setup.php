@@ -45,7 +45,7 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Opt all sites into using WooCommerec Home Screen.
+	 * Opt all sites into using WooCommerce Home Screen.
 	 */
 	public function always_enable_homescreen() {
 		return 'yes';
