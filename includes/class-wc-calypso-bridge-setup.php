@@ -61,7 +61,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function prevent_redirects_on_activation( $location, $status ) {
 		$location_prefix = '';
-		if ( parse_url( $location, PHP_URL_SCHEME ) !== null ) {
+		if ( wp_parse_url( $location, PHP_URL_SCHEME ) !== null ) {
 			// $location has a URL scheme, so it is probably a full URL;
 			// we will need to match against a full URL
 			$location_prefix = admin_url();
