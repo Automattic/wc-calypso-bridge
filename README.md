@@ -74,6 +74,8 @@ The ecommerce plan comes bundled with a number of plugins that this plugin integ
 - Marketing:
   - [MailChimp for WooCommerce](https://wordpress.org/plugins/mailchimp-for-woocommerce/)
   - [Facebook  for WooCommerce](https://woocommerce.com/products/facebook/)
+  - [Creative Mail](https://wordpress.org/plugins/creative-mail-by-constant-contact/)
+  - [Crowdsignal Forms](https://wordpress.org/plugins/crowdsignal-forms/)
 - Store Management:
 
   - [TaxJar -- Sales Tax Automation for WooCommerce](https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
