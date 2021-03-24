@@ -60,43 +60,45 @@ If you would like to skip all of the above, [just download this gist](https://gi
 The ecommerce plan comes bundled with a number of plugins that this plugin integrates with if activated. To fully test this plugin's functionality, the following plugins can be installed.
 
 - Payments
-  - [WooCommerce Stripe Payment Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-gateway-stripe/)
-  - [WooCommerce PayPal Checkout Payment Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-gateway-paypal-express-checkout/)
-  - [WooCommerce Square](https://href.li/?https://wordpress.org/plugins/woocommerce-square/)
-  - [Klarna Payments for WooCommerce](https://href.li/?https://wordpress.org/plugins/klarna-payments-for-woocommerce/)
-  - [Klarna Checkout for WooCommerce](https://href.li/?https://wordpress.org/plugins/klarna-checkout-for-woocommerce/)
-  - [WooCommerce eWAY Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-gateway-eway/)
-  - [WooCommerce PayFast Gateway](https://href.li/?https://wordpress.org/plugins/woocommerce-payfast-gateway/)
+  - [WooCommerce Stripe Payment Gateway](https://wordpress.org/plugins/woocommerce-gateway-stripe/)
+  - [WooCommerce PayPal Checkout Payment Gateway](https://wordpress.org/plugins/woocommerce-gateway-paypal-express-checkout/)
+  - [WooCommerce Square](https://wordpress.org/plugins/woocommerce-square/)
+  - [Klarna Payments for WooCommerce](https://wordpress.org/plugins/klarna-payments-for-woocommerce/)
+  - [Klarna Checkout for WooCommerce](https://wordpress.org/plugins/klarna-checkout-for-woocommerce/)
+  - [WooCommerce eWAY Gateway](https://wordpress.org/plugins/woocommerce-gateway-eway/)
+  - [WooCommerce PayFast Gateway](https://wordpress.org/plugins/woocommerce-payfast-gateway/)
 - Taxes:
-  - [TaxJar -- Sales Tax Automation for WooCommerce](https://href.li/?https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
+  - [TaxJar -- Sales Tax Automation for WooCommerce](https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
 - Shipping:
-  - [WooCommerce Services](https://href.li/?https://wordpress.org/plugins/woocommerce-services/)
+  - [WooCommerce Services](https://wordpress.org/plugins/woocommerce-services/)
 - Marketing:
-  - [MailChimp for WooCommerce](https://href.li/?https://wordpress.org/plugins/mailchimp-for-woocommerce/)
-  - [Facebook  for WooCommerce](https://href.li/?https://woocommerce.com/products/facebook/)
+  - [MailChimp for WooCommerce](https://wordpress.org/plugins/mailchimp-for-woocommerce/)
+  - [Facebook  for WooCommerce](https://woocommerce.com/products/facebook/)
+  - [Creative Mail](https://wordpress.org/plugins/creative-mail-by-constant-contact/)
+  - [Crowdsignal Forms](https://wordpress.org/plugins/crowdsignal-forms/)
 - Store Management:
 
-  - [TaxJar -- Sales Tax Automation for WooCommerce](https://href.li/?https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
+  - [TaxJar -- Sales Tax Automation for WooCommerce](https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
 
 - Theme:
-  - [Storefront](https://href.li/?https://woocommerce.com/storefront/)
+  - [Storefront](https://woocommerce.com/storefront/)
 
 #### Paid extensions
 
 - Shipping (everywhere):
-  - [UPS Shipping Method](https://href.li/?https://woocommerce.com/products/ups-shipping-method/)
+  - [UPS Shipping Method](https://woocommerce.com/products/ups-shipping-method/)
 - Shipping (based on geo):
-  - [USPS Shipping Method](https://href.li/?https://woocommerce.com/products/usps-shipping-method/)
-  - [Canada Post shipping](https://href.li/?https://woocommerce.com/products/canada-post-shipping-method/)
-  - [Royal Mail](https://href.li/?https://woocommerce.com/products/royal-mail/)
-  - [Australia Post Shipping Method](https://href.li/?https://woocommerce.com/products/australia-post-shipping-method/)
+  - [USPS Shipping Method](https://woocommerce.com/products/usps-shipping-method/)
+  - [Canada Post shipping](https://woocommerce.com/products/canada-post-shipping-method/)
+  - [Royal Mail](https://woocommerce.com/products/royal-mail/)
+  - [Australia Post Shipping Method](https://woocommerce.com/products/australia-post-shipping-method/)
 - Product Page Features:
-  - [Product Add-Ons](https://href.li/?https://woocommerce.com/products/product-add-ons/)
+  - [Product Add-Ons](https://woocommerce.com/products/product-add-ons/)
 - Storefront premium options
-  - [Galleria](https://href.li/?https://woocommerce.com/products/galleria/)
-  - [Homestore](https://href.li/?https://woocommerce.com/products/homestore/)
-  - [Bookshop](https://href.li/?https://woocommerce.com/products/bookshop/)
-  - [Storefront Powerpack design options](https://href.li/?https://woocommerce.com/products/storefront-powerpack/)
+  - [Galleria](https://woocommerce.com/products/galleria/)
+  - [Homestore](https://woocommerce.com/products/homestore/)
+  - [Bookshop](https://woocommerce.com/products/bookshop/)
+  - [Storefront Powerpack design options](https://woocommerce.com/products/storefront-powerpack/)
   - [Blog Customizer](https://woocommerce.com/products/storefront-blog-customiser/)
   - [Parallax Hero](https://woocommerce.com/products/storefront-parallax-hero/)
   - [Product Hero](https://woocommerce.com/products/storefront-product-hero/)
