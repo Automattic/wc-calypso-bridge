@@ -39,29 +39,46 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'default_option_woocommerce_navigation_enabled', array( $this, 'enable_navigation_by_default' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
-		add_filter( 'wp_redirect', array( $this, 'prevent_mailchimp_redirect' ), 10, 2 );
+		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
 	}
 
 	/**
-	 * Opt all sites into using WooCommerec Home Screen.
+	 * Opt all sites into using WooCommerce Home Screen.
 	 */
 	public function always_enable_homescreen() {
 		return 'yes';
 	}
 
 	/**
-	 * Prevent MailChimp redirect on initial setup.
+	 * Prevent redirects on activation when WooCommerce is being setup. Some plugins
+	 * do this when they are activated.
 	 *
 	 * @param string $location Redirect location.
 	 * @param string $status Status code.
 	 * @return string
 	 */
-	public function prevent_mailchimp_redirect( $location, $status ) {
-		if ( 'admin.php?page=mailchimp-woocommerce' === $location ) {
-			// Delete the redirect option so we don't end up here anymore.
-			delete_option( 'mailchimp_woocommerce_plugin_do_activation_redirect' );
+	public function prevent_redirects_on_activation( $location, $status ) {
+		$location_prefix = '';
+		if ( wp_parse_url( $location, PHP_URL_SCHEME ) !== null ) {
+			// $location has a URL scheme, so it is probably a full URL;
+			// we will need to match against a full URL
+			$location_prefix = admin_url();
+		}
+
+		$redirect_options_by_location = array(
+			$location_prefix . 'admin.php?page=mailchimp-woocommerce'   => 'mailchimp_woocommerce_plugin_do_activation_redirect',
+			$location_prefix . 'admin.php?page=crowdsignal-forms-setup' => 'crowdsignal_forms_do_activation_redirect',
+			$location_prefix . 'admin.php?page=creativemail'            => 'ce4wp_activation_redirect',
+		);
+
+		if ( isset( $redirect_options_by_location[ $location ] ) ) {
+			$option_to_delete = $redirect_options_by_location[ $location ];
+			if ( is_string( $option_to_delete ) ) {
+				// Delete the redirect option so we don't end up here anymore.
+				delete_option( $option_to_delete );
+			}
 			$location = admin_url( 'admin.php?page=wc-admin' );
 		}
 
