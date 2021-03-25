@@ -39,8 +39,7 @@ class WC_Calypso_Bridge_Plugins {
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
 		add_action( 'current_screen', array( $this, 'prevent_woocommerce_deactiation_route' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactiation_notice' ), 10, 2 );
-		add_action( 'woocommerce_admin_newly_installed', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
-
+		add_action( 'wc_admin_daily', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
 	}
 
 	/**
@@ -110,7 +109,7 @@ class WC_Calypso_Bridge_Plugins {
 		$post_count = $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
 
 		if ( 4 !== (int) $post_count ) {
-		    // reset the woocommerce_*_page_id options
+	    	//reset the woocommerce_*_page_id options
             foreach (['shop', 'cart', 'myaccount', 'checkout'] as $page) {
                 delete_option("woocommerce_{$page}_page_id");
             }
