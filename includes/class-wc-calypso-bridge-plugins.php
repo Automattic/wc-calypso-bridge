@@ -39,8 +39,7 @@ class WC_Calypso_Bridge_Plugins {
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
 		add_action( 'current_screen', array( $this, 'prevent_woocommerce_deactiation_route' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactiation_notice' ), 10, 2 );
-		add_action( 'woocommerce_admin_newly_installed', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
-
+		add_action( 'woocommerce_installed', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
 	}
 
 	/**
