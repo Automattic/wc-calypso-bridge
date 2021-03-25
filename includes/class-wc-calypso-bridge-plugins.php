@@ -109,10 +109,10 @@ class WC_Calypso_Bridge_Plugins {
 		$post_count = $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
 
 		if ( 4 !== (int) $post_count ) {
-	    	//reset the woocommerce_*_page_id options
-            foreach (['shop', 'cart', 'myaccount', 'checkout'] as $page) {
-                delete_option("woocommerce_{$page}_page_id");
-            }
+			// reset the woocommerce_*_page_id options.
+			foreach ( [ 'shop', 'cart', 'myaccount', 'checkout' ] as $page ) {
+				delete_option( "woocommerce_{$page}_page_id" );
+			}
 			WC_Install::create_pages();
 		}
 	}
