@@ -44,6 +44,10 @@ class WC_Calypso_Bridge_Mu_Events {
 	public function maybe_create_wc_pages() {
 		global $wpdb;
 
+		if ( ! class_exists( 'WC_Install' ) ) {
+			return;
+		}
+
 		$post_count = $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
 
 		if ( 4 !== (int) $post_count ) {
