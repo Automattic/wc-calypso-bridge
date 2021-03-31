@@ -17,6 +17,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
+require_once dirname(__FILE__) . '/includes/class-wc-calypso-bridge-mu-events.php';
+add_action( 'init', array( 'WC_Calypso_Bridge_Mu_Events', 'get_instance' ) );
+
+
 if ( ! file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
 	// No WooCommerce installed, we don't need this.
 	return;
