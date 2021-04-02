@@ -39,7 +39,7 @@ class WC_Calypso_Bridge_Plugins {
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
 		add_action( 'current_screen', array( $this, 'prevent_woocommerce_deactiation_route' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactiation_notice' ), 10, 2 );
-		add_action( 'wc_admin_daily', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
+		add_filter( 'woocommerce_admin_onboarding_industries', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
 	}
 
 	/**
@@ -102,8 +102,12 @@ class WC_Calypso_Bridge_Plugins {
 
 	/**
 	 * Check WooCommerce pages (shop, cart, my-account, checkout) and create them if they don't exist.
+	 *
+	 * @param array $industries Array of industries.
+	 *
+	 * @return array
 	 */
-	public function maybe_create_wc_pages() {
+	public function maybe_create_wc_pages($industries) {
 		global $wpdb;
 
 		$post_count = $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
@@ -115,7 +119,9 @@ class WC_Calypso_Bridge_Plugins {
 			}
 			WC_Install::create_pages();
 		}
-	}
 
+		return $industries;
+	}
 }
+
 $wc_calypso_bridge_plugins = WC_Calypso_Bridge_Plugins::get_instance();
