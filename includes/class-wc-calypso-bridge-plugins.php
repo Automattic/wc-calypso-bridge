@@ -100,6 +100,7 @@ class WC_Calypso_Bridge_Plugins {
 		return $actions;
 	}
 
+
 	/**
 	 * Check WooCommerce pages (shop, cart, my-account, checkout) and create them if the following conditions are met.
 	 *
@@ -147,6 +148,7 @@ class WC_Calypso_Bridge_Plugins {
 
 		return $industries;
 	}
+
 }
 
 $wc_calypso_bridge_plugins = WC_Calypso_Bridge_Plugins::get_instance();
