@@ -22,3 +22,8 @@
 .woocommerce-profile-wizard__card-help-footnote {
 	margin-top: 16px;
 }
+
+.woocommerce-profile-wizard__container.business-features
+	.components-tab-panel__tabs {
+	display: none;
+}
