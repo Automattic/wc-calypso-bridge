@@ -12,9 +12,10 @@
 	display: none !important;
 }
 .woocommerce-profile-wizard__card-help-footnote {
-	margin-top: 16px;
+	display: none;
 }
 
+/* Business and Free Features toggle on Business Details step */
 .woocommerce-profile-wizard__container.business-features
 	.components-tab-panel__tabs {
 	display: none;
