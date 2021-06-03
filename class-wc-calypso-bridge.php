@@ -170,6 +170,11 @@ class WC_Calypso_Bridge {
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
 			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
+
+			// Nav unification fixes.
+			if ( function_exists( 'wpcomsh_activate_nav_unification' ) && wpcomsh_activate_nav_unification( false ) ) {
+				add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
+			}
 		}
 	}
 
@@ -187,6 +192,14 @@ class WC_Calypso_Bridge {
 		}
 
 		return $null;
+	}
+
+	/**
+	 * Add styles for nav unification fixes.
+	 */
+	public function add_nav_unification_styles() {
+		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
+		wp_enqueue_style( 'wp-calypso-bridge-nav-unification', $asset_path . 'store-on-wpcom/assets/css/admin/nav-unification.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 
 	/**
