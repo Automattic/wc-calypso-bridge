@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,11 +22,15 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.7.5 =
+
+* Fix nav unification causing header overflow #680
+
 = 1.7.4 =
 
 * Fix WC pages bug on ecommerce plan #671
 
-= 1.7.3 = 
+= 1.7.3 =
 
 * Removed WC Page creation logic #672
 
