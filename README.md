@@ -117,3 +117,24 @@ From a test install of WordPress with `wc-api-dev` and `woocommerce` present, ru
 Run `phpunit` in the root plugin directory to run the new test suites.
 
 Code coverage reports can be ran with `phpunit --coverage-html /tmp/coverage`.
+
+## Deployment
+
+1. Create a [version bump pull request](https://github.com/Automattic/wc-calypso-bridge/pull/613/files) on `wc-calypso-bridge` that increments the [version](https://github.com/Automattic/wc-calypso-bridge/blob/master/composer.json#L3) in `composer.json`, and in [two spots](https://github.com/Automattic/wc-calypso-bridge/blob/master/wc-calypso-bridge.php#L33) in `wc-calypso-bridge.php`.
+2. [Add a section](https://github.com/Automattic/wc-calypso-bridge/blob/master/readme.txt#L23-L26) to the `readme.txt` also with a changelog of what is in the release.
+3. Mark the pull request as ready for review, and **merge** once a 👍 review is given.
+4. *Back in your local copy of wc-calypso-bridge*, perform the following steps:
+	1. `git checkout master`
+	2. `git pull origin master`
+	3. `npm i`
+	4. `npm run build`
+	5. `rm -rf node_modules` so these don't get packaged up in the release
+
+5. Now you are ready to tag the release by replacing x.x.x with the version number being created:
+	1. `git tag x.x.x`
+	2. `git checkout x.x.x`
+	3. `git add ./build --force`
+	4. `git commit -m 'Adding build directory to release' --no-verify`
+	5. `git tag -f x.x.x`
+	6. `git push origin x.x.x`
+6. 🎊 Congrats, you have released a new version of `wc-calypso-bridge`.
