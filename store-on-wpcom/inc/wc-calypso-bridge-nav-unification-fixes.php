@@ -5,6 +5,8 @@
  * @since 1.7.4
  */
 
+use Automattic\WooCommerce\Admin\Loader;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -24,7 +26,9 @@ add_action( 'current_screen', 'load_ui_elements' );
  */
 function load_ui_elements() {
   if ( is_wc_calypso_bridge_page() ) {
-    if ( function_exists( 'wpcomsh_activate_nav_unification' ) && wpcomsh_activate_nav_unification( false ) ) {
+    if ( function_exists( 'wpcomsh_activate_nav_unification' )
+      && wpcomsh_activate_nav_unification( false )
+      && ! Loader::is_feature_enabled( 'navigation' ) ) {
       add_action( 'admin_enqueue_scripts', 'add_nav_unification_styles' );
     }
   }
