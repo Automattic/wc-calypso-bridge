@@ -174,7 +174,7 @@ class WC_Calypso_Bridge {
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 
 			// Nav unification fixes.
-    if ( function_exists( 'wpcomsh_activate_nav_unification' )
+		if ( function_exists( 'wpcomsh_activate_nav_unification' )
 			&& wpcomsh_activate_nav_unification( false )
 			&& ! Loader::is_feature_enabled( 'navigation' ) ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
