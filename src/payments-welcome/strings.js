@@ -6,7 +6,8 @@ import { __ } from '@wordpress/i18n';
 import { __experimentalCreateInterpolateElement as createInterpolateElement } from 'wordpress-element';
 
 export default {
-	button: __('Finish setup', 'woocommerce-payments'),
+	button: __('Get started', 'woocommerce-payments'),
+	nothanks: __('No thanks', 'woocommerce-payments'),
 
 	heading: __('WooCommerce Payments', 'woocommerce-payments'),
 
@@ -14,7 +15,7 @@ export default {
 
 	onboarding: {
 		description: __(
-			'With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies. Track cash flow and manage recurring revenue directly from your store’s dashboard - with no setup costs or monthly fees.',
+			"With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies. Manage transactions directly from your store's dashboard -- with no setup costs or monthly fees.",
 			'woocommerce-payments'
 		),
 	},
@@ -26,7 +27,7 @@ export default {
 
 	terms: createInterpolateElement(
 		__(
-			'By clicking “Finish setup”, you agree to the <a>Terms of Service</a>',
+			'Upon clicking "Get started", you agree to the <a>Terms of Service</a>. Next we\'ll ask you to share a few details about your business to create your account.',
 			'woocommerce-payments'
 		),
 		{
