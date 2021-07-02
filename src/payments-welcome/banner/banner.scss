@@ -1,3 +1,5 @@
+@import '../breakpoints';
+
 .woocommerce-payments-banner {
 	margin-bottom: 32px;
 
@@ -10,19 +12,12 @@
 		}
 	}
 
-	// @include breakpoint( '>480px' ) {
-	// 	.components-card__body {
-	// 		background: url( '../../assets/images/banner.png' ) no-repeat right;
-	// 		background-size: contain;
-	// 	}
-	// }
-
 	.woocommerce-payments-banner-pill {
 		/* adapted from https://github.com/woocommerce/woocommerce-admin/blob/main/packages/components/src/pill/style.scss */
 		font-size: 12px;
-		// border: 1px solid $studio-gray-70;
+		border: 1px solid #3c434a;
 		border-radius: 28px;
-		// color: $studio-gray-70;
+		color: #3c434a;
 		display: inline-block;
 		padding: 2px 8px;
 		position: relative;
