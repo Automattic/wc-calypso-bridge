@@ -8,7 +8,6 @@ import { Card, CardBody } from '@wordpress/components';
  * Internal dependencies
  */
 import WCPayLogo from './wcpay-logo';
-import './banner.scss';
 
 const Banner = ({ style }) => {
 	let logoWidth,

@@ -27,6 +27,7 @@
 		"@wordpress/dom-ready": "^3.1.1",
 		"@wordpress/element": "^3.1.1",
 		"@wordpress/scripts": "^13.0.3",
+		"mini-css-extract-plugin": "^2.0.0",
 		"prettier": "^2.3.2",
 		"wordpress-element": "npm:@wordpress/element@2.11.0"
 	},

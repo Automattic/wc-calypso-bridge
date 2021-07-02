@@ -21,7 +21,7 @@ import GPay from './cards/gpay.js';
 import JCB from './cards/jcb.js';
 import UnionPay from './cards/unionpay.js';
 import './style.scss';
-
+import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
 
 const wcpaySettings = {
@@ -67,6 +67,7 @@ const TermsOfService = () => (
 
 const ConnectPageOnboarding = () => {
 	const [isSubmitted, setSubmitted] = useState(false);
+	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
 	const { connectUrl } = wcpaySettings;
 
 	const handleSetup = () => {
@@ -77,12 +78,14 @@ const ConnectPageOnboarding = () => {
 		});
 	};
 
+	const handleNoThanks = () => {
+		setNoThanksClicked(true);
+	};
+
 	return (
 		<>
 			<p>
-				{strings.onboarding.description}
-				<br />
-				<LearnMore />
+				{strings.onboarding.description} <LearnMore />
 			</p>
 
 			<h3>{strings.paymentMethodsHeading}</h3>
@@ -101,6 +104,14 @@ const ConnectPageOnboarding = () => {
 					href={connectUrl}
 				>
 					{strings.button}
+				</Button>
+				<Button
+					isBusy={isNoThanksClicked}
+					disabled={isNoThanksClicked}
+					onClick={handleNoThanks}
+					className="btn-nothanks"
+				>
+					{strings.nothanks}
 				</Button>
 			</p>
 		</>
@@ -121,6 +132,11 @@ const ConnectAccountPage = () => {
 					<Banner style="account-page" />
 					<div className="content">
 						<ConnectPageOnboarding />
+					</div>
+				</Card>
+				<Card className="faq__card">
+					<div className="content">
+						<FrequentlyAskedQuestions />
 					</div>
 				</Card>
 			</div>
