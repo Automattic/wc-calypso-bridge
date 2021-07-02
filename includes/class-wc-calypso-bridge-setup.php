@@ -176,8 +176,8 @@ class WC_Calypso_Bridge_Setup {
 			],
 		) );
 
-		// Registering top level menu via wc_admin_register_page when the new nav is enabled.
-		// The new nav disabled anyththing, except the 'WooCommerce' menu.
+		// Registering a top level menu via wc_admin_register_page doesn't work when the new
+		// nav is enabled. The new nav disabled everything, except the 'WooCommerce' menu.
 		// We need to register this menu via add_menu_page so that it doesn't become a child of
 		// WooCommerce menu.
 		add_menu_page(

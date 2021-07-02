@@ -311,7 +311,7 @@ class WC_Calypso_Bridge {
 
 	public function add_wc_payments_style() {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/payments.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );		
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/wc-payments.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );		
 	}
 
 }
