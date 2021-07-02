@@ -20,13 +20,19 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"devDependencies": {
+		"@woocommerce/components": "^7.0.0",
 		"@woocommerce/dependency-extraction-webpack-plugin": "1.4.0",
 		"@woocommerce/eslint-plugin": "1.1.0",
+		"@wordpress/components": "^14.1.5",
+		"@wordpress/dom-ready": "^3.1.1",
+		"@wordpress/element": "^3.1.1",
 		"@wordpress/scripts": "^13.0.3",
-		"prettier": "^2.3.2"
+		"prettier": "^2.3.2",
+		"wordpress-element": "npm:@wordpress/element@2.11.0"
 	},
 	"dependencies": {
 		"@wordpress/hooks": "^2.12.3",
-		"@wordpress/i18n": "^4.1.1"
+		"@wordpress/i18n": "^4.1.1",
+		"interpolate-components": "^1.1.1"
 	}
 }
