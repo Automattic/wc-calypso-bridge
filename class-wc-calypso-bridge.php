@@ -176,6 +176,8 @@ class WC_Calypso_Bridge {
 				add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
 			}
 		}
+
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_wc_payments_style' ) );
 	}
 
 	/**
@@ -305,6 +307,11 @@ class WC_Calypso_Bridge {
 				$event_params
 			);
 		}
+	}
+
+	public function add_wc_payments_style() {
+		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/payments.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );		
 	}
 
 }
