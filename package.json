@@ -26,6 +26,7 @@
 		"prettier": "^2.3.2"
 	},
 	"dependencies": {
-		"@wordpress/hooks": "^2.11.1"
+		"@wordpress/hooks": "^2.12.3",
+		"@wordpress/i18n": "^4.1.1"
 	}
 }
