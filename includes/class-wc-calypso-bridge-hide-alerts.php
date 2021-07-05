@@ -87,9 +87,6 @@ class WC_Calypso_Bridge_Hide_Alerts {
 			WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', $class_name, current( $function_to_suppress ), key( $function_to_suppress ) );
 		}
 
-		// Canada Post Specific - refactor after launch to be included in the above loop.
-		WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'WC_Shipping_Canada_Post_Init', 'connect_canada_post', 10 );
-		WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'WC_Shipping_Canada_Post_Init', 'environment_check', 10 );
 		// Square Specific - refactor after launch to be included in the above loop.
 		WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'Woocommerce_Square', 'check_environment', 10 );
 		WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'Woocommerce_Square', 'is_connected_to_square', 10 );
