@@ -42,6 +42,7 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
+		add_action( 'admin_menu', array( $this, 'register_payments_welcome_page' ) );
 	}
 
 	/**
@@ -155,6 +156,19 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function is_theme_installed( $theme ) {
 		return isset( $theme['is_installed'] ) && $theme['is_installed'];
+	}
+
+	/**
+	 * Registers the WooCommerce Payments welcome page.
+	 */
+	public function register_payments_welcome_page() {
+		wc_admin_register_page(
+			array(
+				'id'       => 'wc-calypso-bridge-payments-welcome-page',
+				'title'    => __( 'Payments', 'wc-calypso-bridge' ),
+				'path'     => '/payments-welcome',
+			)
+		);
 	}
 }
 

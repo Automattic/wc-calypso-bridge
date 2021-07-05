@@ -22,9 +22,11 @@
 	"devDependencies": {
 		"@woocommerce/dependency-extraction-webpack-plugin": "1.4.0",
 		"@woocommerce/eslint-plugin": "1.1.0",
-		"@wordpress/scripts": "^13.0.3"
+		"@wordpress/scripts": "^13.0.3",
+		"prettier": "^2.3.2"
 	},
 	"dependencies": {
-		"@wordpress/hooks": "^2.11.1"
+		"@wordpress/hooks": "^2.12.3",
+		"@wordpress/i18n": "^4.1.1"
 	}
 }
