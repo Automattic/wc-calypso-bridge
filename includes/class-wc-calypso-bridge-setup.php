@@ -162,13 +162,41 @@ class WC_Calypso_Bridge_Setup {
 	 * Registers the WooCommerce Payments welcome page.
 	 */
 	public function register_payments_welcome_page() {
-		wc_admin_register_page(
-			array(
-				'id'       => 'wc-calypso-bridge-payments-welcome-page',
-				'title'    => __( 'Payments', 'wc-calypso-bridge' ),
-				'path'     => '/payments-welcome',
-			)
+		global $menu;
+
+		wc_admin_register_page( array(
+			'id'       => 'wc-calypso-bridge-payments-welcome-page',
+			'title'    => __( 'Payments', 'wc-calypso-bridge' ),
+			'path'     => '/payments-welcome',
+			'nav_args'   => [
+				'title'        => __( 'WooCommerce Payments', 'wc-calypso-bridge' ),
+				'is_category'  => false,
+				'menuId'       => 'plugins',
+				'is_top_level' => true,
+			],
+		) );
+
+		// Registering a top level menu via wc_admin_register_page doesn't work when the new
+		// nav is enabled. The new nav disabled everything, except the 'WooCommerce' menu.
+		// We need to register this menu via add_menu_page so that it doesn't become a child of
+		// WooCommerce menu.
+		add_menu_page(
+			__( 'Payments', 'wc-calypso-bridge' ),
+			__( 'Payments', 'wc-calypso-bridge' ),
+			'view_woocommerce_reports',
+			'admin.php?page=wc-admin&path=/payments-welcome',
+			null,
+			null,
+			'55.7' // After WooCommerce & Product menu items.
 		);
+
+		// Add badge
+		foreach ( $menu as $index => $menu_item ) {
+			if ( 'admin.php?page=wc-admin&path=/payments-welcome' === $menu_item[2] ) {
+				$menu[ $index ][0] .= ' <span class="wcpay-menu-badge awaiting-mod count-1">1</span>';
+				break;
+			}
+		}
 	}
 }
 
