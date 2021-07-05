@@ -43,6 +43,8 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
 		add_action( 'admin_menu', array( $this, 'register_payments_welcome_page' ) );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_payments_welcome_page_scripts' ] );
+
 	}
 
 	/**
@@ -197,6 +199,22 @@ class WC_Calypso_Bridge_Setup {
 				break;
 			}
 		}
+	}
+
+	/**
+	 * Registers styles & scripts for WC Payments welcome page.
+	 */
+	public function enqueue_payments_welcome_page_scripts() {
+		$css_file_version = filemtime( dirname( __FILE__ ) . '/../build/style-index.css' );
+
+		wp_register_style(
+			'wcpay-welcome-page',
+			plugins_url( '../build/style-index.css', __FILE__ ),
+			// Add any dependencies styles may have, such as wp-components.
+			$css_file_version
+		);
+
+		wp_enqueue_style( 'wcpay-welcome-page' );
 	}
 }
 
