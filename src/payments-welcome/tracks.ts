@@ -3,6 +3,13 @@
  */
 import domReady from '@wordpress/dom-ready';
 
+declare global {
+	interface Window { 
+		wcTracks: any; 
+		wc: any;
+	}
+}
+
 /**
  * Checks if site tracking is enabled.
  *
@@ -18,7 +25,7 @@ function isEnabled() {
  * @param {string}  eventName       Name of the event.
  * @param {Object?} eventProperties Event properties.
  */
-function recordEvent(eventName, eventProperties) {
+function recordEvent(eventName: string, eventProperties: object) {
 	// Wc-admin track script is enqueued after ours, wrap in domReady
 	// to make sure we're not too early.
 	domReady(() => {

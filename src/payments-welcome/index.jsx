@@ -3,23 +3,23 @@
  */
 import { Card } from '@woocommerce/components';
 import { Button, Notice } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+import { useState } from 'wordpress-element';
 
 /**
  * Internal dependencies
  */
 import strings from './strings';
 import Banner from './banner';
-import Visa from './cards/visa.js';
-import MasterCard from './cards/mastercard.js';
+import Visa from './cards/visa';
+import MasterCard from './cards/mastercard';
 import Maestro from './cards/maestro';
-import Amex from './cards/amex.js';
-import ApplePay from './cards/applepay.js';
-import CB from './cards/cb.js';
-import DinersClub from './cards/diners.js';
-import Discover from './cards/discover.js';
-import JCB from './cards/jcb.js';
-import UnionPay from './cards/unionpay.js';
+import Amex from './cards/amex';
+import ApplePay from './cards/applepay';
+import CB from './cards/cb';
+import DinersClub from './cards/diners';
+import Discover from './cards/discover';
+import JCB from './cards/jcb';
+import UnionPay from './cards/unionpay';
 import './style.scss';
 import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';

@@ -3,6 +3,7 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
+// @ts-ignore
 import { __experimentalCreateInterpolateElement as createInterpolateElement } from 'wordpress-element';
 
 export default {
