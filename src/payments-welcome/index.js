@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { Card } from '@woocommerce/components';
-import { Button } from '@wordpress/components';
+import { Button, Notice } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 
 /**
@@ -25,7 +25,7 @@ import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
 
 const wcpaySettings = {
-	connectUrl: '',
+	connectUrl: wcCalypsoBridge.wcpayConnectUrl,
 };
 
 const LearnMore = () => {
@@ -65,17 +65,43 @@ const TermsOfService = () => (
 	</span>
 );
 
-const ConnectPageOnboarding = () => {
+const ConnectPageError = ( { errorMessage } ) => {
+	if ( ! errorMessage ) {
+		return null;
+	}
+	return (
+		<Notice
+			className="wcpay-connect-error-notice"
+			status="error"
+			isDismissible={ false }
+		>
+			{ errorMessage }
+		</Notice>
+	);
+};
+
+const ConnectPageOnboarding = ( { setErrorMessage } ) => {
 	const [isSubmitted, setSubmitted] = useState(false);
 	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
 	const { connectUrl } = wcpaySettings;
 
-	const handleSetup = () => {
+	const handleSetup = async () => {
 		setSubmitted(true);
 		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_CLICKED, {
+			// Since we're in WPCOM where users can't disconnect Jetpack, this can be safely hardcoded.
 			// eslint-disable-next-line camelcase
-			wpcom_connection: wcpaySettings.isJetpackConnected ? 'Yes' : 'No',
+			wpcom_connection: 'Yes',
 		});
+
+		const installAndActivateResponse = await wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins( [ 'woocommerce-payments' ] );
+		if ( installAndActivateResponse?.success ) {
+			// Redirect to KYC
+			window.location = connectUrl;
+		} else {
+			// Display error
+			setErrorMessage( installAndActivateResponse.message );
+			setSubmitted( false );
+		}
 	};
 
 	const handleNoThanks = () => {
@@ -101,7 +127,6 @@ const ConnectPageOnboarding = () => {
 					isBusy={isSubmitted}
 					disabled={isSubmitted}
 					onClick={handleSetup}
-					href={connectUrl}
 				>
 					{strings.button}
 				</Button>
@@ -125,13 +150,16 @@ const ConnectAccountPage = () => {
 		});
 	}, []);
 
+	const [ errorMessage, setErrorMessage ] = useState('');
+
 	return (
 		<div className="connect-account-page">
 			<div className="woocommerce-payments-page is-narrow connect-account">
+			<ConnectPageError errorMessage={ errorMessage }/>
 				<Card className="connect-account__card">
 					<Banner style="account-page" />
 					<div className="content">
-						<ConnectPageOnboarding />
+						<ConnectPageOnboarding setErrorMessage={ setErrorMessage }/>
 					</div>
 				</Card>
 				<Card className="faq__card">

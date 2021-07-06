@@ -157,7 +157,8 @@ class WC_Calypso_Bridge {
 		wp_add_inline_script( 'wc-calypso-bridge', 'window.wcCalypsoBridge = ' . wp_json_encode(
 			array(
 				'isWooPage' => $is_woo_page,
-				'homeUrl'   => get_home_url()
+				'homeUrl'   => get_home_url(),
+				'wcpayConnectUrl' => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' )
 			)
 		), 'before' );
 	
