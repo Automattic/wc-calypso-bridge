@@ -94,10 +94,9 @@ const ConnectPageOnboarding = ({
 
 		const installAndActivateResponse = await installAndActivatePlugins(['woocommerce-payments']);
 		if (installAndActivateResponse?.success) {
-			// Redirect to KYC
+			// Redirect to KYC.
 			window.location = connectUrl;
 		} else {
-			// Display error
 			setErrorMessage(installAndActivateResponse.message);
 			setSubmitted(false);
 		}
