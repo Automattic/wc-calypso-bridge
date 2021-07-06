@@ -30,6 +30,14 @@
 
 		h3 {
 			font-size: 1em;
+			padding-top: 15px;
+		}
+
+		.connect-account__card,
+		.faq__card {
+			box-shadow: none;
+			border: 1px solid #E2E4E7;
+			border-radius: 2px;			
 		}
 
 		.connect-account__card {
@@ -37,7 +45,7 @@
 				padding: 0;
 
 				.content {
-					padding: 0 24px 24px 24px;
+					padding: 9px 24px 24px 24px;
 
 					a {
 						text-decoration: none;
@@ -47,6 +55,7 @@
 						position: relative;
 						left: -24px;
 						width: calc( 100% + 48px );
+						background-color: #e3e3e5;
 					}
 				}
 			}
@@ -67,15 +76,14 @@
 }
 
 .woocommerce-payments-banner {
-	margin-bottom: 32px;
 
 	&.account-page {
 		background: #f7edf7;
 		border: none;
-		// border-bottom: 1px solid $studio-gray-5;
+		border-bottom: 1px solid #E2E4E7;
 		border-radius: 0;
 		.components-card__body {
-			padding: 24px 24px;
+			padding: 24px 24px 3px 24px;
 		}
 	}
 
