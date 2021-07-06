@@ -89,7 +89,7 @@ const ConnectPageOnboarding = ({
 		setSubmitted(true);
 		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_CLICKED, {
 			// eslint-disable-next-line camelcase
-			wpcom_connection: isJetpackConnected,
+			wpcom_connection: isJetpackConnected ? 'Yes' : 'No',
 		});
 
 		const installAndActivateResponse = await installAndActivatePlugins(['woocommerce-payments']);
