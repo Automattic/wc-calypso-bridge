@@ -166,6 +166,25 @@ class WC_Calypso_Bridge_Setup {
 	public function register_payments_welcome_page() {
 		global $menu;
 
+		// WooCommerce must be active.
+		if ( !is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+			return;
+		}
+
+		// WC Payment must not be installed.
+		if ( array_key_exists( 'woocommerce-payments/woocommerce-payments.php', get_plugins() ) ) {
+			return;
+		}
+
+		// User country must be US.
+		if ( 'US' !== WC()->countries->get_base_country() ) {
+			return;
+		}
+
+		if ( 'yes' === get_option( 'wc_calypso_brdige_wcpay_welcome_page_opt_out', 'no' ) ) {
+			return;
+		}
+
 		wc_admin_register_page( array(
 			'id'       => 'wc-calypso-bridge-payments-welcome-page',
 			'title'    => __( 'Payments', 'wc-calypso-bridge' ),
