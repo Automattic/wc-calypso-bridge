@@ -1,5 +1,5 @@
 const FrequentlyAskedQuestions = () => {
-	return 'faq';
+	return <div>faq</div>;
 };
 
 export default FrequentlyAskedQuestions;

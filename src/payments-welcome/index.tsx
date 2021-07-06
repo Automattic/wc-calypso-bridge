@@ -1,8 +1,10 @@
 /**
  * External dependencies
  */
+// @ts-ignore
 import { Card } from '@woocommerce/components';
 import { Button, Notice } from '@wordpress/components';
+// @ts-ignore
 import { useState } from 'wordpress-element';
 
 /**
@@ -23,6 +25,14 @@ import UnionPay from './cards/unionpay';
 import './style.scss';
 import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
+
+declare global {
+	interface Window { 
+		wp: any,
+		wcCalypsoBridge: any,
+		location: Location
+	}
+}
 
 const LearnMore = () => {
 	const handleClick = () => {
@@ -61,7 +71,9 @@ const TermsOfService = () => (
 	</span>
 );
 
-const ConnectPageError = ({ errorMessage }) => {
+const ConnectPageError = ({ errorMessage }: {
+	errorMessage: string
+}) => {
 	if (!errorMessage) {
 		return null;
 	}
@@ -81,6 +93,11 @@ const ConnectPageOnboarding = ({
 	installAndActivatePlugins,
 	setErrorMessage,
 	connectUrl,
+}: {
+	isJetpackConnected: string,
+	installAndActivatePlugins: Function,
+	setErrorMessage: Function,
+	connectUrl: string
 }) => {
 	const [isSubmitted, setSubmitted] = useState(false);
 	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
@@ -97,7 +114,7 @@ const ConnectPageOnboarding = ({
 		]);
 		if (installAndActivateResponse?.success) {
 			// Redirect to KYC.
-			window.location = connectUrl;
+			window.location.href = connectUrl;
 		} else {
 			setErrorMessage(installAndActivateResponse.message);
 			setSubmitted(false);
@@ -146,13 +163,13 @@ const ConnectPageOnboarding = ({
 const ConnectAccountPage = () => {
 	const [errorMessage, setErrorMessage] = useState('');
 	const onboardingProps = {
-		isJetpackConnected: wp.data
+		isJetpackConnected: window.wp.data
 			.select('wc/admin/plugins')
 			.isJetpackConnected(),
 		installAndActivatePlugins:
-			wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins,
+			window.wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins,
 		setErrorMessage,
-		connectUrl: wcCalypsoBridge.wcpayConnectUrl,
+		connectUrl: window.wcCalypsoBridge.wcpayConnectUrl,
 	};
 
 	return (
@@ -160,7 +177,7 @@ const ConnectAccountPage = () => {
 			<div className="woocommerce-payments-page is-narrow connect-account">
 				<ConnectPageError errorMessage={errorMessage} />
 				<Card className="connect-account__card">
-					<Banner style="account-page" />
+					<Banner />
 					<div className="content">
 						<ConnectPageOnboarding {...onboardingProps} />
 					</div>

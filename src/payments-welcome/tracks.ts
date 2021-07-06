@@ -25,7 +25,7 @@ function isEnabled() {
  * @param {string}  eventName       Name of the event.
  * @param {Object?} eventProperties Event properties.
  */
-function recordEvent(eventName: string, eventProperties: object) {
+function recordEvent(eventName: string, eventProperties?: object) {
 	// Wc-admin track script is enqueued after ours, wrap in domReady
 	// to make sure we're not too early.
 	domReady(() => {
