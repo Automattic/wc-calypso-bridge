@@ -3,7 +3,7 @@
  */
 import { Card } from '@woocommerce/components';
 import { Button, Notice } from '@wordpress/components';
-import { useState, useEffect } from '@wordpress/element';
+import { useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -23,10 +23,6 @@ import UnionPay from './cards/unionpay.js';
 import './style.scss';
 import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
-
-const wcpaySettings = {
-	connectUrl: wcCalypsoBridge.wcpayConnectUrl,
-};
 
 const LearnMore = () => {
 	const handleClick = () => {
@@ -65,42 +61,45 @@ const TermsOfService = () => (
 	</span>
 );
 
-const ConnectPageError = ( { errorMessage } ) => {
-	if ( ! errorMessage ) {
+const ConnectPageError = ({ errorMessage }) => {
+	if (!errorMessage) {
 		return null;
 	}
 	return (
 		<Notice
 			className="wcpay-connect-error-notice"
 			status="error"
-			isDismissible={ false }
+			isDismissible={false}
 		>
-			{ errorMessage }
+			{errorMessage}
 		</Notice>
 	);
 };
 
-const ConnectPageOnboarding = ( { setErrorMessage } ) => {
+const ConnectPageOnboarding = ({
+	isJetpackConnected,
+	installAndActivatePlugins,
+	setErrorMessage,
+	connectUrl,
+}) => {
 	const [isSubmitted, setSubmitted] = useState(false);
 	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
-	const { connectUrl } = wcpaySettings;
 
 	const handleSetup = async () => {
 		setSubmitted(true);
 		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_CLICKED, {
-			// Since we're in WPCOM where users can't disconnect Jetpack, this can be safely hardcoded.
 			// eslint-disable-next-line camelcase
-			wpcom_connection: 'Yes',
+			wpcom_connection: isJetpackConnected,
 		});
 
-		const installAndActivateResponse = await wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins( [ 'woocommerce-payments' ] );
-		if ( installAndActivateResponse?.success ) {
+		const installAndActivateResponse = await installAndActivatePlugins(['woocommerce-payments']);
+		if (installAndActivateResponse?.success) {
 			// Redirect to KYC
 			window.location = connectUrl;
 		} else {
 			// Display error
-			setErrorMessage( installAndActivateResponse.message );
-			setSubmitted( false );
+			setErrorMessage(installAndActivateResponse.message);
+			setSubmitted(false);
 		}
 	};
 
@@ -144,22 +143,25 @@ const ConnectPageOnboarding = ( { setErrorMessage } ) => {
 };
 
 const ConnectAccountPage = () => {
-	useEffect(() => {
-		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_VIEW, {
-			path: 'payments_connect_v2',
-		});
-	}, []);
-
-	const [ errorMessage, setErrorMessage ] = useState('');
+	const [errorMessage, setErrorMessage] = useState('');
+	const onboardingProps = {
+		isJetpackConnected: wp.data
+			.select('wc/admin/plugins')
+			.isJetpackConnected(),
+		installAndActivatePlugins:
+			wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins,
+		setErrorMessage,
+		connectUrl: wcCalypsoBridge.wcpayConnectUrl,
+	};
 
 	return (
 		<div className="connect-account-page">
 			<div className="woocommerce-payments-page is-narrow connect-account">
-			<ConnectPageError errorMessage={ errorMessage }/>
+				<ConnectPageError errorMessage={errorMessage} />
 				<Card className="connect-account__card">
 					<Banner style="account-page" />
 					<div className="content">
-						<ConnectPageOnboarding setErrorMessage={ setErrorMessage }/>
+						<ConnectPageOnboarding {...onboardingProps} />
 					</div>
 				</Card>
 				<Card className="faq__card">
