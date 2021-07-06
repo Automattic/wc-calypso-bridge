@@ -1,38 +1,22 @@
 /**
  * External dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { Card, CardBody } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
-import WCPayLogo from './wcpay-logo';
+import strings from './strings';
 
-const Banner = ({ style }) => {
-	let logoWidth,
-		logoHeight,
-		showPill,
-		className = 'woocommerce-payments-banner';
-	if (style === 'account-page') {
-		logoWidth = 196;
-		logoHeight = 65;
-		showPill = true;
-		className += ' account-page';
-	} else {
-		logoWidth = 257;
-		logoHeight = 70;
-		showPill = false;
-	}
+const Banner = () => {
 	return (
-		<Card size="large" className={className}>
+		<Card size="large" className="account-page woocommerce-payments-banner">
 			<CardBody>
-				<WCPayLogo width={logoWidth} height={logoHeight} />
-				{showPill && (
-					<div className="woocommerce-payments-banner-pill">
-						<div>{__('Recommended', 'woocommerce-payments')}</div>
-					</div>
-				)}
+				<div className="limited-time-offer">
+					{strings.limitedTimeOffer}
+				</div>
+				<h1>{strings.bannerHeading}</h1>
+				<p>{strings.bannerCopy}</p>
 			</CardBody>
 		</Card>
 	);

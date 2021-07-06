@@ -12,12 +12,12 @@ import strings from './strings';
 import Banner from './banner';
 import Visa from './cards/visa.js';
 import MasterCard from './cards/mastercard.js';
+import Maestro from './cards/maestro';
 import Amex from './cards/amex.js';
 import ApplePay from './cards/applepay.js';
 import CB from './cards/cb.js';
 import DinersClub from './cards/diners.js';
 import Discover from './cards/discover.js';
-import GPay from './cards/gpay.js';
 import JCB from './cards/jcb.js';
 import UnionPay from './cards/unionpay.js';
 import './style.scss';
@@ -44,13 +44,13 @@ const PaymentMethods = () => (
 	<div className="wcpay-connect-account-page-payment-methods">
 		<Visa />
 		<MasterCard />
+		<Maestro />
 		<Amex />
 		<DinersClub />
 		<CB />
 		<Discover />
 		<UnionPay />
 		<JCB />
-		<GPay />
 		<ApplePay />
 	</div>
 );
@@ -92,7 +92,9 @@ const ConnectPageOnboarding = ({
 			wpcom_connection: isJetpackConnected ? 'Yes' : 'No',
 		});
 
-		const installAndActivateResponse = await installAndActivatePlugins(['woocommerce-payments']);
+		const installAndActivateResponse = await installAndActivatePlugins([
+			'woocommerce-payments',
+		]);
 		if (installAndActivateResponse?.success) {
 			// Redirect to KYC.
 			window.location = connectUrl;

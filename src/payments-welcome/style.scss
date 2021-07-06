@@ -1,5 +1,3 @@
-@import 'breakpoints';
-
 .connect-account-page {
 	.woocommerce-payments-page {
 		margin: 0 auto;
@@ -7,48 +5,6 @@
 		&.is-narrow {
 			max-width: 680px;
 		}
-	}
-
-	button.btn-nothanks {
-		margin-left: 5px !important;
-	}
-	
-	.wcpay-connect-account-page-masthead {
-		position: relative;
-		height: 120px;
-		border-bottom: 1px solid #dcdcde;
-
-		h1 {
-			position: absolute;
-			top: 24px;
-			left: 24px;
-		}
-
-		.wcpay-connect-account-page-recommended {
-			position: absolute;
-			top: 44px;
-			left: 246px;
-		}
-
-		.wcpay-connect-account-page-hero {
-			@include breakpoint( '<660px' ) {
-				display: none;
-			}
-			position: absolute;
-			top: -100px;
-			right: -36px;
-			clip: rect( 100px, 220px, 220px, auto );
-		}
-	}
-
-	.wcpay-connect-account-page-pill {
-		/* adapted from https://github.com/woocommerce/woocommerce-admin/blob/main/packages/components/src/pill/style.scss */
-		font-size: 12px;
-		border: 1px solid #3c434a;
-		border-radius: 28px;
-		color: #3c434a;
-		display: inline-block;
-		padding: 2px 8px;
 	}
 
 	.wcpay-connect-account-page-payment-methods {
@@ -64,34 +20,6 @@
 	.wcpay-connect-account-page-terms-of-service {
 		display: block;
 		margin: 0.5em 0;
-	}
-
-	.connect-page-onboarding-steps {
-		@include breakpoint( '>660px' ) {
-			display: flex;
-			flex-direction: row;
-		}
-
-		.connect-page-onboarding-steps-item {
-			margin-top: 30px;
-
-			@include breakpoint( '>660px' ) {
-				margin-top: 0;
-				margin-right: 80px;
-			}
-		}
-	}
-
-	.wcpay-connect-account-page-step-number {
-		background-color: #7f54b3;
-		color: #fff;
-		font-size: 20px;
-		border-radius: 50%;
-		min-height: 32px;
-		min-width: 32px;
-		display: inline-block;
-		text-align: center;
-		line-height: 32px;
 	}
 
 	.connect-account {
@@ -127,16 +55,13 @@
 		.connect-account__action {
 			margin-top: 16px;
 			margin-bottom: 0;
-		}
-
-		.connect-account__steps {
-			.woocommerce-card__body {
-				padding: 24px;
-			}
-
-			h2 {
-				margin-top: 0;
-			}
+			button.btn-nothanks {
+				margin-left: 5px !important;
+			}	
+			button.is-primary {
+				padding: 0 25px 0 25px;
+				border-radius: 3px;
+			}			
 		}
 	}
 }
@@ -145,6 +70,7 @@
 	margin-bottom: 32px;
 
 	&.account-page {
+		background: #f7edf7;
 		border: none;
 		// border-bottom: 1px solid $studio-gray-5;
 		border-radius: 0;
@@ -153,23 +79,26 @@
 		}
 	}
 
-	@include breakpoint( '>480px' ) {
-		.components-card__body {
-			background: url( '../../assets/images/wcpay-banner.png' ) no-repeat right;
-			background-size: contain;
-		}
+	h1 {
+		font-size: 24px;
+		width: 360px;
+		font-weight: normal;
 	}
 
-	.woocommerce-payments-banner-pill {
-		/* adapted from https://github.com/woocommerce/woocommerce-admin/blob/main/packages/components/src/pill/style.scss */
+	p {
+		font-size: 16px;
+		width: 360px;
+		margin-top: 5px;
+	}
+
+	.limited-time-offer {
+		background: url('../../assets/images/icon-flag.svg') no-repeat left;
+		font-weight:bold;
 		font-size: 12px;
-		border: 1px solid #3c434a;
-		border-radius: 28px;
-		color: #3c434a;
-		display: inline-block;
-		padding: 2px 8px;
-		position: relative;
-		top: -27px;
-		left: 25px;
+		padding-left: 16px;
+	}
+
+	.components-card__body {
+		background: url( '../../assets/images/wcpay-banner.svg' ) no-repeat right;
 	}
 }
