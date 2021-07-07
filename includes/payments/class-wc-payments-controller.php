@@ -27,7 +27,7 @@ class WC_Payments_Controller extends WC_REST_Controller {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'wc-calypso-brdige/v1';
+	protected $namespace = 'wc-calypso-bridge/v1';
 
 	/**
 	 * Route base.
@@ -56,8 +56,7 @@ class WC_Payments_Controller extends WC_REST_Controller {
 	 * Override this method if custom permissions required.
 	 */
 	public function check_permission() {
-		return true;
-//		return current_user_can( 'manage_woocommerce' );
+		return current_user_can( 'manage_woocommerce' );
 	}
 
 	/**
@@ -88,7 +87,12 @@ class WC_Payments_Controller extends WC_REST_Controller {
 			$note->set_status( Note::E_WC_ADMIN_NOTE_ACTIONED );
 			$data_store->create( $note );
 		}
-		return true;
+
+		return rest_ensure_response(
+			array(
+				'success' => true
+			)
+		);
 	}
 
 }
