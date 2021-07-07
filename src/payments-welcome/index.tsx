@@ -1,28 +1,38 @@
 /**
  * External dependencies
  */
+// @ts-ignore
 import { Card } from '@woocommerce/components';
 import { Button, Notice } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+// @ts-ignore
+import { useState } from 'wordpress-element';
 
 /**
  * Internal dependencies
  */
 import strings from './strings';
 import Banner from './banner';
-import Visa from './cards/visa.js';
-import MasterCard from './cards/mastercard.js';
-import Amex from './cards/amex.js';
-import ApplePay from './cards/applepay.js';
-import CB from './cards/cb.js';
-import DinersClub from './cards/diners.js';
-import Discover from './cards/discover.js';
-import GPay from './cards/gpay.js';
-import JCB from './cards/jcb.js';
-import UnionPay from './cards/unionpay.js';
+import Visa from './cards/visa';
+import MasterCard from './cards/mastercard';
+import Maestro from './cards/maestro';
+import Amex from './cards/amex';
+import ApplePay from './cards/applepay';
+import CB from './cards/cb';
+import DinersClub from './cards/diners';
+import Discover from './cards/discover';
+import JCB from './cards/jcb';
+import UnionPay from './cards/unionpay';
 import './style.scss';
 import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
+
+declare global {
+	interface Window { 
+		wp: any,
+		wcCalypsoBridge: any,
+		location: Location
+	}
+}
 
 const LearnMore = () => {
 	const handleClick = () => {
@@ -44,13 +54,13 @@ const PaymentMethods = () => (
 	<div className="wcpay-connect-account-page-payment-methods">
 		<Visa />
 		<MasterCard />
+		<Maestro />
 		<Amex />
 		<DinersClub />
 		<CB />
 		<Discover />
 		<UnionPay />
 		<JCB />
-		<GPay />
 		<ApplePay />
 	</div>
 );
@@ -61,7 +71,9 @@ const TermsOfService = () => (
 	</span>
 );
 
-const ConnectPageError = ({ errorMessage }) => {
+const ConnectPageError = ({ errorMessage }: {
+	errorMessage: string
+}) => {
 	if (!errorMessage) {
 		return null;
 	}
@@ -81,6 +93,11 @@ const ConnectPageOnboarding = ({
 	installAndActivatePlugins,
 	setErrorMessage,
 	connectUrl,
+}: {
+	isJetpackConnected: string,
+	installAndActivatePlugins: Function,
+	setErrorMessage: Function,
+	connectUrl: string
 }) => {
 	const [isSubmitted, setSubmitted] = useState(false);
 	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
@@ -92,10 +109,12 @@ const ConnectPageOnboarding = ({
 			wpcom_connection: isJetpackConnected ? 'Yes' : 'No',
 		});
 
-		const installAndActivateResponse = await installAndActivatePlugins(['woocommerce-payments']);
+		const installAndActivateResponse = await installAndActivatePlugins([
+			'woocommerce-payments',
+		]);
 		if (installAndActivateResponse?.success) {
 			// Redirect to KYC.
-			window.location = connectUrl;
+			window.location.href = connectUrl;
 		} else {
 			setErrorMessage(installAndActivateResponse.message);
 			setSubmitted(false);
@@ -144,13 +163,13 @@ const ConnectPageOnboarding = ({
 const ConnectAccountPage = () => {
 	const [errorMessage, setErrorMessage] = useState('');
 	const onboardingProps = {
-		isJetpackConnected: wp.data
+		isJetpackConnected: window.wp.data
 			.select('wc/admin/plugins')
 			.isJetpackConnected(),
 		installAndActivatePlugins:
-			wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins,
+			window.wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins,
 		setErrorMessage,
-		connectUrl: wcCalypsoBridge.wcpayConnectUrl,
+		connectUrl: window.wcCalypsoBridge.wcpayConnectUrl,
 	};
 
 	return (
@@ -158,7 +177,7 @@ const ConnectAccountPage = () => {
 			<div className="woocommerce-payments-page is-narrow connect-account">
 				<ConnectPageError errorMessage={errorMessage} />
 				<Card className="connect-account__card">
-					<Banner style="account-page" />
+					<Banner />
 					<div className="content">
 						<ConnectPageOnboarding {...onboardingProps} />
 					</div>
