@@ -30,6 +30,21 @@ export default {
 
 	paymentMethodsHeading: __('Accepted payment methods', 'wc-calypso-bridge'),
 
+	surveyIntro: createInterpolateElement(
+		// Note: \xa0 is used to create a non-breaking space.
+		__(
+			'Please take a moment to tell us why you’d like to remove WooCommerce Payments. This will remove WooCommerce\xa0Payments from the navigation. In order to enable it again, go to <strong>WooCommerce\xa0Settings\xa0>\xa0Payments</strong>.',
+			'wc-calypso-bridge'
+		),
+		{
+			strong: (
+				<strong />
+			),
+		}
+	),
+
+	surveyQuestion: __('What made you disable the new payments experience?', 'wc-calypso-bridge'),
+
 	terms: createInterpolateElement(
 		__(
 			'Upon clicking "Get started", you agree to the <a>Terms of Service</a>. Next we\'ll ask you to share a few details about your business to create your account.',

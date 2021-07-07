@@ -110,3 +110,42 @@
 		background: url( '../../assets/images/wcpay-banner.svg' ) no-repeat right;
 	}
 }
+
+.wc-calypso-bridge-payments-welcome-survey {
+	p {
+		margin-bottom: 1em;
+	}
+}
+
+.wc-calypso-bridge-payments-welcome-survey__intro{
+	max-width: 500px;
+}
+
+.wc-calypso-bridge-payments-welcome-survey__question{
+	font-weight: bold;
+}
+
+
+.wc-calypso-bridge-payments-welcome-survey__selection {
+	margin: 1em 0;
+}
+.wc-calypso-bridge-payments-welcome-survey__comment {
+	margin-top: 1em;
+}
+
+.wc-calypso-bridge-payments-welcome-survey__buttons {
+	text-align: right;
+	
+	button {
+		margin-left: 0.5em;
+	}
+
+	button.is-destructive {
+		background-color: #cc1818;
+		color: white;
+		&:hover {
+			color: white !important;
+		}
+	}
+}
+
