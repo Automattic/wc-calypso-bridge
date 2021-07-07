@@ -171,17 +171,17 @@ class WC_Calypso_Bridge_Setup {
 			return;
 		}
 
-		// WC Payment must not be installed.
-		if ( array_key_exists( 'woocommerce-payments/woocommerce-payments.php', get_plugins() ) ) {
+		// WC Payment must not be active.
+		if ( is_plugin_active( 'woocommerce-payments/woocommerce-payments.php' ) ) {
 			return;
 		}
 
-		// User country must be US.
+		// Store country must be the US.
 		if ( 'US' !== WC()->countries->get_base_country() ) {
 			return;
 		}
 
-		if ( 'yes' === get_option( 'wc_calypso_brdige_wcpay_welcome_page_opt_out', 'no' ) ) {
+		if ( 'yes' === get_option( 'wc_calypso_bridge_payments_dismissed', 'no' ) ) {
 			return;
 		}
 
