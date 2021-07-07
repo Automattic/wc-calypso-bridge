@@ -27,7 +27,7 @@ class WC_Payments_Controller extends WC_REST_Controller {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'wc/v3';
+	protected $namespace = 'wc-calypso-brdige/v1';
 
 	/**
 	 * Route base.
@@ -40,9 +40,9 @@ class WC_Payments_Controller extends WC_REST_Controller {
 	 * Register routes.
 	 */
 	public function register_routes() {
-		register_rest_route( $this->namespace, '/' . $this->rest_base . '/post-install', array(
+		register_rest_route( $this->namespace, '/' . $this->rest_base . '/activate-promo', array(
 			array(
-				'methods'             => WP_REST_Server::READABLE,
+				'methods'             => 'POST',
 				'callback'            => array( $this, 'activate_promo_note' ),
 				'permission_callback' => array( $this, 'check_permission' ),
 			),
@@ -56,7 +56,8 @@ class WC_Payments_Controller extends WC_REST_Controller {
 	 * Override this method if custom permissions required.
 	 */
 	public function check_permission() {
-		return current_user_can( 'manage_woocommerce' );
+		return true;
+//		return current_user_can( 'manage_woocommerce' );
 	}
 
 	/**
@@ -87,6 +88,7 @@ class WC_Payments_Controller extends WC_REST_Controller {
 			$note->set_status( Note::E_WC_ADMIN_NOTE_ACTIONED );
 			$data_store->create( $note );
 		}
+		return true;
 	}
 
 }
