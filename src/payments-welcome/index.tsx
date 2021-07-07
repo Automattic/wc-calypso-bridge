@@ -3,7 +3,7 @@
  */
 // @ts-ignore
 import { Card } from '@woocommerce/components';
-import { Button, Notice } from '@wordpress/components';
+import { Button, Modal, Notice } from '@wordpress/components';
 // @ts-ignore
 import { useState } from 'wordpress-element';
 
@@ -25,6 +25,7 @@ import UnionPay from './cards/unionpay';
 import './style.scss';
 import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
+import ExitSurveyModal from './exit-survey-modal';
 
 declare global {
 	interface Window { 
@@ -102,6 +103,8 @@ const ConnectPageOnboarding = ({
 	const [isSubmitted, setSubmitted] = useState(false);
 	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
 
+	const [ isExitSurveyModalOpen, setExitSurveyModalOpen ] = useState( false );
+
 	const handleSetup = async () => {
 		setSubmitted(true);
 		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_CLICKED, {
@@ -123,6 +126,7 @@ const ConnectPageOnboarding = ({
 
 	const handleNoThanks = () => {
 		setNoThanksClicked(true);
+		setExitSurveyModalOpen( true );
 	};
 
 	return (
@@ -155,6 +159,9 @@ const ConnectPageOnboarding = ({
 				>
 					{strings.nothanks}
 				</Button>
+				{ isExitSurveyModalOpen && (
+					<ExitSurveyModal />
+				) }
 			</p>
 		</>
 	);
