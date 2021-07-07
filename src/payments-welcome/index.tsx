@@ -6,6 +6,7 @@ import { Card } from '@woocommerce/components';
 import { Button, Modal, Notice } from '@wordpress/components';
 // @ts-ignore
 import { useState } from 'wordpress-element';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -102,8 +103,28 @@ const ConnectPageOnboarding = ({
 }) => {
 	const [isSubmitted, setSubmitted] = useState(false);
 	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
-
+	
 	const [ isExitSurveyModalOpen, setExitSurveyModalOpen ] = useState( false );
+
+	const renderErrorMessage = (message: string) => {
+		setErrorMessage(message);
+		setSubmitted(false);
+	}
+
+	const activatePromo = async () => {
+		try {
+			const activatePromoResponse = await apiFetch({
+				path: '/wc-calypso-bridge/v1/payments/activate-promo',
+				method: 'POST'
+			}) as any;
+
+			if (activatePromoResponse?.success) {
+				window.location.href = connectUrl;
+			}
+		} catch (e: any) {
+			renderErrorMessage(e.message);
+		}		
+	}
 
 	const handleSetup = async () => {
 		setSubmitted(true);
@@ -112,15 +133,18 @@ const ConnectPageOnboarding = ({
 			wpcom_connection: isJetpackConnected ? 'Yes' : 'No',
 		});
 
-		const installAndActivateResponse = await installAndActivatePlugins([
-			'woocommerce-payments',
-		]);
-		if (installAndActivateResponse?.success) {
-			// Redirect to KYC.
-			window.location.href = connectUrl;
-		} else {
-			setErrorMessage(installAndActivateResponse.message);
-			setSubmitted(false);
+		try {
+			const installAndActivateResponse = await installAndActivatePlugins([
+				'woocommerce-payments',
+			]);
+
+			if (installAndActivateResponse?.success) {
+				activatePromo();
+			} else {
+				renderErrorMessage(installAndActivateResponse.message);
+			}			
+		} catch (e: any) {
+			renderErrorMessage(e.message);
 		}
 	};
 
