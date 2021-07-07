@@ -126,6 +126,8 @@ const ConnectPageOnboarding = ({
 		}		
 	}
 
+	const [ isExitSurveyModalOpen, setExitSurveyModalOpen ] = useState( false );
+
 	const handleSetup = async () => {
 		setSubmitted(true);
 		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_CLICKED, {
