@@ -30,6 +30,8 @@ export default {
 
 	paymentMethodsHeading: __('Accepted payment methods', 'wc-calypso-bridge'),
 
+	surveyTitle: __( 'Remove WooCommerce Payments', 'wc-calypso-bridge' ) ,
+
 	surveyIntro: createInterpolateElement(
 		// Note: \xa0 is used to create a non-breaking space.
 		__(
@@ -44,6 +46,22 @@ export default {
 	),
 
 	surveyQuestion: __('What made you disable the new payments experience?', 'wc-calypso-bridge'),
+
+	surveyHappyLabel: __('I’m already happy with my payments setup', 'wc-calypso-bridge'),
+
+	surveyInstallLabel: __('I don’t want to install another plugin', 'wc-calypso-bridge'),
+
+	surveyMoreInfoLabel: __('I need more information about WooCommerce Payments', 'wc-calypso-bridge'),
+
+	surveyAnotherTimeLabel: __('I’m open to installing it another time', 'wc-calypso-bridge'),
+
+	surveySomethingElseLabel: __('It’s something else (Please share below', 'wc-calypso-bridge'),
+
+	surveyCommentsLabel: __('Comments (Optional)', 'wc-calypso-bridge'),
+	
+	surveyCancelButton: __('Just remove WooCommerce Payments', 'wc-calypso-bridge'),
+	
+	surveySubmitButton: __('Remove and send feedback', 'wc-calypso-bridge'),
 
 	terms: createInterpolateElement(
 		__(
