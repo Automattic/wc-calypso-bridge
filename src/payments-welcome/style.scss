@@ -45,9 +45,29 @@
 			.woocommerce-card__body {
 				padding: 7px 25px;
 			}
+
 			p {
-				font-size: 15px;
 				line-height: 24px;
+			}
+
+			.help-section {
+				font-size: 16px;
+				margin-bottom: 15px;
+				background: #f7edf7;
+				padding: 15px;
+				color: #533582;
+				svg path {
+					fill: #533582;
+				}
+				span {
+					vertical-align: 6px;
+					margin-left: 10px;
+				}
+				a {
+					text-decoration: none;
+					vertical-align: 6px;
+					margin-left: 10px;
+				}
 			}
 		}
 

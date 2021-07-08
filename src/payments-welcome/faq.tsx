@@ -1,3 +1,13 @@
+/**
+ * External dependencies.
+ */
+import { Icon, help } from '@wordpress/icons'
+
+/**
+ * Internal dependencies.
+ */
+import strings from './strings';
+
 const FrequentlyAskedQuestions = () => {
 	return (
 		<>
@@ -12,6 +22,11 @@ const FrequentlyAskedQuestions = () => {
 			<h3>What will my customers see at checkout?</h3>
 			<h3>What happens to my data?</h3>
 			<h3>Where will my existing transactions show up?</h3>
+			<div className='help-section'>
+				<Icon icon={ help } />
+				<span>{strings.haveMoreQuestions}</span>
+				<a href="https://docs.woocommerce.com/document/payments/faq/" target="_blank">{strings.getInTouch}</a>
+			</div>
 		</>
 	);
 };
