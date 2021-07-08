@@ -8,6 +8,7 @@ import {
 	CheckboxControl,
 	TextareaControl,
 } from '@wordpress/components';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -28,7 +29,19 @@ function ExitSurveyModal(): JSX.Element | null {
 	const [ isSomethingElseChecked, setSomethingElseChecked ] = useState(false);
 	const [ comments, setComments ] = useState( '' );
 	
-	const closeModal = () => setOpen( false );
+	const closeModal = () => {
+		setOpen( false );
+
+		apiFetch({
+			path: 'wc-admin/options',
+			method: 'POST',
+			data: {
+				wc_calypso_bridge_payments_dismissed: 'yes'
+			}
+		}).then( () => {
+			window.location.href = 'admin.php?page=wc-admin';
+		});
+	}
 
 	const sendFeedback = () => {
 		wcpayTracks.recordEvent(wcpayTracks.events.SURVEY_FEEDBACK, {
@@ -39,7 +52,8 @@ function ExitSurveyModal(): JSX.Element | null {
 			somethingElse: isSomethingElseChecked ? 'Yes' : 'No',
 			comments: comments,
 		});
-		setOpen( false );
+
+		closeModal();
 	};
 
 	if ( ! isOpen ) {
