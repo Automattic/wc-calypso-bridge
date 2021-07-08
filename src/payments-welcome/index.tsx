@@ -126,8 +126,6 @@ const ConnectPageOnboarding = ({
 		}		
 	}
 
-	const [ isExitSurveyModalOpen, setExitSurveyModalOpen ] = useState( false );
-
 	const handleSetup = async () => {
 		setSubmitted(true);
 		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_CLICKED, {
@@ -178,15 +176,15 @@ const ConnectPageOnboarding = ({
 					{strings.button}
 				</Button>
 				<Button
-					isBusy={isNoThanksClicked}
-					disabled={isNoThanksClicked}
+					isBusy={isNoThanksClicked && isExitSurveyModalOpen}
+					disabled={isNoThanksClicked && isExitSurveyModalOpen}
 					onClick={handleNoThanks}
 					className="btn-nothanks"
 				>
 					{strings.nothanks}
 				</Button>
 				{ isExitSurveyModalOpen && (
-					<ExitSurveyModal />
+					<ExitSurveyModal setExitSurveyModalOpen = {setExitSurveyModalOpen}/>
 				) }
 			</p>
 		</>

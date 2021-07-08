@@ -20,7 +20,9 @@ import wcpayTracks from './tracks';
  * Provides a modal requesting customer feedback.
  *
  */
-function ExitSurveyModal(): JSX.Element | null {
+function ExitSurveyModal({ setExitSurveyModalOpen }: {
+	setExitSurveyModalOpen: Function	
+}): JSX.Element | null {
 	const [ isOpen, setOpen ] = useState( true );
 	const [ isHappyChecked, setHappyChecked ] = useState(false);
 	const [ isInstallChecked, setInstallChecked ] = useState(false);
@@ -31,7 +33,10 @@ function ExitSurveyModal(): JSX.Element | null {
 	
 	const closeModal = () => {
 		setOpen( false );
+		setExitSurveyModalOpen( false );
+	}
 
+	const removeWCPayMenu = () => {
 		apiFetch({
 			path: 'wc-admin/options',
 			method: 'POST',
@@ -41,6 +46,8 @@ function ExitSurveyModal(): JSX.Element | null {
 		}).then( () => {
 			window.location.href = 'admin.php?page=wc-admin';
 		});
+
+		setOpen( false );
 	}
 
 	const sendFeedback = () => {
@@ -53,7 +60,7 @@ function ExitSurveyModal(): JSX.Element | null {
 			comments: comments,
 		});
 
-		closeModal();
+		removeWCPayMenu();
 	};
 
 	if ( ! isOpen ) {
@@ -109,7 +116,7 @@ function ExitSurveyModal(): JSX.Element | null {
 			</div>
 
 			<div className="wc-calypso-bridge-payments-welcome-survey__buttons">
-				<Button isTertiary isDestructive onClick={ closeModal } name="cancel">
+				<Button isTertiary isDestructive onClick={ removeWCPayMenu } name="cancel">
 					{ strings.surveyCancelButton }
 				</Button>
 				<Button isSecondary onClick={ sendFeedback } name="send">
