@@ -8,7 +8,6 @@ import {
 	CheckboxControl,
 	TextareaControl,
 } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -50,7 +49,7 @@ function ExitSurveyModal(): JSX.Element | null {
 	return (
 		<Modal
 			className="wc-calypso-bridge-payments-welcome-survey"
-			title={ __( 'Remove WooCommerce Payments', 'wc-calypso-bridge' ) }
+			title={ strings.surveyTitle }
 			onRequestClose={ closeModal }
 			shouldCloseOnClickOutside={ false }
 		>
@@ -60,27 +59,27 @@ function ExitSurveyModal(): JSX.Element | null {
 			
 			<div className="wc-calypso-bridge-payments-welcome-survey__selection">
 				<CheckboxControl
-					label={ __('I’m already happy with my payments setup') }
+					label={ strings.surveyHappyLabel }
 					checked={ isHappyChecked }
 					onChange={ setHappyChecked }
 				/>
 				<CheckboxControl
-					label={ __('I don’t want to install another plugin') }
+					label={ strings.surveyInstallLabel }
 					checked={ isInstallChecked }
 					onChange={ setInstallChecked }
 				/>
 				<CheckboxControl
-					label={ __('I need more information about WooCommerce Payments') }
+					label={ strings.surveyMoreInfoLabel }
 					checked={ isMoreInfoChecked }
 					onChange={ setMoreInfoChecked }
 				/>
 				<CheckboxControl
-					label={ __('I’m open to installing it another time') }
+					label={ strings.surveyAnotherTimeLabel }
 					checked={ isAnotherTimeChecked }
 					onChange={ setAnotherTimeChecked }
 				/>
 				<CheckboxControl
-					label={ __('It’s something else (Please share below)') }
+					label={ strings.surveySomethingElseLabel }
 					checked={ isSomethingElseChecked }
 					onChange={ setSomethingElseChecked }
 				/>
@@ -88,10 +87,7 @@ function ExitSurveyModal(): JSX.Element | null {
 
 			<div className="wc-calypso-bridge-payments-welcome-survey__comments">
 				<TextareaControl
-					label={ __(
-						'Comments (Optional)',
-						'woocommerce-admin'
-					) }
+					label={ strings.surveyCommentsLabel }
 					value={ comments }
 					onChange={ ( value: string ) => setComments( value ) }
 					rows={ 3 }
@@ -100,10 +96,10 @@ function ExitSurveyModal(): JSX.Element | null {
 
 			<div className="wc-calypso-bridge-payments-welcome-survey__buttons">
 				<Button isTertiary isDestructive onClick={ closeModal } name="cancel">
-					{ __( 'Just remove WooCommerce Payments', 'wc-calypso-bridge' ) }
+					{ strings.surveyCancelButton }
 				</Button>
 				<Button isSecondary onClick={ sendFeedback } name="send">
-					{ __( 'Remove and send feedback', 'wc-calypso-bridge' ) }
+					{ strings.surveySubmitButton }
 				</Button>
 			</div>
 		</Modal>
