@@ -8,6 +8,7 @@ import {
 	CheckboxControl,
 	TextareaControl,
 } from '@wordpress/components';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -19,7 +20,9 @@ import wcpayTracks from './tracks';
  * Provides a modal requesting customer feedback.
  *
  */
-function ExitSurveyModal(): JSX.Element | null {
+function ExitSurveyModal({ setExitSurveyModalOpen }: {
+	setExitSurveyModalOpen: Function	
+}): JSX.Element | null {
 	const [ isOpen, setOpen ] = useState( true );
 	const [ isHappyChecked, setHappyChecked ] = useState(false);
 	const [ isInstallChecked, setInstallChecked ] = useState(false);
@@ -28,7 +31,24 @@ function ExitSurveyModal(): JSX.Element | null {
 	const [ isSomethingElseChecked, setSomethingElseChecked ] = useState(false);
 	const [ comments, setComments ] = useState( '' );
 	
-	const closeModal = () => setOpen( false );
+	const closeModal = () => {
+		setOpen( false );
+		setExitSurveyModalOpen( false );
+	}
+
+	const removeWCPayMenu = () => {
+		apiFetch({
+			path: 'wc-admin/options',
+			method: 'POST',
+			data: {
+				wc_calypso_bridge_payments_dismissed: 'yes'
+			}
+		}).then( () => {
+			window.location.href = 'admin.php?page=wc-admin';
+		});
+
+		setOpen( false );
+	}
 
 	const sendFeedback = () => {
 		wcpayTracks.recordEvent(wcpayTracks.events.SURVEY_FEEDBACK, {
@@ -39,7 +59,8 @@ function ExitSurveyModal(): JSX.Element | null {
 			somethingElse: isSomethingElseChecked ? 'Yes' : 'No',
 			comments: comments,
 		});
-		setOpen( false );
+
+		removeWCPayMenu();
 	};
 
 	if ( ! isOpen ) {
@@ -95,7 +116,7 @@ function ExitSurveyModal(): JSX.Element | null {
 			</div>
 
 			<div className="wc-calypso-bridge-payments-welcome-survey__buttons">
-				<Button isTertiary isDestructive onClick={ closeModal } name="cancel">
+				<Button isTertiary isDestructive onClick={ removeWCPayMenu } name="cancel">
 					{ strings.surveyCancelButton }
 				</Button>
 				<Button isSecondary onClick={ sendFeedback } name="send">

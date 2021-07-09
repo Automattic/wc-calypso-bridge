@@ -176,15 +176,15 @@ const ConnectPageOnboarding = ({
 					{strings.button}
 				</Button>
 				<Button
-					isBusy={isNoThanksClicked}
-					disabled={isNoThanksClicked}
+					isBusy={isNoThanksClicked && isExitSurveyModalOpen}
+					disabled={isNoThanksClicked && isExitSurveyModalOpen}
 					onClick={handleNoThanks}
 					className="btn-nothanks"
 				>
 					{strings.nothanks}
 				</Button>
 				{ isExitSurveyModalOpen && (
-					<ExitSurveyModal />
+					<ExitSurveyModal setExitSurveyModalOpen = {setExitSurveyModalOpen}/>
 				) }
 			</p>
 		</>
