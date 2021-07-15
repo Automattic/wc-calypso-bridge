@@ -27,8 +27,6 @@ import './style.scss';
 import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
 import ExitSurveyModal from './exit-survey-modal';
-import { useEffect } from '@wordpress/element';
-import { getUrlParams } from '../utils/url';
 
 declare global {
 	interface Window { 
@@ -91,19 +89,6 @@ const ConnectPageError = ({ errorMessage }: {
 		</Notice>
 	);
 };
-
-const maybeEnableWCPayMenu = () => {
-	const params: any = getUrlParams(location.search);
-	if (params['enable_menu'] === 1) {
-		apiFetch({
-			path: 'wc-admin/options',
-			method: 'POST',
-			data: {
-				wc_calypso_bridge_payments_dismissed: 'no'
-			}
-		});
-	}
-}
 
 const ConnectPageOnboarding = ({
 	isJetpackConnected,
@@ -207,9 +192,6 @@ const ConnectPageOnboarding = ({
 };
 
 const ConnectAccountPage = () => {
-	useEffect( () => {
-		maybeEnableWCPayMenu();
-	}, [])
 	const [errorMessage, setErrorMessage] = useState('');
 	const onboardingProps = {
 		isJetpackConnected: window.wp.data
