@@ -2,7 +2,7 @@
  * External dependencies
  */
 // @ts-ignore
-import { Card } from '@woocommerce/components';
+import { Card, CardBody } from '@wordpress/components';
 import { Button, Modal, Notice } from '@wordpress/components';
 // @ts-ignore
 import { useState, useEffect } from 'wordpress-element';
@@ -213,15 +213,19 @@ const ConnectAccountPage = () => {
 			<div className="woocommerce-payments-page is-narrow connect-account">
 				<ConnectPageError errorMessage={errorMessage} />
 				<Card className="connect-account__card">
-					<Banner />
-					<div className="content">
-						<ConnectPageOnboarding {...onboardingProps} />
-					</div>
+					<CardBody>
+						<Banner />
+						<div className="content">
+							<ConnectPageOnboarding {...onboardingProps} />
+						</div>
+					</CardBody>
 				</Card>
 				<Card className="faq__card">
-					<div className="content">
-						<FrequentlyAskedQuestions />
-					</div>
+					<CardBody>
+						<div className="content">
+							<FrequentlyAskedQuestions />
+						</div>
+					</CardBody>
 				</Card>
 			</div>
 		</div>
