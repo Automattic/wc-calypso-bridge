@@ -5,7 +5,7 @@
 import { Card } from '@woocommerce/components';
 import { Button, Modal, Notice } from '@wordpress/components';
 // @ts-ignore
-import { useState } from 'wordpress-element';
+import { useState, useEffect } from 'wordpress-element';
 import apiFetch from '@wordpress/api-fetch';
 
 /**
@@ -192,6 +192,11 @@ const ConnectPageOnboarding = ({
 };
 
 const ConnectAccountPage = () => {
+	useEffect(() => {
+		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_VIEW, {
+			path: 'payments_connect_dotcom_test',
+		});
+	}, []);
 	const [errorMessage, setErrorMessage] = useState('');
 	const onboardingProps = {
 		isJetpackConnected: window.wp.data
