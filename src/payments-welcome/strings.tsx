@@ -29,7 +29,6 @@ export default {
 	},
 
 	paymentMethodsHeading: __('Accepted payment methods', 'wc-calypso-bridge'),
-
 	surveyTitle: __( 'Remove WooCommerce Payments', 'wc-calypso-bridge' ) ,
 
 	surveyIntro: createInterpolateElement(
@@ -63,6 +62,8 @@ export default {
 	
 	surveySubmitButton: __('Remove and send feedback', 'wc-calypso-bridge'),
 
+	haveMoreQuestions: __('Have more questions?', 'wc-calypso-bridge'),
+	getInTouch: __('Get in touch', 'wc-calypso-bridge'),
 	terms: createInterpolateElement(
 		__(
 			'Upon clicking "Get started", you agree to the <a>Terms of Service</a>. Next we\'ll ask you to share a few details about your business to create your account.',
