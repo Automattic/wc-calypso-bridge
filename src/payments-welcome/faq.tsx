@@ -84,7 +84,7 @@ const FrequentlyAskedQuestions = () => {
 			<div className='help-section'>
 				<Icon icon={ help } />
 				<span>{strings.haveMoreQuestions}</span>
-				<a href="https://docs.woocommerce.com/document/payments/faq/" target="_blank">{strings.getInTouch}</a>
+				<a href="https://www.woocommerce.com/my-account/tickets/" target="_blank">{strings.getInTouch}</a>
 			</div>
 		</>
 	);
