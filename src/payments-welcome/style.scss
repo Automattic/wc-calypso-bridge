@@ -24,12 +24,12 @@
 
 	.connect-account {
 		h2 {
-			font-size: 20px;
-			font-weight: 300;
+			font-size: 24px;
+			font-weight: normal;
 		}
 
 		h3 {
-			font-size: 1em;
+			font-size: 1.3em;
 			padding-top: 15px;
 		}
 
@@ -39,6 +39,46 @@
 			border: 1px solid #E2E4E7;
 			border-radius: 2px;
 			margin-top: 24px;
+		}
+
+		.faq__card {
+			.woocommerce-card__body {
+				padding: 7px 25px;
+			}
+
+			p {
+				line-height: 24px;
+			}
+			ul {
+				margin-left: 44px;
+				li {
+					list-style: disc;
+					margin: 0;
+					ul li {
+						list-style: circle;
+					}
+				}
+			}
+
+			.help-section {
+				font-size: 16px;
+				margin-bottom: 15px;
+				background: #f7edf7;
+				padding: 15px;
+				color: #533582;
+				svg path {
+					fill: #533582;
+				}
+				span {
+					vertical-align: 6px;
+					margin-left: 10px;
+				}
+				a {
+					text-decoration: none;
+					vertical-align: 6px;
+					margin-left: 10px;
+				}
+			}
 		}
 
 		.connect-account__card {
