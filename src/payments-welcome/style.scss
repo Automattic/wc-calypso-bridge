@@ -29,7 +29,7 @@
 		}
 
 		h3 {
-			font-size: 1em;
+			font-size: 1.3em;
 			padding-top: 15px;
 		}
 
@@ -48,6 +48,16 @@
 
 			p {
 				line-height: 24px;
+			}
+			ul {
+				margin-left: 44px;
+				li {
+					list-style: disc;
+					margin: 0;
+					ul li {
+						list-style: circle;
+					}
+				}
 			}
 
 			.help-section {
