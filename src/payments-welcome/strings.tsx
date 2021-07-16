@@ -34,7 +34,7 @@ export default {
 	surveyIntro: createInterpolateElement(
 		// Note: \xa0 is used to create a non-breaking space.
 		__(
-			'Please take a moment to tell us why you’d like to remove WooCommerce Payments. This will remove WooCommerce\xa0Payments from the navigation. In order to enable it again, go to <strong>WooCommerce\xa0Settings\xa0>\xa0Payments</strong>.',
+			'Please take a moment to tell us why you’d like to remove WooCommerce Payments. This will remove WooCommerce\xa0Payments from the navigation. You can enable it again in <strong>WooCommerce\xa0Settings\xa0>\xa0Payments</strong>, however the promotion will not apply.',
 			'wc-calypso-bridge'
 		),
 		{
