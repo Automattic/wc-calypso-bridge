@@ -155,7 +155,7 @@ const ConnectPageOnboarding = ({
 
 	return (
 		<>
-			<p>
+			<p className="onboarding-description">
 				{strings.onboarding.description} <LearnMore />
 			</p>
 
@@ -213,12 +213,12 @@ const ConnectAccountPage = () => {
 			<div className="woocommerce-payments-page is-narrow connect-account">
 				<ConnectPageError errorMessage={errorMessage} />
 				<Card className="connect-account__card">
-					<CardBody>
-						<Banner />
-						<div className="content">
-							<ConnectPageOnboarding {...onboardingProps} />
-						</div>
-					</CardBody>
+				<Banner />
+				<CardBody>
+					<div className="content">
+						<ConnectPageOnboarding {...onboardingProps} />
+					</div>
+				</CardBody>
 				</Card>
 				<Card className="faq__card">
 					<CardBody>

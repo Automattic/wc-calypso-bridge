@@ -1,7 +1,7 @@
 .connect-account-page {
 	.woocommerce-payments-page {
 		margin: 0 auto;
-	
+
 		&.is-narrow {
 			max-width: 680px;
 		}
@@ -42,6 +42,8 @@
 		}
 
 		.faq__card {
+			margin-bottom: var(--large-gap);
+
 			.woocommerce-card__body {
 				padding: 7px 25px;
 			}
@@ -82,6 +84,7 @@
 		}
 
 		.connect-account__card {
+			// Applies for non-gutenberg
 			> .components-card__body {
 				padding: 0;
 
@@ -91,14 +94,24 @@
 					a {
 						text-decoration: none;
 					}
-
-					hr {
-						position: relative;
-						left: -24px;
-						width: calc( 100% + 48px );
-						background-color: #e3e3e5;
-					}
 				}
+			}
+
+			// Applies for gutenberg
+			.components-card-body {
+				.onboarding-description {
+					margin-top: 0.5em;
+				}
+				.connect-account__action {
+					margin-bottom: 0.5em;
+				}
+			}
+
+			hr.full-width {
+				position: relative;
+				left: -24px;
+				width: calc( 100% + 48px );
+				background-color: #e3e3e5;
 			}
 		}
 
@@ -107,11 +120,11 @@
 			margin-bottom: 0;
 			button.btn-nothanks {
 				margin-left: 5px !important;
-			}	
+			}
 			button.is-primary {
 				padding: 0 25px 0 25px;
 				border-radius: 3px;
-			}			
+			}
 		}
 	}
 }
@@ -123,6 +136,7 @@
 		border: none;
 		border-bottom: 1px solid #E2E4E7;
 		border-radius: 0;
+		box-shadow: none;
 		.components-card__body {
 			padding: 24px 24px 3px 24px;
 		}
@@ -176,7 +190,7 @@
 
 .wc-calypso-bridge-payments-welcome-survey__buttons {
 	text-align: right;
-	
+
 	button {
 		margin-left: 0.5em;
 	}
