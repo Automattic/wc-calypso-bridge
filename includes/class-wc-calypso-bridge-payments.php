@@ -107,13 +107,15 @@ class WC_Calypso_Bridge_Payments {
 		// We need to register this menu via add_menu_page so that it doesn't become a child of
 		// WooCommerce menu.
 		if ( 'yes' === get_option('woocommerce_navigation_enabled', 'no') ) {
+			$menu_icon = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDEwMDAiPgogIDxwYXRoIGZpbGw9IiNhMmFhYjIiIGQ9Ik04NTQgMTcwLjY2N3Y1MTJoLTY4NHYtNTEyaDY4NHpNODU0IDc2OC42NjdjNDggMCA4NC0zOCA4NC04NnYtNTEyYzAtNDgtMzYtODYtODQtODZoLTY4NGMtNDggMC04NCAzOC04NCA4NnY1MTJjMCA0OCAzNiA4NiA4NCA4Nmg2ODR6TTQ3MCAyMTIuNjY3djQ0aC04NnY4NGgxNzB2NDRoLTEyOGMtMjQgMC00MiAxOC00MiA0MnYxMjhjMCAyNCAxOCA0MiA0MiA0Mmg0NHY0NGg4NHYtNDRoODZ2LTg0aC0xNzB2LTQ0aDEyOGMyNCAwIDQyLTE4IDQyLTQydi0xMjhjMC0yNC0xOC00Mi00Mi00MmgtNDR2LTQ0aC04NHoiLz4KPC9zdmc+';
+
 			add_menu_page(
 				__( 'Payments', 'wc-calypso-bridge' ),
 				__( 'Payments', 'wc-calypso-bridge' ),
 				'view_woocommerce_reports',
 				'admin.php?page=wc-admin&path=/payments-welcome',
 				null,
-				null,
+				$menu_icon,
 				'55.7' // After WooCommerce & Product menu items.
 			);
 		}
@@ -128,14 +130,6 @@ class WC_Calypso_Bridge_Payments {
 				break;
 			}
 		}
-	}
-
-	/**
-	 * Registers styles for WC Payments.
-	 */
-	public function add_wc_payments_style() {
-		$asset_path = WC_Calypso_Bridge_Shared::$plugin_asset_path ? WC_Calypso_Bridge_Shared::$plugin_asset_path : WC_Calypso_Bridge_Shared::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/wc-payments.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 
 	/**
