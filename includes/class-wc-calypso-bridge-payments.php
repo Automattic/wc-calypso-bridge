@@ -118,7 +118,7 @@ class WC_Calypso_Bridge_Payments {
 		// Add badge
 		foreach ( $menu as $index => $menu_item ) {
 			if ( 'admin.php?page=wc-admin&path=/payments-welcome' === $menu_item[2] ) {
-				$menu[ $index ][0] .= ' <span class="wcpay-menu-badge awaiting-mod count-1">1</span>';
+				$menu[ $index ][0] .= ' <span class="wcpay-menu-badge awaiting-mod count-1"><span class="plugin-count">1</span></span>';
 				break;
 			}
 		}
