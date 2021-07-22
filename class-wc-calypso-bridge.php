@@ -54,7 +54,6 @@ class WC_Calypso_Bridge {
 			return;
 		}
 		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_extension_register_script') );
 
 		$this->disable_powerpack_features();
 	}
@@ -133,38 +132,6 @@ class WC_Calypso_Bridge {
 
 	}
 
-	function add_extension_register_script() {
-		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\Loader' ) 
-			&& \Automattic\WooCommerce\Admin\Loader::is_admin_or_embed_page() 
-			? true 
-			: false;
-		
-		$script_path       = '/build/index.js';
-		$script_asset_path = dirname( __FILE__ ) . '/build/index.asset.php';
-		$script_asset      = file_exists( $script_asset_path )
-			? require( $script_asset_path )
-			: array( 'dependencies' => array(), 'version' => filemtime( $script_path ) );
-		$script_url = plugins_url( $script_path, __FILE__ );
-
-		wp_register_script(
-			'wc-calypso-bridge',
-			$script_url,
-			$script_asset['dependencies'],
-			$script_asset['version'],
-			true
-		);
-
-		wp_add_inline_script( 'wc-calypso-bridge', 'window.wcCalypsoBridge = ' . wp_json_encode(
-			array(
-				'isWooPage' => $is_woo_page,
-				'homeUrl'   => get_home_url(),
-				'wcpayConnectUrl' => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' )
-			)
-		), 'before' );
-	
-		wp_enqueue_script( 'wc-calypso-bridge' );
-	}
-
 	/**
 	 * Updates required UI elements for calypso bridge pages only.
 	 */
@@ -173,16 +140,7 @@ class WC_Calypso_Bridge {
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
 			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
-
-		// Nav unification fixes.
-		if ( function_exists( 'wpcomsh_activate_nav_unification' )
-			&& wpcomsh_activate_nav_unification( false )
-			&& ! Loader::is_feature_enabled( 'navigation' ) ) {
-				add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
-			}
 		}
-
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_wc_payments_style' ) );
 	}
 
 	/**
@@ -199,14 +157,6 @@ class WC_Calypso_Bridge {
 		}
 
 		return $null;
-	}
-
-	/**
-	 * Add styles for nav unification fixes.
-	 */
-	public function add_nav_unification_styles() {
-		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wp-calypso-bridge-nav-unification', $asset_path . 'store-on-wpcom/assets/css/admin/nav-unification.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 
 	/**
@@ -312,11 +262,6 @@ class WC_Calypso_Bridge {
 				$event_params
 			);
 		}
-	}
-
-	public function add_wc_payments_style() {
-		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/wc-payments.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );		
 	}
 
 }
