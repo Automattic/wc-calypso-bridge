@@ -65,6 +65,9 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-events.php
 // Also prevent Crowdsignal from redirecting during onboarding in all both wp-admin and calypsoified ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
 
+// Load shared stuff for both ecommerce and business plan.
+require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-shared.php';
+
 // Load WCPay in core experiment
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-payments.php';
 
