@@ -89,14 +89,10 @@ class WC_Calypso_Bridge_Payments {
 			return;
 		}
 
-		$menu_icon = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ic3ZnNjciCiAgIHNvZGlwb2RpOmRvY25hbWU9IndjcGF5X21lbnVfaWNvbi5zdmciCiAgIHdpZHRoPSI4NTIiCiAgIGhlaWdodD0iNjg0IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEgKGM0ZThmOWUsIDIwMjEtMDUtMjQpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM3MSIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzY5IgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzY2NjY2NiIKICAgICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgc2hvd2dyaWQ9ImZhbHNlIgogICAgIGZpdC1tYXJnaW4tdG9wPSIwIgogICAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICAgIGZpdC1tYXJnaW4tYm90dG9tPSIwIgogICAgIGlua3NjYXBlOnpvb209IjI1NiIKICAgICBpbmtzY2FwZTpjeD0iLTg0Ljg1NzQyMiIKICAgICBpbmtzY2FwZTpjeT0iLTgzLjI5NDkyMiIKICAgICBpbmtzY2FwZTp3aW5kb3ctd2lkdGg9IjEzMTIiCiAgICAgaW5rc2NhcGU6d2luZG93LWhlaWdodD0iMTA4MSIKICAgICBpbmtzY2FwZTp3aW5kb3cteD0iMTE2IgogICAgIGlua3NjYXBlOndpbmRvdy15PSIyMDIiCiAgICAgaW5rc2NhcGU6d2luZG93LW1heGltaXplZD0iMCIKICAgICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJzdmc2NyIgLz4KICA8cGF0aAogICAgIHRyYW5zZm9ybT0ic2NhbGUoLTEsIDEpIHRyYW5zbGF0ZSgtODUwLCAwKSIKICAgICBkPSJNIDc2OCw4NiBWIDU5OCBIIDg0IFYgODYgWiBtIDAsNTk4IGMgNDgsMCA4NCwtMzggODQsLTg2IFYgODYgQyA4NTIsMzggODE2LDAgNzY4LDAgSCA4NCBDIDM2LDAgMCwzOCAwLDg2IHYgNTEyIGMgMCw0OCAzNiw4NiA4NCw4NiB6IE0gMzg0LDEyOCB2IDQ0IGggLTg2IHYgODQgaCAxNzAgdiA0NCBIIDM0MCBjIC0yNCwwIC00MiwxOCAtNDIsNDIgdiAxMjggYyAwLDI0IDE4LDQyIDQyLDQyIGggNDQgdiA0NCBoIDg0IHYgLTQ0IGggODYgViA0MjggSCAzODQgdiAtNDQgaCAxMjggYyAyNCwwIDQyLC0xOCA0MiwtNDIgViAyMTQgYyAwLC0yNCAtMTgsLTQyIC00MiwtNDIgaCAtNDQgdiAtNDQgeiIKICAgICBmaWxsPSIjYTJhYWIyIgogICAgIGlkPSJwYXRoNjUiIC8+Cjwvc3ZnPgo=';
-
 		wc_admin_register_page( array(
 			'id'       => 'wc-calypso-bridge-payments-welcome-page',
 			'title'    => __( 'Payments', 'wc-calypso-bridge' ),
 			'path'     => '/payments-welcome',
-			'icon' => $menu_icon,
-			'position' => '55.7',
 			'nav_args'   => [
 				'title'        => __( 'WooCommerce Payments', 'wc-calypso-bridge' ),
 				'is_category'  => false,
@@ -109,23 +105,21 @@ class WC_Calypso_Bridge_Payments {
 		// nav is enabled. The new nav disabled everything, except the 'WooCommerce' menu.
 		// We need to register this menu via add_menu_page so that it doesn't become a child of
 		// WooCommerce menu.
-		if ( 'yes' === get_option('woocommerce_navigation_enabled', 'no') ) {
-			add_menu_page(
-				__( 'Payments', 'wc-calypso-bridge' ),
-				__( 'Payments', 'wc-calypso-bridge' ),
-				'view_woocommerce_reports',
-				'admin.php?page=wc-admin&path=/payments-welcome',
-				null,
-				$menu_icon,
-				'55.7' // After WooCommerce & Product menu items.
-			);
-		}
+		add_menu_page(
+			__( 'Payments', 'wc-calypso-bridge' ),
+			__( 'Payments', 'wc-calypso-bridge' ),
+			'view_woocommerce_reports',
+			'admin.php?page=wc-admin&path=/payments-welcome',
+			null,
+			null,
+			'55.7' // After WooCommerce & Product menu items.
+		);
 
 		// Add badge
 		foreach ( $menu as $index => $menu_item ) {
-			if ( 'wc-admin&path=/payments-welcome' === $menu_item[2]
-			     || 'admin.php?page=wc-admin&path=/payments-welcome' === $menu_item[2] ) {
-				$menu[ $index ][0] .= ' <span class="wcpay-menu-badge awaiting-mod count-1"><span class="plugin-count">1</span></span>';
+			if ( 'admin.php?page=wc-admin&path=/payments-welcome' === $menu_item[2] ) {
+				$menu[ $index ][0] .= ' <span class="wcpay-menu-badge awaiting-mod count-1">1</span>';
+				break;
 			}
 		}
 	}
@@ -137,7 +131,6 @@ class WC_Calypso_Bridge_Payments {
 		$asset_path = WC_Calypso_Bridge_Shared::$plugin_asset_path ? WC_Calypso_Bridge_Shared::$plugin_asset_path : WC_Calypso_Bridge_Shared::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/wc-payments.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
-
 
 	/**
 	 * Registers styles & scripts for WC Payments welcome page.
