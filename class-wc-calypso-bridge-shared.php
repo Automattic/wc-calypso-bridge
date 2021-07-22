@@ -54,10 +54,13 @@ class WC_Calypso_Bridge_Shared {
 		if ( ! function_exists( 'WC' ) ) {
 			return;
 		}
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_extension_register_script') );
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_extension_register_script' ) );
 	}
 
-	function add_extension_register_script() {
+	/**
+	 * Registers scripts.
+	 */
+	public function add_extension_register_script() {
 		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\Loader' )
 			&& \Automattic\WooCommerce\Admin\Loader::is_admin_or_embed_page()
 			? true
@@ -66,9 +69,12 @@ class WC_Calypso_Bridge_Shared {
 		$script_path       = '/build/index.js';
 		$script_asset_path = dirname( __FILE__ ) . '/build/index.asset.php';
 		$script_asset      = file_exists( $script_asset_path )
-			? require( $script_asset_path )
-			: array( 'dependencies' => array(), 'version' => filemtime( $script_path ) );
-		$script_url = plugins_url( $script_path, __FILE__ );
+			? require $script_asset_path
+			: array(
+				'dependencies' => array(),
+				'version'      => filemtime( $script_path ),
+			);
+		$script_url        = plugins_url( $script_path, __FILE__ );
 
 		wp_register_script(
 			'wc-calypso-bridge',
@@ -78,13 +84,17 @@ class WC_Calypso_Bridge_Shared {
 			true
 		);
 
-		wp_add_inline_script( 'wc-calypso-bridge', 'window.wcCalypsoBridge = ' . wp_json_encode(
-			array(
-				'isWooPage' => $is_woo_page,
-				'homeUrl'   => get_home_url(),
-				'wcpayConnectUrl' => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' )
-			)
-		), 'before' );
+		wp_add_inline_script(
+			'wc-calypso-bridge',
+			'window.wcCalypsoBridge = ' . wp_json_encode(
+				array(
+					'isWooPage'       => $is_woo_page,
+					'homeUrl'         => get_home_url(),
+					'wcpayConnectUrl' => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
+				)
+			),
+			'before'
+		);
 
 		wp_enqueue_script( 'wc-calypso-bridge' );
 	}
@@ -96,7 +106,7 @@ class WC_Calypso_Bridge_Shared {
 		if ( is_null( self::$instance ) ) {
 			// If this is a traditionally installed plugin, set plugin_url for the proper asset path.
 			if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
-				if ( WP_PLUGIN_DIR . '/wc-calypso-bridge/' == plugin_dir_path( __FILE__ ) ) {
+				if ( WP_PLUGIN_DIR . '/wc-calypso-bridge/' === plugin_dir_path( __FILE__ ) ) {
 					self::$plugin_asset_path = plugin_dir_url( __FILE__ );
 				}
 			}
@@ -111,17 +121,17 @@ class WC_Calypso_Bridge_Shared {
 	 * Updates required UI elements for calypso bridge pages only.
 	 */
 	public function load_ui_elements() {
-    include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 
-    // @todo This should rely on the navigation screens instead.
-    $connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
-    foreach ( $connect_files as $connect_file ) {
-      include_once $connect_file;
-    }
+		// @todo This should rely on the navigation screens instead.
+		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
+		foreach ( $connect_files as $connect_file ) {
+			include_once $connect_file;
+		}
 
 		if ( is_wc_calypso_bridge_page() ) {
-		// Nav unification fixes.
-		if ( function_exists( 'wpcomsh_activate_nav_unification' )
+			// Nav unification fixes.
+			if ( function_exists( 'wpcomsh_activate_nav_unification' )
 			&& wpcomsh_activate_nav_unification( false )
 			&& ! Loader::is_feature_enabled( 'navigation' ) ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
