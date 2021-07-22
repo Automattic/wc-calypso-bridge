@@ -183,7 +183,7 @@ export default {
 				a: (
 					// eslint-disable-next-line jsx-a11y/anchor-has-content
 					<a
-						href="https://href.li/?https://docs.woocommerce.com/document/payments/faq/fees/"
+						href="https://docs.woocommerce.com/document/payments/faq/fees/"
 						target="_blank"
 						rel="noopener noreferrer"
 					/>
@@ -222,7 +222,7 @@ export default {
 				a: (
 					// eslint-disable-next-line jsx-a11y/anchor-has-content
 					<a
-						href="https://href.li/?https://docs.woocommerce.com/document/payments/faq/deposit-schedule/"
+						href="https://docs.woocommerce.com/document/payments/faq/deposit-schedule/"
 						target="_blank"
 						rel="noopener noreferrer"
 					/>
