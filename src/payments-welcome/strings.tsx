@@ -68,7 +68,7 @@ export default {
 	),
 
 	surveySomethingElseLabel: __(
-		'It’s something else (Please share below',
+		'It’s something else (Please share below)',
 		'wc-calypso-bridge'
 	),
 
