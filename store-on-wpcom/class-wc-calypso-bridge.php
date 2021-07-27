@@ -41,6 +41,8 @@ class WC_Calypso_Bridge {
 	public function init() {
 		if ( $this->is_woocommerce_valid() ) {
 			$this->includes();
+			add_action( 'admin_enqueue_scripts', array( $this, 'add_scripts' ) );
+
 			// Ensure wc-api-dev has already registered routes.
 			add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
 		}
@@ -112,6 +114,14 @@ class WC_Calypso_Bridge {
 			$controller_instance = new $controller();
 			$controller_instance->register_routes();
 		}
+	}
+
+	/**
+	 * Add common scripts.
+	 */
+	public function add_scripts() {
+		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
+		wp_enqueue_style( 'wp-calypso-bridge-store-on-wpcom-css', $asset_path . 'assets/css/admin/store-on-wpcom.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 
 	/**
