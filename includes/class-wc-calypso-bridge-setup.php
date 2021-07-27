@@ -156,19 +156,6 @@ class WC_Calypso_Bridge_Setup {
 	public function is_theme_installed( $theme ) {
 		return isset( $theme['is_installed'] ) && $theme['is_installed'];
 	}
-
-	/**
-	 * Registers the WooCommerce Payments welcome page.
-	 */
-	public function register_payments_welcome_page() {
-		wc_admin_register_page(
-			array(
-				'id'       => 'wc-calypso-bridge-payments-welcome-page',
-				'title'    => __( 'Payments', 'wc-calypso-bridge' ),
-				'path'     => '/payments-welcome',
-			)
-		);
-	}
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
