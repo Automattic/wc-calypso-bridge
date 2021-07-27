@@ -1,0 +1,207 @@
+.connect-account-page {
+	.woocommerce-payments-page {
+		margin: 0 auto;
+
+		&.is-narrow {
+			max-width: 680px;
+		}
+	}
+
+	.wcpay-connect-account-page-payment-methods {
+		svg {
+			display: inline-block;
+			height: 35px;
+			width: 52px;
+			margin-right: 0.5em;
+			margin-bottom: 0.5em;
+		}
+	}
+
+	.wcpay-connect-account-page-terms-of-service {
+		display: block;
+		margin: 0.5em 0;
+	}
+
+	.connect-account {
+		h2 {
+			font-size: 24px;
+			font-weight: normal;
+		}
+
+		h3 {
+			font-size: 1.3em;
+			line-height: 1.4em;
+			padding-top: 15px;
+		}
+
+		.connect-account__card,
+		.faq__card {
+			box-shadow: none;
+			border: 1px solid #E2E4E7;
+			border-radius: 2px;
+			margin-top: 24px;
+		}
+
+		.faq__card {
+			margin-bottom: var(--large-gap);
+
+			.woocommerce-card__body {
+				padding: 7px 25px;
+			}
+
+			p {
+				line-height: 24px;
+			}
+			ul {
+				margin-left: 44px;
+				li {
+					list-style: disc;
+					margin: 0;
+					ul li {
+						list-style: circle;
+					}
+				}
+			}
+
+			.help-section {
+				font-size: 16px;
+				margin-bottom: 15px;
+				background: #f7edf7;
+				padding: 15px;
+				color: #533582;
+				svg path {
+					fill: #533582;
+				}
+				span {
+					vertical-align: 6px;
+					margin-left: 10px;
+				}
+				a {
+					text-decoration: none;
+					vertical-align: 6px;
+					margin-left: 10px;
+				}
+			}
+		}
+
+		.connect-account__card {
+			// Applies for non-gutenberg
+			> .components-card__body {
+				padding: 0;
+
+				.content {
+					padding: 9px 24px 24px 24px;
+
+					a {
+						text-decoration: none;
+					}
+				}
+			}
+
+			// Applies for gutenberg
+			.components-card-body {
+				.onboarding-description {
+					margin-top: 0.5em;
+				}
+				.connect-account__action {
+					margin-bottom: 0.5em;
+				}
+			}
+
+			hr.full-width {
+				position: relative;
+				left: -24px;
+				width: calc( 100% + 48px );
+				background-color: #e3e3e5;
+			}
+		}
+
+		.connect-account__action {
+			margin-top: 16px;
+			margin-bottom: 0;
+			button.btn-nothanks {
+				margin-left: 5px !important;
+			}
+			button.is-primary {
+				padding: 0 25px 0 25px;
+				border-radius: 3px;
+			}
+		}
+	}
+}
+
+.woocommerce-payments-banner {
+
+	&.account-page {
+		background: #f7edf7;
+		border: none;
+		border-bottom: 1px solid #E2E4E7;
+		border-radius: 0;
+		box-shadow: none;
+		.components-card__body {
+			padding: 24px 24px 3px 24px;
+		}
+	}
+
+	h1 {
+		font-size: 24px;
+		width: 360px;
+		font-weight: normal;
+	}
+
+	p {
+		font-size: 16px;
+		width: 360px;
+		margin-top: 5px;
+	}
+
+	.limited-time-offer {
+		background: url('../../assets/images/icon-flag.svg') no-repeat left;
+		font-weight:bold;
+		font-size: 12px;
+		padding-left: 16px;
+	}
+
+	.components-card__body {
+		background: url( '../../assets/images/wcpay-banner.svg' ) no-repeat right;
+	}
+}
+
+.wc-calypso-bridge-payments-welcome-survey {
+	p {
+		margin-bottom: 1em;
+	}
+}
+
+.wc-calypso-bridge-payments-welcome-survey__intro{
+	max-width: 500px;
+}
+
+.wc-calypso-bridge-payments-welcome-survey__question{
+	font-weight: bold;
+}
+
+
+.wc-calypso-bridge-payments-welcome-survey__selection {
+	margin: 1em 0;
+}
+.wc-calypso-bridge-payments-welcome-survey__comment {
+	margin-top: 1em;
+}
+
+.wc-calypso-bridge-payments-welcome-survey__buttons {
+	text-align: right;
+
+	button {
+		margin-left: 0.5em;
+	}
+
+	button.is-destructive {
+		background-color: #cc1818;
+		color: white;
+		&:hover {
+			color: white !important;
+		}
+	}
+}
+

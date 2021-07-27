@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Calypso Bridge
  * Plugin URI: https://wordpress.com/
  * Description: A feature plugin to provide ux enhancments for users of Store on WordPress.com.
- * Version: 1.7.8
+ * Version: 1.7.9
  * Author: Automattic
  * Author URI: https://wordpress.com/
  * Requires at least: 4.4
@@ -31,7 +31,7 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 }
 
 define( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE', __FILE__ );
-define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '1.7.8' );
+define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '1.7.9' );
 define( 'WC_MIN_VERSION', '3.0.0' );
 
 if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
@@ -64,6 +64,12 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-events.php
 
 // Also prevent Crowdsignal from redirecting during onboarding in all both wp-admin and calypsoified ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
+
+// Load shared stuff for both ecommerce and business plan.
+require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-shared.php';
+
+// Load WCPay in core experiment
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-payments.php';
 
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
