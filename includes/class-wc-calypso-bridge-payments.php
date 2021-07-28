@@ -35,7 +35,7 @@ class WC_Calypso_Bridge_Payments {
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->init();
+		add_action( 'woocommerce_init', array( $this, 'init' ), 20 );
 	}
 
 	/**
