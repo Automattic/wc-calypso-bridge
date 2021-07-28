@@ -85,6 +85,11 @@ class WC_Calypso_Bridge_Payments {
 			return;
 		}
 
+		// Temporary until we have translations ready.
+		if ( get_locale() !== 'en_US' ) {
+			return;
+		}
+
 		if ( 'yes' === get_option( 'wc_calypso_bridge_payments_dismissed', 'no' ) ) {
 			return;
 		}
