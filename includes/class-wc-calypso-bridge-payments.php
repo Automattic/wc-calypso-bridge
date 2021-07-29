@@ -35,21 +35,37 @@ class WC_Calypso_Bridge_Payments {
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->init();
+		add_action( 'woocommerce_init', array( $this, 'init' ), 20 );
 	}
 
 	/**
 	 * Include notes and initialize note hooks.
 	 */
 	public function init() {
-		add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
-		add_action( 'admin_menu', array( $this, 'register_payments_welcome_page' ) );
-		add_action( 'current_screen', array( $this, 'enqueue_scripts_and_styles' ) );
+		if ( $this->is_woocommerce_valid() ) {
+			add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
+			add_action( 'admin_menu', array( $this, 'register_payments_welcome_page' ) );
+			add_action( 'current_screen', array( $this, 'enqueue_scripts_and_styles' ) );
+		}
 	}
 
 	public function enqueue_scripts_and_styles() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_payments_welcome_page_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_wc_payments_style' ) );
+	}
+
+	/**
+	 * Makes sure WooCommerce is installed and up to date.
+	 */
+	public function is_woocommerce_valid() {
+		return (
+			class_exists( 'woocommerce' ) &&
+			version_compare(
+				get_option( 'woocommerce_db_version' ),
+				WC_MIN_VERSION,
+				'>='
+			)
+		);
 	}
 
 	/**
