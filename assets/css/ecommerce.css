@@ -20,7 +20,3 @@
 	.components-tab-panel__tabs {
 	display: none;
 }
-
-.woocommerce-layout__main .components-scrollable {
-	overflow: unset;
-}
