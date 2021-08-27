@@ -173,11 +173,12 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	 *
 	 * wc-calpso-bridge: fixed base_dir.
 	 */
-	protected static function register_autoloader_for_testing_tools() {
+	protected function register_autoloader_for_testing_tools() {
+		$plugin_dir = $this->plugin_dir;
 		return spl_autoload_register(
-			function ( $class ) {
+			function ( $class ) use ( $plugin_dir ) {
 				$prefix   = 'Automattic\\WooCommerce\\Testing\\Tools\\';
-				$base_dir = dirname( $this->plugin_dir ) . '/woocommerce/tests/Tools/';
+				$base_dir = dirname( $plugin_dir ) . '/woocommerce/tests/Tools/';
 				$len      = strlen( $prefix );
 				if ( strncmp( $prefix, $class, $len ) !== 0 ) {
 					// no, move to the next registered autoloader.
