@@ -4,6 +4,17 @@
  *
  * Loosely based on woocommerce/tests/legacy/bootstrap.php.
  */
+
+use Automattic\WooCommerce\Proxies\LegacyProxy;
+use Automattic\WooCommerce\Testing\Tools\CodeHacking\CodeHacker;
+use Automattic\WooCommerce\Testing\Tools\CodeHacking\Hacks\StaticMockerHack;
+use Automattic\WooCommerce\Testing\Tools\CodeHacking\Hacks\FunctionsMockerHack;
+use Automattic\WooCommerce\Testing\Tools\CodeHacking\Hacks\BypassFinalsHack;
+use Automattic\WooCommerce\Testing\Tools\DependencyManagement\MockableLegacyProxy;
+
+/**
+ * Class WC_Calypso_Bridge_Unit_Tests_Bootstrap
+ */
 class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 
 	/** @var WC_Calypso_Bridge_Unit_Tests_Bootstrap instance */
@@ -156,7 +167,6 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 		// Traits.
 		require_once $this->wc_tests_dir . '/framework/traits/trait-wc-rest-api-complex-meta.php';
 	}
-
 
 	/**
 	 * Register autoloader for the files in the 'tests/tools' directory, for the root namespace 'Automattic\WooCommerce\Testing\Tools'.
