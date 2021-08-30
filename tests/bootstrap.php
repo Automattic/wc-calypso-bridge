@@ -171,7 +171,7 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	/**
 	 * Register autoloader for the files in the 'tests/tools' directory, for the root namespace 'Automattic\WooCommerce\Testing\Tools'.
 	 *
-	 * wc-calpso-bridge: fixed base_dir.
+	 * wc-calypso-bridge: fixed base_dir.
 	 */
 	protected function register_autoloader_for_testing_tools() {
 		$plugin_dir = $this->plugin_dir;
