@@ -30,7 +30,7 @@ function wc_calypso_bridge_woop_init() {
 	}
 
 	if ( is_admin() ) {
-		// require_once dirname( __FILE__ ) . '/woop/some-admin-feature.php';.
+		require_once dirname( __FILE__ ) . '/woop/hide-onboarding.php';
 	} else {
 		// require_once dirname( __FILE__ ) . '/woop/some-feature.php';.
 	}
