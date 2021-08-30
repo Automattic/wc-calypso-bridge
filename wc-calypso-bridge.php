@@ -51,6 +51,9 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	}
 }
 
+// Load yesno helper functions.
+require_once dirname( __FILE__ ) . '/includes/yesno.php';
+
 // Filters we want to add for ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-filters.php';
 add_action( 'init', array( 'WC_Calypso_Bridge_Filters', 'get_instance' ) );
@@ -68,9 +71,13 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsigna
 // Load shared stuff for both ecommerce and business plan.
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-shared.php';
 
-// Load WCPay in core experiment
+// Load WCPay in core experiment.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-payments.php';
 
+// Load Woo on Plans.
+require_once dirname( __FILE__ ) . '/includes/woop.php';
+
+// Load the store-on-wpcom calypso-bridge for business plans.
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
@@ -78,7 +85,7 @@ if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 
 if ( ! function_exists( 'wc_calypso_bridge_init' ) ) {
 	/**
-	 * Loads language files for the plugin
+	 * Loads language files for the plugin.
 	 */
 	function wc_calypso_bridge_init() {
 		$plugin_path = dirname( __FILE__ ) . '/languages';
