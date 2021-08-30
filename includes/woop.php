@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function wc_calypso_bridge_woop_init() {
-	// Gate Woop behind feature flag
+	// Gate Woop behind feature flag.
 	if ( ! defined( 'WPCOM_ENABLE_WOOP' ) ) {
 		return;
 	}
@@ -31,8 +31,6 @@ function wc_calypso_bridge_woop_init() {
 
 	if ( is_admin() ) {
 		require_once dirname( __FILE__ ) . '/woop/hide-onboarding.php';
-	} else {
-		// require_once dirname( __FILE__ ) . '/woop/some-feature.php';.
 	}
 }
 add_action( 'plugins_loaded', 'wc_calypso_bridge_woop_init' );
