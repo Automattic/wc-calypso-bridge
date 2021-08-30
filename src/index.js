@@ -24,3 +24,8 @@ addFilter('woocommerce_admin_pages_list', 'wc-calypso-bridge', (pages) => {
 
 	return pages;
 });
+
+// Remove theme selection step from onboarding per https://wp.me/pNEWy-e9X#comment-53446
+addFilter( 'woocommerce_admin_profile_wizard_steps', 'woocommerce-admin', ( steps ) => {
+	return steps.filter( ( step ) => step.key !== 'theme' );
+} );
