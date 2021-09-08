@@ -14,13 +14,17 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function wc_calypso_bridge_woop_init() {
-	// Gate Woop behind feature flag.
-	if ( ! defined( 'WPCOM_ENABLE_WOOP' ) ) {
+	// Don't load mods in cronjobs.
+	if ( defined( 'DOING_CRON' ) ) {
 		return;
 	}
 
-	// Don't load mods in cronjobs.
-	if ( defined( 'DOING_CRON' ) ) {
+	if ( ! class_exists( 'Atomic_Persistent_Data' ) ) {
+		return;
+	}
+
+	// Gate Woo on plans behind the site sticker "woop" feature flag.
+	if ( ! ( new Atomic_Persistent_Data() )->site_sticker_woop ?? false ) {
 		return;
 	}
 
