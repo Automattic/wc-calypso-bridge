@@ -61,8 +61,9 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 
 		$this->initialize_code_hacker();
 
-		// Load at plan manager shim.
+		// Load AT shims.
 		require_once $this->tests_dir . '/atomic-plan-manager-shim.php';
+		require_once $this->tests_dir . '/atomic-persistent-data-shim.php';
 
 		// load test function so tests_add_filter() is available
 		require_once $this->wp_tests_dir . '/includes/functions.php';
