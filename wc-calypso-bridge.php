@@ -34,24 +34,6 @@ define( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE', __FILE__ );
 define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '1.8.0' );
 define( 'WC_MIN_VERSION', '3.0.0' );
 
-if ( ! function_exists( 'wc_calypso_bridge_is_personal_plan' ) ) {
-	/**
-	 * Returns if a site is a personal plan site (i.e. WOOP).
-	 * The `at_options` array is created during provisioning. Usually it is 'business' or 'ecommerce'
-	 * To Test: update_option( 'at_options', array( 'plan_slug' => 'personal' ) );
-	 * or: wp option set at_options --format=json '{ "plan_slug": "personal" }'
-	 *
-	 * @return bool True if the site is a personal site.
-	 */
-	function wc_calypso_bridge_is_personal_plan() {
-		if ( class_exists( 'Atomic_Plan_Manager' ) && method_exists( 'Atomic_Plan_Manager', 'current_plan_slug' ) ) {
-			return Atomic_Plan_Manager::current_plan_slug() === Atomic_Plan_Manager::PERSONAL_PLAN_SLUG;
-		}
-
-		return false;
-	}
-}
-
 if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	/**
 	 * Returns if a site is an eCommerce plan site or not.
