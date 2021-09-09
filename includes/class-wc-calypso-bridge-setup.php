@@ -35,6 +35,7 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
+		$this->add_navigation_option();
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'default_option_woocommerce_navigation_enabled', array( $this, 'enable_navigation_by_default' ) );
@@ -134,6 +135,12 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function enable_navigation_by_default() {
 		return 'yes';
+	}
+
+	public function add_navigation_option() {
+		if ( false === get_option( 'woocommerce_navigation_enabled' ) ) {
+			update_option( 'woocommerce_navigation_enabled', 'yes' );
+		}
 	}
 
 	/**
