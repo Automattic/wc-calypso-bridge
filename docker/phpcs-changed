@@ -1,0 +1,18 @@
+#!/bin/sh
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
+
+changed=$(cd "$DIR"/../ && git diff --name-only --diff-filter=ACMR master | grep '\.php$')
+
+if [ -z "$changed" ]; then
+	echo "No files changed."
+else
+	echo "Running phpcs on changed files:"
+	printf '%s\n' "$changed"
+	changed=$(echo "$changed" | awk '{print "/tmp/wordpress/wp-content/plugins/wc-calypso-bridge/"$0}' ORS=' ')
+	command docker-compose -f "$DIR"/docker-compose.yml run --rm wordpress \
+		/tmp/wordpress/wp-content/plugins/wc-calypso-bridge/vendor/bin/phpcs \
+		--standard=/tmp/wordpress/wp-content/plugins/wc-calypso-bridge/phpcs.xml.dist \
+		--encoding=utf-8 -n -p \
+		$changed "${@}"
+fi
