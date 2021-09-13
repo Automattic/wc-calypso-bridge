@@ -2,7 +2,7 @@ FROM alpine:3.12
 
 # Install deps
 RUN apk -q --update --no-cache add tini shadow less git subversion nodejs npm \
-	composer ncurses bash mysql-client mariadb-connector-c curl python3 py3-pip g++ make \
+	composer ncurses mysql-client mariadb-connector-c curl python3 py3-pip g++ make \
     php7 php7-pecl-apcu php7-bcmath php7-bz2 php7-ctype php7-curl php7-dom \
     php7-ftp php7-gd php7-iconv php7-json php7-mbstring php7-mysqli \
     php7-pecl-oauth php7-opcache php7-openssl php7-pcntl php7-pdo php7-pdo_mysql \
@@ -40,6 +40,6 @@ ENV SKIP_UPDATE_TEXTDOMAINS=true
 RUN cd /tmp/wordpress/wp-content/plugins/woocommerce && npm install
 RUN cd /tmp/wordpress/wp-content/plugins/woocommerce && composer install --no-dev
 
-WORKDIR /wc-calypso-bridge
+WORKDIR /tmp/wordpress/wp-content/plugins/wc-calypso-bridge
 ENTRYPOINT ["tini", "--"]
-CMD [ "bash" ]
+CMD [ "sh" ]
