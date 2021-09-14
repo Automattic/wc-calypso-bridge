@@ -1,25 +1,11 @@
 <?php
 
 class Atomic_Plan_Manager {
-
-	/**
-	 * Free plan slug
-	 * @var string
-	 */
 	public const FREE_PLAN_SLUG       = 'free';
-
-	/**
-	 * Business plan slug
-	 * @var string
-	 */
 	public const BUSINESS_PLAN_SLUG   = 'business';
-
-	/**
-	 * Ecommerce plan slug
-	 * @var string
-	 */
 	public const ECOMMERCE_PLAN_SLUG  = 'ecommerce';
 
+	// Default to free, don't make assumptions about having a business or ecom plan on atomic.
 	private static $current_plan_slug = 'free';
 
 	public static function current_plan_slug() {
@@ -27,6 +13,6 @@ class Atomic_Plan_Manager {
 	}
 
 	public static function set_current_plan_slug( $slug ) {
-		self::$current_plan_slug;
+		self::$current_plan_slug = $slug;
 	}
 }
