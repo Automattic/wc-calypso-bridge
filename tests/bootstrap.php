@@ -105,7 +105,7 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 		add_filter(
 			'pre_option_woocommerce_db_version',
 			function () {
-				return  WC_MIN_VERSION;
+				return WC_MIN_VERSION;
 			}
 		);
 
