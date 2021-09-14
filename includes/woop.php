@@ -24,7 +24,7 @@ function wc_calypso_bridge_woop_init() {
 	}
 
 	// Gate Woo on plans behind the site sticker "woop" feature flag.
-	if ( ! ( new Atomic_Persistent_Data() )->site_sticker_woop ?? false ) {
+	if ( ! ( new Atomic_Persistent_Data() )->site_sticker_woop ) {
 		return;
 	}
 
