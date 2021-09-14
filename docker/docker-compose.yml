@@ -1,0 +1,24 @@
+# https://docs.docker.com/compose/compose-file/
+version: '3.8'
+
+volumes:
+    mysql:
+
+services:
+    mysql:
+        image: mariadb
+        volumes:
+            - mysql:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: wordpress_tests
+            MYSQL_USER: wordpress_tests
+            MYSQL_PASSWORD: wordpress_tests
+            MYSQL_ROOT_PASSWORD: root
+
+    wordpress:
+        build:
+            context: ./
+        volumes:
+            - ../:/tmp/wordpress/wp-content/plugins/wc-calypso-bridge:ro
+        depends_on:
+            - 'mysql'

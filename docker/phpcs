@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null 2>&1 && pwd)"
+
+command docker-compose -f "$DIR"/docker-compose.yml run --rm wordpress \
+	/tmp/wordpress/wp-content/plugins/wc-calypso-bridge/vendor/bin/phpcs \
+	--standard=/tmp/wordpress/wp-content/plugins/wc-calypso-bridge/phpcs.xml.dist \
+	--encoding=utf-8 -n -p \
+	/tmp/wordpress/wp-content/plugins/wc-calypso-bridge "${@}"
