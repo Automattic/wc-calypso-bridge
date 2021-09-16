@@ -24,8 +24,8 @@ function wc_calypso_bridge_limit_payment_gateways( $payment_gateways ) {
 	}
 
 	$allowed_strings = array(
-		// 'WC_Gateway_BACS',
-		// 'WC_Gateway_Cheque',
+		'WC_Gateway_BACS',
+		'WC_Gateway_Cheque',
 		'WC_Gateway_COD',
 		// 'WC_Gateway_Paypal',
 	);
