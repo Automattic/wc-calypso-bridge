@@ -23,15 +23,20 @@ function wc_calypso_bridge_limit_payment_gateways( $payment_gateways ) {
 		return $payment_gateways;
 	}
 
+	// Mapped from woocommerce/includes/class-wc-payment-gateways.php::init.
 	$allowed_strings = array(
 		'WC_Gateway_BACS',
 		'WC_Gateway_Cheque',
 		'WC_Gateway_COD',
-		// 'WC_Gateway_Paypal',
 	);
 
+	// Mapped from woocommerce-payments/includes/class-wc-payments.php::init.
 	$allowed_classes = array(
-		'WC_Payment_Gateway_WCPay_Subscriptions_Compat',
+		'WCPay\\Payment_Methods\\CC_Payment_Gateway',
+		'WCPay\\Payment_Methods\\UPE_Payment_Gateway',
+		'WCPay\\Payment_Methods\\Giropay_Payment_Gateway',
+		'WCPay\\Payment_Methods\\Sepa_Payment_Gateway',
+		'WCPay\\Payment_Methods\\Sofort_Payment_Gateway',
 	);
 
 	$filtered = array();
@@ -45,4 +50,4 @@ function wc_calypso_bridge_limit_payment_gateways( $payment_gateways ) {
 	}
 	return $filtered;
 }
-add_filter( 'woocommerce_payment_gateways', 'wc_calypso_bridge_limit_payment_gateways' );
+add_filter( 'woocommerce_payment_gateways', 'wc_calypso_bridge_limit_payment_gateways', PHP_INT_MAX );
