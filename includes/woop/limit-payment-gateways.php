@@ -23,20 +23,20 @@ function wc_calypso_bridge_limit_payment_gateways( $payment_gateways ) {
 		return $payment_gateways;
 	}
 
-	// Mapped from woocommerce/includes/class-wc-payment-gateways.php::init.
+	// Core WooCommerce gateways sourced from woocommerce/includes/class-wc-payment-gateways.php::init.
 	$allowed_strings = array(
 		'WC_Gateway_BACS',
 		'WC_Gateway_Cheque',
 		'WC_Gateway_COD',
 	);
 
-	// Mapped from woocommerce-payments/includes/class-wc-payments.php::init.
+	// WCPay gateways sourced from woocommerce-payments/includes/class-wc-payments.php::init.
 	$allowed_classes = array(
-		'WCPay\\Payment_Methods\\CC_Payment_Gateway',
-		'WCPay\\Payment_Methods\\UPE_Payment_Gateway',
-		'WCPay\\Payment_Methods\\Giropay_Payment_Gateway',
-		'WCPay\\Payment_Methods\\Sepa_Payment_Gateway',
-		'WCPay\\Payment_Methods\\Sofort_Payment_Gateway',
+		'WCPay\Payment_Methods\CC_Payment_Gateway',
+		'WCPay\Payment_Methods\UPE_Payment_Gateway',
+		'WCPay\Payment_Methods\Giropay_Payment_Gateway',
+		'WCPay\Payment_Methods\Sepa_Payment_Gateway',
+		'WCPay\Payment_Methods\Sofort_Payment_Gateway',
 	);
 
 	$filtered = array();
