@@ -8,8 +8,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Hide the 'WooCommerce Setup' card from wp-admin.
-add_filter( 'pre_option_woocommerce_task_list_hidden', 'wc_calypso_bridge_return_yes' );
+/**
+ * Hide the 'WooCommerce Setup' card from wp-admin.
+ */
+function wc_calypso_bridge_hide_task_list() {
+	return 'yes';
+}
+add_filter( 'pre_option_woocommerce_task_list_hidden', 'wc_calypso_bridge_hide_task_list' );
 
 // Disable the setup wizard redirect on plugin activation.
 add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
