@@ -61,6 +61,10 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 
 		$this->initialize_code_hacker();
 
+		// Load AT shims.
+		require_once $this->tests_dir . '/atomic-plan-manager-shim.php';
+		require_once $this->tests_dir . '/atomic-persistent-data-shim.php';
+
 		// load test function so tests_add_filter() is available
 		require_once $this->wp_tests_dir . '/includes/functions.php';
 
@@ -79,9 +83,6 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 		// load WC testing framework
 		$this->includes();
 
-		// load extra filters
-		require_once $this->plugin_dir . '/includes/class-wc-calypso-bridge-filters.php';
-
 		// re-initialize dependency injection, this needs to be the last operation after everything else is in place.
 		$this->initialize_dependency_injection();
 	}
@@ -99,7 +100,28 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 	 * Load WC Calypso Bridge.
 	 */
 	public function load_wc_calypso_bridge() {
-		require_once $this->plugin_dir . '/class-wc-calypso-bridge.php';
+		// Because we split loading woo and installing woo we end up doing a db version check before wc
+		// gets is installed, bypass this check in the unit test context so code is always loaded.
+		add_filter(
+			'pre_option_woocommerce_db_version',
+			function () {
+				return WC_MIN_VERSION;
+			}
+		);
+
+		// Must load wc-calypso-bridge with ecom plan otherwise we load store-on-wpcom (business plan code)
+		Atomic_Plan_Manager::set_current_plan_slug( Atomic_Plan_Manager::ECOMMERCE_PLAN_SLUG );
+
+		// Must use `require` here.
+		// Phpunit triggers composers autoloader which auto requires wc-calypso-bridge.php.
+		// Since this happens before bootstrap.php ABSPATH will not be set the first time
+		// wc-calypso-bridge.php is requried making it a noop.
+		require $this->plugin_dir . '/wc-calypso-bridge.php';
+
+		// Reset the plan to free, tests should make no assumptions about being on an ecom or business plan.
+		Atomic_Plan_Manager::set_current_plan_slug( Atomic_Plan_Manager::FREE_PLAN_SLUG );
+
+		// Manually call init here, the plugins loaded hook gets missed
 		WC_Calypso_Bridge::instance()->initialize();
 	}
 
