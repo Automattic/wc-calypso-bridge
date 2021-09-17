@@ -9,11 +9,8 @@ import { addFilter } from '@wordpress/hooks';
  */
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import PaymentsWelcomePage from './payments-welcome';
-import woop from './woop';
 
 wcNavFilterRootUrl();
-
-woop();
 
 addFilter('woocommerce_admin_pages_list', 'wc-calypso-bridge', (pages) => {
 	pages.push({
