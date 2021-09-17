@@ -8,8 +8,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Hide the 'WooCommerce Setup' card from wp-admin.
-add_filter( 'pre_option_woocommerce_task_list_hidden', 'wc_calypso_bridge_return_yes' );
+/**
+ * Hide the 'WooCommerce Setup' card from wp-admin.
+ */
+function wc_calypso_bridge_hide_task_list() {
+	return 'yes';
+}
+add_filter( 'pre_option_woocommerce_task_list_hidden', 'wc_calypso_bridge_hide_task_list', PHP_INT_MAX );
 
 // Disable the setup wizard redirect on plugin activation.
 add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
@@ -24,4 +29,4 @@ add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
 function wc_calypso_bridge_skip_onboarding() {
 	return array( 'skipped' => 1 );
 }
-add_filter( 'pre_option_woocommerce_onboarding_profile', 'wc_calypso_bridge_skip_onboarding' );
+add_filter( 'pre_option_woocommerce_onboarding_profile', 'wc_calypso_bridge_skip_onboarding', PHP_INT_MAX );
