@@ -36,7 +36,5 @@ function wc_calypso_bridge_woop_init() {
 	if ( is_admin() ) {
 		require_once dirname( __FILE__ ) . '/woop/hide-onboarding.php';
 	}
-
-	require_once dirname( __FILE__ ) . '/woop/limit-payment-gateways.php';
 }
 add_action( 'plugins_loaded', 'wc_calypso_bridge_woop_init' );
