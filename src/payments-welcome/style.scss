@@ -49,12 +49,12 @@
 
 			h3 {
 				padding: 0 24px;
-				font-weight: bold;
+				font-weight: 500;
 			}
 
 			.components-panel__body {
 				&.is-opened {
-					padding: 24px;
+					padding: 24px 24px 8px 24px;
 					> .components-panel__body-title {
 						margin: -24px;
 						margin-bottom: 13px;
@@ -64,6 +64,8 @@
 
 			.components-panel__body-toggle.components-button {
 				padding-left: 24px;
+				font-weight: 600;
+				line-height: 20px;
 			}
 
 			.components-panel {
