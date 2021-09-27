@@ -45,9 +45,16 @@
 
 		.faq__card {
 			margin-bottom: var(--large-gap);
+			background-color: #fff;
 
-			.woocommerce-card__body {
-				padding: 7px 25px;
+			h3 {
+				padding: 0 24px;
+			}
+
+			.components-panel {
+				border-left: 0;
+				border-right: 0;
+				// padding: 7px 25px;
 			}
 
 			p {
@@ -124,11 +131,13 @@
 				}
 			}
 
-			hr.full-width {
-				position: relative;
-				left: -24px;
-				width: calc(100% + 48px);
-				background-color: #e3e3e5;
+			.onboarding-description {
+				font-size: 16px;
+				color: #555;
+			}
+
+			.accepted-payment-methods {
+				font-size: 12px;
 			}
 		}
 
@@ -145,6 +154,11 @@
 			}
 		}
 	}
+
+	.banner-heading-copy {
+		font-size: 26px;
+    line-height: 34px;
+	}
 }
 
 .woocommerce-payments-banner {
@@ -157,6 +171,7 @@
 			padding: 24px;
 		}
 	}
+
 	.limited-time-offer {
 		i.flag {
 			display: inline-block;
@@ -169,15 +184,14 @@
 
 	.offer-copy {
 		font-size: 16px;
-		line-height: 22px;
+		line-height: 24px;
 		width: 380px;
 		font-weight: normal;
 	}
 
 	.discount-copy {
-		font-size: 12px;
 		width: 380px;
-		margin-top: 5px;
+		margin-top: 6px;
 	}
 
 	.components-card__body {
