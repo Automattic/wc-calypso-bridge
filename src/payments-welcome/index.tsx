@@ -2,7 +2,7 @@
  * External dependencies
  */
 // @ts-ignore
-import { Card, CardBody } from '@wordpress/components';
+import { Card, CardBody, CardHeader } from '@wordpress/components';
 import { Button, Modal, Notice } from '@wordpress/components';
 // @ts-ignore
 import { useState, useEffect } from 'wordpress-element';
@@ -29,10 +29,10 @@ import wcpayTracks from './tracks';
 import ExitSurveyModal from './exit-survey-modal';
 
 declare global {
-	interface Window { 
-		wp: any,
-		wcCalypsoBridge: any,
-		location: Location
+	interface Window {
+		wp: any;
+		wcCalypsoBridge: any;
+		location: Location;
 	}
 }
 
@@ -73,9 +73,7 @@ const TermsOfService = () => (
 	</span>
 );
 
-const ConnectPageError = ({ errorMessage }: {
-	errorMessage: string
-}) => {
+const ConnectPageError = ({ errorMessage }: { errorMessage: string }) => {
 	if (!errorMessage) {
 		return null;
 	}
@@ -96,35 +94,35 @@ const ConnectPageOnboarding = ({
 	setErrorMessage,
 	connectUrl,
 }: {
-	isJetpackConnected: string,
-	installAndActivatePlugins: Function,
-	setErrorMessage: Function,
-	connectUrl: string
+	isJetpackConnected: string;
+	installAndActivatePlugins: Function;
+	setErrorMessage: Function;
+	connectUrl: string;
 }) => {
 	const [isSubmitted, setSubmitted] = useState(false);
 	const [isNoThanksClicked, setNoThanksClicked] = useState(false);
-	
-	const [ isExitSurveyModalOpen, setExitSurveyModalOpen ] = useState( false );
+
+	const [isExitSurveyModalOpen, setExitSurveyModalOpen] = useState(false);
 
 	const renderErrorMessage = (message: string) => {
 		setErrorMessage(message);
 		setSubmitted(false);
-	}
+	};
 
 	const activatePromo = async () => {
 		try {
-			const activatePromoResponse = await apiFetch({
+			const activatePromoResponse = (await apiFetch({
 				path: '/wc-calypso-bridge/v1/payments/activate-promo',
-				method: 'POST'
-			}) as any;
+				method: 'POST',
+			})) as any;
 
 			if (activatePromoResponse?.success) {
 				window.location.href = connectUrl;
 			}
 		} catch (e: any) {
 			renderErrorMessage(e.message);
-		}		
-	}
+		}
+	};
 
 	const handleSetup = async () => {
 		setSubmitted(true);
@@ -142,7 +140,7 @@ const ConnectPageOnboarding = ({
 				activatePromo();
 			} else {
 				renderErrorMessage(installAndActivateResponse.message);
-			}			
+			}
 		} catch (e: any) {
 			renderErrorMessage(e.message);
 		}
@@ -150,44 +148,54 @@ const ConnectPageOnboarding = ({
 
 	const handleNoThanks = () => {
 		setNoThanksClicked(true);
-		setExitSurveyModalOpen( true );
+		setExitSurveyModalOpen(true);
 	};
 
 	return (
-		<>
-			<p className="onboarding-description">
-				{strings.onboarding.description} <LearnMore />
-			</p>
+		<Card className="connect-account__card">
+			<CardHeader>
+				<div>
+					<h1>{strings.bannerHeading}</h1>
+					<TermsOfService />
+				</div>
+				<div className="connect-account__action">
+					<Button
+						isSecondary
+						isBusy={isNoThanksClicked && isExitSurveyModalOpen}
+						disabled={isNoThanksClicked && isExitSurveyModalOpen}
+						onClick={handleNoThanks}
+						className="btn-nothanks"
+					>
+						{strings.nothanks}
+					</Button>
+					<Button
+						isPrimary
+						isBusy={isSubmitted}
+						disabled={isSubmitted}
+						onClick={handleSetup}
+						className="btn-install"
+					>
+						{strings.button}
+					</Button>
+					{isExitSurveyModalOpen && (
+						<ExitSurveyModal
+							setExitSurveyModalOpen={setExitSurveyModalOpen}
+						/>
+					)}
+				</div>
+			</CardHeader>
+			<CardBody>
+				<div className="content">
+					<p className="onboarding-description">
+						{strings.onboarding.description} <LearnMore />
+					</p>
 
-			<h3>{strings.paymentMethodsHeading}</h3>
+					<h3>{strings.paymentMethodsHeading}</h3>
 
-			<PaymentMethods />
-
-			<hr className="full-width" />
-
-			<p className="connect-account__action">
-				<TermsOfService />
-				<Button
-					isPrimary
-					isBusy={isSubmitted}
-					disabled={isSubmitted}
-					onClick={handleSetup}
-				>
-					{strings.button}
-				</Button>
-				<Button
-					isBusy={isNoThanksClicked && isExitSurveyModalOpen}
-					disabled={isNoThanksClicked && isExitSurveyModalOpen}
-					onClick={handleNoThanks}
-					className="btn-nothanks"
-				>
-					{strings.nothanks}
-				</Button>
-				{ isExitSurveyModalOpen && (
-					<ExitSurveyModal setExitSurveyModalOpen = {setExitSurveyModalOpen}/>
-				) }
-			</p>
-		</>
+					<PaymentMethods />
+				</div>
+			</CardBody>
+		</Card>
 	);
 };
 
@@ -203,7 +211,8 @@ const ConnectAccountPage = () => {
 			.select('wc/admin/plugins')
 			.isJetpackConnected(),
 		installAndActivatePlugins:
-			window.wp.data.dispatch('wc/admin/plugins').installAndActivatePlugins,
+			window.wp.data.dispatch('wc/admin/plugins')
+				.installAndActivatePlugins,
 		setErrorMessage,
 		connectUrl: window.wcCalypsoBridge.wcpayConnectUrl,
 	};
@@ -212,14 +221,8 @@ const ConnectAccountPage = () => {
 		<div className="connect-account-page">
 			<div className="woocommerce-payments-page is-narrow connect-account">
 				<ConnectPageError errorMessage={errorMessage} />
-				<Card className="connect-account__card">
+				<ConnectPageOnboarding {...onboardingProps} />
 				<Banner />
-				<CardBody>
-					<div className="content">
-						<ConnectPageOnboarding {...onboardingProps} />
-					</div>
-				</CardBody>
-				</Card>
 				<Card className="faq__card">
 					<CardBody>
 						<div className="content">

@@ -7,7 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { __experimentalCreateInterpolateElement as createInterpolateElement } from 'wordpress-element';
 
 export default {
-	button: __('Get started', 'wc-calypso-bridge'),
+	button: __('Install', 'wc-calypso-bridge'),
 	nothanks: __('No thanks', 'wc-calypso-bridge'),
 	limitedTimeOffer: __('Limited time offer', 'wc-calypso-bridge'),
 	heading: __('WooCommerce Payments', 'wc-calypso-bridge'),
@@ -17,6 +17,10 @@ export default {
 	),
 	bannerCopy: __(
 		'50% transaction fee discount for up to $125,000 in payments or six months',
+		'wc-calypso-bridge'
+	),
+	discountCopy: __(
+		'Discount will be applied upon install and completed setup of WooCommerce Payments',
 		'wc-calypso-bridge'
 	),
 	learnMore: __('Learn more', 'wc-calypso-bridge'),
@@ -83,7 +87,7 @@ export default {
 
 	terms: createInterpolateElement(
 		__(
-			'Upon clicking "Get started", you agree to the <a>Terms of Service</a>. Next we\'ll ask you to share a few details about your business to create your account.',
+			'By clicking "Install", you agree to the <a>Terms of Service</a>.',
 			'wc-calypso-bridge'
 		),
 		{
