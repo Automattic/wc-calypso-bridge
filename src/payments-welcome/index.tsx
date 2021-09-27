@@ -1,9 +1,7 @@
 /**
  * External dependencies
  */
-// @ts-ignore
-import { Card, CardBody, CardHeader } from '@wordpress/components';
-import { Button, Modal, Notice } from '@wordpress/components';
+import { Card, CardBody, CardHeader, Button, Notice } from '@wordpress/components';
 // @ts-ignore
 import { useState, useEffect } from 'wordpress-element';
 import apiFetch from '@wordpress/api-fetch';
@@ -155,7 +153,7 @@ const ConnectPageOnboarding = ({
 		<Card className="connect-account__card">
 			<CardHeader>
 				<div>
-					<h1>{strings.bannerHeading}</h1>
+					<h1 className="banner-heading-copy">{strings.bannerHeading}</h1>
 					<TermsOfService />
 				</div>
 				<div className="connect-account__action">
@@ -187,10 +185,14 @@ const ConnectPageOnboarding = ({
 			<CardBody>
 				<div className="content">
 					<p className="onboarding-description">
-						{strings.onboarding.description} <LearnMore />
+						{strings.onboarding.description}
+						<br />
+						<LearnMore />
 					</p>
 
-					<h3>{strings.paymentMethodsHeading}</h3>
+					<h3 className="accepted-payment-methods">
+						{strings.paymentMethodsHeading}
+					</h3>
 
 					<PaymentMethods />
 				</div>
@@ -223,13 +225,7 @@ const ConnectAccountPage = () => {
 				<ConnectPageError errorMessage={errorMessage} />
 				<ConnectPageOnboarding {...onboardingProps} />
 				<Banner />
-				<Card className="faq__card">
-					<CardBody>
-						<div className="content">
-							<FrequentlyAskedQuestions />
-						</div>
-					</CardBody>
-				</Card>
+				<FrequentlyAskedQuestions />
 			</div>
 		</div>
 	);
