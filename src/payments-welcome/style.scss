@@ -35,9 +35,10 @@
 		}
 
 		.connect-account__card,
+		.woocommerce-payments-banner,
 		.faq__card {
 			box-shadow: none;
-			border: 1px solid #E2E4E7;
+			border: 1px solid #e2e4e7;
 			border-radius: 2px;
 			margin-top: 24px;
 		}
@@ -85,6 +86,21 @@
 		}
 
 		.connect-account__card {
+			> .components-card__header {
+				align-items: baseline;
+			}
+
+			// Phone-ish sizes.
+			@media (max-width: 680px) {
+				> .components-card__header {
+					flex-direction: column;
+				}
+
+				.connect-account__action {
+					margin-top: 15px;
+				}
+			}
+
 			// Applies for non-gutenberg
 			> .components-card__body {
 				padding: 0;
@@ -104,26 +120,27 @@
 					margin-top: 0.5em;
 				}
 				.connect-account__action {
-					margin-bottom: 0.5em;
+					// margin-bottom: 0.5em;
 				}
 			}
 
 			hr.full-width {
 				position: relative;
 				left: -24px;
-				width: calc( 100% + 48px );
+				width: calc(100% + 48px);
 				background-color: #e3e3e5;
 			}
 		}
 
 		.connect-account__action {
-			margin-top: 16px;
-			margin-bottom: 0;
+			margin: 0;
+			white-space: nowrap;
 			button.btn-nothanks {
-				margin-left: 5px !important;
+				margin-left: 0;
+				margin-right: 10px !important;
 			}
-			button.is-primary {
-				padding: 0 25px 0 25px;
+			button.btn-install {
+				padding: 0 35px 0 35px;
 				border-radius: 3px;
 			}
 		}
@@ -131,39 +148,40 @@
 }
 
 .woocommerce-payments-banner {
-
 	&.account-page {
-		background: #f7edf7;
 		border: none;
-		border-bottom: 1px solid #E2E4E7;
+		border-bottom: 1px solid #e2e4e7;
 		border-radius: 0;
 		box-shadow: none;
 		.components-card__body {
-			padding: 24px 24px 3px 24px;
+			padding: 24px;
+		}
+	}
+	.limited-time-offer {
+		i.flag {
+			display: inline-block;
+			background: url('../../assets/images/icon-flag.svg') no-repeat left;
+			width: 14px;
+			height: 14px;
+			margin-right: 8px;
 		}
 	}
 
-	h1 {
-		font-size: 24px;
-		width: 360px;
+	.offer-copy {
+		font-size: 16px;
+		line-height: 22px;
+		width: 380px;
 		font-weight: normal;
 	}
 
-	p {
-		font-size: 16px;
-		width: 360px;
+	.discount-copy {
+		font-size: 12px;
+		width: 380px;
 		margin-top: 5px;
 	}
 
-	.limited-time-offer {
-		background: url('../../assets/images/icon-flag.svg') no-repeat left;
-		font-weight:bold;
-		font-size: 12px;
-		padding-left: 16px;
-	}
-
 	.components-card__body {
-		background: url( '../../assets/images/wcpay-banner.svg' ) no-repeat right;
+		background: url('../../assets/images/wcpay-banner.svg') no-repeat right;
 	}
 }
 
@@ -173,14 +191,13 @@
 	}
 }
 
-.wc-calypso-bridge-payments-welcome-survey__intro{
+.wc-calypso-bridge-payments-welcome-survey__intro {
 	max-width: 500px;
 }
 
-.wc-calypso-bridge-payments-welcome-survey__question{
+.wc-calypso-bridge-payments-welcome-survey__question {
 	font-weight: bold;
 }
-
 
 .wc-calypso-bridge-payments-welcome-survey__selection {
 	margin: 1em 0;
@@ -204,4 +221,3 @@
 		}
 	}
 }
-
