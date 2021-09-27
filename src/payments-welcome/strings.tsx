@@ -343,7 +343,7 @@ export default {
 		),
 
 		question8: __(
-			'What products are not permitted on my store when accepting payments with WooCommerce Payments?',
+			'Can WooCommerce Payments support Subscriptions and recurring payment options?',
 			'wc-calypso-bridge'
 		),
 
