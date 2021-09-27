@@ -49,22 +49,40 @@
 
 			h3 {
 				padding: 0 24px;
+				font-weight: bold;
+			}
+
+			.components-panel__body {
+				&.is-opened {
+					padding: 24px;
+					> .components-panel__body-title {
+						margin: -24px;
+						margin-bottom: 13px;
+					}
+				}
+			}
+
+			.components-panel__body-toggle.components-button {
+				padding-left: 24px;
 			}
 
 			.components-panel {
 				border-left: 0;
 				border-right: 0;
-				// padding: 7px 25px;
 			}
 
 			p {
-				line-height: 24px;
+				font-size: 14px;
+				line-height: 20px;
 			}
+
 			ul {
-				margin-left: 44px;
+				margin-left: 34px;
 				li {
 					list-style: disc;
-					margin: 0;
+					line-height: 20px;
+					font-size: 14px;
+					margin: 5px 0 0 0;
 					ul li {
 						list-style: circle;
 					}
@@ -73,9 +91,8 @@
 
 			.help-section {
 				font-size: 16px;
-				margin-bottom: 15px;
 				background: #f7edf7;
-				padding: 15px;
+				padding: 16px 24px;
 				color: #533582;
 				svg path {
 					fill: #533582;

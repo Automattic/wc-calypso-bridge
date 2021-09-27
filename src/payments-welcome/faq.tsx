@@ -2,14 +2,20 @@
  * External dependencies.
  */
 import { Icon, help } from '@wordpress/icons';
-import { Panel, PanelBody } from '@wordpress/components';
+import { Panel, PanelBody as PanelBodyBase } from '@wordpress/components';
 
 /**
  * Internal dependencies.
  */
 import strings from './strings';
 
-const FrequentlyAskedQuestions = () => {
+const PanelBody: React.FC< PanelBodyBase.Props > = ( props ) => {
+	return (
+		<PanelBodyBase initialOpen={false} {...props}/>
+	)
+}
+
+const FrequentlyAskedQuestions: React.FC = () => {
 	// const [panelOpen, setPanelOpen] = useState(false);
 	return (
 		<div className="faq__card">
