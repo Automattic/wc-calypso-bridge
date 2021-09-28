@@ -27,7 +27,7 @@ export default {
 
 	onboarding: {
 		description: __(
-			"Save up to $800 in fees by managing transactions with WooCommerce Payments. With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies. Track cash flow and manage recurring revenue directly from your store's dashboard - with no setup costs or monthly fees.",
+			"Save 50% on transaction fees by managing transactions with WooCommerce Payments. With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies. Track cash flow and manage recurring revenue directly from your store's dashboard - with no setup costs or monthly fees.",
 			'wc-calypso-bridge'
 		),
 	},
@@ -173,13 +173,11 @@ export default {
 		),
 
 		question5Answer1: __(
-			'WooCommerce Payments uses a pay-as-you-go pricing model. You pay only for activity on the account. No setup fee or monthly fee. Fees differ based on the country of your account and country of your customer’s card. The full list of fees for available countries is listed below.',
+			'WooCommerce Payments uses a pay-as-you-go pricing model. You pay only for activity on the account. No setup fee or monthly fee. Fees differ based on the country of your account and country of your customer’s card.',
 			'wc-calypso-bridge'
 		),
 
-		question5Answer2: __('[Countries TBD]', 'wc-calypso-bridge'),
-
-		question5Answer3: createInterpolateElement(
+		question5Answer2: createInterpolateElement(
 			__('<a>View all fees</a>', 'wc-calypso-bridge'),
 			{
 				a: (
