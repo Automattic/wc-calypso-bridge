@@ -29,8 +29,8 @@
 		}
 
 		h3 {
-			font-size: 1.3em;
-			line-height: 1.4em;
+			font-size: 16px;
+			line-height: 24px;
 			padding-top: 15px;
 		}
 
@@ -49,7 +49,7 @@
 
 			h3 {
 				padding: 0 24px;
-				font-weight: 500;
+				font-weight: normal;
 			}
 
 			.components-panel__body {
@@ -64,7 +64,6 @@
 
 			.components-panel__body-toggle.components-button {
 				padding-left: 24px;
-				font-weight: 600;
 				line-height: 20px;
 			}
 
