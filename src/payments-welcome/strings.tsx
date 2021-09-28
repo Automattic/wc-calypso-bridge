@@ -87,7 +87,7 @@ export default {
 
 	terms: createInterpolateElement(
 		__(
-			'By clicking "Install", you agree to the <a>Terms of Service</a>.',
+			'By clicking "Install", you agree to the <a>Terms of Service</a>',
 			'wc-calypso-bridge'
 		),
 		{
