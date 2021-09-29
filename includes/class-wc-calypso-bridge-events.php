@@ -68,9 +68,8 @@ class WC_Calypso_Bridge_Events {
 	 * Daily events to run.
 	 */
 	public function do_wc_calypso_bridge_daily() {
-		if ( class_exists( 'WC_Calypso_Bridge_Notes' ) ) {
-			WC_Calypso_Bridge_Notes::get_instance()->add_notes();
-		}
+		require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-notes.php';
+		WC_Calypso_Bridge_Notes::get_instance()->add_notes();
 	}
 }
 
