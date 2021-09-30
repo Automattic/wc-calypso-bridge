@@ -91,7 +91,7 @@ class WC_Calypso_Bridge_Shared {
 					'isWooPage'       => $is_woo_page,
 					'homeUrl'         => get_home_url(),
 					'wcpayConnectUrl' => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
-					'hasViewedPayments' => get_option( 'wc_calypso_bridge_payments_viewed_welcome' ) === 'yes',
+					'hasViewedPayments' => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 				)
 			),
 			'before'

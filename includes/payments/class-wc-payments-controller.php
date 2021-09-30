@@ -48,6 +48,14 @@ class WC_Payments_Controller extends WC_REST_Controller {
 			),
 			'schema' => array( $this, 'get_public_item_schema' ),
 		) );
+		register_rest_route( $this->namespace, '/' . $this->rest_base . '/view-welcome', array(
+			array(
+				'methods'             => 'POST',
+				'callback'            => array( $this, 'store_view_welcome_time' ),
+				'permission_callback' => array( $this, 'check_permission' ),
+			),
+			'schema' => array( $this, 'get_public_item_schema' ),
+		) );
 	}
 
 	/**
@@ -86,6 +94,23 @@ class WC_Payments_Controller extends WC_REST_Controller {
 			$note->set_name( $promo_name );
 			$note->set_status( Note::E_WC_ADMIN_NOTE_ACTIONED );
 			$data_store->create( $note );
+		}
+
+		return rest_ensure_response(
+			array(
+				'success' => true
+			)
+		);
+	}
+
+	/**
+	 * Save the time of viewing welcome to option in order to activate a remind me
+	 * note after 3 days.
+	 *
+	 */
+	public function store_view_welcome_time() {
+		if ( ! get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) ) {
+			update_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', time() );
 		}
 
 		return rest_ensure_response(
