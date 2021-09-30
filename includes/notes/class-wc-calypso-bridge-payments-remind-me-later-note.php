@@ -8,6 +8,7 @@
 use Automattic\WooCommerce\Admin\Notes\Note;
 use Automattic\WooCommerce\Admin\Notes\NoteTraits;
 use Automattic\WooCommerce\Admin\Loader;
+use Automattic\WooCommerce\Admin\PluginsHelper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -31,8 +32,22 @@ class WC_Calypso_Bridge_Payments_Remind_Me_Later_Note {
 	 * @return Note
 	 */
 	public static function get_note() {
-		// TODO: Determine what conditions this should bail.
-		if ( true ) {
+		// Installed WCPay.
+		$installed_plugins = PluginsHelper::get_active_plugin_slugs();
+		if ( in_array( 'woocommerce-payments', $installed_plugins ) ) {
+			return;
+		}
+
+		// Dismissed WCPay welcome page.
+		if ( 'yes' === get_option( 'wc_calypso_bridge_payments_dismissed', 'no' ) ) {
+			return;
+		}
+
+		// Less than 3 days since viewing welcome page.
+		$view_timestamp = get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false );
+		if ( ! $view_timestamp ||
+			( time() - $view_timestamp < 3 * DAY_IN_SECONDS )
+		) {
 			return;
 		}
 
