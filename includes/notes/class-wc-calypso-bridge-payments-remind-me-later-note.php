@@ -33,7 +33,7 @@ class WC_Calypso_Bridge_Payments_Remind_Me_Later_Note {
 	 */
 	public static function get_note() {
 		// Installed WCPay.
-		$installed_plugins = PluginsHelper::get_active_plugin_slugs();
+		$installed_plugins = PluginsHelper::get_installed_plugin_slugs();
 		if ( in_array( 'woocommerce-payments', $installed_plugins ) ) {
 			return;
 		}
