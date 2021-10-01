@@ -201,11 +201,31 @@ const ConnectPageOnboarding = ({
 	);
 };
 
+/**
+ * Submits a request to store viewing welcome time.
+ */
+const storeViewWelcome = async () => {
+	const { hasViewedPayments } = window.wcCalypsoBridge;
+	if ( hasViewedPayments ) {
+		return;
+	}
+
+	try {
+		await apiFetch({
+			path: '/wc-calypso-bridge/v1/payments/view-welcome',
+			method: 'POST',
+		});
+	} catch (e: any) {
+	}
+};
+
 const ConnectAccountPage = () => {
 	useEffect(() => {
 		wcpayTracks.recordEvent(wcpayTracks.events.CONNECT_ACCOUNT_VIEW, {
 			path: 'payments_connect_dotcom_test',
 		});
+
+		storeViewWelcome();
 	}, []);
 	const [errorMessage, setErrorMessage] = useState('');
 	const onboardingProps = {
@@ -230,5 +250,4 @@ const ConnectAccountPage = () => {
 		</div>
 	);
 };
-
 export default ConnectAccountPage;
