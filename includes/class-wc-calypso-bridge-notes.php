@@ -60,6 +60,13 @@ class WC_Calypso_Bridge_Notes {
 
 		WC_Calypso_Bridge_Payments_Remind_Me_Later_Note::possibly_add_note();
 	}
+
+	/**
+	 * Delete qualifying notes.
+	 */
+	public function delete_notes() {
+		WC_Calypso_Bridge_Payments_Remind_Me_Later_Note::possibly_clear_note();
+	}
 }
 
 WC_Calypso_Bridge_Notes::get_instance();

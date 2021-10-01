@@ -27,20 +27,20 @@ class WC_Calypso_Bridge_Payments_Remind_Me_Later_Note {
 	const NOTE_NAME = 'wc-calypso-bridge-payments-remind-me-later';
 
 	/**
-	 * Get the note.
+	 * Returns true if we should display the note.
 	 *
-	 * @return Note
+	 * @return Boolean
 	 */
-	public static function get_note() {
+	public static function should_display_note() {
 		// Installed WCPay.
 		$installed_plugins = PluginsHelper::get_installed_plugin_slugs();
 		if ( in_array( 'woocommerce-payments', $installed_plugins ) ) {
-			return;
+			return false;
 		}
 
 		// Dismissed WCPay welcome page.
 		if ( 'yes' === get_option( 'wc_calypso_bridge_payments_dismissed', 'no' ) ) {
-			return;
+			return false;
 		}
 
 		// Less than 3 days since viewing welcome page.
@@ -48,6 +48,19 @@ class WC_Calypso_Bridge_Payments_Remind_Me_Later_Note {
 		if ( ! $view_timestamp ||
 			( time() - $view_timestamp < 3 * DAY_IN_SECONDS )
 		) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Get the note.
+	 *
+	 * @return Note
+	 */
+	public static function get_note() {
+		if ( ! self::should_display_note() ) {
 			return;
 		}
 
@@ -62,5 +75,14 @@ class WC_Calypso_Bridge_Payments_Remind_Me_Later_Note {
 		$note->set_source( 'wc-calypso-bridge' );
 		$note->add_action( 'learn-more', __( 'Learn more', 'wc-calypso-bridge' ), admin_url( 'admin.php?page=wc-admin&path=/payments-welcome' ) );
 		return $note;
+	}
+
+	/**
+	 * Delete note if we shouldn't display it and not been actioned on.
+	 */
+	public static function possibly_clear_note() {
+		if ( ! self::should_display_note() && ! self::has_note_been_actioned() ) {
+			self::possibly_delete_note();
+		}
 	}
 }
