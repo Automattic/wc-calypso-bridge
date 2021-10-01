@@ -70,6 +70,7 @@ class WC_Calypso_Bridge_Events {
 	public function do_wc_calypso_bridge_daily() {
 		require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-notes.php';
 		WC_Calypso_Bridge_Notes::get_instance()->add_notes();
+		WC_Calypso_Bridge_Notes::get_instance()->delete_notes();
 	}
 }
 
