@@ -13,10 +13,13 @@ const Banner = () => {
 		<Card size="large" className="account-page woocommerce-payments-banner">
 			<CardBody>
 				<div className="limited-time-offer">
-					{strings.limitedTimeOffer}
+					<h1 className="offer-copy">
+						<i className="flag"></i>
+						{strings.limitedTimeOffer}: {strings.bannerCopy}
+					</h1>
+					<p className="discount-copy">{strings.discountCopy}</p>
 				</div>
-				<h1>{strings.bannerHeading}</h1>
-				<p>{strings.bannerCopy}</p>
+				{/* <h1>{strings.bannerHeading}</h1> */}
 			</CardBody>
 		</Card>
 	);

@@ -29,34 +29,61 @@
 		}
 
 		h3 {
-			font-size: 1.3em;
-			line-height: 1.4em;
+			font-size: 16px;
+			line-height: 24px;
 			padding-top: 15px;
 		}
 
 		.connect-account__card,
+		.woocommerce-payments-banner,
 		.faq__card {
 			box-shadow: none;
-			border: 1px solid #E2E4E7;
+			border: 1px solid #e2e4e7;
 			border-radius: 2px;
 			margin-top: 24px;
 		}
 
 		.faq__card {
 			margin-bottom: var(--large-gap);
+			background-color: #fff;
 
-			.woocommerce-card__body {
-				padding: 7px 25px;
+			h3 {
+				padding: 0 24px;
+				font-weight: normal;
+			}
+
+			.components-panel__body {
+				&.is-opened {
+					padding: 24px 24px 8px 24px;
+					> .components-panel__body-title {
+						margin: -24px;
+						margin-bottom: 13px;
+					}
+				}
+			}
+
+			.components-panel__body-toggle.components-button {
+				padding-left: 24px;
+				line-height: 20px;
+			}
+
+			.components-panel {
+				border-left: 0;
+				border-right: 0;
 			}
 
 			p {
-				line-height: 24px;
+				font-size: 14px;
+				line-height: 20px;
 			}
+
 			ul {
-				margin-left: 44px;
+				margin-left: 34px;
 				li {
 					list-style: disc;
-					margin: 0;
+					line-height: 20px;
+					font-size: 14px;
+					margin: 5px 0 0 0;
 					ul li {
 						list-style: circle;
 					}
@@ -65,9 +92,8 @@
 
 			.help-section {
 				font-size: 16px;
-				margin-bottom: 15px;
 				background: #f7edf7;
-				padding: 15px;
+				padding: 16px 24px;
 				color: #533582;
 				svg path {
 					fill: #533582;
@@ -85,6 +111,21 @@
 		}
 
 		.connect-account__card {
+			> .components-card__header {
+				align-items: baseline;
+			}
+
+			// Phone-ish sizes.
+			@media (max-width: 680px) {
+				> .components-card__header {
+					flex-direction: column;
+				}
+
+				.connect-account__action {
+					margin-top: 15px;
+				}
+			}
+
 			// Applies for non-gutenberg
 			> .components-card__body {
 				padding: 0;
@@ -104,66 +145,75 @@
 					margin-top: 0.5em;
 				}
 				.connect-account__action {
-					margin-bottom: 0.5em;
+					// margin-bottom: 0.5em;
 				}
 			}
 
-			hr.full-width {
-				position: relative;
-				left: -24px;
-				width: calc( 100% + 48px );
-				background-color: #e3e3e5;
+			.onboarding-description {
+				font-size: 16px;
+				color: #555;
+			}
+
+			.accepted-payment-methods {
+				font-size: 12px;
 			}
 		}
 
 		.connect-account__action {
-			margin-top: 16px;
-			margin-bottom: 0;
+			margin: 0;
+			white-space: nowrap;
 			button.btn-nothanks {
-				margin-left: 5px !important;
+				margin-left: 0;
+				margin-right: 10px !important;
 			}
-			button.is-primary {
-				padding: 0 25px 0 25px;
+			button.btn-install {
+				padding: 0 35px 0 35px;
 				border-radius: 3px;
 			}
 		}
 	}
+
+	.banner-heading-copy {
+		font-size: 26px;
+    line-height: 34px;
+	}
 }
 
 .woocommerce-payments-banner {
-
 	&.account-page {
-		background: #f7edf7;
 		border: none;
-		border-bottom: 1px solid #E2E4E7;
+		border-bottom: 1px solid #e2e4e7;
 		border-radius: 0;
 		box-shadow: none;
 		.components-card__body {
-			padding: 24px 24px 3px 24px;
+			padding: 24px;
 		}
 	}
 
-	h1 {
-		font-size: 24px;
-		width: 360px;
+	.limited-time-offer {
+		i.flag {
+			display: inline-block;
+			background: url('../../assets/images/icon-flag.svg') no-repeat left;
+			width: 14px;
+			height: 14px;
+			margin-right: 8px;
+		}
+	}
+
+	.offer-copy {
+		font-size: 16px;
+		line-height: 24px;
+		width: 380px;
 		font-weight: normal;
 	}
 
-	p {
-		font-size: 16px;
-		width: 360px;
-		margin-top: 5px;
-	}
-
-	.limited-time-offer {
-		background: url('../../assets/images/icon-flag.svg') no-repeat left;
-		font-weight:bold;
-		font-size: 12px;
-		padding-left: 16px;
+	.discount-copy {
+		width: 380px;
+		margin-top: 6px;
 	}
 
 	.components-card__body {
-		background: url( '../../assets/images/wcpay-banner.svg' ) no-repeat right;
+		background: url('../../assets/images/wcpay-banner.svg') no-repeat right;
 	}
 }
 
@@ -173,14 +223,13 @@
 	}
 }
 
-.wc-calypso-bridge-payments-welcome-survey__intro{
+.wc-calypso-bridge-payments-welcome-survey__intro {
 	max-width: 500px;
 }
 
-.wc-calypso-bridge-payments-welcome-survey__question{
+.wc-calypso-bridge-payments-welcome-survey__question {
 	font-weight: bold;
 }
-
 
 .wc-calypso-bridge-payments-welcome-survey__selection {
 	margin: 1em 0;
@@ -204,4 +253,3 @@
 		}
 	}
 }
-
