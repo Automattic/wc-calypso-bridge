@@ -97,7 +97,7 @@ class WC_Calypso_Bridge_Payments {
 		}
 
 		// Store country must be in defined array.
-		$supported_countries = array( 'US', 'GB', 'AU', 'NZ', 'CA', 'IE', 'ES', 'FR', 'IT', 'DE' );
+		$supported_countries = array( 'US' );
 		if ( ! in_array( WC()->countries->get_base_country(), $supported_countries ) ) {
 			return;
 		}
