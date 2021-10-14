@@ -84,6 +84,15 @@ class WC_Calypso_Bridge_Shared {
 			true
 		);
 
+		$style_path     = 'build/index.css';
+		$style_path_url = plugins_url( $style_path, __FILE__ );
+		$res            = wp_register_style(
+			'wc-calypso-bridge',
+			$style_path_url,
+			array(),
+			filemtime( dirname( __FILE__ ) . '/build/index.css' )
+		);
+
 		wp_add_inline_script(
 			'wc-calypso-bridge',
 			'window.wcCalypsoBridge = ' . wp_json_encode(
@@ -98,6 +107,7 @@ class WC_Calypso_Bridge_Shared {
 		);
 
 		wp_enqueue_script( 'wc-calypso-bridge' );
+		wp_enqueue_style( 'wc-calypso-bridge' );
 	}
 
 	/**
