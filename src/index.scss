@@ -1,1 +1,59 @@
-// Add styles here.
+/*
+* <-------- Start Temporary Code -------->
+*
+* A change to Gutenberg base Navigation component in https://github.com/WordPress/gutenberg/pull/34885/
+* requires these overrides. The solution exists in WooCommerce Admin 2.8.0 and WooCommerce 5.9, but is not due
+* to reach merchants until November 9, 2021 so these styles will need to exist until then.
+*
+* Criteria for removal
+* 1. WooCommerce 5.9 has been released.
+* 2. WooCommerce 5.9 includes WooCommerce Admin 2.8.0 or later.
+*/
+.woocommerce-navigation .woocommerce-navigation__wrapper {
+	.components-navigation__item {
+		.components-button {
+			opacity: 1;
+		}
+
+		&:not( :hover ) {
+			.components-button {
+				color: #949494;
+			}
+		}
+		&:hover {
+			.components-button {
+				color: #ddd;
+			}
+		}
+		&.is-active {
+			.components-button {
+				color: #fff;
+			}
+		}
+	}
+
+	.components-navigation__menu-title,
+	.components-navigation__group-title {
+		color: #f0f0f0;
+		opacity: 1;
+	}
+
+	.components-navigation__back-button {
+		color: #949494;
+		opacity: 1;
+
+		&,
+		span {
+			font-size: 13px;
+			line-height: normal;
+		}
+
+		&:hover,
+		&:hover:not( :disabled ) {
+			color: #ddd;
+		}
+	}
+}
+/*
+* <-------- End Temporary Code -------->
+*/
