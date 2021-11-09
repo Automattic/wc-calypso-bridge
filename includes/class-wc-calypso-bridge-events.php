@@ -24,8 +24,7 @@ class WC_Calypso_Bridge_Events {
 	 * @return void
 	 */
 	protected function __construct() {
-		register_activation_hook( WC_CALYSPO_BRIDGE_PLUGIN_FILE, array( $this, 'on_plugin_activation' ) );
-		register_deactivation_hook( WC_CALYSPO_BRIDGE_PLUGIN_FILE, array( $this, 'on_plugin_deactivation' ) );
+		add_action( 'plugins_loaded', array( $this, 'on_plugin_loaded' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
 	}
 
@@ -51,17 +50,10 @@ class WC_Calypso_Bridge_Events {
 	/**
 	 * Registers the daily cron event.
 	 */
-	public function on_plugin_activation() {
+	public function on_plugin_loaded() {
 		if ( ! wp_next_scheduled( 'wc_calypso_bridge_daily' ) ) {
 			wp_schedule_event( time(), 'daily', 'wc_calypso_bridge_daily' );
 		}
-	}
-
-	/**
-	 * Clear scheduled cron events.
-	 */
-	public function on_plugin_deactivation() {
-		wp_clear_scheduled_hook( 'wc_calypso_bridge_daily' );
 	}
 
 	/**
