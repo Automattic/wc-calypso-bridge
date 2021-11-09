@@ -5,8 +5,6 @@
  * @package WC_Calypso_Bridge/Classes
  */
 
-use Automattic\WooCommerce\Admin\Notes\Notes;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -65,16 +63,6 @@ class WC_Calypso_Bridge_Events {
 		require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-notes.php';
 		WC_Calypso_Bridge_Notes::get_instance()->add_notes();
 		WC_Calypso_Bridge_Notes::get_instance()->delete_notes();
-
-		// Clear the hook if both notes have been added.
-		$data_store = Notes::load_data_store();
-
-		$learn_more_ids = $data_store->get_notes_with_name( WC_Calypso_Bridge_Navigation_Learn_More_Note::NOTE_NAME );
-		$remind_me_ids  = $data_store->get_notes_with_name(WC_Calypso_Bridge_Payments_Remind_Me_Later_Note::NOTE_NAME);
-
-		if ( count( $learn_more_ids ) && count( $remind_me_ids ) ) {
-			wp_clear_scheduled_hook( 'wc_calypso_bridge_daily' );
-		}
 	}
 }
 
