@@ -48,11 +48,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * @return array
 	 */
 	public function filter_wc_admin_enabled_features( $features ) {
-		if ( ! array_key_exists( 'remote-inbox-notifications', $features ) ) {
+		if ( ! in_array( 'remote-inbox-notifications', $features, true ) ) {
 			$features[] = 'remote-inbox-notifications';
 		}
 
-		if ( ! array_key_exists( 'navigation', $features ) && 'yes' === get_option( 'woocommerce_navigation_enabled', 'yes' ) ) {
+		if ( ! in_array( 'navigation', $features, true ) && 'yes' === get_option( 'woocommerce_navigation_enabled', 'yes' ) ) {
 			$features[] = 'navigation';
 		}
 
