@@ -7,6 +7,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+use Automattic\WooCommerce\Admin\Features\Features;
+
 /**
  * WC_Calypso_Bridge_Payments Class.
  */
@@ -42,7 +44,7 @@ class WC_Calypso_Bridge_Payments {
 	 * Include notes and initialize note hooks.
 	 */
 	public function init() {
-		if ( $this->is_woocommerce_valid() ) {
+		if ( $this->is_woocommerce_valid() && ! Features::is_enabled( 'wc-pay-welcome-page' ) ) {
 			add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
 			add_action( 'admin_menu', array( $this, 'register_payments_welcome_page' ) );
 			add_action( 'current_screen', array( $this, 'enqueue_scripts_and_styles' ) );
