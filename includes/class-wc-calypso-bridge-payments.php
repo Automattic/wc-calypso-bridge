@@ -48,6 +48,9 @@ class WC_Calypso_Bridge_Payments {
 			add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
 			add_action( 'admin_menu', array( $this, 'register_payments_welcome_page' ) );
 			add_action( 'current_screen', array( $this, 'enqueue_scripts_and_styles' ) );
+		} else {
+			// load wc-payments.css so that the font can be used in WCA on WPCOM
+			add_action( 'admin_enqueue_scripts', array( $this, 'add_wc_payments_style' ) );
 		}
 	}
 
