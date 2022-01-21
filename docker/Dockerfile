@@ -9,11 +9,14 @@ RUN apk -q --update --no-cache add tini shadow less git subversion nodejs npm \
     php7-phar php7-session php7-simplexml php7-tokenizer php7-pecl-xdebug php7-xml \
     php7-xmlwriter php7-zip php7-zlib
 
+# Woo requires pnpm
+RUN npm install -g pnpm
+
 # Install wp-cli
 RUN wget -q -O /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x /usr/local/bin/wp
 
-# Install WordPress
+# Install WordPress - must use /tmp for test env
 run mkdir -p /tmp && \
 	cd /tmp && \
 	wget -q https://wordpress.org/nightly-builds/wordpress-latest.zip && \
@@ -34,11 +37,13 @@ RUN sed -i "s/yourpasswordhere/wordpress_tests/" /tmp/wordpress-tests-lib/wp-tes
 RUN sed -i "s|localhost|mysql:3306|" /tmp/wordpress-tests-lib/wp-tests-config.php
 
 # Install WooCommerce
-RUN git clone --depth 1 https://github.com/woocommerce/woocommerce.git /tmp/wordpress/wp-content/plugins/woocommerce
+RUN git clone --depth 1 https://github.com/woocommerce/woocommerce.git /tmp/woocommerce
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 ENV SKIP_UPDATE_TEXTDOMAINS=true
-RUN cd /tmp/wordpress/wp-content/plugins/woocommerce && npm install
-RUN cd /tmp/wordpress/wp-content/plugins/woocommerce && composer install --no-dev
+RUN cd /tmp/woocommerce && pnpm install
+RUN cd /tmp/woocommerce/plugins/woocommerce && pnpm install
+RUN cd /tmp/woocommerce/plugins/woocommerce && composer install --no-dev
+RUN cp -a /tmp/woocommerce/plugins/woocommerce /tmp/wordpress/wp-content/plugins/woocommerce
 
 WORKDIR /tmp/wordpress/wp-content/plugins/wc-calypso-bridge
 ENTRYPOINT ["tini", "--"]
