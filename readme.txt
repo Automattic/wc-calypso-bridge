@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.8.5 =
+
+* Don't render WC Pay menu if WCA has it already #773
+
 = 1.8.4 =
 
 * Use plugins_loaded to register callback to register cron event #764
