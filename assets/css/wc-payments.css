@@ -13,7 +13,11 @@
 #toplevel_page_wc-admin-path--payments-welcome div.wp-menu-image::before,
 #toplevel_page_admin-page-wc-admin-path--payments-welcome div.wp-menu-image::before,
 #toplevel_page_wc-admin-path--wc-pay-welcome-page div.wp-menu-image::before,
-#toplevel_page_admin-page-wc-admin-path--wc-pay-welcome-page div.wp-menu-image::before {
+#toplevel_page_admin-page-wc-admin-path--wc-pay-welcome-page div.wp-menu-image::before,
+#toplevel_page_wc-admin-path--payments-connect div.wp-menu-image::before,
+#toplevel_page_admin_page-wc-admin-path--payments-connect div.wp-mene-image::before,
+#toplevel_page_wc-admin-path--payments-overview div.wp-menu-image::before,
+#toplevel_page_admin_page-wc-admin-path--payments-overview div.wp-menu-image::before {
 	font-family: 'WCPay' !important;
 	content: '\e900';
 	width: 24px;
