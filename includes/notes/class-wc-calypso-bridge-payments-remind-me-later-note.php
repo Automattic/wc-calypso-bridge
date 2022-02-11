@@ -64,7 +64,7 @@ class WC_Calypso_Bridge_Payments_Remind_Me_Later_Note {
 			return;
 		}
 
-		$content = __( 'Save up to 50% in fees by managing transactions in WooCommerce Payments. With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies.', 'wc-calypso-bridge' );
+		$content = __( 'Save up to $800 in fees by managing transactions with WooCommerce Payments. With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies.', 'wc-calypso-bridge' );
 
 		$note = new Note();
 		$note->set_title( __( 'Save big with WooCommerce Payments', 'wc-calypso-bridge' ) );
