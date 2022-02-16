@@ -16,7 +16,7 @@ export default {
 		'wc-calypso-bridge'
 	),
 	bannerCopy: __(
-		'No transaction fees for up to 3 months (or $25,000 in payments)',
+		'No card transaction fees for up to 3 months (or $25,000 in payments)',
 		'wc-calypso-bridge'
 	),
 	discountCopy: __(
