@@ -79,7 +79,7 @@ class WC_Payments_Controller extends WC_REST_Controller {
 	 * Set action to promo note to give the user discount eligibility.
 	 */
 	public function activate_promo_note() {
-		$promo_name       = 'wcpay-promo-2021-6-incentive-1';
+		$promo_name       = 'wcpay-promo-2022-3-incentive-100-off';
 		$data_store       = WC_Data_Store::load( 'admin-note' );
 		$add_where_clause = function( $where_clause ) use ( $promo_name ) {
 			return $where_clause . " AND name = '$promo_name'";
