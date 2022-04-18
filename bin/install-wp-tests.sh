@@ -179,6 +179,7 @@ install_deps() {
 	# As zip file does not include tests, we have to get it from git repo.
 	git clone --depth 1 --branch $LATEST_WC_TAG https://github.com/woocommerce/woocommerce.git
 
+	npm install -g pnpm
 	# Bring in WooCommerce Core dependencies
 	cd "woocommerce"
 	pnpm install
