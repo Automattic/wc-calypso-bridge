@@ -177,16 +177,17 @@ install_deps() {
 	fi
 	cd "wp-content/plugins/"
 	# As zip file does not include tests, we have to get it from git repo.
-	git clone --depth 1 --branch $LATEST_WC_TAG https://github.com/woocommerce/woocommerce.git
+	git clone --depth 1 --branch $LATEST_WC_TAG https://github.com/woocommerce/woocommerce.git woocommerce-monorepo
 
 	npm install -g pnpm
+
 	# Bring in WooCommerce Core dependencies
 	pnpm install
-	cd "woocommerce/plugins/woocommerce"
+	cd "woocommerce-monorepo/plugins/woocommerce"
 	composer install --no-dev
 
-	cd "../../../"
-	ln -s "./woocommerce/plugins/woocommerce ./woocommerce"
+	cd "$WP_CORE_DIR/wp-content/plugins"
+	ln -s ./woocommerce-monorepo/plugins/woocommerce ./woocommerce
 
 	cd "$WP_CORE_DIR"
 	php wp-cli.phar plugin activate woocommerce
