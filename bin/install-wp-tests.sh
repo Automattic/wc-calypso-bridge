@@ -181,9 +181,10 @@ install_deps() {
 
 	npm install -g pnpm
 
-	# Bring in WooCommerce Core dependencies
+	cd "woocommerce-monorepo"
 	pnpm install
-	cd "woocommerce-monorepo/plugins/woocommerce"
+	# Bring in WooCommerce Core dependencies
+	cd "plugins/woocommerce"
 	composer install --no-dev
 
 	cd "$WP_CORE_DIR/wp-content/plugins"
