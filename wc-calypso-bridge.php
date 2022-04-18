@@ -37,14 +37,12 @@ define( 'WC_MIN_VERSION', '3.0.0' );
 if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	/**
 	 * Returns if a site is an eCommerce plan site or not.
-	 * The `at_options` array is created during provisioning. Usually it is 'business' or 'ecommerce'
-	 * To Test: update_option( 'at_options', array( 'plan_slug' => 'ecommerce' ) );
 	 *
 	 * @return bool True if the site is an ecommerce site.
 	 */
 	function wc_calypso_bridge_is_ecommerce_plan() {
-		if ( class_exists( 'Atomic_Plan_Manager' ) && method_exists( 'Atomic_Plan_Manager', 'current_plan_slug' ) ) {
-			return Atomic_Plan_Manager::current_plan_slug() === Atomic_Plan_Manager::ECOMMERCE_PLAN_SLUG;
+		if ( function_exists( 'wpcom_site_has_feature' ) ) {
+			return wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS );
 		}
 
 		return false;
