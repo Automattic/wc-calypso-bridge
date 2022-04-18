@@ -185,6 +185,9 @@ install_deps() {
 	cd "woocommerce/plugins/woocommerce"
 	composer install --no-dev
 
+	cd "../../../"
+	ln -s "./woocommerce/plugins/woocommerce ./woocommerce"
+
 	cd "$WP_CORE_DIR"
 	php wp-cli.phar plugin activate woocommerce
 
