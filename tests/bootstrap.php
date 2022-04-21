@@ -115,9 +115,6 @@ class WC_Calypso_Bridge_Unit_Tests_Bootstrap {
 		include $this->wc_dir . '/uninstall.php';
 
 		// Initialize the WC API extensions.
-		\Automattic\WooCommerce\Admin\Install::create_tables();
-		\Automattic\WooCommerce\Admin\Install::create_events();
-
 		WC_Install::install();
 
 		// Reload capabilities after install, see https://core.trac.wordpress.org/ticket/28374
