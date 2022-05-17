@@ -188,7 +188,7 @@ install_deps() {
 	pnpm run build:feature-config
 
 	# Bring in WooCommerce Core dependencies
-	cd "plugins/woocommerce"
+	cd "../woocommerce"
 	composer install --no-dev
 
 	cd "$WP_CORE_DIR/wp-content/plugins"
