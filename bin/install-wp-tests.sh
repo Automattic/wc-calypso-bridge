@@ -183,6 +183,10 @@ install_deps() {
 
 	cd "woocommerce-monorepo"
 	pnpm install
+
+	cd "plugins/woocommerce-admin"
+	pnpm run build:feature-config
+
 	# Bring in WooCommerce Core dependencies
 	cd "plugins/woocommerce"
 	composer install --no-dev
