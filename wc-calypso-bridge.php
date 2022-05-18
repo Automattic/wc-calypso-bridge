@@ -17,7 +17,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
 
-if ( ! file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
+if ( ! function_exists( 'is_plugin_active' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+$wc_plugin_path = 'woocommerce/woocommerce.php';
+
+if ( ! file_exists( WP_PLUGIN_DIR . '/' . $wc_plugin_path ) || ! is_plugin_active( $wc_plugin_path ) ) {
 	// No WooCommerce installed, we don't need this.
 	return;
 }
