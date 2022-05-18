@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.8.9 =
+
+* Fixes a PHP fatal error while running wc_calypso_bridge_daily cron job when WC is deactivated #77 
+
 = 1.8.8 =
 
 * Use feature check to determine eCommerce plan. #783
