@@ -179,12 +179,16 @@ install_deps() {
 	# As zip file does not include tests, we have to get it from git repo.
 	git clone --depth 1 --branch $LATEST_WC_TAG https://github.com/woocommerce/woocommerce.git woocommerce-monorepo
 
-	npm install -g pnpm
+	npm install -g pnpm@^6.24.2
 
 	cd "woocommerce-monorepo"
 	pnpm install
+
+	cd "plugins/woocommerce-admin"
+	pnpm run build:feature-config
+
 	# Bring in WooCommerce Core dependencies
-	cd "plugins/woocommerce"
+	cd "../woocommerce"
 	composer install --no-dev
 
 	cd "$WP_CORE_DIR/wp-content/plugins"
