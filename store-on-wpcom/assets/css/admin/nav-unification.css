@@ -1,6 +1,6 @@
 /* Fix header overflow https://github.com/woocommerce/woocommerce-admin/issues/7035 */
 @media ( min-width: 961px ) {
 	.jetpack-connected .woocommerce-layout__header {
-		width: calc( 100% - 272px );
+		width: calc( 100% - 160px );
 	}
 }
