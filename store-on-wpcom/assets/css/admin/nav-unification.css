@@ -3,4 +3,8 @@
 	.jetpack-connected.is-nav-unification .woocommerce-layout__header {
 		width: calc( 100% - 272px );
 	}
+
+	body.jetpack-connected.folded .woocommerce-layout__header {
+		width: calc( 100% - 36px );
+	}
 }
