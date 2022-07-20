@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,10 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+= 1.9.2 =
+
+- Fix a deploy build bug with unintended import
+
 = 1.9.1 =
 
 * Adjust the header width when the sidebar is collpased #793
