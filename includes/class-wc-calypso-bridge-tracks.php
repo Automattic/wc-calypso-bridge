@@ -53,19 +53,19 @@ class WC_Calypso_Bridge_Tracks {
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );
 		add_filter( 'woocommerce_apply_user_tracking', '__return_true' );
 
-        $this->enable_tracking();
+		$this->enable_tracking();
 	}
 
 	/**
-     * Set woocommerce_allow_tracking to yes.
-     *
+	 * Set woocommerce_allow_tracking to yes.
+	 *
 	 * @return void
 	 */
-    public function enable_tracking() {
+	public function enable_tracking() {
 		if ( 'no' === get_option( 'woocommerce_allow_tracking' ) ) {
-			update_option( 'woocommerce_allow_tracking', 'yes' , true );
+			update_option( 'woocommerce_allow_tracking', 'yes', true );
 		}
-    }
+	}
 
 
 	/**
