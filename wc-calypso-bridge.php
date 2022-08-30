@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! function_exists( 'is_plugin_active' ) ) {
-    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
 }
 
 $wc_plugin_path = 'woocommerce/woocommerce.php';
@@ -61,6 +61,7 @@ add_action( 'init', array( 'WC_Calypso_Bridge_Filters', 'get_instance' ) );
 
 // We want to adjust tracks settings for business, ecomm, in calypsoified and wp-admin views.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
+add_filter( 'pre_option_woocommerce_allow_tracking', array( 'WC_Calypso_Bridge_Tracks', 'always_enable_tracking' ) );
 add_action( 'init', array( 'WC_Calypso_Bridge_Tracks', 'get_instance' ) );
 
 // Load cron events.
