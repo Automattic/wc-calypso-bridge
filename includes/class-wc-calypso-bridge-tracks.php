@@ -52,8 +52,21 @@ class WC_Calypso_Bridge_Tracks {
 		// Always opt-in to Tracks, WPCOM user tracks preferences take priority.
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );
 		add_filter( 'woocommerce_apply_user_tracking', '__return_true' );
-		add_filter( 'pre_option_woocommerce_allow_tracking', array( $this, 'always_enable_tracking' ) );
+
+		$this->enable_tracking();
 	}
+
+	/**
+	 * Set woocommerce_allow_tracking to yes.
+	 *
+	 * @return void
+	 */
+	public function enable_tracking() {
+		if ( 'no' === get_option( 'woocommerce_allow_tracking' ) ) {
+			update_option( 'woocommerce_allow_tracking', 'yes', true );
+		}
+	}
+
 
 	/**
 	 * Set's the value for the tracks host property.
@@ -87,13 +100,6 @@ class WC_Calypso_Bridge_Tracks {
 			}
 		</script>
 		<?php
-	}
-
-	/**
-	 * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
-	 */
-	public function always_enable_tracking() {
-		return 'yes';
 	}
 
 	/**
