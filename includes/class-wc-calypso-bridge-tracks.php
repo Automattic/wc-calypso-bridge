@@ -52,6 +52,19 @@ class WC_Calypso_Bridge_Tracks {
 		// Always opt-in to Tracks, WPCOM user tracks preferences take priority.
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );
 		add_filter( 'woocommerce_apply_user_tracking', '__return_true' );
+    
+		add_filter( 'woocommerce_tracker_data', array( $this, 'add_host_to_wctracker_param' ) );
+	}
+
+	/**
+	 * Add `host` key to woocommerce_tracker_data filter data
+	 *
+	 * @param array $data WC Tracker data from WC_Tracker class.
+	 * @return array
+	 */
+	public function add_host_to_wctracker_param( $data ) {
+		$data['host'] = self::$tracks_host_value;
+		return $data;
 	}
 
 	/**
