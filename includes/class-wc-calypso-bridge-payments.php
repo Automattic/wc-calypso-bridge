@@ -3,6 +3,7 @@
  * Notes.
  *
  * @package WC_Calypso_Bridge/Classes
+ * @version 1.9.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -133,29 +134,6 @@ class WC_Calypso_Bridge_Payments {
 		}
 
 		wc_admin_register_page( $menu_data );
-
-		// Registering a top level menu via wc_admin_register_page doesn't work when the new
-		// nav is enabled. The new nav disabled everything, except the 'WooCommerce' menu.
-		// We need to register this menu via add_menu_page so that it doesn't become a child of
-		// WooCommerce menu.
-		if ( 'yes' === get_option( 'woocommerce_navigation_enabled', 'no' ) ) {
-			$menu_with_nav_data = array(
-				__( 'Payments', 'wc-calypso-bridge' ),
-				__( 'Payments', 'wc-calypso-bridge' ),
-				'view_woocommerce_reports',
-				'admin.php?page=wc-admin&path=/payments-welcome',
-				null,
-			);
-
-			if ( $is_calypso_menu_request ) {
-				array_push( $menu_with_nav_data, $menu_icon );
-			} else {
-				array_push( $menu_with_nav_data, null );
-			}
-
-			array_push( $menu_with_nav_data, 55.7 );
-			call_user_func_array( 'add_menu_page', $menu_with_nav_data );
-		}
 
 		// Add badge
 		foreach ( $menu as $index => $menu_item ) {

@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.9.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -35,10 +35,8 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
-		$this->add_navigation_option();
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
-		add_filter( 'default_option_woocommerce_navigation_enabled', array( $this, 'enable_navigation_by_default' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
@@ -126,21 +124,6 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		return $option;
-	}
-
-	/**
-	 * Enable the navigation feature by default.
-	 *
-	 * @return string
-	 */
-	public function enable_navigation_by_default() {
-		return 'yes';
-	}
-
-	public function add_navigation_option() {
-		if ( false === get_option( 'woocommerce_navigation_enabled' ) ) {
-			update_option( 'woocommerce_navigation_enabled', 'yes' );
-		}
 	}
 
 	/**
