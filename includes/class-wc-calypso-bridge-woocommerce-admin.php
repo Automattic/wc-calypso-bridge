@@ -3,8 +3,8 @@
  * Contains customizations for WooCommerce Admin
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   1.0.17
- * @version 1.0.0
+ * @since   1.0.0
+ * @version 1.9.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -35,6 +35,39 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	 */
 	public function init() {
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
+		add_action( 'admin_init', array( $this, 'redirect_store_details_onboarding' ) );
+	}
+
+	/**
+	 * Handle the store location's onboarding redirect when user provided a full address.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function redirect_store_details_onboarding() {
+
+		// Only run on save.
+		if ( empty( $_POST ) ) {
+			return;
+		}
+
+		if ( ! isset( $_GET['tutorial'], $_GET['page'] ) || 'true' !== $_GET['tutorial'] || 'wc-settings' !== $_GET['page'] ) {
+			return;
+		}
+
+		$should_redirect_home = false;
+
+		$store_address  = get_option( 'woocommerce_store_address' );
+		$store_city     = get_option( 'woocommerce_store_city' );
+		$store_postcode = get_option( 'woocommerce_store_postcode' );
+
+		if ( ! empty( $store_address ) && ! empty( $store_city ) && ! empty( $store_postcode ) ) {
+			$should_redirect = true;
+		}
+
+		if ( $should_redirect ) {
+			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
+		}
 	}
 
 	/**
