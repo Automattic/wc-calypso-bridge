@@ -38,7 +38,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 
 		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', array( $this, 'filter_show_legacy_coupon_menu' ), PHP_INT_MAX );
-		add_action( 'admin_init', array( $this, 'delete_coupon_moved_notes' ), PHP_INT_MAX );
+		add_action( 'admin_init', array( $this, 'delete_coupon_page_moved_notes' ), PHP_INT_MAX );
 	}
 
 	/**
@@ -73,7 +73,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	 * @return void
 	 * @todo Create a one-time operation controller, to delete all `wc-admin-coupon-page-moved` notes from the database.
 	 */
-	public function delete_coupon_moved_notes() {
+	public function delete_coupon_page_moved_notes() {
 
 		if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
 			$notes_class = 'Automattic\WooCommerce\Admin\Notes\Notes';
