@@ -66,7 +66,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		// Disable and revert the navigation experiment.
 		if ( array_key_exists( 'navigation', $features ) ) {
-			$features[ 'navigation' ] = false;
+			$features['navigation'] = false;
 		}
 
 		return $features;
