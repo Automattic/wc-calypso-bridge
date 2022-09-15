@@ -163,6 +163,11 @@ class WC_Calypso_Bridge_Setup {
 		return 'yes';
 	}
 
+	/**
+	 * Enable the navigation feature by default.
+	 *
+	 * @return void
+	 */
 	public function add_navigation_option() {
 		if ( false === get_option( 'woocommerce_navigation_enabled' ) ) {
 			update_option( 'woocommerce_navigation_enabled', 'yes' );
