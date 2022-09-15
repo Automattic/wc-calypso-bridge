@@ -47,8 +47,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	public function redirect_store_details_onboarding() {
 
 		// Only run on save.
-		// phpcs:ignore WordPress.Security.NonceVerification.Missing
-		if ( empty( $_POST ) ) {
+		if ( empty( $_POST ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 			return;
 		}
 
