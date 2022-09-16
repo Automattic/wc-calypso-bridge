@@ -74,16 +74,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	 * @todo Create a one-time operation controller, to delete all `wc-admin-coupon-page-moved` notes from the database.
 	 */
 	public function delete_coupon_page_moved_notes() {
-
-		if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
-			$notes_class = 'Automattic\WooCommerce\Admin\Notes\Notes';
-		} elseif ( class_exists( 'Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes' ) ) {
-			$notes_class = 'Automattic\WooCommerce\Admin\Notes\WC_Admin_Notes';
-		} else {
+		if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
 			return;
 		}
 
-		$notes_class::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
+		Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
 	}
 }
 
