@@ -66,7 +66,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 
 		return $features;
 	}
-
 }
 
 WC_Calypso_Bridge_WooCommerce_Admin::factory()->init();
