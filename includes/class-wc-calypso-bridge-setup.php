@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.9.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -35,6 +35,8 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
+		add_filter( 'admin_init', array( $this, 'setup_admin_one_time_operations' ) );
+
 		$this->add_navigation_option();
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
@@ -43,6 +45,31 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
+	}
+
+	/**
+	 * Initial admin panel setup (options etc.)
+	 *
+	 * This is a controlled function that should run once.
+	 * An option named `woocommerce_atomic_initialized` is used to determine pristine condition.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function setup_admin_one_time_operations() {
+
+		// Make sure setup runs only once.
+		if ( 'yes' === get_option( 'woocommerce_atomic_initialized', 'no' ) ) {
+			return;
+		}
+
+		// Delete all existing `Coupon Page Moved` notes from the DB.
+		if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
+			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
+		}
+
+		// Mark setup complete.
+		update_option( 'woocommerce_atomic_initialized', 'yes' );
 	}
 
 	/**
