@@ -35,11 +35,12 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
-		add_filter( 'admin_init', array( $this, 'setup_admin' ) );
+		add_action( 'admin_init', array( $this, 'redirect_store_details_onboarding' ) );
 
 		$this->add_navigation_option();
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
+		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
 		add_filter( 'default_option_woocommerce_navigation_enabled', array( $this, 'enable_navigation_by_default' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
@@ -48,27 +49,26 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Initial admin panel setup (options etc.)
+	 * Skip the OBW.
 	 *
-	 * This is a controlled function that should only run one time.
-	 * An option named `woocommerce_atomic_initialized` is used to determine pristine condition.
+	 * This callback will ensure that the `woocommerce_onboarding_profile` option value will result to skipped state, always.
 	 *
 	 * @since 1.9.4
-	 * @return void
+	 *
+	 * @param  mixed  $value
+	 * @return array
 	 */
-	public function setup_admin() {
-
-		// Make sure setup runs only once.
-		$is_initialized = 'yes' === get_option( 'woocommerce_atomic_initialized', 'no' );
-		if ( $is_initialized ) {
-			return;
+	public function set_onboarding_status_to_skipped( $option_value ) {
+		if ( ! is_array( $option_value ) ) {
+			return array( 'skipped' => true );
 		}
 
-		// Skip the WooCommerce setup wizard.
-		update_option( 'woocommerce_onboarding_profile', array( 'skipped' => true ) );
+		if ( isset( $option_value['skipped'] ) && true === $option_value['skipped'] ) {
+			return $option_value;
+		}
 
-		// Mark setup complete.
-		update_option( 'woocommerce_atomic_initialized', 'yes' );
+		$option_value['skipped'] = true;
+		return $option_value;
 	}
 
 	/**
@@ -110,6 +110,38 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		return $location;
+	}
+
+	/**
+	 * Handle the store location's onboarding redirect when user provided a full address.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function redirect_store_details_onboarding() {
+
+		// Only run on save.
+		if ( empty( $_POST ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			return;
+		}
+
+		if ( ! isset( $_GET['tutorial'], $_GET['page'] ) || 'true' !== $_GET['tutorial'] || 'wc-settings' !== $_GET['page'] ) {
+			return;
+		}
+
+		$should_redirect_home = false;
+
+		$store_address  = get_option( 'woocommerce_store_address' );
+		$store_city     = get_option( 'woocommerce_store_city' );
+		$store_postcode = get_option( 'woocommerce_store_postcode' );
+
+		if ( ! empty( $store_address ) && ! empty( $store_city ) && ! empty( $store_postcode ) ) {
+			$should_redirect = true;
+		}
+
+		if ( $should_redirect ) {
+			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
+		}
 	}
 
 	/**
