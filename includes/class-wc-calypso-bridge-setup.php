@@ -38,9 +38,8 @@ class WC_Calypso_Bridge_Setup {
 		add_action( 'admin_init', array( $this, 'redirect_store_details_onboarding' ) );
 
 		$this->add_navigation_option();
-		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
-		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
+		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
 		add_filter( 'default_option_woocommerce_navigation_enabled', array( $this, 'enable_navigation_by_default' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
@@ -59,16 +58,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @return array
 	 */
 	public function set_onboarding_status_to_skipped( $option_value ) {
-		if ( ! is_array( $option_value ) ) {
-			return array( 'skipped' => true );
-		}
-
-		if ( isset( $option_value['skipped'] ) && true === $option_value['skipped'] ) {
-			return $option_value;
-		}
-
-		$option_value['skipped'] = true;
-		return $option_value;
+		return array( 'skipped' => true );
 	}
 
 	/**
