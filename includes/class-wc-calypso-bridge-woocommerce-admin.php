@@ -37,8 +37,21 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	public function init() {
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 
-		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', array( $this, 'filter_show_legacy_coupon_menu' ), PHP_INT_MAX );
-		add_action( 'admin_init', array( $this, 'delete_coupon_page_moved_notes' ), PHP_INT_MAX );
+		/**
+		 * Remove the legacy `WooCommerce > Coupons` menu.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $value Value to be filtered.
+		 *
+		 * @return int 1 to show the legacy menu, 0 to hide it. Booleans do not work.
+		 * @see     Automattic\WooCommerce\Internal\Admin\CouponsMovedTrait::display_legacy_menu()
+		 * @todo    Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
+		 */
+		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', function ( $value ) {
+			return 0;
+		}, PHP_INT_MAX );
+
 	}
 
 	/**
@@ -54,32 +67,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 		return $features;
 	}
 
-	/**
-	 * Remove the legacy `WooCommerce > Coupons` menu.
-	 *
-	 * @param mixed $value Value to be filtered.
-	 *
-	 * @return int 1 to show the legacy menu, 0 to hide it. Booleans do not work.
-	 * @see  Automattic\WooCommerce\Internal\Admin\CouponsMovedTrait::display_legacy_menu()
-	 * @todo Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
-	 */
-	public function filter_show_legacy_coupon_menu( $value ) {
-		return 0;
-	}
-
-	/**
-	 * Delete all existing `Coupon Page Moved` notes from the DB.
-	 *
-	 * @return void
-	 * @todo Create a one-time operation controller, to delete all `wc-admin-coupon-page-moved` notes from the database.
-	 */
-	public function delete_coupon_page_moved_notes() {
-		if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
-			return;
-		}
-
-		Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
-	}
 }
 
 WC_Calypso_Bridge_WooCommerce_Admin::factory()->init();
