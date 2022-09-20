@@ -35,7 +35,7 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
-		add_action( 'admin_init', array( $this, 'redirect_store_details_onboarding' ) );
+		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 
 		$this->add_navigation_option();
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
@@ -115,21 +115,15 @@ class WC_Calypso_Bridge_Setup {
 			return;
 		}
 
-		if ( ! isset( $_GET['tutorial'], $_GET['page'] ) || 'true' !== $_GET['tutorial'] || 'wc-settings' !== $_GET['page'] ) {
+		if ( ! isset( $_GET['tutorial'] ) || 'true' !== $_GET['tutorial'] ) {
 			return;
 		}
-
-		$should_redirect_home = false;
 
 		$store_address  = get_option( 'woocommerce_store_address' );
 		$store_city     = get_option( 'woocommerce_store_city' );
 		$store_postcode = get_option( 'woocommerce_store_postcode' );
 
 		if ( ! empty( $store_address ) && ! empty( $store_city ) && ! empty( $store_postcode ) ) {
-			$should_redirect = true;
-		}
-
-		if ( $should_redirect ) {
 			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
 		}
 	}
