@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.4 =
+* Delete coupon management has moved notes #810.
+* Remove legacy coupon menu #810.
+
 = 1.9.3 =
 
 * Add host param to WC Tracker params #800
