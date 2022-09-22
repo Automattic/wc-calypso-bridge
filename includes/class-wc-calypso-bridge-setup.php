@@ -39,7 +39,8 @@ class WC_Calypso_Bridge_Setup {
 	 * @var array
 	 */
 	protected $one_time_operations = array(
-		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_setup',
+		'delete_coupon_moved_notes'  => 'delete_coupon_moved_notes_callback',
+		'disable_legacy_coupon_menu' => 'disable_legacy_coupon_menu_callback',
 	);
 
 	/**
@@ -72,22 +73,21 @@ class WC_Calypso_Bridge_Setup {
 		$this->one_time_operations = array_merge( $this->one_time_operations, $operations );
 
 		foreach ( $this->one_time_operations as $operation => $callback ) {
+
+			// Don't run the operation if the callback has already been executed.
 			if ( true === $callback ) {
 				continue;
 			}
+
+			// Don't run the operation if the callback is not callable and don't save it in the options.
+			if ( ! method_exists( $this, $callback ) ) {
+				unset( $this->one_time_operations[ $operation ] );
+				continue;
+			}
+
 			$this->$callback();
 		}
 
-	}
-
-	/**
-	 * Set up the necessary hooks needed for the `delete_coupon_moved_notes` operation.
-	 *
-	 * @since 1.9.4
-	 * @return void
-	 */
-	public function delete_coupon_moved_notes_setup() {
-		add_action( 'admin_init', array( $this, 'delete_coupon_moved_notes_callback' ), PHP_INT_MAX );
 	}
 
 	/**
@@ -97,19 +97,32 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	public function delete_coupon_moved_notes_callback() {
+		add_action( 'admin_init', function () {
+			if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
+				return;
+			}
 
-		if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
-			return;
-		}
+			// Delete all existing `Coupon Page Moved` notes from the DB.
+			$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
+			if ( false === $note ) {
+				$this->one_time_operations['delete_coupon_moved_notes'] = true;
 
-		// Delete all existing `Coupon Page Moved` notes from the DB.
-		$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
-		if ( false === $note ) {
-			return;
-		}
-		Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
-		$this->one_time_operations['delete_coupon_moved_notes'] = true;
+				return;
+			}
+			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
+			$this->one_time_operations['delete_coupon_moved_notes'] = true;
+		}, PHP_INT_MAX );
+	}
 
+	/**
+	 * Disable the legacy `WooCommerce > Coupons` menu.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function disable_legacy_coupon_menu_callback() {
+		update_option( 'wc_admin_show_legacy_coupon_menu', 0 );
+		$this->one_time_operations['disable_legacy_coupon_menu'] = true;
 	}
 
 	/**
