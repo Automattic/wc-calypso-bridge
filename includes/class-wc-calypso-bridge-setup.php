@@ -40,7 +40,6 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	protected $one_time_operations = array(
 		'delete_coupon_moved_notes'  => 'delete_coupon_moved_notes_callback',
-		'disable_legacy_coupon_menu' => 'disable_legacy_coupon_menu_callback',
 	);
 
 	/**
@@ -112,17 +111,6 @@ class WC_Calypso_Bridge_Setup {
 			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
 			$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
 		}, PHP_INT_MAX );
-	}
-
-	/**
-	 * Disable the legacy `WooCommerce > Coupons` menu.
-	 *
-	 * @since 1.9.4
-	 * @return void
-	 */
-	public function disable_legacy_coupon_menu_callback() {
-		update_option( 'wc_admin_show_legacy_coupon_menu', 0 );
-		$this->set_one_time_operation_complete( 'disable_legacy_coupon_menu' );
 	}
 
 	/**
