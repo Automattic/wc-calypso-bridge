@@ -23,6 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.4 =
+* Delete coupon management has moved notes #810.
+* Remove legacy coupon menu #810.
 * Revert the navigation experiment #807.
 
 = 1.9.3 =
