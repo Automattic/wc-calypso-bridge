@@ -39,7 +39,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @var array
 	 */
 	protected $one_time_operations = array(
-		'delete_coupon_moved_notes'  => 'delete_coupon_moved_notes_callback',
+		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
 	);
 
 	/**
