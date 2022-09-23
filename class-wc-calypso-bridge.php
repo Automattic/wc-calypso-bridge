@@ -38,6 +38,23 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		/**
+		 * Remove the legacy `WooCommerce > Coupons` menu.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $value Value to be filtered.
+		 *
+		 * @return int 1 to show the legacy menu, 0 to hide it. Booleans do not work.
+		 * @see     Automattic\WooCommerce\Internal\Admin\CouponsMovedTrait::display_legacy_menu()
+		 * @todo    Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
+		 * @todo    Remove this filter when the compatibility branch is merged.
+		 */
+		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', function ( $value ) {
+			return 0;
+		}, PHP_INT_MAX );
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
