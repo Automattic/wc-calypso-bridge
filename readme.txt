@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.4 =
+* Disable activation notices for Gift Cards and Product Bundles #813.
 * Delete coupon management has moved notes #810.
 * Remove legacy coupon menu #810.
 * Revert the navigation experiment #807.
@@ -38,7 +39,7 @@ This section describes how to install the plugin and get it working.
 
 = 1.9.1 =
 
-* Adjust the header width when the sidebar is collpased #793
+* Adjust the header width when the sidebar is collapsed #793
 
 = 1.9.0 =
 
