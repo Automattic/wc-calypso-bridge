@@ -75,7 +75,7 @@ class WC_Calypso_Bridge_Setup {
 		foreach ( $this->one_time_operations as $operation => $callback ) {
 
 			// Don't run the operation if the callback has already been executed.
-			if ( true === $callback ) {
+			if ( $this->is_one_time_operation_complete( $operation ) ) {
 				continue;
 			}
 
@@ -105,12 +105,12 @@ class WC_Calypso_Bridge_Setup {
 			// Delete all existing `Coupon Page Moved` notes from the DB.
 			$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
 			if ( false === $note ) {
-				$this->one_time_operations['delete_coupon_moved_notes'] = true;
+				$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
 
 				return;
 			}
 			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
-			$this->one_time_operations['delete_coupon_moved_notes'] = true;
+			$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
 		}, PHP_INT_MAX );
 	}
 
@@ -122,7 +122,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function disable_legacy_coupon_menu_callback() {
 		update_option( 'wc_admin_show_legacy_coupon_menu', 0 );
-		$this->one_time_operations['disable_legacy_coupon_menu'] = true;
+		$this->set_one_time_operation_complete( 'disable_legacy_coupon_menu' );
 	}
 
 	/**
@@ -260,6 +260,30 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function is_theme_installed( $theme ) {
 		return isset( $theme['is_installed'] ) && $theme['is_installed'];
+	}
+
+	/**
+	 * Check if the operation has completed.
+	 *
+	 * @since 1.9.4
+	 * @param string $operation One time operation name.
+	 * @return boolean True if the operation has completed, false otherwise.
+	 */
+	protected function is_one_time_operation_complete( $operation ) {
+		return ( isset( $this->one_time_operations[ $operation ] ) && true === $this->one_time_operations[ $operation ] );
+	}
+
+	/**
+	 * Sets an operation as complete.
+	 *
+	 * @since 1.9.4
+	 * @param string $operation One time operation name.
+	 * @return void
+	 */
+	protected function set_one_time_operation_complete( $operation ) {
+		if ( isset( $this->one_time_operations[ $operation ] ) ) {
+			$this->one_time_operations[ $operation ] = true;
+		}
 	}
 }
 
