@@ -38,6 +38,19 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		/**
+		 * Disable WooCommerce Navigation.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return string no.
+		 */
+		add_filter( 'pre_option_woocommerce_navigation_enabled', function ( $pre ) {
+			return 'no';
+		}, PHP_INT_MAX );
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
