@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.4 =
+* Revert the navigation experiment #807.
+
 = 1.9.3 =
 
 * Add host param to WC Tracker params #800
