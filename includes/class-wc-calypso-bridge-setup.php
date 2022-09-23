@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.9.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -28,21 +28,97 @@ class WC_Calypso_Bridge_Setup {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
+
+	/**
+	 * Array of operations - name => callback.
+	 *
+	 * @since 1.9.4
+	 * @var array
+	 */
+	protected $one_time_operations = array(
+		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
+	);
 
 	/**
 	 * Constructor.
 	 */
 	private function __construct() {
-		$this->add_navigation_option();
+		$this->setup_one_time_operations();
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
-		add_filter( 'default_option_woocommerce_navigation_enabled', array( $this, 'enable_navigation_by_default' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
+		add_action( 'shutdown', array( $this, 'save_one_time_operations_status' ), PHP_INT_MAX );
+	}
+
+	/**
+	 * Set the one time operations and execute their callbacks.
+	 * If a callback is true (boolean), it means the operation
+	 * has already been executed and will be skipped.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function setup_one_time_operations() {
+
+		$operations                = get_option( 'woocommerce_atomic_one_time_operations', $this->one_time_operations );
+		$this->one_time_operations = array_merge( $this->one_time_operations, $operations );
+
+		foreach ( $this->one_time_operations as $operation => $callback ) {
+
+			// Don't run the operation if the callback has already been executed.
+			if ( $this->is_one_time_operation_complete( $operation ) ) {
+				continue;
+			}
+
+			// Don't run the operation if the callback is not callable and don't save it in the options.
+			if ( ! method_exists( $this, $callback ) ) {
+				unset( $this->one_time_operations[ $operation ] );
+				continue;
+			}
+
+			$this->$callback();
+		}
+
+	}
+
+	/**
+	 * Delete all `wc-admin-coupon-page-moved` notes and sets the operation as completed.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function delete_coupon_moved_notes_callback() {
+		add_action( 'admin_init', function () {
+			if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
+				return;
+			}
+
+			// Delete all existing `Coupon Page Moved` notes from the DB.
+			$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
+			if ( false === $note ) {
+				$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+
+				return;
+			}
+			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
+			$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+		}, PHP_INT_MAX );
+	}
+
+	/**
+	 * Save the one-time operations' status .
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function save_one_time_operations_status() {
+		update_option( 'woocommerce_atomic_one_time_operations', $this->one_time_operations );
 	}
 
 	/**
@@ -57,7 +133,8 @@ class WC_Calypso_Bridge_Setup {
 	 * do this when they are activated.
 	 *
 	 * @param string $location Redirect location.
-	 * @param string $status Status code.
+	 * @param string $status   Status code.
+	 *
 	 * @return string
 	 */
 	public function prevent_redirects_on_activation( $location, $status ) {
@@ -89,19 +166,22 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Site Profiler OBW: Remove Paid Extensions
 	 *
-	 * @param  array $product_types Array of product types.
+	 * @param array $product_types Array of product types.
+	 *
 	 * @return array
 	 */
 	public function remove_paid_extension_upsells( $product_types ) {
 		// Product Types are fetched from https://woocommerce.com/wp-json/wccom-extensions/1.0/search?category=product-type .
 		$filtered_product_types = array_filter( $product_types, array( $this, 'filter_product_types' ) );
+
 		return $filtered_product_types;
 	}
 
 	/**
 	 * Site Profiler OBW: Filter method for product_types to remove items with product.
 	 *
-	 * @param  array $product_type Array of product type data.
+	 * @param array $product_type Array of product type data.
+	 *
 	 * @return boolean
 	 */
 	public function filter_product_types( $product_type ) {
@@ -112,6 +192,7 @@ class WC_Calypso_Bridge_Setup {
 	 * Store Profiler: Set business_extenstions to empty array.
 	 *
 	 * @param array $option Array of properties for OBW Profile.
+	 *
 	 * @return array
 	 */
 	public function set_business_extensions_empty( $option ) {
@@ -129,28 +210,15 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Enable the navigation feature by default.
-	 *
-	 * @return string
-	 */
-	public function enable_navigation_by_default() {
-		return 'yes';
-	}
-
-	public function add_navigation_option() {
-		if ( false === get_option( 'woocommerce_navigation_enabled' ) ) {
-			update_option( 'woocommerce_navigation_enabled', 'yes' );
-		}
-	}
-
-	/**
 	 * Remove non-installed ( paid ) themes from the Onboarding data source.
 	 *
 	 * @param array $themes Array of themes comprised of locally installed themes + marketplace themes.
+	 *
 	 * @return array
 	 */
 	public function remove_non_installed_themes( $themes ) {
 		$local_themes = array_filter( $themes, array( $this, 'is_theme_installed' ) );
+
 		return $local_themes;
 	}
 
@@ -158,10 +226,35 @@ class WC_Calypso_Bridge_Setup {
 	 * Conditional method to determine if a theme is installed locally.
 	 *
 	 * @param array $theme Theme attributes.
+	 *
 	 * @return boolean
 	 */
 	public function is_theme_installed( $theme ) {
 		return isset( $theme['is_installed'] ) && $theme['is_installed'];
+	}
+
+	/**
+	 * Check if the operation has completed.
+	 *
+	 * @since 1.9.4
+	 * @param string $operation One time operation name.
+	 * @return boolean True if the operation has completed, false otherwise.
+	 */
+	protected function is_one_time_operation_complete( $operation ) {
+		return ( isset( $this->one_time_operations[ $operation ] ) && true === $this->one_time_operations[ $operation ] );
+	}
+
+	/**
+	 * Sets an operation as complete.
+	 *
+	 * @since 1.9.4
+	 * @param string $operation One time operation name.
+	 * @return void
+	 */
+	protected function set_one_time_operation_complete( $operation ) {
+		if ( isset( $this->one_time_operations[ $operation ] ) ) {
+			$this->one_time_operations[ $operation ] = true;
+		}
 	}
 }
 

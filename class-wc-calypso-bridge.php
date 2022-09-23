@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.9.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -38,9 +38,40 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		/**
+		 * Remove the legacy `WooCommerce > Coupons` menu.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return int 1 to show the legacy menu, 0 to hide it. Booleans do not work.
+		 * @see     Automattic\WooCommerce\Internal\Admin\CouponsMovedTrait::display_legacy_menu()
+		 * @todo    Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
+		 * @todo    Remove this filter when the compatibility branch is merged.
+		 */
+		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', function ( $pre ) {
+			return 0;
+		}, PHP_INT_MAX );
+
+		/**
+		 * Disable WooCommerce Navigation.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return string no.
+		 */
+		add_filter( 'pre_option_woocommerce_navigation_enabled', function ( $pre ) {
+			return 'no';
+		}, PHP_INT_MAX );
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
+
+		// Include calypso-bridge-setup this class as early as possible.
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
@@ -105,7 +136,6 @@ class WC_Calypso_Bridge {
 	 */
 	public function load_ecommerce_plan_ui() {
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
