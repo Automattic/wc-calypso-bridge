@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.9.3
+Stable tag: 1.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,8 +24,10 @@ This section describes how to install the plugin and get it working.
 
 = 1.9.4 =
 * Disable activation notices for Gift Cards and Product Bundles #813.
+* Skip the Onboarding Profiler in the Ecommerce Plan #811.
 * Delete coupon management has moved notes #810.
 * Remove legacy coupon menu #810.
+* One-time operations controller #810.
 * Revert the navigation experiment #807.
 
 = 1.9.3 =
