@@ -47,6 +47,9 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	private function __construct() {
 		$this->setup_one_time_operations();
+
+		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
+		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
@@ -122,6 +125,20 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
+	 * Skip the OBW.
+	 *
+	 * This callback will ensure that the `woocommerce_onboarding_profile` option value will result to skipped state, always.
+	 *
+	 * @since 1.9.4
+	 *
+	 * @param  mixed  $value
+	 * @return array
+	 */
+	public function set_onboarding_status_to_skipped( $option_value ) {
+		return array( 'skipped' => true );
+	}
+
+	/**
 	 * Opt all sites into using WooCommerce Home Screen.
 	 */
 	public function always_enable_homescreen() {
@@ -161,6 +178,32 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		return $location;
+	}
+
+	/**
+	 * Handle the store location's onboarding redirect when user provided a full address.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function redirect_store_details_onboarding() {
+
+		// Only run on save.
+		if ( empty( $_POST ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			return;
+		}
+
+		if ( ! isset( $_GET['tutorial'] ) || 'true' !== $_GET['tutorial'] ) {
+			return;
+		}
+
+		$store_address  = get_option( 'woocommerce_store_address' );
+		$store_city     = get_option( 'woocommerce_store_city' );
+		$store_postcode = get_option( 'woocommerce_store_postcode' );
+
+		if ( ! empty( $store_address ) && ! empty( $store_city ) && ! empty( $store_postcode ) ) {
+			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
+		}
 	}
 
 	/**
