@@ -21,17 +21,18 @@ class WC_Calypso_Bridge_WooCommerce_Admin {
 	protected static $instance = false;
 
 	/**
-	 * Get class instance
+	 * Get class instance.
 	 */
 	public static function factory() {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
 
 	/**
-	 * Initialize the class
+	 * Initialize the class.
 	 */
 	public function init() {
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
