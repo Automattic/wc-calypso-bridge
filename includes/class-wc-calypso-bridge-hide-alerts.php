@@ -98,7 +98,10 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'in_admin_header', 'WC_Klarna_Banners_KP', 'klarna_banner', 10 );
 
 		// List of extensions that do not use class level functions for admin notices.
-		$other_admin_notices = array( 'woocommerce_gateway_paypal_express_upgrade_notice', 'woocommerce_gateway_klarna_welcome_notice' );
+		$other_admin_notices = array(
+			'woocommerce_gateway_paypal_express_upgrade_notice',
+			'woocommerce_gateway_klarna_welcome_notice',
+		);
 		foreach ( $other_admin_notices as $function_to_suppress ) {
 			remove_action( 'admin_notices', $function_to_suppress );
 		}
