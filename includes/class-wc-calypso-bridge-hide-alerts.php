@@ -37,11 +37,13 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 */
 	private function __construct() {
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
+		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 
-		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
+		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
+		add_action( 'load-plugins.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
 	}
 
 	/**
@@ -141,6 +143,32 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		// Suppress all other WC Admin Notices not specified above.
 		WC_Admin_Notices::remove_notice( 'wootenberg' );
 		WC_Admin_Notices::remove_all_notices();
+	}
+
+	/**
+	 * Disable activation notices, specific for SomewhereWarm plugins as they share the same logic.
+	 * Filters out the `welcome` notice from the list of notices to be displayed.
+	 *
+	 * It's specifically hooked on `load-index.php` and `load-plugins.php`
+	 * as both PB and GC display notices only on these pages.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function maybe_remove_somewherewarm_maintenance_notices() {
+		// Gift Cards.
+		if ( class_exists( 'WC_GC_Admin_Notices' ) && WC_GC_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
+			WC_GC_Admin_Notices::$maintenance_notices = array_filter( WC_GC_Admin_Notices::$maintenance_notices, static function ( $element ) {
+				return 'welcome' !== $element;
+			} );
+		}
+
+		// Product Bundles.
+		if ( class_exists( 'WC_PB_Admin_Notices' ) && WC_PB_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
+			WC_PB_Admin_Notices::$maintenance_notices = array_filter( WC_PB_Admin_Notices::$maintenance_notices, static function ( $element ) {
+				return 'welcome' !== $element;
+			} );
+		}
 	}
 
 }
