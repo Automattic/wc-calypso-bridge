@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -28,6 +28,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
 
@@ -73,7 +74,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 			'WC_Klarna_Payments'              => array( '10' => 'order_management_check' ),
 			'Klarna_Checkout_For_WooCommerce' => array( '10' => 'order_management_check' ),
 			'WC_Gateway_PayFast'              => array( '10' => 'admin_notices' ),
-			'WC_Connect_Nux'                  => array( '9'  => 'show_banner_before_connection' ),
+			'WC_Connect_Nux'                  => array( '9' => 'show_banner_before_connection' ),
 			'Storefront_NUX_Admin'            => array( '99' => 'admin_notices' ),
 			'WC_Gateway_PPEC_Plugin'          => array( '10' => 'show_bootstrap_warning' ),
 			'WC_RoyalMail'                    => array( '10' => 'environment_check' ),
@@ -101,19 +102,47 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		}
 
 		// Suppress: Looking for the store notice setting? It can now be found in the Customizer.
-		$user_id = get_current_user_id();
-		$user_meta_key = 'dismissed_store_notice_setting_moved_notice';
+		$user_id                 = get_current_user_id();
+		$user_meta_key           = 'dismissed_store_notice_setting_moved_notice';
 		$current_user_meta_value = get_user_meta( $user_id, $user_meta_key, true );
 		if ( ! $current_user_meta_value ) {
-			$updated_user_meta_value = update_user_meta( $user_id, $user_meta_key, true );
+			update_user_meta( $user_id, $user_meta_key, true );
 		}
 
 		// Suppress: Product Add Ons Activation Notice.
-		$deleted = delete_option( 'wpa_activation_notice' );
+		delete_option( 'wpa_activation_notice' );
+
+		/**
+		 * Suppress: Facebook for WooCommerce welcome notices.
+		 * There is no hook to remove them, so the safest choice is to dismiss them per user
+		 * if they haven't been dismissed already.
+		 *
+		 * @since 1.9.5
+		 */
+		if (
+			function_exists( 'facebook_for_woocommerce' )
+			&& method_exists( facebook_for_woocommerce(), 'get_admin_notice_handler' )
+			&& method_exists( facebook_for_woocommerce()->get_admin_notice_handler(), 'is_notice_dismissed' )
+			&& method_exists( facebook_for_woocommerce()->get_admin_notice_handler(), 'dismiss_notice' )
+		) {
+			$fb_admin_notice_handler = facebook_for_woocommerce()->get_admin_notice_handler();
+			$fb_admin_notices        = array(
+				'facebook_for_woocommerce_get_started',
+				'settings_moved_to_marketing',
+			);
+
+			foreach ( $fb_admin_notices as $message_id ) {
+				if ( ! $fb_admin_notice_handler->is_notice_dismissed( $message_id ) ) {
+					$fb_admin_notice_handler->dismiss_notice( $message_id );
+				}
+			}
+		}
+
 		// Suppress all other WC Admin Notices not specified above.
 		WC_Admin_Notices::remove_notice( 'wootenberg' );
 		WC_Admin_Notices::remove_all_notices();
 	}
 
 }
+
 $wc_calypso_bridge_hide_alerts = WC_Calypso_Bridge_Hide_Alerts::get_instance();
