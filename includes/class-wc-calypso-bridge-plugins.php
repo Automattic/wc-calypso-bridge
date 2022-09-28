@@ -43,7 +43,7 @@ class WC_Calypso_Bridge_Plugins {
 		add_filter( 'woocommerce_admin_onboarding_industries', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
 		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
 		add_action( 'load-plugins.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
-		add_action( 'admin_head', array( $this, 'maybe_remove_wc_facebook_welcome_notices' ) );
+
 	}
 
 	/**
@@ -177,41 +177,6 @@ class WC_Calypso_Bridge_Plugins {
 				return 'welcome' !== $element;
 			} );
 		}
-	}
-
-	/**
-	 * Disable Facebook for WooCommerce welcome notices.
-	 * There is no hook to remove them, so the safest choice is to dismiss them per user
-	 * if they haven't been dismissed already.
-	 *
-	 * @since 1.9.5
-	 * @return void
-	 */
-	public function maybe_remove_wc_facebook_welcome_notices() {
-
-		// Defensive coding - bail out early if the class and the needed methods don't exist.
-		// In case any of the following is renamed, we don't want all sites to break with a WSOD.
-		if (
-			! function_exists( 'facebook_for_woocommerce' )
-			|| ! method_exists( facebook_for_woocommerce(), 'get_admin_notice_handler' )
-			|| ! method_exists( facebook_for_woocommerce()->get_admin_notice_handler(), 'is_notice_dismissed' )
-			|| ! method_exists( facebook_for_woocommerce()->get_admin_notice_handler(), 'dismiss_notice' )
-		) {
-			return;
-		}
-
-		$handler  = facebook_for_woocommerce()->get_admin_notice_handler();
-		$messages = array(
-			'facebook_for_woocommerce_get_started',
-			'settings_moved_to_marketing',
-		);
-
-		foreach ( $messages as $message_id ) {
-			if ( ! $handler->is_notice_dismissed( $message_id ) ) {
-				$handler->dismiss_notice( $message_id );
-			}
-		}
-
 	}
 
 }
