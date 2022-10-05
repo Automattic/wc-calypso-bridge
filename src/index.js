@@ -13,7 +13,9 @@ import './index.scss';
 
 wcNavFilterRootUrl();
 
+
 addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
+
 	pages.push( {
 		container: PaymentsWelcomePage,
 		path: '/payments-welcome',
@@ -22,6 +24,8 @@ addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
 			id: 'wc-calypso-bridge-payments-welcome-page',
 		},
 	} );
+
+	pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: ''} : page );
 
 	return pages;
 } );
