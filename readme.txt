@@ -26,6 +26,7 @@ This section describes how to install the plugin and get it working.
 * Disable welcome notices for Facebook for WooCommerce #XXX.
 * Limit activity panels to Woo Home page #XXX.
 * Hide write button in global bar #XXX.
+* Clean up product table columns #XXX.
 
 = 1.9.4 =
 * Disable activation notices for Gift Cards and Product Bundles #813.
