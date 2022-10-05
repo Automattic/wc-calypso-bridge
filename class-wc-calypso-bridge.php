@@ -122,6 +122,24 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX, 3 );
 
+		/**
+		 * Remove the Write button from the global bar.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @return void
+		 * @todo    Doesn't work on calypso pages.
+		 */
+		add_action( 'wp_before_admin_bar_render', static function () {
+			global $wp_admin_bar;
+
+			if ( ! is_object( $wp_admin_bar ) ) {
+				return;
+			}
+
+			$wp_admin_bar->remove_menu( 'ab-new-post' );
+		}, PHP_INT_MAX );
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
