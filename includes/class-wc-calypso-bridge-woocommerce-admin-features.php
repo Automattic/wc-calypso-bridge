@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -81,15 +81,16 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	/**
 	 * Add is-woocommerce-home body class.
 	 *
-	 * @param string $classes Body classes.
+	 * @since   1.9.5
 	 *
+	 * @param string $classes Body classes.
 	 * @return string
 	 */
 	public function filter_woocommerce_body_classes( $classes ) {
 
 		$page = PageController::get_instance()->get_current_page();
 
-		if ( $page && 'woocommerce-home' === $page[ 'id' ] ) {
+		if ( $page && 'woocommerce-home' === $page['id'] ) {
 			$classes .= ' is-woocommerce-home';
 		}
 
@@ -99,6 +100,8 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	/**
 	 * Add custom CSS to hide activity panels in all WooCommerce pages other than Home.
 	 * Note that this is not possible via the 'woocommerce_admin_features' filter, as we don't have access to the screen id at that point.
+	 *
+	 * @since   1.9.5
 	 *
 	 * @return void
 	 */
