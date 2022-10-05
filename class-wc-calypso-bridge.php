@@ -66,6 +66,15 @@ class WC_Calypso_Bridge {
 			return 'no';
 		}, PHP_INT_MAX );
 
+		add_filter( 'jetpack_admin_menu_class', function( $admin_class ) {
+			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
+				require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-menu.php';
+				return Ecommerce_Atomic_Admin_Menu::class;
+			}
+
+			return $admin_class;
+		} );
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
