@@ -23,7 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.5 =
-* Disable welcome notices for Facebook for WooCommerce - PR#xxx.
+* Disable welcome notices for Facebook for WooCommerce - #XXX.
+* Limit activity panels to Woo Home page #XXX.
 
 = 1.9.4 =
 * Disable activation notices for Gift Cards and Product Bundles #813.
