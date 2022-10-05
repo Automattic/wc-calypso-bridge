@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -183,25 +183,31 @@ class WC_Calypso_Bridge_Plugins {
 	/**
 	 * Removes the Stats column.
 	 *
-	 * @param  array $cols Array of product columns.
-	 * @return array
-	 */
-	public function remove_jetpack_stats_column( $cols ) {
-        return array_diff_key( $cols, array_flip( array( 'stats' ) ) );
-    }
-
-    /**
-	 * Hides the Likes and Date product columns by default.
+	 * @since  1.9.5
 	 *
 	 * @param  array $cols Array of product columns.
 	 * @return array
 	 */
-    public function hide_product_columns( $hidden, $screen ) {
-    	if ( isset( $screen->id ) && 'edit-product' === $screen->id ) {
-        	return array_merge( $hidden, array( 'likes', 'date' ) );
-        }
-        return $hidden;
-    }
+	public function remove_jetpack_stats_column( $cols ) {
+		return array_diff_key( $cols, array_flip( array( 'stats' ) ) );
+	}
+
+	/**
+	 * Hides the Likes and Date product columns by default.
+	 *
+	 * @since   1.9.5
+	 *
+	 * @param array  $hidden Current hidden columns.
+	 * @param object $screen Current screen.
+	 * @return array
+	 */
+	public function hide_product_columns( $hidden, $screen ) {
+		if ( isset( $screen->id ) && 'edit-product' === $screen->id ) {
+			return array_merge( $hidden, array( 'likes', 'date' ) );
+		}
+
+		return $hidden;
+	}
 }
 
 $wc_calypso_bridge_plugins = WC_Calypso_Bridge_Plugins::get_instance();
