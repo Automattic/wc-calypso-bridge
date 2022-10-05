@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -64,6 +64,24 @@ class WC_Calypso_Bridge {
 		 */
 		add_filter( 'pre_option_woocommerce_navigation_enabled', function ( $pre ) {
 			return 'no';
+		}, PHP_INT_MAX );
+
+		/**
+		 * Remove the Write button from the global bar.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @return void
+		 * @todo    Doesn't work on calypso pages.
+		 */
+		add_action( 'wp_before_admin_bar_render', static function () {
+			global $wp_admin_bar;
+
+			if ( ! is_object( $wp_admin_bar ) ) {
+				return;
+			}
+
+			$wp_admin_bar->remove_menu( 'ab-new-post' );
 		}, PHP_INT_MAX );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
