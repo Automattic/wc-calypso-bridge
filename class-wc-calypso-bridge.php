@@ -66,13 +66,21 @@ class WC_Calypso_Bridge {
 			return 'no';
 		}, PHP_INT_MAX );
 
-		add_filter( 'jetpack_admin_menu_class', function( $admin_class ) {
+		/**
+		 * Inject the Ecommerce admin menu controller into Jetpack.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param  string  $menu_controller_class  The name of the menu controller class.
+		 * @return string
+		 */
+		add_filter( 'jetpack_admin_menu_class', function( $menu_controller_class ) {
 			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
 				require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-menu.php';
 				return Ecommerce_Atomic_Admin_Menu::class;
 			}
 
-			return $admin_class;
+			return $menu_controller_class;
 		} );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {

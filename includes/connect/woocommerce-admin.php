@@ -17,14 +17,6 @@ wc_calypso_bridge_connect_page(
 
 wc_calypso_bridge_connect_page(
 	array(
-		'screen_id' => 'toplevel_page_wc-admin',
-		'menu'      => 'woocommerce',
-		'submenu'   => 'page=wc-admin',
-	)
-);
-
-wc_calypso_bridge_connect_page(
-	array(
 		'screen_id' => 'woocommerce-revenue',
 		'menu'      => 'wc-admin&path=/analytics/overview',
 		'submenu'   => 'wc-admin&path=/analytics/overview',
