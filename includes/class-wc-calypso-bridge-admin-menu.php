@@ -82,8 +82,12 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	/**
 	 * Backwards compatible screen IDs mapper for the new Ecommerce menu structure.
 	 *
+	 * Changing menu item positions, by definition, changes the internal WP_Screen ID of each page.
+	 * This method is responsible for replacing newly introduced screen ids with legacy ones to be compatible with 3PD codebases.
+	 * (e.g., A 3PD code injects some custom CSS into the `woocommerce_admin_wc-admin` screen)
+	 *
 	 * @param  $screen_id (Optional)  The screen ID
-	 * @return array|string|false    Returns an array with all the replacements if no argument passed, or the string replacement screen ID.
+	 * @return array|string|false     Returns an array with all the replacements if no argument passed, or the string replacement screen ID.
 	 */
 	private function get_screen_id_replacement( $screen_id = null ) {
 
@@ -96,10 +100,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			'admin_page_wc-admin' => 'woocommerce_page_wc-admin',
 		);
 
-		if ( $screen_id ) {
-			return array_key_exists( $screen_id, $screen_map ) ? $screen_map[ $screen_id ] : '';
-		} else {
+		if ( is_null( $screen_id ) ) {
 			return $screen_map;
 		}
+
+		return array_key_exists( $screen_id, $screen_map ) ? $screen_map[ $screen_id ] : false;
 	}
 }
