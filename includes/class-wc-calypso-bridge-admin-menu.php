@@ -4,7 +4,8 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since x.x.x
- * This class comes up in the wp-admin of a WoA site.
+ *
+ * The admin menu controller for Ecommerce WoA sites.
  */
 class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu {
 
@@ -13,6 +14,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		add_action( 'admin_menu', array( $this, 'hide_woocommerce_menu_items' ), 99999 );
 		add_action( 'admin_menu', function() {
+
+			if ( ! class_exists( '\Automattic\WooCommerce\Internal\Admin\Homescreen' ) ) {
+				return;
+			}
 
 			/**
 			 * Add the home page behind the scenes to avoid 404 errors.
@@ -29,7 +34,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 					'path'       => \Automattic\WooCommerce\Internal\Admin\Homescreen::MENU_SLUG,
 				)
 			);
-		}, 9 );
+		} );
 
 		/**
 		 * Fix/Replace broken screen IDs for WooCommerce core pages.
@@ -51,21 +56,13 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
-	 * Create the desired menu output.
-	 */
-	public function reregister_menu_items() {
-		parent::reregister_menu_items();
-
-	}
-
-	/**
 	 * Hide default WC menu items.
 	 */
 	public function hide_woocommerce_menu_items() {
 		global $submenu;
 
-		$home = array_shift($submenu['woocommerce']);
-		$this->hide_submenu_element( 'woocommerce-home', 'woocommerce', $home );
+		// Remove the WooCommerce > Home menu item.
+		array_shift( $submenu['woocommerce'] );
 	}
 
 	/**
