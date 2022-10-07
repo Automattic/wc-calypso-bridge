@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -33,6 +33,13 @@ class WC_Calypso_Bridge {
 	 * @var WC_Calypso_Bridge instance
 	 */
 	protected static $instance = null;
+
+	/**
+	 * Logger instance.
+	 *
+	 * @var WC_Logger $logger
+	 */
+	protected static $logger = null;
 
 	/**
 	 * Constructor.
@@ -64,6 +71,45 @@ class WC_Calypso_Bridge {
 		 */
 		add_filter( 'pre_option_woocommerce_navigation_enabled', function ( $pre ) {
 			return 'no';
+		}, PHP_INT_MAX );
+
+		/**
+		 * Log woocommerce_create_pages.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @param array $pages WooCommerce pages to be created.
+		 * @return array
+		 */
+		add_filter( 'woocommerce_create_pages', static function ( $pages ) {
+			self::log_message( 'Filter: woocommerce_create_pages passed.' );
+
+			return $pages;
+		}, PHP_INT_MAX );
+
+		/**
+		 * Log woocommerce_newly_installed.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @return void.
+		 */
+		add_action( 'woocommerce_newly_installed', static function ( $pages ) {
+			self::log_message( 'Action: woocommerce_newly_installed passed.' );
+		}, PHP_INT_MAX );
+
+		/**
+		 * Log woocommerce_admin_onboarding_industries.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @param array $industries Onboarding Industries.
+		 * @return array
+		 */
+		add_filter( 'woocommerce_admin_onboarding_industries', static function ( $industries ) {
+			self::log_message( 'Filter: woocommerce_admin_onboarding_industries passed.' );
+
+			return $industries;
 		}, PHP_INT_MAX );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
@@ -290,6 +336,54 @@ class WC_Calypso_Bridge {
 				$event_name,
 				$event_params
 			);
+		}
+	}
+
+	/**
+	 * Instantiate the logger and log the message
+	 *
+	 * @since 1.9.5
+	 *
+	 * @param $message string Message to log.
+	 * @param $type string Type of log.
+	 *
+	 * @return void
+	 */
+	public static function log_message( $message, $type = 'debug' ) {
+		if ( class_exists( 'WC_Logger' ) && ! empty( $message ) ) {
+
+			if ( empty( self::$logger ) ) {
+				self::$logger = new WC_Logger();
+			}
+			$source = apply_filters( 'wc_calypso_bridge_logger_source', 'dotcom-ecommerce' );
+
+			switch ( $type ) {
+				case 'info':
+					self::$logger->info( $message, array( 'source' => $source ) );
+					break;
+				case 'notice':
+					self::$logger->notice( $message, array( 'source' => $source ) );
+					break;
+				case 'warning':
+					self::$logger->warning( $message, array( 'source' => $source ) );
+					break;
+				case 'error':
+					self::$logger->error( $message, array( 'source' => $source ) );
+					break;
+				case 'critical':
+					self::$logger->critical( $message, array( 'source' => $source ) );
+					break;
+				case 'alert':
+					self::$logger->alert( $message, array( 'source' => $source ) );
+					break;
+				case 'emergency':
+					self::$logger->emergency( $message, array( 'source' => $source ) );
+					break;
+				case 'debug':
+				default:
+					self::$logger->debug( $message, array( 'source' => $source ) );
+					break;
+			}
 		}
 	}
 
