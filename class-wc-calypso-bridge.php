@@ -15,10 +15,16 @@ use Automattic\WooCommerce\Admin\Loader;
  * WC Calypso Bridge
  */
 class WC_Calypso_Bridge {
+
 	/**
 	 * Paths to assets act oddly in production
 	 */
 	const MU_PLUGIN_ASSET_PATH = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/';
+
+	/**
+	 * Ecommerce Plan release timestamps.
+	 */
+	const S2_2022_RELEASE_DATE = 1665828976;
 
 	/**
 	 * Plugin asset path
@@ -66,22 +72,8 @@ class WC_Calypso_Bridge {
 			return 'no';
 		}, PHP_INT_MAX );
 
-		/**
-		 * Inject the Ecommerce admin menu controller into Jetpack.
-		 *
-		 * @since x.x.x
-		 *
-		 * @param  string  $menu_controller_class  The name of the menu controller class.
-		 * @return string
-		 */
-		add_filter( 'jetpack_admin_menu_class', function( $menu_controller_class ) {
-			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
-				require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-admin-menu.php';
-				return Ecommerce_Atomic_Admin_Menu::class;
-			}
-
-			return $menu_controller_class;
-		} );
+		// Include Jetpack modifications.
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
@@ -89,6 +81,7 @@ class WC_Calypso_Bridge {
 
 		// Include calypso-bridge-setup this class as early as possible.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
@@ -152,8 +145,7 @@ class WC_Calypso_Bridge {
 	 * Load ecommere plan specific UI changes.
 	 */
 	public function load_ecommerce_plan_ui() {
-		// We always want the Calypso branded OBW to run on eCommerce plan sites.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
+
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';

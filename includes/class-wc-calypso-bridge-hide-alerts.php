@@ -35,12 +35,13 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Constructor
 	 */
 	private function __construct() {
+
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
+		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
+
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
-
-		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
 	}
 
 	/**
@@ -110,6 +111,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 
 		// Suppress: Product Add Ons Activation Notice.
 		$deleted = delete_option( 'wpa_activation_notice' );
+
 		// Suppress all other WC Admin Notices not specified above.
 		WC_Admin_Notices::remove_notice( 'wootenberg' );
 		WC_Admin_Notices::remove_all_notices();
