@@ -35,13 +35,6 @@ class WC_Calypso_Bridge {
 	protected static $instance = null;
 
 	/**
-	 * Logger instance.
-	 *
-	 * @var WC_Logger $logger
-	 */
-	protected static $logger = null;
-
-	/**
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -340,51 +333,24 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
-	 * Instantiate the logger and log the message
+	 * Log using 'WC_Logger' class.
 	 *
 	 * @since 1.9.5
 	 *
-	 * @param $message string Message to log.
-	 * @param $type string Type of log.
+	 * @param string $message Message to log.
+	 * @param string $level   Type of log.
+	 * @param string $context Source context.
 	 *
 	 * @return void
 	 */
-	public static function log_message( $message, $type = 'debug' ) {
-		if ( class_exists( 'WC_Logger' ) && ! empty( $message ) ) {
+	public static function log_message( $message, $level = 'debug', $context = 'dotcom-ecommerce' ) {
 
-			if ( empty( self::$logger ) ) {
-				self::$logger = new WC_Logger();
-			}
-			$source = apply_filters( 'wc_calypso_bridge_logger_source', 'dotcom-ecommerce' );
-
-			switch ( $type ) {
-				case 'info':
-					self::$logger->info( $message, array( 'source' => $source ) );
-					break;
-				case 'notice':
-					self::$logger->notice( $message, array( 'source' => $source ) );
-					break;
-				case 'warning':
-					self::$logger->warning( $message, array( 'source' => $source ) );
-					break;
-				case 'error':
-					self::$logger->error( $message, array( 'source' => $source ) );
-					break;
-				case 'critical':
-					self::$logger->critical( $message, array( 'source' => $source ) );
-					break;
-				case 'alert':
-					self::$logger->alert( $message, array( 'source' => $source ) );
-					break;
-				case 'emergency':
-					self::$logger->emergency( $message, array( 'source' => $source ) );
-					break;
-				case 'debug':
-				default:
-					self::$logger->debug( $message, array( 'source' => $source ) );
-					break;
-			}
+		if ( ! function_exists( 'wc_get_logger' ) ) {
+			return;
 		}
+		$logger = wc_get_logger();
+		$logger->log( $level, $message, array( 'source' => $context ) );
+
 	}
 
 }
