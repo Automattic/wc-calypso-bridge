@@ -122,7 +122,7 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX, 3 );
 
-    /**
+        /**
 		 * Log woocommerce_create_pages.
 		 *
 		 * @since   1.9.5
