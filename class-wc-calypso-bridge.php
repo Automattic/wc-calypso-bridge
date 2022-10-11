@@ -76,6 +76,7 @@ class WC_Calypso_Bridge {
 		 */
 		add_filter( 'woocommerce_create_pages', static function ( $pages ) {
 			self::log_message( 'Filter: woocommerce_create_pages passed.' );
+			add_option( 'wc_calypso_bridge_debug_woocommerce_create_pages', time() );
 
 			return $pages;
 		}, PHP_INT_MAX );
@@ -89,6 +90,7 @@ class WC_Calypso_Bridge {
 		 */
 		add_action( 'woocommerce_newly_installed', static function ( $pages ) {
 			self::log_message( 'Action: woocommerce_newly_installed passed.' );
+			add_option( 'wc_calypso_bridge_debug_woocommerce_newly_installed', time() );
 		}, PHP_INT_MAX );
 
 		/**
@@ -101,6 +103,7 @@ class WC_Calypso_Bridge {
 		 */
 		add_filter( 'woocommerce_admin_onboarding_industries', static function ( $industries ) {
 			self::log_message( 'Filter: woocommerce_admin_onboarding_industries passed.' );
+			add_option( 'wc_calypso_bridge_debug_woocommerce_admin_onboarding_industries', time() );
 
 			return $industries;
 		}, PHP_INT_MAX );
