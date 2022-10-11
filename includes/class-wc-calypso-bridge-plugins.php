@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -43,6 +43,8 @@ class WC_Calypso_Bridge_Plugins {
 		add_filter( 'woocommerce_admin_onboarding_industries', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
 		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
 		add_action( 'load-plugins.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
+		add_filter( 'manage_product_posts_columns', array( $this, 'remove_jetpack_stats_column' ), 100 );
+		add_filter( 'default_hidden_columns', array( $this, 'hide_product_columns' ), 100, 2 );
 	}
 
 	/**
@@ -178,6 +180,34 @@ class WC_Calypso_Bridge_Plugins {
 		}
 	}
 
+	/**
+	 * Removes the Stats column.
+	 *
+	 * @since  1.9.5
+	 *
+	 * @param  array $cols Array of product columns.
+	 * @return array
+	 */
+	public function remove_jetpack_stats_column( $cols ) {
+		return array_diff_key( $cols, array_flip( array( 'stats' ) ) );
+	}
+
+	/**
+	 * Hides the Likes and Date product columns by default.
+	 *
+	 * @since   1.9.5
+	 *
+	 * @param array  $hidden Current hidden columns.
+	 * @param object $screen Current screen.
+	 * @return array
+	 */
+	public function hide_product_columns( $hidden, $screen ) {
+		if ( isset( $screen->id ) && 'edit-product' === $screen->id ) {
+			return array_merge( $hidden, array( 'likes', 'date' ) );
+		}
+
+		return $hidden;
+	}
 }
 
 $wc_calypso_bridge_plugins = WC_Calypso_Bridge_Plugins::get_instance();

@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.5 =
+* Clean up product table columns #XXX.
+
 = 1.9.4 =
 * Disable activation notices for Gift Cards and Product Bundles #813.
 * Skip the Onboarding Profiler in the Ecommerce Plan #811 #816.
