@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -64,6 +64,48 @@ class WC_Calypso_Bridge {
 		 */
 		add_filter( 'pre_option_woocommerce_navigation_enabled', function ( $pre ) {
 			return 'no';
+		}, PHP_INT_MAX );
+
+		/**
+		 * Log woocommerce_create_pages.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @param array $pages WooCommerce pages to be created.
+		 * @return array
+		 */
+		add_filter( 'woocommerce_create_pages', static function ( $pages ) {
+			self::log_message( 'Filter: woocommerce_create_pages passed.' );
+			add_option( 'wc_calypso_bridge_debug_woocommerce_create_pages', time() );
+
+			return $pages;
+		}, PHP_INT_MAX );
+
+		/**
+		 * Log woocommerce_newly_installed.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @return void.
+		 */
+		add_action( 'woocommerce_newly_installed', static function ( $pages ) {
+			self::log_message( 'Action: woocommerce_newly_installed passed.' );
+			add_option( 'wc_calypso_bridge_debug_woocommerce_newly_installed', time() );
+		}, PHP_INT_MAX );
+
+		/**
+		 * Log woocommerce_admin_onboarding_industries.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @param array $industries Onboarding Industries.
+		 * @return array
+		 */
+		add_filter( 'woocommerce_admin_onboarding_industries', static function ( $industries ) {
+			self::log_message( 'Filter: woocommerce_admin_onboarding_industries passed.' );
+			add_option( 'wc_calypso_bridge_debug_woocommerce_admin_onboarding_industries', time() );
+
+			return $industries;
 		}, PHP_INT_MAX );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
@@ -291,6 +333,27 @@ class WC_Calypso_Bridge {
 				$event_params
 			);
 		}
+	}
+
+	/**
+	 * Log using 'WC_Logger' class.
+	 *
+	 * @since 1.9.5
+	 *
+	 * @param string $message Message to log.
+	 * @param string $level   Type of log.
+	 * @param string $context Source context.
+	 *
+	 * @return void
+	 */
+	public static function log_message( $message, $level = 'debug', $context = 'dotcom-ecommerce' ) {
+
+		if ( ! function_exists( 'wc_get_logger' ) ) {
+			return;
+		}
+		$logger = wc_get_logger();
+		$logger->log( $level, $message, array( 'source' => $context ) );
+
 	}
 
 }
