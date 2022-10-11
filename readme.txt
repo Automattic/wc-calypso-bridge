@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.5 =
+* Limit activity panels to Woo Home page #XXX.
 * Clean up product table columns #XXX.
 
 = 1.9.4 =
