@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.5
+ * @version 1.9.6
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -40,7 +40,7 @@ class WC_Calypso_Bridge_Plugins {
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
 		add_action( 'current_screen', array( $this, 'prevent_woocommerce_deactivation_route' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactivation_notice' ), 10, 2 );
-		add_filter( 'woocommerce_admin_onboarding_industries', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
+		add_action( 'woocommerce_installed', array( $this, 'maybe_create_wc_pages' ), 100 );
 		add_filter( 'manage_product_posts_columns', array( $this, 'remove_jetpack_stats_column' ), 100 );
 		add_filter( 'default_hidden_columns', array( $this, 'hide_product_columns' ), 100, 2 );
 	}
@@ -108,39 +108,30 @@ class WC_Calypso_Bridge_Plugins {
 	 * Check WooCommerce pages (shop, cart, my-account, checkout) and create them if the following conditions are met.
 	 *
 	 * 1. This is the first time running this method.
-	 * 2. User has not finished Store details task.
-	 * 3. Shop, cart, my-account, and checkout pages do not exist.
+	 * 2. Shop, cart, my-account, and checkout pages do not exist.
 	 *
-	 * @param array $industries Array of industries.
-	 *
-	 * @return array
+	 * @return void
 	 */
-	public function maybe_create_wc_pages( $industries ) {
+	public function maybe_create_wc_pages() {
 		global $wpdb;
 
 		$option_name = 'wc_pages_created_by_wc_calypso_bridge';
 
 		// Abort if we have attempted to create the pages already.
 		if ( 'yes' === get_option( $option_name, 'no' ) ) {
-			return $industries;
+			return;
 		}
 
-		// Abort if the user has completed store details task already.
-		$completed_tasks = get_option( 'woocommerce_task_list_tracked_completed_tasks', [] );
-		if ( in_array( 'store_details', $completed_tasks ) ) {
-			return $industries;
-		}
+		$post_count = (int) $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
 
-		$post_count = $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
-
-		// Abort if we find any existing pages.
-		if ( 0 !== (int) $post_count ) {
-			return $industries;
+		// Abort if we don't find all the pages.
+		if ( 4 === $post_count ) {
+			return;
 		}
 
 		// Reset the woocommerce_*_page_id options.
 		// This is needed as woocommerce_*_page_id options have incorrect values on a fresh installation
-		// for an ecom plan. WC_Install:create_pages() might not create all the
+		// for an ecomm plan. WC_Install:create_pages() might not create all the
 		// required pages without resetting these options first.
 		foreach ( [ 'shop', 'cart', 'myaccount', 'checkout' ] as $page ) {
 			delete_option( "woocommerce_{$page}_page_id" );
@@ -148,8 +139,6 @@ class WC_Calypso_Bridge_Plugins {
 
 		WC_Install::create_pages();
 		update_option( $option_name, 'yes' );
-
-		return $industries;
 	}
 
 	/**
