@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.5
+ * @version 1.9.6
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -144,24 +144,21 @@ class WC_Calypso_Bridge {
 		 *
 		 * @return void.
 		 */
-		add_action( 'woocommerce_newly_installed', static function ( $pages ) {
+		add_action( 'woocommerce_newly_installed', static function () {
 			self::log_message( 'Action: woocommerce_newly_installed passed.' );
 			add_option( 'wc_calypso_bridge_debug_woocommerce_newly_installed', time() );
 		}, PHP_INT_MAX );
 
 		/**
-		 * Log woocommerce_admin_onboarding_industries.
+		 * Log wc_calypso_bridge_maybe_create_pages.
 		 *
-		 * @since   1.9.5
+		 * @since   1.9.6
 		 *
-		 * @param array $industries Onboarding Industries.
-		 * @return array
+		 * @return void.
 		 */
-		add_filter( 'woocommerce_admin_onboarding_industries', static function ( $industries ) {
-			self::log_message( 'Filter: woocommerce_admin_onboarding_industries passed.' );
-			add_option( 'wc_calypso_bridge_debug_woocommerce_admin_onboarding_industries', time() );
-
-			return $industries;
+		add_action( 'wc_calypso_bridge_maybe_create_pages', static function () {
+			self::log_message( 'Action: wc_calypso_bridge_maybe_create_pages passed.' );
+			add_option( 'wc_calypso_bridge_debug_maybe_create_pages', time() );
 		}, PHP_INT_MAX );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
