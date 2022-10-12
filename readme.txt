@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.6 =
+* Hook `maybe_create_wc_pages` on `woocommerce_installed` #XXX.
+
 = 1.9.5 =
 * Enable logger to check woocommerce installation hooks #833.
 * Disable welcome notices for Facebook for WooCommerce #819.
