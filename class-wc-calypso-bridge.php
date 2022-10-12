@@ -149,18 +149,6 @@ class WC_Calypso_Bridge {
 			add_option( 'wc_calypso_bridge_debug_woocommerce_newly_installed', time() );
 		}, PHP_INT_MAX );
 
-		/**
-		 * Log wc_calypso_bridge_maybe_create_pages.
-		 *
-		 * @since   1.9.6
-		 *
-		 * @return void.
-		 */
-		add_action( 'wc_calypso_bridge_maybe_create_pages', static function () {
-			self::log_message( 'Action: wc_calypso_bridge_maybe_create_pages passed.' );
-			add_option( 'wc_calypso_bridge_debug_maybe_create_pages', time() );
-		}, PHP_INT_MAX );
-
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}

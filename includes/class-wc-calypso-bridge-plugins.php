@@ -137,7 +137,6 @@ class WC_Calypso_Bridge_Plugins {
 			delete_option( "woocommerce_{$page}_page_id" );
 		}
 
-		do_action( 'wc_calypso_bridge_maybe_create_pages' );
 		WC_Install::create_pages();
 		update_option( $option_name, 'yes' );
 	}
