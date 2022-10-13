@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.7 =
+* Revert Hook `maybe_create_wc_pages` on `woocommerce_installed` #xxx.
+
 = 1.9.6 =
 * Hook `maybe_create_wc_pages` on `woocommerce_installed` #839.
 
