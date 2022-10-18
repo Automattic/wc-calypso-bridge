@@ -39,11 +39,11 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 		}
 
 		$note = new Note();
-		$note->set_title( __( 'TODO: Default Cart/Checkout Blocks', 'wc-calypso-bridge' ) );
+		$note->set_title( __( 'Meet your new, customizable checkout', 'wc-calypso-bridge' ) );
 		$note->set_content(
 			__(
-				'TODO:The new cart and checkout blocks are set by default. Be aware that not all plugins are compatible. You can still use the old blocks if you prefer.',
-				'woocommerce'
+				'To future-proof your store, we have enabled our brand-new, conversion-optimized Cart and Checkout Blocks. Please take a few minutes to review some important information on Extension compatibility. Then, go ahead and customize the Cart and Checkout pages to suit your needs.',
+				'wc-calypso-bridge'
 			)
 		);
 		$note->set_content_data( (object) array() );
@@ -53,7 +53,7 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 		$note->add_action(
 			'learn-more',
 			__( 'Learn more', 'wc-calypso-bridge' ),
-			'https://woocommerce.com/document/managing-products/?utm_source=inbox&utm_medium=product'
+			'https://woocommerce.com/document/cart-checkout-blocks-support-status/'
 		);
 
 		return $note;
