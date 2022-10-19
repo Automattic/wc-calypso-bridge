@@ -129,6 +129,7 @@ class WC_Calypso_Bridge {
 		}, PHP_INT_MAX, 3 );
 
 		// Include Jetpack modifications.
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
@@ -137,7 +138,6 @@ class WC_Calypso_Bridge {
 
 		// Include these classes as early as possible.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
