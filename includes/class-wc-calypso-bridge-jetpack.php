@@ -60,19 +60,6 @@ class WC_Calypso_Bridge_Jetpack {
 		} );
 
 		/**
-		 * Cleans up the Jetpack Dashboard -- Ecommerce Plan users only need to see the Jetpack settings.
-		 *
-		 * @since x.x.x
-		 *
-		 * @return void
-		 */
-		add_action( 'admin_print_styles', function() {
-
-			$css = '.jp-masthead__nav { display: none !important; }';
-			wp_add_inline_style( 'jetpack-admin', $css );
-		} );
-
-		/**
 		 * Limits Jetpack Modules to those relevant to Ecommerce Plan users.
 		 *
 		 * @since x.x.x
