@@ -1,6 +1,6 @@
 {
   "name": "automattic/wc-calypso-bridge",
-  "version": "v1.9.3",
+  "version": "v1.9.7",
   "autoload": {
     "files": [
       "wc-calypso-bridge.php"

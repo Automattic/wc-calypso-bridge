@@ -57,7 +57,6 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
-		add_filter( 'woocommerce_admin_onboarding_product_types', array( $this, 'remove_paid_extension_upsells' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
 		add_action( 'shutdown', array( $this, 'save_one_time_operations_status' ), PHP_INT_MAX );
 	}
@@ -277,32 +276,7 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Site Profiler OBW: Remove Paid Extensions
-	 *
-	 * @param array $product_types Array of product types.
-	 *
-	 * @return array
-	 */
-	public function remove_paid_extension_upsells( $product_types ) {
-		// Product Types are fetched from https://woocommerce.com/wp-json/wccom-extensions/1.0/search?category=product-type .
-		$filtered_product_types = array_filter( $product_types, array( $this, 'filter_product_types' ) );
-
-		return $filtered_product_types;
-	}
-
-	/**
-	 * Site Profiler OBW: Filter method for product_types to remove items with product.
-	 *
-	 * @param array $product_type Array of product type data.
-	 *
-	 * @return boolean
-	 */
-	public function filter_product_types( $product_type ) {
-		return ! isset( $product_type['product'] );
-	}
-
-	/**
-	 * Store Profiler: Set business_extenstions to empty array.
+	 * Store Profiler: Set business_extensions to empty array.
 	 *
 	 * @param array $option Array of properties for OBW Profile.
 	 *
