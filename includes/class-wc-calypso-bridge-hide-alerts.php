@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -28,6 +28,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
 
@@ -35,13 +36,14 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Constructor
 	 */
 	private function __construct() {
-
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
-
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
+
+		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
+		add_action( 'load-plugins.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
 	}
 
 	/**
@@ -74,7 +76,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 			'WC_Klarna_Payments'              => array( '10' => 'order_management_check' ),
 			'Klarna_Checkout_For_WooCommerce' => array( '10' => 'order_management_check' ),
 			'WC_Gateway_PayFast'              => array( '10' => 'admin_notices' ),
-			'WC_Connect_Nux'                  => array( '9'  => 'show_banner_before_connection' ),
+			'WC_Connect_Nux'                  => array( '9' => 'show_banner_before_connection' ),
 			'Storefront_NUX_Admin'            => array( '99' => 'admin_notices' ),
 			'WC_Gateway_PPEC_Plugin'          => array( '10' => 'show_bootstrap_warning' ),
 			'WC_RoyalMail'                    => array( '10' => 'environment_check' ),
@@ -96,26 +98,82 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'in_admin_header', 'WC_Klarna_Banners_KP', 'klarna_banner', 10 );
 
 		// List of extensions that do not use class level functions for admin notices.
-		$other_admin_notices = array( 'woocommerce_gateway_paypal_express_upgrade_notice', 'woocommerce_gateway_klarna_welcome_notice' );
+		$other_admin_notices = array(
+			'woocommerce_gateway_paypal_express_upgrade_notice',
+			'woocommerce_gateway_klarna_welcome_notice',
+		);
 		foreach ( $other_admin_notices as $function_to_suppress ) {
 			remove_action( 'admin_notices', $function_to_suppress );
 		}
 
 		// Suppress: Looking for the store notice setting? It can now be found in the Customizer.
-		$user_id = get_current_user_id();
-		$user_meta_key = 'dismissed_store_notice_setting_moved_notice';
+		$user_id                 = get_current_user_id();
+		$user_meta_key           = 'dismissed_store_notice_setting_moved_notice';
 		$current_user_meta_value = get_user_meta( $user_id, $user_meta_key, true );
 		if ( ! $current_user_meta_value ) {
-			$updated_user_meta_value = update_user_meta( $user_id, $user_meta_key, true );
+			update_user_meta( $user_id, $user_meta_key, true );
 		}
 
 		// Suppress: Product Add Ons Activation Notice.
-		$deleted = delete_option( 'wpa_activation_notice' );
+		delete_option( 'wpa_activation_notice' );
+
+		/**
+		 * Suppress: Facebook for WooCommerce welcome notices.
+		 * There is no hook to remove them, so the safest choice is to dismiss them per user
+		 * if they haven't been dismissed already.
+		 *
+		 * @since 1.9.5
+		 */
+		if (
+			function_exists( 'facebook_for_woocommerce' )
+			&& method_exists( facebook_for_woocommerce(), 'get_admin_notice_handler' )
+			&& method_exists( facebook_for_woocommerce()->get_admin_notice_handler(), 'is_notice_dismissed' )
+			&& method_exists( facebook_for_woocommerce()->get_admin_notice_handler(), 'dismiss_notice' )
+		) {
+			$fb_admin_notice_handler = facebook_for_woocommerce()->get_admin_notice_handler();
+			$fb_admin_notices        = array(
+				'facebook_for_woocommerce_get_started',
+				'settings_moved_to_marketing',
+			);
+
+			foreach ( $fb_admin_notices as $message_id ) {
+				if ( ! $fb_admin_notice_handler->is_notice_dismissed( $message_id ) ) {
+					$fb_admin_notice_handler->dismiss_notice( $message_id );
+				}
+			}
+		}
 
 		// Suppress all other WC Admin Notices not specified above.
 		WC_Admin_Notices::remove_notice( 'wootenberg' );
 		WC_Admin_Notices::remove_all_notices();
 	}
 
+	/**
+	 * Disable activation notices, specific for SomewhereWarm plugins as they share the same logic.
+	 * Filters out the `welcome` notice from the list of notices to be displayed.
+	 *
+	 * It's specifically hooked on `load-index.php` and `load-plugins.php`
+	 * as both PB and GC display notices only on these pages.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function maybe_remove_somewherewarm_maintenance_notices() {
+		// Gift Cards.
+		if ( class_exists( 'WC_GC_Admin_Notices' ) && WC_GC_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
+			WC_GC_Admin_Notices::$maintenance_notices = array_filter( WC_GC_Admin_Notices::$maintenance_notices, static function ( $element ) {
+				return 'welcome' !== $element;
+			} );
+		}
+
+		// Product Bundles.
+		if ( class_exists( 'WC_PB_Admin_Notices' ) && WC_PB_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
+			WC_PB_Admin_Notices::$maintenance_notices = array_filter( WC_PB_Admin_Notices::$maintenance_notices, static function ( $element ) {
+				return 'welcome' !== $element;
+			} );
+		}
+	}
+
 }
+
 $wc_calypso_bridge_hide_alerts = WC_Calypso_Bridge_Hide_Alerts::get_instance();

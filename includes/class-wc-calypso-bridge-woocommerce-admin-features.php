@@ -4,10 +4,12 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
+
+use Automattic\WooCommerce\Admin\PageController;
 
 /**
  * WC EComm Bridge
@@ -38,6 +40,10 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
+
+		// Only show activity panels in Home page.
+		add_filter( 'admin_body_class', array( $this, 'filter_woocommerce_body_classes' ) );
+		add_action( 'admin_init', array( $this, 'add_custom_activity_panels_styles' ) );
 	}
 
 	/**
@@ -70,6 +76,42 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		}
 
 		return $features;
+	}
+
+	/**
+	 * Add is-woocommerce-home body class.
+	 *
+	 * @since   1.9.5
+	 *
+	 * @param string $classes Body classes.
+	 * @return string
+	 */
+	public function filter_woocommerce_body_classes( $classes ) {
+
+		$page = PageController::get_instance()->get_current_page();
+
+		if ( $page && 'woocommerce-home' === $page['id'] ) {
+			$classes .= ' is-woocommerce-home';
+		}
+
+		return $classes;
+	}
+
+	/**
+	 * Add custom CSS to hide activity panels in all WooCommerce pages other than Home.
+	 * Note that this is not possible via the 'woocommerce_admin_features' filter, as we don't have access to the screen id at that point.
+	 *
+	 * @since   1.9.5
+	 *
+	 * @return void
+	 */
+	public function add_custom_activity_panels_styles() {
+
+		wp_register_style( 'activity-panels-hide', false );
+		wp_enqueue_style( 'activity-panels-hide' );
+
+		$css = 'body:not(.is-woocommerce-home) #wpbody { margin-top: 0 !important; } body:not(.is-woocommerce-home) .woocommerce-layout__header { display:none; } body.is-woocommerce-home #screen-meta-links { display: none; } body.is-woocommerce-home .woocommerce-layout__header-heading, body.is-woocommerce-home .woocommerce-task-progress-header__title, .woocommerce-layout__inbox-title span { font-size: 20px; font-weight: 400; } body.is-woocommerce-home .woocommerce-layout__inbox-panel-header { padding: 0; } .woocommerce-layout__inbox-subtitle { margin-top: 5px; } .woocommerce-layout__inbox-subtitle span { color: #757575; }';
+		wp_add_inline_style( 'activity-panels-hide', $css );
 	}
 
 	/**
