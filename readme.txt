@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.9.4
+Stable tag: 1.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,19 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 1.9.7 =
+* Revert: Hook `maybe_create_wc_pages` on `woocommerce_installed` #842.
+
+= 1.9.6 =
+* Hook `maybe_create_wc_pages` on `woocommerce_installed` #839.
+
+= 1.9.5 =
+* Enable logger to check woocommerce installation hooks #833.
+* Disable welcome notices for Facebook for WooCommerce #819.
+* Suppress inbox messages #821.
+* Limit activity panels to Woo Home page #826.
+* Clean up product table columns #829.
 
 = 1.9.4 =
 * Disable activation notices for Gift Cards and Product Bundles #813.

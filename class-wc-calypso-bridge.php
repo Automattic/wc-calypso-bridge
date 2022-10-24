@@ -57,7 +57,7 @@ class WC_Calypso_Bridge {
 		 * @todo    Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
 		 * @todo    Remove this filter when the compatibility branch is merged.
 		 */
-		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', function ( $pre ) {
+		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', static function ( $pre ) {
 			return 0;
 		}, PHP_INT_MAX );
 
@@ -68,10 +68,66 @@ class WC_Calypso_Bridge {
 		 *
 		 * @param mixed $pre Fixed to false.
 		 * @return string no.
+		 * @todo    Refactor and move it.
 		 */
-		add_filter( 'pre_option_woocommerce_navigation_enabled', function ( $pre ) {
+		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
 			return 'no';
 		}, PHP_INT_MAX );
+
+		/**
+		 * Suppress inbox messages not applicable to the ecommerce plan.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @param string $where_clauses The generated WHERE clause.
+		 * @param array  $args          The original arguments for the request.
+		 * @param string $context       Optional argument that the woocommerce_note_where_clauses filter can use to determine whether to apply extra conditions. Extensions should define their own contexts and use them to avoid adding to notes where clauses when not needed.
+		 * @return string $where_clauses The modified WHERE clause.
+		 * @todo    Refactor and move it - On purpose it's early on, as this filter runs on an API call (React).
+		 */
+		add_filter( 'woocommerce_note_where_clauses', static function ( $where_clauses, $args, $context ) {
+
+			$message_names = array(
+				'wc-admin-adding-and-managing-products',
+				'wc-admin-choosing-a-theme',
+				'wc-admin-customizing-product-catalog',
+				'wc-admin-first-product',
+				'wc-admin-store-notice-giving-feedback-2',
+				'wc-admin-insight-first-product-and-payment',
+				'wc-admin-insight-first-sale',
+				'wc-admin-install-jp-and-wcs-plugins',
+				'wc-admin-launch-checklist',
+				'wc-admin-manage-store-activity-from-home-screen',
+				'wc-admin-onboarding-payments-reminder',
+				'wc-admin-usage-tracking-opt-in',
+				'wc-admin-remove-unsecured-report-files',
+				'wc-admin-update-store-details',
+				'wc-admin-welcome-to-woocommerce-for-store-users',
+				'wc-admin-woocommerce-payments',
+				'wc-admin-woocommerce-subscriptions',
+				'wc-pb-bulk-discounts',
+				'wc-admin-marketing-jetpack-backup', // hide for now, to be revisited.
+				'wc-admin-mobile-app', // hide for now, to be revisited.
+				'wc-admin-migrate-from-shopify', // hide for now, to be revisited.
+				'wc-admin-magento-migration', // hide for now, to be revisited.
+				'wc-admin-woocommerce-subscriptions', // hide for now, to be revisited.
+				'wc-admin-online-clothing-store', // hide for now, to be revisited.
+				'wc-admin-selling-online-courses', // hide for now, to be revisited.
+			);
+
+			$where_excluded_name_array = array();
+			foreach ( $message_names as $name ) {
+				$where_excluded_name_array[] = sprintf( "'%s'", esc_sql( $name ) );
+			}
+			$escaped_where_excluded_names = implode( ',', $where_excluded_name_array );
+
+			if ( ! empty( $escaped_where_excluded_names ) ) {
+				$where_clauses .= " AND name NOT IN ($escaped_where_excluded_names) ";
+			}
+
+			return $where_clauses;
+
+		}, PHP_INT_MAX, 3 );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
@@ -230,7 +286,7 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
-	 * Adds in our own updates WooCommece branding.
+	 * Adds in our own updates WooCommerce branding.
 	 */
 	public function update_woocommerce_footer() {
 		$svg = '<svg className="woocommerce-logo" height="32" width="120" viewBox="0 0 723 146" version="1.1">
@@ -298,6 +354,27 @@ class WC_Calypso_Bridge {
 				$event_params
 			);
 		}
+	}
+
+	/**
+	 * Log using 'WC_Logger' class.
+	 *
+	 * @since 1.9.5
+	 *
+	 * @param string $message Message to log.
+	 * @param string $level   Type of log.
+	 * @param string $context Source context.
+	 *
+	 * @return void
+	 */
+	public static function log_message( $message, $level = 'debug', $context = 'dotcom-ecommerce' ) {
+
+		if ( ! function_exists( 'wc_get_logger' ) ) {
+			return;
+		}
+		$logger = wc_get_logger();
+		$logger->log( $level, $message, array( 'source' => $context ) );
+
 	}
 
 }
