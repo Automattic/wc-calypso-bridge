@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -15,6 +15,13 @@ use Automattic\WooCommerce\Admin\Loader;
  * WC Calypso Bridge
  */
 class WC_Calypso_Bridge {
+
+	/**
+	 * Ecommerce Plan release timestamps.
+	 */
+	const S2_2022_RELEASE_DATE     = 1665828976;
+	const W44_2022_S4_RELEASE_DATE = 1667389038; // 2022-11-02
+
 	/**
 	 * Paths to assets act oddly in production
 	 */

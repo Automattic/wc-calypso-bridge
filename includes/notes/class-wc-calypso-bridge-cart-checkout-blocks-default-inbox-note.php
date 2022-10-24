@@ -5,7 +5,7 @@
  *
  * @package WC_Calypso_Bridge/Notes
  * @since   1.9.5
- * @version 1.9.5
+ * @version 1.9.8
  */
 
 use Automattic\WooCommerce\Admin\Notes\Note;
@@ -31,7 +31,6 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 	 * Get the note.
 	 *
 	 * @return void|Note
-	 * @todo Update note content and when to display the inbox note.
 	 */
 	public static function get_note() {
 		if ( ! self::should_display_note() ) {
@@ -42,7 +41,7 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 		$note->set_title( __( 'Meet our new, customizable checkout', 'wc-calypso-bridge' ) );
 		$note->set_content(
 			__(
-				'To future-proof your store, we have enabled our brand-new, conversion-optimized Cart and Checkout Blocks. Please take a few minutes to review some important information on Extension compatibility. Then, go ahead and customize the Cart and Checkout pages to suit your needs.',
+				'To future-proof your store, we have enabled the brand-new, conversion-optimized Cart and Checkout Blocks. Please take a few minutes to review some important information on Extension compatibility. Then, go ahead and customize the Cart and Checkout pages to suit your needs.',
 				'wc-calypso-bridge'
 			)
 		);
@@ -63,15 +62,13 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 	 * Returns true if we should display the note.
 	 *
 	 * @return Boolean
-	 * @todo Set the correct Blocks version, after fixes have been released.
-	 * @see  https://somewherewarmattic.wordpress.com/2022/10/07/enabling-cart-checkout-blocks-on-atomic-on-hold/
 	 */
 	public static function should_display_note() {
 
 		if (
 			class_exists( 'Automattic\WooCommerce\Blocks\Package' )
-			&& version_compare( \Automattic\WooCommerce\Blocks\Package::get_version(), '7.0.0' ) > 0
 			&& self::wc_admin_active_for( 2 * DAY_IN_SECONDS )
+			&& version_compare( \Automattic\WooCommerce\Blocks\Package::get_version(), '8.7.4' ) > 0
 		) {
 			return true;
 		}
