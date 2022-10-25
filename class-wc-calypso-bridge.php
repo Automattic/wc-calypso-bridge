@@ -129,12 +129,13 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX, 3 );
 
+		// Include calypso-bridge-setup this class as early as possible.
+		// TODO: Any objections to moving this to the top of the file, before the other checks below?
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
-
-		// Include calypso-bridge-setup this class as early as possible.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
