@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.8 =
+* Create WooCommerce pages with a one-time operation #XXX.
+* Set default to block-based cart/checkout #XXX.
+
 = 1.9.7 =
 * Revert: Hook `maybe_create_wc_pages` on `woocommerce_installed` #842.
 
