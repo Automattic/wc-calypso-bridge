@@ -41,7 +41,7 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 		$note->set_title( __( 'Meet our new, customizable checkout', 'wc-calypso-bridge' ) );
 		$note->set_content(
 			__(
-				'To future-proof your store, we have enabled the brand-new, conversion-optimized Cart and Checkout Blocks. Please take a few minutes to review some important information on Extension compatibility. Then, go ahead and customize the Cart and Checkout pages to suit your needs.',
+				'To deliver a smooth checkout experience to your shoppers, we have supercharged your store with our brand-new, conversion-optimized checkout. Please take a few minutes to review some important information on Extension compatibility with the new Cart and Checkout Blocks. Then, go ahead and customize the Cart and Checkout pages to suit your needs.',
 				'wc-calypso-bridge'
 			)
 		);
