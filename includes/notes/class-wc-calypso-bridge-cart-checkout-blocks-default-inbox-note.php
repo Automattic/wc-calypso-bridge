@@ -68,7 +68,7 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 		if (
 			class_exists( 'Automattic\WooCommerce\Blocks\Package' )
 			&& self::wc_admin_active_for( 2 * DAY_IN_SECONDS )
-			&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::W44_2022_S4_RELEASE_DATE )
+			&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::W44_2022_RELEASE_DATE )
 			&& version_compare( \Automattic\WooCommerce\Blocks\Package::get_version(), '8.7.4' ) >= 0
 		) {
 			return true;
