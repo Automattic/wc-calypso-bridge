@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.8 =
+* Suppress wc-payments-notes-set-up-refund-policy inbox note #XXX.
+
 = 1.9.7 =
 * Revert: Hook `maybe_create_wc_pages` on `woocommerce_installed` #842.
 
