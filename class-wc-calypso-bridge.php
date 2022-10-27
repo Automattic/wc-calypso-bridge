@@ -19,8 +19,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Ecommerce Plan release timestamps.
 	 */
-	const S2_2022_RELEASE_DATE     = 1665828976;
-	const W44_2022_S4_RELEASE_DATE = 1667389038; // 2022-11-02
+	const W44_2022_RELEASE_DATE = 1567389038; // 2022-11-02
 
 	/**
 	 * Paths to assets act oddly in production
@@ -130,7 +129,7 @@ class WC_Calypso_Bridge {
 		}, PHP_INT_MAX, 3 );
 
 		// Include calypso-bridge-setup this class as early as possible.
-		// TODO: Any objections to moving this to the top of the file, before the other checks below?
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
@@ -200,7 +199,6 @@ class WC_Calypso_Bridge {
 	 */
 	public function load_ecommerce_plan_ui() {
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';

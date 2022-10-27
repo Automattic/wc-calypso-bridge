@@ -48,6 +48,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	private function __construct() {
 		$this->setup_one_time_operations();
+		add_action( 'shutdown', array( $this, 'save_one_time_operations_status' ), PHP_INT_MAX );
 
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
@@ -56,7 +57,6 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
-		add_action( 'shutdown', array( $this, 'save_one_time_operations_status' ), PHP_INT_MAX );
 	}
 
 	/**
@@ -122,7 +122,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function woocommerce_create_pages_callback() {
 
-		add_action( 'admin_init', function () {
+		add_action( 'woocommerce_init', function () {
 
 			global $wpdb;
 			$post_count = (int) $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
@@ -152,7 +152,7 @@ class WC_Calypso_Bridge_Setup {
 
 			if (
 				class_exists( 'Automattic\WooCommerce\Blocks\Package' )
-				&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::W44_2022_S4_RELEASE_DATE )
+				&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::W44_2022_RELEASE_DATE )
 				&& version_compare( \Automattic\WooCommerce\Blocks\Package::get_version(), '8.7.4' ) >= 0
 			) {
 				if ( isset( $pages['cart']['content'] ) ) {
