@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.8 =
+* Prevent deletion of managed Extensions #XXX.
 * Suppress wc-payments-notes-set-up-refund-policy inbox note #xxx.
 
 = 1.9.7 =
