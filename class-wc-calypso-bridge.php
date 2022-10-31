@@ -10,6 +10,7 @@
 defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Admin\Loader;
+use Automattic\WooCommerce\Admin\WCAdminHelper;
 
 /**
  * WC Calypso Bridge
@@ -113,6 +114,16 @@ class WC_Calypso_Bridge {
 				'wc-admin-online-clothing-store', // hide for now, to be revisited.
 				'wc-admin-selling-online-courses', // hide for now, to be revisited.
 			);
+
+			// Do not show the message if the site is active for less than 5 days.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 5 * DAY_IN_SECONDS ) ) {
+				$message_names[] = 'wc-refund-returns-page';
+			}
+
+			// Do not show the message if the site is active for less than 2 days.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 2 * DAY_IN_SECONDS ) ) {
+				$message_names[] = 'wc-calypso-bridge-cart-checkout-blocks-default-inbox-note';
+			}
 
 			$where_excluded_name_array = array();
 			foreach ( $message_names as $name ) {

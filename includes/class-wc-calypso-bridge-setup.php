@@ -142,7 +142,7 @@ class WC_Calypso_Bridge_Setup {
 				delete_option( "woocommerce_{$page}_page_id" );
 			}
 
-			// Delete the following note, so it can be recreated with the correct page IDs.
+			// Delete the following note, so it can be recreated with the correct refund page ID.
 			if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
 				Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-refund-returns-page' );
 			}
