@@ -12,12 +12,30 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	/**
 	 * Remove Stats menu.
 	 */
-	public function add_stats_menu() {
-		// Silence!
+	public function add_stats_menu() {}
+
+	/**
+	 * Remove 'Earn' from Tools. Merchants have an idea already about how they want to make money :)
+	 */
+	public function add_tools_menu() {
+		parent::add_tools_menu();
+		// Remove Earn from Tools.
+		$this->hide_submenu_page( 'tools.php', 'https://wordpress.com/earn/' . $this->domain );
 	}
 
 	/**
-	 * Remove the Jetpack menu
+	 * Introduce 'Settings > Anti-Spam' and remove 'Settings > Jetpack' from Settings.
+	 */
+	public function add_options_menu() {
+		parent::add_options_menu();
+		// Introduce 'Settings > Anti-Spam'.
+		add_submenu_page( 'options-general.php', __( 'Anti-Spam', 'wc-calypso-bridge' ), __( 'Anti-Spam' , 'wc-calypso-bridge' ), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ), 12 );
+		// Remove 'Settings > Jetpack' from Settings.
+		remove_submenu_page( 'options-general.php', 'https://wordpress.com/settings/jetpack/' . $this->domain );
+	}
+
+	/**
+	 * Update the Jetpack menu.
 	 */
 	public function add_jetpack_menu() {
 
@@ -30,16 +48,11 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Move Akismet under Settings
 		$this->hide_submenu_page( 'jetpack', 'akismet-key-config' );
-		add_submenu_page( 'options-general.php', __( 'Anti-Spam', 'wc-calypso-bridge' ), __( 'Anti-Spam' , 'wc-calypso-bridge' ), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ), 12 );
 
 		// Move Stats in here.
 		add_submenu_page( 'jetpack', esc_attr__( 'Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 20 );
 
-		// Move Jetpack Status screen from Settings to Tools.
-		remove_submenu_page( 'options-general.php', 'https://wordpress.com/settings/jetpack/' . $this->domain );
+		// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
 		add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
-
-		// Remove Earn from Tools.
-		$this->hide_submenu_page( 'tools.php', 'https://wordpress.com/earn/' . $this->domain );
 	}
 }
