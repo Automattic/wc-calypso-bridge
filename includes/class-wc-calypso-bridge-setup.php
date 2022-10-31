@@ -125,10 +125,10 @@ class WC_Calypso_Bridge_Setup {
 		add_action( 'woocommerce_init', function () {
 
 			global $wpdb;
-			$post_count = (int) $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout')" );
+			$post_count = (int) $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout', 'refund_returns')" );
 
 			// Abort if we find any existing pages.
-			if ( 4 === $post_count ) {
+			if ( 5 === $post_count ) {
 				$this->set_one_time_operation_complete( 'woocommerce_create_pages' );
 
 				return;
@@ -138,7 +138,7 @@ class WC_Calypso_Bridge_Setup {
 			// This is needed as woocommerce_*_page_id options have incorrect values on a fresh installation
 			// for an ecommerce plan. WC_Install:create_pages() might not create all the
 			// required pages without resetting these options first.
-			foreach ( [ 'shop', 'cart', 'myaccount', 'checkout' ] as $page ) {
+			foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
 				delete_option( "woocommerce_{$page}_page_id" );
 			}
 
