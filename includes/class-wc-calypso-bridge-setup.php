@@ -142,6 +142,11 @@ class WC_Calypso_Bridge_Setup {
 				delete_option( "woocommerce_{$page}_page_id" );
 			}
 
+			// Delete the following note, so it can be recreated with the correct page IDs.
+			if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
+				Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-refund-returns-page' );
+			}
+
 			WC_Install::create_pages();
 			$this->set_one_time_operation_complete( 'woocommerce_create_pages' );
 
@@ -150,6 +155,7 @@ class WC_Calypso_Bridge_Setup {
 		// Gets triggered from the above WC_Install::create_pages call.
 		add_filter( 'woocommerce_create_pages', function ( $pages ) {
 
+			// Set the cart and checkout blocks as defaults.
 			if (
 				class_exists( 'Automattic\WooCommerce\Blocks\Package' )
 				&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::W44_2022_RELEASE_DATE )
@@ -162,6 +168,12 @@ class WC_Calypso_Bridge_Setup {
 				if ( isset( $pages['checkout']['content'] ) ) {
 					$pages['checkout']['content'] = '<!-- wp:woocommerce/checkout --><div class="wp-block-woocommerce-checkout wc-block-checkout is-loading"><!-- wp:woocommerce/checkout-fields-block --><div class="wp-block-woocommerce-checkout-fields-block"><!-- wp:woocommerce/checkout-express-payment-block --><div class="wp-block-woocommerce-checkout-express-payment-block"></div><!-- /wp:woocommerce/checkout-express-payment-block --><!-- wp:woocommerce/checkout-contact-information-block --><div class="wp-block-woocommerce-checkout-contact-information-block"></div><!-- /wp:woocommerce/checkout-contact-information-block --><!-- wp:woocommerce/checkout-shipping-address-block --><div class="wp-block-woocommerce-checkout-shipping-address-block"></div><!-- /wp:woocommerce/checkout-shipping-address-block --><!-- wp:woocommerce/checkout-billing-address-block --><div class="wp-block-woocommerce-checkout-billing-address-block"></div><!-- /wp:woocommerce/checkout-billing-address-block --><!-- wp:woocommerce/checkout-shipping-methods-block --><div class="wp-block-woocommerce-checkout-shipping-methods-block"></div><!-- /wp:woocommerce/checkout-shipping-methods-block --><!-- wp:woocommerce/checkout-payment-block --><div class="wp-block-woocommerce-checkout-payment-block"></div><!-- /wp:woocommerce/checkout-payment-block --><!-- wp:woocommerce/checkout-order-note-block --><div class="wp-block-woocommerce-checkout-order-note-block"></div><!-- /wp:woocommerce/checkout-order-note-block --><!-- wp:woocommerce/checkout-terms-block --><div class="wp-block-woocommerce-checkout-terms-block"></div><!-- /wp:woocommerce/checkout-terms-block --><!-- wp:woocommerce/checkout-actions-block --><div class="wp-block-woocommerce-checkout-actions-block"></div><!-- /wp:woocommerce/checkout-actions-block --></div><!-- /wp:woocommerce/checkout-fields-block --><!-- wp:woocommerce/checkout-totals-block --><div class="wp-block-woocommerce-checkout-totals-block"><!-- wp:woocommerce/checkout-order-summary-block --><div class="wp-block-woocommerce-checkout-order-summary-block"></div><!-- /wp:woocommerce/checkout-order-summary-block --></div><!-- /wp:woocommerce/checkout-totals-block --></div><!-- /wp:woocommerce/checkout -->';
 				}
+
+				// Inform the merchant that we've enabled the new checkout experience.
+				include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
+				new WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note();
+				WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note::possibly_add_note();
+
 			}
 
 			return $pages;

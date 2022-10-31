@@ -4,7 +4,7 @@
  * Cart Checkout Blocks Inbox Note
  *
  * @package WC_Calypso_Bridge/Notes
- * @since   1.9.5
+ * @since   1.9.8
  * @version 1.9.8
  */
 
@@ -33,15 +33,13 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 	 * @return void|Note
 	 */
 	public static function get_note() {
-		if ( ! self::should_display_note() ) {
-			return;
-		}
 
+		// Note is added from the woocommerce_create_pages one-time operation.
 		$note = new Note();
 		$note->set_title( __( 'Meet our new, customizable checkout', 'wc-calypso-bridge' ) );
 		$note->set_content(
 			__(
-				'To deliver a smooth checkout experience to your shoppers, we have supercharged your store with our brand-new, conversion-optimized checkout. Please take a few minutes to review some important information on Extension compatibility with the new Cart and Checkout Blocks. Then, go ahead and customize your store's Cart and Checkout pages.',
+				'To deliver a smooth checkout experience to your shoppers, we have supercharged your store with our brand-new, conversion-optimized checkout. Please take a few minutes to review some important information on Extension compatibility with the new Cart and Checkout Blocks. Then, go ahead and customize your store\'s Cart and Checkout pages.',
 				'wc-calypso-bridge'
 			)
 		);
@@ -56,37 +54,6 @@ class WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note {
 		);
 
 		return $note;
-	}
-
-	/**
-	 * Returns true if we should display the note.
-	 *
-	 * @return Boolean
-	 */
-	public static function should_display_note() {
-
-		if (
-			class_exists( 'Automattic\WooCommerce\Blocks\Package' )
-			&& self::wc_admin_active_for( 2 * DAY_IN_SECONDS )
-			&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::W44_2022_RELEASE_DATE )
-			&& version_compare( \Automattic\WooCommerce\Blocks\Package::get_version(), '8.7.4' ) >= 0
-		) {
-			return true;
-		}
-
-		return false;
-
-	}
-
-	/**
-	 * Delete note if we shouldn't display it and not been actioned on.
-	 *
-	 * @return void
-	 */
-	public static function possibly_clear_note() {
-		if ( ! self::should_display_note() && ! self::has_note_been_actioned() ) {
-			self::possibly_delete_note();
-		}
 	}
 
 }
