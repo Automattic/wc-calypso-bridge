@@ -134,8 +134,8 @@ class WC_Calypso_Bridge_Plugins {
 	 *
 	 * @since 1.9.8
 	 *
-	 * @param string $plugin_file Plugin file.
 	 * @param array  $actions     Plugin actions.
+	 * @param string $plugin_file Plugin file.
 	 */
 	public function remove_ecommerce_managed_plugin_delete_link( $actions, $plugin_file ) {
 
