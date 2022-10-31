@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.7
+ * @version 1.9.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -13,6 +13,30 @@ defined( 'ABSPATH' ) || exit;
  * WC Calypso Bridge Plugins
  */
 class WC_Calypso_Bridge_Plugins {
+
+	/**
+	 * Managed plugins specific to the ecommerce plan.
+	 *
+	 * @since 1.9.8
+	 */
+	const WPCOM_ECOMMERCE_PLUGINS = array(
+		'woocommerce/woocommerce.php',
+		'facebook-for-woocommerce/facebook-for-woocommerce.php',
+		'woocommerce-services/woocommerce-services.php',
+		'woocommerce-product-addons/woocommerce-product-addons.php',
+		'woocommerce-product-bundles/woocommerce-product-bundles.php',
+		'woocommerce-gift-cards/woocommerce-gift-cards.php',
+		'woocommerce-min-max-quantities/woocommerce-min-max-quantities.php',
+		'woocommerce-google-analytics-integration/woocommerce-google-analytics-integration.php',
+		'google-listings-and-ads/google-listings-and-ads.php',
+		'taxjar-simplified-taxes-for-woocommerce/taxjar-woocommerce.php',
+		'woocommerce-payments/woocommerce-payments.php',
+		'woocommerce-shipping-australia-post/woocommerce-shipping-australia-post.php',
+		'woocommerce-shipping-canada-post/woocommerce-shipping-canada-post.php',
+		'woocommerce-shipping-royalmail/woocommerce-shipping-royalmail.php',
+		'woocommerce-shipping-ups/woocommerce-shipping-ups.php',
+		'woocommerce-shipping-usps/woocommerce-shipping-usps.php',
+	);
 
 	/**
 	 * Class instance.
@@ -37,6 +61,7 @@ class WC_Calypso_Bridge_Plugins {
 	 */
 	private function __construct() {
 		add_filter( 'plugin_action_links', array( $this, 'remove_woocommerce_deactivation_link' ), 10, 2 );
+		add_filter( 'plugin_action_links', array( $this, 'remove_ecommerce_managed_plugin_delete_link' ), PHP_INT_MAX, 2 );
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
 		add_action( 'current_screen', array( $this, 'prevent_woocommerce_deactivation_route' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactivation_notice' ), 10, 2 );
@@ -99,6 +124,23 @@ class WC_Calypso_Bridge_Plugins {
 	public function remove_woocommerce_deactivation_link( $actions, $plugin_file ) {
 		if ( 'woocommerce/woocommerce.php' === $plugin_file ) {
 			unset( $actions['deactivate'] );
+		}
+
+		return $actions;
+	}
+
+	/**
+	 * Remove WooCommerce delete links from plugins page.
+	 *
+	 * @since 1.9.8
+	 *
+	 * @param array  $actions     Plugin actions.
+	 * @param string $plugin_file Plugin file.
+	 */
+	public function remove_ecommerce_managed_plugin_delete_link( $actions, $plugin_file ) {
+
+		if ( in_array( $plugin_file, self::WPCOM_ECOMMERCE_PLUGINS, true ) ) {
+			unset( $actions['delete'] );
 		}
 
 		return $actions;
