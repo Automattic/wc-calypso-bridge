@@ -3,8 +3,6 @@
  * Notes.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   1.0.0
- * @version 1.9.5
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -44,10 +42,7 @@ class WC_Calypso_Bridge_Notes {
 	 */
 	public function init() {
 		include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php';
-		include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
-
 		new WC_Calypso_Bridge_Payments_Remind_Me_Later_Note();
-		new WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note();
 	}
 
 	/**
@@ -55,7 +50,6 @@ class WC_Calypso_Bridge_Notes {
 	 */
 	public function add_notes() {
 		WC_Calypso_Bridge_Payments_Remind_Me_Later_Note::possibly_add_note();
-		WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note::possibly_add_note();
 	}
 
 	/**
@@ -63,7 +57,6 @@ class WC_Calypso_Bridge_Notes {
 	 */
 	public function delete_notes() {
 		WC_Calypso_Bridge_Payments_Remind_Me_Later_Note::possibly_clear_note();
-		WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note::possibly_clear_note();
 	}
 }
 
