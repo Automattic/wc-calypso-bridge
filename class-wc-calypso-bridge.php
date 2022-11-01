@@ -87,7 +87,7 @@ class WC_Calypso_Bridge {
 		 */
 		add_filter( 'woocommerce_note_where_clauses', static function ( $where_clauses, $args, $context ) {
 
-			$message_names = array(
+			$suppressed_messages = array(
 				'wc-admin-adding-and-managing-products',
 				'wc-admin-choosing-a-theme',
 				'wc-admin-customizing-product-catalog',
@@ -106,27 +106,27 @@ class WC_Calypso_Bridge {
 				'wc-admin-woocommerce-payments',
 				'wc-admin-woocommerce-subscriptions',
 				'wc-pb-bulk-discounts',
-				'wc-admin-marketing-jetpack-backup', // hide for now, to be revisited.
-				'wc-admin-mobile-app', // hide for now, to be revisited.
-				'wc-admin-migrate-from-shopify', // hide for now, to be revisited.
-				'wc-admin-magento-migration', // hide for now, to be revisited.
-				'wc-admin-woocommerce-subscriptions', // hide for now, to be revisited.
-				'wc-admin-online-clothing-store', // hide for now, to be revisited.
-				'wc-admin-selling-online-courses', // hide for now, to be revisited.
+				'wc-admin-marketing-jetpack-backup', // suppress for now, to be revisited.
+				'wc-admin-mobile-app', // suppress for now, to be revisited.
+				'wc-admin-migrate-from-shopify', // suppress for now, to be revisited.
+				'wc-admin-magento-migration', // suppress for now, to be revisited.
+				'wc-admin-woocommerce-subscriptions', // suppress for now, to be revisited.
+				'wc-admin-online-clothing-store', // suppress for now, to be revisited.
+				'wc-admin-selling-online-courses', // suppress for now, to be revisited.
 			);
 
-			// Do not show the message if the site is active for less than 5 days.
+			// Suppress the message if the site is active for less than 5 days.
 			if ( ! WCAdminHelper::is_wc_admin_active_for( 5 * DAY_IN_SECONDS ) ) {
-				$message_names[] = 'wc-refund-returns-page';
+				$suppressed_messages[] = 'wc-refund-returns-page';
 			}
 
-			// Do not show the message if the site is active for less than 2 days.
+			// Suppress the message if the site is active for less than 2 days.
 			if ( ! WCAdminHelper::is_wc_admin_active_for( 2 * DAY_IN_SECONDS ) ) {
-				$message_names[] = 'wc-calypso-bridge-cart-checkout-blocks-default-inbox-note';
+				$suppressed_messages[] = 'wc-calypso-bridge-cart-checkout-blocks-default-inbox-note';
 			}
 
 			$where_excluded_name_array = array();
-			foreach ( $message_names as $name ) {
+			foreach ( $suppressed_messages as $name ) {
 				$where_excluded_name_array[] = sprintf( "'%s'", esc_sql( $name ) );
 			}
 			$escaped_where_excluded_names = implode( ',', $where_excluded_name_array );
