@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.5
+ * @version 1.9.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -69,10 +69,9 @@ class WC_Calypso_Bridge {
 		/**
 		 * Remove the Write button from the global bar.
 		 *
-		 * @since   1.9.5
+		 * @since   1.9.8
 		 *
 		 * @return void
-		 * @todo    Doesn't work on calypso pages.
 		 */
 		add_action( 'wp_before_admin_bar_render', static function () {
 			global $wp_admin_bar;

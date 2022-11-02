@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 1.9.5 =
+= 1.9.8 =
 * Hide write button in global bar #XXX.
 
 = 1.9.4 =
