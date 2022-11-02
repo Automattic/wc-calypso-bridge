@@ -43,7 +43,7 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 *
 	 * @since 1.9.8
 	 *
-	 * @param  int  $reference_timestamp  Time to compare against.
+	 * @param  int $reference_timestamp Time to compare against.
 	 * @return bool
 	 */
 	public static function is_wc_admin_installed_gte( $reference_timestamp ) {
@@ -57,7 +57,6 @@ class WC_Calypso_Bridge_Helper_Functions {
 
 		return $install_timestamp > $reference_timestamp;
 	}
-
 
 	/**
 	 * Remove Class Filter Without Access to Class Object
