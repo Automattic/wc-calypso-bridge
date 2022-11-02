@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version 1.0.2
+ * @version 1.9.8
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -40,6 +40,9 @@ class WC_Calypso_Bridge_Helper_Functions {
 
 	/**
 	 * Checks to see if WC Admin was installed later than a reference time.
+	 *
+	 * @since 1.9.8
+	 *
 	 * @param  int  $reference_timestamp  Time to compare against.
 	 * @return bool
 	 */

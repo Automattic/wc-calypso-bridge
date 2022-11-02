@@ -3,7 +3,8 @@
 /**
  * Class Ecommerce_Atomic_Admin_Menu.
  *
- * @since x.x.x
+ * @since   1.9.8
+ * @version 1.9.8
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -24,7 +25,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	public function add_options_menu() {
 		parent::add_options_menu();
 		// Introduce 'Settings > Anti-Spam'.
-		add_submenu_page( 'options-general.php', __( 'Anti-Spam', 'wc-calypso-bridge' ), __( 'Anti-Spam' , 'wc-calypso-bridge' ), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ), 12 );
+		add_submenu_page( 'options-general.php', __( 'Anti-Spam', 'wc-calypso-bridge' ), __( 'Anti-Spam', 'wc-calypso-bridge' ), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ), 12 );
 		// Remove 'Settings > Jetpack' from Settings.
 		remove_submenu_page( 'options-general.php', 'https://wordpress.com/settings/jetpack/' . $this->domain );
 	}
