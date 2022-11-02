@@ -4,8 +4,10 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.8
  */
+
+use Automattic\WooCommerce\Admin\WCAdminHelper;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -40,6 +42,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	protected $one_time_operations = array(
 		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
+		'set_jetpack_defaults'      => 'set_jetpack_defaults',
 	);
 
 	/**
@@ -96,7 +99,9 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	public function delete_coupon_moved_notes_callback() {
+
 		add_action( 'admin_init', function () {
+
 			if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
 				return;
 			}
@@ -108,9 +113,74 @@ class WC_Calypso_Bridge_Setup {
 
 				return;
 			}
+
 			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
 			$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+
 		}, PHP_INT_MAX );
+	}
+
+	/**
+	 * Defines the Jetpack modules active in the Ecommerce Plan by default.
+	 *
+	 * @since 1.9.8
+	 * @return void
+	 */
+	public function set_jetpack_defaults() {
+
+		add_action( 'init', function () {
+
+			$active_modules = array(
+				'manage',
+				'masterbar',
+				'json-api',
+				'sharedaddy',
+				'google-fonts',
+				'sso',
+				'notes',
+				'protect',
+				'latex',
+				'carousel',
+				'comment-likes',
+				'comments',
+				'contact-form',
+				'widgets',
+				'likes',
+				'shortcodes',
+				'markdown',
+				'search',
+				'subscriptions',
+				'tiled-gallery',
+				'videopress',
+				'shortlinks',
+				'woocommerce-analytics',
+				'monitor',
+				'seo-tools',
+				'custom-css',
+				'publicize',
+				'verification-tools',
+				'sitemaps',
+			);
+
+			$sharing_options = array(
+				'global' => array(
+					'button_style'  => 'icon',
+					'sharing_label' => '',
+					'open_links'    => 'same',
+					'show'          => array( 'post' ),
+					'custom'        => array(),
+				),
+			);
+
+			// Set defaults only if the store is brand new (been active for less than 5 minutes).
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
+				update_option( 'jetpack_active_modules', $active_modules );
+				update_option( 'sharing-options', $sharing_options );
+			}
+
+			$this->set_one_time_operation_complete( 'set_jetpack_defaults' );
+
+		} );
 	}
 
 	/**
