@@ -7,6 +7,8 @@
  * @version 1.9.8
  */
 
+use Automattic\WooCommerce\Admin\WCAdminHelper;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -41,6 +43,7 @@ class WC_Calypso_Bridge_Setup {
 	protected $one_time_operations = array(
 		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
 		'woocommerce_create_pages'  => 'woocommerce_create_pages_callback',
+		'set_jetpack_defaults'      => 'set_jetpack_defaults',
 	);
 
 	/**
@@ -97,7 +100,9 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	public function delete_coupon_moved_notes_callback() {
+
 		add_action( 'admin_init', function () {
+
 			if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
 				return;
 			}
@@ -109,13 +114,15 @@ class WC_Calypso_Bridge_Setup {
 
 				return;
 			}
+
 			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
 			$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+
 		}, PHP_INT_MAX );
 	}
 
 	/**
-	 * Create WooCommerce pages, set the cart/checkout blocks and set the operation as completed.
+	 * Defines the Jetpack modules active in the Ecommerce Plan by default.
 	 *
 	 * @since 1.9.8
 	 * @return void
