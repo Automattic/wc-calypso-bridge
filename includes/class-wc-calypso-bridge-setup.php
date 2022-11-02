@@ -158,7 +158,7 @@ class WC_Calypso_Bridge_Setup {
 			// Set the cart and checkout blocks as defaults.
 			if (
 				class_exists( 'Automattic\WooCommerce\Blocks\Package' )
-				&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::W44_2022_RELEASE_DATE )
+				&& WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_DEFAULT_CHECKOUT_BLOCKS )
 				&& version_compare( \Automattic\WooCommerce\Blocks\Package::get_version(), '8.7.4' ) >= 0
 			) {
 				if ( isset( $pages['cart']['content'] ) ) {
