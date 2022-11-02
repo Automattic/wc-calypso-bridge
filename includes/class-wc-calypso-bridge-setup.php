@@ -190,6 +190,69 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
+	 * Defines the Jetpack modules active in the Ecommerce Plan by default.
+	 *
+	 * @since 1.9.8
+	 * @return void
+	 */
+	public function set_jetpack_defaults() {
+
+		add_action( 'init', function () {
+
+			$active_modules = array(
+				'manage',
+				'masterbar',
+				'json-api',
+				'sharedaddy',
+				'google-fonts',
+				'sso',
+				'notes',
+				'protect',
+				'latex',
+				'carousel',
+				'comment-likes',
+				'comments',
+				'contact-form',
+				'widgets',
+				'likes',
+				'shortcodes',
+				'markdown',
+				'search',
+				'subscriptions',
+				'tiled-gallery',
+				'videopress',
+				'shortlinks',
+				'woocommerce-analytics',
+				'monitor',
+				'seo-tools',
+				'custom-css',
+				'publicize',
+				'verification-tools',
+				'sitemaps',
+			);
+
+			$sharing_options = array(
+				'global' => array(
+					'button_style'  => 'icon',
+					'sharing_label' => '',
+					'open_links'    => 'same',
+					'show'          => array( 'post' ),
+					'custom'        => array(),
+				),
+			);
+
+			// Set defaults only if the store is brand new (been active for less than 5 minutes).
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
+				update_option( 'jetpack_active_modules', $active_modules );
+				update_option( 'sharing-options', $sharing_options );
+			}
+
+			$this->set_one_time_operation_complete( 'set_jetpack_defaults' );
+
+		} );
+	}
+
+	/**
 	 * Save the one-time operations' status .
 	 *
 	 * @since 1.9.4
