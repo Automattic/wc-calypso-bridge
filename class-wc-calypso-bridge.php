@@ -20,7 +20,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Ecommerce Plan release timestamps.
 	 */
-	const W44_2022_RELEASE_DATE = 1567389038; // 2022-11-02
+	const RELEASE_DATE_DEFAULT_CHECKOUT_BLOCKS = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
 
 	/**
 	 * Paths to assets act oddly in production
