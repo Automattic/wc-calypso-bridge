@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 1.9.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -61,6 +61,7 @@ class WC_Calypso_Bridge_Shared {
 	 * Registers scripts.
 	 */
 	public function add_extension_register_script() {
+
 		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\Loader' )
 			&& \Automattic\WooCommerce\Admin\Loader::is_admin_or_embed_page()
 			? true
@@ -140,11 +141,11 @@ class WC_Calypso_Bridge_Shared {
 			include_once $connect_file;
 		}
 
+		// Nav unification fixes.
 		if ( is_wc_calypso_bridge_page() ) {
-			// Nav unification fixes.
 			if ( function_exists( 'wpcomsh_activate_nav_unification' )
-			&& wpcomsh_activate_nav_unification( false )
-			&& ! Loader::is_feature_enabled( 'navigation' ) ) {
+				&& wpcomsh_activate_nav_unification( false )
+				&& ! Loader::is_feature_enabled( 'navigation' ) ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
 			}
 		}

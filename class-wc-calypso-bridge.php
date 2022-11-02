@@ -15,6 +15,12 @@ use Automattic\WooCommerce\Admin\Loader;
  * WC Calypso Bridge
  */
 class WC_Calypso_Bridge {
+
+	/**
+	 * Ecommerce Plan release timestamps.
+	 */
+	const RELEASE_DATE_PRE_CONFIGURE_JETPACK = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
+
 	/**
 	 * Paths to assets act oddly in production
 	 */
@@ -123,11 +129,15 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX, 3 );
 
+		// Include Jetpack modifications.
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
 
-		// Include calypso-bridge-setup this class as early as possible.
+		// Include these classes as early as possible.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
@@ -193,7 +203,6 @@ class WC_Calypso_Bridge {
 	 */
 	public function load_ecommerce_plan_ui() {
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
