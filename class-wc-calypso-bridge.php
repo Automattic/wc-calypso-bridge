@@ -21,6 +21,7 @@ class WC_Calypso_Bridge {
 	 * Ecommerce Plan release timestamps.
 	 */
 	const RELEASE_DATE_DEFAULT_CHECKOUT_BLOCKS = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
+	const RELEASE_DATE_PRE_CONFIGURE_JETPACK   = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
 
 	/**
 	 * Paths to assets act oddly in production
@@ -140,8 +141,26 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX, 3 );
 
-		// Include calypso-bridge-setup this class as early as possible.
+		/**
+		 * Remove the Write button from the global bar.
+		 *
+		 * @since   1.9.8
+		 *
+		 * @return void
+		 */
+		add_action( 'wp_before_admin_bar_render', static function () {
+			global $wp_admin_bar;
+
+			if ( ! is_object( $wp_admin_bar ) ) {
+				return;
+			}
+
+			$wp_admin_bar->remove_menu( 'ab-new-post' );
+		}, PHP_INT_MAX );
+    
+		// Include these classes as early as possible.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {

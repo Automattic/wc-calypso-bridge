@@ -8,6 +8,7 @@
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
+
 /**
  * WC_Calypso_Bridge_Helper_Functions.
  */
@@ -42,7 +43,7 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 *
 	 * @since 1.9.8
 	 *
-	 * @param int $reference_timestamp Time to compare against.
+	 * @param  int $reference_timestamp Time to compare against.
 	 * @return bool
 	 */
 	public static function is_wc_admin_installed_gte( $reference_timestamp ) {
