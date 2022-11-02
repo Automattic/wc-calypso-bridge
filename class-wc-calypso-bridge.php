@@ -10,6 +10,7 @@
 defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Admin\Loader;
+use Automattic\WooCommerce\Admin\WCAdminHelper;
 
 /**
  * WC Calypso Bridge
@@ -19,7 +20,8 @@ class WC_Calypso_Bridge {
 	/**
 	 * Ecommerce Plan release timestamps.
 	 */
-	const RELEASE_DATE_PRE_CONFIGURE_JETPACK = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
+	const RELEASE_DATE_DEFAULT_CHECKOUT_BLOCKS = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
+	const RELEASE_DATE_PRE_CONFIGURE_JETPACK   = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
 
 	/**
 	 * Paths to assets act oddly in production
@@ -86,7 +88,7 @@ class WC_Calypso_Bridge {
 		 */
 		add_filter( 'woocommerce_note_where_clauses', static function ( $where_clauses, $args, $context ) {
 
-			$message_names = array(
+			$suppressed_messages = array(
 				'wc-admin-adding-and-managing-products',
 				'wc-admin-choosing-a-theme',
 				'wc-admin-customizing-product-catalog',
@@ -106,17 +108,27 @@ class WC_Calypso_Bridge {
 				'wc-admin-woocommerce-subscriptions',
 				'wc-pb-bulk-discounts',
 				'wc-payments-notes-set-up-refund-policy',
-				'wc-admin-marketing-jetpack-backup', // hide for now, to be revisited.
-				'wc-admin-mobile-app', // hide for now, to be revisited.
-				'wc-admin-migrate-from-shopify', // hide for now, to be revisited.
-				'wc-admin-magento-migration', // hide for now, to be revisited.
-				'wc-admin-woocommerce-subscriptions', // hide for now, to be revisited.
-				'wc-admin-online-clothing-store', // hide for now, to be revisited.
-				'wc-admin-selling-online-courses', // hide for now, to be revisited.
+				'wc-admin-marketing-jetpack-backup', // suppress for now, to be revisited.
+				'wc-admin-mobile-app', // suppress for now, to be revisited.
+				'wc-admin-migrate-from-shopify', // suppress for now, to be revisited.
+				'wc-admin-magento-migration', // suppress for now, to be revisited.
+				'wc-admin-woocommerce-subscriptions', // suppress for now, to be revisited.
+				'wc-admin-online-clothing-store', // suppress for now, to be revisited.
+				'wc-admin-selling-online-courses', // suppress for now, to be revisited.
 			);
 
+			// Suppress the message if the site is active for less than 5 days.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 5 * DAY_IN_SECONDS ) ) {
+				$suppressed_messages[] = 'wc-refund-returns-page';
+			}
+
+			// Suppress the message if the site is active for less than 2 days.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 2 * DAY_IN_SECONDS ) ) {
+				$suppressed_messages[] = 'wc-calypso-bridge-cart-checkout-blocks-default-inbox-note';
+			}
+
 			$where_excluded_name_array = array();
-			foreach ( $message_names as $name ) {
+			foreach ( $suppressed_messages as $name ) {
 				$where_excluded_name_array[] = sprintf( "'%s'", esc_sql( $name ) );
 			}
 			$escaped_where_excluded_names = implode( ',', $where_excluded_name_array );
@@ -145,17 +157,15 @@ class WC_Calypso_Bridge {
 
 			$wp_admin_bar->remove_menu( 'ab-new-post' );
 		}, PHP_INT_MAX );
-
-		// Include Jetpack modifications.
+    
+		// Include these classes as early as possible.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
+		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
-
-		// Include these classes as early as possible.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
