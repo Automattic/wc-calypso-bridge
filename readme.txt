@@ -28,6 +28,8 @@ This section describes how to install the plugin and get it working.
 * Set default to block-based cart/checkout #XXX.
 * Display note about the new block-based cart/checkout if the site is active for more than 2 days  #XXX.
 * Display wc-refund-returns-page inbox note if the site is active for more than 5 days #XXX.
+* Prevent deletion of managed Extensions #XXX.
+* Suppress wc-payments-notes-set-up-refund-policy inbox note #xxx.
 
 = 1.9.7 =
 * Revert: Hook `maybe_create_wc_pages` on `woocommerce_installed` #842.
