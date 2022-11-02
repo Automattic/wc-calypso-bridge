@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.8
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -42,7 +42,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	protected $one_time_operations = array(
 		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
-		'set_jetpack_defaults'      => 'set_jetpack_defaults'
+		'set_jetpack_defaults'      => 'set_jetpack_defaults',
 	);
 
 	/**
@@ -123,12 +123,12 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Defines the Jetpack modules active in the Ecommerce Plan by default.
 	 *
-	 * @since 1.9.4
+	 * @since 1.9.8
 	 * @return void
 	 */
 	public function set_jetpack_defaults() {
 
-		add_action( 'init', function() {
+		add_action( 'init', function () {
 
 			$active_modules = array(
 				'manage',
@@ -159,17 +159,18 @@ class WC_Calypso_Bridge_Setup {
 				'custom-css',
 				'publicize',
 				'verification-tools',
-				'sitemaps'
+				'sitemaps',
 			);
 
 			$sharing_options = array(
 				'global' => array(
-					'button_style' => 'icon',
+					'button_style'  => 'icon',
 					'sharing_label' => '',
-					'open_links' => 'same',
-					'show' => array( 'post' ),
-					'custom' => array()
-			) );
+					'open_links'    => 'same',
+					'show'          => array( 'post' ),
+					'custom'        => array(),
+				),
+			);
 
 			// Set defaults only if the store is brand new (been active for less than 5 minutes).
 			if ( ! WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
@@ -181,7 +182,6 @@ class WC_Calypso_Bridge_Setup {
 
 		} );
 	}
-
 
 	/**
 	 * Save the one-time operations' status .
