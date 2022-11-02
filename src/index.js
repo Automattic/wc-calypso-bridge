@@ -29,6 +29,7 @@ addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
 	 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
 	 */
 	pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'toplevel_page_admin-page-wc-admin'} : page );
+	pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
 
 	return pages;
 } );
