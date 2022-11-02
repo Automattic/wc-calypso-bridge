@@ -106,7 +106,7 @@ class WC_Calypso_Bridge {
 				'wc-admin-woocommerce-payments',
 				'wc-admin-woocommerce-subscriptions',
 				'wc-pb-bulk-discounts',
-        'wc-payments-notes-set-up-refund-policy',
+				'wc-payments-notes-set-up-refund-policy',
 				'wc-admin-marketing-jetpack-backup', // suppress for now, to be revisited.
 				'wc-admin-mobile-app', // suppress for now, to be revisited.
 				'wc-admin-migrate-from-shopify', // suppress for now, to be revisited.
