@@ -10,11 +10,6 @@
 class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu {
 
 	/**
-	 * Remove Stats menu.
-	 */
-	public function add_stats_menu() {}
-
-	/**
 	 * Remove 'Earn' from Tools. Merchants have an idea already about how they want to make money :)
 	 */
 	public function add_tools_menu() {
@@ -48,9 +43,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Move Akismet under Settings
 		$this->hide_submenu_page( 'jetpack', 'akismet-key-config' );
-
-		// Move Stats in here.
-		add_submenu_page( 'jetpack', esc_attr__( 'Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 20 );
 
 		// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
 		add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
