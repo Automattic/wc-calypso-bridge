@@ -129,6 +129,23 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX, 3 );
 
+		/**
+		 * Remove the Write button from the global bar.
+		 *
+		 * @since   1.9.8
+		 *
+		 * @return void
+		 */
+		add_action( 'wp_before_admin_bar_render', static function () {
+			global $wp_admin_bar;
+
+			if ( ! is_object( $wp_admin_bar ) ) {
+				return;
+			}
+
+			$wp_admin_bar->remove_menu( 'ab-new-post' );
+		}, PHP_INT_MAX );
+
 		// Include Jetpack modifications.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
