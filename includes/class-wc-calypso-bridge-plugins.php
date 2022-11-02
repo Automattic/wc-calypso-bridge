@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.4
+ * @version 1.9.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -13,6 +13,30 @@ defined( 'ABSPATH' ) || exit;
  * WC Calypso Bridge Plugins
  */
 class WC_Calypso_Bridge_Plugins {
+
+	/**
+	 * Managed plugins specific to the ecommerce plan.
+	 *
+	 * @since 1.9.8
+	 */
+	const WPCOM_ECOMMERCE_PLUGINS = array(
+		'woocommerce/woocommerce.php',
+		'facebook-for-woocommerce/facebook-for-woocommerce.php',
+		'woocommerce-services/woocommerce-services.php',
+		'woocommerce-product-addons/woocommerce-product-addons.php',
+		'woocommerce-product-bundles/woocommerce-product-bundles.php',
+		'woocommerce-gift-cards/woocommerce-gift-cards.php',
+		'woocommerce-min-max-quantities/woocommerce-min-max-quantities.php',
+		'woocommerce-google-analytics-integration/woocommerce-google-analytics-integration.php',
+		'google-listings-and-ads/google-listings-and-ads.php',
+		'taxjar-simplified-taxes-for-woocommerce/taxjar-woocommerce.php',
+		'woocommerce-payments/woocommerce-payments.php',
+		'woocommerce-shipping-australia-post/woocommerce-shipping-australia-post.php',
+		'woocommerce-shipping-canada-post/woocommerce-shipping-canada-post.php',
+		'woocommerce-shipping-royalmail/woocommerce-shipping-royalmail.php',
+		'woocommerce-shipping-ups/woocommerce-shipping-ups.php',
+		'woocommerce-shipping-usps/woocommerce-shipping-usps.php',
+	);
 
 	/**
 	 * Class instance.
@@ -37,12 +61,13 @@ class WC_Calypso_Bridge_Plugins {
 	 */
 	private function __construct() {
 		add_filter( 'plugin_action_links', array( $this, 'remove_woocommerce_deactivation_link' ), 10, 2 );
+		add_filter( 'plugin_action_links', array( $this, 'remove_ecommerce_managed_plugin_delete_link' ), PHP_INT_MAX, 2 );
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
 		add_action( 'current_screen', array( $this, 'prevent_woocommerce_deactivation_route' ), 10, 2 );
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactivation_notice' ), 10, 2 );
 		add_filter( 'woocommerce_admin_onboarding_industries', array( $this, 'maybe_create_wc_pages' ), 10, 2 );
-		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
-		add_action( 'load-plugins.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
+		add_filter( 'manage_product_posts_columns', array( $this, 'remove_jetpack_stats_column' ), 100 );
+		add_filter( 'default_hidden_columns', array( $this, 'hide_product_columns' ), 100, 2 );
 	}
 
 	/**
@@ -105,6 +130,23 @@ class WC_Calypso_Bridge_Plugins {
 	}
 
 	/**
+	 * Remove WooCommerce delete links from plugins page.
+	 *
+	 * @since 1.9.8
+	 *
+	 * @param array  $actions     Plugin actions.
+	 * @param string $plugin_file Plugin file.
+	 */
+	public function remove_ecommerce_managed_plugin_delete_link( $actions, $plugin_file ) {
+
+		if ( in_array( $plugin_file, self::WPCOM_ECOMMERCE_PLUGINS, true ) ) {
+			unset( $actions['delete'] );
+		}
+
+		return $actions;
+	}
+
+	/**
 	 * Check WooCommerce pages (shop, cart, my-account, checkout) and create them if the following conditions are met.
 	 *
 	 * 1. This is the first time running this method.
@@ -153,29 +195,32 @@ class WC_Calypso_Bridge_Plugins {
 	}
 
 	/**
-	 * Disable activation notices, specific for SomewhereWarm plugins as they share the same logic.
-	 * Filters out the `welcome` notice from the list of notices to be displayed.
+	 * Removes the Stats column.
 	 *
-	 * It's specifically hooked on `load-index.php` and `load-plugins.php`
-	 * as both PB and GC display notices only on these pages.
+	 * @since  1.9.5
 	 *
-	 * @since 1.9.14
-	 * @return void
+	 * @param  array $cols Array of product columns.
+	 * @return array
 	 */
-	public function maybe_remove_somewherewarm_maintenance_notices() {
-		// Gift Cards.
-		if ( class_exists( 'WC_GC_Admin_Notices' ) && WC_GC_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_GC_Admin_Notices::$maintenance_notices = array_filter( WC_GC_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
+	public function remove_jetpack_stats_column( $cols ) {
+		return array_diff_key( $cols, array_flip( array( 'stats' ) ) );
+	}
+
+	/**
+	 * Hides the Likes and Date product columns by default.
+	 *
+	 * @since   1.9.5
+	 *
+	 * @param array  $hidden Current hidden columns.
+	 * @param object $screen Current screen.
+	 * @return array
+	 */
+	public function hide_product_columns( $hidden, $screen ) {
+		if ( isset( $screen->id ) && 'edit-product' === $screen->id ) {
+			return array_merge( $hidden, array( 'likes', 'date' ) );
 		}
 
-		// Product Bundles.
-		if ( class_exists( 'WC_PB_Admin_Notices' ) && WC_PB_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_PB_Admin_Notices::$maintenance_notices = array_filter( WC_PB_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
-		}
+		return $hidden;
 	}
 
 }
