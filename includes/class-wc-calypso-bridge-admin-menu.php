@@ -33,12 +33,11 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		}
 
 		// Move Orders.
-		//
-		// TODO: menu_order_count at class-wc-admin-menu.php -- woocommerce_include_processing_order_count_in_menu
 		// TODO: What about the COT menu?
 		add_filter( 'woocommerce_register_post_type_shop_order', function( $args ) {
-			$args[ 'show_in_menu' ] = true;
-			$args[ 'menu_icon' ]    = 'dashicons-cart';
+			$args[ 'labels' ][ 'add_new' ] = __( 'Add new', 'woocommerce' );
+			$args[ 'show_in_menu' ]        = true;
+			$args[ 'menu_icon' ]           = 'dashicons-cart';
 			return $args;
 		} );
 	}
@@ -57,13 +56,13 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$products  = array_search( 'edit.php?post_type=product', $menu_order, true );
 		$analytics = array_search( 'wc-admin&path=/analytics/overview', $menu_order, true );
 		$marketing = array_search( 'woocommerce-marketing', $menu_order, true );
-
+		$extensions                = array_search( 'woocommerce', $menu_order, true );
+		$woocommerce_separator     = array_search( 'separator-woocommerce', $menu_order, true );
+		$woocommerce_separator_top = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
+		$woocommerce_payments      = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
+		error_log( "woocommerce_payments:" . $woocommerce_payments );
 		// Loop through menu order and do some rearranging.
 		foreach ( $menu_order as $index => $item ) {
-
-			$extensions                = array_search( 'woocommerce', $menu_order, true );
-			$woocommerce_separator     = array_search( 'separator-woocommerce', $menu_order, true );
-			$woocommerce_separator_top = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
 
 			// Move the WC group above the "Posts" menu item.
 			if ( 'edit.php' === $item ) {
@@ -71,6 +70,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$woocommerce_menu_order[] = 'edit.php?post_type=shop_order'; // Orders.
 				$woocommerce_menu_order[] = 'edit.php?post_type=product'; // Products.
 				$woocommerce_menu_order[] = 'admin.php?page=wc-admin&path=/customers'; // Customers.
+				if ( false !== $woocommerce_payments ) {
+					$woocommerce_menu_order[] = 'wc-admin&path=/payments/connect'; // Payments.
+				}
+
 				$woocommerce_menu_order[] = 'wc-admin&path=/analytics/overview'; // Analytics.
 				$woocommerce_menu_order[] = 'woocommerce-marketing'; // Marketing.
 				$woocommerce_menu_order[] = 'woocommerce'; // Extensions.
@@ -84,7 +87,12 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				unset( $menu_order[ $extensions ] );
 				unset( $menu_order[ $woocommerce_separator ] );
 				unset( $menu_order[ $woocommerce_separator_top ] );
-			} elseif ( ! in_array( $item, array( 'wc-calypso-bridge-separator-top', 'separator-woocommerce', 'woocommerce', 'woocommerce-marketing', 'wc-admin&path=/analytics/overview', 'edit.php?post_type=product', 'edit.php?post_type=shop_order', 'admin.php?page=wc-admin&path=/customers'), true ) ) {
+
+				if ( false !== $woocommerce_payments ) {
+					unset( $menu_order[ $woocommerce_payments ] );
+				}
+
+			} elseif ( ! in_array( $item, array( 'wc-admin&path=/payments/connect', 'wc-calypso-bridge-separator-top', 'separator-woocommerce', 'woocommerce', 'woocommerce-marketing', 'wc-admin&path=/analytics/overview', 'edit.php?post_type=product', 'edit.php?post_type=shop_order', 'admin.php?page=wc-admin&path=/customers'), true ) ) {
 				$woocommerce_menu_order[] = $item;
 			}
 		}
