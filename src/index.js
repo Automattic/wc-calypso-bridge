@@ -13,9 +13,7 @@ import './index.scss';
 
 wcNavFilterRootUrl();
 
-
 addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
-
 	pages.push( {
 		container: PaymentsWelcomePage,
 		path: '/payments-welcome',

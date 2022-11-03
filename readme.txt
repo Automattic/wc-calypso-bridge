@@ -23,8 +23,15 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.8 =
-* Prevent deletion of managed Extensions #XXX.
-* Suppress wc-payments-notes-set-up-refund-policy inbox note #xxx.
+* Pre-configure Jetpack for Ecommerce Plan users #844.
+* Create WooCommerce pages with a one-time operation #823.
+* Delete wc-refund-returns-page inbox note, so it can be recreated with the correct refund page ID #823.
+* Set default to block-based cart/checkout #823.
+* Display note about the new block-based cart/checkout if the site is active for more than 2 days #823.
+* Display wc-refund-returns-page inbox note if the site is active for more than 5 days #823.
+* Hide write button in global bar #827.
+* Prevent deletion of managed Extensions #846.
+* Suppress wc-payments-notes-set-up-refund-policy inbox note #849.
 
 = 1.9.7 =
 * Revert: Hook `maybe_create_wc_pages` on `woocommerce_installed` #842.

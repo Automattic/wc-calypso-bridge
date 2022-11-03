@@ -3,6 +3,8 @@
  * Jetpack customizations.
  *
  * @package WC_Calypso_Bridge/Jetpack
+ * @since   1.9.8
+ * @version 1.9.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -27,6 +29,7 @@ class WC_Calypso_Bridge_Jetpack {
 		if ( null === static::$instance ) {
 			static::$instance = new static();
 		}
+
 		return static::$instance;
 	}
 
@@ -45,14 +48,15 @@ class WC_Calypso_Bridge_Jetpack {
 		/**
 		 * Inject the Ecommerce admin menu controller into Jetpack.
 		 *
-		 * @since x.x.x
+		 * @since 1.9.8
 		 *
-		 * @param  string  $menu_controller_class  The name of the menu controller class.
+		 * @param  string $menu_controller_class The name of the menu controller class.
 		 * @return string
 		 */
-		add_filter( 'jetpack_admin_menu_class', function( $menu_controller_class ) {
+		add_filter( 'jetpack_admin_menu_class', function ( $menu_controller_class ) {
 			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
 				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
+
 				return Ecommerce_Atomic_Admin_Menu::class;
 			}
 
@@ -62,15 +66,16 @@ class WC_Calypso_Bridge_Jetpack {
 		/**
 		 * Limits Jetpack Modules to those relevant to Ecommerce Plan users.
 		 *
-		 * @since x.x.x
+		 * @since 1.9.8
 		 *
-		 * @param  array  $mods  Available Jetpack modules for activation.
+		 * @param  array $mods Available Jetpack modules for activation.
 		 * @return array
 		 */
-		add_filter( 'jetpack_get_available_modules', function( $mods ) {
-			if ( WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::S2_2022_RELEASE_DATE ) ) {
+		add_filter( 'jetpack_get_available_modules', function ( $mods ) {
+			if ( WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_PRE_CONFIGURE_JETPACK ) ) {
 				$mods = array_diff_key( $mods, array_flip( array( 'gravatar-hovercards', 'custom-content-types', 'wordads', 'google-analytics', 'widget-visibility', 'post-list', 'infinite-scroll', 'copy-post', 'lazy-images', 'post-by-email', 'related-posts', 'action-bar' ) ) );
 			}
+
 			return $mods;
 		} );
 	}

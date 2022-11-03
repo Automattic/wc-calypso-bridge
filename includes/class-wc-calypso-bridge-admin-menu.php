@@ -3,7 +3,8 @@
 /**
  * Class Ecommerce_Atomic_Admin_Menu.
  *
- * @since x.x.x
+ * @since   1.9.8
+ * @version 1.9.8
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -234,11 +235,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
-	 * Remove Stats menu.
-	 */
-	public function add_stats_menu() {}
-
-	/**
 	 * Remove 'Earn' from Tools. Merchants have an idea already about how they want to make money :)
 	 */
 	public function add_tools_menu() {
@@ -255,7 +251,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		parent::add_options_menu();
 
 		// Introduce 'Settings > Anti-Spam'.
-		add_submenu_page( 'options-general.php', __( 'Anti-Spam', 'wc-calypso-bridge' ), __( 'Anti-Spam' , 'wc-calypso-bridge' ), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ), 12 );
+		add_submenu_page( 'options-general.php', __( 'Anti-Spam', 'wc-calypso-bridge' ), __( 'Anti-Spam', 'wc-calypso-bridge' ), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ), 12 );
 		// Remove 'Settings > Jetpack' from Settings.
 		remove_submenu_page( 'options-general.php', 'https://wordpress.com/settings/jetpack/' . $this->domain );
 	}
@@ -274,9 +270,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Move Akismet under Settings
 		$this->hide_submenu_page( 'jetpack', 'akismet-key-config' );
-
-		// Move Stats in here.
-		add_submenu_page( 'jetpack', esc_attr__( 'Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 20 );
 
 		// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
 		add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
