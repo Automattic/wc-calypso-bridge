@@ -32,7 +32,7 @@ if ( ! file_exists( WP_PLUGIN_DIR . '/' . $wc_plugin_path ) || ! is_plugin_activ
 if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
 	if ( WP_PLUGIN_DIR . '/wc-calypso-bridge/' !== plugin_dir_path( __FILE__ ) ) {
 		// wc-calypso-bridge is already installed conventionally, exiting to avoid conflict.
-		return;
+		// return;
 	}
 }
 
