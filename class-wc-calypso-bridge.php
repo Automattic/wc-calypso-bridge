@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Admin\Loader;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
+use Automattic\WooCommerce\Admin\Features\OnboardingTasks;
 
 /**
  * WC Calypso Bridge
@@ -162,6 +163,19 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
+
+		add_action( 'rest_api_init', function() {
+			$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
+			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-add-domain.php';
+			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-launch-site.php';
+
+			$list = $tl::get_lists_by_ids( array( 'setup' ) );
+			$list = array_pop( $list );
+			$add_domain_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
+			$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
+			$tl::add_task( 'setup', $add_domain_task );
+			$tl::add_task( 'setup', $launch_site_task );
+		} );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
