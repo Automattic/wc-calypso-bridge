@@ -9,6 +9,7 @@ import { addFilter } from '@wordpress/hooks';
  */
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import PaymentsWelcomePage from './payments-welcome';
+import LaunchStorePage from './launch-store';
 import './index.scss';
 
 wcNavFilterRootUrl();
@@ -20,6 +21,15 @@ addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
 		breadcrumbs: [ __( 'WooCommerce Payments', 'wc-calypso-bridge' ) ],
 		navArgs: {
 			id: 'wc-calypso-bridge-payments-welcome-page',
+		},
+	} );
+
+	pages.push( {
+		container: LaunchStorePage,
+		path: '/launch-store',
+		breadcrumbs: [ __( 'Launch your store', 'wc-calypso-bridge' ) ],
+		navArgs: {
+			id: 'wc-calypso-bridge-launch-store',
 		},
 	} );
 
