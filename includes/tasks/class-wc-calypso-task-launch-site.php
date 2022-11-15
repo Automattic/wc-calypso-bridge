@@ -63,7 +63,7 @@ class LaunchSite extends Task {
 	 * @return string
 	 */
 	public function get_action_url() {
-		return '';
+		return admin_url( 'admin.php?page=wc-admin&path=/launch-store' );
 	}
 
 	/**
