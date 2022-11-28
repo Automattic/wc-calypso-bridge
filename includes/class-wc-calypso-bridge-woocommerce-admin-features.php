@@ -108,20 +108,15 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	public function filter_woocommerce_body_classes_js() {
 		?>
 		<script>
-			document.addEventListener( 'DOMContentLoaded', function() {
+			( function() {
 
-				// Bail out earlier.
+				// Bail out early.
 				if ( ! document.body.classList.contains( 'woocommerce_page_wc-admin' ) ) {
 					return;
 				}
 
 				let url = location.href;
 				document.body.addEventListener( 'click', ( event ) => {
-
-					// Bail out early.
-					if ( 'A' !== event.target.tagName ) {
-						return;
-					}
 
 					requestAnimationFrame( () => {
 						// URL has changed - let the magic happen.
@@ -141,7 +136,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 					} );
 
 				}, true );
-			} );
+			} )();
 		</script>
 	<?php }
 
