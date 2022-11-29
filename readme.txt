@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.9 =
+* Fix fatal error when pre-configuring Jetpack for Ecommerce Plan users #xxx.
+
 = 1.9.8 =
 * Pre-configure Jetpack for Ecommerce Plan users #844.
 * Create WooCommerce pages with a one-time operation #823.
