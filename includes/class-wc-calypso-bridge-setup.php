@@ -419,7 +419,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	protected function is_one_time_operation_complete( $operation ) {
 
-		$cache_key     = $operation . '_completed';
+		$cache_key     = 'cb_' . $operation . '_completed';
 		$cached_result = wp_using_ext_object_cache() ? wp_cache_get( $cache_key ) : false;
 		$use_cache     = false;
 
@@ -452,7 +452,7 @@ class WC_Calypso_Bridge_Setup {
 		$this->one_time_operations_complete[ $operation ] = true;
 
 		if ( wp_using_ext_object_cache() ) {
-			$cache_key = $operation . '_completed';
+			$cache_key = 'cb_' . $operation . '_completed';
 			wp_cache_set( $cache_key , gmdate( 'U' ) );
 		}
 	}
