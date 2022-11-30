@@ -49,7 +49,7 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Array of operations - name => boolean.
 	 *
-	 * @since x.x.x
+	 * @since 1.9.9
 	 * @var array
 	 */
 	protected $one_time_operations_complete = array(
@@ -115,6 +115,10 @@ class WC_Calypso_Bridge_Setup {
 
 		add_action( 'admin_init', function () {
 
+			if ( $this->is_one_time_operation_complete( 'delete_coupon_moved_notes' ) ) {
+				return;
+			}
+
 			if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
 				return;
 			}
@@ -154,6 +158,7 @@ class WC_Calypso_Bridge_Setup {
 			// Abort if we find any existing pages.
 			if ( 5 === $post_count ) {
 				$this->set_one_time_operation_complete( 'woocommerce_create_pages' );
+
 				return;
 			}
 
@@ -214,6 +219,10 @@ class WC_Calypso_Bridge_Setup {
 	public function set_jetpack_defaults() {
 
 		add_action( 'init', function () {
+
+			if ( $this->is_one_time_operation_complete( 'set_jetpack_defaults' ) ) {
+				return;
+			}
 
 			$active_modules = array(
 				'manage',
@@ -290,7 +299,7 @@ class WC_Calypso_Bridge_Setup {
 	 *
 	 * @since 1.9.4
 	 *
-	 * @param  mixed  $value
+	 * @param mixed $value
 	 * @return array
 	 */
 	public function set_onboarding_status_to_skipped( $option_value ) {
@@ -453,7 +462,7 @@ class WC_Calypso_Bridge_Setup {
 
 		if ( wp_using_ext_object_cache() ) {
 			$cache_key = 'cb_' . $operation . '_completed';
-			wp_cache_set( $cache_key , gmdate( 'U' ) );
+			wp_cache_set( $cache_key, gmdate( 'U' ) );
 		}
 	}
 }
