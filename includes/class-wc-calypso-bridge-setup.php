@@ -47,9 +47,22 @@ class WC_Calypso_Bridge_Setup {
 	);
 
 	/**
+	 * Array of operations - name => boolean.
+	 *
+	 * @since x.x.x
+	 * @var array
+	 */
+	protected $one_time_operations_complete = array(
+		'delete_coupon_moved_notes' => false,
+		'woocommerce_create_pages'  => false,
+		'set_jetpack_defaults'      => false,
+	);
+
+	/**
 	 * Constructor.
 	 */
 	private function __construct() {
+
 		$this->setup_one_time_operations();
 		add_action( 'shutdown', array( $this, 'save_one_time_operations_status' ), PHP_INT_MAX );
 
@@ -72,8 +85,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function setup_one_time_operations() {
 
-		$operations                = get_option( 'woocommerce_atomic_one_time_operations', $this->one_time_operations );
-		$this->one_time_operations = array_merge( $this->one_time_operations, $operations );
+		$this->one_time_operations_complete = array_merge( $this->one_time_operations_complete, get_option( 'woocommerce_atomic_one_time_operations', array() ) );
 
 		foreach ( $this->one_time_operations as $operation => $callback ) {
 
@@ -132,12 +144,16 @@ class WC_Calypso_Bridge_Setup {
 		add_action( 'woocommerce_init', function () {
 
 			global $wpdb;
+
+			if ( $this->is_one_time_operation_complete( 'woocommerce_create_pages' ) ) {
+				return;
+			}
+
 			$post_count = (int) $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout', 'refund_returns')" );
 
 			// Abort if we find any existing pages.
 			if ( 5 === $post_count ) {
 				$this->set_one_time_operation_complete( 'woocommerce_create_pages' );
-
 				return;
 			}
 
@@ -154,8 +170,8 @@ class WC_Calypso_Bridge_Setup {
 				Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-refund-returns-page' );
 			}
 
-			WC_Install::create_pages();
 			$this->set_one_time_operation_complete( 'woocommerce_create_pages' );
+			WC_Install::create_pages();
 
 		}, PHP_INT_MAX );
 
@@ -259,7 +275,12 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	public function save_one_time_operations_status() {
-		update_option( 'woocommerce_atomic_one_time_operations', $this->one_time_operations );
+
+		$one_time_operations_complete = array();
+		foreach ( $this->one_time_operations as $operation => $operation_callback ) {
+			$one_time_operations_complete[ $operation ] = $this->is_one_time_operation_complete( $operation );
+		}
+		update_option( 'woocommerce_atomic_one_time_operations', $one_time_operations_complete );
 	}
 
 	/**
@@ -397,7 +418,22 @@ class WC_Calypso_Bridge_Setup {
 	 * @return boolean True if the operation has completed, false otherwise.
 	 */
 	protected function is_one_time_operation_complete( $operation ) {
-		return ( isset( $this->one_time_operations[ $operation ] ) && true === $this->one_time_operations[ $operation ] );
+
+		$cache_key     = $operation . '_completed';
+		$cached_result = wp_using_ext_object_cache() ? wp_cache_get( $cache_key ) : false;
+		$use_cache     = false;
+
+		if ( false !== $cached_result ) {
+			$use_cache = 15 > ( gmdate( 'U' ) - (int) $cached_result );
+		}
+
+		if ( $use_cache ) {
+			$is_one_time_operation_complete = true;
+		} else {
+			$is_one_time_operation_complete = isset( $this->one_time_operations_complete[ $operation ] ) && true === $this->one_time_operations_complete[ $operation ];
+		}
+
+		return $is_one_time_operation_complete;
 	}
 
 	/**
@@ -408,8 +444,16 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	protected function set_one_time_operation_complete( $operation ) {
-		if ( isset( $this->one_time_operations[ $operation ] ) ) {
-			$this->one_time_operations[ $operation ] = true;
+
+		if ( ! isset( $this->one_time_operations_complete[ $operation ] ) ) {
+			return;
+		}
+
+		$this->one_time_operations_complete[ $operation ] = true;
+
+		if ( wp_using_ext_object_cache() ) {
+			$cache_key = $operation . '_completed';
+			wp_cache_set( $cache_key , gmdate( 'U' ) );
 		}
 	}
 }
