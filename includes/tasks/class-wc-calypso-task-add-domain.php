@@ -70,6 +70,15 @@ class AddDomain extends Task {
 	}
 
 	/**
+	 * Action Label.
+	 *
+	 * @return string
+	 */
+	public function get_action_label() {
+		return __( "Add a domain", 'woocommerce' );
+	}
+
+	/**
 	 * Task completion.
 	 *
 	 * @return bool
