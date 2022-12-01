@@ -58,12 +58,23 @@ class LaunchSite extends Task {
 	}
 
 	/**
-	 * Time.
+	 * Action URL.
 	 *
 	 * @return string
 	 */
-	public function get_action_url() {
-		return admin_url( 'admin.php?page=wc-admin&path=/launch-store' );
+	// public function get_action_url() {
+	// 	return null;
+	// 	// return '';
+	// 	// return admin_url( 'admin.php?page=wc-admin&path=/launch-store' );
+	// }
+
+	/**
+	 * Action Label.
+	 *
+	 * @return string
+	 */
+	public function get_action_label() {
+		return __( "Launch your store", 'woocommerce' );
 	}
 
 	/**

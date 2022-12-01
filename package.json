@@ -38,10 +38,12 @@
 		"typescript": "^4.3.5"
 	},
 	"dependencies": {
+		"@woocommerce/onboarding": "^3.2.0",
 		"@wordpress/babel-preset-default": "^6.2.0",
 		"@wordpress/hooks": "^2.12.3",
 		"@wordpress/i18n": "^4.1.1",
 		"babel-loader": "^8.2.2",
+		"classnames": "^2.3.2",
 		"interpolate-components": "^1.1.1",
 		"wordpress-element": "npm:@wordpress/element@2.11.0"
 	}

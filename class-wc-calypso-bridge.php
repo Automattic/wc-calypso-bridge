@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 use Automattic\WooCommerce\Admin\Loader;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks;
+use Automattic\Jetpack\Connection\Client;
 
 /**
  * WC Calypso Bridge
@@ -47,6 +48,37 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		add_action( 'wp_ajax_launch_store', function () {
+
+			// TODO: Harden security
+			// Check:
+			// 1. is launched
+			// 2. user can manage options
+
+			$blog_id  = \Jetpack_Options::get_option( 'id' );
+			$response = Client::wpcom_json_api_request_as_user(
+				sprintf( '/sites/%d/launch', $blog_id ),
+				'2',
+				array(
+					'method' => 'POST',
+				),
+				json_encode( [
+					'site' => $blog_id
+				] ),
+				'wpcom'
+			);
+
+			// Handle error.
+			if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+				$error = new WP_Error( 'launch_failed', 'Unable to launch site.' );
+				wp_send_json_error( $error, 400 );
+			}
+
+			$body   = wp_remote_retrieve_body( $response );
+			$status = json_decode( $body );
+			wp_send_json( $status );
+		} );
 
 		/**
 		 * Remove the legacy `WooCommerce > Coupons` menu.
@@ -164,7 +196,11 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
-		add_action( 'rest_api_init', function() {
+		add_action( 'init', function() {
+			if ( ! class_exists( '\Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists' ) ) {
+				return;
+			}
+
 			$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
 			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-add-domain.php';
 			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-launch-site.php';
@@ -175,7 +211,7 @@ class WC_Calypso_Bridge {
 			$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
 			$tl::add_task( 'setup', $add_domain_task );
 			$tl::add_task( 'setup', $launch_site_task );
-		} );
+		}, 9999 );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
