@@ -41,9 +41,9 @@ class WC_Calypso_Bridge_Setup {
 	 * @var array
 	 */
 	protected $one_time_operations = array(
-//		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
+		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
 		'woocommerce_create_pages'  => 'woocommerce_create_pages_callback',
-//		'set_jetpack_defaults'      => 'set_jetpack_defaults',
+		'set_jetpack_defaults'      => 'set_jetpack_defaults_callback',
 	);
 
 	/**
@@ -71,55 +71,30 @@ class WC_Calypso_Bridge_Setup {
 
 	/**
 	 * Set the one time operations and execute their callbacks.
-	 * If a callback is true (boolean), it means the operation
-	 * has already been executed and will be skipped.
 	 *
 	 * @since 1.9.4
 	 * @return void
 	 */
 	public function setup_one_time_operations() {
 
-		global $wpdb;
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return;
 		}
 
-
 		foreach ( $this->one_time_operations as $operation => $callback ) {
 
-//			$status = get_option( $this->option_prefix . $operation );
-//			$status = get_option( 'kaltsa' );
-
-
-			$status = $wpdb->get_var(
-				$wpdb->prepare( "
-				SELECT option_value
-				FROM `{$wpdb->options}`
-				WHERE option_name = '%s'
-				LIMIT 1
-				FOR UPDATE
-				",
-					'kaltsa'
-				)
-			);
-
-			error_log( '🐼 status: ' . (string) $status );
-
-			update_option( 'kaltsa', 'yes', 'no' );
-
-//			if ( !$status ) {
-//				// Option doesn't exist, so add it with default value of false.
-////				update_option( $this->option_prefix . $operation, 0, 'no' );
-//				update_option( 'kaltsa', 'yes', 'no' );
-//			}
-
-			// If status is timestamp ( > 0 ), then the operation has already been executed.
-			if ( 'no' === $status ) {
+			// Don't run the operation if the callback is not callable.
+			if ( ! method_exists( $this, $callback ) ) {
 				continue;
 			}
 
-			// Don't run the operation if the callback is not callable and don't save it in the options.
-			if ( ! method_exists( $this, $callback ) ) {
+			$status = get_option( $this->option_prefix . $operation );
+			if ( ! $status ) {
+				// Option doesn't exist, flag the operation as initialized.
+				update_option( $this->option_prefix . $operation, 'init', 'no' );
+			}
+
+			if ( 'completed' === $status ) {
 				continue;
 			}
 
@@ -142,16 +117,18 @@ class WC_Calypso_Bridge_Setup {
 				return;
 			}
 
+			$operation = 'delete_coupon_moved_notes';
+
 			// Delete all existing `Coupon Page Moved` notes from the DB.
 			$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
 			if ( false === $note ) {
-				$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
 
 				return;
 			}
 
 			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
-			$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
 
 		}, PHP_INT_MAX );
 	}
@@ -168,14 +145,9 @@ class WC_Calypso_Bridge_Setup {
 
 			$operation = 'woocommerce_create_pages';
 
-			if ( ! isset( $_GET['rocket'] ) ) {
-				return;
-			}
-
 			// Set the operation as completed if the store is active for more than 5 minutes.
-			if ( false && WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
-				error_log( 'WCAdminHelper::is_wc_admin_active_for( 5 minutes, operation completed )' );
-				$this->set_one_time_operation_complete( $operation );
+			if ( WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
 
 				return;
 			}
@@ -184,19 +156,7 @@ class WC_Calypso_Bridge_Setup {
 
 			$wpdb->query( 'START TRANSACTION' );
 
-			// Deadlock the row and get the current option value.
-//			$status = (int) $wpdb->get_var(
-//				$wpdb->prepare( "
-//				SELECT option_value
-//				FROM `{$wpdb->options}`
-//				WHERE option_name = '%s'
-//				LIMIT 1
-//				FOR UPDATE
-//				",
-//					$this->option_prefix . $operation
-//				)
-//			);
-
+			// Deadlock the row and get the current status.
 			$status = $wpdb->get_var(
 				$wpdb->prepare( "
 				SELECT option_value
@@ -205,7 +165,7 @@ class WC_Calypso_Bridge_Setup {
 				LIMIT 1
 				FOR UPDATE
 				",
-					'kaltsa'
+					$this->option_prefix . $operation
 				)
 			);
 
@@ -214,25 +174,18 @@ class WC_Calypso_Bridge_Setup {
 					UPDATE `{$wpdb->options}`
 					SET option_value = '%s'
 					WHERE option_name = '%s'",
-					'yes',
-					'kaltsa'
+					'started',
+					$this->option_prefix . $operation
 				)
 			);
 
-//			get_option( $this->option_prefix . $operation );
-
-			error_log('🐸 status: ' . $status);
-			if ( $status === 'no' ) {
+			if ( 'completed' === $status ) {
 				$wpdb->query( 'ROLLBACK' );
-
-				error_log( '🏁 DONE' );
 
 				return;
 			}
 
 			try {
-				error_log( '🏁 woocommerce_create_pages_callback' );
-
 				/*
 				 * Reset the woocommerce_*_page_id options.
 				 * This is needed as woocommerce_*_page_id options have incorrect values on a fresh installation
@@ -250,38 +203,19 @@ class WC_Calypso_Bridge_Setup {
 
 				WC_Install::create_pages();
 
-				$gmdate = gmdate( 'U' );
-
-//				$result = $wpdb->query(
-//					$wpdb->prepare( "
-//					UPDATE `{$wpdb->options}`
-//					SET option_value = %d
-//					WHERE option_name = '%s'",
-//						$gmdate,
-//						$this->option_prefix . $operation
-//					)
-//				);
-
-//				$this->set_one_time_operation_complete( $operation );
-
-//				update_option( $this->option_prefix . $operation, $gmdate, 'no' );
-
 				$wpdb->query(
 					$wpdb->prepare( "
 					UPDATE `{$wpdb->options}`
 					SET option_value = '%s'
 					WHERE option_name = '%s'",
-						'no',
-						'kaltsa'
+						'completed',
+						$this->option_prefix . $operation
 					)
 				);
 
 				// Update and Release row.
 				$wpdb->query( 'COMMIT' );
-
-//				wp_cache_set( $this->option_prefix . $operation, false, 'options' );
-
-				error_log( '✅ Operation ' . $operation . ' completed.' );
+				wp_cache_delete( $this->option_prefix . $operation, 'options' );
 
 				return;
 			} catch ( Exception $e ) {
@@ -329,7 +263,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @since 1.9.8
 	 * @return void
 	 */
-	public function set_jetpack_defaults() {
+	public function set_jetpack_defaults_callback() {
 
 		add_action( 'woocommerce_init', function () {
 
@@ -380,9 +314,8 @@ class WC_Calypso_Bridge_Setup {
 				update_option( 'jetpack_active_modules', $active_modules );
 				update_option( 'sharing-options', $sharing_options );
 			}
-
-			$this->set_one_time_operation_complete( 'set_jetpack_defaults' );
-
+			$operation = 'set_jetpack_defaults';
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
 		} );
 	}
 
@@ -513,30 +446,6 @@ class WC_Calypso_Bridge_Setup {
 		return isset( $theme['is_installed'] ) && $theme['is_installed'];
 	}
 
-	/**
-	 * Check if the operation has completed.
-	 *
-	 * @since 1.9.4
-	 * @param string $operation One time operation name.
-	 * @return boolean True if the operation has completed, false otherwise.
-	 */
-	protected function is_one_time_operation_complete( $operation ) {
-		return ( isset( $this->one_time_operations[ $operation ] ) && true === $this->one_time_operations[ $operation ] );
-	}
-
-	/**
-	 * Sets an operation as complete.
-	 *
-	 * @since 1.9.4
-	 * @param string $operation One time operation name.
-	 * @return void
-	 */
-	protected function set_one_time_operation_complete( $operation ) {
-		if ( isset( $this->one_time_operations[ $operation ] ) ) {
-			error_log( '✅ Operation ' . $operation . ' completed.' );
-			update_option( $this->option_prefix . $operation, gmdate( 'U' ) );
-		}
-	}
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
