@@ -317,7 +317,7 @@ class WC_Calypso_Bridge_Setup {
 			}
 			$operation = 'set_jetpack_defaults';
 			update_option( $this->option_prefix . $operation, 'completed', 'no' );
-		} );
+		}, PHP_INT_MAX );
 	}
 
 	/**

@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.5
+ * @version 1.9.9
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -44,6 +44,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		// Only show activity panels in Home page.
 		add_filter( 'admin_body_class', array( $this, 'filter_woocommerce_body_classes' ) );
 		add_action( 'admin_init', array( $this, 'add_custom_activity_panels_styles' ) );
+		add_action( 'admin_footer', array( $this, 'filter_woocommerce_body_classes_js' ) );
 	}
 
 	/**
@@ -96,6 +97,48 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		return $classes;
 	}
+
+	/**
+	 * Add is-woocommerce-home body class when url changes between wc-admin pages.
+	 *
+	 * @since   1.9.9
+	 *
+	 * @return void
+	 */
+	public function filter_woocommerce_body_classes_js() {
+		?>
+		<script>
+			( function() {
+
+				// Bail out early.
+				if ( ! document.body.classList.contains( 'woocommerce_page_wc-admin' ) ) {
+					return;
+				}
+
+				let url = location.href;
+				document.body.addEventListener( 'click', ( event ) => {
+
+					requestAnimationFrame( () => {
+						// URL has changed - let the magic happen.
+						if ( url !== location.href ) {
+							url          = location.href;
+							const params = ( new URL( location.href ) ).searchParams;
+
+							if (
+								'wc-admin' === params.get( 'page' )
+								&& null === params.get( 'path' )
+							) {
+								document.body.classList.add( 'is-woocommerce-home' );
+							} else {
+								document.body.classList.remove( 'is-woocommerce-home' );
+							}
+						}
+					} );
+
+				}, true );
+			} )();
+		</script>
+	<?php }
 
 	/**
 	 * Add custom CSS to hide activity panels in all WooCommerce pages other than Home.
