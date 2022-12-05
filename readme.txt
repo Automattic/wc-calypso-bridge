@@ -24,6 +24,8 @@ This section describes how to install the plugin and get it working.
 
 = 1.9.9 =
 * Fix fatal error when pre-configuring Jetpack for Ecommerce Plan users #xxx.
+* Disable activation notices for Back In Stock Notifications #xxx.
+* Improve limiting activity panels to Woo Home page #XXX.
 
 = 1.9.8 =
 * Pre-configure Jetpack for Ecommerce Plan users #844.
