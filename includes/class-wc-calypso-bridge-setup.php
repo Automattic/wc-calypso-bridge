@@ -156,7 +156,7 @@ class WC_Calypso_Bridge_Setup {
 
 			$wpdb->query( 'START TRANSACTION' );
 
-			// Deadlock the row and get the current status.
+			// Prepare to lock the row, when it gets updated.
 			$status = $wpdb->get_var(
 				$wpdb->prepare( "
 				SELECT option_value
@@ -169,6 +169,7 @@ class WC_Calypso_Bridge_Setup {
 				)
 			);
 
+			// Lock the row, by immediately executing an UPDATE query.
 			$wpdb->query(
 				$wpdb->prepare( "
 					UPDATE `{$wpdb->options}`
