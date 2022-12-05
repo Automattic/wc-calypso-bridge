@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.8
+ * @version 1.9.9
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -197,7 +197,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function set_jetpack_defaults() {
 
-		add_action( 'init', function () {
+		add_action( 'woocommerce_init', function () {
 
 			$active_modules = array(
 				'manage',
@@ -249,7 +249,7 @@ class WC_Calypso_Bridge_Setup {
 
 			$this->set_one_time_operation_complete( 'set_jetpack_defaults' );
 
-		} );
+		}, PHP_INT_MAX );
 	}
 
 	/**
