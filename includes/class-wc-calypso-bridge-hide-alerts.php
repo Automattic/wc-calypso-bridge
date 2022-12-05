@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.5
+ * @version 1.9.9
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -159,6 +159,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * @return void
 	 */
 	public function maybe_remove_somewherewarm_maintenance_notices() {
+
 		// Gift Cards.
 		if ( class_exists( 'WC_GC_Admin_Notices' ) && WC_GC_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
 			WC_GC_Admin_Notices::$maintenance_notices = array_filter( WC_GC_Admin_Notices::$maintenance_notices, static function ( $element ) {
@@ -172,6 +173,14 @@ class WC_Calypso_Bridge_Hide_Alerts {
 				return 'welcome' !== $element;
 			} );
 		}
+
+		// Back In Stock.
+		if ( class_exists( 'WC_BIS_Admin_Notices' ) && WC_BIS_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
+			WC_BIS_Admin_Notices::$maintenance_notices = array_filter( WC_BIS_Admin_Notices::$maintenance_notices, static function ( $element ) {
+				return 'welcome' !== $element;
+			} );
+		}
+
 	}
 
 }
