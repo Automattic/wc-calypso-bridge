@@ -23,10 +23,10 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.9 =
-* Introduce locking to one time operations #xxx.
-* Fix fatal error when pre-configuring Jetpack for Ecommerce Plan users #xxx.
-* Disable activation notices for Back In Stock Notifications #xxx.
-* Improve limiting activity panels to Woo Home page #XXX.
+* Introduce locking to one time operations #865.
+* Fix fatal error when pre-configuring Jetpack for Ecommerce Plan users #862.
+* Disable activation notices for Back In Stock Notifications #860.
+* Improve limiting activity panels to Woo Home page #858.
 
 = 1.9.8 =
 * Pre-configure Jetpack for Ecommerce Plan users #844.
