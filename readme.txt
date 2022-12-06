@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.10 =
-* Rollback limiting available Jetpack Modules #xxx.
+* Rollback limiting available Jetpack Modules #870.
 
 = 1.9.9 =
 * Introduce locking to one time operations #865.
