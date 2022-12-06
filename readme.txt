@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.10 =
+* Rollback limiting available Jetpack Modules #xxx.
+
 = 1.9.9 =
 * Introduce locking to one time operations #865.
 * Fix fatal error when pre-configuring Jetpack for Ecommerce Plan users #862.
