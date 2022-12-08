@@ -49,12 +49,22 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 
-		add_action( 'wp_ajax_launch_store', function () {
+		/**
+		 * Handle the store launching AJAX endpoint.
+		 *
+		 * @since   x.x.x
+		 */
+		add_action( 'wp_ajax_launch_store', function() {
 
-			// TODO: Harden security
-			// Check:
-			// 1. is launched
-			// 2. user can manage options
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( new WP_Error( 'unauthorized', __( 'You don\'t have permissions to launch this site', 'wc-calypso-bridge' ) ), 400 );
+				return;
+			}
+
+			if ( 'launched' === get_option( 'launch-status' ) ) {
+				wp_send_json_error( new WP_Error( 'already-launched', __( 'This site has already been launched', 'wc-calypso-bridge' ) ), 400 );
+				return;
+			}
 
 			$blog_id  = \Jetpack_Options::get_option( 'id' );
 			$response = Client::wpcom_json_api_request_as_user(
@@ -71,8 +81,9 @@ class WC_Calypso_Bridge {
 
 			// Handle error.
 			if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
-				$error = new WP_Error( 'launch_failed', 'Unable to launch site.' );
-				wp_send_json_error( $error, 400 );
+				$body  = wp_remote_retrieve_body( $response );
+				$error = json_decode( $body, true );
+				wp_send_json_error( new WP_Error( $error[ 'code' ], $error[ 'message' ] ), 400 );
 			}
 
 			$body   = wp_remote_retrieve_body( $response );
@@ -196,7 +207,13 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
+		/**
+		 * Introduce the "Add a domain" and "Launch your store" setup tasks.
+		 *
+		 * @since   x.x.x
+		 */
 		add_action( 'init', function() {
+
 			if ( ! class_exists( '\Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists' ) ) {
 				return;
 			}
@@ -207,11 +224,13 @@ class WC_Calypso_Bridge {
 
 			$list = $tl::get_lists_by_ids( array( 'setup' ) );
 			$list = array_pop( $list );
+
 			$add_domain_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
 			$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
 			$tl::add_task( 'setup', $add_domain_task );
 			$tl::add_task( 'setup', $launch_site_task );
-		}, 9999 );
+
+		}, PHP_INT_MAX );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
