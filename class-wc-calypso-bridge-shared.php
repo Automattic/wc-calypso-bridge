@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.8
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -15,6 +15,7 @@ use Automattic\WooCommerce\Admin\Loader;
  * WC Calypso Bridge
  */
 class WC_Calypso_Bridge_Shared {
+
 	/**
 	 * Paths to assets act oddly in production
 	 */
@@ -54,6 +55,7 @@ class WC_Calypso_Bridge_Shared {
 		if ( ! function_exists( 'WC' ) ) {
 			return;
 		}
+
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_extension_register_script' ) );
 	}
 
@@ -85,21 +87,27 @@ class WC_Calypso_Bridge_Shared {
 			true
 		);
 
-		$style_path     = 'build/index.css';
+		$style_path     = 'build/style-index.css';
 		$style_path_url = plugins_url( $style_path, __FILE__ );
 		$res            = wp_register_style(
 			'wc-calypso-bridge',
 			$style_path_url,
 			array(),
-			filemtime( dirname( __FILE__ ) . '/build/index.css' )
+			filemtime( dirname( __FILE__ ) . '/build/style-index.css' )
 		);
+
+		$status       = new \Automattic\Jetpack\Status();
+		$site_suffix  = $status->get_site_suffix();
 
 		wp_add_inline_script(
 			'wc-calypso-bridge',
 			'window.wcCalypsoBridge = ' . wp_json_encode(
 				array(
 					'isWooPage'         => $is_woo_page,
-					'homeUrl'           => get_home_url(),
+					'homeUrl'           => esc_url( get_home_url() ),
+					'siteSlug'          => $site_suffix,
+					'adminHomeUrl'      => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
+					'assetPath'         => esc_url( self::get_asset_path() ),
 					'wcpayConnectUrl'   => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
 					'hasViewedPayments' => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 				)
@@ -115,6 +123,7 @@ class WC_Calypso_Bridge_Shared {
 	 * Class instance.
 	 */
 	public static function instance() {
+
 		if ( is_null( self::$instance ) ) {
 			// If this is a traditionally installed plugin, set plugin_url for the proper asset path.
 			if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
@@ -127,6 +136,17 @@ class WC_Calypso_Bridge_Shared {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Class instance.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return string
+	 */
+	public static function get_asset_path() {
+		return self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 	}
 
 	/**

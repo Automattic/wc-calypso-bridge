@@ -58,17 +58,6 @@ class LaunchSite extends Task {
 	}
 
 	/**
-	 * Action URL.
-	 *
-	 * @return string
-	 */
-	// public function get_action_url() {
-	// 	return null;
-	// 	// return '';
-	// 	// return admin_url( 'admin.php?page=wc-admin&path=/launch-store' );
-	// }
-
-	/**
 	 * Action Label.
 	 *
 	 * @return string
@@ -78,11 +67,24 @@ class LaunchSite extends Task {
 	}
 
 	/**
+	 * Action URL.
+	 *
+	 * @return string|null
+	 */
+	public function get_action_url() {
+		$status       = new \Automattic\Jetpack\Status();
+		$site_suffix  = $status->get_site_suffix();
+		// return ! $this->is_complete() ? null : sprintf( "https://wordpress.com/settings/general/%s#site-privacy-settings", $site_suffix );
+		return null;
+	}
+
+	/**
 	 * Task completion.
 	 *
 	 * @return bool
 	 */
 	public function is_complete() {
-		$is_completed = function_exists( '\Private_Site\is_launched' ) ? \Private_Site\is_launched() : (int) get_option( 'blog_public' ) > -1;
+		// return 'launched' === get_option( 'launch-status' );
+		return true;
 	}
 }
