@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Guide } from '@wordpress/components';
-import { useState, useEffect } from '@wordpress/element';
+import { createInterpolateElement, useState, useEffect } from '@wordpress/element';
 import { compose } from '@wordpress/compose';
 import { withDispatch, withSelect } from '@wordpress/data';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
@@ -63,9 +63,18 @@ const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 								) }
 							</h2>
 							<p className="ecommerce__welcome-modal__page-content__body">
-								{ __(
-									'Getting things done with WooCommerce just got faster. Learn more about our new navigation - or go ahead and explore on your own.',
-									'wc-calypso-bridge'
+								{ createInterpolateElement(
+									__(
+										'Getting things done with WooCommerce just got faster. <a>Learn more about our new navigation</a> - or go ahead and explore on your own.',
+										'wc-calypso-bridge'
+									),
+									{
+										a: (
+											<a
+												href={ 'https://wordpress.com/#' }
+											/>
+										),
+									}
 								) }
 							</p>
 						</div>
