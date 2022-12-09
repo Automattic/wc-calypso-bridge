@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Jetpack
  * @since   1.9.8
- * @version 1.9.10
+ * @version 1.9.11
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -63,23 +63,6 @@ class WC_Calypso_Bridge_Jetpack {
 			return $menu_controller_class;
 		} );
 
-		/**
-		 * Limits Jetpack Modules to those relevant to Ecommerce Plan users.
-		 *
-		 * @since 1.9.8
-		 *
-		 * @param  array $mods Available Jetpack modules for activation.
-		 * @return array
-		 */
-		add_filter( 'jetpack_get_available_modules', function ( $mods ) {
-
-			// Removing Google Analytics module as we've activated WooCommerce Google Analytics Integration for all new sites.
-			if ( WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_PRE_CONFIGURE_JETPACK ) ) {
-				$mods = array_diff_key( $mods, array_flip( array( 'google-analytics' ) ) );
-			}
-
-			return $mods;
-		} );
 	}
 }
 
