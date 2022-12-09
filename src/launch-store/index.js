@@ -102,28 +102,33 @@ const LaunchButton = ( {
 	const doLaunch = async () => {
 		setLoading( true );
 
-		makeAjaxRequest(
-			'POST',
-			window.ajaxurl,
-			'application/x-www-form-urlencoded; charset=UTF-8',
-			'action=launch_store',
-			function ( xhr ) {
-				try {
-					if ( xhr.readyState === window.XMLHttpRequest.DONE ) {
-						if ( xhr.status === 200 && xhr.responseText ) {
-							successCallback();
-						} else {
-							console.error( xhr.responseText );
-						}
-					}
-				} catch ( error ) {
-					// Silently fail.
-				}
+		// For testing simulate a request.
+		setTimeout( () => {
+			setLoading( false );
+			successCallback();
+		}, 2000 );
 
-				setLoading( false );
-				successCallback();
-			}
-		);
+		// makeAjaxRequest(
+		// 	'POST',
+		// 	window.ajaxurl,
+		// 	'application/x-www-form-urlencoded; charset=UTF-8',
+		// 	'action=launch_store',
+		// 	function ( xhr ) {
+		// 		try {
+		// 			if ( xhr.readyState === window.XMLHttpRequest.DONE ) {
+		// 				if ( xhr.status === 200 && xhr.responseText ) {
+		// 					successCallback();
+		// 				} else {
+		// 					console.error( xhr.responseText );
+		// 				}
+		// 			}
+		// 		} catch ( error ) {
+		// 			// Silently fail.
+		// 		}
+
+		// 		setLoading( false );
+		// 	}
+		// );
 	};
 
 	if ( ! loadingLabel ) {
@@ -438,7 +443,7 @@ const LaunchStorePage = () => {
 
 	return (
 		<div className="woocommerce-launch-store">
-			{ /*{ ! isLauched && ! hasPendingTasks && <ReadyToLaunch
+			{ ! isLauched && ! hasPendingTasks && <ReadyToLaunch
 				setIsLaunched={ setIsLaunched }
 				/> }
 			{ ! isLauched && hasPendingTasks && (
@@ -446,8 +451,8 @@ const LaunchStorePage = () => {
 					tasks={ pendingTasks }
 					setIsLaunched={ setIsLaunched }
 				/>
-			) }*/ }
-			{ ! isLauched && <Congratulations /> }
+			) }
+			{ isLauched && <Congratulations /> }
 		</div>
 	);
 };
