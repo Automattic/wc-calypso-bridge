@@ -74,7 +74,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$woocommerce_menu_order[] = 'admin.php?page=wc-admin&path=/customers'; // Customers.
 				if ( false !== $payments_connect_index ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/connect'; // Payments.
-				}elseif ( false !== $payments_overview_index ) {
+				} elseif ( false !== $payments_overview_index ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/overview'; // Payments.
 				}
 
@@ -110,8 +110,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				}
 				if ( false !== $payments_connect_index ) {
 					unset( $menu_order[ $payments_connect_index ] );
-				}
-				if ( false !== $payments_overview_index ) {
+				} elseif ( false !== $payments_overview_index ) {
 					unset( $menu_order[ $payments_overview_index ] );
 				}
 
