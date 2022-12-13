@@ -462,7 +462,7 @@ const LaunchStorePage = () => {
 					launchHandler={ launchHandler }
 				/>
 			) }
-			{ ! isLauched && <Congratulations /> }
+			{ isLauched && <Congratulations /> }
 		</div>
 	);
 };
