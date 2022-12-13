@@ -22,6 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.11 =
+* Prevent deletion of new round of managed extensions #876.
+* Rollback Tools > Earn menu item #874.
+* Do not remove Jetpack Google Analytics module if it was enabled prior moving to Atomic #874.
+
 = 1.9.10 =
 * Rollback limiting available Jetpack Modules #870.
 
