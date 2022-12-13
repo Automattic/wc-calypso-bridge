@@ -235,7 +235,7 @@ const ReadyToLaunch = ( { launchHandler } ) => {
 				</Text>
 				<Text as="span">
 					{ __(
-						'Hit the button to make your store public.',
+						'It\'s time to celebrate – you\'re ready to launch your store! Woo!',
 						'wc-calypso-bridge'
 					) }
 				</Text>
@@ -369,7 +369,7 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 				</Text>
 				<Text as="span">
 					{ __(
-						'You are almost there! A few things to check before launching your store:',
+						'A few things to check before launching your store',
 						'wc-calypso-bridge'
 					) }
 				</Text>
@@ -452,10 +452,10 @@ const LaunchStorePage = () => {
 
 	return (
 		<div className="woocommerce-launch-store">
-			{ ! isLauched && ! hasPendingCrucialTasks && <ReadyToLaunch
+			{ ! isLauched && hasPendingCrucialTasks && <ReadyToLaunch
 				launchHandler={ launchHandler }
 				/> }
-			{ ! isLauched && hasPendingCrucialTasks && (
+			{ ! isLauched && ! hasPendingCrucialTasks && (
 				<BeforeLaunch
 					tasks={ pendingTasks }
 					launchHandler={ launchHandler }
