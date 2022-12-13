@@ -308,7 +308,7 @@ const BeforeLaunch = ( { tasks, setIsLaunched } ) => {
 			case 'add_domain':
 				Icon = GlobeIcon;
 				customContent = __(
-					'Choose a new website address for your store or transfer one you already own.',
+					'Choose an address for your new website or transfer a domain you already own.',
 					'wc-calypso-bridge'
 				);
 				customActionLabel = __( 'Add a domain', 'wc-calypso-bridge' );
