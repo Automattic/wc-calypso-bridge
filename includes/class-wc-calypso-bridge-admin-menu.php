@@ -51,27 +51,31 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$woocommerce_menu_order = array();
 
 		// Get the index of our managed pages.
-		$orders    = array_search( 'edit.php?post_type=shop_order', $menu_order, true );
-		$customers = array_search( 'admin.php?page=wc-admin&path=/customers', $menu_order, true );
-		$products  = array_search( 'edit.php?post_type=product', $menu_order, true );
-		$analytics = array_search( 'wc-admin&path=/analytics/overview', $menu_order, true );
-		$marketing = array_search( 'woocommerce-marketing', $menu_order, true );
-		$extensions                = array_search( 'woocommerce', $menu_order, true );
-		$woocommerce_separator     = array_search( 'separator-woocommerce', $menu_order, true );
-		$woocommerce_separator_top = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
-		$woocommerce_payments      = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
-		error_log( "woocommerce_payments:" . $woocommerce_payments );
+		$orders_index               = array_search( 'edit.php?post_type=shop_order', $menu_order, true );
+		$customers_index            = array_search( 'admin.php?page=wc-admin&path=/customers', $menu_order, true );
+		$products_index             = array_search( 'edit.php?post_type=product', $menu_order, true );
+		$analytics_index            = array_search( 'wc-admin&path=/analytics/overview', $menu_order, true );
+		$marketing_index            = array_search( 'woocommerce-marketing', $menu_order, true );
+		$extensions_index           = array_search( 'woocommerce', $menu_order, true );
+		$woocommerce_sep_index      = array_search( 'separator-woocommerce', $menu_order, true );
+		$woocommerce_sep_top_index  = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
+		$payments_connect_index     = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
+		$payments_overview_index    = array_search( 'wc-admin&path=/payments/overview', $menu_order, true );
+
 		// Loop through menu order and do some rearranging.
 		foreach ( $menu_order as $index => $item ) {
 
 			// Move the WC group above the "Posts" menu item.
 			if ( 'edit.php' === $item ) {
+
 				$woocommerce_menu_order[] = 'wc-calypso-bridge-separator-top'; // Separator WC top.
 				$woocommerce_menu_order[] = 'edit.php?post_type=shop_order'; // Orders.
 				$woocommerce_menu_order[] = 'edit.php?post_type=product'; // Products.
 				$woocommerce_menu_order[] = 'admin.php?page=wc-admin&path=/customers'; // Customers.
-				if ( false !== $woocommerce_payments ) {
+				if ( false !== $payments_connect_index ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/connect'; // Payments.
+				}elseif ( false !== $payments_overview_index ) {
+					$woocommerce_menu_order[] = 'wc-admin&path=/payments/overview'; // Payments.
 				}
 
 				$woocommerce_menu_order[] = 'wc-admin&path=/analytics/overview'; // Analytics.
@@ -79,20 +83,50 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$woocommerce_menu_order[] = 'woocommerce'; // Extensions.
 				$woocommerce_menu_order[] = 'separator-woocommerce'; // Separator WC.
 				$woocommerce_menu_order[] = $item; // Posts.
-				unset( $menu_order[ $orders ] );
-				unset( $menu_order[ $customers ] );
-				unset( $menu_order[ $products ] );
-				unset( $menu_order[ $analytics ] );
-				unset( $menu_order[ $marketing ] );
-				unset( $menu_order[ $extensions ] );
-				unset( $menu_order[ $woocommerce_separator ] );
-				unset( $menu_order[ $woocommerce_separator_top ] );
 
-				if ( false !== $woocommerce_payments ) {
-					unset( $menu_order[ $woocommerce_payments ] );
+				if ( false !== $orders_index ) {
+					unset( $menu_order[ $orders_index ] );
+				}
+				if ( false !== $customers_index ) {
+					unset( $menu_order[ $customers_index ] );
+				}
+				if ( false !== $products_index ) {
+					unset( $menu_order[ $products_index ] );
+				}
+				if ( false !== $analytics_index ) {
+					unset( $menu_order[ $analytics_index ] );
+				}
+				if ( false !== $marketing_index ) {
+					unset( $menu_order[ $marketing_index ] );
+				}
+				if ( false !== $extensions_index ) {
+					unset( $menu_order[ $extensions_index ] );
+				}
+				if ( false !== $woocommerce_sep_index ) {
+					unset( $menu_order[ $woocommerce_sep_index ] );
+				}
+				if ( false !== $woocommerce_sep_top_index ) {
+					unset( $menu_order[ $woocommerce_sep_top_index ] );
+				}
+				if ( false !== $payments_connect_index ) {
+					unset( $menu_order[ $payments_connect_index ] );
+				}
+				if ( false !== $payments_overview_index ) {
+					unset( $menu_order[ $payments_overview_index ] );
 				}
 
-			} elseif ( ! in_array( $item, array( 'wc-admin&path=/payments/connect', 'wc-calypso-bridge-separator-top', 'separator-woocommerce', 'woocommerce', 'woocommerce-marketing', 'wc-admin&path=/analytics/overview', 'edit.php?post_type=product', 'edit.php?post_type=shop_order', 'admin.php?page=wc-admin&path=/customers'), true ) ) {
+			} elseif ( ! in_array( $item, array(
+					'wc-admin&path=/payments/connect',
+					'wc-admin&path=/payments/overview',
+					'wc-calypso-bridge-separator-top',
+					'separator-woocommerce',
+					'woocommerce',
+					'woocommerce-marketing',
+					'wc-admin&path=/analytics/overview',
+					'edit.php?post_type=product',
+					'edit.php?post_type=shop_order',
+					'admin.php?page=wc-admin&path=/customers'
+				), true ) ) {
 				$woocommerce_menu_order[] = $item;
 			}
 		}
@@ -143,7 +177,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			$submenu_file = 'admin.php?page=wc-addons&section=helper';
 		}
 
-		// Move WooCommerce > Reports to Anaytics > Reports (Legacy).
+		// Move WooCommerce > Reports to Anaytics > Legacy Reports.
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-reports' ), true ) ) {
 			$plugin_page  = 'wc-admin&path=/analytics/overview';
 			$submenu_file = 'admin.php?page=wc-reports';
@@ -190,10 +224,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Force-add the "Report (Legacy)" submenu item.
 		if ( ! empty( $submenu['wc-admin&path=/analytics/overview'] ) && is_array( $submenu['wc-admin&path=/analytics/overview'] ) ) {
 			$submenu['wc-admin&path=/analytics/overview'][] = array(
-				__( 'Reports (Legacy)', 'wc-calypso-bridge' ),
+				__( 'Legacy Reports', 'wc-calypso-bridge' ),
 				'manage_woocommerce',
 				'admin.php?page=wc-reports',
-				'Reports (Legacy)'
+				'Legacy Reports'
 			);
 		}
 
@@ -206,7 +240,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Add Extensions > Manage submenu.
 		add_submenu_page( 'woocommerce', __( 'WooCommerce Subscriptions','wc-calypso-bridge' ), __( 'Manage','wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-addons&section=helper', '', 10 );
-
 
 		// Move WooCommerce > Extensions under Extensions > Discover.
 		foreach ( $submenu['woocommerce'] as $key => $data ) {
@@ -229,6 +262,18 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				}
 			}
 		}
+
+		// Re-order submenus.
+		$this->reorder_woocommerce_menu();
+		$this->reorder_settings_menu();
+		$this->reorder_analytics_menu();
+	}
+
+	/**
+	 * Re-Order WooCommerce submenu.
+	 */
+	private function reorder_woocommerce_menu() {
+		global $submenu;
 
 		if ( ! empty( $submenu['woocommerce'] ) && is_array( $submenu['woocommerce'] ) ) {
 
@@ -269,6 +314,13 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				return ( $A < $B ) ? -1 : 1;
 			} );
 		}
+	}
+
+	/**
+	 * Re-Order Settings submenu.
+	 */
+	private function reorder_settings_menu() {
+		global $submenu;
 
 		// Order options-general.php -- ensure WooCommerce is right after "General".
 		if ( ! empty( $submenu['options-general.php'] ) && is_array( $submenu['options-general.php'] ) ) {
@@ -298,8 +350,15 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				return ( $A < $B ) ? -1 : 1;
 			} );
 		}
+	}
 
-		// Order wc-admin&path=/analytics/overview -- ensure settings are always last and "Reports (legacy)" is the one above it.
+	/**
+	 * Re-Order Analytics submenu.
+	 */
+	private function reorder_analytics_menu() {
+		global $submenu;
+
+		// Order wc-admin&path=/analytics/overview -- ensure settings are always last and "Legacy Reports" is the one above it.
 		if ( ! empty( $submenu['wc-admin&path=/analytics/overview'] ) && is_array( $submenu['wc-admin&path=/analytics/overview'] ) ) {
 
 			uasort( $submenu['wc-admin&path=/analytics/overview'], function( $a, $b ) {
