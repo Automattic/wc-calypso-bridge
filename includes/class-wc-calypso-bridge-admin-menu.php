@@ -143,7 +143,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			$submenu_file = 'admin.php?page=wc-addons&section=helper';
 		}
 
-		// Move WooCommerce > Reports to Anaytics > Reports (Legacy).
+		// Move WooCommerce > Reports to Anaytics > Legacy Reports.
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-reports' ), true ) ) {
 			$plugin_page  = 'wc-admin&path=/analytics/overview';
 			$submenu_file = 'admin.php?page=wc-reports';
@@ -190,10 +190,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Force-add the "Report (Legacy)" submenu item.
 		if ( ! empty( $submenu['wc-admin&path=/analytics/overview'] ) && is_array( $submenu['wc-admin&path=/analytics/overview'] ) ) {
 			$submenu['wc-admin&path=/analytics/overview'][] = array(
-				__( 'Reports (Legacy)', 'wc-calypso-bridge' ),
+				__( 'Legacy Reports', 'wc-calypso-bridge' ),
 				'manage_woocommerce',
 				'admin.php?page=wc-reports',
-				'Reports (Legacy)'
+				'Legacy Reports'
 			);
 		}
 
@@ -299,7 +299,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			} );
 		}
 
-		// Order wc-admin&path=/analytics/overview -- ensure settings are always last and "Reports (legacy)" is the one above it.
+		// Order wc-admin&path=/analytics/overview -- ensure settings are always last and "Legacy Reports" is the one above it.
 		if ( ! empty( $submenu['wc-admin&path=/analytics/overview'] ) && is_array( $submenu['wc-admin&path=/analytics/overview'] ) ) {
 
 			uasort( $submenu['wc-admin&path=/analytics/overview'], function( $a, $b ) {
