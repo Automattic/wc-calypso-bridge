@@ -382,7 +382,7 @@ const BeforeLaunch = ( { tasks, setIsLaunched } ) => {
 				<div className="woocommerce-task-card__pending-tasks__links">
 					<LaunchButton
 						label={ __(
-							'Launch your store anyway',
+							'Launch anyway',
 							'wc-calypso-bridge'
 						) }
 						successCallback={ () => {
