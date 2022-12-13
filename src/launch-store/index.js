@@ -217,7 +217,7 @@ const Congratulations = () => {
 	);
 };
 
-const ReadyToLaunch = ( { setIsLaunched } ) => {
+const ReadyToLaunch = ( { launchHandler } ) => {
 	const siteSlug = escape( window.wcCalypsoBridge.siteSlug );
 
 	return (
@@ -241,10 +241,7 @@ const ReadyToLaunch = ( { setIsLaunched } ) => {
 				</Text>
 				<div className="woocommerce-task-card__ready-to-launch__links">
 					<LaunchButton
-						successCallback={ () => {
-							setIsLaunched( true );
-							window.scrollTo( 0, 0 );
-						} }
+						successCallback={ launchHandler }
 					/>
 				</div>
 			</CardBody>
@@ -273,7 +270,7 @@ const ReadyToLaunch = ( { setIsLaunched } ) => {
 	);
 };
 
-const BeforeLaunch = ( { tasks, setIsLaunched } ) => {
+const BeforeLaunch = ( { tasks, launchHandler } ) => {
 	const siteSlug = escape( window.wcCalypsoBridge.siteSlug );
 	const siteUrl = escape( window.wcCalypsoBridge.homeUrl );
 
@@ -385,10 +382,7 @@ const BeforeLaunch = ( { tasks, setIsLaunched } ) => {
 							'Launch anyway',
 							'wc-calypso-bridge'
 						) }
-						successCallback={ () => {
-							setIsLaunched( true );
-							window.scrollTo( 0, 0 );
-						} }
+						successCallback={ launchHandler }
 					/>
 				</div>
 				<Text as="span">
@@ -441,15 +435,25 @@ const LaunchStorePage = () => {
 	);
 	const hasPendingTasks = pendingTasks.length;
 
+	const launchHandler = () => {
+
+		if ( hasPendingTasks ) {
+			setIsLaunched( true );
+			window.scrollTo( 0, 0 );
+		} else {
+			window.location.href = escape( window.wcCalypsoBridge.adminHomeUrl );
+		}
+	}
+
 	return (
 		<div className="woocommerce-launch-store">
 			{ ! isLauched && ! hasPendingTasks && <ReadyToLaunch
-				setIsLaunched={ setIsLaunched }
+				launchHandler={ launchHandler }
 				/> }
 			{ ! isLauched && hasPendingTasks && (
 				<BeforeLaunch
 					tasks={ pendingTasks }
-					setIsLaunched={ setIsLaunched }
+					launchHandler={ launchHandler }
 				/>
 			) }
 			{ isLauched && <Congratulations /> }

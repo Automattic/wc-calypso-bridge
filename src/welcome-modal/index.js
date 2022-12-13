@@ -7,6 +7,7 @@ import { createInterpolateElement, useState, useEffect } from '@wordpress/elemen
 import { compose } from '@wordpress/compose';
 import { withDispatch, withSelect } from '@wordpress/data';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
+import { recordEvent } from '@woocommerce/tracks';
 
 /**
  * Internal dependencies
@@ -31,7 +32,17 @@ const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 		updateOptions( {
 			woocommerce_ecommerce_welcome_modal_dismissed: 'yes',
 		} );
+		recordEvent( 'ecommerce_welcome_modal_close' );
 	};
+
+	return <Modal closeHandler={closeHandler} />
+};
+
+const Modal = ({ closeHandler }) => {
+
+	useEffect( () => {
+		recordEvent( 'ecommerce_welcome_modal_open' );
+	}, [] );
 
 	const ASSET_URL = escape(
 		window.wcCalypsoBridge.homeUrl +
@@ -106,7 +117,8 @@ const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 			] }
 		/>
 	);
-};
+}
+
 export default compose(
 	withSelect( ( select ) => {
 		const { getOption, hasFinishedResolution } = select(
