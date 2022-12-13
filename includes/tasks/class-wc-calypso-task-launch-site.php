@@ -74,8 +74,7 @@ class LaunchSite extends Task {
 	public function get_action_url() {
 		$status       = new \Automattic\Jetpack\Status();
 		$site_suffix  = $status->get_site_suffix();
-		// return ! $this->is_complete() ? null : sprintf( "https://wordpress.com/settings/general/%s#site-privacy-settings", $site_suffix );
-		return null;
+		return ! $this->is_complete() ? null : sprintf( "https://wordpress.com/settings/general/%s#site-privacy-settings", $site_suffix );
 	}
 
 	/**
@@ -85,6 +84,6 @@ class LaunchSite extends Task {
 	 */
 	public function is_complete() {
 		// return 'launched' === get_option( 'launch-status' );
-		return true;
+		return false;
 	}
 }
