@@ -78,7 +78,7 @@ class WC_Calypso_Bridge_Jetpack {
 				$ga_options = get_option( 'jetpack_wga' );
 				$ga_enabled = isset( $ga_options['code'] ) && ! empty( $ga_options['code'] );
 
-				// If GA was already enabled before the transfer to atomic, we shouldn't remove the module.
+				// Do not remove the module in case Jetpack GA was already enabled before the transfer to atomic.
 				if ( ! $ga_enabled ) {
 					$mods = array_diff_key( $mods, array_flip( array( 'google-analytics' ) ) );
 				}
