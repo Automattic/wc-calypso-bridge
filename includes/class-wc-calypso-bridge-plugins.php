@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.8
+ * @version 1.9.11
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -36,6 +36,14 @@ class WC_Calypso_Bridge_Plugins {
 		'woocommerce-shipping-royalmail/woocommerce-shipping-royalmail.php',
 		'woocommerce-shipping-ups/woocommerce-shipping-ups.php',
 		'woocommerce-shipping-usps/woocommerce-shipping-usps.php',
+		'tiktok-for-woocommerce/tiktok-for-woocommerce.php',
+		'woocommerce-pinterest/pinterest-for-woocommerce.php',
+		'woocommerce-brands/woocommerce-brands.php',
+		'woocommerce-back-in-stock-notifications/woocommerce-back-in-stock-notifications.php',
+		'woocommerce-eu-vat-number/woocommerce-eu-vat-number.php',
+		'woocommerce-shipment-tracking/woocommerce-shipment-tracking.php',
+		'crowdsignal-forms/crowdsignal-forms.php',
+		'polldaddy/polldaddy.php',
 	);
 
 	/**
