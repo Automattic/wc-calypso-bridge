@@ -43,7 +43,7 @@ class LaunchSite extends Task {
 	 */
 	public function get_content() {
 		return __(
-			'It's time to celebrate! Ready to launch your store?',
+			'It\'s time to celebrate! Ready to launch your store?',
 			'woocommerce'
 		);
 	}
