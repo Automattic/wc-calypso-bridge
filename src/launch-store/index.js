@@ -229,7 +229,7 @@ const ReadyToLaunch = ( { setIsLaunched } ) => {
 					className="woocommerce-task-card__title"
 				>
 					{ __(
-						'You’re ready to launch your store!',
+						'Ready to launch your store?',
 						'wc-calypso-bridge'
 					) }
 				</Text>
