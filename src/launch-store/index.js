@@ -394,7 +394,7 @@ const BeforeLaunch = ( { tasks, setIsLaunched } ) => {
 				<Text as="span">
 					{ createInterpolateElement(
 						__(
-							'You can always change the visibility of your store by updating your <a>Privacy</a> settings.',
+							'You can always make your store private again by updating your <a>Privacy</a> settings.',
 							'wc-calypso-bridge'
 						),
 						{
