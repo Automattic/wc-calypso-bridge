@@ -300,7 +300,7 @@ const BeforeLaunch = ( { tasks, setIsLaunched } ) => {
 				Icon = ProductsIcon;
 				customTitle = __( 'List your products', 'wc-calypso-bridge' );
 				customContent = __(
-					'Start selling by adding products or services to your store. Choose to list products manually, or import them from a different store.',
+					'Start selling by adding products or services to your store. Create your products manually, or import them from an existing store.',
 					'wc-calypso-bridge'
 				);
 				customActionLabel = __( 'List products', 'wc-calypso-bridge' );
