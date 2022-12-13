@@ -96,7 +96,7 @@ const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 							</h2>
 							<p className="ecommerce__welcome-modal__page-content__body">
 								{ __(
-									'Get tips and key insights on your store’s performance every time you jump back into your store.',
+									'Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard.',
 									'wc-calypso-bridge'
 								) }
 							</p>
