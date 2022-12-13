@@ -453,7 +453,7 @@ const LaunchStorePage = () => {
 
 	return (
 		<div className="woocommerce-launch-store">
-			{/*{ ! isLauched && ! hasPendingCrucialTasks && <ReadyToLaunch
+			{ ! isLauched && ! hasPendingCrucialTasks && <ReadyToLaunch
 				launchHandler={ launchHandler }
 				/> }
 			{ ! isLauched && hasPendingCrucialTasks && (
@@ -461,7 +461,7 @@ const LaunchStorePage = () => {
 					tasks={ pendingTasks }
 					launchHandler={ launchHandler }
 				/>
-			) }*/}
+			) }
 			{ ! isLauched && <Congratulations /> }
 		</div>
 	);
