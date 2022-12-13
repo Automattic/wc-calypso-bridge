@@ -54,7 +54,7 @@ class WC_Calypso_Bridge_Jetpack {
 		 * @return string
 		 */
 		add_filter( 'jetpack_admin_menu_class', function ( $menu_controller_class ) {
-			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
+			if ( ! (bool) apply_filters( 'calypso_bridge_disable_ecommerce_menu', false ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
 				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
 
 				return Ecommerce_Atomic_Admin_Menu::class;
