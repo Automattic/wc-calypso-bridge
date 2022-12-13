@@ -71,7 +71,7 @@ const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 									{
 										a: (
 											<a
-												href={ 'https://wordpress.com/#' }
+												href={ 'https://wordpress.com/support/new-woocommerce-experience-on-wordpress-dot-com/' }
 											/>
 										),
 									}
