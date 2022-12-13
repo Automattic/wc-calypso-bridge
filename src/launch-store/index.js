@@ -235,7 +235,7 @@ const ReadyToLaunch = ( { setIsLaunched } ) => {
 				</Text>
 				<Text as="span">
 					{ __(
-						'Woo! Hit the button to make your store public',
+						'Hit the button to make your store public.',
 						'wc-calypso-bridge'
 					) }
 				</Text>
