@@ -372,7 +372,7 @@ const BeforeLaunch = ( { tasks, setIsLaunched } ) => {
 				</Text>
 				<Text as="span">
 					{ __(
-						'A few things to check before launching your store',
+						'You are almost there! A few things to check before launching your store:',
 						'wc-calypso-bridge'
 					) }
 				</Text>
