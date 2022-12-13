@@ -92,7 +92,7 @@ const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 					content: (
 						<div className="ecommerce__welcome-modal__page-content">
 							<h2 className="ecommerce__welcome-modal__page-content__header">
-								{ __( 'Your new Home', 'wc-calypso-bridge' ) }
+								{ __( 'Meet your new Home', 'wc-calypso-bridge' ) }
 							</h2>
 							<p className="ecommerce__welcome-modal__page-content__body">
 								{ __(
