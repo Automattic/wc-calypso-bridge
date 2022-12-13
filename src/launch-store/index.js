@@ -169,22 +169,9 @@ const Congratulations = () => {
 					</Text>
 
 					<Text as="span">
-						{ createInterpolateElement(
-							__(
-								'Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news! Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings.',
-								'wc-calypso-bridge'
-							),
-							{
-								a: (
-									<a
-										href={
-											'https://wordpress.com/settings/general/' +
-											siteSlug +
-											'#site-privacy-settings'
-										}
-									/>
-								),
-							}
+						{ __(
+							'Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!',
+							'wc-calypso-bridge'
 						) }
 					</Text>
 				</div>
@@ -204,13 +191,27 @@ const Congratulations = () => {
 					>
 						{ __( 'View your store', 'wc-calypso-bridge' ) }
 					</Button>
-					<br />
-					<Link
-						className=""
-						href={ getAdminLink( `admin.php?page=wc-admin` ) }
-					>
-						{ __( 'Return home', 'wc-calypso-bridge' ) }
-					</Link>
+				</div>
+				<div className="woocommerce-task-card__congratulations__text woocommerce-task-card__congratulations__text--footer">
+					<Text as="span">
+						{ createInterpolateElement(
+							__(
+								'Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings.',
+								'wc-calypso-bridge'
+							),
+							{
+								a: (
+									<a
+										href={
+											'https://wordpress.com/settings/general/' +
+											siteSlug +
+											'#site-privacy-settings'
+										}
+									/>
+								),
+							}
+						) }
+					</Text>
 				</div>
 			</CardBody>
 		</Card>
@@ -452,7 +453,7 @@ const LaunchStorePage = () => {
 
 	return (
 		<div className="woocommerce-launch-store">
-			{ ! isLauched && ! hasPendingCrucialTasks && <ReadyToLaunch
+			{/*{ ! isLauched && ! hasPendingCrucialTasks && <ReadyToLaunch
 				launchHandler={ launchHandler }
 				/> }
 			{ ! isLauched && hasPendingCrucialTasks && (
@@ -460,8 +461,8 @@ const LaunchStorePage = () => {
 					tasks={ pendingTasks }
 					launchHandler={ launchHandler }
 				/>
-			) }
-			{ isLauched && <Congratulations /> }
+			) }*/}
+			{ ! isLauched && <Congratulations /> }
 		</div>
 	);
 };
