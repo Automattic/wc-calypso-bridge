@@ -433,7 +433,12 @@ const LaunchStorePage = () => {
 			task.isComplete === false &&
 			crucialTasks.includes( task.id )
 	);
-	const hasPendingTasks = pendingTasks.length;
+	const hasPendingCrucialTasks = pendingTasks.length;
+	const hasPendingTasks = setupList.tasks.filter(
+		( task ) =>
+			task.canView === true &&
+			task.isComplete === false
+	).length;
 
 	const launchHandler = () => {
 
@@ -447,10 +452,10 @@ const LaunchStorePage = () => {
 
 	return (
 		<div className="woocommerce-launch-store">
-			{ ! isLauched && ! hasPendingTasks && <ReadyToLaunch
+			{ ! isLauched && ! hasPendingCrucialTasks && <ReadyToLaunch
 				launchHandler={ launchHandler }
 				/> }
-			{ ! isLauched && hasPendingTasks && (
+			{ ! isLauched && hasPendingCrucialTasks && (
 				<BeforeLaunch
 					tasks={ pendingTasks }
 					launchHandler={ launchHandler }
