@@ -73,10 +73,10 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsigna
 // Load shared stuff for both ecommerce and business plan.
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-shared.php';
 
-// if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-// 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
-// 	return;
-// }
+if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
+	return;
+}
 
 if ( ! function_exists( 'wc_calypso_bridge_init' ) ) {
 	/**
