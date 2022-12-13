@@ -4,20 +4,11 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 1.9.8
+ * @version 1.9.11
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
 class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu {
-
-	/**
-	 * Remove 'Earn' from Tools. Merchants have an idea already about how they want to make money :)
-	 */
-	public function add_tools_menu() {
-		parent::add_tools_menu();
-		// Remove Earn from Tools.
-		$this->hide_submenu_page( 'tools.php', 'https://wordpress.com/earn/' . $this->domain );
-	}
 
 	/**
 	 * Introduce 'Settings > Anti-Spam' and remove 'Settings > Jetpack' from Settings.
