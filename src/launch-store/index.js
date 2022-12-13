@@ -171,7 +171,7 @@ const Congratulations = () => {
 					<Text as="span">
 						{ createInterpolateElement(
 							__(
-								'Congratulations on setting up your WooCommerce store. You can always change the visibility of your store by updating your <a>Privacy</a> settings.',
+								'Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news! Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings.',
 								'wc-calypso-bridge'
 							),
 							{
