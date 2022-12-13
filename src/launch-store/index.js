@@ -209,7 +209,7 @@ const Congratulations = () => {
 						className=""
 						href={ getAdminLink( `admin.php?page=wc-admin` ) }
 					>
-						{ __( 'Back to home', 'wc-calypso-bridge' ) }
+						{ __( 'Return home', 'wc-calypso-bridge' ) }
 					</Link>
 				</div>
 			</CardBody>
