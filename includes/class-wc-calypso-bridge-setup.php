@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.8
+ * @version 1.9.9
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -43,15 +43,22 @@ class WC_Calypso_Bridge_Setup {
 	protected $one_time_operations = array(
 		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
 		'woocommerce_create_pages'  => 'woocommerce_create_pages_callback',
-		'set_jetpack_defaults'      => 'set_jetpack_defaults',
+		'set_jetpack_defaults'      => 'set_jetpack_defaults_callback',
 	);
+
+	/**
+	 * Option prefix.
+	 *
+	 * @since 1.9.9
+	 * @var string
+	 */
+	protected $option_prefix = 'wc_calypso_bridge_one_time_operation_';
 
 	/**
 	 * Constructor.
 	 */
 	private function __construct() {
 		$this->setup_one_time_operations();
-		add_action( 'shutdown', array( $this, 'save_one_time_operations_status' ), PHP_INT_MAX );
 
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
@@ -64,27 +71,30 @@ class WC_Calypso_Bridge_Setup {
 
 	/**
 	 * Set the one time operations and execute their callbacks.
-	 * If a callback is true (boolean), it means the operation
-	 * has already been executed and will be skipped.
 	 *
 	 * @since 1.9.4
 	 * @return void
 	 */
 	public function setup_one_time_operations() {
 
-		$operations                = get_option( 'woocommerce_atomic_one_time_operations', $this->one_time_operations );
-		$this->one_time_operations = array_merge( $this->one_time_operations, $operations );
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+			return;
+		}
 
 		foreach ( $this->one_time_operations as $operation => $callback ) {
 
-			// Don't run the operation if the callback has already been executed.
-			if ( $this->is_one_time_operation_complete( $operation ) ) {
+			// Don't run the operation if the callback is not callable.
+			if ( ! method_exists( $this, $callback ) ) {
 				continue;
 			}
 
-			// Don't run the operation if the callback is not callable and don't save it in the options.
-			if ( ! method_exists( $this, $callback ) ) {
-				unset( $this->one_time_operations[ $operation ] );
+			$status = get_option( $this->option_prefix . $operation );
+			if ( ! $status ) {
+				// Option doesn't exist, flag the operation as initialized.
+				update_option( $this->option_prefix . $operation, 'init', 'no' );
+			}
+
+			if ( 'completed' === $status ) {
 				continue;
 			}
 
@@ -101,28 +111,30 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function delete_coupon_moved_notes_callback() {
 
-		add_action( 'admin_init', function () {
+		add_action( 'woocommerce_init', function () {
 
 			if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
 				return;
 			}
 
+			$operation = 'delete_coupon_moved_notes';
+
 			// Delete all existing `Coupon Page Moved` notes from the DB.
 			$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
 			if ( false === $note ) {
-				$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
 
 				return;
 			}
 
 			Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-admin-coupon-page-moved' );
-			$this->set_one_time_operation_complete( 'delete_coupon_moved_notes' );
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
 
 		}, PHP_INT_MAX );
 	}
 
 	/**
-	 * Defines the Jetpack modules active in the Ecommerce Plan by default.
+	 * Create WooCommerce related pages for the Ecommerce Plan.
 	 *
 	 * @since 1.9.8
 	 * @return void
@@ -131,31 +143,89 @@ class WC_Calypso_Bridge_Setup {
 
 		add_action( 'woocommerce_init', function () {
 
-			global $wpdb;
-			$post_count = (int) $wpdb->get_var( "select count(*) from $wpdb->posts where post_name in ('shop', 'cart', 'my-account', 'checkout', 'refund_returns')" );
+			$operation = 'woocommerce_create_pages';
 
-			// Abort if we find any existing pages.
-			if ( 5 === $post_count ) {
-				$this->set_one_time_operation_complete( 'woocommerce_create_pages' );
+			// Set the operation as completed if the store is active for more than 5 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
 
 				return;
 			}
 
-			// Reset the woocommerce_*_page_id options.
-			// This is needed as woocommerce_*_page_id options have incorrect values on a fresh installation
-			// for an ecommerce plan. WC_Install:create_pages() might not create all the
-			// required pages without resetting these options first.
-			foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
-				delete_option( "woocommerce_{$page}_page_id" );
+			global $wpdb;
+
+			$wpdb->query( 'START TRANSACTION' );
+
+			// Prepare to lock the row, when it gets updated.
+			$status = $wpdb->get_var(
+				$wpdb->prepare( "
+				SELECT option_value
+				FROM `{$wpdb->options}`
+				WHERE option_name = '%s'
+				LIMIT 1
+				FOR UPDATE
+				",
+					$this->option_prefix . $operation
+				)
+			);
+
+			// Lock the row, by immediately executing an UPDATE query.
+			$wpdb->query(
+				$wpdb->prepare( "
+					UPDATE `{$wpdb->options}`
+					SET option_value = '%s'
+					WHERE option_name = '%s'",
+					'started',
+					$this->option_prefix . $operation
+				)
+			);
+
+			if ( 'completed' === $status ) {
+				$wpdb->query( 'ROLLBACK' );
+
+				return;
 			}
 
-			// Delete the following note, so it can be recreated with the correct refund page ID.
-			if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
-				Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-refund-returns-page' );
-			}
+			try {
+				/*
+				 * Reset the woocommerce_*_page_id options.
+				 * This is needed as woocommerce_*_page_id options have incorrect values on a fresh installation
+				 * for an ecommerce plan. WC_Install:create_pages() might not create all the
+				 * required pages without resetting these options first.
+				 */
+				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
+					delete_option( "woocommerce_{$page}_page_id" );
+				}
 
-			WC_Install::create_pages();
-			$this->set_one_time_operation_complete( 'woocommerce_create_pages' );
+				// Delete the following note, so it can be recreated with the correct refund page ID.
+				if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
+					Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-refund-returns-page' );
+				}
+
+				WC_Install::create_pages();
+
+				$wpdb->query(
+					$wpdb->prepare( "
+					UPDATE `{$wpdb->options}`
+					SET option_value = '%s'
+					WHERE option_name = '%s'",
+						'completed',
+						$this->option_prefix . $operation
+					)
+				);
+
+				// Update and Release row.
+				$wpdb->query( 'COMMIT' );
+				wp_cache_delete( $this->option_prefix . $operation, 'options' );
+
+				return;
+			} catch ( Exception $e ) {
+				// Release row.
+				$wpdb->query( 'ROLLBACK' );
+				error_log( 'Exception: ' . $e->getMessage() );
+
+				return;
+			}
 
 		}, PHP_INT_MAX );
 
@@ -180,7 +250,6 @@ class WC_Calypso_Bridge_Setup {
 				include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
 				new WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note();
 				WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note::possibly_add_note();
-
 			}
 
 			return $pages;
@@ -195,9 +264,9 @@ class WC_Calypso_Bridge_Setup {
 	 * @since 1.9.8
 	 * @return void
 	 */
-	public function set_jetpack_defaults() {
+	public function set_jetpack_defaults_callback() {
 
-		add_action( 'init', function () {
+		add_action( 'woocommerce_init', function () {
 
 			$active_modules = array(
 				'manage',
@@ -246,20 +315,9 @@ class WC_Calypso_Bridge_Setup {
 				update_option( 'jetpack_active_modules', $active_modules );
 				update_option( 'sharing-options', $sharing_options );
 			}
-
-			$this->set_one_time_operation_complete( 'set_jetpack_defaults' );
-
-		} );
-	}
-
-	/**
-	 * Save the one-time operations' status .
-	 *
-	 * @since 1.9.4
-	 * @return void
-	 */
-	public function save_one_time_operations_status() {
-		update_option( 'woocommerce_atomic_one_time_operations', $this->one_time_operations );
+			$operation = 'set_jetpack_defaults';
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
+		}, PHP_INT_MAX );
 	}
 
 	/**
@@ -389,29 +447,6 @@ class WC_Calypso_Bridge_Setup {
 		return isset( $theme['is_installed'] ) && $theme['is_installed'];
 	}
 
-	/**
-	 * Check if the operation has completed.
-	 *
-	 * @since 1.9.4
-	 * @param string $operation One time operation name.
-	 * @return boolean True if the operation has completed, false otherwise.
-	 */
-	protected function is_one_time_operation_complete( $operation ) {
-		return ( isset( $this->one_time_operations[ $operation ] ) && true === $this->one_time_operations[ $operation ] );
-	}
-
-	/**
-	 * Sets an operation as complete.
-	 *
-	 * @since 1.9.4
-	 * @param string $operation One time operation name.
-	 * @return void
-	 */
-	protected function set_one_time_operation_complete( $operation ) {
-		if ( isset( $this->one_time_operations[ $operation ] ) ) {
-			$this->one_time_operations[ $operation ] = true;
-		}
-	}
 }
 
 $wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();

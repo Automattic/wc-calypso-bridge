@@ -116,27 +116,37 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 */
 	public function modify_woocommerce_menu_highlighting( $submenu_file ) {
 		global $parent_file, $submenu_file, $plugin_page, $current_screen;
+		// We change the global $plugin_page due to the get_admin_page_parent() that replaces parent_file with this.
 
-		// Move WooCommerce > Settings under under Settings > WooCommerce.
+		// Move WooCommerce > Settings to Settings > WooCommerce.
 		$screen_id = is_a( $current_screen, 'WP_Screen' ) ? $current_screen->id : '';
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-settings' ), true ) ) {
-			// We change the global $plugin_page due to the get_admin_page_parent() that replaces parent_file with this.
 			$plugin_page  = 'options-general.php';
 			$submenu_file = 'admin.php?page=wc-settings';
 		}
 
-		// Move WooCommerce > Status under under Tools > WooCommerce Status.
+		// Move WooCommerce > Status to Tools > WooCommerce Status.
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-status' ), true ) ) {
-			// We change the global $plugin_page due to the get_admin_page_parent() that replaces parent_file with this.
 			$plugin_page  = 'tools.php';
 			$submenu_file = 'admin.php?page=wc-status';
 		}
 
+		// Fix WC Home highlight.
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-admin' ), true ) ) {
-			// We change the global $plugin_page due to the get_admin_page_parent() that replaces parent_file with this.
-			// $parent_file  = 'admin.php?page=wc-admin';
 			$plugin_page  = 'admin.php?page=wc-admin';
 			$submenu_file = 'admin.php?page=wc-admin';
+		}
+
+		// Move WooCommerce > Extensions (My subscriptions tab) to Extensions > Manage.
+		if ( in_array( $screen_id, array( 'woocommerce_page_wc-addons' ), true ) && isset( $_GET[ 'section' ] ) && 'helper' === $_GET[ 'section' ] ) {
+			$plugin_page  = 'woocommerce';
+			$submenu_file = 'admin.php?page=wc-addons&section=helper';
+		}
+
+		// Move WooCommerce > Reports to Anaytics > Reports (Legacy).
+		if ( in_array( $screen_id, array( 'woocommerce_page_wc-reports' ), true ) ) {
+			$plugin_page  = 'wc-admin&path=/analytics/overview';
+			$submenu_file = 'admin.php?page=wc-reports';
 		}
 
 		return $submenu_file;
@@ -146,6 +156,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Handle WooCommerce menu.
 	 */
 	public function add_woocommerce_menu() {
+		global $submenu, $menu;
 
 		// Seperator1 gets removed on Atomic_Admin_Menu class.
 		// We add one more here to be used on top of the WC group.
@@ -174,8 +185,17 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$this->hide_submenu_page( 'woocommerce', 'wc-status' );
 		add_submenu_page( 'tools.php', __( 'WooCommerce Status','wc-calypso-bridge' ), __( 'WooCommerce Status','wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-status', '', 10 );
 
-		// Hide legacy reports.
+		// Move legacy reports.
 		$this->hide_submenu_page( 'woocommerce', 'wc-reports' );
+		// Force-add the "Report (Legacy)" submenu item.
+		if ( ! empty( $submenu['wc-admin&path=/analytics/overview'] ) && is_array( $submenu['wc-admin&path=/analytics/overview'] ) ) {
+			$submenu['wc-admin&path=/analytics/overview'][] = array(
+				__( 'Reports (Legacy)', 'wc-calypso-bridge' ),
+				'manage_woocommerce',
+				'admin.php?page=wc-reports',
+				'Reports (Legacy)'
+			);
+		}
 
 		// Move Customers to root menu.
 		$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/customers' );
@@ -184,7 +204,9 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Update WooCommerce to Extensions
 		$this->update_menu( 'woocommerce', null, 'Extensions', null, null, null );
 
-		global $submenu, $menu;
+		// Add Extensions > Manage submenu.
+		add_submenu_page( 'woocommerce', __( 'WooCommerce Subscriptions','wc-calypso-bridge' ), __( 'Manage','wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-addons&section=helper', '', 10 );
+
 
 		// Move WooCommerce > Extensions under Extensions > Discover.
 		foreach ( $submenu['woocommerce'] as $key => $data ) {
@@ -208,38 +230,103 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			}
 		}
 
-		if ( empty( $submenu['woocommerce'] ) || ! is_array( $submenu['woocommerce'] ) ) {
-			// return;
-		}
+		if ( ! empty( $submenu['woocommerce'] ) && is_array( $submenu['woocommerce'] ) ) {
 
-		// Make sure that the managed and hidden are the last on the submenu list. THis is make the parent "WooCommerce" item to point to an extension instead of a hidden page.
-		uasort( $submenu['woocommerce'], function( $a, $b ) {
+			// Make sure that the managed and hidden are the last on the submenu list. This is make the parent "WooCommerce" item to point to an extension instead of a hidden page.
+			uasort( $submenu['woocommerce'], function( $a, $b ) {
 
-			// Helper weights.
-			$A = 1;
-			$B = 1;
-			if ( in_array( $a[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
-				if ( 'wc-addons' === $a[2] ) {
-					$A = 0;
-				} else {
+				// Helper weights.
+				$A = 1;
+				$B = 1;
+				if ( in_array( $a[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
+					if ( 'wc-addons' === $a[2] ) {
+						$A = 0;
+					} else {
+						$A = 3;
+					}
+				}
+
+				if ( 'admin.php?page=wc-addons&section=helper' === $a[2] ) {
 					$A = 2;
 				}
-			}
 
-			if ( in_array( $b[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
-				if ( 'wc-addons' === $b[2] ) {
-					$B = 0;
-				} else {
+				if ( in_array( $b[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
+					if ( 'wc-addons' === $b[2] ) {
+						$B = 0;
+					} else {
+						$B = 3;
+					}
+				}
+
+				if ( 'admin.php?page=wc-addons&section=helper' === $b[2] ) {
 					$B = 2;
 				}
-			}
 
-			if ( $A == $B ) {
-				return 0;
-			}
+				if ( $A == $B ) {
+					return 0;
+				}
 
-			return ( $A < $B ) ? -1 : 1;
-		} );
+				return ( $A < $B ) ? -1 : 1;
+			} );
+		}
+
+		// Order options-general.php -- ensure WooCommerce is right after "General".
+		if ( ! empty( $submenu['options-general.php'] ) && is_array( $submenu['options-general.php'] ) ) {
+
+			uasort( $submenu['options-general.php'], function( $a, $b ) {
+
+				// Helper weights.
+				$A = 2;
+				$B = 2;
+
+				if ( false !== strpos( $a[2], 'https://wordpress.com/settings/general/' ) ) {
+					$A = 0;
+				} elseif ( 'admin.php?page=wc-settings' === $a[2] ) {
+					$A = 1;
+				}
+
+				if ( false !== strpos( $b[2], 'https://wordpress.com/settings/general/' ) ) {
+					$B = 0;
+				} elseif ( 'admin.php?page=wc-settings' === $b[2] ) {
+					$B = 1;
+				}
+
+				if ( $A == $B ) {
+					return 0;
+				}
+
+				return ( $A < $B ) ? -1 : 1;
+			} );
+		}
+
+		// Order wc-admin&path=/analytics/overview -- ensure settings are always last and "Reports (legacy)" is the one above it.
+		if ( ! empty( $submenu['wc-admin&path=/analytics/overview'] ) && is_array( $submenu['wc-admin&path=/analytics/overview'] ) ) {
+
+			uasort( $submenu['wc-admin&path=/analytics/overview'], function( $a, $b ) {
+
+				// Helper weights.
+				$A = 1;
+				$B = 1;
+
+				if ( 'admin.php?page=wc-reports' === $a[2] ) {
+					$A = 2;
+				} elseif ( 'wc-admin&path=/analytics/settings' === $a[2] ) {
+					$A = 3;
+				}
+
+				if ( 'admin.php?page=wc-reports' === $b[2] ) {
+					$B = 2;
+				} elseif ( 'wc-admin&path=/analytics/settings' === $b[2] ) {
+					$B = 3;
+				}
+
+				if ( $A == $B ) {
+					return 0;
+				}
+
+				return ( $A < $B ) ? -1 : 1;
+			} );
+		}
 	}
 
 	/**
@@ -281,5 +368,41 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
 		add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
+
+		add_submenu_page( 'jetpack', esc_attr__( 'Jetpack Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 100 );
+
+		// Order Jetpack submenu to have Dashboard first followed by Stats.
+		if ( ! empty( $submenu['jetpack'] ) && is_array( $submenu['jetpack'] ) ) {
+
+			uasort( $submenu['jetpack'], function( $a, $b ) {
+
+				// Helper weights.
+				$A = 2;
+				$B = 2;
+
+				if ( false !== strpos( $a[2], 'stats/day' ) ) {
+					$A = 1;
+				} elseif ( 'jetpack#/dashboard' === $a[2] ) {
+					$A = 0;
+				}
+
+				if ( false !== strpos( $b[2], 'stats/day' ) ) {
+					$B = 1;
+				} elseif ( 'jetpack#/dashboard' === $b[2] ) {
+					$B = 0;
+				}
+
+				if ( $A == $B ) {
+					return 0;
+				}
+
+				return ( $A < $B ) ? -1 : 1;
+			} );
+		}
 	}
+
+	/**
+	 * Remove Stats menu.
+	 */
+	public function add_stats_menu() {}
 }
