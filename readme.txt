@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = 1.9.11 =
 * Prevent deletion of new round of managed extensions #xxx.
+* Rollback Tools > Earn menu item and Jetpack Google Analytics module #xxx.
 
 = 1.9.10 =
 * Rollback limiting available Jetpack Modules #870.
