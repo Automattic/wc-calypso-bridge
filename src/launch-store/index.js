@@ -252,7 +252,7 @@ const ReadyToLaunch = ( { setIsLaunched } ) => {
 				<Text as="span">
 					{ createInterpolateElement(
 						__(
-							'You can always change the visibility of your store by updating your <a>Privacy</a> settings.',
+							'To make your store private again, update your <a>Privacy</a> settings.',
 							'wc-calypso-bridge'
 						),
 						{
