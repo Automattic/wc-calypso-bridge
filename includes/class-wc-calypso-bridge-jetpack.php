@@ -54,6 +54,17 @@ class WC_Calypso_Bridge_Jetpack {
 		 * @return string
 		 */
 		add_filter( 'jetpack_admin_menu_class', function ( $menu_controller_class ) {
+
+			/**
+			 * `calypso_bridge_disable_ecommerce_menu` filter.
+			 *
+			 * This filter is used to revert the ecommerce menu back to the atomic one. It's suppose to be a safety net that will be deprecated in the future.
+			 *
+			 * @since x.x.x
+			 *
+			 * @param  bool $disabled
+			 * @return bool
+			 */
 			if ( ! (bool) apply_filters( 'calypso_bridge_disable_ecommerce_menu', false ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
 				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
 
