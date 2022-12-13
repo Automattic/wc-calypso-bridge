@@ -59,7 +59,8 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$extensions_index           = array_search( 'woocommerce', $menu_order, true );
 		$woocommerce_sep_index      = array_search( 'separator-woocommerce', $menu_order, true );
 		$woocommerce_sep_top_index  = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
-		$woocommerce_payments_index = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
+		$payments_connect_index     = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
+		$payments_overview_index    = array_search( 'wc-admin&path=/payments/overview', $menu_order, true );
 
 		// Loop through menu order and do some rearranging.
 		foreach ( $menu_order as $index => $item ) {
@@ -71,8 +72,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$woocommerce_menu_order[] = 'edit.php?post_type=shop_order'; // Orders.
 				$woocommerce_menu_order[] = 'edit.php?post_type=product'; // Products.
 				$woocommerce_menu_order[] = 'admin.php?page=wc-admin&path=/customers'; // Customers.
-				if ( false !== $woocommerce_payments_index ) {
+				if ( false !== $payments_connect_index ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/connect'; // Payments.
+				}elseif ( false !== $payments_overview_index ) {
+					$woocommerce_menu_order[] = 'wc-admin&path=/payments/overview'; // Payments.
 				}
 
 				$woocommerce_menu_order[] = 'wc-admin&path=/analytics/overview'; // Analytics.
@@ -105,12 +108,16 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				if ( false !== $woocommerce_sep_top_index ) {
 					unset( $menu_order[ $woocommerce_sep_top_index ] );
 				}
-				if ( false !== $woocommerce_payments ) {
-					unset( $menu_order[ $woocommerce_payments ] );
+				if ( false !== $payments_connect_index ) {
+					unset( $menu_order[ $payments_connect_index ] );
+				}
+				if ( false !== $payments_overview_index ) {
+					unset( $menu_order[ $payments_overview_index ] );
 				}
 
 			} elseif ( ! in_array( $item, array(
 					'wc-admin&path=/payments/connect',
+					'wc-admin&path=/payments/overview',
 					'wc-calypso-bridge-separator-top',
 					'separator-woocommerce',
 					'woocommerce',
@@ -256,6 +263,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			}
 		}
 
+		// Re-order submenus.
 		$this->reorder_woocommerce_menu();
 		$this->reorder_settings_menu();
 		$this->reorder_analytics_menu();
