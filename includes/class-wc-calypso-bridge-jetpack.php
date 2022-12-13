@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Jetpack
  * @since   1.9.8
- * @version 1.9.10
+ * @version 1.9.11
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -86,11 +86,18 @@ class WC_Calypso_Bridge_Jetpack {
 
 			// Removing Google Analytics module as we've activated WooCommerce Google Analytics Integration for all new sites.
 			if ( WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_PRE_CONFIGURE_JETPACK ) ) {
-				$mods = array_diff_key( $mods, array_flip( array( 'google-analytics' ) ) );
+				$ga_options = get_option( 'jetpack_wga' );
+				$ga_enabled = isset( $ga_options['code'] ) && ! empty( $ga_options['code'] );
+
+				// Do not remove the module in case Jetpack GA was already enabled before the transfer to atomic.
+				if ( ! $ga_enabled ) {
+					$mods = array_diff_key( $mods, array_flip( array( 'google-analytics' ) ) );
+				}
 			}
 
 			return $mods;
 		} );
+
 	}
 }
 
