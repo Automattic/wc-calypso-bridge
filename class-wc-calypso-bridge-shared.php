@@ -85,21 +85,27 @@ class WC_Calypso_Bridge_Shared {
 			true
 		);
 
-		$style_path     = 'build/index.css';
+		$style_path     = 'build/style-index.css';
 		$style_path_url = plugins_url( $style_path, __FILE__ );
 		$res            = wp_register_style(
 			'wc-calypso-bridge',
 			$style_path_url,
 			array(),
-			filemtime( dirname( __FILE__ ) . '/build/index.css' )
+			filemtime( dirname( __FILE__ ) . '/build/style-index.css' )
 		);
+
+		$status       = new \Automattic\Jetpack\Status();
+		$site_suffix  = $status->get_site_suffix();
 
 		wp_add_inline_script(
 			'wc-calypso-bridge',
 			'window.wcCalypsoBridge = ' . wp_json_encode(
 				array(
 					'isWooPage'         => $is_woo_page,
-					'homeUrl'           => get_home_url(),
+					'homeUrl'           => esc_url( get_home_url() ),
+					'siteSlug'          => $site_suffix,
+					'adminHomeUrl'      => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
+					'assetPath'         => esc_url( self::get_asset_path() ),
 					'wcpayConnectUrl'   => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
 					'hasViewedPayments' => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 				)
@@ -109,6 +115,17 @@ class WC_Calypso_Bridge_Shared {
 
 		wp_enqueue_script( 'wc-calypso-bridge' );
 		wp_enqueue_style( 'wc-calypso-bridge' );
+	}
+
+	/**
+	 * Class instance.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return string
+	 */
+	public static function get_asset_path() {
+		return self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 	}
 
 	/**
