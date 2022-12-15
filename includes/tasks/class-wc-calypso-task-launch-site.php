@@ -43,7 +43,7 @@ class LaunchSite extends Task {
 	 */
 	public function get_content() {
 		return __(
-			'It\'s time to celebrate! Ready to launch your store?',
+			"It's time to celebrate! Ready to launch your store?",
 			'woocommerce'
 		);
 	}
@@ -83,7 +83,6 @@ class LaunchSite extends Task {
 	 * @return bool
 	 */
 	public function is_complete() {
-		return false;
-		// return 'launched' === get_option( 'launch-status' );
+		return 'launched' === get_option( 'launch-status' );
 	}
 }
