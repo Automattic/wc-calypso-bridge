@@ -35,16 +35,19 @@ registerPlugin( 'wc-calypso-bridge', {
 // Filter wc admin pages.
 addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
 
-	/**
-	 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
-	 */
-	pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'menu-dashboard' } : page );
-	pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
+	if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
+		/**
+		 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
+		 */
+		pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'menu-dashboard' } : page );
+		pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
+	}
+
 	return pages;
 } );
 
 // Embed code on woo pages.
-if ( !! window.wcCalypsoBridge.isWooPage ) {
+if ( !! window.wcCalypsoBridge.isWooNavigationEnabled && !! window.wcCalypsoBridge.isWooPage ) {
 	const wpBody = document.getElementById( 'wpbody-content' );
 	const wrap =
 		wpBody.querySelector( '.wrap.woocommerce' ) ||

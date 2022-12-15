@@ -83,7 +83,6 @@ class LaunchSite extends Task {
 	 * @return bool
 	 */
 	public function is_complete() {
-		// return 'launched' === get_option( 'launch-status' );
-		return false;
+		return 'launched' === get_option( 'launch-status' );
 	}
 }
