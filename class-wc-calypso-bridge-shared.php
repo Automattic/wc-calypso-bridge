@@ -103,7 +103,7 @@ class WC_Calypso_Bridge_Shared {
 			'wc-calypso-bridge',
 			'window.wcCalypsoBridge = ' . wp_json_encode(
 				array(
-					'isWooNavigationEnabled' => 'yes' === get_option( 'NEW_WOO_ATOMIC_NAVIGATION', 'no' ),
+					'isWooNavigationEnabled' => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', false ),
 					'isWooPage'              => $is_woo_page,
 					'homeUrl'                => esc_url( get_home_url() ),
 					'siteSlug'               => $site_suffix,

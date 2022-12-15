@@ -358,7 +358,7 @@ class WC_Calypso_Bridge {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 
-		if ( 'yes' === get_option( 'NEW_WOO_ATOMIC_NAVIGATION', 'no' ) ) {
+		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', false ) ) {
 			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', $asset_path . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 		}
 	}
