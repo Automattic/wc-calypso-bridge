@@ -404,8 +404,15 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 	);
 };
 
-const LaunchStorePage = () => {
-	const [ isLauched, setIsLaunched ] = useState( false );
+const LaunchStorePage = ({ onComplete, query }) => {
+
+	if ( query.status && 'success' === query.status ) {
+		return (
+			<div className="woocommerce-launch-store">
+				<Congratulations />
+			</div>
+		);
+	}
 
 	const { isResolving, taskLists } = useSelect( ( select ) => {
 		return {
@@ -438,25 +445,28 @@ const LaunchStorePage = () => {
 	const launchHandler = () => {
 
 		if ( hasPendingTasks ) {
-			setIsLaunched( true );
-			window.scrollTo( 0, 0 );
+
+			const redirectUrl = 'admin.php?page=wc-admin&task=launch_site&status=success';
+			onComplete( {
+				redirectPath: redirectUrl
+			} );
+
 		} else {
-			window.location.href = escape( window.wcCalypsoBridge.adminHomeUrl );
+			onComplete();
 		}
 	}
 
 	return (
 		<div className="woocommerce-launch-store">
-			{ ! isLauched && ! hasPendingCrucialTasks && <ReadyToLaunch
+			{ ! hasPendingCrucialTasks && <ReadyToLaunch
 				launchHandler={ launchHandler }
 				/> }
-			{ ! isLauched && hasPendingCrucialTasks && (
+			{ hasPendingCrucialTasks && (
 				<BeforeLaunch
 					tasks={ pendingTasks }
 					launchHandler={ launchHandler }
 				/>
 			) }
-			{ isLauched && <Congratulations /> }
 		</div>
 	);
 };
