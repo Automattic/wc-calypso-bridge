@@ -103,13 +103,14 @@ class WC_Calypso_Bridge_Shared {
 			'wc-calypso-bridge',
 			'window.wcCalypsoBridge = ' . wp_json_encode(
 				array(
-					'isWooPage'         => $is_woo_page,
-					'homeUrl'           => esc_url( get_home_url() ),
-					'siteSlug'          => $site_suffix,
-					'adminHomeUrl'      => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
-					'assetPath'         => esc_url( self::get_asset_path() ),
-					'wcpayConnectUrl'   => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
-					'hasViewedPayments' => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
+					'isWooNavigationEnabled' => 'yes' === get_option( 'NEW_WOO_ATOMIC_NAVIGATION', 'no' ),
+					'isWooPage'              => $is_woo_page,
+					'homeUrl'                => esc_url( get_home_url() ),
+					'siteSlug'               => $site_suffix,
+					'adminHomeUrl'           => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
+					'assetPath'              => esc_url( self::get_asset_path() ),
+					'wcpayConnectUrl'        => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
+					'hasViewedPayments'      => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 				)
 			),
 			'before'

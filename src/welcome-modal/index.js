@@ -18,8 +18,7 @@ import './style.scss';
 const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 	const [ isOpen, setIsOpen ] = useState( true );
 
-	if ( isResolving ) {
-		// if ( isDismissed || isResolving ) {
+	if ( isDismissed || isResolving ) {
 		return null;
 	}
 

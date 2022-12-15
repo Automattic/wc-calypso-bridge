@@ -102,33 +102,27 @@ const LaunchButton = ( {
 	const doLaunch = async () => {
 		setLoading( true );
 
-		// For testing simulate a request.
-		setTimeout( () => {
-			setLoading( false );
-			successCallback();
-		}, 2000 );
+		makeAjaxRequest(
+			'POST',
+			window.ajaxurl,
+			'application/x-www-form-urlencoded; charset=UTF-8',
+			'action=launch_store',
+			function ( xhr ) {
+				try {
+					if ( xhr.readyState === window.XMLHttpRequest.DONE ) {
+						if ( xhr.status === 200 && xhr.responseText ) {
+							successCallback();
+						} else {
+							console.error( xhr.responseText );
+						}
+					}
+				} catch ( error ) {
+					// Silently fail.
+				}
 
-		// makeAjaxRequest(
-		// 	'POST',
-		// 	window.ajaxurl,
-		// 	'application/x-www-form-urlencoded; charset=UTF-8',
-		// 	'action=launch_store',
-		// 	function ( xhr ) {
-		// 		try {
-		// 			if ( xhr.readyState === window.XMLHttpRequest.DONE ) {
-		// 				if ( xhr.status === 200 && xhr.responseText ) {
-		// 					successCallback();
-		// 				} else {
-		// 					console.error( xhr.responseText );
-		// 				}
-		// 			}
-		// 		} catch ( error ) {
-		// 			// Silently fail.
-		// 		}
-
-		// 		setLoading( false );
-		// 	}
-		// );
+				setLoading( false );
+			}
+		);
 	};
 
 	if ( ! loadingLabel ) {

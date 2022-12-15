@@ -65,10 +65,15 @@ class WC_Calypso_Bridge_Jetpack {
 			 * @param  bool $disabled
 			 * @return bool
 			 */
-			if ( ! (bool) apply_filters( 'calypso_bridge_disable_ecommerce_menu', false ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
-				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
+			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
 
-				return Ecommerce_Atomic_Admin_Menu::class;
+				if ( 'yes' === get_option( 'NEW_WOO_ATOMIC_NAVIGATION', 'no' ) ) {
+					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-ecommerce-admin-menu.php';
+					return Ecommerce_Atomic_Admin_Menu::class;
+				} else {
+					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
+					return Ecommerce_Atomic_Admin_Menu::class;
+				}
 			}
 
 			return $menu_controller_class;
