@@ -1,27 +1,32 @@
 /**
  * External dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { addFilter } from '@wordpress/hooks';
+import { WooOnboardingTask } from '@woocommerce/onboarding';
+import { registerPlugin } from '@wordpress/plugins';
 
 /**
  * Internal dependencies
  */
 import wcNavFilterRootUrl from './wc-navigation-root-url';
-import PaymentsWelcomePage from './payments-welcome';
+// import PaymentsWelcomePage from './payments-welcome';
+import LaunchStorePage from './launch-store';
 import './index.scss';
 
 wcNavFilterRootUrl();
 
-addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
-	pages.push( {
-		container: PaymentsWelcomePage,
-		path: '/payments-welcome',
-		breadcrumbs: [ __( 'WooCommerce Payments', 'wc-calypso-bridge' ) ],
-		navArgs: {
-			id: 'wc-calypso-bridge-payments-welcome-page',
-		},
-	} );
-
-	return pages;
+// Add slot fill for launch-your-store task.
+registerPlugin( 'wc-calypso-bridge', {
+	scope: 'woocommerce-tasks',
+	render: () => (
+		<WooOnboardingTask id="launch_site">
+			{ ( { onComplete, query, task } ) => (
+				<LaunchStorePage
+					onComplete={ onComplete }
+					query={ query }
+					task={ task }
+				/>
+			) }
+		</WooOnboardingTask>
+	),
 } );
