@@ -55,6 +55,11 @@
 			top: -2px;
 			left: -6px;
 		}
+
+		&__error {
+			color: $studio-gray-50;
+			font-style: italic;
+		}
 	}
 
 	// Heading.

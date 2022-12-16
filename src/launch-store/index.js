@@ -10,7 +10,7 @@ import {
 	Button,
 	Spinner,
 } from '@wordpress/components';
-import { createInterpolateElement, useState } from '@wordpress/element';
+import { createInterpolateElement, useState, Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { Text } from '@woocommerce/experimental';
@@ -76,6 +76,7 @@ const LaunchButton = ( {
 	successCallback = () => {},
 } ) => {
 	const [ loading, setLoading ] = useState( false );
+	const [ errorMessage, setErrorMessage ] = useState( '' );
 
 	const makeAjaxRequest = (
 		method,
@@ -100,7 +101,13 @@ const LaunchButton = ( {
 	};
 
 	const doLaunch = async () => {
+
+		if ( loading ) {
+			return;
+		}
+
 		setLoading( true );
+		setErrorMessage( '' );
 
 		makeAjaxRequest(
 			'POST',
@@ -113,7 +120,8 @@ const LaunchButton = ( {
 						if ( xhr.status === 200 && xhr.responseText ) {
 							successCallback();
 						} else {
-							console.error( xhr.responseText );
+							var response = JSON.parse(xhr.responseText);
+							setErrorMessage( escape( response.data[0].message ) );
 						}
 					}
 				} catch ( error ) {
@@ -136,10 +144,13 @@ const LaunchButton = ( {
 	const btnText = loading ? loadingLabel : label;
 
 	return (
-		<Button isPrimary className={ btnClass } onClick={ doLaunch }>
-			{ loading && <Spinner /> }
-			{ btnText || __( 'Launch your store', 'wc-calypso-bridge' ) }
-		</Button>
+		<Fragment>
+			<Button isPrimary className={ btnClass } onClick={ doLaunch }>
+				{ loading && <Spinner /> }
+				{ btnText || __( 'Launch your store', 'wc-calypso-bridge' ) }
+			</Button>
+			{ errorMessage && <p className="woocommerce-launch-store__button__error">{errorMessage}</p>}
+		</Fragment>
 	);
 };
 
@@ -446,9 +457,9 @@ const LaunchStorePage = ({ onComplete, query }) => {
 
 		if ( hasPendingTasks ) {
 
-			const redirectUrl = 'admin.php?page=wc-admin&task=launch_site&status=success';
+			const redirectPath = 'admin.php?page=wc-admin&task=launch_site&status=success';
 			onComplete( {
-				redirectPath: redirectUrl
+				redirectPath: redirectPath
 			} );
 
 		} else {
