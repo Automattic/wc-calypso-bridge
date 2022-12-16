@@ -255,7 +255,7 @@ const ReadyToLaunch = ( { launchHandler } ) => {
 				<Text as="span">
 					{ createInterpolateElement(
 						__(
-							'To make your store private again, update your <a>Privacy</a> settings.',
+							'You can always revert this under <a>Settings</a>.',
 							'wc-calypso-bridge'
 						),
 						{
@@ -394,7 +394,7 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 				<Text as="span">
 					{ createInterpolateElement(
 						__(
-							'You can always make your store private again by updating your <a>Privacy</a> settings.',
+							'You can always revert this under <a>Settings</a>.',
 							'wc-calypso-bridge'
 						),
 						{
