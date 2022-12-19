@@ -8,9 +8,9 @@
 		"build": "wp-scripts build",
 		"check-engines": "wp-scripts check-engines",
 		"check-licenses": "wp-scripts check-licenses",
-		"format:js": "wp-scripts format-js",
+		"format:js": "wp-scripts format-js src/",
 		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js",
+		"lint:js": "wp-scripts lint-js src/",
 		"lint:md:docs": "wp-scripts lint-md-docs",
 		"lint:md:js": "wp-scripts lint-md-js",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
@@ -20,29 +20,15 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.14.5",
-		"@babel/core": "^7.14.6",
-		"@babel/preset-typescript": "^7.14.5",
-		"@types/wordpress__components": "^14.0.1",
-		"@typescript-eslint/eslint-plugin": "^4.28.1",
-		"@woocommerce/components": "^7.0.0",
-		"@woocommerce/dependency-extraction-webpack-plugin": "1.4.0",
+		"@wordpress/scripts": "^14.0.0",
+		"@wordpress/babel-preset-default": "^6.2.0",
+		"@woocommerce/dependency-extraction-webpack-plugin": "^1.7.0",
 		"@woocommerce/eslint-plugin": "1.1.0",
-		"@wordpress/api-fetch": "^5.1.1",
-		"@wordpress/components": "^14.1.5",
-		"@wordpress/dom-ready": "^3.1.1",
-		"@wordpress/scripts": "^13.0.3",
-		"fork-ts-checker-webpack-plugin": "^6.2.12",
-		"mini-css-extract-plugin": "^2.0.0",
-		"prettier": "^2.3.2",
-		"typescript": "^4.3.5"
+		"@automattic/color-studio": "2.5.0"
 	},
 	"dependencies": {
-		"@wordpress/babel-preset-default": "^6.2.0",
-		"@wordpress/hooks": "^2.12.3",
-		"@wordpress/i18n": "^4.1.1",
-		"babel-loader": "^8.2.2",
-		"interpolate-components": "^1.1.1",
-		"wordpress-element": "npm:@wordpress/element@2.11.0"
+		"@automattic/color-studio": "^2.5.0",
+		"@woocommerce/onboarding": "^3.2.0",
+		"classnames": "^2.3.2"
 	}
 }
