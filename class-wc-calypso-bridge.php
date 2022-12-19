@@ -218,6 +218,20 @@ class WC_Calypso_Bridge {
 				return;
 			}
 
+			/**
+			 * `ecommerce_custom_setup_tasks_enabled` filter.
+			 *
+			 * This filter is used to remove the "add a domain" and "launch your store" tasks from ecommerce plans.
+			 *
+			 * @since x.x.x
+			 *
+			 * @param  bool $status_enabled
+			 * @return bool
+			 */
+			if ( ! (bool) apply_filters( 'ecommerce_custom_setup_tasks_enabled', true ) ) {
+				return;
+			}
+
 			$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
 			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-add-domain.php';
 			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-launch-site.php';
