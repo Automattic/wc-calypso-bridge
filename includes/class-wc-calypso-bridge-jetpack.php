@@ -69,9 +69,11 @@ class WC_Calypso_Bridge_Jetpack {
 
 				if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', false ) ) {
 					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-ecommerce-admin-menu.php';
+
 					return Ecommerce_Atomic_Admin_Menu::class;
 				} else {
 					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
+
 					return Ecommerce_Atomic_Admin_Menu::class;
 				}
 			}

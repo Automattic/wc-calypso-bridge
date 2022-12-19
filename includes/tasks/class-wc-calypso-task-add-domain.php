@@ -7,7 +7,7 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * Add domain Task
  *
- * @since 1.9.12.
+ * @since   1.9.12.
  * @version 1.9.12.
  */
 class AddDomain extends Task {
@@ -31,8 +31,10 @@ class AddDomain extends Task {
 			if ( $this->is_complete() ) {
 				return __( 'You added your domain', 'woocommerce' );
 			}
+
 			return __( 'Add a domain', 'woocommerce' );
 		}
+
 		return __( 'Domain', 'woocommerce' );
 	}
 

@@ -70,9 +70,7 @@ class WC_Calypso_Bridge {
 			$response = Client::wpcom_json_api_request_as_user(
 				sprintf( '/sites/%d/launch', $blog_id ),
 				'2',
-				array(
-					'method' => 'POST',
-				),
+				[ 'method' => 'POST' ],
 				json_encode( [
 					'site' => $blog_id
 				] ),
@@ -239,7 +237,7 @@ class WC_Calypso_Bridge {
 			$list = $tl::get_lists_by_ids( array( 'setup' ) );
 			$list = array_pop( $list );
 
-			$add_domain_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
+			$add_domain_task  = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
 			$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
 			$tl::add_task( 'setup', $add_domain_task );
 			$tl::add_task( 'setup', $launch_site_task );
