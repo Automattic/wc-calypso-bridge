@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Jetpack
  * @since   1.9.8
- * @version 1.9.11
+ * @version 1.9.12
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -60,7 +60,7 @@ class WC_Calypso_Bridge_Jetpack {
 			 *
 			 * This filter is used to revert the ecommerce menu back to the atomic one. It's suppose to be a safety net that will be deprecated in the future.
 			 *
-			 * @since x.x.x
+			 * @since 1.9.12
 			 *
 			 * @param  bool $disabled
 			 * @return bool

@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 1.9.12
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -142,7 +142,7 @@ class WC_Calypso_Bridge_Shared {
 	/**
 	 * Class instance.
 	 *
-	 * @since x.x.x
+	 * @since 1.9.12
 	 *
 	 * @return string
 	 */

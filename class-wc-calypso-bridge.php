@@ -52,7 +52,7 @@ class WC_Calypso_Bridge {
 		/**
 		 * Handle the store launching AJAX endpoint.
 		 *
-		 * @since   x.x.x
+		 * @since   1.9.12
 		 */
 		add_action( 'wp_ajax_launch_store', function() {
 
@@ -210,7 +210,7 @@ class WC_Calypso_Bridge {
 		/**
 		 * Introduce the "Add a domain" and "Launch your store" setup tasks.
 		 *
-		 * @since   x.x.x
+		 * @since   1.9.12
 		 */
 		add_action( 'init', function() {
 
@@ -223,7 +223,7 @@ class WC_Calypso_Bridge {
 			 *
 			 * This filter is used to remove the "add a domain" and "launch your store" tasks from ecommerce plans.
 			 *
-			 * @since x.x.x
+			 * @since 1.9.12
 			 *
 			 * @param  bool $status_enabled
 			 * @return bool
