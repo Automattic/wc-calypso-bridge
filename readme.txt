@@ -23,8 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.12 =
-* Introduce add-a-domain and launch-your-store tasks in the setup list #879
-* Flatten the WooCommerce menu under a feature gate #879
+* Introduce add-a-domain and launch-your-store tasks in the setup list #xxx.
+* Flatten the WooCommerce menu under a feature gate #xxx.
 
 = 1.9.11 =
 * Prevent deletion of new round of managed extensions #876.

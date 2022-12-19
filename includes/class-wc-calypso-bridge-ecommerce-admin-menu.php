@@ -51,16 +51,16 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$woocommerce_menu_order = array();
 
 		// Get the index of our managed pages.
-		$orders_index               = array_search( 'edit.php?post_type=shop_order', $menu_order, true );
-		$customers_index            = array_search( 'admin.php?page=wc-admin&path=/customers', $menu_order, true );
-		$products_index             = array_search( 'edit.php?post_type=product', $menu_order, true );
-		$analytics_index            = array_search( 'wc-admin&path=/analytics/overview', $menu_order, true );
-		$marketing_index            = array_search( 'woocommerce-marketing', $menu_order, true );
-		$extensions_index           = array_search( 'woocommerce', $menu_order, true );
-		$woocommerce_sep_index      = array_search( 'separator-woocommerce', $menu_order, true );
-		$woocommerce_sep_top_index  = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
-		$payments_connect_index     = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
-		$payments_overview_index    = array_search( 'wc-admin&path=/payments/overview', $menu_order, true );
+		$orders_index              = array_search( 'edit.php?post_type=shop_order', $menu_order, true );
+		$customers_index           = array_search( 'admin.php?page=wc-admin&path=/customers', $menu_order, true );
+		$products_index            = array_search( 'edit.php?post_type=product', $menu_order, true );
+		$analytics_index           = array_search( 'wc-admin&path=/analytics/overview', $menu_order, true );
+		$marketing_index           = array_search( 'woocommerce-marketing', $menu_order, true );
+		$extensions_index          = array_search( 'woocommerce', $menu_order, true );
+		$woocommerce_sep_index     = array_search( 'separator-woocommerce', $menu_order, true );
+		$woocommerce_sep_top_index = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
+		$payments_connect_index    = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
+		$payments_overview_index   = array_search( 'wc-admin&path=/payments/overview', $menu_order, true );
 
 		// Loop through menu order and do some rearranging.
 		foreach ( $menu_order as $index => $item ) {
@@ -115,17 +115,17 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				}
 
 			} elseif ( ! in_array( $item, array(
-					'wc-admin&path=/payments/connect',
-					'wc-admin&path=/payments/overview',
-					'wc-calypso-bridge-separator-top',
-					'separator-woocommerce',
-					'woocommerce',
-					'woocommerce-marketing',
-					'wc-admin&path=/analytics/overview',
-					'edit.php?post_type=product',
-					'edit.php?post_type=shop_order',
-					'admin.php?page=wc-admin&path=/customers'
-				), true ) ) {
+				'wc-admin&path=/payments/connect',
+				'wc-admin&path=/payments/overview',
+				'wc-calypso-bridge-separator-top',
+				'separator-woocommerce',
+				'woocommerce',
+				'woocommerce-marketing',
+				'wc-admin&path=/analytics/overview',
+				'edit.php?post_type=product',
+				'edit.php?post_type=shop_order',
+				'admin.php?page=wc-admin&path=/customers'
+			), true ) ) {
 				$woocommerce_menu_order[] = $item;
 			}
 		}
@@ -207,16 +207,16 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$this->hide_submenu_page( 'woocommerce', 'wc-admin' );
 
 		// Restore the Orders submenu page for backwards compatibility.
-		add_submenu_page( 'woocommerce', __( 'Orders','wc-calypso-bridge' ), __( 'Orders','wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=shop_order', '', 1 );
+		add_submenu_page( 'woocommerce', __( 'Orders', 'wc-calypso-bridge' ), __( 'Orders', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=shop_order', '', 1 );
 		$this->hide_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );
 
 		// Move WooCommerce > Settings under Settings > WooCommerce.
 		$this->hide_submenu_page( 'woocommerce', 'wc-settings' );
-		add_submenu_page( 'options-general.php', __( 'WooCommerce Settings','wc-calypso-bridge' ), __( 'WooCommerce','wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-settings', '', 10 );
+		add_submenu_page( 'options-general.php', __( 'WooCommerce Settings', 'wc-calypso-bridge' ), __( 'WooCommerce', 'wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-settings', '', 10 );
 
 		// Move WooCommerce > Status under Tools > WooCommerce Status.
 		$this->hide_submenu_page( 'woocommerce', 'wc-status' );
-		add_submenu_page( 'tools.php', __( 'WooCommerce Status','wc-calypso-bridge' ), __( 'WooCommerce Status','wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-status', '', 10 );
+		add_submenu_page( 'tools.php', __( 'WooCommerce Status', 'wc-calypso-bridge' ), __( 'WooCommerce Status', 'wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-status', '', 10 );
 
 		// Move legacy reports.
 		$this->hide_submenu_page( 'woocommerce', 'wc-reports' );
@@ -238,14 +238,14 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$this->update_menu( 'woocommerce', null, 'Extensions', null, null, null );
 
 		// Add Extensions > Manage submenu.
-		add_submenu_page( 'woocommerce', __( 'WooCommerce Subscriptions','wc-calypso-bridge' ), __( 'Manage','wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-addons&section=helper', '', 10 );
+		add_submenu_page( 'woocommerce', __( 'WooCommerce Subscriptions', 'wc-calypso-bridge' ), __( 'Manage', 'wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-addons&section=helper', '', 10 );
 
 		// Move WooCommerce > Extensions under Extensions > Discover.
 		foreach ( $submenu['woocommerce'] as $key => $data ) {
 			if ( 'wc-addons' !== $data[2] ) {
 				continue;
 			}
-			$submenu['woocommerce'][$key][0] = __( 'Discover', 'wc-calypso-bridge' );
+			$submenu['woocommerce'][ $key ][0] = __( 'Discover', 'wc-calypso-bridge' );
 		}
 
 		// Add Orders count.
@@ -255,7 +255,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			if ( $order_count ) {
 				foreach ( $menu as $i => $menu_item ) {
 					if ( 'edit.php?post_type=shop_order' === $menu_item[2] ) {
-						$menu[$i][0] .= ' <span class="awaiting-mod update-plugins count-' . esc_attr( $order_count ) . '"><span class="processing-count">' . number_format_i18n( $order_count ) . '</span></span>'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+						$menu[ $i ][0] .= ' <span class="awaiting-mod update-plugins count-' . esc_attr( $order_count ) . '"><span class="processing-count">' . number_format_i18n( $order_count ) . '</span></span>'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 						break;
 					}
 				}
@@ -277,7 +277,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		if ( ! empty( $submenu['woocommerce'] ) && is_array( $submenu['woocommerce'] ) ) {
 
 			// Make sure that the managed and hidden are the last on the submenu list. This is make the parent "WooCommerce" item to point to an extension instead of a hidden page.
-			uasort( $submenu['woocommerce'], function( $a, $b ) {
+			uasort( $submenu['woocommerce'], function ( $a, $b ) {
 
 				// Helper weights.
 				$A = 1;
@@ -324,7 +324,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Order options-general.php -- ensure WooCommerce is right after "General".
 		if ( ! empty( $submenu['options-general.php'] ) && is_array( $submenu['options-general.php'] ) ) {
 
-			uasort( $submenu['options-general.php'], function( $a, $b ) {
+			uasort( $submenu['options-general.php'], function ( $a, $b ) {
 
 				// Helper weights.
 				$A = 2;
@@ -360,7 +360,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Order wc-admin&path=/analytics/overview -- ensure settings are always last and "Legacy Reports" is the one above it.
 		if ( ! empty( $submenu['wc-admin&path=/analytics/overview'] ) && is_array( $submenu['wc-admin&path=/analytics/overview'] ) ) {
 
-			uasort( $submenu['wc-admin&path=/analytics/overview'], function( $a, $b ) {
+			uasort( $submenu['wc-admin&path=/analytics/overview'], function ( $a, $b ) {
 
 				// Helper weights.
 				$A = 1;
@@ -422,7 +422,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Order Jetpack submenu to have Dashboard first followed by Stats.
 		if ( ! empty( $submenu['jetpack'] ) && is_array( $submenu['jetpack'] ) ) {
 
-			uasort( $submenu['jetpack'], function( $a, $b ) {
+			uasort( $submenu['jetpack'], function ( $a, $b ) {
 
 				// Helper weights.
 				$A = 2;
@@ -452,5 +452,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	/**
 	 * Remove Stats menu.
 	 */
-	public function add_stats_menu() {}
+	public function add_stats_menu() {
+	}
 }
