@@ -11,6 +11,8 @@ defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Admin\Loader;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
+use Automattic\WooCommerce\Admin\Features\OnboardingTasks;
+use Automattic\Jetpack\Connection\Client;
 
 /**
  * WC Calypso Bridge
@@ -46,6 +48,46 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		/**
+		 * Handle the store launching AJAX endpoint.
+		 *
+		 * @since   1.9.12
+		 */
+		add_action( 'wp_ajax_launch_store', function() {
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( new WP_Error( 'unauthorized', __( 'You don\'t have permissions to launch this site', 'wc-calypso-bridge' ) ), 400 );
+				return;
+			}
+
+			if ( 'launched' === get_option( 'launch-status' ) ) {
+				wp_send_json_error( new WP_Error( 'already-launched', __( 'This site has already been launched', 'wc-calypso-bridge' ) ), 400 );
+				return;
+			}
+
+			$blog_id  = \Jetpack_Options::get_option( 'id' );
+			$response = Client::wpcom_json_api_request_as_user(
+				sprintf( '/sites/%d/launch', $blog_id ),
+				'2',
+				[ 'method' => 'POST' ],
+				json_encode( [
+					'site' => $blog_id
+				] ),
+				'wpcom'
+			);
+
+			// Handle error.
+			if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
+				$body  = wp_remote_retrieve_body( $response );
+				$error = json_decode( $body, true );
+				wp_send_json_error( new WP_Error( $error[ 'code' ], $error[ 'message' ] ), 400 );
+			}
+
+			$body   = wp_remote_retrieve_body( $response );
+			$status = json_decode( $body );
+			wp_send_json( $status );
+		} );
 
 		/**
 		 * Remove the legacy `WooCommerce > Coupons` menu.
@@ -163,6 +205,45 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
+		/**
+		 * Introduce the "Add a domain" and "Launch your store" setup tasks.
+		 *
+		 * @since   1.9.12
+		 */
+		add_action( 'init', function() {
+
+			if ( ! class_exists( '\Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists' ) ) {
+				return;
+			}
+
+			/**
+			 * `ecommerce_custom_setup_tasks_enabled` filter.
+			 *
+			 * This filter is used to remove the "add a domain" and "launch your store" tasks from ecommerce plans.
+			 *
+			 * @since 1.9.12
+			 *
+			 * @param  bool $status_enabled
+			 * @return bool
+			 */
+			if ( ! (bool) apply_filters( 'ecommerce_custom_setup_tasks_enabled', true ) ) {
+				return;
+			}
+
+			$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
+			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-add-domain.php';
+			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-launch-site.php';
+
+			$list = $tl::get_lists_by_ids( array( 'setup' ) );
+			$list = array_pop( $list );
+
+			$add_domain_task  = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
+			$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
+			$tl::add_task( 'setup', $add_domain_task );
+			$tl::add_task( 'setup', $launch_site_task );
+
+		}, PHP_INT_MAX );
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
@@ -258,6 +339,7 @@ class WC_Calypso_Bridge {
 	 * Updates required UI elements for calypso bridge pages only.
 	 */
 	public function load_ui_elements() {
+
 		if ( is_wc_calypso_bridge_page() ) {
 			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
 			add_filter( 'admin_footer_text', array( $this, 'update_woocommerce_footer' ) );
@@ -287,6 +369,10 @@ class WC_Calypso_Bridge {
 	public function add_ecommerce_plan_styles() {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+
+		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', false ) ) {
+			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', $asset_path . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		}
 	}
 
 	/**

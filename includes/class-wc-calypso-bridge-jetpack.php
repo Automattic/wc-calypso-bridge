@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Jetpack
  * @since   1.9.8
- * @version 1.9.11
+ * @version 1.9.12
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -54,10 +54,28 @@ class WC_Calypso_Bridge_Jetpack {
 		 * @return string
 		 */
 		add_filter( 'jetpack_admin_menu_class', function ( $menu_controller_class ) {
-			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
-				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
 
-				return Ecommerce_Atomic_Admin_Menu::class;
+			/**
+			 * `calypso_bridge_disable_ecommerce_menu` filter.
+			 *
+			 * This filter is used to revert the ecommerce menu back to the atomic one. It's suppose to be a safety net that will be deprecated in the future.
+			 *
+			 * @since 1.9.12
+			 *
+			 * @param  bool $disabled
+			 * @return bool
+			 */
+			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
+
+				if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', false ) ) {
+					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-ecommerce-admin-menu.php';
+
+					return Ecommerce_Atomic_Admin_Menu::class;
+				} else {
+					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
+
+					return Ecommerce_Atomic_Admin_Menu::class;
+				}
 			}
 
 			return $menu_controller_class;

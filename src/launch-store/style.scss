@@ -1,0 +1,306 @@
+@import "~@automattic/color-studio/dist/color-variables";
+// Explore available colors at https://color-studio.blog/
+
+.wpcom-wc-admin-loader {
+	position: relative;
+	height: calc( 100vh - 92px - var(--large-gap) );
+
+	.wpcom-site__logo {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate( -50%, -50%);
+
+		width: 100px;
+		height: 100px;
+
+		fill: $studio-gray-10;
+		color: $studio-gray-10;
+	}
+}
+
+.woocommerce-launch-store {
+
+	// Copy button.
+	.copy-to-clipboard {
+		position: relative;
+
+		&__feedback {
+			background-color: $studio-gray-90;
+			color: white;
+			padding: 3px 5px;
+			font-size: 12px;
+			transition: all .2s ease-in-out;
+			opacity: 0;
+			visibility: hidden;
+
+			position: absolute;
+			top: 95%;
+			left: 50%;
+			transform: translateX( -50% );
+
+			&--active {
+				visibility: visible;
+				opacity: 1;
+				top: 110%;
+			}
+		}
+	}
+
+	// Launch button.
+	&__button {
+
+		svg {
+			position: relative;
+			top: -2px;
+			left: -6px;
+		}
+
+		&__error {
+			color: $studio-gray-50;
+			font-style: italic;
+		}
+	}
+
+	// Heading.
+	h2 {
+		line-height: 28px;
+		font-size: 20px;
+		width: 100%;
+	}
+
+	// Card header.
+	.components-card-header {
+		flex-wrap: wrap;
+
+		span {
+			margin-top: 5px;
+			width: 100%;
+		}
+	}
+
+	.woocommerce-task-card {
+
+		&__ready-to-launch {
+
+			&__links {
+				margin-top: 30px;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+
+				// Button.
+				.components-button {
+					margin-right: 10px;
+				}
+
+				// Inline link.
+				a {
+					padding: 5px;
+					text-decoration: none;
+					display: inline-block;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+
+			.components-card__body {
+
+				span {
+					margin-top: 15px;
+					display: block
+				}
+			}
+
+			.components-card__footer {
+				display: block;
+				text-align: left;
+
+				span {
+					color: $studio-gray-50;
+				}
+
+				a {
+					display: inline-block;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		// Pending tasks in Before launch screen.
+		&__pending-tasks {
+
+			&__links {
+				margin-bottom: 20px;
+
+				a {
+					margin-top: 5px;
+					padding: 5px;
+				}
+			}
+
+			&__task {
+				padding: 20px 0;
+				display: flex;
+				flex-wrap: nowrap;
+				align-items: center;
+				justify-content: flex-start;
+
+				&__icon {
+					position: relative;
+					top: 4px;
+				}
+
+				&__text {
+					padding: 0 20% 0 20px;
+
+					h3 {
+						font-size: 14px;
+						line-height: 20px;
+						font-weight: bold;
+					}
+
+					span {
+						font-size: 13px;
+						line-height: 16px;
+						color: $studio-gray-80;
+					}
+				}
+
+				&__content {
+					display: flex;
+					flex-grow: 1;
+					align-items: flex-start;
+				}
+			}
+
+			.components-card__footer {
+				display: block;
+				text-align: center;
+				padding: 25px 0;
+
+				span {
+					display: inline-block;
+					color: $studio-gray-50;
+				}
+
+				// Inline link.
+				a {
+					text-decoration: none;
+					display: inline-block;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		// Congratulations screen.
+		&__congratulations {
+			text-align: center;
+
+			&__confetti {
+				svg {
+					width: 100%
+				}
+			}
+
+			&__text {
+				margin: 20px 50px;
+				text-align: center;
+
+				span {
+					display: block;
+					margin-top: 15px;
+					font-size: 13px;
+					line-height: 16px;
+					color: $studio-gray-50;
+				}
+
+				// Inline link.
+				a {
+					text-decoration: none;
+					display: inline-block;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+
+				&--footer {
+					margin: -10px 70px 40px;
+				}
+			}
+
+			&__address-bar {
+				margin: 40px 50px 20px;
+				text-align: left;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				background-color: $studio-gray-0;
+				padding: 14px;
+
+				svg {
+					margin-right: 15px;
+					width: 20px;
+					height: 20px;
+				}
+
+				span {
+					flex-grow: 1;
+					font-weight: 600;
+					max-width: 86%;
+					overflow-wrap: break-word;
+					margin-right: 10px;
+					color: $studio-gray-80;
+				}
+
+				&__actions {
+
+					svg {
+						margin-right: 0;
+						width: 16px;
+						height: 16px;
+
+						position: relative;
+						top: 2px;
+						cursor: pointer;
+						stroke: $studio-gray-80;
+
+						&:hover {
+							stroke: $studio-black;
+						}
+					}
+				}
+			}
+
+			&__links {
+
+				margin-bottom: 10px;
+
+				.components-button {
+					margin-bottom: 10px;
+				}
+
+				// Inline link.
+				a {
+					padding: 5px;
+					text-decoration: none;
+					display: inline-block;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+}
