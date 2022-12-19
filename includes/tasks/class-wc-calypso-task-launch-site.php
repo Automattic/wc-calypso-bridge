@@ -7,8 +7,8 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * Launch Site Task
  *
- * @since x.x.x.
- * @version x.x.x.
+ * @since 1.9.12.
+ * @version 1.9.12.
  */
 class LaunchSite extends Task {
 
