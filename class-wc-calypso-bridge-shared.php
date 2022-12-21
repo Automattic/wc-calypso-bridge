@@ -65,7 +65,7 @@ class WC_Calypso_Bridge_Shared {
 	public function add_extension_register_script() {
 
 		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\Loader' )
-			&& \Automattic\WooCommerce\Admin\Loader::is_admin_or_embed_page()
+			&& \Automattic\WooCommerce\Admin\PageController::is_admin_or_embed_page()
 			? true
 			: false;
 
