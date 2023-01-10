@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Jetpack
  * @since   1.9.8
- * @version x.x.x
+ * @version 1.9.13
  */
 
 defined( 'ABSPATH' ) || exit;
