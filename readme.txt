@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Fix deprecated function Loader::is_admin_or_embed_page() #884
+* Enable the WooCommerce menu and remove the feature flag #899.
 
 = 1.9.12 =
 * Introduce add-a-domain and launch-your-store tasks in the setup list #879.
