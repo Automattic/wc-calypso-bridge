@@ -103,7 +103,7 @@ class WC_Calypso_Bridge_Shared {
 			'wc-calypso-bridge',
 			'window.wcCalypsoBridge = ' . wp_json_encode(
 				array(
-					'showEcommerceNavigationModal' => ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_DEFAULT_CHECKOUT_BLOCKS ),
+					'showEcommerceNavigationModal' => ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_ECOMMERCE_NAVIGATION ),
 					'isWooPage'                    => $is_woo_page,
 					'homeUrl'                      => esc_url( get_home_url() ),
 					'siteSlug'                     => $site_suffix,
