@@ -195,7 +195,7 @@ class WC_Calypso_Bridge_Setup {
 				 */
 				foreach ( [ 'shop', 'cart', 'my-account', 'checkout', 'refund_returns' ] as $page ) {
 					$page = get_page_by_path( $page, ARRAY_A );
-					if ( $page ) {
+					if ( is_array( $page ) && isset( $page['ID'] ) ) {
 						wp_delete_post( $page['ID'], true );
 					}
 				}
