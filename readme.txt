@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.13 =
+* Delete WooCommerce pages before recreating them (new sites only) #xxx.
+
 = Unreleased =
 * Fix deprecated function Loader::is_admin_or_embed_page() #884
 
