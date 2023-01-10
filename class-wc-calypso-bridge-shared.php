@@ -64,7 +64,7 @@ class WC_Calypso_Bridge_Shared {
 	 */
 	public function add_extension_register_script() {
 
-		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\Loader' )
+		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\PageController' )
 			&& \Automattic\WooCommerce\Admin\PageController::is_admin_or_embed_page()
 			? true
 			: false;
@@ -103,14 +103,14 @@ class WC_Calypso_Bridge_Shared {
 			'wc-calypso-bridge',
 			'window.wcCalypsoBridge = ' . wp_json_encode(
 				array(
-					'isWooNavigationEnabled' => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', false ),
-					'isWooPage'              => $is_woo_page,
-					'homeUrl'                => esc_url( get_home_url() ),
-					'siteSlug'               => $site_suffix,
-					'adminHomeUrl'           => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
-					'assetPath'              => esc_url( self::get_asset_path() ),
-					'wcpayConnectUrl'        => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
-					'hasViewedPayments'      => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
+					'showEcommerceNavigationModal' => ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_DEFAULT_CHECKOUT_BLOCKS ),
+					'isWooPage'                    => $is_woo_page,
+					'homeUrl'                      => esc_url( get_home_url() ),
+					'siteSlug'                     => $site_suffix,
+					'adminHomeUrl'                 => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
+					'assetPath'                    => esc_url( self::get_asset_path() ),
+					'wcpayConnectUrl'              => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
+					'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 				)
 			),
 			'before'
