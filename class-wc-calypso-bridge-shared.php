@@ -99,20 +99,23 @@ class WC_Calypso_Bridge_Shared {
 		$status       = new \Automattic\Jetpack\Status();
 		$site_suffix  = $status->get_site_suffix();
 
+		$params       = array(
+			'isWooPage'                    => $is_woo_page,
+			'homeUrl'                      => esc_url( get_home_url() ),
+			'siteSlug'                     => $site_suffix,
+			'adminHomeUrl'                 => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
+			'assetPath'                    => esc_url( self::get_asset_path() ),
+			'wcpayConnectUrl'              => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
+			'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
+		);
+
+		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+			$params['showEcommerceNavigationModal'] = ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_ECOMMERCE_NAVIGATION );
+		}
+
 		wp_add_inline_script(
 			'wc-calypso-bridge',
-			'window.wcCalypsoBridge = ' . wp_json_encode(
-				array(
-					'showEcommerceNavigationModal' => ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_ECOMMERCE_NAVIGATION ),
-					'isWooPage'                    => $is_woo_page,
-					'homeUrl'                      => esc_url( get_home_url() ),
-					'siteSlug'                     => $site_suffix,
-					'adminHomeUrl'                 => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
-					'assetPath'                    => esc_url( self::get_asset_path() ),
-					'wcpayConnectUrl'              => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
-					'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
-				)
-			),
+			'window.wcCalypsoBridge = ' . wp_json_encode( $params ),
 			'before'
 		);
 
