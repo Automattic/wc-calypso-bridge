@@ -23,10 +23,10 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.13 =
-* Delete WooCommerce pages before recreating them (new sites only) #xxx.
-
-= Unreleased =
-* Fix deprecated function Loader::is_admin_or_embed_page() #884
+* Enable the WooCommerce menu and remove the feature flag #899.
+* Delete WooCommerce pages before recreating them (new sites only) #900.
+* Run DB updates automatically without wp-admin notices #899.
+* Fix deprecated function Loader::is_admin_or_embed_page() #884.
 
 = 1.9.12 =
 * Introduce add-a-domain and launch-your-store tasks in the setup list #879.
