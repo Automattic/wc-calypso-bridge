@@ -24,7 +24,7 @@ class WC_Calypso_Bridge {
 	 */
 	const RELEASE_DATE_DEFAULT_CHECKOUT_BLOCKS = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
 	const RELEASE_DATE_PRE_CONFIGURE_JETPACK   = 1667898000; // Tuesday, November 8, 2022 9:00:00 AM GMT
-	const RELEASE_DATE_ECOMMERCE_NAVIGATION    = 1673362800; // Tuesday, January 10, 2023 15:00:00 AM GMT
+	const RELEASE_DATE_ECOMMERCE_NAVIGATION    = 1673442029; // Tuesday, January 11, 2023 13:00:00 PM GMT
 
 	/**
 	 * Paths to assets act oddly in production
