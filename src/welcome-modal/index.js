@@ -53,7 +53,7 @@ const Modal = ({ closeHandler }) => {
 		<Guide
 			onFinish={ closeHandler }
 			className={ 'ecommerce__welcome-modal' }
-			finishButtonText={ __( "Let's get started", 'wc-calypso-bridge' ) }
+			finishButtonText={ __( "Get started", 'wc-calypso-bridge' ) }
 			pages={ [
 				{
 					image: (
@@ -98,13 +98,13 @@ const Modal = ({ closeHandler }) => {
 							<p className="ecommerce__welcome-modal__page-content__body">
 								{ createInterpolateElement(
 									__(
-										'Getting things done with WooCommerce just got faster. <a>Learn more about our new navigation</a> - or go ahead and explore on your own.',
+										'Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own.',
 										'wc-calypso-bridge'
 									),
 									{
 										a: (
 											<a
-												href={ 'https://wordpress.com/support/new-woocommerce-experience-on-wordpress-dot-com/' }
+												href={ 'https://wordpress.com/support/navigating-the-ecommerce-plan/' }
 											/>
 										),
 									}
