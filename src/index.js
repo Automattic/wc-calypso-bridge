@@ -16,45 +16,48 @@ import './index.scss';
 
 wcNavFilterRootUrl();
 
-// Add slot fill for launch-your-store task.
-registerPlugin( 'wc-calypso-bridge', {
-	scope: 'woocommerce-tasks',
-	render: () => (
-		<WooOnboardingTask id="launch_site">
-			{ ( { onComplete, query, task } ) => (
-				<LaunchStorePage
-					onComplete={ onComplete }
-					query={ query }
-					task={ task }
-				/>
-			) }
-		</WooOnboardingTask>
-	),
-} );
+if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 
-// Filter wc admin pages.
-addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
+	// Add slot fill for launch-your-store task.
+	registerPlugin( 'wc-calypso-bridge', {
+		scope: 'woocommerce-tasks',
+		render: () => (
+			<WooOnboardingTask id="launch_site">
+				{ ( { onComplete, query, task } ) => (
+					<LaunchStorePage
+						onComplete={ onComplete }
+						query={ query }
+						task={ task }
+					/>
+				) }
+			</WooOnboardingTask>
+		),
+	} );
 
-	/**
-	 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
-	 */
-	pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'menu-dashboard' } : page );
-	pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
+	// Filter wc admin pages.
+	addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
 
-	return pages;
-} );
+			/**
+			 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
+			 */
+			pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'menu-dashboard' } : page );
+			pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
 
-// Embed code on woo pages.
-if ( !! window.wcCalypsoBridge.showEcommerceNavigationModal && !! window.wcCalypsoBridge.isWooPage ) {
-	const wpBody = document.getElementById( 'wpbody-content' );
-	const wrap =
-		wpBody.querySelector( '.wrap.woocommerce' ) ||
-		document.querySelector( '#wpbody-content > .woocommerce' ) ||
-		wpBody.querySelector( '.wrap' );
-	const embeddedBodyContainer = document.createElement( 'div' );
+		return pages;
+	} );
 
-	render(
-		<WelcomeModal />,
-		wpBody.insertBefore( embeddedBodyContainer, wrap )
-	);
+	// Embed code on woo pages.
+	if ( !! window.wcCalypsoBridge.showEcommerceNavigationModal && !! window.wcCalypsoBridge.isWooPage ) {
+		const wpBody = document.getElementById( 'wpbody-content' );
+		const wrap =
+			wpBody.querySelector( '.wrap.woocommerce' ) ||
+			document.querySelector( '#wpbody-content > .woocommerce' ) ||
+			wpBody.querySelector( '.wrap' );
+		const embeddedBodyContainer = document.createElement( 'div' );
+
+		render(
+			<WelcomeModal />,
+			wpBody.insertBefore( embeddedBodyContainer, wrap )
+		);
+	}
 }
