@@ -235,7 +235,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		add_menu_page( __( 'Customers', 'woocommerce' ), __( 'Customers', 'woocommerce' ), 'manage_woocommerce', '/admin.php?page=wc-admin&path=/customers', null, 'dashicons-money', 100 );
 
 		// Update WooCommerce to Extensions
-		$this->update_menu( 'woocommerce', null, 'Extensions', null, null, null );
+		$this->update_menu( 'woocommerce', null, __( 'Extensions', 'woocommerce' ), null, null, null );
 
 		// Add Extensions > Manage submenu.
 		add_submenu_page( 'woocommerce', __( 'WooCommerce Subscriptions', 'wc-calypso-bridge' ), __( 'Manage', 'wc-calypso-bridge' ), 'manage_woocommerce', 'admin.php?page=wc-addons&section=helper', '', 10 );
