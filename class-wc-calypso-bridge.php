@@ -91,6 +91,15 @@ class WC_Calypso_Bridge {
 		} );
 
 		/**
+		 * Enable DB auto updates.
+		 *
+		 * @since   1.9.13
+		 *
+		 * @return  bool
+		 */
+		add_filter( 'woocommerce_enable_auto_update_db', '__return_true' );
+
+		/**
 		 * Remove the legacy `WooCommerce > Coupons` menu.
 		 *
 		 * @since   1.9.4
