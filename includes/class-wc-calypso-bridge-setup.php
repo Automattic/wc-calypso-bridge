@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.9
+ * @version 1.9.13
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -188,10 +188,26 @@ class WC_Calypso_Bridge_Setup {
 
 			try {
 				/*
+				 * Force delete all WooCommerce pages. Some themes create them, and we end up with duplicates.
+				 *
+				 * `My Account` page, has slug `my-account`.
+				 * @see WC_Install::create_pages()
+				 */
+				foreach ( [ 'shop', 'cart', 'my-account', 'checkout', 'refund_returns' ] as $page ) {
+					$page = get_page_by_path( $page, ARRAY_A );
+					if ( is_array( $page ) && isset( $page['ID'] ) ) {
+						wp_delete_post( $page['ID'], true );
+					}
+				}
+
+				/*
 				 * Reset the woocommerce_*_page_id options.
 				 * This is needed as woocommerce_*_page_id options have incorrect values on a fresh installation
 				 * for an ecommerce plan. WC_Install:create_pages() might not create all the
 				 * required pages without resetting these options first.
+				 *
+				 * `My Account` page id setting, is created with key `myaccount`.
+				 * @see WC_Install::create_pages()
 				 */
 				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
 					delete_option( "woocommerce_{$page}_page_id" );
