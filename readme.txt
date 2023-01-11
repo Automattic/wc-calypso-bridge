@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = 1.9.14 =
 * Fix a fatal error about WC_Calypso_Bridge_Helper_Functions in Business plan #903.
+* Limit JS filters to Ecommerce plans to avoid unwanted menu highlights in Business plan #904.
 
 = 1.9.13 =
 * Enable the WooCommerce menu and remove the feature flag #899.

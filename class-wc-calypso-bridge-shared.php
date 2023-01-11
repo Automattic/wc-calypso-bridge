@@ -100,6 +100,7 @@ class WC_Calypso_Bridge_Shared {
 		$site_suffix  = $status->get_site_suffix();
 
 		$params       = array(
+			'isEcommercePlan'              => (bool) wc_calypso_bridge_is_ecommerce_plan(),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
 			'siteSlug'                     => $site_suffix,
