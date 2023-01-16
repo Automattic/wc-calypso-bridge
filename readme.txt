@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.15 =
-* Revert the default value of the ecommerce_new_woo_atomic_navigation_enabled filter #XXX.
+* Revert the default value of the ecommerce_new_woo_atomic_navigation_enabled filter #908.
 
 = 1.9.14 =
 * Fix a fatal error about WC_Calypso_Bridge_Helper_Functions in Business plan #903.
