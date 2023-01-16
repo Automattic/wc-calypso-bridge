@@ -1,0 +1,16 @@
+/**
+ * Ecommerce navigation feature
+ */
+
+/* Fix the top space in WooCommerce Marketplace. */
+body.woocommerce_page_wc-addons.woocommerce-embed-page #wpbody .woocommerce-layout {
+	padding-top: 0;
+}
+
+/*  Hide tabs in wc-addons page for Ecommerce plan. */
+.woocommerce.wc-addons-wrap .top-bar {
+	display: none;
+}
+.woocommerce.wc-subscriptions-wrap .woo-nav-tab-wrapper {
+	display: none;
+}

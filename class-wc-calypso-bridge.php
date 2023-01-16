@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.14
+ * @version 1.9.15
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -379,6 +379,10 @@ class WC_Calypso_Bridge {
 	public function add_ecommerce_plan_styles() {
 		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+
+		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) ) {
+			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', $asset_path . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		}
 	}
 
 	/**
