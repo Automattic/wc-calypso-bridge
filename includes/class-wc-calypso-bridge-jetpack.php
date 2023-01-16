@@ -55,7 +55,18 @@ class WC_Calypso_Bridge_Jetpack {
 		 */
 		add_filter( 'jetpack_admin_menu_class', function ( $menu_controller_class ) {
 
-			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
+			/**
+			 * `ecommerce_new_woo_atomic_navigation_enabled` filter.
+			 *
+			 * This filter is used to revert the ecommerce menu back to the atomic one. It's also useful for debugging purposes.
+			 *
+			 * @since 1.9.12
+			 *
+			 * @param  bool $enabled
+			 * @return bool
+			 */
+
+			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
 				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-ecommerce-admin-menu.php';
 				return Ecommerce_Atomic_Admin_Menu::class;
 			}
