@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.14
+ * @version 1.9.15
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -101,6 +101,7 @@ class WC_Calypso_Bridge_Shared {
 
 		$params       = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_is_ecommerce_plan(),
+			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
 			'siteSlug'                     => $site_suffix,
