@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version 1.9.15
+ * @version 1.9.8
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -13,22 +13,6 @@ use Automattic\WooCommerce\Admin\WCAdminHelper;
  * WC_Calypso_Bridge_Helper_Functions.
  */
 class WC_Calypso_Bridge_Helper_Functions {
-
-	/**
-	 * Cache block based cart detection result.
-	 *
-	 * @since  1.9.15
-	 * @var    array
-	 */
-	private static $is_block_based_cart = null;
-
-	/**
-	 * Cache block based checkout detection result.
-	 *
-	 * @since  1.9.15
-	 * @var    array
-	 */
-	private static $is_block_based_checkout = null;
 
 	/**
 	 * Class instance.
@@ -243,36 +227,6 @@ class WC_Calypso_Bridge_Helper_Functions {
 		}
 
 		return $woocommerce_pages;
-	}
-
-	/**
-	 * Whether the cart page contains the cart block.
-	 *
-	 * @since  1.9.15
-	 *
-	 * @param string $page Cart or Checkout.
-	 * @return boolean
-	 */
-	public static function is_block_based_page( $page = 'cart' ) {
-
-		if ( ( 'cart' !== $page && 'checkout' !== $page )
-		     || ! class_exists( 'Automattic\WooCommerce\Blocks\Package' ) ) {
-			return false;
-		}
-
-		$is_block_based_variable = 'is_block_based_' . $page;
-
-		if ( is_null( self::$$is_block_based_variable ) ) {
-
-			$checkout_block_data = class_exists( 'WC_Blocks_Utils' ) ? WC_Blocks_Utils::get_blocks_from_page( 'woocommerce/' . $page, $page ) : false;
-
-			self::$$is_block_based_variable = false;
-			if ( ! empty( $checkout_block_data ) ) {
-				self::$$is_block_based_variable = true;
-			}
-		}
-
-		return self::$$is_block_based_variable;
 	}
 
 }
