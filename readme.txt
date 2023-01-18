@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 1.9.16 =
+* Prevent deletion of new round of managed plugins (Product Recommendations, AutomateWoo, MailPoet Free) #xxx.
+
 = 1.9.15 =
 * Revert the default value of the ecommerce_new_woo_atomic_navigation_enabled filter #908.
 
