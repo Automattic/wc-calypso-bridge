@@ -1,5 +1,5 @@
 /* Freee Trial Styles */
-#free-trial-plan-ppicker_banner {
+#free-trial-plan-picker-banner {
     background-color: #C9356E;
     color: #ffffff;
     font-size: 0.8125em;
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-#free-trial-plan-ppicker_banner a {
+#free-trial-plan-picker-banner a {
     color: #ffffff !important;
     text-decoration: underline;
 }
