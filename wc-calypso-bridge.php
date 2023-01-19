@@ -121,7 +121,7 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerc
  * Include Free Trial classes if the user is missing install-plugins feature.
  *
  * Free trial plan is a subset of ECOM plan without some features.
- * One of them is install-plguins.
+ * One of them is install-plugins.
  *
  * See https://code.a8c.com/D94408
  */
