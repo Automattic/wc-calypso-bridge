@@ -43,7 +43,7 @@ class WC_Calypso_Bridge_ECOM_Free_Trial_Frontend  {
 		$text = sprintf( __("
 			At the moment you are the only one who can see your store. To let everyone see your store, you simply need to&nbsp;<a href='%s'>pick a plan</a>.
 		", 'wc-calypso-bridge' ), $link );
-		echo "<div id='free-trial-plan-ppicker_banner'>$text</div>";
+		echo "<div id='free-trial-plan-picker-banner'>$text</div>";
 	}
 
 	public function add_styles()
