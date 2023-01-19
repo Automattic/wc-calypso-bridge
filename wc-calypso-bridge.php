@@ -55,6 +55,21 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	}
 }
 
+if( ! function_exists( 'wc_calypso_bridge_can_install_plugins' )) {
+	/**
+	 * Returns true if a site has install-plugins feature
+	 *
+	 * @return bool
+	 */
+	function wc_calypso_bridge_can_install_plugins() {
+		if ( function_exists( 'wpcom_site_has_feature' ) ) {
+			return wpcom_site_has_feature( \WPCOM_Features::INSTALL_PLUGINS );
+		}
+
+		return false;
+	}
+}
+
 // Filters we want to add for ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-filters.php';
 add_action( 'init', array( 'WC_Calypso_Bridge_Filters', 'get_instance' ) );
@@ -100,3 +115,16 @@ require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-frontend.php';
 
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
+
+/**
+ * At this point, user is confirmed to have ECOM plan.
+ * Include Free Trial classes if the user is missing install-plugins feature.
+ *
+ * Free trial plan is a subset of ECOM plan without some features.
+ * One of them is install-plguins.
+ *
+ * See https://code.a8c.com/D94408
+ */
+if ( ! wc_calypso_bridge_can_install_plugins() ) {
+	require_once dirname(__FILE__) . '/includes/class-wc-calypso-bridge-ecom-free-trial-frontend.php';
+}
