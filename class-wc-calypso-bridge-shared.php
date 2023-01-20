@@ -102,8 +102,10 @@ class WC_Calypso_Bridge_Shared {
 		$status       = new \Automattic\Jetpack\Status();
 		$site_suffix  = $status->get_site_suffix();
 
+		$isEcommercePlan = (bool) wc_calypso_bridge_has_ecommerce_features();
 		$params       = array(
-			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
+			'isEcommercePlan'              => $isEcommercePlan,
+			'isEcommercePlanTrial'         => $isEcommercePlan && (bool) wc_calypso_bridge_is_ecommerce_trial_plan(),
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
