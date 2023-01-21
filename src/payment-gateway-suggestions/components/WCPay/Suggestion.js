@@ -20,6 +20,7 @@ import { Link } from '@woocommerce/components';
 
 import { Action } from '../Action';
 import { connectWcpay } from './utils';
+import Notice from '../../../notice';
 import './suggestion.scss';
 
 const WCPayBannerText = ( { actionButton } ) => {
@@ -122,6 +123,26 @@ export const Suggestion = ( { paymentGateway, onSetupCallback = null } ) => {
 
 	return (
 		<div className="woocommerce-wcpay-suggestion">
+			<Notice
+				text={ interpolateComponents( {
+					mixedString: __(
+						"While you're in a free trial store, you'll only be able to place test orders. {{br}}{{/br}}To process real transactions, {{link}}pick a plan{{/link}}.",
+						'wc-calypso-bridge'
+					),
+					components: {
+						br: <br />,
+						link: (
+							<Link
+								href="https://wordpress.com/"
+								type="external"
+								target="_blank"
+							>
+								<></>
+							</Link>
+						),
+					},
+				} ) }
+			/>
 			<WCPayBanner>
 				<WCPayBannerBody
 					textPosition="left"
