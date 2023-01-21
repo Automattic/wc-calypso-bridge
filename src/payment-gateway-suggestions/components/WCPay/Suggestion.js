@@ -5,11 +5,14 @@ import { __ } from '@wordpress/i18n';
 import {
 	WCPayBanner,
 	WCPayBannerFooter,
-	WCPayBannerBody,
 	WCPayBenefits,
 	WCPayBannerImageCut,
 } from '@woocommerce/onboarding';
 import { useDispatch } from '@wordpress/data';
+import { CardBody } from '@wordpress/components';
+import { Text } from '@woocommerce/experimental';
+import interpolateComponents from '@automattic/interpolate-components';
+import { Link } from '@woocommerce/components';
 
 /**
  * Internal dependencies
@@ -18,6 +21,83 @@ import { useDispatch } from '@wordpress/data';
 import { Action } from '../Action';
 import { connectWcpay } from './utils';
 import './suggestion.scss';
+
+const WCPayBannerText = ( { actionButton } ) => {
+	return (
+		<div className="woocommerce-recommended-payments-banner__text_container">
+			<Text
+				className="woocommerce-recommended-payments__header-title"
+				variant="title.small"
+				as="p"
+				size="24"
+				lineHeight="28px"
+				padding="0 20px 0 0"
+			>
+				{ __(
+					'Get ready to be paid and manage your business.',
+					'wc-calypso-bridge'
+				) }
+			</Text>
+			<Text
+				className="woocommerce-recommended-payments__header-heading"
+				variant="caption"
+				as="p"
+				size="12"
+				lineHeight="16px"
+			>
+				{ interpolateComponents( {
+					mixedString: __(
+						'By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} ',
+						'wc-calypso-bridge'
+					),
+					components: {
+						tosLink: (
+							<Link
+								href="https://wordpress.com/tos/"
+								type="external"
+								target="_blank"
+							>
+								<></>
+							</Link>
+						),
+						privacyLink: (
+							<Link
+								href="https://automattic.com/privacy/"
+								type="external"
+								target="_blank"
+							>
+								<></>
+							</Link>
+						),
+					},
+				} ) }
+			</Text>
+			{ actionButton }
+		</div>
+	);
+};
+
+const WCPayBannerBody = ( { actionButton, textPosition, bannerImage } ) => {
+	return (
+		<CardBody className="woocommerce-recommended-payments-banner__body">
+			{ textPosition === 'left' ? (
+				<>
+					<WCPayBannerText actionButton={ actionButton } />
+					<div className="woocommerce-recommended-payments-banner__image_container">
+						{ bannerImage }
+					</div>
+				</>
+			) : (
+				<>
+					<div className="woocommerce-recommended-payments-banner__image_container">
+						{ bannerImage }
+					</div>
+					<WCPayBannerText actionButton={ actionButton } />
+				</>
+			) }
+		</CardBody>
+	);
+};
 
 export const Suggestion = ( { paymentGateway, onSetupCallback = null } ) => {
 	const {
@@ -56,7 +136,7 @@ export const Suggestion = ( { paymentGateway, onSetupCallback = null } ) => {
 							hasPlugins={ true }
 							setupButtonText={ __(
 								'Get started',
-								'woocommerce'
+								'wc-calypso-bridge'
 							) }
 							onSetupCallback={ onSetupCallback }
 						/>
