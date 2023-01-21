@@ -27,7 +27,11 @@
 		"@wordpress/scripts": "^20.0.2"
 	},
 	"dependencies": {
+		"@automattic/color-studio": "^2.5.0",
+		"@automattic/interpolate-components": "^1.2.1",
 		"@woocommerce/onboarding": "^3.2.0",
-		"classnames": "^2.3.2"
+		"classnames": "^2.3.2",
+		"dompurify": "^2.4.3",
+		"gridicons": "^3.4.1"
 	}
 }
