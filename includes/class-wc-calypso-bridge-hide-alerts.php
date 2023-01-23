@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.9
+ * @version 1.9.17
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -153,32 +153,28 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Filters out the `welcome` notice from the list of notices to be displayed.
 	 *
 	 * It's specifically hooked on `load-index.php` and `load-plugins.php`
-	 * as both PB and GC display notices only on these pages.
+	 * as all plugins display notices only on these pages.
 	 *
 	 * @since 1.9.4
 	 * @return void
 	 */
 	public function maybe_remove_somewherewarm_maintenance_notices() {
 
-		// Gift Cards.
-		if ( class_exists( 'WC_GC_Admin_Notices' ) && WC_GC_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_GC_Admin_Notices::$maintenance_notices = array_filter( WC_GC_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
-		}
+		$classes = array(
+			'WC_GC_Admin_Notices', // Gift Cards.
+			'WC_PB_Admin_Notices', // Product Bundles.
+			'WC_BIS_Admin_Notices', // Back In Stock.
+			'WC_PRL_Admin_Notices', // Product Recommendations.
+		);
 
-		// Product Bundles.
-		if ( class_exists( 'WC_PB_Admin_Notices' ) && WC_PB_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_PB_Admin_Notices::$maintenance_notices = array_filter( WC_PB_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
-		}
+		foreach ( $classes as $class ) {
 
-		// Back In Stock.
-		if ( class_exists( 'WC_BIS_Admin_Notices' ) && WC_BIS_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_BIS_Admin_Notices::$maintenance_notices = array_filter( WC_BIS_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
+			if ( class_exists( $class ) && $class::is_maintenance_notice_visible( 'welcome' ) ) {
+				$class::$maintenance_notices = array_filter( $class::$maintenance_notices, static function ( $element ) {
+					return 'welcome' !== $element;
+				} );
+			}
+
 		}
 
 	}

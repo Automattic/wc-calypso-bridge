@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 1.9.17 =
+* Roll Product Recommendations into the Ecommerce Plan #XXX.
 * Prevent deletion of new round of managed plugins (Product Recommendations, AutomateWoo, MailPoet Free) #xxx.
 
 = 1.9.16 =
