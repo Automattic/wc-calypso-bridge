@@ -25,6 +25,9 @@ This section describes how to install the plugin and get it working.
 = 1.9.17 =
 * Roll Product Recommendations into the Ecommerce Plan #XXX.
 
+= 1.9.16 =
+* Hide Customers menu item when analytics are disabled #914.
+
 = 1.9.15 =
 * Revert the default value of the ecommerce_new_woo_atomic_navigation_enabled filter #908.
 
