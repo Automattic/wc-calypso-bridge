@@ -46,11 +46,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Groups WooCommerce items.
 	 */
 	public static function menu_order( $menu_order ) {
-
 		// Initialize our custom order array.
 		$woocommerce_menu_order = array();
 
-		// Get the index of our managed pages.
+		// Get the index of our managed pages for core.
 		$orders_index              = array_search( 'edit.php?post_type=shop_order', $menu_order, true );
 		$customers_index           = array_search( 'admin.php?page=wc-admin&path=/customers', $menu_order, true );
 		$products_index            = array_search( 'edit.php?post_type=product', $menu_order, true );
@@ -59,8 +58,12 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$extensions_index          = array_search( 'woocommerce', $menu_order, true );
 		$woocommerce_sep_index     = array_search( 'separator-woocommerce', $menu_order, true );
 		$woocommerce_sep_top_index = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
+
+		// Get the index of our managed pages for integrations.
 		$payments_connect_index    = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
 		$payments_overview_index   = array_search( 'wc-admin&path=/payments/overview', $menu_order, true );
+		$automatewoo_index         = array_search( 'automatewoo', $menu_order, true );
+		$mailpoet_index            = array_search( 'mailpoet-newsletters', $menu_order, true );
 
 		// Loop through menu order and do some rearranging.
 		foreach ( $menu_order as $index => $item ) {
@@ -80,6 +83,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 				$woocommerce_menu_order[] = 'wc-admin&path=/analytics/overview'; // Analytics.
 				$woocommerce_menu_order[] = 'woocommerce-marketing'; // Marketing.
+				$woocommerce_menu_order[] = 'automatewoo'; // AutomateWoo.
 				$woocommerce_menu_order[] = 'woocommerce'; // Extensions.
 				$woocommerce_menu_order[] = 'separator-woocommerce'; // Separator WC.
 				$woocommerce_menu_order[] = $item; // Posts.
@@ -113,8 +117,22 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				} elseif ( false !== $payments_overview_index ) {
 					unset( $menu_order[ $payments_overview_index ] );
 				}
+				if ( false !== $automatewoo_index ) {
+					unset( $menu_order[ $automatewoo_index ] );
+				}
+
+
+			// Move "Mailpoet" below the "Jetpack" menu item.
+			} elseif ( 'jetpack' === $item ) {
+				$woocommerce_menu_order[] = $item; // Jetpack.
+				$woocommerce_menu_order[] = 'mailpoet-newsletters'; // Mailpoet.
+				if ( false !== $mailpoet_index ) {
+					unset( $menu_order[ $mailpoet_index ] );
+				}
 
 			} elseif ( ! in_array( $item, array(
+				'mailpoet-newsletters',
+				'automatewoo',
 				'wc-admin&path=/payments/connect',
 				'wc-admin&path=/payments/overview',
 				'wc-calypso-bridge-separator-top',
