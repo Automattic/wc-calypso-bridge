@@ -83,52 +83,17 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 				$woocommerce_menu_order[] = 'wc-admin&path=/analytics/overview'; // Analytics.
 				$woocommerce_menu_order[] = 'woocommerce-marketing'; // Marketing.
-				$woocommerce_menu_order[] = 'automatewoo'; // AutomateWoo.
+				if ( false !== $automatewoo_index ) {
+					$woocommerce_menu_order[] = 'automatewoo'; // AutomateWoo.
+				}
 				$woocommerce_menu_order[] = 'woocommerce'; // Extensions.
 				$woocommerce_menu_order[] = 'separator-woocommerce'; // Separator WC.
 				$woocommerce_menu_order[] = $item; // Posts.
 
-				if ( false !== $orders_index ) {
-					unset( $menu_order[ $orders_index ] );
-				}
-				if ( false !== $customers_index ) {
-					unset( $menu_order[ $customers_index ] );
-				}
-				if ( false !== $products_index ) {
-					unset( $menu_order[ $products_index ] );
-				}
-				if ( false !== $analytics_index ) {
-					unset( $menu_order[ $analytics_index ] );
-				}
-				if ( false !== $marketing_index ) {
-					unset( $menu_order[ $marketing_index ] );
-				}
-				if ( false !== $extensions_index ) {
-					unset( $menu_order[ $extensions_index ] );
-				}
-				if ( false !== $woocommerce_sep_index ) {
-					unset( $menu_order[ $woocommerce_sep_index ] );
-				}
-				if ( false !== $woocommerce_sep_top_index ) {
-					unset( $menu_order[ $woocommerce_sep_top_index ] );
-				}
-				if ( false !== $payments_connect_index ) {
-					unset( $menu_order[ $payments_connect_index ] );
-				} elseif ( false !== $payments_overview_index ) {
-					unset( $menu_order[ $payments_overview_index ] );
-				}
-				if ( false !== $automatewoo_index ) {
-					unset( $menu_order[ $automatewoo_index ] );
-				}
-
-
 			// Move "Mailpoet" below the "Jetpack" menu item.
-			} elseif ( 'jetpack' === $item ) {
+			} elseif ( false !== $mailpoet_index && 'jetpack' === $item ) {
 				$woocommerce_menu_order[] = $item; // Jetpack.
 				$woocommerce_menu_order[] = 'mailpoet-newsletters'; // Mailpoet.
-				if ( false !== $mailpoet_index ) {
-					unset( $menu_order[ $mailpoet_index ] );
-				}
 
 			} elseif ( ! in_array( $item, array(
 				'mailpoet-newsletters',
