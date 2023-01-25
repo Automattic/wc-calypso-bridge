@@ -24,7 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = 1.9.18 =
 * Arrange menu order for the menu items of Mailpoet and AutomateWoo #921.
-* Remove Mailpoet Free from the managed plugins #921.
+* Remove Mailpoet Free and AutomateWoo from the managed plugins #921.
 
 = 1.9.17 =
 * Roll Product Recommendations into the Ecommerce Plan #910.
