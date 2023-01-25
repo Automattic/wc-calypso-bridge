@@ -44,7 +44,6 @@ class WC_Calypso_Bridge_Plugins {
 		'woocommerce-shipment-tracking/woocommerce-shipment-tracking.php',
 		'crowdsignal-forms/crowdsignal-forms.php',
 		'polldaddy/polldaddy.php',
-		'automatewoo/automatewoo.php',
 		'woocommerce-product-recommendations/woocommerce-product-recommendations.php',
 	);
 
