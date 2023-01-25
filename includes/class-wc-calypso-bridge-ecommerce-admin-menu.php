@@ -47,13 +47,13 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 */
 	public static function menu_order( $menu_order ) {
 		// Initialize our custom order array.
-		$woocommerce_menu_order = array();
+		$woocommerce_menu_order   = array();
 
 		// Get the index of our managed pages for integrations.
-		$payments_connect_index    = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
-		$payments_overview_index   = array_search( 'wc-admin&path=/payments/overview', $menu_order, true );
-		$automatewoo_index         = array_search( 'automatewoo', $menu_order, true );
-		$mailpoet_index            = array_search( 'mailpoet-newsletters', $menu_order, true );
+		$payments_connect_exists  = in_array( 'wc-admin&path=/payments/connect', $menu_order );
+		$payments_overview_exists = in_array( 'wc-admin&path=/payments/overview', $menu_order );
+		$automatewoo_exists       = in_array( 'automatewoo', $menu_order );
+		$mailpoet_exists          = in_array( 'mailpoet-newsletters', $menu_order );
 
 		// Loop through menu order and do some rearranging.
 		foreach ( $menu_order as $index => $item ) {
@@ -65,15 +65,15 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$woocommerce_menu_order[] = 'edit.php?post_type=shop_order'; // Orders.
 				$woocommerce_menu_order[] = 'edit.php?post_type=product'; // Products.
 				$woocommerce_menu_order[] = 'admin.php?page=wc-admin&path=/customers'; // Customers.
-				if ( false !== $payments_connect_index ) {
+				if ( false !== $payments_connect_exists ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/connect'; // Payments.
-				} elseif ( false !== $payments_overview_index ) {
+				} elseif ( false !== $payments_overview_exists ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/overview'; // Payments.
 				}
 
 				$woocommerce_menu_order[] = 'wc-admin&path=/analytics/overview'; // Analytics.
 				$woocommerce_menu_order[] = 'woocommerce-marketing'; // Marketing.
-				if ( false !== $automatewoo_index ) {
+				if ( false !== $automatewoo_exists ) {
 					$woocommerce_menu_order[] = 'automatewoo'; // AutomateWoo.
 				}
 				$woocommerce_menu_order[] = 'woocommerce'; // Extensions.
@@ -81,7 +81,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$woocommerce_menu_order[] = $item; // Posts.
 
 			// Move "Mailpoet" below the "Jetpack" menu item.
-			} elseif ( false !== $mailpoet_index && 'jetpack' === $item ) {
+			} elseif ( false !== $mailpoet_exists && 'jetpack' === $item ) {
 				$woocommerce_menu_order[] = $item; // Jetpack.
 				$woocommerce_menu_order[] = 'mailpoet-newsletters'; // Mailpoet.
 
