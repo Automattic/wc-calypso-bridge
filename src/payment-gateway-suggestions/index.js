@@ -29,6 +29,7 @@ import {
 	getIsGatewayWCPay,
 	comparePaymentGatewaysByPriority,
 } from './utils';
+import './plugins/Bacs';
 import './payment-gateway-suggestions.scss';
 
 const getCountryCode = ( countryState = '' ) => {
