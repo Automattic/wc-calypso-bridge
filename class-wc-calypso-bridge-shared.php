@@ -100,6 +100,7 @@ class WC_Calypso_Bridge_Shared {
 		$site_suffix  = $status->get_site_suffix();
 
 		$params       = array(
+			'isJetpackSSOEnabled'          => (bool) \Jetpack::is_module_active( 'sso' ),
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_is_ecommerce_plan(),
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),
 			'isWooPage'                    => $is_woo_page,

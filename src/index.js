@@ -16,7 +16,7 @@ import './index.scss';
 
 wcNavFilterRootUrl();
 
-if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
+if ( !! window.wcCalypsoBridge.isJetpackSSOEnabled && !! window.wcCalypsoBridge.isEcommercePlan ) {
 
 	// Add slot fill for launch-your-store task.
 	registerPlugin( 'wc-calypso-bridge', {

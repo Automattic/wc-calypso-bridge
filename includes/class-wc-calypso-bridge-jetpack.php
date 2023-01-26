@@ -65,8 +65,7 @@ class WC_Calypso_Bridge_Jetpack {
 			 * @param  bool $enabled
 			 * @return bool
 			 */
-
-			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
+			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) && \Jetpack::is_module_active( 'sso' ) ) {
 				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-ecommerce-admin-menu.php';
 				return Ecommerce_Atomic_Admin_Menu::class;
 			}
