@@ -76,6 +76,9 @@ require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-shared.php';
 // Load WCPay in core experiment.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-payments.php';
 
+// Load free-trial related functionality.
+require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-free-trial.php';
+
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
