@@ -285,8 +285,9 @@ class WC_Calypso_Bridge {
 	 * Load ecommere plan specific UI changes.
 	 */
 	public function load_ecommerce_plan_ui() {
+		// TODO: Only in Ecommerce.
+
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
@@ -295,11 +296,6 @@ class WC_Calypso_Bridge {
 		// Shared with store-on-wpcom.
 		include_once dirname( __FILE__ ) . '/store-on-wpcom/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
 
-		// @todo This should rely on the navigation screens instead.
-		$connect_files = glob( dirname( __FILE__ ) . '/includes/connect/*.php' );
-		foreach ( $connect_files as $connect_file ) {
-			include_once $connect_file;
-		}
 
 		/**
 		 * Decalypsoify ecommerce plans in case the user meta has already been previously set. Remove calypsoify styles to prevent styling conflicts.
@@ -325,10 +321,9 @@ class WC_Calypso_Bridge {
 	 */
 	public function load_ui_elements() {
 
-		if ( is_wc_calypso_bridge_page() ) {
-			add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
-			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
-		}
+		// TODO: Only in Ecommerce.
+		add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 	}
 
 	/**
