@@ -236,6 +236,7 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-themes-setup.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-hide-alerts.php';
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-plugins.php';
 	}
 
 	/**
@@ -287,8 +288,6 @@ class WC_Calypso_Bridge {
 	public function load_ecommerce_plan_ui() {
 		// TODO: Only in Ecommerce.
 
-		// We always want the Calypso branded OBW to run on eCommerce plan sites.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
