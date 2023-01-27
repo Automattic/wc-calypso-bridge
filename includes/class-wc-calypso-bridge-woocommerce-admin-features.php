@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.9
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,6 +24,17 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	protected static $instance = null;
 
 	/**
+	 * Get class instance
+	 */
+	public static function get_instance() {
+		if ( ! static::$instance ) {
+			static::$instance = new static();
+		}
+
+		return static::$instance;
+	}
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -34,9 +45,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * Add hooks and filters if WooCommerce is active.
 	 */
 	public function initialize() {
-		if ( ! function_exists( 'WC' ) ) {
-			return;
-		}
 
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
@@ -155,17 +163,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		$css = 'body:not(.is-woocommerce-home) #wpbody { margin-top: 0 !important; } body:not(.is-woocommerce-home) .woocommerce-layout__header { display:none; } body.is-woocommerce-home #screen-meta-links { display: none; } body.is-woocommerce-home .woocommerce-layout__header-heading, body.is-woocommerce-home .woocommerce-task-progress-header__title, .woocommerce-layout__inbox-title span { font-size: 20px; font-weight: 400; } body.is-woocommerce-home .woocommerce-layout__inbox-panel-header { padding: 0; } .woocommerce-layout__inbox-subtitle { margin-top: 5px; } .woocommerce-layout__inbox-subtitle span { color: #757575; }';
 		wp_add_inline_style( 'activity-panels-hide', $css );
-	}
-
-	/**
-	 * Get class instance
-	 */
-	public static function get_instance() {
-		if ( ! static::$instance ) {
-			static::$instance = new static();
-		}
-
-		return static::$instance;
 	}
 }
 

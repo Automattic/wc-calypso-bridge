@@ -42,7 +42,8 @@ define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '2.0.0' );
 define( 'WC_MIN_VERSION', '7.3' );
 
 // The Bridge Main Controller.
-require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
+require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
+require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge.php';
 
 // Load WCPay in core experiment.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-payments.php';
@@ -51,5 +52,3 @@ if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
 }
-
-require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';

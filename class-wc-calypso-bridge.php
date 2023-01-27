@@ -49,6 +49,7 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+		$this->includes();
 
 		/**
 		 * Handle the store launching AJAX endpoint.
@@ -254,8 +255,6 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX );
 
-		$this->includes();
-
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
@@ -295,13 +294,13 @@ class WC_Calypso_Bridge {
 	 * Include files and controllers.
 	 */
 	public function includes() {
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-shared.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-filters.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-tracks.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-events.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
-		include_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-themes-setup.php';
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-themes-setup.php';
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
 	}
 
 	/**
