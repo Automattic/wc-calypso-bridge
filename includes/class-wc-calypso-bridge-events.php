@@ -3,6 +3,8 @@
  * Handle cron events.
  *
  * @package WC_Calypso_Bridge/Classes
+ * @since   1.0.0
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -11,10 +13,11 @@ defined( 'ABSPATH' ) || exit;
  * WC_Calypso_Bridge_Events Class.
  */
 class WC_Calypso_Bridge_Events {
+
 	/**
 	 * The single instance of the class.
 	 *
-	 * @var object
+	 * @var WC_Calypso_Bridge_Events
 	 */
 	protected static $instance = null;
 
@@ -24,6 +27,7 @@ class WC_Calypso_Bridge_Events {
 	 * @return void
 	 */
 	protected function __construct() {
+		// Both ecommerce and business.
 		add_action( 'plugins_loaded', array( $this, 'on_plugin_loaded' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
 	}

@@ -75,9 +75,6 @@ if ( ! function_exists( 'wc_calypso_bridge_is_business_plan' ) ) {
 // Main Bridge Controller.
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
-// Load cron events.
-require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-events.php';
-
 // Also prevent Crowdsignal from redirecting during onboarding in all both wp-admin and calypsoified ecommerce plan.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
 
