@@ -26,7 +26,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_trial_plan' ) ) {
 	 *
 	 * @return bool True if the site is an ecommerce trial site.
 	 */
-	function wc_calypso_bridge_is_ecommerce_plan() {
+	function wc_calypso_bridge_is_ecommerce_trial_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_trial_plan();
 	}
 }
