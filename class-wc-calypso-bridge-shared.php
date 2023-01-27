@@ -1,10 +1,10 @@
 <?php
 /**
- * Load the bridge if enabled
+ * Controller for shared content.
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.15
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -27,11 +27,12 @@ class WC_Calypso_Bridge_Shared {
 	 * Constructor.
 	 */
 	public function __construct() {
+		// Both ecommerce and business.
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
 
-		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
+		add_action( 'plugins_loaded', array( $this, 'init' ), 2 );
 		add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
 	}
 
@@ -50,12 +51,7 @@ class WC_Calypso_Bridge_Shared {
 	/**
 	 * Initialize only if WC is present.
 	 */
-	public function initialize() {
-		// if woo is not active, then bail.
-		if ( ! function_exists( 'WC' ) ) {
-			return;
-		}
-
+	public function init() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_extension_register_script' ) );
 	}
 
@@ -154,4 +150,5 @@ class WC_Calypso_Bridge_Shared {
 		wp_enqueue_style( 'wp-calypso-bridge-nav-unification', WC_Calypso_Bridge_Instance()->get_asset_path() . 'store-on-wpcom/assets/css/admin/nav-unification.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 }
+
 WC_Calypso_Bridge_Shared::instance();

@@ -72,11 +72,8 @@ if ( ! function_exists( 'wc_calypso_bridge_is_business_plan' ) ) {
 	}
 }
 
-// Main Bridge Controller.
+// The Bridge Main Controller.
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
-
-// Load shared stuff for both ecommerce and business plan.
-require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-shared.php';
 
 // Load WCPay in core experiment.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-payments.php';
