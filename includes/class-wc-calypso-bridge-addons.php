@@ -5,7 +5,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.6
- * @version 1.0.6
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -29,13 +29,27 @@ class WC_Calypso_Bridge_Addons {
 		if ( ! self::$instance ) {
 			self::$instance = new self();
 		}
+
 		return self::$instance;
 	}
 
 	/**
-	 * Hook into WordPress's menu system.
+	 * Constructor.
 	 */
-	public function __construct() {
+	private function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
+		add_action( 'init', array( $this, 'init' ), 2 );
+	}
+
+	/**
+	 * Initialize.
+	 */
+	public function init() {
 		add_filter( 'woocommerce_show_addons_page', '__return_false' );
 		add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
 		add_action( 'woocommerce_loaded', array( $this, 'load_modified_addons_menu' ) );
@@ -62,7 +76,9 @@ class WC_Calypso_Bridge_Addons {
 	 * Init the addons page.
 	 */
 	public function addons_page() {
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-addons-screen.php';
 		WC_Calypso_Bridge_Addons_Screen::output();
 	}
 }
-$wc_calypso_bridge_addons = WC_Calypso_Bridge_Addons::get_instance();
+
+WC_Calypso_Bridge_Addons::get_instance();

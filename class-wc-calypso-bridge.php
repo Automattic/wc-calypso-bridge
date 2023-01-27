@@ -237,6 +237,7 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-plugins.php';
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-addons.php';
 	}
 
 	/**
@@ -288,8 +289,6 @@ class WC_Calypso_Bridge {
 	public function load_ecommerce_plan_ui() {
 		// TODO: Only in Ecommerce.
 
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
 
 		// Shared with store-on-wpcom.
@@ -366,7 +365,7 @@ class WC_Calypso_Bridge {
 	 * @return string
 	 */
 	public function get_asset_path() {
-		return $this->$plugin_asset_path ? $this->$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
+		return $this->plugin_asset_path ? $this->plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 	}
 
 	/**
