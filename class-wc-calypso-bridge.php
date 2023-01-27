@@ -301,6 +301,7 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-tracks.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-events.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
+		include_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-themes-setup.php';
 	}
 
 	/**
@@ -352,7 +353,6 @@ class WC_Calypso_Bridge {
 	public function load_ecommerce_plan_ui() {
 		// We always want the Calypso branded OBW to run on eCommerce plan sites.
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-hide-alerts.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-themes-setup.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-page-controller.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-plugins.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons.php';
