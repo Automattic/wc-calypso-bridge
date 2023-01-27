@@ -4,10 +4,12 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.17
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
+
+use Automattic\WooCommerce\Admin\WCAdminHelper;
 
 /**
  * WC Calypso Bridge Hide Alerts
@@ -33,9 +35,86 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	}
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	private function __construct() {
+		add_action( 'init', array( $this, 'init' ) );
+
+		/**
+		 * Suppress inbox messages not applicable to the ecommerce plan.
+		 *
+		 * @since   1.9.5
+		 *
+		 * @param string $where_clauses The generated WHERE clause.
+		 * @param array  $args          The original arguments for the request.
+		 * @param string $context       Optional argument that the woocommerce_note_where_clauses filter can use to determine whether to apply extra conditions. Extensions should define their own contexts and use them to avoid adding to notes where clauses when not needed.
+		 * @return string $where_clauses The modified WHERE clause.
+		 * @todo    Refactor and move it - On purpose it's early on, as this filter runs on an API call (React).
+		 */
+		add_filter( 'woocommerce_note_where_clauses', static function ( $where_clauses, $args, $context ) {
+
+			$suppressed_messages = array(
+				'wc-admin-adding-and-managing-products',
+				'wc-admin-choosing-a-theme',
+				'wc-admin-customizing-product-catalog',
+				'wc-admin-first-product',
+				'wc-admin-store-notice-giving-feedback-2',
+				'wc-admin-insight-first-product-and-payment',
+				'wc-admin-insight-first-sale',
+				'wc-admin-install-jp-and-wcs-plugins',
+				'wc-admin-launch-checklist',
+				'wc-admin-manage-store-activity-from-home-screen',
+				'wc-admin-onboarding-payments-reminder',
+				'wc-admin-usage-tracking-opt-in',
+				'wc-admin-remove-unsecured-report-files',
+				'wc-admin-update-store-details',
+				'wc-admin-welcome-to-woocommerce-for-store-users',
+				'wc-admin-woocommerce-payments',
+				'wc-admin-woocommerce-subscriptions',
+				'wc-pb-bulk-discounts',
+				'wc-payments-notes-set-up-refund-policy',
+				'wc-admin-marketing-jetpack-backup', // suppress for now, to be revisited.
+				'wc-admin-mobile-app', // suppress for now, to be revisited.
+				'wc-admin-migrate-from-shopify', // suppress for now, to be revisited.
+				'wc-admin-magento-migration', // suppress for now, to be revisited.
+				'wc-admin-woocommerce-subscriptions', // suppress for now, to be revisited.
+				'wc-admin-online-clothing-store', // suppress for now, to be revisited.
+				'wc-admin-selling-online-courses', // suppress for now, to be revisited.
+			);
+
+			// Suppress the message if the site is active for less than 5 days.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 5 * DAY_IN_SECONDS ) ) {
+				$suppressed_messages[] = 'wc-refund-returns-page';
+			}
+
+			// Suppress the message if the site is active for less than 2 days.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 2 * DAY_IN_SECONDS ) ) {
+				$suppressed_messages[] = 'wc-calypso-bridge-cart-checkout-blocks-default-inbox-note';
+			}
+
+			$where_excluded_name_array = array();
+			foreach ( $suppressed_messages as $name ) {
+				$where_excluded_name_array[] = sprintf( "'%s'", esc_sql( $name ) );
+			}
+			$escaped_where_excluded_names = implode( ',', $where_excluded_name_array );
+
+			if ( ! empty( $escaped_where_excluded_names ) ) {
+				$where_clauses .= " AND name NOT IN ($escaped_where_excluded_names) ";
+			}
+
+			return $where_clauses;
+
+		}, PHP_INT_MAX, 3 );
+	}
+
+	/**
+	 * Initialize.
+	 */
+	public function init() {
+		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
+			return;
+		}
+
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
