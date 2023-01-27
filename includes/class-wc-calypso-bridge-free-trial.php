@@ -132,10 +132,10 @@ class WC_Calypso_Bridge_Free_Trial {
 				$site_url  = get_home_url( $blog_id );
 				$site_slug = wp_parse_url( $site_url, PHP_URL_HOST );
 				$plan_url  = 'https://wordpress.com/plans/' . $site_slug;
-				$message = sprintf( __( '🔔 During trial, only Admins and Shop Managers can place orders. To process real transactions, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $pick_a_plan_url );
+				$message   = sprintf( __( '🔔 During trial, only Admins and Shop Managers can place orders. To process real transactions, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $plan_url );
 				?>
 				<div class="notice notice-warning">
-					<p><?php echo $notice; ?></p>
+					<p><?php echo $message; ?></p>
 				</div>
 				<?php
 			}, PHP_INT_MAX );
