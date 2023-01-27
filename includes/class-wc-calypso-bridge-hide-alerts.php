@@ -260,4 +260,4 @@ class WC_Calypso_Bridge_Hide_Alerts {
 
 }
 
-$wc_calypso_bridge_hide_alerts = WC_Calypso_Bridge_Hide_Alerts::get_instance();
+WC_Calypso_Bridge_Hide_Alerts::get_instance();
