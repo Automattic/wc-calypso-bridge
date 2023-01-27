@@ -17,18 +17,6 @@ use Automattic\WooCommerce\Admin\Loader;
 class WC_Calypso_Bridge_Shared {
 
 	/**
-	 * Paths to assets act oddly in production
-	 */
-	const MU_PLUGIN_ASSET_PATH = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/';
-
-	/**
-	 * Plugin asset path
-	 *
-	 * @var string
-	 */
-	public static $plugin_asset_path = null;
-
-	/**
 	 * Class Instance.
 	 *
 	 * @var WC_Calypso_Bridge_Shared instance
@@ -45,6 +33,18 @@ class WC_Calypso_Bridge_Shared {
 
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 		add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
+	}
+
+	/**
+	 * Class instance.
+	 */
+	public static function instance() {
+
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
 	}
 
 	/**
@@ -106,7 +106,7 @@ class WC_Calypso_Bridge_Shared {
 			'homeUrl'                      => esc_url( get_home_url() ),
 			'siteSlug'                     => $site_suffix,
 			'adminHomeUrl'                 => esc_url( admin_url( 'admin.php?page=wc-admin' ) ),
-			'assetPath'                    => esc_url( self::get_asset_path() ),
+			'assetPath'                    => esc_url( WC_Calypso_Bridge_Instance()->get_asset_path() ),
 			'wcpayConnectUrl'              => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
 			'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 		);
@@ -123,36 +123,6 @@ class WC_Calypso_Bridge_Shared {
 
 		wp_enqueue_script( 'wc-calypso-bridge' );
 		wp_enqueue_style( 'wc-calypso-bridge' );
-	}
-
-	/**
-	 * Class instance.
-	 */
-	public static function instance() {
-
-		if ( is_null( self::$instance ) ) {
-			// If this is a traditionally installed plugin, set plugin_url for the proper asset path.
-			if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
-				if ( WP_PLUGIN_DIR . '/wc-calypso-bridge/' === plugin_dir_path( __FILE__ ) ) {
-					self::$plugin_asset_path = plugin_dir_url( __FILE__ );
-				}
-			}
-
-			self::$instance = new self();
-		}
-
-		return self::$instance;
-	}
-
-	/**
-	 * Class instance.
-	 *
-	 * @since 1.9.12
-	 *
-	 * @return string
-	 */
-	public static function get_asset_path() {
-		return self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 	}
 
 	/**
@@ -181,8 +151,7 @@ class WC_Calypso_Bridge_Shared {
 	 * Add styles for nav unification fixes.
 	 */
 	public function add_nav_unification_styles() {
-		$asset_path = self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wp-calypso-bridge-nav-unification', $asset_path . 'store-on-wpcom/assets/css/admin/nav-unification.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_style( 'wp-calypso-bridge-nav-unification', WC_Calypso_Bridge_Instance()->get_asset_path() . 'store-on-wpcom/assets/css/admin/nav-unification.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 }
 WC_Calypso_Bridge_Shared::instance();

@@ -15,17 +15,6 @@ defined( 'ABSPATH' ) || exit;
  * WC Calypso Bridge Frontend
  */
 class WC_Calypso_Bridge_Frontend {
-	/**
-	 * Paths to assets act oddly in production
-	 */
-	const MU_PLUGIN_ASSET_PATH = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/';
-
-	/**
-	 * Plugin asset path
-	 *
-	 * @var string
-	 */
-	public static $plugin_asset_path = null;
 
 	/**
 	 * Class Instance.
@@ -39,6 +28,17 @@ class WC_Calypso_Bridge_Frontend {
 	 */
 	public function __construct() {
 		add_action( 'init', array( $this, 'remove_storefront_default_footer_credit' ), 10 );
+	}
+
+	/**
+	 * Class instance.
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
 	}
 
 	/**
@@ -71,27 +71,6 @@ class WC_Calypso_Bridge_Frontend {
 		</div><!-- .site-info -->
 		<?php
 	}
-
-	/**
-	 * Class instance.
-	 */
-	public static function get_instance() {
-		if ( is_null( self::$instance ) ) {
-			// If this is a traditionally installed plugin, set plugin_url for the proper asset path.
-			if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
-				if ( WP_PLUGIN_DIR . '/wc-calypso-bridge/' == plugin_dir_path( __FILE__ ) ) {
-					self::$plugin_asset_path = plugin_dir_url( __FILE__ );
-				}
-			}
-
-			self::$instance = new self();
-		}
-
-		return self::$instance;
-	}
-
-
-
 }
 
 WC_Calypso_Bridge_Frontend::get_instance();
