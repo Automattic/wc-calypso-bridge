@@ -41,37 +41,6 @@ define( 'WC_CALYSPO_BRIDGE_PLUGIN_PATH', dirname( __FILE__ ) );
 define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '2.0.0' );
 define( 'WC_MIN_VERSION', '7.3' );
 
-if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
-	/**
-	 * Returns if a site is an eCommerce plan site or not.
-	 *
-	 * @return bool True if the site is an ecommerce site.
-	 */
-	function wc_calypso_bridge_is_ecommerce_plan() {
-		if ( function_exists( 'wpcom_site_has_feature' ) ) {
-			return wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS );
-		}
-
-		return false;
-	}
-}
-
-if ( ! function_exists( 'wc_calypso_bridge_is_business_plan' ) ) {
-
-	/**
-	 * Returns if a site is a Business plan site or not.
-	 *
-	 * @return bool True if the site is a business site.
-	 */
-	function wc_calypso_bridge_is_business_plan() {
-		if ( function_exists( 'wpcom_site_has_feature' ) ) {
-			return wpcom_site_has_feature( \WPCOM_Features::CONCIERGE_BUSINESS );
-		}
-
-		return false;
-	}
-}
-
 // The Bridge Main Controller.
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
