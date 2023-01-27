@@ -291,7 +291,6 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-addons-screen.php';
 		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
-		// require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerce-admin.php';
 
 		// Shared with store-on-wpcom.
 		include_once dirname( __FILE__ ) . '/store-on-wpcom/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
