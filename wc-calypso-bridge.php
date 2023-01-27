@@ -75,11 +75,6 @@ if ( ! function_exists( 'wc_calypso_bridge_is_business_plan' ) ) {
 // Main Bridge Controller.
 require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge.php';
 
-// We want to adjust tracks settings for business, ecomm, in calypsoified and wp-admin views.
-require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-tracks.php';
-add_filter( 'pre_option_woocommerce_allow_tracking', array( 'WC_Calypso_Bridge_Tracks', 'always_enable_tracking' ) );
-add_action( 'init', array( 'WC_Calypso_Bridge_Tracks', 'get_instance' ) );
-
 // Load cron events.
 require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-events.php';
 
