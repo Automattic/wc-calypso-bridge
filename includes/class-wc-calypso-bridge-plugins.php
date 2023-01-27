@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.17
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -68,9 +68,22 @@ class WC_Calypso_Bridge_Plugins {
 	}
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	private function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
+		add_action( 'init', array( $this, 'init' ), 2 );
+	}
+
+	/**
+	 * Initialize.
+	 */
+	public function init() {
 		add_filter( 'plugin_action_links', array( $this, 'remove_woocommerce_deactivation_link' ), 10, 2 );
 		add_filter( 'plugin_action_links', array( $this, 'remove_ecommerce_managed_plugin_delete_link' ), PHP_INT_MAX, 2 );
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
@@ -187,4 +200,4 @@ class WC_Calypso_Bridge_Plugins {
 
 }
 
-$wc_calypso_bridge_plugins = WC_Calypso_Bridge_Plugins::get_instance();
+WC_Calypso_Bridge_Plugins::get_instance();
