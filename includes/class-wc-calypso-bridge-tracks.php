@@ -149,3 +149,5 @@ class WC_Calypso_Bridge_Tracks {
 		return $query;
 	}
 }
+
+WC_Calypso_Bridge_Tracks::get_instance();
