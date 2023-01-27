@@ -46,6 +46,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 */
 	public function initialize() {
 
+		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
 
@@ -53,6 +54,19 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		add_filter( 'admin_body_class', array( $this, 'filter_woocommerce_body_classes' ) );
 		add_action( 'admin_init', array( $this, 'add_custom_activity_panels_styles' ) );
 		add_action( 'admin_footer', array( $this, 'filter_woocommerce_body_classes_js' ) );
+	}
+
+	/**
+	 * Remove the Dev Docs menu item unless allowed by the `wc_calypso_bridge_development_mode` filter.
+	 *
+	 * @param array $features WooCommerce Admin enabled features list.
+	 */
+	public function maybe_remove_devdocs_menu_item( $features ) {
+		if ( ! apply_filters( 'wc_calypso_bridge_development_mode', false ) ) {
+			unset( $features['devdocs'] );
+		}
+
+		return $features;
 	}
 
 	/**
