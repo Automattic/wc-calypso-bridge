@@ -254,6 +254,8 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX );
 
+		$this->includes();
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
@@ -287,6 +289,13 @@ class WC_Calypso_Bridge {
 	public function initialize() {
 		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
 		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
+	}
+
+	/**
+	 * Include files and controllers.
+	 */
+	public function includes() {
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-filters.php';
 	}
 
 	/**
