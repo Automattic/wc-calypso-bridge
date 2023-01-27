@@ -43,6 +43,11 @@ class WC_Calypso_Bridge_Themes_Setup {
 
 		remove_action( 'storefront_footer', 'storefront_credit', 20 );
 		add_action( 'storefront_footer', array( $this, 'wpcom_ecommerce_plan_storefront_credit' ), 20 );
+
+		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
+			return;
+		}
+
 		add_action( 'init', array( $this, 'set_theme_default_values' ) );
 		add_action( 'customize_save_after', array( $this, 'mark_import_as_completed' ) );
 	}
