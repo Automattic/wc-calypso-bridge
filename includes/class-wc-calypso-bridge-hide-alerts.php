@@ -38,6 +38,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Constructor.
 	 */
 	private function __construct() {
+		// Both ecommerce and business.
 		add_action( 'init', array( $this, 'init' ) );
 
 		/**
