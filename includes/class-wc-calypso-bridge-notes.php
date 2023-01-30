@@ -3,6 +3,8 @@
  * Notes.
  *
  * @package WC_Calypso_Bridge/Classes
+ * @since   1.0.0
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -41,7 +43,7 @@ class WC_Calypso_Bridge_Notes {
 	 * Include notes and initialize note hooks.
 	 */
 	public function init() {
-		include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php';
+		include_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php';
 		new WC_Calypso_Bridge_Payments_Remind_Me_Later_Note();
 	}
 
