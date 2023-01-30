@@ -2,9 +2,9 @@
 /**
  * Jetpack customizations.
  *
- * @package WC_Calypso_Bridge/Jetpack
+ * @package WC_Calypso_Bridge/Classes
  * @since   1.9.8
- * @version 1.9.15
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
