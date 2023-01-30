@@ -60,22 +60,38 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
+	 * Ensure WooCommerce is installed and up to date.
+	 */
+	private function is_woocommerce_valid() {
+		return (
+			function_exists( 'WC' ) &&
+			property_exists( WC(), 'version' ) &&
+			version_compare( WC()->version, WC_MIN_VERSION ) >= 0
+		);
+	}
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->includes();
-
+		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
+	}
+
+	public function initialize() {
+		if ( ! $this->is_woocommerce_valid() ) {
+			return;
+		}
+
+		$this->includes();
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
-
 		// Only in Ecommerce.
 		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 			return;
 		}
-
 		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
 	}
 
