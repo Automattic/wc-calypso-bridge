@@ -1,0 +1,41 @@
+name: PHP Coding Stadards
+
+on:
+    workflow_call:
+
+jobs:
+
+    php-coding-standards:
+        name: Coding standards
+        runs-on: ubuntu-18.04
+
+        steps:
+
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '7.4'
+                  coverage: none
+                  tools: composer, cs2pr
+
+            - name: Log debug information
+              run: |
+                  php --version
+                  composer --version
+
+            - name: Check for syntax errors
+              run: sh -c "! (find . \( -path ./tmp -o -path ./tests -o -path ./vendor \) -prune -o \( -name '*.php' \) -exec php -ln {} \; | grep -v \"No syntax errors detected\")"
+
+            - name: Install Composer dependencies
+              run: |
+                  composer install --prefer-dist --no-suggest --no-progress --no-ansi --no-interaction
+                  echo "${PWD}/vendor/bin" >> $GITHUB_PATH
+
+            - name: Log PHPCS debug information
+              run: phpcs -i
+
+            - name: Run PHPCS on all files
+              run: phpcs --warning-severity=0 --extensions=php,html --report=checkstyle --sniffs=WordPress.Security.ValidatedSanitizedInput,WordPress.DateTime.RestrictedFunctions,Generic.PHP.ForbiddenFunctions . -q -n | cs2pr
