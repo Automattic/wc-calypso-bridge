@@ -16,23 +16,23 @@ import './index.scss';
 
 wcNavFilterRootUrl();
 
-if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
+// Add slot fill for launch-your-store task.
+registerPlugin( 'wc-calypso-bridge', {
+	scope: 'woocommerce-tasks',
+	render: () => (
+		<WooOnboardingTask id="launch_site">
+			{ ( { onComplete, query, task } ) => (
+				<LaunchStorePage
+					onComplete={ onComplete }
+					query={ query }
+					task={ task }
+				/>
+			) }
+		</WooOnboardingTask>
+	),
+} );
 
-	// Add slot fill for launch-your-store task.
-	registerPlugin( 'wc-calypso-bridge', {
-		scope: 'woocommerce-tasks',
-		render: () => (
-			<WooOnboardingTask id="launch_site">
-				{ ( { onComplete, query, task } ) => (
-					<LaunchStorePage
-						onComplete={ onComplete }
-						query={ query }
-						task={ task }
-					/>
-				) }
-			</WooOnboardingTask>
-		),
-	} );
+if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 
 	// Filter wc admin pages.
 	addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
