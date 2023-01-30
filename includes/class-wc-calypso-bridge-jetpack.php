@@ -37,6 +37,12 @@ class WC_Calypso_Bridge_Jetpack {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
 		$this->init();
 	}
 
