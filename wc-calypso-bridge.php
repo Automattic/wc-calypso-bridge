@@ -45,9 +45,6 @@ define( 'WC_MIN_VERSION', '7.3' );
 require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
 require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge.php';
 
-// Load WCPay in core experiment.
-require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-payments.php';
-
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
 	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
