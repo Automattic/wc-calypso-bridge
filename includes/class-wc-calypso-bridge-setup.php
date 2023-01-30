@@ -66,7 +66,63 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
-		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
+		add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
+			return 'yes';
+		} );
+
+		/**
+		 * Enable DB auto updates.
+		 *
+		 * @since   1.9.13
+		 *
+		 * @return  bool
+		 */
+		add_filter( 'woocommerce_enable_auto_update_db', '__return_true' );
+
+		/**
+		 * Remove the legacy `WooCommerce > Coupons` menu.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return int 1 to show the legacy menu, 0 to hide it. Booleans do not work.
+		 * @see     Automattic\WooCommerce\Internal\Admin\CouponsMovedTrait::display_legacy_menu()
+		 * @todo    Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
+		 * @todo    Remove this filter when the compatibility branch is merged.
+		 */
+		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', static function ( $pre ) {
+			return 0;
+		}, PHP_INT_MAX );
+
+		/**
+		 * Disable WooCommerce Navigation.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return string no.
+		 * @todo    Refactor and move it.
+		 */
+		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
+			return 'no';
+		}, PHP_INT_MAX );
+
+		/**
+		 * Remove the Write button from the global bar.
+		 *
+		 * @since   1.9.8
+		 *
+		 * @return void
+		 */
+		add_action( 'wp_before_admin_bar_render', static function () {
+			global $wp_admin_bar;
+
+			if ( ! is_object( $wp_admin_bar ) ) {
+				return;
+			}
+
+			$wp_admin_bar->remove_menu( 'ab-new-post' );
+		}, PHP_INT_MAX );
 	}
 
 	/**
@@ -351,13 +407,6 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Opt all sites into using WooCommerce Home Screen.
-	 */
-	public function always_enable_homescreen() {
-		return 'yes';
-	}
-
-	/**
 	 * Prevent redirects on activation when WooCommerce is being setup. Some plugins
 	 * do this when they are activated.
 	 *
@@ -465,4 +514,4 @@ class WC_Calypso_Bridge_Setup {
 
 }
 
-$wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
+WC_Calypso_Bridge_Setup::get_instance();
