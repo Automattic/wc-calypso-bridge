@@ -58,6 +58,12 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
 		$this->setup_one_time_operations();
 
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
