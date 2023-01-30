@@ -9,11 +9,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use Automattic\WooCommerce\Admin\Loader;
-use Automattic\WooCommerce\Admin\WCAdminHelper;
-use Automattic\WooCommerce\Admin\Features\OnboardingTasks;
-use Automattic\Jetpack\Connection\Client;
-
 /**
  * WC Calypso Bridge
  */
@@ -32,7 +27,7 @@ class WC_Calypso_Bridge {
 	const MU_PLUGIN_ASSET_PATH = '/wp-content/mu-plugins/wpcomsh/vendor/automattic/wc-calypso-bridge/';
 
 	/**
-	 * Plugin asset path
+	 * Plugin asset path.
 	 *
 	 * @var string
 	 */
@@ -44,81 +39,6 @@ class WC_Calypso_Bridge {
 	 * @var WC_Calypso_Bridge instance
 	 */
 	protected static $instance = null;
-
-	/**
-	 * Constructor.
-	 */
-	public function __construct() {
-		$this->includes();
-
-		/**
-		 * Enable DB auto updates.
-		 *
-		 * @since   1.9.13
-		 *
-		 * @return  bool
-		 */
-		add_filter( 'woocommerce_enable_auto_update_db', '__return_true' );
-
-		/**
-		 * Remove the legacy `WooCommerce > Coupons` menu.
-		 *
-		 * @since   1.9.4
-		 *
-		 * @param mixed $pre Fixed to false.
-		 * @return int 1 to show the legacy menu, 0 to hide it. Booleans do not work.
-		 * @see     Automattic\WooCommerce\Internal\Admin\CouponsMovedTrait::display_legacy_menu()
-		 * @todo    Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
-		 * @todo    Remove this filter when the compatibility branch is merged.
-		 */
-		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', static function ( $pre ) {
-			return 0;
-		}, PHP_INT_MAX );
-
-		/**
-		 * Disable WooCommerce Navigation.
-		 *
-		 * @since   1.9.4
-		 *
-		 * @param mixed $pre Fixed to false.
-		 * @return string no.
-		 * @todo    Refactor and move it.
-		 */
-		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
-			return 'no';
-		}, PHP_INT_MAX );
-
-		/**
-		 * Remove the Write button from the global bar.
-		 *
-		 * @since   1.9.8
-		 *
-		 * @return void
-		 */
-		add_action( 'wp_before_admin_bar_render', static function () {
-			global $wp_admin_bar;
-
-			if ( ! is_object( $wp_admin_bar ) ) {
-				return;
-			}
-
-			$wp_admin_bar->remove_menu( 'ab-new-post' );
-		}, PHP_INT_MAX );
-    
-		// Include these classes as early as possible.
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-helper-functions.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
-		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
-
-		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
-
-		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
-			return;
-		}
-
-		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
-		add_action( 'plugins_loaded', array( $this, 'disable_powerpack_features' ), 2 );
-	}
 
 	/**
 	 * Class instance.
@@ -140,10 +60,33 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+		$this->includes();
+
+		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
+
+		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
+			return;
+		}
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
+		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
+	}
+
+	/**
 	 * Include files and controllers.
 	 */
 	public function includes() {
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-shared.php';
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup.php';
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-jetpack.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup-tasks.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-filters.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-tracks.php';
@@ -157,57 +100,14 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
-	 * Disables Specific Features within the Powerpack extension for Storefront.
-	 */
-	public function disable_powerpack_features() {
-		if ( ! class_exists( 'Storefront_Powerpack' ) ) {
-			return;
-		}
-
-		/**
-		 * List of Powerpack features able to disable
-		 *
-		 * 'storefront_powerpack_helpers_enabled'
-		 * 'storefront_powerpack_admin_enabled'
-		 * 'storefront_powerpack_frontend_enabled'
-		 * 'storefront_powerpack_customizer_enabled'
-		 * 'storefront_powerpack_header_enabled'
-		 * 'storefront_powerpack_footer_enabled'
-		 * 'storefront_powerpack_designer_enabled'
-		 * 'storefront_powerpack_layout_enabled'
-		 * 'storefront_powerpack_integrations_enabled'
-		 * 'storefront_powerpack_mega_menus_enabled'
-		 * 'storefront_powerpack_parallax_hero_enabled'
-		 * 'storefront_powerpack_checkout_enabled'
-		 * 'storefront_powerpack_homepage_enabled'
-		 * 'storefront_powerpack_messages_enabled'
-		 * 'storefront_powerpack_product_details_enabled'
-		 * 'storefront_powerpack_shop_enabled'
-		 * 'storefront_powerpack_pricing_tables_enabled'
-		 * 'storefront_powerpack_reviews_enabled'
-		 * 'storefront_powerpack_product_hero_enabled'
-		 * 'storefront_powerpack_blog_customizer_enabled'
-		 */
-		$disabled_powerpack_features = array(
-			'storefront_powerpack_designer_enabled',
-			'storefront_powerpack_mega_menus_enabled',
-			'storefront_powerpack_pricing_tables_enabled',
-		);
-
-		foreach ( $disabled_powerpack_features as $feature_filter_name ) {
-			add_filter( $feature_filter_name, '__return_false' );
-		}
-	}
-
-	/**
 	 * Load ecommerce plan UI changes.
 	 */
 	public function load_ecommerce_plan_ui() {
 
-		// Only in Ecommerce.
-		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-			return;
-		}
+		/**
+		 * Load Ecommerce styles.
+		 */
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 
 		/**
 		 * Disable block editor for post types.
@@ -258,8 +158,10 @@ class WC_Calypso_Bridge {
 			return $null;
 		}, 10, 3 );
 
-		add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
+		/**
+		 * Remove admin footer text.
+		 */
+		add_filter( 'woocommerce_display_admin_footer_text', '__return_false' );
 	}
 
 	/**
@@ -271,13 +173,6 @@ class WC_Calypso_Bridge {
 		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) ) {
 			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', $this->get_asset_path() . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 		}
-	}
-
-	/**
-	 * Remove WooCommerce footer text
-	 */
-	public function remove_woocommerce_core_footer_text() {
-		add_filter( 'woocommerce_display_admin_footer_text', '__return_false' );
 	}
 
 	/**
