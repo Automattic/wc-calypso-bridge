@@ -11,6 +11,7 @@
 		"format:js": "wp-scripts format-js src/",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js src/",
+		"lint:js:report": "npm run lint:js -- --output-file eslint_report.json --ext=js,ts,tsx --format json",
 		"lint:md:docs": "wp-scripts lint-md-docs",
 		"lint:md:js": "wp-scripts lint-md-js",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
@@ -20,14 +21,14 @@
 		"test:unit": "wp-scripts test-unit-js"
 	},
 	"devDependencies": {
+		"@automattic/color-studio": "^2.5.0",
 		"@wordpress/scripts": "^14.0.0",
 		"@wordpress/babel-preset-default": "^6.2.0",
 		"@woocommerce/dependency-extraction-webpack-plugin": "^1.7.0",
-		"@woocommerce/eslint-plugin": "1.1.0",
+		"@woocommerce/eslint-plugin": "1.0.0-beta.0",
 		"@automattic/color-studio": "2.5.0"
 	},
 	"dependencies": {
-		"@automattic/color-studio": "^2.5.0",
 		"@woocommerce/onboarding": "^3.2.0",
 		"classnames": "^2.3.2"
 	}
