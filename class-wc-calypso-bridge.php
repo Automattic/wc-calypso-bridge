@@ -189,11 +189,13 @@ class WC_Calypso_Bridge {
 
 		}, PHP_INT_MAX );
 
+		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
+
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
 
-		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
+		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
 		add_action( 'plugins_loaded', array( $this, 'disable_powerpack_features' ), 2 );
 	}
 
@@ -214,14 +216,6 @@ class WC_Calypso_Bridge {
 		}
 
 		return self::$instance;
-	}
-
-	/**
-	 * Initialize only if WC is present.
-	 */
-	public function initialize() {
-		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
-		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
 	}
 
 	/**
@@ -284,16 +278,47 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
-	 * Load ecommere plan specific UI changes.
+	 * Load ecommerce plan UI changes.
 	 */
 	public function load_ecommerce_plan_ui() {
-		// TODO: Only in Ecommerce.
 
-		include_once dirname( __FILE__ ) . '/includes/gutenberg.php';
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
 
-		// Shared with store-on-wpcom.
-		include_once dirname( __FILE__ ) . '/store-on-wpcom/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
+		/**
+		 * Disable block editor for post types.
+		 *
+		 * @param bool    $value
+		 * @param string  $post_type
+		 * @return bool
+		 */
+		add_filter( 'use_block_editor_for_post_type', static function( $value, $post_type ) {
 
+			$wc_post_types = array(
+				'shop_coupon',
+				'shop_order',
+				'product',
+				'bookable_resource',
+				'wc_booking',
+				'event_ticket',
+				'wc_membership_plan',
+				'wc_user_membership',
+				'wc_voucher',
+				'wc_pickup_location',
+				'shop_subscription',
+				'wc_product_tab',
+				'wishlist',
+				'wc_zapier_feed',
+			);
+
+			if ( in_array( $post_type, $wc_post_types ) ) {
+				return false;
+			}
+
+			return $value;
+		}, 10, 2 );
 
 		/**
 		 * Decalypsoify ecommerce plans in case the user meta has already been previously set. Remove calypsoify styles to prevent styling conflicts.
@@ -311,15 +336,6 @@ class WC_Calypso_Bridge {
 			return $null;
 		}, 10, 3 );
 
-		add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
-	}
-
-	/**
-	 * Updates required UI elements for calypso bridge pages only.
-	 */
-	public function load_ui_elements() {
-
-		// TODO: Only in Ecommerce.
 		add_action( 'admin_init', array( $this, 'remove_woocommerce_core_footer_text' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 	}
@@ -344,6 +360,8 @@ class WC_Calypso_Bridge {
 
 	/**
 	 * Loads language files for the plugin.
+	 *
+	 * @since 2.0.0
 	 */
 	public function load_transalation() {
 		$plugin_path = WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/languages';
