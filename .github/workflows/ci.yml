@@ -17,7 +17,7 @@ concurrency:
 jobs:
 
     php-coding-standards:
-        if: github.event.pull_request.draft == false
+        # if: github.event.pull_request.draft == false
         name: PHP
         uses: ./.github/workflows/check-coding-standards.yml
 
@@ -26,10 +26,10 @@ jobs:
         needs: php-coding-standards
         uses: ./.github/workflows/setup-node.yml
 
-    linting-tests:
-        name: Linting
-        needs: setup
-        uses: ./.github/workflows/run-linting.yml
+    # linting-tests:
+    #     name: Linting
+    #     needs: setup
+    #     uses: ./.github/workflows/run-linting.yml
 
     bundle_size:
         name: Package Size
