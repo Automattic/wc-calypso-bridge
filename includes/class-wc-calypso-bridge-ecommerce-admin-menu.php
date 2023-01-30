@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 1.9.16
+ * @version 1.9.18
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -46,21 +46,14 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Groups WooCommerce items.
 	 */
 	public static function menu_order( $menu_order ) {
-
 		// Initialize our custom order array.
-		$woocommerce_menu_order = array();
+		$woocommerce_menu_order   = array();
 
-		// Get the index of our managed pages.
-		$orders_index              = array_search( 'edit.php?post_type=shop_order', $menu_order, true );
-		$customers_index           = array_search( 'admin.php?page=wc-admin&path=/customers', $menu_order, true );
-		$products_index            = array_search( 'edit.php?post_type=product', $menu_order, true );
-		$analytics_index           = array_search( 'wc-admin&path=/analytics/overview', $menu_order, true );
-		$marketing_index           = array_search( 'woocommerce-marketing', $menu_order, true );
-		$extensions_index          = array_search( 'woocommerce', $menu_order, true );
-		$woocommerce_sep_index     = array_search( 'separator-woocommerce', $menu_order, true );
-		$woocommerce_sep_top_index = array_search( 'wc-calypso-bridge-separator-top', $menu_order, true );
-		$payments_connect_index    = array_search( 'wc-admin&path=/payments/connect', $menu_order, true );
-		$payments_overview_index   = array_search( 'wc-admin&path=/payments/overview', $menu_order, true );
+		// Get the index of our managed pages for integrations.
+		$payments_connect_exists  = in_array( 'wc-admin&path=/payments/connect', $menu_order );
+		$payments_overview_exists = in_array( 'wc-admin&path=/payments/overview', $menu_order );
+		$automatewoo_exists       = in_array( 'automatewoo', $menu_order );
+		$mailpoet_exists          = in_array( 'mailpoet-newsletters', $menu_order );
 
 		// Loop through menu order and do some rearranging.
 		foreach ( $menu_order as $index => $item ) {
@@ -72,49 +65,29 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$woocommerce_menu_order[] = 'edit.php?post_type=shop_order'; // Orders.
 				$woocommerce_menu_order[] = 'edit.php?post_type=product'; // Products.
 				$woocommerce_menu_order[] = 'admin.php?page=wc-admin&path=/customers'; // Customers.
-				if ( false !== $payments_connect_index ) {
+				if ( false !== $payments_connect_exists ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/connect'; // Payments.
-				} elseif ( false !== $payments_overview_index ) {
+				} elseif ( false !== $payments_overview_exists ) {
 					$woocommerce_menu_order[] = 'wc-admin&path=/payments/overview'; // Payments.
 				}
 
 				$woocommerce_menu_order[] = 'wc-admin&path=/analytics/overview'; // Analytics.
 				$woocommerce_menu_order[] = 'woocommerce-marketing'; // Marketing.
+				if ( false !== $automatewoo_exists ) {
+					$woocommerce_menu_order[] = 'automatewoo'; // AutomateWoo.
+				}
 				$woocommerce_menu_order[] = 'woocommerce'; // Extensions.
 				$woocommerce_menu_order[] = 'separator-woocommerce'; // Separator WC.
 				$woocommerce_menu_order[] = $item; // Posts.
 
-				if ( false !== $orders_index ) {
-					unset( $menu_order[ $orders_index ] );
-				}
-				if ( false !== $customers_index ) {
-					unset( $menu_order[ $customers_index ] );
-				}
-				if ( false !== $products_index ) {
-					unset( $menu_order[ $products_index ] );
-				}
-				if ( false !== $analytics_index ) {
-					unset( $menu_order[ $analytics_index ] );
-				}
-				if ( false !== $marketing_index ) {
-					unset( $menu_order[ $marketing_index ] );
-				}
-				if ( false !== $extensions_index ) {
-					unset( $menu_order[ $extensions_index ] );
-				}
-				if ( false !== $woocommerce_sep_index ) {
-					unset( $menu_order[ $woocommerce_sep_index ] );
-				}
-				if ( false !== $woocommerce_sep_top_index ) {
-					unset( $menu_order[ $woocommerce_sep_top_index ] );
-				}
-				if ( false !== $payments_connect_index ) {
-					unset( $menu_order[ $payments_connect_index ] );
-				} elseif ( false !== $payments_overview_index ) {
-					unset( $menu_order[ $payments_overview_index ] );
-				}
+			// Move "Mailpoet" below the "Jetpack" menu item.
+			} elseif ( false !== $mailpoet_exists && 'jetpack' === $item ) {
+				$woocommerce_menu_order[] = $item; // Jetpack.
+				$woocommerce_menu_order[] = 'mailpoet-newsletters'; // Mailpoet.
 
 			} elseif ( ! in_array( $item, array(
+				'mailpoet-newsletters',
+				'automatewoo',
 				'wc-admin&path=/payments/connect',
 				'wc-admin&path=/payments/overview',
 				'wc-calypso-bridge-separator-top',
