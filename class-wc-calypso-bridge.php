@@ -52,46 +52,6 @@ class WC_Calypso_Bridge {
 		$this->includes();
 
 		/**
-		 * Handle the store launching AJAX endpoint.
-		 *
-		 * @since   1.9.12
-		 */
-		add_action( 'wp_ajax_launch_store', function() {
-
-			if ( ! current_user_can( 'manage_options' ) ) {
-				wp_send_json_error( new WP_Error( 'unauthorized', __( 'You don\'t have permissions to launch this site', 'wc-calypso-bridge' ) ), 400 );
-				return;
-			}
-
-			if ( 'launched' === get_option( 'launch-status' ) ) {
-				wp_send_json_error( new WP_Error( 'already-launched', __( 'This site has already been launched', 'wc-calypso-bridge' ) ), 400 );
-				return;
-			}
-
-			$blog_id  = \Jetpack_Options::get_option( 'id' );
-			$response = Client::wpcom_json_api_request_as_user(
-				sprintf( '/sites/%d/launch', $blog_id ),
-				'2',
-				[ 'method' => 'POST' ],
-				json_encode( [
-					'site' => $blog_id
-				] ),
-				'wpcom'
-			);
-
-			// Handle error.
-			if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
-				$body  = wp_remote_retrieve_body( $response );
-				$error = json_decode( $body, true );
-				wp_send_json_error( new WP_Error( $error[ 'code' ], $error[ 'message' ] ), 400 );
-			}
-
-			$body   = wp_remote_retrieve_body( $response );
-			$status = json_decode( $body );
-			wp_send_json( $status );
-		} );
-
-		/**
 		 * Enable DB auto updates.
 		 *
 		 * @since   1.9.13
@@ -150,45 +110,6 @@ class WC_Calypso_Bridge {
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-jetpack.php';
 		include_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-setup.php';
 
-		/**
-		 * Introduce the "Add a domain" and "Launch your store" setup tasks.
-		 *
-		 * @since   1.9.12
-		 */
-		add_action( 'init', function() {
-
-			if ( ! class_exists( '\Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists' ) ) {
-				return;
-			}
-
-			/**
-			 * `ecommerce_custom_setup_tasks_enabled` filter.
-			 *
-			 * This filter is used to remove the "add a domain" and "launch your store" tasks from ecommerce plans.
-			 *
-			 * @since 1.9.12
-			 *
-			 * @param  bool $status_enabled
-			 * @return bool
-			 */
-			if ( ! (bool) apply_filters( 'ecommerce_custom_setup_tasks_enabled', true ) ) {
-				return;
-			}
-
-			$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
-			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-add-domain.php';
-			require_once __DIR__ . '/includes/tasks/class-wc-calypso-task-launch-site.php';
-
-			$list = $tl::get_lists_by_ids( array( 'setup' ) );
-			$list = array_pop( $list );
-
-			$add_domain_task  = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
-			$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
-			$tl::add_task( 'setup', $add_domain_task );
-			$tl::add_task( 'setup', $launch_site_task );
-
-		}, PHP_INT_MAX );
-
 		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
@@ -223,6 +144,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function includes() {
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-shared.php';
+		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup-tasks.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-filters.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-tracks.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-events.php';
