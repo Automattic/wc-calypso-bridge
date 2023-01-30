@@ -9,6 +9,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
+use Automattic\Jetpack\Connection\Client;
+
 /**
  * WC Calypso Bridge Setup Tasks Controller
  */
