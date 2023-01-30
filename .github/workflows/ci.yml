@@ -33,7 +33,7 @@ jobs:
 
     bundle_size:
         name: Package Size
-        needs: linting-tests
+        needs: setup
         uses: ./.github/workflows/check-bundle-size.yml
 
     # handle-success:
