@@ -36,6 +36,11 @@ class WC_Calypso_Bridge_Notes {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
 		$this->init();
 	}
 

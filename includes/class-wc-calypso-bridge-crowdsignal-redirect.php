@@ -35,7 +35,11 @@ class WC_Calypso_Bridge_Crowdsignal_Redirect {
 	 * Constructor
 	 */
 	private function __construct() {
-		// Both ecommerce and business.
+
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
 		add_action( 'admin_init', array( $this, 'add_crowdsignal_redirect_filter' ) );
 	}
 
