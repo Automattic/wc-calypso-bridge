@@ -117,7 +117,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Initialize.
 	 */
 	public function init() {
-		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
+		if ( ! is_admin() ) {
 			return;
 		}
 

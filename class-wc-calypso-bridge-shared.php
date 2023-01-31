@@ -24,19 +24,6 @@ class WC_Calypso_Bridge_Shared {
 	protected static $instance = null;
 
 	/**
-	 * Constructor.
-	 */
-	public function __construct() {
-		// Both ecommerce and business.
-		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
-			return;
-		}
-
-		add_action( 'plugins_loaded', array( $this, 'init' ), 2 );
-		add_action( 'current_screen', array( $this, 'load_ui_elements' ) );
-	}
-
-	/**
 	 * Class instance.
 	 */
 	public static function instance() {
@@ -49,10 +36,27 @@ class WC_Calypso_Bridge_Shared {
 	}
 
 	/**
-	 * Initialize only if WC is present.
+	 * Constructor.
 	 */
-	public function init() {
+	public function __construct() {
+		// Both ecommerce and business.
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		add_action( 'admin_enqueue_scripts', array( $this, 'add_extension_register_script' ) );
+
+		// Nav unification style fixes.
+		if ( function_exists( 'wpcomsh_activate_nav_unification' ) && wpcomsh_activate_nav_unification() ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
+		}
+
+		/**
+		 * Load Ecommerce styles.
+		 */
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
+		}
 	}
 
 	/**
@@ -122,21 +126,21 @@ class WC_Calypso_Bridge_Shared {
 	}
 
 	/**
-	 * Updates required UI elements for calypso bridge pages only.
-	 */
-	public function load_ui_elements() {
-
-		// Nav unification fixes.
-		if ( function_exists( 'wpcomsh_activate_nav_unification' ) && wpcomsh_activate_nav_unification( false ) && ! Loader::is_feature_enabled( 'navigation' ) ) {
-			add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
-		}
-	}
-
-	/**
 	 * Add styles for nav unification fixes.
 	 */
 	public function add_nav_unification_styles() {
-		wp_enqueue_style( 'wp-calypso-bridge-nav-unification', WC_Calypso_Bridge_Instance()->get_asset_path() . 'store-on-wpcom/assets/css/admin/nav-unification.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_style( 'wp-calypso-bridge-nav-unification', WC_Calypso_Bridge_Instance()->get_asset_path() . '/assets/css/nav-unification.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+	}
+
+	/**
+	 * Add styles for ecommerce plan.
+	 */
+	public function add_ecommerce_plan_styles() {
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $this->get_asset_path() . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+
+		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) ) {
+			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', $this->get_asset_path() . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		}
 	}
 }
 
