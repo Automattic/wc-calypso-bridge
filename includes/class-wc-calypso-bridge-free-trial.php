@@ -56,8 +56,8 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
-			$value['payment_request']                  = 'no';
-			$value['payment_request_button_locations'] = array();
+			$value['payment_request']                  = 'no'; // Apple Pay / Google Pay
+			$value['payment_request_button_locations'] = array(); // Apple Pay / Google Pay
 
 			return $value;
 		}, PHP_INT_MAX );
@@ -101,8 +101,10 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
-			$value['payment_request']                  = 'no';
-			$value['payment_request_button_locations'] = array();
+			$value['payment_request']                    = 'no'; // Apple Pay / Google Pay
+			$value['payment_request_button_locations']   = array(); // Apple Pay / Google Pay
+			$value['platform_checkout']                  = 'no'; // WooPay
+			$value['platform_checkout_button_locations'] = array(); // WooPay
 
 			return $value;
 		}, PHP_INT_MAX );
