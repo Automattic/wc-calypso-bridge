@@ -488,52 +488,6 @@ class WC_Calypso_Bridge_Setup {
 			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
 		}
 	}
-
-	/**
-	 * Store Profiler: Set business_extensions to empty array.
-	 *
-	 * @param array $option Array of properties for OBW Profile.
-	 *
-	 * @return array
-	 */
-	public function set_business_extensions_empty( $option ) {
-		// Ensuring the option is an array by default.
-		// By having an empty array of 'business_extensions' all options are toggled off by default in the OBW.
-		if ( ! is_array( $option ) ) {
-			$option = array(
-				'business_extensions' => array(),
-			);
-		} else {
-			$option['business_extensions'] = array();
-		}
-
-		return $option;
-	}
-
-	/**
-	 * Remove non-installed ( paid ) themes from the Onboarding data source.
-	 *
-	 * @param array $themes Array of themes comprised of locally installed themes + marketplace themes.
-	 *
-	 * @return array
-	 */
-	public function remove_non_installed_themes( $themes ) {
-		$local_themes = array_filter( $themes, array( $this, 'is_theme_installed' ) );
-
-		return $local_themes;
-	}
-
-	/**
-	 * Conditional method to determine if a theme is installed locally.
-	 *
-	 * @param array $theme Theme attributes.
-	 *
-	 * @return boolean
-	 */
-	public function is_theme_installed( $theme ) {
-		return isset( $theme['is_installed'] ) && $theme['is_installed'];
-	}
-
 }
 
 WC_Calypso_Bridge_Setup::get_instance();
