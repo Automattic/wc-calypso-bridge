@@ -59,12 +59,18 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	private function __construct() {
 
+		/**
+		 * Handle one-time operations.
+		 */
 		$this->modify_one_time_operations();
 		$this->setup_one_time_operations();
 
-		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
+		/**
+		 * Disable core's OBW.
+		 */
 		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
 
+		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
 			return 'yes';
