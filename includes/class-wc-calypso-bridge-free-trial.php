@@ -128,21 +128,7 @@ class WC_Calypso_Bridge_Free_Trial {
 			return $value;
 		}, PHP_INT_MAX );
 
-		// TODO: Lets discuss; Should we completely disable PayPal for non-admin users on free trial. Thoughts?
-		add_filter( 'pre_option_woocommerce_ppcp-gateway_settings', '__return_false', PHP_INT_MAX );
-		add_filter( 'option_woocommerce_ppcp-gateway_settings', function ( $value ) {
-
-			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
-				return $value;
-			}
-
-			$value['enabled'] = 'no';
-
-			return $value;
-		}, PHP_INT_MAX );
-
-		// TODO: Lets discuss, I found this paypal oxxo gateway. Should we disable it? It's part of PayPal's gateway codebase.
+		// Disable PayPal's OXXO gateway for non-admin users.
 		add_filter( 'pre_option_woocommerce_ppcp-oxxo-gateway_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_ppcp-oxxo-gateway_settings', function ( $value ) {
 
@@ -156,7 +142,7 @@ class WC_Calypso_Bridge_Free_Trial {
 			return $value;
 		}, PHP_INT_MAX );
 
-		// TODO: Lets discuss, I found this paypal pay upon invoice gateway. Should we disable it? It's part of PayPal's gateway codebase.
+		// Disable PayPal's Pay Upon Invoice gateway for non-admin users.
 		add_filter( 'pre_option_woocommerce_ppcp-pay-upon-invoice-gateway_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_ppcp-pay-upon-invoice-gateway_settings', function ( $value ) {
 
@@ -184,14 +170,14 @@ class WC_Calypso_Bridge_Free_Trial {
 
 		// Prevent orders on shortcode checkout.
 		add_action( 'woocommerce_before_checkout_process', function () {
-			throw new Exception( __( 'TODO: Only Admins and Shop Managers can place test orders. Contact an Admin to get permission.', 'wc-calypso-bridge' ) );
+			throw new Exception( __( 'Order failed: Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' ) );
 		}, PHP_INT_MAX );
 
 		// Prevent orders on shortcode checkout - PayPal removes the checkout button and replaces it.
 		add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors ) {
 			$errors->add(
 				405,
-				__( 'TODO: Only Admins and Shop Managers can place test orders. Contact an Admin to get permission.', 'wc-calypso-bridge' )
+				__( 'Order failed: Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' )
 			);
 		}, PHP_INT_MAX, 2 );
 
@@ -199,7 +185,7 @@ class WC_Calypso_Bridge_Free_Trial {
 		add_action( 'woocommerce_store_api_checkout_order_processed', function () {
 			throw new Automattic\WooCommerce\StoreApi\Exceptions\RouteException(
 				405,
-				__( 'TODO: Only Admins and Shop Managers can place test orders. Contact an Admin to get permission.', 'wc-calypso-bridge' )
+				__( 'Order failed: Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' )
 			);
 		}, PHP_INT_MAX );
 
@@ -209,7 +195,7 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $content;
 			}
 
-			$message = __( 'TODO: Only Admins and Shop Managers can place test orders. Contact an Admin to get permission.', 'wc-calypso-bridge' );
+			$message = __( 'Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' );
 			$markup  = '<div class="woocommerce"><div class="woocommerce-notices-wrapper"><ul class="woocommerce-info role="alert"><li> ' . $message . '</li></ul></div></div>';
 
 			return $markup . $content;
@@ -248,7 +234,7 @@ class WC_Calypso_Bridge_Free_Trial {
 			$site_url  = get_home_url( $blog_id );
 			$site_slug = wp_parse_url( $site_url, PHP_URL_HOST );
 			$plan_url  = 'https://wordpress.com/plans/' . $site_slug;
-			$message   = sprintf( __( 'TODO: During trial, only Admins and Shop Managers can place orders. To process real transactions, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $plan_url );
+			$message   = sprintf( __( 'While you\'re in a free trial store, you\'ll only be able to place test orders. To process real transactions, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $plan_url );
 			?>
 			<div class="notice notice-info">
 				<p><?php echo $message; ?></p>
