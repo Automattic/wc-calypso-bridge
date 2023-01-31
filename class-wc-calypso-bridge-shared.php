@@ -9,8 +9,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use Automattic\WooCommerce\Admin\Loader;
-
 /**
  * WC Calypso Bridge
  */

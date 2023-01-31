@@ -54,6 +54,24 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		add_filter( 'admin_body_class', array( $this, 'filter_woocommerce_body_classes' ) );
 		add_action( 'admin_init', array( $this, 'add_custom_activity_panels_styles' ) );
 		add_action( 'admin_footer', array( $this, 'filter_woocommerce_body_classes_js' ) );
+
+		/**
+		 * Disable core's OBW.
+		 */
+		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
+
+		/**
+		 * Disable WooCommerce Navigation.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return string no.
+		 * @todo    Refactor and move it.
+		 */
+		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
+			return 'no';
+		}, PHP_INT_MAX );
 	}
 
 	/**

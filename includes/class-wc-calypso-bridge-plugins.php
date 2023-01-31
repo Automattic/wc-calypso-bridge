@@ -82,6 +82,7 @@ class WC_Calypso_Bridge_Plugins {
 	 * Initialize.
 	 */
 	public function init() {
+
 		add_filter( 'plugin_action_links', array( $this, 'remove_woocommerce_deactivation_link' ), 10, 2 );
 		add_filter( 'plugin_action_links', array( $this, 'remove_ecommerce_managed_plugin_delete_link' ), PHP_INT_MAX, 2 );
 		add_action( 'update_option_active_plugins', array( $this, 'prevent_woocommerce_deactivation' ), 10, 2 );
@@ -89,7 +90,6 @@ class WC_Calypso_Bridge_Plugins {
 		add_action( 'admin_notices', array( $this, 'prevent_woocommerce_deactivation_notice' ), 10, 2 );
 		add_filter( 'manage_product_posts_columns', array( $this, 'remove_jetpack_stats_column' ), 100 );
 		add_filter( 'default_hidden_columns', array( $this, 'hide_product_columns' ), 100, 2 );
-
 		add_action( 'plugins_loaded', array( $this, 'disable_powerpack_features' ), 2 );
 	}
 

@@ -37,7 +37,9 @@ class WC_Calypso_Bridge_Setup_Tasks {
 	 * Constructor.
 	 */
 	private function __construct() {
+
 		// Both ecommerce and business.
+		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_action( 'wp_ajax_launch_store', array( $this, 'handle_ajax_launch_endpoint' ) );
 		add_action( 'init', array( $this, 'add_tasks' ) );
 	}
