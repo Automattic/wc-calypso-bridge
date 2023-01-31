@@ -44,9 +44,14 @@ class WC_Calypso_Bridge_Shared {
 			return;
 		}
 
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_extension_register_script' ) );
+		/**
+		 * Add webpack assets.
+		 */
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_scripts' ) );
 
-		// Nav unification style fixes.
+		/**
+		 * Nav unification style fixes.
+		 */
 		if ( function_exists( 'wpcomsh_activate_nav_unification' ) && wpcomsh_activate_nav_unification() ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_nav_unification_styles' ) );
 		}
@@ -62,7 +67,7 @@ class WC_Calypso_Bridge_Shared {
 	/**
 	 * Registers scripts.
 	 */
-	public function add_extension_register_script() {
+	public function add_scripts() {
 
 		$is_woo_page = class_exists( 'Automattic\WooCommerce\Admin\PageController' )
 			&& \Automattic\WooCommerce\Admin\PageController::is_admin_or_embed_page()
@@ -70,7 +75,7 @@ class WC_Calypso_Bridge_Shared {
 			: false;
 
 		$script_path       = '/build/index.js';
-		$script_asset_path = dirname( __FILE__ ) . '/build/index.asset.php';
+		$script_asset_path = WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/build/index.asset.php';
 		$script_asset      = file_exists( $script_asset_path )
 			? require $script_asset_path
 			: array(
@@ -93,7 +98,7 @@ class WC_Calypso_Bridge_Shared {
 			'wc-calypso-bridge',
 			$style_path_url,
 			array(),
-			filemtime( dirname( __FILE__ ) . '/build/style-index.css' )
+			filemtime( WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/build/style-index.css' )
 		);
 
 		$status       = new \Automattic\Jetpack\Status();
@@ -136,10 +141,10 @@ class WC_Calypso_Bridge_Shared {
 	 * Add styles for ecommerce plan.
 	 */
 	public function add_ecommerce_plan_styles() {
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $this->get_asset_path() . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 
 		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) ) {
-			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', $this->get_asset_path() . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 		}
 	}
 }
