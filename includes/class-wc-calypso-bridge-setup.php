@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.13
+ * @version 2.0.0
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -59,18 +59,17 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	private function __construct() {
 
-		// Only in Ecommerce.
-		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-			return;
-		}
-
+		$this->modify_one_time_operations();
 		$this->setup_one_time_operations();
 
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
+
+		// OBW related fixes.
 		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
 		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
+
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
 			return 'yes';
@@ -113,22 +112,38 @@ class WC_Calypso_Bridge_Setup {
 			return 'no';
 		}, PHP_INT_MAX );
 
-		/**
-		 * Remove the Write button from the global bar.
-		 *
-		 * @since   1.9.8
-		 *
-		 * @return void
-		 */
-		add_action( 'wp_before_admin_bar_render', static function () {
-			global $wp_admin_bar;
+		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
 
-			if ( ! is_object( $wp_admin_bar ) ) {
-				return;
-			}
+			/**
+			 * Remove the Write button from the global bar in Ecommerce plan.
+			 *
+			 * @since   1.9.8
+			 *
+			 * @return void
+			 */
+			add_action( 'wp_before_admin_bar_render', static function () {
+				global $wp_admin_bar;
 
-			$wp_admin_bar->remove_menu( 'ab-new-post' );
-		}, PHP_INT_MAX );
+				if ( ! is_object( $wp_admin_bar ) ) {
+					return;
+				}
+
+				$wp_admin_bar->remove_menu( 'ab-new-post' );
+			}, PHP_INT_MAX );
+		}
+	}
+
+	/**
+	 * Modify one time operations based on current plan.
+	 *
+	 * @since 2.0.0
+	 * @return void
+	 */
+	public function modify_one_time_operations() {
+
+		if ( wc_calypso_bridge_is_business_plan() ) {
+			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
+		}
 	}
 
 	/**
