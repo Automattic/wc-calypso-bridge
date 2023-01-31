@@ -396,20 +396,6 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Skip the OBW.
-	 *
-	 * This callback will ensure that the `woocommerce_onboarding_profile` option value will result to skipped state, always.
-	 *
-	 * @since 1.9.4
-	 *
-	 * @param  mixed  $value
-	 * @return array
-	 */
-	public function set_onboarding_status_to_skipped( $option_value ) {
-		return array( 'skipped' => true );
-	}
-
-	/**
 	 * Prevent redirects on activation when WooCommerce is being setup. Some plugins
 	 * do this when they are activated.
 	 *

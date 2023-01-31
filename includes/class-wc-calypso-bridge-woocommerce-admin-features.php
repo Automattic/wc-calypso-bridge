@@ -42,7 +42,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	}
 
 	/**
-	 * Add hooks and filters if WooCommerce is active.
+	 * Initialize.
 	 */
 	public function initialize() {
 
@@ -56,9 +56,18 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		add_action( 'admin_footer', array( $this, 'filter_woocommerce_body_classes_js' ) );
 
 		/**
-		 * Disable core's OBW.
+		 * Skip the OBW.
+		 *
+		 * This callback will ensure that the `woocommerce_onboarding_profile` option value will result to skipped state, always.
+		 *
+		 * @since 1.9.4
+		 *
+		 * @param  mixed  $value
+		 * @return array
 		 */
-		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
+		add_filter( 'pre_option_woocommerce_onboarding_profile', static function ( $option_value ) {
+			return array( 'skipped' => true );
+		}, 100 );
 
 		/**
 		 * Disable WooCommerce Navigation.
