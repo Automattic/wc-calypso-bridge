@@ -1,0 +1,10 @@
+/* Fix header overflow https://github.com/woocommerce/woocommerce-admin/issues/7035 */
+@media ( min-width: 961px ) {
+	.jetpack-connected.is-nav-unification .woocommerce-layout__header {
+		width: calc( 100% - 272px );
+	}
+
+	body.jetpack-connected.folded .woocommerce-layout__header {
+		width: calc( 100% - 36px );
+	}
+}

@@ -88,17 +88,23 @@ class WC_Calypso_Bridge {
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
 		}
-		// Only in Ecommerce.
-		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-			return;
+
+		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+			add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
 		}
-		add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
 	}
 
 	/**
 	 * Include files and controllers.
 	 */
 	public function includes() {
+
+		/**
+		 * Hint:
+		 * These files/controllers get included in all plans.
+		 *
+		 * Each controller will handle the plans and features in its own logic and constructor.
+		 */
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-helper-functions.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-shared.php';
 		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup.php';
@@ -119,11 +125,6 @@ class WC_Calypso_Bridge {
 	 * Load ecommerce plan UI changes.
 	 */
 	public function load_ecommerce_plan_ui() {
-
-		/**
-		 * Load Ecommerce styles.
-		 */
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 
 		/**
 		 * Disable block editor for post types.
@@ -178,17 +179,6 @@ class WC_Calypso_Bridge {
 		 * Remove admin footer text.
 		 */
 		add_filter( 'woocommerce_display_admin_footer_text', '__return_false' );
-	}
-
-	/**
-	 * Add styles for ecommerce plan.
-	 */
-	public function add_ecommerce_plan_styles() {
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $this->get_asset_path() . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
-
-		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) ) {
-			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', $this->get_asset_path() . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
-		}
 	}
 
 	/**
