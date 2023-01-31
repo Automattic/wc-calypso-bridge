@@ -340,7 +340,7 @@ class WC_Calypso_Bridge_Setup {
 				}
 
 				// Inform the merchant that we've enabled the new checkout experience.
-				include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
+				include_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
 				new WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note();
 				WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note::possibly_add_note();
 			}

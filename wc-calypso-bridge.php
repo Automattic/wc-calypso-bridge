@@ -54,6 +54,6 @@ require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-fe
 require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge.php';
 
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-	include_once dirname( __FILE__ ) . '/store-on-wpcom/class-wc-calypso-bridge.php';
+	require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
 }

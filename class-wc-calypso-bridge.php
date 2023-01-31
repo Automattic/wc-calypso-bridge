@@ -85,7 +85,7 @@ class WC_Calypso_Bridge {
 
 		$this->includes();
 
-		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
+		if ( ! is_admin() ) {
 			return;
 		}
 
