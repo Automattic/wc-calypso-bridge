@@ -59,7 +59,7 @@ class WC_Calypso_Bridge_Shared {
 		/**
 		 * Load Ecommerce styles.
 		 */
-		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 		}
 	}
