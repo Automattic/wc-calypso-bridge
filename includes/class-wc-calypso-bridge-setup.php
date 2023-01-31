@@ -65,12 +65,6 @@ class WC_Calypso_Bridge_Setup {
 		$this->modify_one_time_operations();
 		$this->setup_one_time_operations();
 
-		/**
-		 * Disable core's OBW.
-		 */
-		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
-
-		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
 		add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
 			return 'yes';
@@ -98,19 +92,6 @@ class WC_Calypso_Bridge_Setup {
 		 */
 		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', static function ( $pre ) {
 			return 0;
-		}, PHP_INT_MAX );
-
-		/**
-		 * Disable WooCommerce Navigation.
-		 *
-		 * @since   1.9.4
-		 *
-		 * @param mixed $pre Fixed to false.
-		 * @return string no.
-		 * @todo    Refactor and move it.
-		 */
-		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
-			return 'no';
 		}, PHP_INT_MAX );
 
 		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
