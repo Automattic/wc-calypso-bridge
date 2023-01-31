@@ -39,11 +39,6 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 */
 	private function __construct() {
 
-		// Only in Ecommerce.
-		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-			return;
-		}
-
 		add_action( 'init', array( $this, 'init' ) );
 
 		/**
@@ -126,6 +121,11 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
 
 		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
 		add_action( 'load-plugins.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
