@@ -170,14 +170,14 @@ class WC_Calypso_Bridge_Free_Trial {
 
 		// Prevent orders on shortcode checkout.
 		add_action( 'woocommerce_before_checkout_process', function () {
-			throw new Exception( __( 'Order failed: Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' ) );
+			throw new Exception( __( 'Your order could not be placed. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' ) );
 		}, PHP_INT_MAX );
 
 		// Prevent orders on shortcode checkout - PayPal removes the checkout button and replaces it.
 		add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors ) {
 			$errors->add(
 				405,
-				__( 'Order failed: Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' )
+				__( 'Your order could not be placed. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' )
 			);
 		}, PHP_INT_MAX, 2 );
 
@@ -185,7 +185,7 @@ class WC_Calypso_Bridge_Free_Trial {
 		add_action( 'woocommerce_store_api_checkout_order_processed', function () {
 			throw new Automattic\WooCommerce\StoreApi\Exceptions\RouteException(
 				405,
-				__( 'Order failed: Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' )
+				__( 'Your order could not be placed. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' )
 			);
 		}, PHP_INT_MAX );
 
@@ -195,7 +195,7 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $content;
 			}
 
-			$message = __( 'Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions.', 'wc-calypso-bridge' );
+			$message = __( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' );
 			$markup  = '<div class="woocommerce"><div class="woocommerce-notices-wrapper"><ul class="woocommerce-info role="alert"><li> ' . $message . '</li></ul></div></div>';
 
 			return $markup . $content;
@@ -234,7 +234,7 @@ class WC_Calypso_Bridge_Free_Trial {
 			$site_url  = get_home_url( $blog_id );
 			$site_slug = wp_parse_url( $site_url, PHP_URL_HOST );
 			$plan_url  = 'https://wordpress.com/plans/' . $site_slug;
-			$message   = sprintf( __( 'While you\'re in a free trial store, you\'ll only be able to place test orders. To process real transactions, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $plan_url );
+			$message   = sprintf( __( 'Only Administrators and Store Managers can place orders during the free trial. If you are ready to start accepting payments from customers, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $plan_url );
 			?>
 			<div class="notice notice-info">
 				<p><?php echo $message; ?></p>
