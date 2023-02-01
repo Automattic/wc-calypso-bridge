@@ -50,7 +50,12 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
 
-		// Only show activity panels in Home page.
+		/**
+		 * Hide WC Admin's activity panel in all pages except Home.
+		 *
+		 * @param  mixed  $value
+		 * @return array
+		 */
 		add_filter( 'admin_body_class', array( $this, 'filter_woocommerce_body_classes' ) );
 		add_action( 'admin_init', array( $this, 'add_custom_activity_panels_styles' ) );
 		add_action( 'admin_footer', array( $this, 'filter_woocommerce_body_classes_js' ) );
