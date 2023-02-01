@@ -44,7 +44,11 @@ class WC_Calypso_Bridge_Tracks {
 	 * Constructor.
 	 */
 	private function __construct() {
-		// Both ecommerce and business.
+
+		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+			return;
+		}
+
 		add_action( 'init', array( $this, 'init' ) );
 
 		/**
