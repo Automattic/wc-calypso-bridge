@@ -3,7 +3,7 @@ name: Release Smoke Test CI
 on:
   pull_request:
     branches:
-      - deploy
+      - master
 
 jobs:
 
