@@ -36,8 +36,8 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 	}
 }
 
-if ( ! defined( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE' ) ) {
-	define( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE', __FILE__ );
+if ( ! defined( 'WC_CALYPSO_BRIDGE_PLUGIN_FILE' ) ) {
+	define( 'WC_CALYPSO_BRIDGE_PLUGIN_FILE', __FILE__ );
 }
 if ( ! defined( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH' ) ) {
 	define( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH', dirname( __FILE__ ) );
