@@ -76,7 +76,9 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 */
 	public static function is_ecommerce_plan() {
 		if ( is_null( self::$is_ecommerce_plan ) ) {
-			self::$is_ecommerce_plan = (bool) function_exists( 'wpcom_site_has_feature' ) ? wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS ) : false;
+			self::$is_ecommerce_plan = (bool) function_exists( 'wpcom_site_has_feature' )
+				? wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS )
+				: false;
 		}
 
 		return self::$is_ecommerce_plan;
