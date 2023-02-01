@@ -39,8 +39,8 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 if ( ! defined( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE' ) ) {
 	define( 'WC_CALYSPO_BRIDGE_PLUGIN_FILE', __FILE__ );
 }
-if ( ! defined( 'WC_CALYSPO_BRIDGE_PLUGIN_PATH' ) ) {
-	define( 'WC_CALYSPO_BRIDGE_PLUGIN_PATH', dirname( __FILE__ ) );
+if ( ! defined( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH' ) ) {
+	define( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH', dirname( __FILE__ ) );
 }
 if ( ! defined( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION' ) ) {
 	define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '2.0.0' );
@@ -50,10 +50,10 @@ if ( ! defined( 'WC_MIN_VERSION' ) ) {
 }
 
 // The Bridge Main Controller.
-require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
-require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge.php';
+require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
+require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge.php';
 
 if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
-	require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/store-on-wpcom/class-wc-calypso-bridge.php';
+	require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
 }

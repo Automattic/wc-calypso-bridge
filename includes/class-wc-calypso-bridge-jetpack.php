@@ -73,7 +73,7 @@ class WC_Calypso_Bridge_Jetpack {
 			 */
 
 			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
-				require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-ecommerce-admin-menu.php';
+				require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-ecommerce-admin-menu.php';
 				return Ecommerce_Atomic_Admin_Menu::class;
 			}
 

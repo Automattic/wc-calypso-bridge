@@ -105,20 +105,20 @@ class WC_Calypso_Bridge {
 		 *
 		 * Each controller will handle the plans and features in its own logic and constructor.
 		 */
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-helper-functions.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-shared.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-jetpack.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup-tasks.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-filters.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-tracks.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-events.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-themes-setup.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-hide-alerts.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-plugins.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-addons.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-helper-functions.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-shared.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-jetpack.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-setup-tasks.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-filters.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-tracks.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-events.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-crowdsignal-redirect.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-themes-setup.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-woocommerce-admin-features.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-hide-alerts.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-plugins.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-addons.php';
 	}
 
 	/**
@@ -187,7 +187,7 @@ class WC_Calypso_Bridge {
 	 * @since 2.0.0
 	 */
 	public function load_transalation() {
-		$plugin_path = WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/languages';
+		$plugin_path = WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/languages';
 		$locale      = apply_filters( 'plugin_locale', determine_locale(), 'wc-calypso-bridge' );
 		$mofile      = $plugin_path . '/wc-calypso-bridge-' . $locale . '.mo';
 
