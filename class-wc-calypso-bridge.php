@@ -75,7 +75,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
-		add_action( 'plugins_loaded', array( $this, 'load_transalation' ) );
+		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
 	}
 
 	public function initialize() {
@@ -186,7 +186,7 @@ class WC_Calypso_Bridge {
 	 *
 	 * @since 2.0.0
 	 */
-	public function load_transalation() {
+	public function load_translation() {
 		$plugin_path = WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/languages';
 		$locale      = apply_filters( 'plugin_locale', determine_locale(), 'wc-calypso-bridge' );
 		$mofile      = $plugin_path . '/wc-calypso-bridge-' . $locale . '.mo';
