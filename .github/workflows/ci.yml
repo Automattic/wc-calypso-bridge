@@ -3,7 +3,7 @@ name: Pull Request CI
 on:
   pull_request:
       branches:
-        - master2
+        - master
       types:
         - synchronize
         - opened
