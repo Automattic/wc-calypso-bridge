@@ -117,6 +117,32 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		$tl::add_task( 'setup', $add_domain_task );
 		$tl::add_task( 'setup', $launch_site_task );
 	}
+
+	/**
+	 * Handle the store location's onboarding redirect when user provided a full address.
+	 *
+	 * @since 1.9.4
+	 * @return void
+	 */
+	public function redirect_store_details_onboarding() {
+
+		// Only run on save.
+		if ( empty( $_POST ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			return;
+		}
+
+		if ( ! isset( $_GET['tutorial'] ) || 'true' !== $_GET['tutorial'] ) {
+			return;
+		}
+
+		$store_address  = get_option( 'woocommerce_store_address' );
+		$store_city     = get_option( 'woocommerce_store_city' );
+		$store_postcode = get_option( 'woocommerce_store_postcode' );
+
+		if ( ! empty( $store_address ) && ! empty( $store_city ) && ! empty( $store_postcode ) ) {
+			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
+		}
+	}
 }
 
 WC_Calypso_Bridge_Setup_Tasks::get_instance();
