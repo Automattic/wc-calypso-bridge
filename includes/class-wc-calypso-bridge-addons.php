@@ -76,7 +76,7 @@ class WC_Calypso_Bridge_Addons {
 	 * Init the addons page.
 	 */
 	public function addons_page() {
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-addons-screen.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-addons-screen.php';
 		WC_Calypso_Bridge_Addons_Screen::output();
 	}
 }

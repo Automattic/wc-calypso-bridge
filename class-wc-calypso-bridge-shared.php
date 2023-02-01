@@ -73,7 +73,7 @@ class WC_Calypso_Bridge_Shared {
 			: false;
 
 		$script_path       = '/build/index.js';
-		$script_asset_path = WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/build/index.asset.php';
+		$script_asset_path = WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/build/index.asset.php';
 		$script_asset      = file_exists( $script_asset_path )
 			? require $script_asset_path
 			: array(
@@ -96,7 +96,7 @@ class WC_Calypso_Bridge_Shared {
 			'wc-calypso-bridge',
 			$style_path_url,
 			array(),
-			filemtime( WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/build/style-index.css' )
+			filemtime( WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/build/style-index.css' )
 		);
 
 		$status       = new \Automattic\Jetpack\Status();

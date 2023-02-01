@@ -106,8 +106,8 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		}
 
 		$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-add-domain.php';
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-add-domain.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
 
 		$list = $tl::get_lists_by_ids( array( 'setup' ) );
 		$list = array_pop( $list );

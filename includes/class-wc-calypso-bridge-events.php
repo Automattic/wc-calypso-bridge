@@ -68,7 +68,7 @@ class WC_Calypso_Bridge_Events {
 	 * Daily events to run.
 	 */
 	public function do_wc_calypso_bridge_daily() {
-		require_once WC_CALYSPO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-notes.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-notes.php';
 		WC_Calypso_Bridge_Notes::get_instance()->add_notes();
 		WC_Calypso_Bridge_Notes::get_instance()->delete_notes();
 	}
