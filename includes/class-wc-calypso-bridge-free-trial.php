@@ -3,12 +3,11 @@
  * Free Trial related.
  *
  * @package WC_Calypso_Bridge/Classes
- * @version 1.9.19
+ * @since   2.0.0
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
-
-use Automattic\WooCommerce\Admin\Features\Features;
 
 /**
  * WC_Calypso_Bridge_Free_Trial Class.
@@ -176,7 +175,7 @@ class WC_Calypso_Bridge_Free_Trial {
 		// Prevent orders on shortcode checkout - PayPal removes the checkout button and replaces it.
 		add_action( 'woocommerce_after_checkout_validation', function ( $data, $errors ) {
 			$errors->add(
-				405,
+				409,
 				__( 'Your order could not be placed. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' )
 			);
 		}, PHP_INT_MAX, 2 );
@@ -184,7 +183,7 @@ class WC_Calypso_Bridge_Free_Trial {
 		// Prevent orders on block checkout.
 		add_action( 'woocommerce_store_api_checkout_order_processed', function () {
 			throw new Automattic\WooCommerce\StoreApi\Exceptions\RouteException(
-				405,
+				409,
 				__( 'Your order could not be placed. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' )
 			);
 		}, PHP_INT_MAX );
@@ -195,7 +194,7 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $content;
 			}
 
-			$message = __( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' );
+			$message = esc_html__( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' );
 			$markup  = '<div class="woocommerce"><div class="woocommerce-notices-wrapper"><ul class="woocommerce-info role="alert"><li> ' . $message . '</li></ul></div></div>';
 
 			return $markup . $content;
@@ -218,21 +217,11 @@ class WC_Calypso_Bridge_Free_Trial {
 				return;
 			}
 
-			if ( isset( $_GET['tab'] ) && 'checkout' === $_GET['tab'] ) {
-				$screen_id .= '_checkout';
-			}
-
-			$show_on_screens = array(
-				'woocommerce_page_wc-settings_checkout',
-			);
-
-			if ( ! in_array( $screen_id, $show_on_screens, true ) ) {
+			if ( ! isset( $_GET['tab'] ) || 'checkout' !== $_GET['tab'] ) {
 				return;
 			}
 
-			$blog_id   = get_current_blog_id();
-			$site_url  = get_home_url( $blog_id );
-			$site_slug = wp_parse_url( $site_url, PHP_URL_HOST );
+			$site_slug = ( new \Automattic\Jetpack\Status() )->get_site_suffix();
 			$plan_url  = 'https://wordpress.com/plans/' . $site_slug;
 			$message   = sprintf( __( 'Only Administrators and Store Managers can place orders during the free trial. If you are ready to start accepting payments from customers, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $plan_url );
 			?>
