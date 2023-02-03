@@ -12,7 +12,6 @@
  * @package WC_Calypso_bridge
  */
 
-// Return instead of exit to prevent phpcs errors.
 if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
@@ -36,6 +35,11 @@ if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) )
 	}
 }
 
+if ( ! function_exists( 'wpcom_site_has_feature' ) ) {
+	// Bail early, if we cannot determine the site plan.
+	return;
+}
+
 if ( ! defined( 'WC_CALYPSO_BRIDGE_PLUGIN_FILE' ) ) {
 	define( 'WC_CALYPSO_BRIDGE_PLUGIN_FILE', __FILE__ );
 }
@@ -53,7 +57,7 @@ if ( ! defined( 'WC_MIN_VERSION' ) ) {
 require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
 require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge.php';
 
-if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 	require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
 }

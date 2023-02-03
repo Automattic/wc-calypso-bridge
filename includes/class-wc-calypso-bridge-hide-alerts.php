@@ -122,7 +122,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 
 		// Only in Ecommerce.
-		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
 

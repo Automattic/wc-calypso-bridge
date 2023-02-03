@@ -45,7 +45,7 @@ class WC_Calypso_Bridge_Tracks {
 	 */
 	private function __construct() {
 
-		if ( ! wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
 
@@ -94,7 +94,7 @@ class WC_Calypso_Bridge_Tracks {
 		$host_value = 'bizplan-wp-admin';
 
 		// If an ecomm plan site, update host value.
-		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$host_value = 'ecommplan';
 		}
 

@@ -81,7 +81,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		 *
 		 * @param mixed $pre Fixed to false.
 		 * @return string no.
-		 * @todo    Refactor and move it.
 		 */
 		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
 			return 'no';
