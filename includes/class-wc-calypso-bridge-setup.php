@@ -94,7 +94,7 @@ class WC_Calypso_Bridge_Setup {
 			return 0;
 		}, PHP_INT_MAX );
 
-		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 
 			/**
 			 * Remove the Write button from the global bar in Ecommerce plan.

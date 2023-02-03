@@ -43,7 +43,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Class instance.
 	 */
-	public static function instance() {
+	public static function get_instance() {
 		if ( is_null( self::$instance ) ) {
 			// If this is a traditionally installed plugin, set plugin_url for the proper asset path.
 			if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
@@ -89,7 +89,7 @@ class WC_Calypso_Bridge {
 			return;
 		}
 
-		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			add_action( 'init', array( $this, 'load_ecommerce_plan_ui' ), 2 );
 		}
 	}
@@ -256,7 +256,7 @@ class WC_Calypso_Bridge {
  * @return  WC_Calypso_Bridge
  */
 function WC_Calypso_Bridge_Instance() {
-	return WC_Calypso_Bridge::instance();
+	return WC_Calypso_Bridge::get_instance();
 }
 
 WC_Calypso_Bridge_Instance();

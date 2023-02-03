@@ -57,7 +57,7 @@ class WC_Calypso_Bridge_Shared {
 		/**
 		 * Load Ecommerce styles.
 		 */
-		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 		}
 	}
@@ -103,7 +103,7 @@ class WC_Calypso_Bridge_Shared {
 		$site_suffix  = $status->get_site_suffix();
 
 		$params       = array(
-			'isEcommercePlan'              => (bool) wc_calypso_bridge_is_ecommerce_plan(),
+			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
@@ -114,7 +114,7 @@ class WC_Calypso_Bridge_Shared {
 			'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 		);
 
-		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$params['showEcommerceNavigationModal'] = ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_ECOMMERCE_NAVIGATION );
 		}
 
