@@ -55,12 +55,14 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
+			$value['enabled']                          = 'no'; // Completely disable Stripe.
 			$value['payment_request']                  = 'no'; // Apple Pay / Google Pay
 			$value['payment_request_button_locations'] = array(); // Apple Pay / Google Pay
 
 			return $value;
 		}, PHP_INT_MAX );
 
+		// Additional filters for Stripe - To be on the safe side.
 		add_filter( 'wc_stripe_hide_payment_request_on_product_page', function ( $value, $post ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
@@ -91,7 +93,7 @@ class WC_Calypso_Bridge_Free_Trial {
 			return false;
 		}, PHP_INT_MAX, 2 );
 
-		// Disable WooCommerce Payment Express buttons. TODO: Wasn't able to test this.
+		// Disable WooCommerce Payment Express checkouts.
 		add_filter( 'pre_option_woocommerce_woocommerce_payments_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_woocommerce_payments_settings', function ( $value ) {
 
@@ -100,17 +102,18 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
-			$value['payment_request']                    = 'no'; // Apple Pay / Google Pay
-			$value['payment_request_button_locations']   = array(); // Apple Pay / Google Pay
-			$value['platform_checkout']                  = 'no'; // WooPay
-			$value['platform_checkout_button_locations'] = array(); // WooPay
+			$value['enabled']                            = 'no'; // Completely disable WC Payments.
+			$value['payment_request']                    = 'no'; // Apple Pay / Google Pay.
+			$value['payment_request_button_locations']   = array(); // Apple Pay / Google Pay.
+			$value['platform_checkout']                  = 'no'; // WooPay.
+			$value['platform_checkout_button_locations'] = array(); // WooPay.
+			$value['upe_enabled_payment_method_ids']     = array(); // Link.
 
 			return $value;
 		}, PHP_INT_MAX );
 
-		/****** PAYPAL Express Checkout ******/
+		/****** PAYPAL Express Checkout / Smart Buttons ******/
 		add_filter( 'pre_option_woocommerce-ppcp-settings', '__return_false', PHP_INT_MAX );
-		// There is no need for a `default_option` filter, as the default value is an empty array.
 		add_filter( 'option_woocommerce-ppcp-settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
@@ -118,11 +121,24 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
-			$value['button_product_enabled']      = false;
-			$value['button_cart_enabled']         = false;
-			$value['button_mini-cart_enabled']    = false;
-			$value['pay_later_button_enabled']    = false;
-			$value['pay_later_messaging_enabled'] = false;
+			$value['enabled'] = false; // Completely disable PayPal.
+
+			// For PayPal, some of the following settings are needed to completely disable the gateway and smart buttons.
+			$value['smart_button_locations'] = array();
+
+			$value['button_product_enabled']   = false;
+			$value['button_cart_enabled']      = false;
+			$value['button_mini-cart_enabled'] = false;
+
+			$value['pay_later_button_enabled']      = false;
+			$value['pay_later_button_locations']    = array();
+			$value['pay_later_messaging_enabled']   = false;
+			$value['pay_later_messaging_locations'] = array();
+
+			$value['products_dcc_enabled'] = false;
+			$value['products_pui_enabled'] = false;
+
+			$value['allow_card_button_gateway'] = false;
 
 			return $value;
 		}, PHP_INT_MAX );
@@ -166,6 +182,35 @@ class WC_Calypso_Bridge_Free_Trial {
 		if ( current_user_can( 'manage_woocommerce' ) ) {
 			return;
 		}
+
+		// Unset all payment gateways.
+		add_filter( 'woocommerce_available_payment_gateways', function ( $gateways ) {
+			return array();
+		}, PHP_INT_MAX );
+
+		// Change the "No available payment methods" message.
+		add_filter( 'woocommerce_no_available_payment_methods_message', function ( $message ) {
+
+			$message = __( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' );
+
+			return $message;
+
+		}, PHP_INT_MAX );
+
+		// Doesn't work, as it's filtered with JS. TODO!!!
+		add_filter( 'gettext', function ( $translated_text, $text, $domain ) {
+
+			if ( $domain === 'woocommerce' ) {
+				switch ( $text ) {
+					case 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.' :
+						$translated_text = __( 'There are no payment methods available as this store is in trial mode.', 'wc-calypso-bridge' );
+						break;
+				}
+			}
+
+			return $translated_text;
+
+		}, PHP_INT_MAX, 3 );
 
 		// Prevent orders on shortcode checkout.
 		add_action( 'woocommerce_before_checkout_process', function () {
