@@ -126,5 +126,7 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerc
  * See https://code.a8c.com/D94408
  */
 if ( ! wc_calypso_bridge_can_install_plugins() ) {
-	require_once dirname(__FILE__) . '/includes/class-wc-calypso-bridge-ecom-free-trial-frontend.php';
+	if (current_user_can('manage_woocommerce')) {
+		require_once dirname(__FILE__) . '/includes/class-wc-calypso-bridge-ecom-free-trial-frontend.php';
+	}
 }
