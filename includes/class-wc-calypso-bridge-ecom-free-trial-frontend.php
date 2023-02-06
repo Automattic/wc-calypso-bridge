@@ -30,8 +30,12 @@ class WC_Calypso_Bridge_ECOM_Free_Trial_Frontend  {
 	}
 	
 	public function __construct(){
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
-		add_action( 'wp_footer', array( $this, 'add_plan_picker_banner' ), 10 );
+		add_action('init', function() {
+			if (current_user_can('manage_woocommerce')) {
+				add_action('wp_enqueue_scripts', array($this, 'add_styles'));
+				add_action('wp_footer', array($this, 'add_plan_picker_banner'), 10);
+			}
+		});
 	}
 
 	/**
