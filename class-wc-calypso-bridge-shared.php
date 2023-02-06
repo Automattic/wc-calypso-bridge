@@ -109,6 +109,7 @@ class WC_Calypso_Bridge_Shared {
 		$status       = new \Automattic\Jetpack\Status();
 		$site_suffix  = $status->get_site_suffix();
 
+		$is_ecommerce_plan = (bool) wc_calypso_bridge_is_ecommerce_plan();
 		$params       = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
 			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.			
