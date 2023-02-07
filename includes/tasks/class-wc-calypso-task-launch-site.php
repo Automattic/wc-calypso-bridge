@@ -90,8 +90,7 @@ class LaunchSite extends Task {
 	}
 
 	/**
-	 * Checks if the task is active. The task should not be active
-	 * if the site is on the eCommerce trial.
+	 * The task should not be displayed if the site is on the eCommerce trial.
 	 * 
 	 * @return bool
 	 */
