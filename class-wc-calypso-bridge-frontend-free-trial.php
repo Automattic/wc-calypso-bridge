@@ -44,7 +44,10 @@ class WC_Calypso_Bridge_Frontend_Free_Trial  {
 	 */
 	public function add_plan_picker_banner()
 	{
-		$link = 'https://wordpress.com/';
+		$status      = new \Automattic\Jetpack\Status();
+		$site_suffix = $status->get_site_suffix();
+		$link = sprintf( "https://wordpress.com/plans/%s", $site_suffix );
+
 		$text = sprintf( __("
 			At the moment you are the only one who can see your store. To let everyone see your store, you simply need to&nbsp;<a href='%s'>pick a plan</a>.
 		", 'wc-calypso-bridge' ), $link );
