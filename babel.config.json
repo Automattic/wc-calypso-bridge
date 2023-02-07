@@ -1,0 +1,7 @@
+{
+	"presets": [
+		"@babel/react",
+		"@babel/typescript",
+		"@wordpress/babel-preset-default"
+	]
+}
