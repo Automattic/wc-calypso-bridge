@@ -18,9 +18,11 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import './completed-header.scss';
+import './style.scss';
 import HeaderImage from './completed-celebration-header.jsx';
 
+const signupUrl =
+	'https://wordpress.com/plans/' + window.wcCalypsoBridge.siteSlug;
 type TaskListCompletedHeaderProps = {
 	hideTasks: () => void;
 	keepTasks: () => void;
@@ -166,8 +168,8 @@ export const TaskListCompletedHeader: React.FC<
 
 							<Text size="title" as="h2" lineHeight={ 1.4 }>
 								{ __(
-									"You've completed store setup",
-									'woocommerce'
+									'Woohoo! Your trial store has been set up!',
+									'wc-calypso-bridge'
 								) }
 							</Text>
 							<Text
@@ -178,16 +180,22 @@ export const TaskListCompletedHeader: React.FC<
 								className="wooocommerce-task-card__header-subtitle"
 							>
 								{ __(
-									'Congratulations! Take a moment to celebrate and look out for the first sale.',
-									'woocommerce'
+									"Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is sign up for a plan. This will also unlock the two upcoming tasks in the task list.",
+									'wc-calypso-bridge'
 								) }
 							</Text>
+							<Button href={ signupUrl } variant="primary">
+								{ __(
+									'Sign up for a plan',
+									'wc-calypso-bridge'
+								) }
+							</Button>
 							<div className="woocommerce-task-card__header-menu">
 								{ /* @ts-expect-error: type def. is not up to date. Ignoring for now. */ }
 								<EllipsisMenu
 									label={ __(
 										'Task List Options',
-										'woocommerce'
+										'wc-calypso-bridge'
 									) }
 									renderContent={ () => (
 										<div className="woocommerce-task-card__section-controls">
@@ -196,7 +204,7 @@ export const TaskListCompletedHeader: React.FC<
 											>
 												{ __(
 													'Show setup task list',
-													'woocommerce'
+													'wc-calypso-bridge'
 												) }
 											</Button>
 											<Button
@@ -204,7 +212,7 @@ export const TaskListCompletedHeader: React.FC<
 											>
 												{ __(
 													'Hide this',
-													'woocommerce'
+													'wc-calypso-bridge'
 												) }
 											</Button>
 										</div>
@@ -219,7 +227,7 @@ export const TaskListCompletedHeader: React.FC<
 							<CustomerFeedbackSimple
 								label={ __(
 									'How was your experience?',
-									'woocommerce'
+									'wc-calypso-bridge'
 								) }
 								onSelect={ recordScore }
 							/>
@@ -235,7 +243,7 @@ export const TaskListCompletedHeader: React.FC<
 								🙌{ ' ' }
 								{ __(
 									'We appreciate your feedback!',
-									'woocommerce'
+									'wc-calypso-bridge'
 								) }
 							</Text>
 						</div>
@@ -244,14 +252,17 @@ export const TaskListCompletedHeader: React.FC<
 			</div>
 			{ showCesModal ? (
 				<CustomerFeedbackModal
-					title={ __( 'How was your experience?', 'woocommerce' ) }
+					title={ __(
+						'How was your experience?',
+						'wc-calypso-bridge'
+					) }
 					firstQuestion={ __(
 						'The store setup is easy to complete.',
-						'woocommerce'
+						'wc-calypso-bridge'
 					) }
 					secondQuestion={ __(
 						'The store setup process meets my needs.',
-						'woocommerce'
+						'wc-calypso-bridge'
 					) }
 					defaultScore={ score }
 					/*

@@ -12,7 +12,7 @@ import { render } from '@wordpress/element';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
-import { TaskListCompletedHeaderFill } from './task-completion/fill';
+import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
 
 wcNavFilterRootUrl();
