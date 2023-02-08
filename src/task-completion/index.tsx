@@ -19,7 +19,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import './completed-header.scss';
-import HeaderImage from './completed-celebration-header.svg';
+import HeaderImage from './completed-celebration-header.jsx';
 
 type TaskListCompletedHeaderProps = {
 	hideTasks: () => void;
@@ -159,10 +159,9 @@ export const TaskListCompletedHeader: React.FC<
 				>
 					<CardHeader size="medium">
 						<div className="wooocommerce-task-card__header">
-							<img
-								src={ HeaderImage }
-								alt="Completed"
+							<HeaderImage
 								className="wooocommerce-task-card__finished-header-image"
+								alt="Completed"
 							/>
 
 							<Text size="title" as="h2" lineHeight={ 1.4 }>
@@ -184,6 +183,7 @@ export const TaskListCompletedHeader: React.FC<
 								) }
 							</Text>
 							<div className="woocommerce-task-card__header-menu">
+								{ /* @ts-expect-error: type def. is not up to date. Ignoring for now. */ }
 								<EllipsisMenu
 									label={ __(
 										'Task List Options',
@@ -254,6 +254,8 @@ export const TaskListCompletedHeader: React.FC<
 						'woocommerce'
 					) }
 					defaultScore={ score }
+					/*
+					// @ts-expect-error: package isn't up to date, but external package is; ignoring for now */
 					recordScoreCallback={ recordModalScore }
 					onCloseModal={ () => {
 						setScore( NaN );
