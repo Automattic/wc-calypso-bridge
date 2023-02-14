@@ -43,7 +43,7 @@ class WC_Calypso_Bridge_Free_Trial {
 			return;
 		}
 
-		add_action( 'woocommerce_init', array( $this, 'frontend' ), PHP_INT_MAX );
+		add_action( 'init', array( $this, 'frontend' ), PHP_INT_MAX );
 		add_action( 'admin_init', array( $this, 'backend' ), PHP_INT_MAX );
 
 		// Disable Stripe Express buttons.
