@@ -1,6 +1,6 @@
 <?php
 /**
- * Controller for shared content.
+ * Controller for assets and shared content.
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
