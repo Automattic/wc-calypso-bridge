@@ -3,8 +3,8 @@
  * Free Trial related.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   2.0.0
- * @version 2.0.0
+ * @since   x.x.x
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -39,7 +39,8 @@ class WC_Calypso_Bridge_Free_Trial {
 	 */
 	public function __construct() {
 
-		if ( ! $this->is_free_trial() ) {
+		// Only if Ecommerce Free Trial.
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
 		}
 
@@ -319,15 +320,6 @@ class WC_Calypso_Bridge_Free_Trial {
 		}, PHP_INT_MAX );
 
 	}
-
-	/**
-	 * @return boolean Whether the site is in free trial mode.
-	 * @todo Properly check if free trial in enabled.
-	 */
-	public function is_free_trial() {
-		return true;
-	}
-
 }
 
 WC_Calypso_Bridge_Free_Trial::get_instance();

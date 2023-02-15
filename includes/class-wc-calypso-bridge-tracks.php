@@ -2,9 +2,11 @@
 /**
  * Tracks modifications for the ecommerce plan.
  *
+ * Adjust tracks settings for business, ecomm, in calypsoified and wp-admin views.
+ *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -17,7 +19,7 @@ class WC_Calypso_Bridge_Tracks {
 	/**
 	 * Class instance.
 	 *
-	 * @var WC_Calypso_Tracks instance
+	 * @var WC_Calypso_Bridge_Tracks instance
 	 */
 	protected static $instance = false;
 
@@ -27,7 +29,6 @@ class WC_Calypso_Bridge_Tracks {
 	 * @var string
 	 */
 	public static $tracks_host_value = '';
-
 
 	/**
 	 * Get class instance
@@ -43,16 +44,38 @@ class WC_Calypso_Bridge_Tracks {
 	 * Constructor.
 	 */
 	private function __construct() {
+
+		/**
+		 * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
+		 */
+		add_filter( 'pre_option_woocommerce_allow_tracking', static function() {
+			return 'yes';
+		} );
+
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
+		add_action( 'init', array( $this, 'init' ) );
+	}
+
+	/**
+	 * Initialize.
+	 */
+	public function init() {
 		$this->set_tracks_host_value();
+
+		// Set track host and source.
 		add_filter( 'admin_footer', array( $this, 'add_tracks_js_filter' ) );
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
-		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
 		add_filter( 'woocommerce_admin_survey_query', array( $this, 'set_survey_source' ) );
+
+		// Hide WooCommerce.com advanced settings page.
+		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
 
 		// Always opt-in to Tracks, WPCOM user tracks preferences take priority.
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );
 		add_filter( 'woocommerce_apply_user_tracking', '__return_true' );
-    
 		add_filter( 'woocommerce_tracker_data', array( $this, 'add_host_to_wctracker_param' ) );
 	}
 
@@ -68,13 +91,6 @@ class WC_Calypso_Bridge_Tracks {
 	}
 
 	/**
-	 * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
-	 */
-	public static function always_enable_tracking() {
-		return 'yes';
-	}
-
-	/**
 	 * Set's the value for the tracks host property.
 	 */
 	public function set_tracks_host_value() {
@@ -82,9 +98,10 @@ class WC_Calypso_Bridge_Tracks {
 		$host_value = 'bizplan-wp-admin';
 
 		// If an ecomm plan site, update host value.
-		if ( wc_calypso_bridge_is_ecommerce_plan() ) {
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$host_value = 'ecommplan';
 		}
+
 		self::$tracks_host_value = $host_value;
 	}
 
@@ -140,3 +157,5 @@ class WC_Calypso_Bridge_Tracks {
 		return $query;
 	}
 }
+
+WC_Calypso_Bridge_Tracks::get_instance();

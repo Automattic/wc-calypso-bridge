@@ -1,0 +1,22 @@
+name: Bundle Size
+
+on:
+  workflow_call:
+
+jobs:
+    build-and-size:
+        name: Bundle Size
+        runs-on: ubuntu-20.04
+
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  fetch-depth: 1
+            - uses: actions/setup-node@v3
+              with:
+                  node-version-file: '.nvmrc'
+            - uses: preactjs/compressed-size-action@v2
+              with:
+                  repo-token: '${{ secrets.GITHUB_TOKEN }}'
+                  pattern: '{ build/*.js, build/*.css }'
+                  build-script: "build"

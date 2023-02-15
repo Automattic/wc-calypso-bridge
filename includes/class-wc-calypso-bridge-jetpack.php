@@ -2,9 +2,9 @@
 /**
  * Jetpack customizations.
  *
- * @package WC_Calypso_Bridge/Jetpack
+ * @package WC_Calypso_Bridge/Classes
  * @since   1.9.8
- * @version 1.9.15
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -37,6 +37,12 @@ class WC_Calypso_Bridge_Jetpack {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
 		$this->init();
 	}
 
@@ -67,7 +73,7 @@ class WC_Calypso_Bridge_Jetpack {
 			 */
 
 			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
-				require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-ecommerce-admin-menu.php';
+				require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-ecommerce-admin-menu.php';
 				return Ecommerce_Atomic_Admin_Menu::class;
 			}
 

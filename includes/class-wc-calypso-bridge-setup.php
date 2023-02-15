@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.13
+ * @version 2.0.0
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -58,15 +58,81 @@ class WC_Calypso_Bridge_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
+
+		/**
+		 * Handle one-time operations.
+		 */
+		$this->modify_one_time_operations();
 		$this->setup_one_time_operations();
 
-		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
-		add_filter( 'pre_option_woocommerce_onboarding_profile', array( $this, 'set_onboarding_status_to_skipped' ), 100 );
-		add_filter( 'default_option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
-		add_filter( 'option_woocommerce_onboarding_profile', array( $this, 'set_business_extensions_empty' ) );
-		add_filter( 'woocommerce_admin_onboarding_themes', array( $this, 'remove_non_installed_themes' ) );
-		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
-		add_filter( 'pre_option_woocommerce_homescreen_enabled', array( $this, 'always_enable_homescreen' ) );
+		/**
+		 * Enable DB auto updates.
+		 *
+		 * @since   1.9.13
+		 *
+		 * @return  bool
+		 */
+		add_filter( 'woocommerce_enable_auto_update_db', '__return_true' );
+
+		/**
+		 * Remove the legacy `WooCommerce > Coupons` menu.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return int 1 to show the legacy menu, 0 to hide it. Booleans do not work.
+		 * @see     Automattic\WooCommerce\Internal\Admin\CouponsMovedTrait::display_legacy_menu()
+		 * @todo    Write a compatibility branch in CouponsMovedTrait to hide the legacy menu in new installations of WooCommerce.
+		 * @todo    Remove this filter when the compatibility branch is merged.
+		 */
+		add_filter( 'pre_option_wc_admin_show_legacy_coupon_menu', static function ( $pre ) {
+			return 0;
+		}, PHP_INT_MAX );
+
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
+
+			add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
+
+			/**
+			 * Enable WooCommerce Homescreen.
+			 *
+			 * @return string
+			 */
+			add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
+				return 'yes';
+			} );
+
+			/**
+			 * Remove the Write button from the global bar in Ecommerce plan.
+			 *
+			 * @since   1.9.8
+			 *
+			 * @return void
+			 */
+			add_action( 'wp_before_admin_bar_render', static function () {
+				global $wp_admin_bar;
+
+				if ( ! is_object( $wp_admin_bar ) ) {
+					return;
+				}
+
+				$wp_admin_bar->remove_menu( 'ab-new-post' );
+			}, PHP_INT_MAX );
+		}
+	}
+
+	/**
+	 * Modify one time operations based on current plan.
+	 *
+	 * @since 2.0.0
+	 * @return void
+	 */
+	public function modify_one_time_operations() {
+
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
+			unset( $this->one_time_operations[ 'woocommerce_create_pages' ] );
+		}
 	}
 
 	/**
@@ -263,7 +329,7 @@ class WC_Calypso_Bridge_Setup {
 				}
 
 				// Inform the merchant that we've enabled the new checkout experience.
-				include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
+				include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
 				new WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note();
 				WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note::possibly_add_note();
 			}
@@ -337,27 +403,6 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Skip the OBW.
-	 *
-	 * This callback will ensure that the `woocommerce_onboarding_profile` option value will result to skipped state, always.
-	 *
-	 * @since 1.9.4
-	 *
-	 * @param  mixed  $value
-	 * @return array
-	 */
-	public function set_onboarding_status_to_skipped( $option_value ) {
-		return array( 'skipped' => true );
-	}
-
-	/**
-	 * Opt all sites into using WooCommerce Home Screen.
-	 */
-	public function always_enable_homescreen() {
-		return 'yes';
-	}
-
-	/**
 	 * Prevent redirects on activation when WooCommerce is being setup. Some plugins
 	 * do this when they are activated.
 	 *
@@ -391,78 +436,6 @@ class WC_Calypso_Bridge_Setup {
 
 		return $location;
 	}
-
-	/**
-	 * Handle the store location's onboarding redirect when user provided a full address.
-	 *
-	 * @since 1.9.4
-	 * @return void
-	 */
-	public function redirect_store_details_onboarding() {
-
-		// Only run on save.
-		if ( empty( $_POST ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
-			return;
-		}
-
-		if ( ! isset( $_GET['tutorial'] ) || 'true' !== $_GET['tutorial'] ) {
-			return;
-		}
-
-		$store_address  = get_option( 'woocommerce_store_address' );
-		$store_city     = get_option( 'woocommerce_store_city' );
-		$store_postcode = get_option( 'woocommerce_store_postcode' );
-
-		if ( ! empty( $store_address ) && ! empty( $store_city ) && ! empty( $store_postcode ) ) {
-			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
-		}
-	}
-
-	/**
-	 * Store Profiler: Set business_extensions to empty array.
-	 *
-	 * @param array $option Array of properties for OBW Profile.
-	 *
-	 * @return array
-	 */
-	public function set_business_extensions_empty( $option ) {
-		// Ensuring the option is an array by default.
-		// By having an empty array of 'business_extensions' all options are toggled off by default in the OBW.
-		if ( ! is_array( $option ) ) {
-			$option = array(
-				'business_extensions' => array(),
-			);
-		} else {
-			$option['business_extensions'] = array();
-		}
-
-		return $option;
-	}
-
-	/**
-	 * Remove non-installed ( paid ) themes from the Onboarding data source.
-	 *
-	 * @param array $themes Array of themes comprised of locally installed themes + marketplace themes.
-	 *
-	 * @return array
-	 */
-	public function remove_non_installed_themes( $themes ) {
-		$local_themes = array_filter( $themes, array( $this, 'is_theme_installed' ) );
-
-		return $local_themes;
-	}
-
-	/**
-	 * Conditional method to determine if a theme is installed locally.
-	 *
-	 * @param array $theme Theme attributes.
-	 *
-	 * @return boolean
-	 */
-	public function is_theme_installed( $theme ) {
-		return isset( $theme['is_installed'] ) && $theme['is_installed'];
-	}
-
 }
 
-$wc_calypso_bridge_setup = WC_Calypso_Bridge_Setup::get_instance();
+WC_Calypso_Bridge_Setup::get_instance();
