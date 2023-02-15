@@ -25,9 +25,10 @@ function wc_calypso_bridge_maybe_disable_publicize( $submit_post, $post_id, $ser
     $trigger_strings = array( '/wp-json/wc/v', '/?rest_route=%2Fwc%2Fv' );
     $is_rest_api_request = false;
 
+    $request_uri = isset( $_SERVER[ 'REQUEST_URI' ] ) ? sanitize_text_field( wp_unslash( $_SERVER[ 'REQUEST_URI' ] ) ) : '';
     // Only run this logic on REST API requests
     foreach( $trigger_strings as $trigger_string ) {
-        if ( false !== strpos( $_SERVER[ 'REQUEST_URI' ], $trigger_string ) ) {
+        if ( false !== strpos( $request_uri, $trigger_string ) ) {
             $is_rest_api_request = true;
             break;
         }
