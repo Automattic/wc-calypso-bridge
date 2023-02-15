@@ -127,4 +127,5 @@ require_once dirname( __FILE__ ) . '/includes/class-wc-calypso-bridge-woocommerc
  */
 if ( ! wc_calypso_bridge_can_install_plugins() ) {
 	require_once dirname(__FILE__) . '/class-wc-calypso-bridge-frontend-free-trial.php';
+	require_once dirname(__FILE__) . '/includes/free-trial/class-wc-calypso-bridge-free-trial-product-form-changes.php';
 }
