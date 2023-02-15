@@ -37,6 +37,7 @@ class WC_Calypso_Bridge_Notes {
 	 */
 	public function __construct() {
 
+		// Only in Ecommerce.
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}

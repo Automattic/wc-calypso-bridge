@@ -36,6 +36,7 @@ class WC_Calypso_Bridge_Crowdsignal_Redirect {
 	 */
 	private function __construct() {
 
+		// Only Ecommerce.
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}

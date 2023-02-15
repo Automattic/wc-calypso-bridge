@@ -116,15 +116,15 @@ class WC_Calypso_Bridge_Hide_Alerts {
 			return;
 		}
 
-		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
-		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
-		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
-		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
-
 		// Only in Ecommerce.
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
+
+		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
+		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
+		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
+		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 
 		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );

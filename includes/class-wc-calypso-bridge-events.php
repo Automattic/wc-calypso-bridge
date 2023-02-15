@@ -28,6 +28,7 @@ class WC_Calypso_Bridge_Events {
 	 */
 	protected function __construct() {
 
+		// Only in Ecommerce.
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
