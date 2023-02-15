@@ -65,11 +65,6 @@ class WC_Calypso_Bridge_Setup {
 		$this->modify_one_time_operations();
 		$this->setup_one_time_operations();
 
-		add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
-		add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
-			return 'yes';
-		} );
-
 		/**
 		 * Enable DB auto updates.
 		 *
@@ -95,6 +90,11 @@ class WC_Calypso_Bridge_Setup {
 		}, PHP_INT_MAX );
 
 		if ( wc_calypso_bridge_has_ecommerce_features() ) {
+
+			add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
+			add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
+				return 'yes';
+			} );
 
 			/**
 			 * Remove the Write button from the global bar in Ecommerce plan.
@@ -125,6 +125,7 @@ class WC_Calypso_Bridge_Setup {
 
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
+			unset( $this->one_time_operations[ 'woocommerce_create_pages' ] );
 		}
 	}
 

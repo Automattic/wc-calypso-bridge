@@ -35,7 +35,12 @@ class WC_Calypso_Bridge_Filters {
 	 * Constructor.
 	 */
 	private function __construct() {
-		// Both ecommerce and business.
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
 		add_action( 'init', array( $this, 'init' ) );
 	}
 

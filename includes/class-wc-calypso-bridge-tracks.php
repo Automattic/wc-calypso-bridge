@@ -45,18 +45,18 @@ class WC_Calypso_Bridge_Tracks {
 	 */
 	private function __construct() {
 
-		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
-			return;
-		}
-
-		add_action( 'init', array( $this, 'init' ) );
-
 		/**
 		 * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
 		 */
 		add_filter( 'pre_option_woocommerce_allow_tracking', static function() {
 			return 'yes';
 		} );
+
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
+		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
@@ -64,10 +64,14 @@ class WC_Calypso_Bridge_Tracks {
 	 */
 	public function init() {
 		$this->set_tracks_host_value();
+
+		// Set track host and source.
 		add_filter( 'admin_footer', array( $this, 'add_tracks_js_filter' ) );
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
-		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
 		add_filter( 'woocommerce_admin_survey_query', array( $this, 'set_survey_source' ) );
+
+		// Hide WooCommerce.com advanced settings page.
+		add_filter( 'woocommerce_get_sections_advanced', array( $this, 'hide_woocommerce_com_settings' ), 10, 1 );
 
 		// Always opt-in to Tracks, WPCOM user tracks preferences take priority.
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );

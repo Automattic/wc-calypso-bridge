@@ -38,6 +38,12 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
 
