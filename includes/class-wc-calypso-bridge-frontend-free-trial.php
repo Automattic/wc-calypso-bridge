@@ -8,7 +8,7 @@
  *
  * Handles Free Trial frontend.
  */
-class WC_Calypso_Bridge_Frontend_Free_Trial  {
+class WC_Calypso_Bridge_Frontend_Free_Trial {
 	/**
 	 * The single instance of the class.
 	 *
@@ -47,19 +47,19 @@ class WC_Calypso_Bridge_Frontend_Free_Trial  {
 	/**
 	 * @return void
 	 */
-	public function add_plan_picker_banner()
-	{
-		$link = 'https://wordpress.com/';
+	public function add_plan_picker_banner() {
+		$status      = new \Automattic\Jetpack\Status();
+		$site_suffix = $status->get_site_suffix();
+		$link = sprintf( "https://wordpress.com/plans/%s", $site_suffix );
+
 		$text = sprintf( __("
 			At the moment you are the only one who can see your store. To let everyone see your store, you simply need to&nbsp;<a href='%s'>pick a plan</a>.
 		", 'wc-calypso-bridge' ), $link );
 		echo "<div id='free-trial-plan-ppicker_banner'>$text</div>";
 	}
 
-	public function add_styles()
-	{
-		$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', $asset_path . 'assets/css/free-trial.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+	public function add_styles() {
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 }
 
