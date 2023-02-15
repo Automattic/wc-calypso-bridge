@@ -24,7 +24,7 @@
 		"@automattic/color-studio": "2.5.0",
 		"@woocommerce/dependency-extraction-webpack-plugin": "^1.7.0",
 		"@woocommerce/eslint-plugin": "1.1.0",
-		"@wordpress/scripts": "^20.0.2"
+		"@wordpress/scripts": "^25.3.0"
 	},
 	"dependencies": {
 		"@woocommerce/onboarding": "^3.2.0",
