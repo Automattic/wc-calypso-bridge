@@ -92,6 +92,12 @@ class WC_Calypso_Bridge_Setup {
 		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 
 			add_filter( 'wp_redirect', array( $this, 'prevent_redirects_on_activation' ), 10, 2 );
+
+			/**
+			 * Enable WooCommerce Homescreen.
+			 *
+			 * @return string
+			 */
 			add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
 				return 'yes';
 			} );
