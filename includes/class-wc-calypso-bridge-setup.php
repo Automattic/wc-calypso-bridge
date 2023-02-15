@@ -123,7 +123,7 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	public function modify_one_time_operations() {
 
-		if ( wc_calypso_bridge_is_business_plan() ) {
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
 		}
 	}
