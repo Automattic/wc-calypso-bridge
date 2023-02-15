@@ -39,8 +39,6 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 */
 	private function __construct() {
 
-		add_action( 'init', array( $this, 'init' ) );
-
 		/**
 		 * Suppress inbox messages not applicable to the ecommerce plan.
 		 *
@@ -106,6 +104,13 @@ class WC_Calypso_Bridge_Hide_Alerts {
 			return $where_clauses;
 
 		}, PHP_INT_MAX, 3 );
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
+		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
@@ -113,11 +118,6 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 */
 	public function init() {
 		if ( ! is_admin() ) {
-			return;
-		}
-
-		// Only in Ecommerce.
-		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
 
