@@ -3,8 +3,8 @@
 /**
  * Class WC_Calypso_Bridge_Frontend_Free_Trial.
  *
- * @since   1.9.16
- * @version 1.9.16
+ * @since   x.x.x
+ * @version x.x.x
  *
  * Handles Free Trial frontend.
  */
@@ -29,7 +29,12 @@ class WC_Calypso_Bridge_Frontend_Free_Trial  {
 		return self::$instance;
 	}
 	
-	public function __construct(){
+	public function __construct() {
+
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
+
 		add_action('init', function() {
 			if (current_user_can('manage_woocommerce')) {
 				add_action('wp_footer', array($this, 'add_plan_picker_banner'), 10);
