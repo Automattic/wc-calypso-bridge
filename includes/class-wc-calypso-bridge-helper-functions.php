@@ -230,5 +230,3 @@ class WC_Calypso_Bridge_Helper_Functions {
 	}
 
 }
-
-$wc_calypso_bridge_helper_functions = WC_Calypso_Bridge_Helper_Functions::get_instance();

@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.9
+ * @version 2.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,27 +24,86 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	protected static $instance = null;
 
 	/**
+	 * Get class instance
+	 */
+	public static function get_instance() {
+		if ( ! static::$instance ) {
+			static::$instance = new static();
+		}
+
+		return static::$instance;
+	}
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
 
 	/**
-	 * Add hooks and filters if WooCommerce is active.
+	 * Initialize.
 	 */
 	public function initialize() {
-		if ( ! function_exists( 'WC' ) ) {
-			return;
-		}
 
+		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
 
-		// Only show activity panels in Home page.
+		/**
+		 * Hide WC Admin's activity panel in all pages except Home.
+		 *
+		 * @param  mixed  $value
+		 * @return array
+		 */
 		add_filter( 'admin_body_class', array( $this, 'filter_woocommerce_body_classes' ) );
 		add_action( 'admin_init', array( $this, 'add_custom_activity_panels_styles' ) );
 		add_action( 'admin_footer', array( $this, 'filter_woocommerce_body_classes_js' ) );
+
+		/**
+		 * Skip the OBW.
+		 *
+		 * This callback will ensure that the `woocommerce_onboarding_profile` option value will result to skipped state, always.
+		 *
+		 * @since 1.9.4
+		 *
+		 * @param  mixed  $value
+		 * @return array
+		 */
+		add_filter( 'pre_option_woocommerce_onboarding_profile', static function ( $option_value ) {
+			return array( 'skipped' => true );
+		}, 100 );
+
+		/**
+		 * Disable WooCommerce Navigation.
+		 *
+		 * @since   1.9.4
+		 *
+		 * @param mixed $pre Fixed to false.
+		 * @return string no.
+		 */
+		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
+			return 'no';
+		}, PHP_INT_MAX );
+	}
+
+	/**
+	 * Remove the Dev Docs menu item unless allowed by the `wc_calypso_bridge_development_mode` filter.
+	 *
+	 * @param array $features WooCommerce Admin enabled features list.
+	 */
+	public function maybe_remove_devdocs_menu_item( $features ) {
+		if ( ! apply_filters( 'wc_calypso_bridge_development_mode', false ) ) {
+			unset( $features['devdocs'] );
+		}
+
+		return $features;
 	}
 
 	/**
@@ -155,17 +214,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		$css = 'body:not(.is-woocommerce-home) #wpbody { margin-top: 0 !important; } body:not(.is-woocommerce-home) .woocommerce-layout__header { display:none; } body.is-woocommerce-home #screen-meta-links { display: none; } body.is-woocommerce-home .woocommerce-layout__header-heading, body.is-woocommerce-home .woocommerce-task-progress-header__title, .woocommerce-layout__inbox-title span { font-size: 20px; font-weight: 400; } body.is-woocommerce-home .woocommerce-layout__inbox-panel-header { padding: 0; } .woocommerce-layout__inbox-subtitle { margin-top: 5px; } .woocommerce-layout__inbox-subtitle span { color: #757575; }';
 		wp_add_inline_style( 'activity-panels-hide', $css );
-	}
-
-	/**
-	 * Get class instance
-	 */
-	public static function get_instance() {
-		if ( ! static::$instance ) {
-			static::$instance = new static();
-		}
-
-		return static::$instance;
 	}
 }
 

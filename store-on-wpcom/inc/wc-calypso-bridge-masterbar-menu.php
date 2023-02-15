@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function wc_calypso_bridge_masterbar_css() {
-	$asset_path = WC_Calypso_Bridge::$plugin_asset_path ? WC_Calypso_Bridge::$plugin_asset_path : WC_Calypso_Bridge::MU_PLUGIN_ASSET_PATH;
+	$asset_path = WC_Calypso_Bridge_Deprecated::$plugin_asset_path ? WC_Calypso_Bridge_Deprecated::$plugin_asset_path : WC_Calypso_Bridge_Deprecated::MU_PLUGIN_ASSET_PATH;
 	wp_enqueue_style( 'wp-calypso-bridge-masterbar', $asset_path . 'assets/css/masterbar.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 }
 
