@@ -46,6 +46,48 @@ class WC_Calypso_Bridge_Free_Trial {
 		add_action( 'init', array( $this, 'frontend' ), PHP_INT_MAX );
 		add_action( 'admin_init', array( $this, 'backend' ), PHP_INT_MAX );
 
+		// Disable Cash on Delivery.
+		add_filter( 'pre_option_woocommerce_cod_settings', '__return_false', PHP_INT_MAX );
+		add_filter( 'option_woocommerce_cod_settings', function ( $value ) {
+
+			// Bail out early if the current user is allowed to create orders on free trial.
+			if ( current_user_can( 'manage_woocommerce' ) ) {
+				return $value;
+			}
+
+			$value['enabled'] = 'no'; // Completely disable Cash on Delivery.
+
+			return $value;
+		}, PHP_INT_MAX );
+
+		// Disable Direct Bank Transfer.
+		add_filter( 'pre_option_woocommerce_bacs_settings', '__return_false', PHP_INT_MAX );
+		add_filter( 'option_woocommerce_bacs_settings', function ( $value ) {
+
+			// Bail out early if the current user is allowed to create orders on free trial.
+			if ( current_user_can( 'manage_woocommerce' ) ) {
+				return $value;
+			}
+
+			$value['enabled'] = 'no'; // Completely disable Direct Bank Transfer.
+
+			return $value;
+		}, PHP_INT_MAX );
+
+		// Disable Check Payments.
+		add_filter( 'pre_option_woocommerce_cheque_settings', '__return_false', PHP_INT_MAX );
+		add_filter( 'option_woocommerce_cheque_settings', function ( $value ) {
+
+			// Bail out early if the current user is allowed to create orders on free trial.
+			if ( current_user_can( 'manage_woocommerce' ) ) {
+				return $value;
+			}
+
+			$value['enabled'] = 'no'; // Completely disable Check Payments.
+
+			return $value;
+		}, PHP_INT_MAX );
+
 		// Disable Stripe Express buttons.
 		add_filter( 'pre_option_woocommerce_stripe_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_stripe_settings', function ( $value ) {
