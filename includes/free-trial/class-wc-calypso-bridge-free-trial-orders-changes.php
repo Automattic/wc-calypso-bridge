@@ -30,6 +30,10 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
 		add_action('admin_print_footer_scripts', array($this, 'override_empty_state_cta_button_class') );
 	}
 
+	/**
+	 * Change the class of the button on the empty state of the orders screen.
+	 *
+	 */
 	public function override_empty_state_cta_button_class() {
 		if ( ! function_exists( 'get_current_screen' ) ) {
 			return;
