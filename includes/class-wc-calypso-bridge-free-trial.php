@@ -55,7 +55,7 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
-			$value['enabled'] = 'no'; // Completely disable Cash on Delivery.
+			$value['enabled'] = 'no';
 
 			return $value;
 		}, PHP_INT_MAX );
@@ -69,7 +69,7 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
-			$value['enabled'] = 'no'; // Completely disable Direct Bank Transfer.
+			$value['enabled'] = 'no';
 
 			return $value;
 		}, PHP_INT_MAX );
@@ -83,7 +83,7 @@ class WC_Calypso_Bridge_Free_Trial {
 				return $value;
 			}
 
-			$value['enabled'] = 'no'; // Completely disable Check Payments.
+			$value['enabled'] = 'no';
 
 			return $value;
 		}, PHP_INT_MAX );
