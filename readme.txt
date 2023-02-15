@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.0.0 =
+* Refactor and introduce plan detection controller #926.
+
 = 1.9.18 =
 * Arrange menu order for the menu items of Mailpoet and AutomateWoo #921.
 * Remove Mailpoet Free and AutomateWoo from the managed plugins #921.
