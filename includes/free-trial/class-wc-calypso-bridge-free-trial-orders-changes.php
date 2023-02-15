@@ -31,16 +31,20 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
 	}
 
 	public function override_empty_state_cta_button_class() {
+		if ( ! function_exists( 'get_current_screen' ) ) {
+			return;
+		}
+
 		$screen = get_current_screen();
 	
 		if ( $screen->id === 'edit-shop_order' ) {
-				?>
-				<script>
-					jQuery('.woocommerce-BlankState-cta.button')
-						.addClass('button-secondary')
-						.removeClass('button-primary');
-				</script>
-				<?php
+			?>
+			<script>
+				jQuery('.woocommerce-BlankState-cta.button')
+					.addClass('button-secondary')
+					.removeClass('button-primary');
+			</script>
+			<?php
 		}
 	}
 }
