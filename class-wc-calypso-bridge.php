@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -31,7 +31,7 @@ class WC_Calypso_Bridge {
 	 *
 	 * @var string
 	 */
-	private $plugin_asset_path = null;
+	private static $plugin_asset_path = null;
 
 	/**
 	 * Class Instance.
@@ -49,7 +49,7 @@ class WC_Calypso_Bridge {
 			if ( file_exists( WP_PLUGIN_DIR . '/wc-calypso-bridge/wc-calypso-bridge.php' ) ) {
 
 				if ( WP_PLUGIN_DIR . '/wc-calypso-bridge/' == plugin_dir_path( __FILE__ ) ) {
-					$this->$plugin_asset_path = plugin_dir_url( __FILE__ );
+					self::$plugin_asset_path = plugin_dir_url( __FILE__ );
 				}
 			}
 
@@ -206,7 +206,7 @@ class WC_Calypso_Bridge {
 	 * @return string
 	 */
 	public function get_asset_path() {
-		return $this->plugin_asset_path ? $this->plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
+		return self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
 	}
 
 	/**
