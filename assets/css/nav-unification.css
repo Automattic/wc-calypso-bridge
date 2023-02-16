@@ -32,6 +32,10 @@
 		width: calc( 100% - 272px );
 	}
 
+	.jetpack-connected.is-nav-unification.has-woocommerce-navigation .woocommerce-layout__header {
+		width: 100%;
+	}
+
 	body.jetpack-connected.folded .woocommerce-layout__header {
 		width: calc( 100% - 36px );
 	}
