@@ -4,7 +4,6 @@
  *
  */
 
-
 class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
 	/**
 	 * The single instance of the class.
