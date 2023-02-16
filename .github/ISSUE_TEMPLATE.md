@@ -1,4 +1,4 @@
-<!-- This form is for other issue types specific to the WooCommerce plugin. This is not a support portal. -->
+<!-- This form is for other issue types specific to the wc-calypso-bridge plugin. This is not a support portal. -->
 
 **Prerequisites (mark completed items with an [x]):**
 - [ ] I have checked that my issue type is not listed here https://github.com/Automattic/wc-calypso-bridge/issues/new/choose
