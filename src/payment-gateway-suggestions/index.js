@@ -32,7 +32,6 @@ import {
 	comparePaymentGatewaysByPriority,
 } from './utils';
 import Notice from '../notice';
-import './plugins/Bacs';
 import './payment-gateway-suggestions.scss';
 
 const getCountryCode = ( countryState = '' ) => {
