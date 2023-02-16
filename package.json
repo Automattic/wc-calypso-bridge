@@ -25,7 +25,9 @@
 		"@woocommerce/dependency-extraction-webpack-plugin": "^1.7.0",
 		"@woocommerce/eslint-plugin": "1.1.0",
 		"@wordpress/scripts": "^20.0.2",
-		"postcss": "^8.4.21"
+		"postcss": "^8.4.21",
+		"prettier": "npm:wp-prettier@^2.2.1-beta-1",
+		"typescript": "^4.9.5"
 	},
 	"dependencies": {
 		"@automattic/color-studio": "^2.5.0",
