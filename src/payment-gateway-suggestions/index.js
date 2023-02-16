@@ -14,6 +14,8 @@ import { useMemo, useCallback, useEffect } from '@wordpress/element';
 import { getNewPath } from '@woocommerce/navigation';
 import { Button } from '@wordpress/components';
 import ExternalIcon from 'gridicons/dist/external';
+import { Link } from '@woocommerce/components';
+import interpolateComponents from '@automattic/interpolate-components';
 
 /**
  * Internal dependencies
@@ -29,6 +31,7 @@ import {
 	getIsGatewayWCPay,
 	comparePaymentGatewaysByPriority,
 } from './utils';
+import Notice from '../notice';
 import './plugins/Bacs';
 import './payment-gateway-suggestions.scss';
 
@@ -270,6 +273,27 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 
 	return (
 		<div className="woocommerce-task-payments">
+			<Notice
+				text={ interpolateComponents( {
+					mixedString: __(
+						'During the trial period you can only make test payments. To process real transactions, {{link}}upgrade now{{/link}}.',
+						'wc-calypso-bridge'
+					),
+					components: {
+						br: <br />,
+						link: (
+							<Link
+								href="https://wordpress.com/"
+								type="external"
+								target="_blank"
+							>
+								<></>
+							</Link>
+						),
+					},
+				} ) }
+			/>
+
 			{ ! paymentGateways.size && <ListPlaceholder /> }
 
 			{ wcPayGateway.length ? (
