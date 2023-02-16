@@ -38,7 +38,7 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
                     <div>
                         <h3><?=__('Start selling to everyone', 'wc-calypso-bridge')?></h3>
                         <p>
-							<?=__("During the trial period you can only place test orders! To receive orders from customers, sign up for a plan and you'll be ready to start selling.", 'wc-calypso-bridge')?>
+							<?=__("During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling.", 'wc-calypso-bridge')?>
                         </p>
                     </div>
 					<div class="upgrade-action">
