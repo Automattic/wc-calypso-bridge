@@ -126,7 +126,7 @@ export const Suggestion = ( { paymentGateway, onSetupCallback = null } ) => {
 			<Notice
 				text={ interpolateComponents( {
 					mixedString: __(
-						"While you're in a free trial store, you'll only be able to place test orders. {{br}}{{/br}}To process real transactions, {{link}}pick a plan{{/link}}.",
+						'During the trial period you can only make test payments. To process real transactions, {{link}}upgrade now{{/link}}.',
 						'wc-calypso-bridge'
 					),
 					components: {
