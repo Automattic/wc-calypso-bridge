@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * WC_Calypso_Bridge_Free_Trial Class.
  */
-class WC_Calypso_Bridge_Free_Trial {
+class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 
 	/**
 	 * The single instance of the class.
@@ -322,4 +322,4 @@ class WC_Calypso_Bridge_Free_Trial {
 	}
 }
 
-WC_Calypso_Bridge_Free_Trial::get_instance();
+WC_Calypso_Bridge_Free_Trial_Payment_Restrictions::get_instance();
