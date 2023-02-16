@@ -39,7 +39,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 	 */
 	public function __construct() {
 
-		// Only if Ecommerce Free Trial.
+		// Bail out early if the current site is not on a free trial.
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
 		}
@@ -48,11 +48,12 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 		add_action( 'admin_init', array( $this, 'backend' ), PHP_INT_MAX );
 
 		// Disable Cash on Delivery.
+		// There is no need to filter the default options. Double-checked in a pristine DB.
 		add_filter( 'pre_option_woocommerce_cod_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_cod_settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
@@ -62,11 +63,12 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 		}, PHP_INT_MAX );
 
 		// Disable Direct Bank Transfer.
+		// There is no need to filter the default options. Double-checked in a pristine DB.
 		add_filter( 'pre_option_woocommerce_bacs_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_bacs_settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
@@ -76,11 +78,12 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 		}, PHP_INT_MAX );
 
 		// Disable Check Payments.
+		// There is no need to filter the default options. Double-checked in a pristine DB.
 		add_filter( 'pre_option_woocommerce_cheque_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_cheque_settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
@@ -90,15 +93,16 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 		}, PHP_INT_MAX );
 
 		// Disable Stripe Express buttons.
+		// There is no need to filter the default options. Double-checked in a pristine DB.
 		add_filter( 'pre_option_woocommerce_stripe_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_stripe_settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
-			$value['enabled']                          = 'no'; // Completely disable Stripe.
+			$value['enabled']                          = 'no';
 			$value['payment_request']                  = 'no'; // Apple Pay / Google Pay
 			$value['payment_request_button_locations'] = array(); // Apple Pay / Google Pay
 
@@ -113,7 +117,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 				return $value;
 			}
 
-			return false;
+			return true;
 		}, PHP_INT_MAX, 2 );
 
 		add_filter( 'wc_stripe_show_payment_request_on_cart', function ( $value ) {
@@ -137,15 +141,16 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 		}, PHP_INT_MAX, 2 );
 
 		// Disable WooCommerce Payment Express checkouts.
+		// There is no need to filter the default options. Double-checked in a pristine DB.
 		add_filter( 'pre_option_woocommerce_woocommerce_payments_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_woocommerce_payments_settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
-			$value['enabled']                            = 'no'; // Completely disable WC Payments.
+			$value['enabled']                            = 'no';
 			$value['payment_request']                    = 'no'; // Apple Pay / Google Pay.
 			$value['payment_request_button_locations']   = array(); // Apple Pay / Google Pay.
 			$value['platform_checkout']                  = 'no'; // WooPay.
@@ -155,43 +160,45 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 			return $value;
 		}, PHP_INT_MAX );
 
-		/****** PAYPAL Express Checkout / Smart Buttons ******/
+		// PAYPAL Express Checkout / Smart Buttons.
+		// There is no need to filter the default options. Double-checked in a pristine DB.
 		add_filter( 'pre_option_woocommerce-ppcp-settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce-ppcp-settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
-			$value['enabled'] = false; // Completely disable PayPal.
+			$value['enabled'] = false;
 
-			// For PayPal, some of the following settings are needed to completely disable the gateway and smart buttons.
-			$value['smart_button_locations'] = array();
-
+			// Express Checkout / Smart Buttons
+			$value['smart_button_locations']   = array();
 			$value['button_product_enabled']   = false;
 			$value['button_cart_enabled']      = false;
 			$value['button_mini-cart_enabled'] = false;
 
+			// Pay Later
 			$value['pay_later_button_enabled']      = false;
 			$value['pay_later_button_locations']    = array();
 			$value['pay_later_messaging_enabled']   = false;
 			$value['pay_later_messaging_locations'] = array();
 
-			$value['products_dcc_enabled'] = false;
-			$value['products_pui_enabled'] = false;
+			$value['products_pui_enabled'] = false; // Pay Upon Invoice.
+			$value['products_dcc_enabled'] = false; // PayPal Card Processing.
 
-			$value['allow_card_button_gateway'] = false;
+			$value['allow_card_button_gateway'] = false; // Separate gateway button.
 
 			return $value;
 		}, PHP_INT_MAX );
 
 		// Disable PayPal's OXXO gateway for non-admin users.
+		// Couldn't test this. Given that PayPal will already be disabled from the rest of the filters, this is me being extra cautious.
 		add_filter( 'pre_option_woocommerce_ppcp-oxxo-gateway_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_ppcp-oxxo-gateway_settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
@@ -201,11 +208,12 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 		}, PHP_INT_MAX );
 
 		// Disable PayPal's Pay Upon Invoice gateway for non-admin users.
+		// Couldn't test this. Given that PayPal will already be disabled from the rest of the filters, this is me being extra cautious.
 		add_filter( 'pre_option_woocommerce_ppcp-pay-upon-invoice-gateway_settings', '__return_false', PHP_INT_MAX );
 		add_filter( 'option_woocommerce_ppcp-pay-upon-invoice-gateway_settings', function ( $value ) {
 
 			// Bail out early if the current user is allowed to create orders on free trial.
-			if ( current_user_can( 'manage_woocommerce' ) ) {
+			if ( ! is_array( $value ) || current_user_can( 'manage_woocommerce' ) ) {
 				return $value;
 			}
 
