@@ -271,6 +271,8 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 		/>
 	);
 
+	const upgradeUrl = `https://wordpress.com/plans/${ window.wcCalypsoBridge.siteSlug }`;
+
 	return (
 		<div className="woocommerce-task-payments">
 			<Notice
@@ -283,7 +285,7 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 						br: <br />,
 						link: (
 							<Link
-								href="https://wordpress.com/"
+								href={ upgradeUrl }
 								type="external"
 								target="_blank"
 							>
