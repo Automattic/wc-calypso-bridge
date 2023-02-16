@@ -102,7 +102,6 @@ class WC_Calypso_Bridge_Shared {
 		$status       = new \Automattic\Jetpack\Status();
 		$site_suffix  = $status->get_site_suffix();
 
-		$is_ecommerce_plan = (bool) wc_calypso_bridge_is_ecommerce_plan();
 		$params       = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),
