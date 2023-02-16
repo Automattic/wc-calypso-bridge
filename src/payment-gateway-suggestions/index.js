@@ -213,7 +213,7 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 		'woocommerce'
 	);
 	let additionalSectionHeadingDescription = __(
-		'To start accepting online payments',
+		'To get ready to accept online payments',
 		'woocommerce'
 	);
 	if ( isWCPaySupported ) {
