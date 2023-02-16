@@ -4,8 +4,6 @@
  *
  */
 
-use phpDocumentor\Reflection\Types\Array_;
-
 /**
  * Class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks.
  *
