@@ -104,8 +104,9 @@ class WC_Calypso_Bridge_Shared {
 
 		$isEcommercePlan = (bool) wc_calypso_bridge_has_ecommerce_features();
 		$params       = array(
-			'isEcommercePlan'              => $isEcommercePlan,
-			'isEcommercePlanTrial'         => $isEcommercePlan && (bool) wc_calypso_bridge_is_ecommerce_trial_plan(),
+			'hasEcommerceFeatures'         => (bool) wc_calypso_bridge_has_ecommerce_features(), // This is true for all ecom-related plans. ecom, ecom-trial etc.
+			'isEcommercePlan'              => (bool) wc_calypso_bridge_is_ecommerce_plan(), // This is true for ecommerce only.
+			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),

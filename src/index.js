@@ -17,87 +17,93 @@ import './index.scss';
 
 wcNavFilterRootUrl();
 
-if (!!window.wcCalypsoBridge.isEcommercePlanTrial) {
+if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	// Unregister 'wc-admin-onboarding-task-payments'' task from WooCommerce Core
 	// Otherwise we'll have both the original payments and trial payments rendered.
 	addAction(
 		'plugins.pluginRegistered',
 		'wc-calypso-bridge',
-		function (_settings, name) {
-			if (name === 'wc-admin-onboarding-task-payments') {
-				unregisterPlugin('wc-admin-onboarding-task-payments');
+		function ( _settings, name ) {
+			if ( name === 'wc-admin-onboarding-task-payments' ) {
+				unregisterPlugin( 'wc-admin-onboarding-task-payments' );
 			}
 		}
 	);
 
 	// Add slot fill for payments task.
-	registerPlugin('wc-calypso-bridge-payments', {
+	registerPlugin( 'wc-calypso-bridge-payments', {
 		scope: 'woocommerce-tasks',
 		render: () => (
 			<WooOnboardingTask id="payments">
-				{({ onComplete, query }) => (
+				{ ( { onComplete, query } ) => (
 					<PaymentGatewaySuggestions
-						onComplete={onComplete}
-						query={query}
+						onComplete={ onComplete }
+						query={ query }
 					/>
-				)}
+				) }
 			</WooOnboardingTask>
 		),
-	});
+	} );
 }
 
 // Add slot fill for launch-your-store task.
-registerPlugin('wc-calypso-bridge', {
+registerPlugin( 'wc-calypso-bridge', {
 	scope: 'woocommerce-tasks',
 	render: () => (
 		<WooOnboardingTask id="launch_site">
-			{({ onComplete, query, task }) => (
+			{ ( { onComplete, query, task } ) => (
 				<LaunchStorePage
-					onComplete={onComplete}
-					query={query}
-					task={task}
+					onComplete={ onComplete }
+					query={ query }
+					task={ task }
 				/>
-			)}
+			) }
 		</WooOnboardingTask>
 	),
-});
+} );
 
-if (!!window.wcCalypsoBridge.isEcommercePlan) {
+if ( !! window.wcCalypsoBridge.hasEcommercePlan ) {
 	// Filter wc admin pages.
-	addFilter('woocommerce_admin_pages_list', 'wc-calypso-bridge', (pages) => {
-		if (!!window.wcCalypsoBridge.isWooNavigationEnabled) {
-			/**
-			 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
-			 */
-			pages = pages.map((page) =>
-				page.path === '/'
-					? { ...page, wpOpenMenu: 'menu-dashboard' }
-					: page
-			);
-			pages = pages.map((page) =>
-				page.path === '/customers' ? { ...page, wpOpenMenu: '' } : page
-			);
-		}
+	addFilter(
+		'woocommerce_admin_pages_list',
+		'wc-calypso-bridge',
+		( pages ) => {
+			if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
+				/**
+				 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
+				 */
+				pages = pages.map( ( page ) =>
+					page.path === '/'
+						? { ...page, wpOpenMenu: 'menu-dashboard' }
+						: page
+				);
+				pages = pages.map( ( page ) =>
+					page.path === '/customers'
+						? { ...page, wpOpenMenu: '' }
+						: page
+				);
+			}
 
-		return pages;
-	});
+			return pages;
+		}
+	);
 
 	// Embed code on woo pages.
 	if (
-		!!window.wcCalypsoBridge.isWooNavigationEnabled &&
-		!!window.wcCalypsoBridge.showEcommerceNavigationModal &&
-		!!window.wcCalypsoBridge.isWooPage
+		!! window.wcCalypsoBridge.isWooNavigationEnabled &&
+		!! window.wcCalypsoBridge.showEcommerceNavigationModal &&
+		!! window.wcCalypsoBridge.isWooPage
 	) {
-		const wpBody = document.getElementById('wpbody-content');
+		const wpBody = document.getElementById( 'wpbody-content' );
 		const wrap =
-			wpBody.querySelector('.wrap.woocommerce') ||
-			document.querySelector('#wpbody-content > .woocommerce') ||
-			wpBody.querySelector('.wrap');
-		const embeddedBodyContainer = document.createElement('div');
+			wpBody.querySelector( '.wrap.woocommerce' ) ||
+			document.querySelector( '#wpbody-content > .woocommerce' ) ||
+			wpBody.querySelector( '.wrap' );
+		const embeddedBodyContainer = document.createElement( 'div' );
 
 		render(
 			<WelcomeModal />,
-			wpBody.insertBefore(embeddedBodyContainer, wrap)
+			wpBody.insertBefore( embeddedBodyContainer, wrap )
 		);
 	}
 }
