@@ -47,9 +47,9 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
 		if ( $screen->id === 'edit-shop_order' ) {
 			?>
 			<script>
-				jQuery('.woocommerce-BlankState-cta.button')
-					.addClass('button-secondary')
-					.removeClass('button-primary');
+				const woocommerceBlankStateButton = document.querySelector('.woocommerce-BlankState-cta.button');
+				woocommerceBlankStateButton.classList.add('button-secondary');
+				woocommerceBlankStateButton.classList.remove('button-primary');
 			</script>
 			<?php
 		}
