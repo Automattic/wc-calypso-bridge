@@ -27,6 +27,10 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
 	}
 
 	public function __construct() {
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
+
 		add_action('admin_print_footer_scripts', array($this, 'override_empty_state_cta_button_class') );
 	}
 
