@@ -186,7 +186,7 @@ export const TaskListCompletedHeader: React.FC<
 							</Text>
 							<Button href={ signupUrl } variant="primary">
 								{ __(
-									'Sign up for a plan',
+									'Upgrade now',
 									'wc-calypso-bridge'
 								) }
 							</Button>
