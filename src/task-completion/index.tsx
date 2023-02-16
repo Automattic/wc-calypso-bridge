@@ -180,7 +180,7 @@ export const TaskListCompletedHeader: React.FC<
 								className="wooocommerce-task-card__header-subtitle"
 							>
 								{ __(
-									"Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is sign up for a plan. This will also unlock the two upcoming tasks in the task list.",
+									"Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list.",
 									'wc-calypso-bridge'
 								) }
 							</Text>
