@@ -46,7 +46,6 @@ class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks {
 	 * @param array $lists
 	 * @return array $lists
 	 */
-
 	public function extend_tasklists( $lists ) {
 		$lists = $this->hide_tasklists( $lists );
 		$lists = $this->hide_tasks( $lists );
@@ -61,7 +60,6 @@ class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks {
 	 *
 	 * @return array The array of tasklists to be shown.
 	 */
-
 	private function hide_tasklists( $lists ) {
 			$tasklist_ids_to_be_hidden = Array(
 				// Hide the next things to do tasklist
