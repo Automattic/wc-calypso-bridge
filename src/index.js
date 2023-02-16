@@ -35,6 +35,8 @@ registerPlugin( 'wc-calypso-bridge', {
 
 
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	import( './free-trial/fills' );
+
 	// Unregister 'wc-admin-onboarding-task-payments'' task from WooCommerce Core
 	// Otherwise we'll have both the original payments and trial payments rendered.
 	addAction(
