@@ -31,6 +31,10 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Task
 	}
 
 	public function __construct() {
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
+
 		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', [ $this, 'replace_payment_task' ] );
 	}
 
