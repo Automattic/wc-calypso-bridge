@@ -95,7 +95,6 @@ class LaunchSite extends Task {
 	 * @return bool
 	 */
 	public function can_view() {
-		$ecommerce_trial_purchase = wp_list_filter( wpcom_get_site_purchases(), array( 'billing_product_slug' => 'wp-bundle-ecommerce-trial' ) );
-		return empty( $ecommerce_trial_purchase );
+		return ! wc_calypso_bridge_is_ecommerce_trial_plan();
 	}
 }
