@@ -248,13 +248,13 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 
 		}, PHP_INT_MAX );
 
-		// Doesn't work, as it's filtered with JS. TODO!!!
 		add_filter( 'gettext', function ( $translated_text, $text, $domain ) {
 
 			if ( $domain === 'woocommerce' ) {
 				switch ( $text ) {
-					case 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.' :
-						$translated_text = __( 'There are no payment methods available as this store is in trial mode.', 'wc-calypso-bridge' );
+					// Since we're removing all payment gateways, we need to change the "No available payment methods" message.
+					case 'No payment method provided.' :
+						$translated_text = __( 'Your order could not be placed. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' );
 						break;
 				}
 			}
@@ -262,6 +262,28 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 			return $translated_text;
 
 		}, PHP_INT_MAX, 3 );
+
+
+		// TODO: How do we handle translations?
+		add_action('wp_head', function(){
+			?>
+			<script type="text/javascript">
+				function myPluginGettextFilter( translation, text, domain ) {
+					if ( text === 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.' ) {
+						return 'There are no payment methods available as this store is in trial mode.';
+					}
+					return translation;
+				}
+
+				// Adding the filter
+				wp.hooks.addFilter(
+					'i18n.gettext_woocommerce',
+					'my-plugin/override-add-to-reusable-blocks-label', // TODO: What plugin name should we use?
+					myPluginGettextFilter
+				);
+			</script>
+			<?php
+		});
 
 		// Prevent orders on shortcode checkout.
 		add_action( 'woocommerce_before_checkout_process', function () {
