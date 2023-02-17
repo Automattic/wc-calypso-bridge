@@ -2,6 +2,9 @@
 /**
  * Contains the logic for override WooCommerce > orders screen
  *
+ * @package WC_Calypso_Bridge/Classes
+ * @since   2.0.1
+ * @version 2.0.1
  */
 
 class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
@@ -43,7 +46,7 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
 		}
 
 		$screen = get_current_screen();
-	
+
 		if ( $screen->id === 'edit-shop_order' ) {
 			?>
 			<script>
