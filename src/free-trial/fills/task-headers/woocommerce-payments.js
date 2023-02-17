@@ -5,6 +5,8 @@ import { Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { WooOnboardingTaskListHeader } from '@woocommerce/onboarding';
 import { registerPlugin } from '@wordpress/plugins';
+import interpolateComponents from '@automattic/interpolate-components';
+import { Link } from '@woocommerce/components';
 
 /**
  * Internal dependencies
@@ -41,6 +43,25 @@ const WoocommercePaymentsHeader = () => {
 									'Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments.',
 									'wc-calypso-bridge'
 								) }
+							</p>
+							<p>
+								{ interpolateComponents( {
+									mixedString: __(
+										'By clicking "Test payments", you agree to the {{tosLink}}Terms of Service{{/tosLink}}',
+										'wc-calypso-bridge'
+									),
+									components: {
+										tosLink: (
+											<Link
+												href="https://wordpress.com/tos/"
+												type="external"
+												target="_blank"
+											>
+												<></>
+											</Link>
+										),
+									},
+								} ) }
 							</p>
 							<Button
 								isSecondary={ task.isComplete }
