@@ -2,15 +2,11 @@
 /**
  * Contains the logic for hiding tasklist and tasks
  *
+ * @package WC_Calypso_Bridge/Classes
+ * @since   2.0.1
+ * @version 2.0.1
  */
 
-/**
- * Class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks.
- *
- * @since   1.9.16
- * @version 1.9.16
- *
- */
 class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks {
 	/**
 	 * The single instance of the class.
@@ -42,7 +38,7 @@ class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks {
 
 	/**
 	 * This filter is applied to the task list
-	 * 
+	 *
 	 * @param array $lists
 	 * @return array $lists
 	 */
@@ -66,7 +62,7 @@ class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks {
 				'extended',
 				'extended_two_column',
 			);
-	
+
 			foreach ( $tasklist_ids_to_be_hidden as $tasklist_id ) {
 				if ( isset( $lists[ $tasklist_id ] ) ) {
 					unset( $lists[ $tasklist_id ] );
@@ -91,7 +87,7 @@ class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks {
 		if ( isset( $lists[ $tasklist_id ] ) ) {
 			$tasks = $lists[ $tasklist_id ]->tasks;
 
-			$lists[ $tasklist_id ]->tasks = array_filter( $tasks, 
+			$lists[ $tasklist_id ]->tasks = array_filter( $tasks,
 				function( $task ) use ( $task_ids_to_be_hidden ) {
 					return ! in_array( $task->get_id(), $task_ids_to_be_hidden, true );
 			} );
