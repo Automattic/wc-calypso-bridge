@@ -13,7 +13,7 @@ import { recordEvent } from '@woocommerce/tracks';
 /**
  * Internal dependencies
  */
-import sanitizeHTML from '../../utils';
+import { sanitizeHTML } from '../../utils';
 
 export const validateFields = ( values, fields ) => {
 	const errors = {};
