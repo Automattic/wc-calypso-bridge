@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version 2.0.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -45,6 +45,8 @@ class WC_Calypso_Bridge_Plugins {
 		'crowdsignal-forms/crowdsignal-forms.php',
 		'polldaddy/polldaddy.php',
 		'woocommerce-product-recommendations/woocommerce-product-recommendations.php',
+		'automatewoo/automatewoo.php',
+		'woocommerce-shipping-fedex/woocommerce-shipping-fedex.php',
 	);
 
 	/**
