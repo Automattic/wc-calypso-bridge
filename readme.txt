@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.0.2 =
+* Prevented a double footer issue when using Storefront in Ecommerce plan #970.
+
 = 2.0.1 =
 * Make plugin_asset_path a static prop #959.
 * Fix conflict between woocommerce navigation and nav unification #952.
