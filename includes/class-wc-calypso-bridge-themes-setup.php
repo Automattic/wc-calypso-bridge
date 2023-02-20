@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version 2.0.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -41,8 +41,7 @@ class WC_Calypso_Bridge_Themes_Setup {
 			return;
 		}
 
-		remove_action( 'storefront_footer', 'storefront_credit', 20 );
-		add_action( 'storefront_footer', array( $this, 'wpcom_ecommerce_plan_storefront_credit' ), 20 );
+		add_action( 'init', array( $this, 'setup_storefront' ) );
 
 		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
 			return;
@@ -50,6 +49,18 @@ class WC_Calypso_Bridge_Themes_Setup {
 
 		add_action( 'init', array( $this, 'set_theme_default_values' ) );
 		add_action( 'customize_save_after', array( $this, 'mark_import_as_completed' ) );
+	}
+
+	/**
+	 * Setup Storefront theme for dotCom.
+	 *
+	 * @since 2.0.2
+	 *
+	 * @return void
+	 */
+	public function setup_storefront() {
+		remove_action( 'storefront_footer', 'storefront_credit', 20 );
+		add_action( 'storefront_footer', array( $this, 'wpcom_ecommerce_plan_storefront_credit' ), 20 );
 	}
 
 	/**
