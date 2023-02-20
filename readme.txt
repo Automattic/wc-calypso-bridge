@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.0.2 =
+* Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #xxx.
+
 = 2.0.1 =
 * Make plugin_asset_path a static prop #959.
 * Fix conflict between woocommerce navigation and nav unification #952.
