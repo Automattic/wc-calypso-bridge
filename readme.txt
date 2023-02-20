@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = 2.0.2 =
 * Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #xxx.
+* Prevent a double footer issue when using Storefront in Ecommerce plan #970.
 
 = 2.0.1 =
 * Make plugin_asset_path a static prop #959.
