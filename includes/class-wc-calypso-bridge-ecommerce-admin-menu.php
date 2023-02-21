@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 1.9.18
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -40,6 +40,19 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			$args[ 'menu_icon' ]           = 'dashicons-cart';
 			return $args;
 		} );
+
+		// Handle menu for ecommerce free trial.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+
+			add_action( 'admin_menu', function() {
+
+				$status       = new \Automattic\Jetpack\Status();
+				$site_suffix  = $status->get_site_suffix();
+
+				$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $site_suffix ) );
+				$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $site_suffix ) );
+			}, 99999 );
+		}
 	}
 
 	/**
