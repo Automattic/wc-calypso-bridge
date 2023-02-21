@@ -42,7 +42,7 @@ class WC_Calypso_Bridge_Free_Trial_WC_Payments  {
 			$current_page = \Automattic\WooCommerce\Admin\PageController::get_instance()->get_current_page();
 			if ( isset( $current_page['id'] ) && $current_page['id'] === 'wc-payments' ) {
 				add_action('admin_enqueue_scripts', function() {
-					wp_enqueue_script( 'wp-calypso-bridge-free-trial-wc-payments', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/scripts/free-trial-wc-payments.js', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+					wp_enqueue_script( 'wp-calypso-bridge-free-trial-wc-payments', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/scripts/free-trial-wc-payments.js', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION, true );
 				});
 			}
 		});
