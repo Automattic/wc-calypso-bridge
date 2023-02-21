@@ -37,7 +37,10 @@ registerPlugin( 'wc-calypso-bridge', {
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	// Unregister task fills from WooCommerce Core
 	// Otherwise we'll have both the original and new fills rendered.
-	const oldTaskNames = [ 'wc-admin-onboarding-task-payments', 'wc-admin-onboarding-task-tax' ];
+	const oldTaskNames = [
+		'wc-admin-onboarding-task-payments',
+		'wc-admin-onboarding-task-tax',
+	];
 	addAction(
 		'plugins.pluginRegistered',
 		'wc-calypso-bridge',
