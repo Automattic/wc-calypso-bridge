@@ -38,7 +38,7 @@ export const DisabledTasks = () => {
 					{ __( 'Sign up for a plan', 'wc-calypso-bridge' ) }
 				</Button>
 				<p className="disabled-task">
-					{ __( 'Grow your business', 'wc-calypso-bridge' ) }
+					{ __( 'Get more sales', 'wc-calypso-bridge' ) }
 				</p>
 				<p className="disabled-task">
 					{ __(
