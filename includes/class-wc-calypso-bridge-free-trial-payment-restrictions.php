@@ -268,7 +268,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 		add_action('wp_head', function(){
 			?>
 			<script type="text/javascript">
-				function myPluginGettextFilter( translation, text, domain ) {
+				function overrideNoPaymentMethodsMessage( translation, text, domain ) {
 					if ( text === 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.' ) {
 						return 'There are no payment methods available as this store is in trial mode.';
 					}
@@ -278,8 +278,8 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 				// Adding the filter
 				wp.hooks.addFilter(
 					'i18n.gettext_woocommerce',
-					'my-plugin/override-add-to-reusable-blocks-label', // TODO: What plugin name should we use?
-					myPluginGettextFilter
+					'wc-calypso-bridge/override-no-payment-methods-message',
+					overrideNoPaymentMethodsMessage
 				);
 			</script>
 			<?php
