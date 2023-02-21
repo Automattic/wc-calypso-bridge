@@ -14,7 +14,7 @@ import { ExperimentalCollapsibleList } from './collapsible-list';
 
 export const DisabledTasks = () => {
 	const notice = __(
-		"You're currently using a free trial! To get access to the full range of features, please sign up for a plan.",
+		"You're currently using a free trial! To get access to the full range of features, please upgrade to a  paid plan.",
 		'wc-calypso-bridge'
 	);
 	const listLabel = __(
