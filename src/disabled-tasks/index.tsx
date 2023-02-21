@@ -35,7 +35,7 @@ export const DisabledTasks = () => {
 			<div className="free-trial-disabled-tasks-content">
 				<p>{ notice }</p>
 				<Button href={ signupUrl } variant="primary">
-					{ __( 'Sign up for a plan', 'wc-calypso-bridge' ) }
+					{ __( 'Upgrade now', 'wc-calypso-bridge' ) }
 				</Button>
 				<p className="disabled-task">
 					{ __( 'Get more sales', 'wc-calypso-bridge' ) }
