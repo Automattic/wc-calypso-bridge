@@ -37,8 +37,6 @@ registerPlugin( 'wc-calypso-bridge', {
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	registerPlugin( 'my-tasklist-footer-extension', {
 		render: DisabledTasksFill,
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
 		scope: 'woocommerce-admin',
 	} );
 }
