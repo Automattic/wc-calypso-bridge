@@ -42,7 +42,7 @@ export const DisabledTasks = () => {
 				</p>
 				<p className="disabled-task">
 					{ __(
-						'Launch your store and start selling!',
+						'Launch your store',
 						'wc-calypso-bridge'
 					) }
 				</p>
