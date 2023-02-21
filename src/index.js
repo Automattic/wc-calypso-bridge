@@ -13,6 +13,7 @@ import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
 import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
+import { Tax } from './free-trial/tax';
 import './index.scss';
 
 wcNavFilterRootUrl();
@@ -33,16 +34,16 @@ registerPlugin( 'wc-calypso-bridge', {
 	),
 } );
 
-
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
-	// Unregister 'wc-admin-onboarding-task-payments'' task from WooCommerce Core
-	// Otherwise we'll have both the original payments and trial payments rendered.
+	// Unregister task fills from WooCommerce Core
+	// Otherwise we'll have both the original and new fills rendered.
+	const oldTaskNames = [ 'wc-admin-onboarding-task-payments', 'wc-admin-onboarding-task-tax' ];
 	addAction(
 		'plugins.pluginRegistered',
 		'wc-calypso-bridge',
 		function ( _settings, name ) {
-			if ( name === 'wc-admin-onboarding-task-payments' ) {
-				unregisterPlugin( 'wc-admin-onboarding-task-payments' );
+			if ( oldTaskNames.indexOf( name ) !== -1 ) {
+				unregisterPlugin( name );
 			}
 		}
 	);
@@ -61,6 +62,23 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 			</WooOnboardingTask>
 		),
 	} );
+
+	registerPlugin( 'wc-calypso-bridge-task-tax', {
+		// @ts-expect-error @types/wordpress__plugins need to be updated
+		scope: 'woocommerce-tasks',
+		render: () => (
+			<WooOnboardingTask id="tax">
+				{ ( { onComplete, query, task } ) => (
+					<Tax
+						onComplete={ onComplete }
+						query={ query }
+						task={ task }
+					/>
+				) }
+			</WooOnboardingTask>
+		),
+	} );
+
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
