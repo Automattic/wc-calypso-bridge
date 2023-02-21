@@ -34,9 +34,6 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
 			return;
 		}
 
-        add_action( 'admin_enqueue_scripts', array( $this, 'add_free_trial_plan_styles' ) );
-
-
 		add_action('admin_notices', function() {
 			$screen = get_current_screen();
 			if ( 'edit-shop_order' === $screen->id ) {
@@ -56,13 +53,6 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
 				<?php
 			}
 		});
-	}
-
-	/**
-	 * Add styles for free trial plan.
-	 */
-	public function add_free_trial_plan_styles() {
-		wp_enqueue_style( 'wp-calypso-bridge-free-trial', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial-admin.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 
 	/**
