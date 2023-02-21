@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = 2.0.3 =
 * Hides the Launch task for WooExpress sites.
+* Remove absolute path prefix from My Home and Customer menu URLs
 
 = 2.0.2 =
 * Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #969.
