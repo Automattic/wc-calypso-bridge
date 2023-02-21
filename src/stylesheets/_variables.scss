@@ -1,0 +1,28 @@
+@import '@automattic/color-studio/dist/color-variables.scss';
+@import '@wordpress/base-styles/colors.scss';
+
+// Think very carefully before adding a new breakpoint.
+// The list below is based on wp-admin's main breakpoints
+// See https://github.com/WordPress/gutenberg/tree/master/packages/viewport#usage
+$breakpoints: 480px, 600px, 782px, 960px, 1280px, 1440px;
+$grid-unit: 8px;
+$grid-unit-50: 5 * $grid-unit; // 40px
+$grid-unit-20: 2 * $grid-unit; // 16px
+$grid-unit-30: 3 * $grid-unit; // 24px
+$grid-unit-10: 1 * $grid-unit; // 8px
+$grid-unit-15: 1.5 * $grid-unit; // 12px
+$grid-unit-05: 0.5 * $grid-unit; // 4px
+$gap-largest: $grid-unit-50;
+$gap-larger: 4.5 * $grid-unit;
+$gap-large: $grid-unit-30;
+$gap: $grid-unit-20;
+$gap-small: $grid-unit-15;
+$gap-smaller: $grid-unit-10;
+$gap-smallest: $grid-unit-05;
+
+$studio-gray-60: #50575e;
+$studio-gray-80: #2c3338;
+$gray-700: #757575; // Meets 4.6:1 text contrast against white.
+$studio-gray-5: #dcdcde;
+$studio-gray-90: #1d2327;
+$studio-gray-50: #646970;
