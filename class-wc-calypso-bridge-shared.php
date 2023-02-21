@@ -60,6 +60,13 @@ class WC_Calypso_Bridge_Shared {
 		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_plan_styles' ) );
 		}
+
+		/**
+		 * Load Ecommerce trial styles.
+		 */
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			add_action( 'admin_enqueue_scripts', array( $this, 'add_ecommerce_trial_plan_styles' ) );
+		}
 	}
 
 	/**
@@ -145,6 +152,13 @@ class WC_Calypso_Bridge_Shared {
 			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 		}
 	}
+
+	/**
+	 * Add styles for ecommerce plan trial.
+	 */
+	public function add_ecommerce_trial_plan_styles() {
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce-trial', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial-admin.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+	}	
 }
 
 WC_Calypso_Bridge_Shared::instance();
