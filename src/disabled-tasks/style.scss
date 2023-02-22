@@ -1,0 +1,35 @@
+.free-trial-disabled-tasks {
+	li {
+		&:first-child {
+			grid-template-columns: 95% auto !important;
+			box-shadow: none !important;
+			p {
+				padding: 0px;
+			}
+			color: var(--wp-admin-theme-color);
+		}
+	}
+
+	.woocommerce-experimental-list-wrapper {
+		border-top: none;
+	}
+
+	.free-trial-disabled-tasks-content {
+		font-size: 13px;
+		padding: 24px;
+		color: #1e1e1e;
+		p {
+			padding: 0;
+			margin: 0;
+		}
+		p.disabled-task {
+			background: #f0f0f080;
+			padding: 16px;
+			margin-bottom: 8px;
+			color: #949494;
+		}
+		a.components-button {
+			margin: 12px 0 24px 0;
+		}
+	}
+}
