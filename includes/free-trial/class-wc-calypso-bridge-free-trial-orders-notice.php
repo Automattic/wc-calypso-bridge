@@ -40,13 +40,13 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
 				?>
 				<div class="free-trial-orders-notice notice notice-info">
                     <div>
-                        <h3><?php echo __('Start selling to everyone', 'wc-calypso-bridge')?></h3>
+                        <h3><?php echo __('Start selling to everyone', 'wc-calypso-bridge'); ?></h3>
                         <p>
-							<?php echo __("During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling.", 'wc-calypso-bridge')?>
+							<?php echo __("During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling.", 'wc-calypso-bridge'); ?>
                         </p>
                     </div>
 					<div class="upgrade-action">
-						<a href="<?php echo $this->get_action_url()?>" class="button is-primary"><?php echo __('Upgrade now', 'wc-calypso-bridge')?></a>
+						<a href="<?php echo $this->get_action_url()?>" class="button is-primary"><?php echo __('Upgrade now', 'wc-calypso-bridge'); ?></a>
 					</div>
 
 				</div>
