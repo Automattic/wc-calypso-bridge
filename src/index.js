@@ -12,6 +12,7 @@ import { render } from '@wordpress/element';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
+import { DisabledTasksFill } from './disabled-tasks';
 import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
@@ -43,6 +44,12 @@ registerPlugin( 'wc-calypso-bridge', {
 
 
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	registerPlugin( 'my-tasklist-footer-extension', {
+		render: DisabledTasksFill,
+		scope: 'woocommerce-admin',
+
+	} );
+	
 	// Unregister 'wc-admin-onboarding-task-payments'' task from WooCommerce Core
 	// Otherwise we'll have both the original payments and trial payments rendered.
 	addAction(
