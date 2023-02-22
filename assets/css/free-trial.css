@@ -1,18 +1,26 @@
 /* Freee Trial Styles */
-#free-trial-plan-ppicker_banner {
-    background-color: #C9356E;
-    color: #ffffff;
-    font-size: 0.8125em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#free-trial-plan-picker-banner {
+	background-color: #c9356e;
+	color: #ffffff;
+	font-size: 0.8125em;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-#free-trial-plan-ppicker_banner a {
-    color: #ffffff !important;
-    text-decoration: underline;
+#free-trial-plan-picker-banner a {
+	color: #ffffff !important;
+	text-decoration: underline;
+}
+
+/**
+* Store notice can be at the top or bottom depending on the activated theme.
+* Force it to be at the top all the time to place the free trial banner at the bottom.
+*/
+.woocommerce-store-notice {
+	top: 0;
 }
