@@ -56,6 +56,19 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 					width: 47%;
 				}
 
+				body.theme-tsubaki .woocommerce-store-notice a,
+				body.theme-tsubaki p.demo_store a {
+					float: right;
+					margin-right: 40px !important;
+				}
+
+				body.theme-tsubaki .woocommerce-store-notice,
+				body.theme-tsubaki p.demo_store {
+					width: 100%;
+					padding: 10px;
+					bottom: -20px;
+				}
+
 			</style>
 			<?php
 		});
