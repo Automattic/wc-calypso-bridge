@@ -14,6 +14,7 @@ import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
 import { DisabledTasksFill } from './disabled-tasks';
 import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
+import { Tax } from './free-trial/tax';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
 
@@ -42,25 +43,26 @@ registerPlugin( 'wc-calypso-bridge', {
 	),
 } );
 
-
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	import( './free-trial/fills' );
-
 
 	registerPlugin( 'my-tasklist-footer-extension', {
 		render: DisabledTasksFill,
 		scope: 'woocommerce-admin',
-
 	} );
 
-	// Unregister 'wc-admin-onboarding-task-payments'' task from WooCommerce Core
-	// Otherwise we'll have both the original payments and trial payments rendered.
+	// Unregister task fills from WooCommerce Core
+	// Otherwise we'll have both the original and new fills rendered.
+	const oldTaskNames = [
+		'wc-admin-onboarding-task-payments',
+		'wc-admin-onboarding-task-tax',
+	];
 	addAction(
 		'plugins.pluginRegistered',
 		'wc-calypso-bridge',
 		function ( _settings, name ) {
-			if ( name === 'wc-admin-onboarding-task-payments' ) {
-				unregisterPlugin( 'wc-admin-onboarding-task-payments' );
+			if ( oldTaskNames.includes( name ) ) {
+				unregisterPlugin( name );
 			}
 		}
 	);
@@ -79,6 +81,22 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 			</WooOnboardingTask>
 		),
 	} );
+
+	registerPlugin( 'wc-calypso-bridge-task-tax', {
+		scope: 'woocommerce-tasks',
+		render: () => (
+			<WooOnboardingTask id="tax">
+				{ ( { onComplete, query, task } ) => (
+					<Tax
+						onComplete={ onComplete }
+						query={ query }
+						task={ task }
+					/>
+				) }
+			</WooOnboardingTask>
+		),
+	} );
+
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
