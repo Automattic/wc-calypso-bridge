@@ -17,6 +17,7 @@ import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
+import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 
 wcNavFilterRootUrl();
 
@@ -97,10 +98,13 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		),
 	} );
 
+	registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+		render: CalypsoBridgeHomescreenBanner,
+		scope: 'woocommerce-admin',
+	} );
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
-
 	// Filter wc admin pages.
 	addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
 

@@ -1,0 +1,23 @@
+.wc-calypso-bridge-woocommerce-admin-homescreen-banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 65px;
+}
+
+.wc-calypso-bridge-woocommerce-admin-homescreen-banner__text {
+    margin-left: 20px;
+    margin-right: 64px;
+}
+
+.wc-calypso-bridge-woocommerce-admin-homescreen-banner__learn-more-button {
+    margin-left: auto;
+}
+
+.woocommerce-homescreen__header.woocommerce-homescreen:not(.woocommerce-homescreen-column) {
+    margin-bottom: 32px;
+}
+
+button.wc-calypso-bridge-woocommerce-admin-homescreen-banner__dismiss-button {
+    margin: 16px;
+}
