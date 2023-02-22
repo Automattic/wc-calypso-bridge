@@ -1,4 +1,4 @@
-( function ( $ ) {
+( function () {
 	const __ = wp.i18n.__;
 	/**
 	 * Wait for an element.
@@ -34,41 +34,35 @@
 			'https://wordpress.com/plans/' + window.wcCalypsoBridge.siteSlug
 		);
 
-		const upgradeNotice = $(
-			"<div class='wc-calypso-notice'>" + upgradeNoticeText + '</div>'
-		);
+		const upgradeNotice = document.createElement( 'div' );
+		upgradeNotice.className = 'wc-calypso-notice';
+		upgradeNotice.innerHTML = upgradeNoticeText;
+
 		return upgradeNotice;
 	};
 
 	const customizeConnectPage = () => {
 		waitForElm( '.connect-account' ).then( function ( element ) {
-			var connectAccount = $( element );
-			connectAccount.prepend( getNotice() );
-			connectAccount
-				.find( 'h2' )
-				.last()
-				.text(
-					__(
-						'You’re only steps away from getting ready to be paid',
-						'wc-calypso-bridge'
-					)
-				);
-			connectAccount
-				.find( '.connect-page-onboarding-steps-item' )
-				.last()
-				.find( 'p' )
-				.text(
-					__(
-						'You’re ready to start testing the features and benefits of WooCommerce Payments',
-						'wc-calypso-bridge'
-					)
-				);
+			element.prepend( getNotice() );
+			window.test = element;
+
+			element.querySelectorAll( 'h2' )[ 1 ].innerText = __(
+				'You’re only steps away from getting ready to be paid',
+				'wc-calypso-bridge'
+			);
+
+			element
+				.querySelectorAll( '.connect-page-onboarding-steps-item' )[ 2 ]
+				.querySelector( 'p' ).innerText = __(
+				'You’re ready to start testing the features and benefits of WooCommerce Payments',
+				'wc-calypso-bridge'
+			);
 		} );
 	};
 
 	const addNotice = ( selector ) => {
 		waitForElm( selector ).then( function ( element ) {
-			$( element ).prepend( getNotice() );
+			element.prepend( getNotice() );
 		} );
 	};
 
@@ -105,4 +99,4 @@
 	);
 
 	detectPageAndRunCustomization();
-} )( jQuery );
+} )();
