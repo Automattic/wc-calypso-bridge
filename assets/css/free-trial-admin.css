@@ -11,3 +11,28 @@
 .wc-calypso-notice a {
 	color: inherit;
 }
+.free-trial-orders-notice {
+    padding: 12px !important;
+    display: flex;
+}
+
+
+.free-trial-orders-notice h3 {
+    font-weight: 600;
+    line-height: 20px;
+    font-size: 14px;
+    color: #3C434A;
+    margin: 0;
+}
+
+.free-trial-orders-notice p {
+    padding: 3px 0 3px 0;
+    margin: 0px;
+}
+
+.free-trial-orders-notice .upgrade-action {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: end;
+}
