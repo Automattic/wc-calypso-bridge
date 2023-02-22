@@ -1,9 +1,9 @@
 /**
  * External dependencies
  */
-import { addFilter } from '@wordpress/hooks';
+import { addFilter, addAction } from '@wordpress/hooks';
 import { WooOnboardingTask } from '@woocommerce/onboarding';
-import { registerPlugin } from '@wordpress/plugins';
+import { registerPlugin, unregisterPlugin } from '@wordpress/plugins';
 import { render } from '@wordpress/element';
 
 /**
@@ -12,9 +12,18 @@ import { render } from '@wordpress/element';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
+import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
+import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
 
 wcNavFilterRootUrl();
+
+if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	registerPlugin( 'free-trial-tasklist-completion', {
+		render: TaskListCompletedHeaderFill,
+		scope: 'woocommerce-admin',
+	} );
+}
 
 // Add slot fill for launch-your-store task.
 registerPlugin( 'wc-calypso-bridge', {
@@ -31,6 +40,36 @@ registerPlugin( 'wc-calypso-bridge', {
 		</WooOnboardingTask>
 	),
 } );
+
+
+if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	// Unregister 'wc-admin-onboarding-task-payments'' task from WooCommerce Core
+	// Otherwise we'll have both the original payments and trial payments rendered.
+	addAction(
+		'plugins.pluginRegistered',
+		'wc-calypso-bridge',
+		function ( _settings, name ) {
+			if ( name === 'wc-admin-onboarding-task-payments' ) {
+				unregisterPlugin( 'wc-admin-onboarding-task-payments' );
+			}
+		}
+	);
+
+	// Add slot fill for payments task.
+	registerPlugin( 'wc-calypso-bridge-payments', {
+		scope: 'woocommerce-tasks',
+		render: () => (
+			<WooOnboardingTask id="payments">
+				{ ( { onComplete, query } ) => (
+					<PaymentGatewaySuggestions
+						onComplete={ onComplete }
+						query={ query }
+					/>
+				) }
+			</WooOnboardingTask>
+		),
+	} );
+}
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 
