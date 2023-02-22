@@ -38,10 +38,11 @@ class WC_Calypso_Bridge_Setup_Tasks {
 	 */
 	private function __construct() {
 
-		// Both ecommerce and business.
+		// All plans.
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_action( 'wp_ajax_launch_store', array( $this, 'handle_ajax_launch_endpoint' ) );
 		add_action( 'init', array( $this, 'add_tasks' ) );
+		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', [ $this, 'replace_tasks' ] );
 	}
 
 	/**
@@ -116,6 +117,21 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
 		$tl::add_task( 'setup', $add_domain_task );
 		$tl::add_task( 'setup', $launch_site_task );
+	}
+
+	/**
+	 * Replace setup tasks.
+	 */
+	public function replace_tasks( $lists ) {
+		if ( isset( $lists['setup'] ) ) {
+			foreach ($lists['setup']->tasks as $index => $task) {
+				if ( $task->get_id() === 'products' ) {
+					require_once __DIR__ . '/tasks/class-wc-calypso-task-headstart-products.php';
+					$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\HeadstartProducts( $lists['setup'] );
+				}
+			}
+		}
+		return $lists;
 	}
 
 	/**
