@@ -61,7 +61,7 @@ const PaymentsHeader = () => {
 	);
 };
 
-registerPlugin( 'wc-calypso-bridge-payment-task-header', {
+registerPlugin( 'wc-calypso-bridge-payments-task-header', {
 	render: PaymentsHeader,
 	scope: 'woocommerce-tasks',
 } );
