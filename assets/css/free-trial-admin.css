@@ -14,6 +14,7 @@
 .free-trial-orders-notice {
 	padding: 12px !important;
 	display: flex;
+	border-left-color: var( --wp-admin-theme-color );
 }
 
 .free-trial-orders-notice h3 {
