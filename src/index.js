@@ -45,7 +45,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		'plugins.pluginRegistered',
 		'wc-calypso-bridge',
 		function ( _settings, name ) {
-			if ( oldTaskNames.indexOf( name ) !== -1 ) {
+			if ( oldTaskNames.includes( name ) ) {
 				unregisterPlugin( name );
 			}
 		}
