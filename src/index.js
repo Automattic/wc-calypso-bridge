@@ -12,11 +12,20 @@ import { render } from '@wordpress/element';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
+import { DisabledTasksFill } from './disabled-tasks';
 import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
+import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
 
 wcNavFilterRootUrl();
+
+if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	registerPlugin( 'free-trial-tasklist-completion', {
+		render: TaskListCompletedHeaderFill,
+		scope: 'woocommerce-admin',
+	} );
+}
 
 // Add slot fill for launch-your-store task.
 registerPlugin( 'wc-calypso-bridge', {
@@ -35,6 +44,13 @@ registerPlugin( 'wc-calypso-bridge', {
 } );
 
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	import( './free-trial/fills' );
+
+	registerPlugin( 'my-tasklist-footer-extension', {
+		render: DisabledTasksFill,
+		scope: 'woocommerce-admin',
+	} );
+
 	// Unregister task fills from WooCommerce Core
 	// Otherwise we'll have both the original and new fills rendered.
 	const oldTaskNames = [
