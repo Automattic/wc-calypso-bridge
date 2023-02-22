@@ -44,12 +44,15 @@ registerPlugin( 'wc-calypso-bridge', {
 
 
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	import( './free-trial/fills' );
+
+
 	registerPlugin( 'my-tasklist-footer-extension', {
 		render: DisabledTasksFill,
 		scope: 'woocommerce-admin',
 
 	} );
-	
+
 	// Unregister 'wc-admin-onboarding-task-payments'' task from WooCommerce Core
 	// Otherwise we'll have both the original payments and trial payments rendered.
 	addAction(
