@@ -55,11 +55,11 @@ class WC_Calypso_Bridge_Frontend_Free_Trial {
 		$text = sprintf( __("
 			At the moment you are the only one who can see your store. To let everyone see your store, you simply need to&nbsp;<a href='%s'>pick a plan</a>.
 		", 'wc-calypso-bridge' ), $link );
-		echo "<div id='free-trial-plan-ppicker_banner'>$text</div>";
+		echo "<div id='free-trial-plan-picker-banner'>$text</div>";
 	}
 
 	public function add_styles() {
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce-free-trial', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 }
 
