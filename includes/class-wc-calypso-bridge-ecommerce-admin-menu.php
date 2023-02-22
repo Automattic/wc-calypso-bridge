@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 1.9.18
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -28,6 +28,11 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		add_action( 'admin_menu', array( $this, 'add_woocommerce_menu' ), 99999 );
 		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
+		// Handle menu for ecommerce free trial.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			$this->handle_free_trial_menu();
+		}
+
 		if ( ! $this->is_api_request ) {
 			add_filter( 'submenu_file', array( $this, 'modify_woocommerce_menu_highlighting' ), 99999 );
 		}
@@ -40,6 +45,28 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			$args[ 'menu_icon' ]           = 'dashicons-cart';
 			return $args;
 		} );
+	}
+
+	/**
+	 * Modify admin menu for the Ecommerce Free Trial plan.
+	 */
+	protected function handle_free_trial_menu() {
+
+		add_action( 'admin_menu', function() {
+
+			// Move Feedback under Jetpack > Feedback.
+			$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
+			remove_menu_page( 'feedback' );
+			add_submenu_page( 'jetpack', __( 'Feedback', 'wc-calypso-bridge' ), __( 'Feedback', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=feedback', '', 10 );
+
+
+			// Hide Tools > Marketing and Tools > Earn submenus.
+			$status       = new \Automattic\Jetpack\Status();
+			$site_suffix  = $status->get_site_suffix();
+			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $site_suffix ) );
+			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $site_suffix ) );
+
+		}, 99999 );
 	}
 
 	/**
@@ -121,7 +148,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * @return string
 	 */
 	public function modify_woocommerce_menu_highlighting( $submenu_file ) {
-		global $parent_file, $submenu_file, $plugin_page, $current_screen;
+		global $parent_file, $submenu_file, $plugin_page, $current_screen, $pagenow;
 		// We change the global $plugin_page due to the get_admin_page_parent() that replaces parent_file with this.
 
 		// Move WooCommerce > Settings to Settings > WooCommerce.
@@ -153,6 +180,20 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-reports' ), true ) ) {
 			$plugin_page  = 'wc-admin&path=/analytics/overview';
 			$submenu_file = 'admin.php?page=wc-reports';
+		}
+
+		// Move Feedback to Jetpack > Feedback (Free trial).
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() && in_array( $screen_id, array( 'edit-feedback' ) ) ) {
+			$plugin_page = 'jetpack';
+			$parent_file = 'jetpack';
+			$submenu_file = 'edit.php?post_type=feedback';
+			// Force the `get_admin_page_parent` core function to avoid handling this as a CPT.
+			$pagenow = null;
+			// Fix the typenow global, after the menu print.
+			add_action('adminmenu', static function() {
+				global $typenow;
+				$typenow = 'edit.php';
+			} );
 		}
 
 		return $submenu_file;
