@@ -13,9 +13,17 @@ import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
 import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
+import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
 
 wcNavFilterRootUrl();
+
+if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+	registerPlugin( 'free-trial-tasklist-completion', {
+		render: TaskListCompletedHeaderFill,
+		scope: 'woocommerce-admin',
+	} );
+}
 
 // Add slot fill for launch-your-store task.
 registerPlugin( 'wc-calypso-bridge', {
