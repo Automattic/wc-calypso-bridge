@@ -38,7 +38,7 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
 			$screen = get_current_screen();
 			if ( 'edit-shop_order' === $screen->id ) {
 				?>
-				<div class="free-trial-orders-notice notice notice-info">
+				<div class="free-trial-orders-notice notice">
                     <div>
                         <h3><?php echo __('Start selling to everyone', 'wc-calypso-bridge'); ?></h3>
                         <p>
