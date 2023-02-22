@@ -82,7 +82,7 @@
 	};
 
 	/**
-	 * Detect when page changes via React Router and run one of the customziations again.
+	 * Detect when page changes via React Router and run one of the customizations again.
 	 */
 	let url = location.href;
 	document.body.addEventListener(
