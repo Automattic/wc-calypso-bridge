@@ -21,6 +21,7 @@
 * Store notice can be at the top or bottom depending on the activated theme.
 * Force it to be at the top all the time to place the free trial banner at the bottom.
 */
-.woocommerce-store-notice {
-	top: 0;
+body.wp-admin p.woocommerce-store-notice {
+	top: calc( var(--wp-admin--admin-bar--height, 0px) ) !important;
+	height: max-content;
 }
