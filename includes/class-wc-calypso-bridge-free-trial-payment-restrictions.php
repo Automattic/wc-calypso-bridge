@@ -265,8 +265,20 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 
 
 		// TODO: How do we handle translations?
+		// TODO: Forgive me father, for I have sinned: We need to remove the styles from wp_head - we need them for the presentation.
 		add_action('wp_head', function(){
 			?>
+
+			<style>
+				.woocommerce-NoticeGroup-checkout ul {
+					padding: 1rem 1.5rem !important;
+					margin-bottom: 2rem !important;
+				}
+				.woocommerce .woocommerce-NoticeGroup-checkout ul.woocommerce-error[role=alert] li {
+					margin-bottom: 0 !important;
+				}
+			</style>
+
 			<script type="text/javascript">
 				function overrideNoPaymentMethodsMessage( translation, text, domain ) {
 					if ( text === 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.' ) {
