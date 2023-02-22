@@ -17,6 +17,7 @@ import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
 import { WoocommercePaymentsTaskPage } from './free-trial/fills/woocommerce-payments';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
+import { Marketing } from './marketing';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 
@@ -114,21 +115,45 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 	// Filter wc admin pages.
-	addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
+	addFilter(
+		'woocommerce_admin_pages_list',
+		'wc-calypso-bridge',
+		( pages ) => {
+			if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
+				/**
+				 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
+				 */
+				pages = pages.map( ( page ) =>
+					page.path === '/'
+						? { ...page, wpOpenMenu: 'menu-dashboard' }
+						: page
+				);
+				pages = pages.map( ( page ) =>
+					page.path === '/customers'
+						? { ...page, wpOpenMenu: '' }
+						: page
+				);
+			}
 
-		if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
-			/**
-			 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
-			 */
-			pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'menu-dashboard' } : page );
-			pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
+			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+				pages = pages.map( ( page ) => {
+					if ( page.path === '/marketing' ) {
+						page.container = Marketing;
+					}
+					return page;
+				} );
+			}
+
+			return pages;
 		}
-
-		return pages;
-	} );
+	);
 
 	// Embed code on woo pages.
-	if ( !! window.wcCalypsoBridge.isWooNavigationEnabled && !! window.wcCalypsoBridge.showEcommerceNavigationModal && !! window.wcCalypsoBridge.isWooPage ) {
+	if (
+		!! window.wcCalypsoBridge.isWooNavigationEnabled &&
+		!! window.wcCalypsoBridge.showEcommerceNavigationModal &&
+		!! window.wcCalypsoBridge.isWooPage
+	) {
 		const wpBody = document.getElementById( 'wpbody-content' );
 		const wrap =
 			wpBody.querySelector( '.wrap.woocommerce' ) ||
