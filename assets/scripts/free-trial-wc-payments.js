@@ -25,12 +25,23 @@
 		} );
 	};
 
-	const getNotice = () => {
-		const upgradeNoticeText = wp.i18n.sprintf(
-			__(
-				"During the trial period you can only make test payments. To process real transactions, <a href='%s'>upgrade now.</a>",
+	const getNotice = ( copySelector ) => {
+		const defaultCopy = __(
+			"During the trial period you can only make test payments. To process real transactions, <a href='%s'>upgrade now.</a>",
+			'wc-calypso-bridge'
+		);
+
+		const copies = {
+			default: defaultCopy,
+			transactions: defaultCopy,
+			deposits: __(
+				"During the trial period you’ll not be able to get deposits. To receive payments and payouts, <a href='%s'>upgrade now.</a>",
 				'wc-calypso-bridge'
 			),
+		};
+
+		const upgradeNoticeText = wp.i18n.sprintf(
+			copies[ copySelector ],
 			'https://wordpress.com/plans/' + window.wcCalypsoBridge.siteSlug
 		);
 
@@ -43,26 +54,34 @@
 
 	const customizeConnectPage = () => {
 		waitForElm( '.connect-account' ).then( function ( element ) {
-			element.prepend( getNotice() );
-			window.test = element;
+			element.prepend( getNotice( 'default' ) );
+			const h2s = element.querySelectorAll( 'h2' );
+			if ( h2s.lengths === 2 ) {
+				h2s[ 1 ].innerText = __(
+					'You’re only steps away from getting ready to be paid',
+					'wc-calypso-bridge'
+				);
+			}
 
-			element.querySelectorAll( 'h2' )[ 1 ].innerText = __(
-				'You’re only steps away from getting ready to be paid',
-				'wc-calypso-bridge'
+			const stepItems = element.querySelectorAll(
+				'.connect-page-onboarding-steps-item'
 			);
 
-			element
-				.querySelectorAll( '.connect-page-onboarding-steps-item' )[ 2 ]
-				.querySelector( 'p' ).innerText = __(
-				'You’re ready to start testing the features and benefits of WooCommerce Payments',
-				'wc-calypso-bridge'
-			);
+			if ( stepItems.length === 3 ) {
+				const p = stepItems.querySelector( 'p' );
+				if ( p ) {
+					p.innerText = __(
+						'You’re ready to start testing the features and benefits of WooCommerce Payments',
+						'wc-calypso-bridge'
+					);
+				}
+			}
 		} );
 	};
 
-	const addNotice = ( selector ) => {
+	const addNotice = ( selector, notice ) => {
 		waitForElm( selector ).then( function ( element ) {
-			element.prepend( getNotice() );
+			element.prepend( notice );
 		} );
 	};
 
@@ -72,11 +91,19 @@
 				customizeConnectPage();
 				break;
 			case '/payments/overview':
-				addNotice( '.wcpay-overview' );
+				addNotice( '.wcpay-overview', getNotice( 'default' ) );
 				break;
 			case '/payments/transactions':
+				addNotice(
+					'.woocommerce-payments-page',
+					getNotice( 'transactions' )
+				);
+				break;
 			case '/payments/deposits':
-				addNotice( '.woocommerce-payments-page' );
+				addNotice(
+					'.woocommerce-payments-page',
+					getNotice( 'deposits' )
+				);
 				break;
 		}
 	};
