@@ -67,7 +67,6 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	} );
 
 	registerPlugin( 'wc-calypso-bridge-task-tax', {
-		// @ts-expect-error @types/wordpress__plugins need to be updated
 		scope: 'woocommerce-tasks',
 		render: () => (
 			<WooOnboardingTask id="tax">
