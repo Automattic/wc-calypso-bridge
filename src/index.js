@@ -18,6 +18,10 @@ import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
 import { WoocommercePaymentsTaskPage } from './free-trial/fills/woocommerce-payments';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
+import {
+	ProgressHeaderFill,
+	ProgressTitleFill,
+} from './homescreen-progress-header';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 
@@ -109,6 +113,16 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 
 	registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
 		render: CalypsoBridgeHomescreenBanner,
+		scope: 'woocommerce-admin',
+	} );
+
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
+		render: ProgressHeaderFill,
+		scope: 'woocommerce-admin',
+	} );
+
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-title', {
+		render: ProgressTitleFill,
 		scope: 'woocommerce-admin',
 	} );
 }
