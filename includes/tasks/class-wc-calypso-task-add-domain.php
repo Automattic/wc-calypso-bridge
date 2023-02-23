@@ -60,15 +60,6 @@ class AddDomain extends Task {
 	}
 
 	/**
-	 * Task visibility.
-	 *
-	 * @return bool
-	 */
-	public function can_view() {
-		return ! wc_calypso_bridge_is_ecommerce_trial_plan();
-	}
-
-	/**
 	 * Action URL.
 	 *
 	 * @return string
