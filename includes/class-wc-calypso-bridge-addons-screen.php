@@ -49,6 +49,16 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 	 * See WooCommerce core for the original method within WC_Admin_Addons.
 	 */
 	public static function output() {
+
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+
+			/**
+			 * Addon page view.
+			 */
+			include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/templates/html-admin-page-addons-landing-page.php';
+			return;
+		}
+
 		if ( isset( $_GET['section'] ) && 'helper' === $_GET['section'] ) { // WPCS: CSRF ok.
 			do_action( 'woocommerce_helper_output' );
 			return;
