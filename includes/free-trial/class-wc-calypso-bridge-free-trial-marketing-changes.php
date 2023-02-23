@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the logic for override WooCommerce > orders screen
+ * Contains the logic for override Marketing screen
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.1
