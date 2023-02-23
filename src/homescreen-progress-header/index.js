@@ -9,6 +9,7 @@ import { Fill } from '@wordpress/components';
  */
 import { ProgressHeader } from './progress-header';
 import { ProgressTitle } from './progress-title';
+import './style.scss';
 
 export const ProgressHeaderFill = () => (
 	<Fill name="woocommerce_tasklist_experimental_progress_header_item">
