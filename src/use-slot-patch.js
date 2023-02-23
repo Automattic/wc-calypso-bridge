@@ -1,6 +1,6 @@
 'use strict';
-/* This file is a patch to override the useSlot hook in the @woocommerce/experimental package.
- * This is a temporary fix until the WooCommerce updated to 7.5.0.
+/*
+ * This is a temporary fix to override the useSlot hook in the @woocommerce/experimental package until the WooCommerce updated to 7.5.0.
  */
 
 const wpUseSlotFills = window.wp.components.__experimentalUseSlotFills;
