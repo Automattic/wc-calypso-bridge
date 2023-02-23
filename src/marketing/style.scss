@@ -1,0 +1,128 @@
+body.free-trial-page-marketing {
+	#wpcontent {
+		background-color: #fff;
+	}
+	.woocommerce-layout__primary {
+		margin: 0;
+	}
+	.woocommerce-layout__main {
+		padding-right: 0px;
+	}
+}
+
+.woocommerce-marketing-free-trial {
+	font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+		Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.woocommerce-marketing-free-trial-hero {
+		background: #f6f7f7;
+		height: 415px;
+		width: 100%;
+		margin-top: 126px;
+		div {
+			position: relative;
+			width: 624px;
+			left: 50%;
+			transform: translateX( -50% );
+		}
+		img {
+			position: absolute;
+		}
+		img.free-trial-img-browser {
+			top: -74px;
+		}
+		img.free-trial-img-search {
+			top: 275px;
+			left: 82px;
+		}
+		img.free-trial-img-shoe {
+			right: -142px;
+			top: 94px;
+		}
+		img.free-trial-img-facebook {
+			left: -111px;
+			top: 30px;
+		}
+		h2 {
+			position: absolute;
+			max-width: 185px;
+			font-size: 1.5384em;
+			line-height: 2.1538em;
+			font-weight: 400;
+			left: 371px;
+			top: -16px;
+		}
+	}
+
+	.woocommerce-marketing-free-trial-page-title {
+		box-shadow: inset 0px -1px 0px #dddddd;
+		width: 100%;
+		margin-bottom: 80px;
+		font-size: 1.0769em;
+		font-weight: 700;
+		padding: 27px;
+	}
+
+	.woocommerce-marketing-free-trial-welcome {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		h1 {
+			font-size: 2.46em;
+			margin: 0 0 16px 0;
+			padding: 0;
+			font-weight: 400;
+		}
+		p {
+			font-size: 1.231em;
+			line-height: 1.85;
+			max-width: 695px;
+			text-align: center;
+			padding: 0;
+			margin: 0 0 32px 0;
+		}
+	}
+
+	.woocommerce-marketing-free-trial-featured-items {
+		display: flex;
+		flex-direction: column;
+		gap: 56px;
+		max-width: 895px;
+		h2 {
+			font-size: 1.5em;
+			font-weight: 400;
+			line-height: 2em;
+			align-self: center;
+			text-align: center;
+			max-width: 575px;
+			margin: 80px 0 8px 0;
+		}
+
+		.woocommerce-marketing-free-trial-featured-item {
+			display: flex;
+			gap: 80px;
+			.woocommerce-marketing-free-trial-featured-item-content {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				h3 {
+					margin: 0 0 8px 0;
+					font-weight: 600;
+					font-size: 1.231em;
+				}
+				p {
+					font-size: 1.231em;
+					margin: 8px 0 24px 0;
+				}
+				a {
+					align-self: flex-start;
+				}
+			}
+		}
+	}
+}
