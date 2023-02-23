@@ -23,7 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.3 =
-* Bring Add a domain task back for free trial #985
+* Override the wc.experimental.useSlot hook #986.
+* Bring Add a domain task back for free trial #985.
 * Hides the Launch task for WooExpress sites.
 * Remove absolute path prefix from My Home and Customer menu URLs
 * Fix woocommerce payments task #980.
