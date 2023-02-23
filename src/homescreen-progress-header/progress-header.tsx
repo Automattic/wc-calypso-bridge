@@ -17,22 +17,26 @@ export type ProgressHeaderProps = {
 export const ProgressHeader: React.FC< ProgressHeaderProps > = ( {
 	taskListId,
 } ) => {
-	const { loading, tasksCount, completedCount } = useSelect( ( select ) => {
-		const taskList = select( ONBOARDING_STORE_NAME ).getTaskList(
-			taskListId
-		);
-		const finishedResolution = select(
-			ONBOARDING_STORE_NAME
-		).hasFinishedResolution( 'getTaskList', [ taskListId ] );
-		const visibleTasks = getVisibleTasks( taskList?.tasks || [] );
+	const { loading, tasksCount, completedCount } = useSelect(
+		( select ) => {
+			const taskList = select( ONBOARDING_STORE_NAME ).getTaskList(
+				taskListId
+			);
+			const finishedResolution = select(
+				ONBOARDING_STORE_NAME
+			).hasFinishedResolution( 'getTaskList', [ taskListId ] );
+			const visibleTasks = getVisibleTasks( taskList?.tasks || [] );
 
-		return {
-			loading: ! finishedResolution,
-			tasksCount: visibleTasks?.length,
-			completedCount: visibleTasks?.filter( ( task ) => task.isComplete )
-				.length,
-		};
-	}, [] );
+			return {
+				loading: ! finishedResolution,
+				tasksCount: visibleTasks?.length,
+				completedCount: visibleTasks?.filter(
+					( task ) => task.isComplete
+				).length,
+			};
+		},
+		[ taskListId ]
+	);
 
 	if ( loading ) {
 		return null;
@@ -48,10 +52,19 @@ export const ProgressHeader: React.FC< ProgressHeaderProps > = ( {
 				{ completedCount !== tasksCount ? (
 					<>
 						<p>
+							{ completedCount === 0 && (
+								<span>
+									{ __(
+										'You’re almost ready to start selling! Follow these steps to set up your test store.',
+										'woocommerce'
+									) }
+									<br/>
+								</span>
+							) }
 							{ sprintf(
 								/* translators: 1: completed tasks, 2: total tasks */
 								__(
-									'Follow these steps to start selling quickly. %1$d out of %2$d complete.',
+									'%1$d out of %2$d complete.',
 									'woocommerce'
 								),
 								completedCount,

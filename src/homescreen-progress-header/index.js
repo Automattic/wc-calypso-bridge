@@ -12,32 +12,16 @@ import { ProgressTitle } from './progress-title';
 
 export const ProgressHeaderFill = () => (
 	<Fill name="woocommerce_tasklist_experimental_progress_header_item">
-		{ ( { taskListId } ) => <ProgressHeader taskListId={ taskListId } /> }
+		{ ( { taskListId } ) => {
+			return <ProgressHeader taskListId={ taskListId } />;
+		} }
 	</Fill>
 );
 
 export const ProgressTitleFill = () => (
 	<Fill name="woocommerce_tasklist_experimental_progress_title_item">
-		<ProgressTitle />
+		{ ( { taskListId } ) => {
+			return <ProgressTitle taskListId={ taskListId } />;
+		} }
 	</Fill>
 );
-
-// registerPlugin( 'my-extension', {
-// 	render: () => (
-// 		<Fill name="woocommerce_tasklist_experimental_progress_header_item">
-// 			{ ( { taskListId } ) => (
-// 				<ProgressHeader taskListId={ taskListId } />
-// 			) }
-// 		</Fill>
-// 	),
-// 	scope: 'woocommerce-admin',
-// } );
-
-// registerPlugin( 'wc-calypso-bridge-progress-title', {
-// 	render: () => (
-// 		<Fill name="woocommerce_tasklist_experimental_progress_title_item">
-// 			<ProgressTitle />
-// 		</Fill>
-// 	),
-// 	scope: 'woocommerce-admin',
-// } );
