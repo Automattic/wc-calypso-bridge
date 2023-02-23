@@ -33,34 +33,33 @@ class WC_Calypso_Bridge_Free_Trial_Marketing_Changes {
 			return;
 		}
 
-		add_action('admin_menu', [$this, 'remove_marketing_submenus'], 99);
+		add_action( 'admin_menu', [ $this, 'remove_marketing_submenus' ], 99 );
 
 		// Add a custom class to the body tag
 		// to target the layout div.
-		add_filter('admin_body_class', function($classes) {
+		add_filter( 'admin_body_class', function( $classes ) {
 			$classes .= ' free-trial-page-marketing';
 			return $classes;
-		});
+		} );
 	}
 
 	public function remove_marketing_submenus() {
 	 	global $menu, $submenu;
 
 		// remove submenus under the Marketing menu.
-		if (isset($submenu['woocommerce-marketing'])) {
-			unset($submenu['woocommerce-marketing']);
+		if ( isset( $submenu[ 'woocommerce-marketing' ] ) ) {
+			unset( $submenu[ 'woocommerce-marketing' ] );
 		}
 
 		// then add path for the Marketing menu.
 		// previsouly, it was set on the overview submenu.
-		foreach ($menu as &$menuItem) {
-			if (isset($menuItem[5]) && $menuItem[5] === 'toplevel_page_woocommerce-marketing') {
+		foreach ( $menu as &$menuItem ) {
+			if ( isset( $menuItem[5] ) && $menuItem[5] === 'toplevel_page_woocommerce-marketing' ) {
 				$menuItem[2] = 'admin.php?page=wc-admin&path=/marketing';
 				break;
 			}
 		}
 	}
-
 }
 
 WC_Calypso_Bridge_Free_Trial_Marketing_Changes::get_instance();
