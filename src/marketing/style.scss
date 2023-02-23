@@ -11,13 +11,11 @@ body.free-trial-page-marketing {
 }
 
 .woocommerce-marketing-free-trial {
-	font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-		Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-
 	background: #fff;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 24px;
 
 	.woocommerce-marketing-free-trial-hero {
 		background: #f6f7f7;
