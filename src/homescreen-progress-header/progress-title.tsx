@@ -37,11 +37,15 @@ export const ProgressTitle: React.FC< ProgressTitleProps > = ( {
 					).length > 0,
 			};
 		},
-		[]
+		[ taskListId ]
 	);
 
 	const title = useMemo( () => {
-		if ( ! hasVisitedTasks || completedCount === tasksCount ) {
+		if (
+			! hasVisitedTasks ||
+			completedCount === tasksCount ||
+			completedCount === 0
+		) {
 			const siteTitle = getSetting( 'siteTitle' );
 			return siteTitle
 				? sprintf(
@@ -51,13 +55,26 @@ export const ProgressTitle: React.FC< ProgressTitleProps > = ( {
 				  )
 				: __( 'Welcome to your store', 'woocommerce' );
 		}
-		if ( completedCount > 0 && completedCount < 4 ) {
-			return __( "Let's get you started", 'woocommerce' ) + '   🚀';
+		switch ( completedCount ) {
+			case 1:
+			case 2:
+				return __(
+					'Only a few more tasks to tick off!',
+					'wc-calypso-bridge'
+				);
+			case 3:
+			case 4:
+			default:
+				return __(
+					'Everything is looking great, keep it up!',
+					'wc-calypso-bridge'
+				);
+			case tasksCount - 1:
+				return __(
+					'Woo! We’ve made it to the last step! Great job',
+					'wc-calypso-bridge'
+				);
 		}
-		if ( completedCount > 3 && completedCount < 6 ) {
-			return __( 'You are on the right track', 'woocommerce' );
-		}
-		return __( 'You are almost there', 'woocommerce' );
 	}, [ completedCount, hasVisitedTasks, tasksCount ] );
 
 	if ( loading ) {
