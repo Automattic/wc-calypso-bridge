@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Customize homescreen title and progress header #987.
+
 = 2.0.2 =
 * Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #969.
 * Prevent a double footer issue when using Storefront in Ecommerce plan #970.
