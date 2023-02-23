@@ -39,41 +39,6 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 	 */
 	public function __construct() {
 
-		// TODO: Forgive me father, for I have sinned: I'm trying to fix styling issues.
-		// We need to remove the styles from wp_head - we need them for the presentation.
-		add_action('wp_head', function(){
-			?>
-			<style>
-				body.theme-tsubaki .woocommerce-NoticeGroup-checkout ul {
-					padding: 1rem 1.5rem !important;
-					margin-bottom: 2rem !important;
-				}
-				body.theme-tsubaki .woocommerce .woocommerce-NoticeGroup-checkout ul.woocommerce-error[role=alert] li {
-					margin-bottom: 0 !important;
-				}
-
-				body.theme-tsubaki .wc-block-components-express-payment--checkout .wc-block-components-express-payment__event-buttons>li {
-					width: 47%;
-				}
-
-				body.theme-tsubaki .woocommerce-store-notice a,
-				body.theme-tsubaki p.demo_store a {
-					float: right;
-					margin-right: 40px !important;
-				}
-
-				body.theme-tsubaki .woocommerce-store-notice,
-				body.theme-tsubaki p.demo_store {
-					width: 100%;
-					padding: 10px;
-					bottom: -20px;
-				}
-
-			</style>
-			<?php
-		});
-
-
 		// Bail out early if the current site is not on a free trial.
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
@@ -255,6 +220,32 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 			$value['enabled'] = 'no';
 
 			return $value;
+		}, PHP_INT_MAX );
+
+		// Only allow specific gateways as suggestions in admin.
+		add_filter( 'woocommerce_admin_payment_gateway_suggestion_specs', function ( $gateways ) {
+
+			if ( ! is_array( $gateways ) ) {
+				return $gateways;
+			}
+
+			$allowed = array(
+				'woocommerce_payments',
+				'woocommerce_payments:without-in-person-payments',
+				'woocommerce_payments:with-in-person-payments',
+				'stripe',
+				'ppcp-gateway',
+				'cod',
+				'bacs',
+				'cheque',
+			);
+
+			$allowed_gateways = array_filter( $gateways, function ( $key ) use ( $allowed ) {
+				return in_array( $key, $allowed, true );
+			}, ARRAY_FILTER_USE_KEY );
+
+			return $allowed_gateways;
+
 		}, PHP_INT_MAX );
 
 	}
