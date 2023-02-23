@@ -1,3 +1,176 @@
+/**
+ * External dependencies
+ */
+import { __ } from '@wordpress/i18n';
+import { Button } from '@wordpress/components';
+
+/**
+ * Internal dependencies
+ */
+import AutomateWooBanner from './images/automate-woo.svg';
+import GoogleAdsBanner from './images/google-ads.svg';
+import SocialMediaBanner from './images/social-media.svg';
+import GiftCardBanner from './images/gift-card.svg';
+import BrowserImage from './images/browser.svg';
+import FacebookImage from './images/facebook.svg';
+import ShoeImage from './images/shoe.svg';
+import SearchImage from './images/search.svg';
+
+import './style.scss';
+
+const FeaturedItem = ( {
+	bannerImage,
+	title,
+	description,
+	actionButton,
+}: {
+	bannerImage: ReactNode;
+	title: ReactNode;
+	description: ReactNode;
+	actionButton: ReactNode;
+} ) => {
+	return (
+		<div className="woocommerce-marketing-free-trial-featured-item">
+			<div>
+				<img src={ bannerImage } />
+			</div>
+			<div className="woocommerce-marketing-free-trial-featured-item-content">
+				<h3>{ title }</h3>
+				<p>{ description }</p>
+				{ actionButton }
+			</div>
+		</div>
+	);
+};
+
+const UpgradeButton = ( { primary = false }: { primary?: boolean } ) => {
+	return (
+		<Button
+			href={
+				'https://wordpress.com/plans/' + window.wcCalypsoBridge.siteSlug
+			}
+			variant={ primary ? 'primary' : 'secondary' }
+		>
+			{ __( 'Upgrade now', 'wc-calypso-bridge' ) }
+		</Button>
+	);
+};
+
 export const Marketing = () => {
-	return <div>Hello</div>;
+	return (
+		<div className="woocommerce-marketing-free-trial">
+			<div className="woocommerce-marketing-free-trial-page-title">
+				{ __( 'Marketing', 'wc-calypso-bridge' ) }
+			</div>
+			<div className="woocommerce-marketing-free-trial-welcome">
+				<h1>
+					{ __(
+						'Get ready to grow your business',
+						'wc-calypso-bridge'
+					) }
+				</h1>
+				<p>
+					{ __(
+						'Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!',
+						'wc-calypso-bridge'
+					) }
+				</p>
+				<UpgradeButton primary={ true } />
+			</div>
+			<div className="woocommerce-marketing-free-trial-hero">
+				<div>
+					<img
+						src={ BrowserImage }
+						className="free-trial-img-browser"
+					/>
+					<img
+						src={ FacebookImage }
+						className="free-trial-img-facebook"
+					/>
+					<img src={ ShoeImage } className="free-trial-img-shoe" />
+					<img
+						src={ SearchImage }
+						className="free-trial-img-search"
+					/>
+					<h2>
+						{ __(
+							'Grow your business with hundreds of extensions',
+							'wc-calypso-bridge'
+						) }
+					</h2>
+				</div>
+			</div>
+			<div className="woocommerce-marketing-free-trial-featured-items">
+				<h2>
+					{ __(
+						'Discover our built-in marketing tools to reach more customers and boost sales',
+						'wc-calypso-bridge'
+					) }
+				</h2>
+				<FeaturedItem
+					bannerImage={ AutomateWooBanner }
+					title={ __(
+						'Automate your marketing',
+						'wc-calypso-bridge'
+					) }
+					description={ __(
+						'Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data.',
+						'wc-calypso-bridge'
+					) }
+					actionButton={
+						<Button
+							href="/wp-admin/admin.php?page=automatewoo-dashboard"
+							variant="secondary"
+						>
+							{ __( 'Try AutomateWoo', 'wc-calypso-bridge' ) }
+						</Button>
+					}
+				/>
+				<FeaturedItem
+					bannerImage={ GoogleAdsBanner }
+					title={ __(
+						'Advertise your products on Google',
+						'wc-calypso-bridge'
+					) }
+					description={ __(
+						'Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard.',
+						'wc-calypso-bridge'
+					) }
+					actionButton={ <UpgradeButton /> }
+				/>
+				<FeaturedItem
+					bannerImage={ SocialMediaBanner }
+					title={ __(
+						'Reach more customers across social media',
+						'wc-calypso-bridge'
+					) }
+					description={ __(
+						'Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising.',
+						'wc-calypso-bridge'
+					) }
+					actionButton={ <UpgradeButton /> }
+				/>
+
+				<FeaturedItem
+					bannerImage={ GiftCardBanner }
+					title={ __(
+						'Increase customer loyalty with gift cards',
+						'wc-calypso-bridge'
+					) }
+					description={ __(
+						'Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store.',
+						'wc-calypso-bridge'
+					) }
+					actionButton={
+						<Button href={ '' } variant="secondary">
+							{ __(
+								'Create digital gift cards',
+								'wc-calypso-bridge'
+							) }
+						</Button>
+					}
+				/>
+			</div>
+		</div>
+	);
 };
