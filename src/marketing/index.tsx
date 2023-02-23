@@ -3,6 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Button } from '@wordpress/components';
+import { useEffect } from 'react';
 
 /**
  * Internal dependencies
@@ -57,6 +58,14 @@ const UpgradeButton = ( { primary = false }: { primary?: boolean } ) => {
 };
 
 export const Marketing = () => {
+	useEffect( () => {
+		const className = 'free-trial-page-marketing';
+		document.body.classList.add( className );
+		return () => {
+			document.body.classList.remove( className );
+		};
+	}, [] );
+
 	return (
 		<div className="woocommerce-marketing-free-trial">
 			<div className="woocommerce-marketing-free-trial-page-title">
