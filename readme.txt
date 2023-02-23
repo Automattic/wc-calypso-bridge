@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.0.4 =
+* Add free trial notice on WooCommerce Orders page #936
+
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
 * Bring Add a domain task back for free trial #985.
