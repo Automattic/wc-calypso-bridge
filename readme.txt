@@ -23,8 +23,21 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.3 =
+* Bring Add a domain task back for free trial #985
 * Hides the Launch task for WooExpress sites.
 * Remove absolute path prefix from My Home and Customer menu URLs
+* Fix woocommerce payments task #980.
+* Fix incorrect SVG size #978.
+* WC Payments customizations #977.
+* Replace tax task to remove Avalara #975.
+* Replace product task with custom completion logic #963.
+* Customize payment tasklist header #956.
+* Hide partial tasklist and tasks #951.
+* Override orders empty state screen CTA button class #948.
+* Add disabled tasks accordion component #940.
+* Add task completion task #939.
+* Add homescreen banner #933.
+* Add payment task #919.
 
 = 2.0.2 =
 * Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #969.
