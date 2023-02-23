@@ -34,13 +34,6 @@ class WC_Calypso_Bridge_Free_Trial_Marketing_Changes {
 		}
 
 		add_action( 'admin_menu', [ $this, 'remove_marketing_submenus' ], 99 );
-
-		// Add a custom class to the body tag
-		// to target the layout div.
-		add_filter( 'admin_body_class', function( $classes ) {
-			$classes .= ' free-trial-page-marketing';
-			return $classes;
-		} );
 	}
 
 	public function remove_marketing_submenus() {
