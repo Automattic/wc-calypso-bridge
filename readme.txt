@@ -25,8 +25,8 @@ This section describes how to install the plugin and get it working.
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
 * Bring Add a domain task back for free trial #985.
-* Hides the Launch task for WooExpress sites.
-* Remove absolute path prefix from My Home and Customer menu URLs
+* Hides the Launch task for WooExpress sites #937.
+* Remove absolute path prefix from My Home and Customer menu URLs #974.
 * Fix woocommerce payments task #980.
 * Fix incorrect SVG size #978.
 * WC Payments customizations #977.
