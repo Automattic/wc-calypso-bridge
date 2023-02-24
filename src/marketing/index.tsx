@@ -84,13 +84,15 @@ export const Marketing = () => {
 				<UpgradeButton primary={ true } />
 			</div>
 			<div className="woocommerce-marketing-free-trial-hero">
-				<BrowserImage
-					text={ __(
-						'Grow your business with hundreds of extensions',
-						'wc-calypso-bridge'
-					) }
-					image={ PeopleImage }
-				/>
+				<div className="woocommerce-marketing-free-trial-hero-image">
+					<BrowserImage
+						text={ __(
+							'Grow your business with hundreds of extensions',
+							'wc-calypso-bridge'
+						) }
+						image={ PeopleImage }
+					/>
+				</div>
 			</div>
 			<div className="woocommerce-marketing-free-trial-featured-items">
 				<h2 className="woocommerce-marketing-free-trial-featured-items-title">
