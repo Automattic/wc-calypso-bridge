@@ -64,14 +64,14 @@ export const ProgressTitle: React.FC< ProgressTitleProps > = ( {
 				);
 			case 3:
 			case 4:
-			default:
-				return __(
-					'Everything is looking great, keep it up!',
-					'wc-calypso-bridge'
-				);
 			case tasksCount - 1:
 				return __(
 					'Woo! We’ve made it to the last step! Great job',
+					'wc-calypso-bridge'
+				);
+			default:
+				return __(
+					'Everything is looking great, keep it up!',
 					'wc-calypso-bridge'
 				);
 		}
@@ -82,6 +82,6 @@ export const ProgressTitle: React.FC< ProgressTitleProps > = ( {
 	}
 
 	return (
-		<h1 className="woocommerce-task-progress-header__title">{ title }</h1>
+		<h1 id="woocommerce-task-progress-header__title" className="woocommerce-task-progress-header__title">{ title }</h1>
 	);
 };
