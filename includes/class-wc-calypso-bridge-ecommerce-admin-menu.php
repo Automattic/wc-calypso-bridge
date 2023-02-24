@@ -54,6 +54,9 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		add_action( 'admin_menu', function() {
 
+			// Hide Extensions > Manage.
+			$this->hide_submenu_page( 'woocommerce', 'admin.php?page=wc-addons&section=helper' );
+
 			// Move Feedback under Jetpack > Feedback.
 			$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
 			remove_menu_page( 'feedback' );
