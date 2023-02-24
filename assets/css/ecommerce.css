@@ -159,6 +159,11 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	}
 }
 @media screen and (max-width: 600px) {
+
+	body.woocommerce_page_wc-addons-landing-page #wpbody-content {
+		padding-bottom: 0;
+	}
+
 	.wc-addons-landing-page__section-header {
 		display: none;
 	}
