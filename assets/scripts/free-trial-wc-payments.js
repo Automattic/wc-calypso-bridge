@@ -68,7 +68,8 @@
 			);
 
 			if ( stepItems.length === 3 ) {
-				const p = stepItems.querySelector( 'p' );
+				const { 2: setupCompleteStepElement } = stepItems;
+				const p = setupCompleteStepElement.querySelector( 'p' );
 				if ( p ) {
 					p.innerText = __(
 						'You’re ready to start testing the features and benefits of WooCommerce Payments',
