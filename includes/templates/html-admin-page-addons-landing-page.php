@@ -5,6 +5,8 @@
 * @package WC_Calypso_Bridge/Templates
 * @since   x.x.x
 * @version x.x.x
+*
+* @uses $upgrade_url
 */
 ?>
 <div class="woocommerce wc-addons-landing-page">
@@ -22,10 +24,10 @@
 	</p>
 
 	<div class="wc-addons-landing-page__button-container">
-		<a href="#" class="button button-primary">
+		<a href="<?php echo esc_url( $upgrade_url ); ?>" class="button button-primary">
 			<?php esc_html_e( 'Upgrade now', 'wc-calypso-bridge' ); ?>
 		</a>
-		<a href="#" class="button button-secondary">
+		<a href="https://woocommerce.com" target="_blank" class="button button-secondary">
 			<?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?>
 		</a>
 	</div>
@@ -54,7 +56,7 @@
 			<p>
 				<?php esc_html_e( 'Add extra features and functionality, or integrate with other platforms and tools.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="#"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com" target="_blank"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-addons-landing-page__features-grid__item">
@@ -68,7 +70,7 @@
 			<p>
 				<?php esc_html_e( 'Quickly get started with our curated extension collections.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="#"><?php esc_html_e( 'Discover collections', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/collections" target="_blank"><?php esc_html_e( 'Discover collections', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-addons-landing-page__features-grid__item">
@@ -82,7 +84,7 @@
 			<p>
 				<?php esc_html_e( 'Tips, tricks, and ecommerce inspiration from our blog.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="#"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/blog" target="_blank"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 	</div>

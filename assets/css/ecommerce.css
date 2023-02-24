@@ -27,6 +27,10 @@ body.woocommerce_page_wc-addons-landing-page {
 	background: white;
 }
 
+body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
+	display: none;
+}
+
 .wc-addons-landing-page {
 	background: white;
 	color: #2F2F2F; /* gray-80 */
