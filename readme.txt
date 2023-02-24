@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Update webpack config to import scss variables and mixins as a global import #988
+
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
 * Bring Add a domain task back for free trial #985.
