@@ -12,11 +12,8 @@ import AutomateWooBanner from './images/automate-woo.svg';
 import GoogleAdsBanner from './images/google-ads.svg';
 import SocialMediaBanner from './images/social-media.svg';
 import GiftCardBanner from './images/gift-card.svg';
-import BrowserImage from './images/browser.svg';
-import FacebookImage from './images/facebook.svg';
-import ShoeImage from './images/shoe.svg';
-import SearchImage from './images/search.svg';
-
+import BrowserImage from './browser-image';
+import PeopleImage from './images/browser-people.jpg';
 import './style.scss';
 
 const FeaturedItem = ( {
@@ -87,27 +84,13 @@ export const Marketing = () => {
 				<UpgradeButton primary={ true } />
 			</div>
 			<div className="woocommerce-marketing-free-trial-hero">
-				<div>
-					<img
-						src={ BrowserImage }
-						className="free-trial-img-browser"
-					/>
-					<img
-						src={ FacebookImage }
-						className="free-trial-img-facebook"
-					/>
-					<img src={ ShoeImage } className="free-trial-img-shoe" />
-					<img
-						src={ SearchImage }
-						className="free-trial-img-search"
-					/>
-					<h2>
-						{ __(
-							'Grow your business with hundreds of extensions',
-							'wc-calypso-bridge'
-						) }
-					</h2>
-				</div>
+				<BrowserImage
+					text={ __(
+						'Grow your business with hundreds of extensions',
+						'wc-calypso-bridge'
+					) }
+					image={ PeopleImage }
+				/>
 			</div>
 			<div className="woocommerce-marketing-free-trial-featured-items">
 				<h2>
