@@ -45,6 +45,23 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			$args[ 'menu_icon' ]           = 'dashicons-cart';
 			return $args;
 		} );
+
+		/**
+		 * Fix stale admin menu items for GC, BIS, and PRL.
+		 */
+		add_action( 'admin_menu', function() {
+
+			// GC.
+			$this->hide_submenu_page( WC_GC_Admin_Menus::$parent_file, 'gc_activity' );
+
+			// BIS.
+			$this->hide_submenu_page( 'woocommerce', 'bis_notifications' );
+			$this->hide_submenu_page( 'woocommerce', 'bis_activity' );
+
+			// PRL.
+			$this->hide_submenu_page( 'woocommerce', 'prl_locations' );
+
+		}, 9999 );
 	}
 
 	/**
