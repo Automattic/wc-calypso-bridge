@@ -3,8 +3,8 @@
  * Contains the logic for override Marketing screen
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   2.0.1
- * @version 2.0.1
+ * @since   2.0.4
+ * @version 2.0.4
  */
 
 class WC_Calypso_Bridge_Free_Trial_Marketing_Changes {
