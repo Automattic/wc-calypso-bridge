@@ -45,7 +45,7 @@ class WC_Calypso_Bridge_Free_Trial_Marketing_Changes {
 		}
 
 		// then add path for the Marketing menu.
-		// previsouly, it was set on the overview submenu.
+		// previously, it was set on the overview submenu.
 		foreach ( $menu as &$menuItem ) {
 			if ( isset( $menuItem[5] ) && $menuItem[5] === 'toplevel_page_woocommerce-marketing' ) {
 				$menuItem[2] = 'admin.php?page=wc-admin&path=/marketing';
