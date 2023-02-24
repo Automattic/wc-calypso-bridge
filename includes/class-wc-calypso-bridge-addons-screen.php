@@ -52,8 +52,14 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 
+
+			$site_suffix = (new \Automattic\Jetpack\Status())->get_site_suffix();
+			$upgrade_url = sprintf( 'https://wordpress.com/plans/%s', $site_suffix );
+
 			/**
 			 * Addon page view.
+			 *
+			 * @uses $upgrade_url
 			 */
 			include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/templates/html-admin-page-addons-landing-page.php';
 			return;
