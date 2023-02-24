@@ -1,0 +1,10 @@
+.woocommerce-task-progress-header__contents {
+  padding-right: 22px; // Padding to not overlap with ellipsis.
+}
+
+@media screen and (max-width: 782px) {
+  // use an id because there's a very specific selector ".jetpack-masterbar.wp-admin.wrap h1" that is applying a zero padding
+  div.woocommerce-task-progress-header, #woocommerce-task-progress-header__title { 
+    padding-inline: 16px;
+  }
+}

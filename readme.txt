@@ -27,6 +27,7 @@ This section describes how to install the plugin and get it working.
 * Free Trial - Introduce payment restrictions #930.
 * Update webpack config to import scss variables and mixins as a global import #988.
 * Free trial: Replace Marketing page #984.
+* Customize homescreen title and progress header #987.
 
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
