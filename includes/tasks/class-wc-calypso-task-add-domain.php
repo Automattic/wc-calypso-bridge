@@ -67,8 +67,19 @@ class AddDomain extends Task {
 	public function get_action_url() {
 		$status      = new \Automattic\Jetpack\Status();
 		$site_suffix = $status->get_site_suffix();
+		$domain_path = sprintf( "https://wordpress.com/domains/add/%s", $site_suffix );
+		$home_url    = \home_url( '', 'https' );
 
-		return sprintf( "https://wordpress.com/domains/add/%s", $site_suffix );
+		if ( ! \str_starts_with( $home_url, 'https://woo-' ) && ! \str_starts_with( $home_url, 'https://wooexpress-' ) ) {
+			return $domain_path;
+		}
+
+		$blog_name = \get_option( 'blogname' );
+		if ( empty( $blog_name ) ) {
+			return $domain_path;
+		}
+
+		return sprintf( '%s?suggestion=%s', $domain_path, rawurlencode( $blog_name ) );
 	}
 
 	/**
