@@ -9,7 +9,7 @@
 * @uses $upgrade_url
 */
 ?>
-<div class="woocommerce wc-addons-landing-page">
+<div class="woocommerce woocommerce-page wc-addons-landing-page">
 
 	<div class="wc-addons-landing-page__section-header">
 		<?php esc_html_e( 'Extensions', 'wc-calypso-bridge' ); ?>
@@ -27,7 +27,7 @@
 		<a href="<?php echo esc_url( $upgrade_url ); ?>" class="button button-primary">
 			<?php esc_html_e( 'Upgrade now', 'wc-calypso-bridge' ); ?>
 		</a>
-		<a href="https://woocommerce.com" target="_blank" class="button button-secondary">
+		<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank" class="button button-secondary">
 			<?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?>
 		</a>
 	</div>
@@ -56,7 +56,7 @@
 			<p>
 				<?php esc_html_e( 'Add extra features and functionality, or integrate with other platforms and tools.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com" target="_blank"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-addons-landing-page__features-grid__item">
