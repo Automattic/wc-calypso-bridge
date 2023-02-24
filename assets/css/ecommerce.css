@@ -99,7 +99,8 @@ body.woocommerce_page_wc-addons-landing-page {
 }
 
 .wc-addons-landing-page__features-grid {
-	margin-top: 65px;
+	max-width: 1100px;
+	margin: 65px auto 0;
 	display: flex;
 	flex-wrap: nowrap;
 	text-align: center;
@@ -107,7 +108,7 @@ body.woocommerce_page_wc-addons-landing-page {
 
 .wc-addons-landing-page__features-grid__item {
 	width: 33%;
-	padding: 0 70px;
+	padding: 0 35px;
 }
 
 .wc-addons-landing-page__features-grid__item__icon {
@@ -146,16 +147,6 @@ body.woocommerce_page_wc-addons-landing-page {
 	text-decoration: underline;
 }
 
-@media screen and (max-width: 1100px) {
-	.wc-addons-landing-page__features-grid__item {
-		padding: 0 30px;
-	}
-}
-@media screen and (max-width: 960px) {
-	.wc-addons-landing-page__features-grid__item {
-		padding: 0 20px;
-	}
-}
 @media screen and (max-width: 782px) {
 	.wc-addons-landing-page__features-grid__item {
 		padding: 0 10px;
