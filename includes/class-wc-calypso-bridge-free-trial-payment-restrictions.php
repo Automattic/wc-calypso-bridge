@@ -3,8 +3,8 @@
  * Free Trial related.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.0.4
+ * @version 2.0.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -289,15 +289,15 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 
 		}, PHP_INT_MAX, 3 );
 
-
-		// TODO: How do we handle translations?
-		add_action('wp_head', function(){
+		// Change the "No available payment methods" message.
+		add_action( 'wp_head', function () {
 			?>
 			<script type="text/javascript">
 				function overrideNoPaymentMethodsMessage( translation, text, domain ) {
-					if ( text === 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.' ) {
-						return 'There are no payment methods available as this store is in trial mode.';
+					if ( text === '<?php esc_html_e( 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.', 'woocommerce' ); ?>' ) {
+						return '<?php esc_html_e( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' ); ?>';
 					}
+
 					return translation;
 				}
 
@@ -309,7 +309,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 				);
 			</script>
 			<?php
-		});
+		} );
 
 		// Prevent orders on shortcode checkout.
 		add_action( 'woocommerce_before_checkout_process', function () {
@@ -338,8 +338,6 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 				return $content;
 			}
 
-			// TODO: Veronica's text was "Only Admins and Shop Managers can place test orders. Contact an Admin to get permissions."
-			// Discussed with Manos and updated the text. Which one should we keep, so we are not all over the place?
 			$message = esc_html__( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' );
 			$markup  = '<div class="woocommerce"><div class="woocommerce-notices-wrapper"><ul class="woocommerce-info role="alert"><li> ' . $message . '</li></ul></div></div>';
 
@@ -369,10 +367,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 
 			$site_slug = ( new \Automattic\Jetpack\Status() )->get_site_suffix();
 			$plan_url  = 'https://wordpress.com/plans/' . $site_slug;
-
-			//TODO: Veronica's text was "During the trial period you can only make test payments. To process real transactions, upgrade now."
-			// Discussed with Manos and updated the text. Which one should we keep, so we are not all over the place?
-			$message   = sprintf( __( 'Only Administrators and Store Managers can place orders during the free trial. If you are ready to start accepting payments from customers, <a href="%s">pick a plan</a>.', 'wc-calypso-bridge' ), $plan_url );
+			$message   = sprintf( __( 'Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href="%s">upgrade to a paid plan</a>.', 'wc-calypso-bridge' ), $plan_url );
 
 			?>
 			<div class="notice notice-info">
