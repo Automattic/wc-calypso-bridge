@@ -9,12 +9,14 @@ import { render } from '@wordpress/element';
 /**
  * Internal dependencies
  */
+import './use-slot-patch';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
 import { DisabledTasksFill } from './disabled-tasks';
 import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
+import { WoocommercePaymentsTaskPage } from './free-trial/fills/woocommerce-payments';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
@@ -56,6 +58,8 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	// Otherwise we'll have both the original and new fills rendered.
 	const oldTaskNames = [
 		'wc-admin-onboarding-task-payments',
+		'woocommerce-admin-task-wcpay', // WCPay task item which handles direct click on the task. (Not needed in free trial)
+		'woocommerce-admin-task-wcpay-page', // WCPay task page which handles URL navigation to the task.
 		'wc-admin-onboarding-task-tax',
 	];
 	addAction(
@@ -98,6 +102,11 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		),
 	} );
 
+	registerPlugin( 'wc-calypso-bridge-task-woocommerce-payments-page', {
+		scope: 'woocommerce-tasks',
+		render: WoocommercePaymentsTaskPage,
+	} );
+
 	registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
 		render: CalypsoBridgeHomescreenBanner,
 		scope: 'woocommerce-admin',
@@ -106,21 +115,36 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 	// Filter wc admin pages.
-	addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
+	addFilter(
+		'woocommerce_admin_pages_list',
+		'wc-calypso-bridge',
+		( pages ) => {
+			if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
+				/**
+				 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
+				 */
+				pages = pages.map( ( page ) =>
+					page.path === '/'
+						? { ...page, wpOpenMenu: 'menu-dashboard' }
+						: page
+				);
+				pages = pages.map( ( page ) =>
+					page.path === '/customers'
+						? { ...page, wpOpenMenu: '' }
+						: page
+				);
+			}
 
-		if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
-			/**
-			 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
-			 */
-			pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'menu-dashboard' } : page );
-			pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
+			return pages;
 		}
-
-		return pages;
-	} );
+	);
 
 	// Embed code on woo pages.
-	if ( !! window.wcCalypsoBridge.isWooNavigationEnabled && !! window.wcCalypsoBridge.showEcommerceNavigationModal && !! window.wcCalypsoBridge.isWooPage ) {
+	if (
+		!! window.wcCalypsoBridge.isWooNavigationEnabled &&
+		!! window.wcCalypsoBridge.showEcommerceNavigationModal &&
+		!! window.wcCalypsoBridge.isWooPage
+	) {
 		const wpBody = document.getElementById( 'wpbody-content' );
 		const wrap =
 			wpBody.querySelector( '.wrap.woocommerce' ) ||
