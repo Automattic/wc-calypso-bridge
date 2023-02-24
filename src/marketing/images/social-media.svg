@@ -1,9 +1,13 @@
-<svg width="448" height="272" viewBox="0 0 448 272" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="448" height="240" fill="#C5D9ED" fill-opacity="0.4"/>
+<svg width="448" height="240" viewBox="0 0 448 240" fill="none" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_1096_25048" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="448" height="240">
-<rect width="448" height="240" fill="#E9EFF5"/>
+<rect width="448" height="240" fill="#C5D9ED"/>
 </mask>
 <g mask="url(#mask0_1096_25048)">
+<rect width="448" height="240" fill="#C5D9ED" fill-opacity="0.4"/>
+<mask id="mask1_1096_25048" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="448" height="240">
+<rect width="448" height="240" fill="#E9EFF5"/>
+</mask>
+<g mask="url(#mask1_1096_25048)">
 <path d="M149.082 121.263C151.966 121.263 154.304 118.925 154.304 116.041C154.304 113.156 151.966 110.818 149.082 110.818C146.198 110.818 143.859 113.156 143.859 116.041C143.859 118.925 146.198 121.263 149.082 121.263Z" fill="#84A4F0"/>
 </g>
 <g filter="url(#filter0_d_1096_25048)">
@@ -45,6 +49,7 @@
 <path d="M230.116 106.95C229.809 108.474 229.809 109.694 229.502 111.218C229.502 111.523 229.195 111.828 228.581 111.828C228.581 111.828 228.581 111.828 228.274 111.828C227.967 111.828 227.66 111.218 227.66 110.913C227.967 109.389 228.274 108.169 228.274 106.645C228.888 106.645 229.502 106.95 230.116 106.95Z" fill="#F7EDF7"/>
 <path d="M190.828 102.68C194.388 102.68 197.274 99.8138 197.274 96.2774C197.274 92.7413 194.388 89.8745 190.828 89.8745C187.268 89.8745 184.383 92.7413 184.383 96.2774C184.383 99.8138 187.268 102.68 190.828 102.68Z" fill="white"/>
 <path d="M190.829 99.0215C192.354 99.0215 193.591 97.793 193.591 96.2775C193.591 94.7619 192.354 93.5334 190.829 93.5334C189.303 93.5334 188.066 94.7619 188.066 96.2775C188.066 97.793 189.303 99.0215 190.829 99.0215Z" fill="#3361CC"/>
+</g>
 <defs>
 <filter id="filter0_d_1096_25048" x="221.359" y="48.7713" width="197.962" height="212.594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
