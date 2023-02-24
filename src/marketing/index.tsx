@@ -93,7 +93,7 @@ export const Marketing = () => {
 				/>
 			</div>
 			<div className="woocommerce-marketing-free-trial-featured-items">
-				<h2>
+				<h2 className="woocommerce-marketing-free-trial-featured-items-title">
 					{ __(
 						'Discover our built-in marketing tools to reach more customers and boost sales',
 						'wc-calypso-bridge'
@@ -154,7 +154,10 @@ export const Marketing = () => {
 						'wc-calypso-bridge'
 					) }
 					actionButton={
-						<Button href={ '' } variant="secondary">
+						<Button
+							href={ '/wp-admin/admin.php?page=gc_giftcards' }
+							variant="secondary"
+						>
 							{ __(
 								'Create digital gift cards',
 								'wc-calypso-bridge'
