@@ -22,7 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.0.4 =
+* Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
+* Free Trial - Introduce payment restrictions #930.
+* Update webpack config to import scss variables and mixins as a global import #988.
 * Free trial: Replace Marketing page #984.
 
 = 2.0.3 =
