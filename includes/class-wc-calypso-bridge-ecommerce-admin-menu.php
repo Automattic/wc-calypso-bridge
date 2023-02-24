@@ -138,7 +138,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Adds My Home menu.
 	 */
 	public function add_my_home_menu() {
-		$this->update_menu( 'index.php', '/admin.php?page=wc-admin', __( 'My Home', 'jetpack' ), 'edit_posts', 'dashicons-admin-home' );
+		$this->update_menu( 'index.php', 'admin.php?page=wc-admin', __( 'My Home', 'jetpack' ), 'edit_posts', 'dashicons-admin-home' );
 	}
 
 	/**
@@ -247,7 +247,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'analytics' ) ) {
 			// Move Customers to root menu.
 			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/customers' );
-			add_menu_page( __( 'Customers', 'woocommerce' ), __( 'Customers', 'woocommerce' ), 'manage_woocommerce', '/admin.php?page=wc-admin&path=/customers', null, 'dashicons-money', 100 );
+			add_menu_page( __( 'Customers', 'woocommerce' ), __( 'Customers', 'woocommerce' ), 'manage_woocommerce', 'admin.php?page=wc-admin&path=/customers', null, 'dashicons-money', 100 );
 		}
 
 		// Update WooCommerce to Extensions
