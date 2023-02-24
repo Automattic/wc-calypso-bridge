@@ -18,6 +18,11 @@ import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
 import { WoocommercePaymentsTaskPage } from './free-trial/fills/woocommerce-payments';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
+import {
+	ProgressHeaderFill,
+	ProgressTitleFill,
+} from './homescreen-progress-header';
+import { Marketing } from './marketing';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 
@@ -111,6 +116,16 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: CalypsoBridgeHomescreenBanner,
 		scope: 'woocommerce-admin',
 	} );
+
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
+		render: ProgressHeaderFill,
+		scope: 'woocommerce-admin',
+	} );
+
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-title', {
+		render: ProgressTitleFill,
+		scope: 'woocommerce-admin',
+	} );
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
@@ -133,6 +148,16 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 						? { ...page, wpOpenMenu: '' }
 						: page
 				);
+			}
+
+			// Override marketing page.
+			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+				pages = pages.map( ( page ) => {
+					if ( page.path === '/marketing' ) {
+						page.container = Marketing;
+					}
+					return page;
+				} );
 			}
 
 			return pages;
