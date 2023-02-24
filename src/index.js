@@ -9,6 +9,7 @@ import { render } from '@wordpress/element';
 /**
  * Internal dependencies
  */
+import './use-slot-patch';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
@@ -135,6 +136,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 				);
 			}
 
+			// Override marketing page.
 			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 				pages = pages.map( ( page ) => {
 					if ( page.path === '/marketing' ) {
