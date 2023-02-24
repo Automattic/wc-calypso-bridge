@@ -22,6 +22,7 @@ import {
 	ProgressHeaderFill,
 	ProgressTitleFill,
 } from './homescreen-progress-header';
+import { Marketing } from './marketing';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 
@@ -147,6 +148,16 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 						? { ...page, wpOpenMenu: '' }
 						: page
 				);
+			}
+
+			// Override marketing page.
+			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+				pages = pages.map( ( page ) => {
+					if ( page.path === '/marketing' ) {
+						page.container = Marketing;
+					}
+					return page;
+				} );
 			}
 
 			return pages;
