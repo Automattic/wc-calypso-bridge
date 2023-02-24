@@ -9,11 +9,13 @@ body.free-trial-page-marketing {
 		padding-right: 0px;
 	}
 	#screen-options-link-wrap {
-		display:none;
+		display: none;
 	}
 }
 
 .woocommerce-marketing-free-trial {
+	font-size: 16px;
+	line-height: 1.5;
 	background: #fff;
 	display: flex;
 	flex-direction: column;
@@ -31,8 +33,7 @@ body.free-trial-page-marketing {
 		}
 
 		h2 {
-			font-size: 1.5384em;
-			line-height: 1.5384em;
+			font-size: 1.25em;
 			font-weight: 400;
 			text-align: left;
 		}
@@ -42,7 +43,7 @@ body.free-trial-page-marketing {
 		box-shadow: inset 0px -1px 0px #dddddd;
 		width: 100%;
 		margin-bottom: 80px;
-		font-size: 1.0769em;
+		font-size: 0.875em;
 		font-weight: 700;
 		padding: 27px;
 	}
@@ -52,14 +53,14 @@ body.free-trial-page-marketing {
 		flex-direction: column;
 		align-items: center;
 		h1 {
-			font-size: 2.46em;
+			font-size: 2em;
+			line-height: 1.25;
 			margin: 0 0 16px 0;
 			padding: 0;
 			font-weight: 400;
 		}
 		p {
-			font-size: 1.231em;
-			line-height: 1.85;
+			font-size: 1em;
 			max-width: 695px;
 			text-align: center;
 			padding: 0;
@@ -72,10 +73,10 @@ body.free-trial-page-marketing {
 		flex-direction: column;
 		gap: 56px;
 		max-width: 895px;
-		h2 {
-			font-size: 1.8461em;
+		.woocommerce-marketing-free-trial-featured-items-title {
+			font-size: 1.5em;
 			font-weight: 400;
-			line-height: 2.4615em;
+			line-height: 1.33;
 			align-self: center;
 			text-align: center;
 			max-width: 640px;
@@ -92,10 +93,10 @@ body.free-trial-page-marketing {
 				h3 {
 					margin: 0 0 8px 0;
 					font-weight: 600;
-					font-size: 1.231em;
+					font-size: 1em;
 				}
 				p {
-					font-size: 1.231em;
+					font-size: 1em;
 					margin: 8px 0 24px 0;
 				}
 				a {
@@ -106,62 +107,105 @@ body.free-trial-page-marketing {
 	}
 }
 
-@media ( max-width: 768px ) {
+@media (min-width: 769px) and (max-width: 1240px) {
 	.woocommerce-marketing-free-trial {
-		margin-top: 24px;
-	}
-	.woocommerce-marketing-free-trial-page-title {
-		display: none;
-	}
-	.woocommerce-marketing-free-trial-welcome {
-		h1 {
-			text-align: center;
-			font-size: 1.846em !important;
-		}
-		p {
-			font-size: 1em !important;
-			max-width: 335px !important;
+		.woocommerce-marketing-free-trial-featured-items {
+			.woocommerce-marketing-free-trial-featured-item {
+				gap: 40px;
+				padding: 0 20px;
+			}
 		}
 	}
-	.woocommerce-marketing-free-trial-hero {
-		svg {
-			width: 100%;
-			object-fit: contain;
-			height: auto;
-		}
-	}
+}
 
-	.woocommerce-marketing-free-trial-featured-items {
-		max-width: auto;
-		gap: 0 !important;
-		h2 {
-			padding: 0 20px 0 20px;
-			margin: 32px 0 32px 0 !important;
-			font-size: 1.5384em !important;
-			line-height: 2.1538em !important;
+@media (max-width: 768px) {
+	.woocommerce-marketing-free-trial {
+		font-size: 12px;
+		margin-top: 24px;
+
+		.woocommerce-marketing-free-trial-page-title {
+			display: none;
 		}
-		.woocommerce-marketing-free-trial-featured-item {
-			padding: 20px;
-			gap: 40px !important;
-			flex-direction: column;
-			&:first {
-				padding-top: 0;
+		.woocommerce-marketing-free-trial-welcome {
+			h1 {
+				text-align: center;
+				line-height: 1.33;
+			}
+			p {
+				font-size: 1.33em;
+				line-height: 1.5;
+				max-width: 482px;
+			}
+		}
+		.woocommerce-marketing-free-trial-hero {
+			svg {
+				width: 100%;
+				object-fit: contain;
+				height: auto;
 			}
 
-			.woocommerce-marketing-free-trial-featured-item-content {
-				h3,
-				a {
-					align-self: center !important;
+			h2 {
+				font-size: 1.67em;
+				font-weight: 400;
+				text-align: left;
+			}
+		}
+
+		.woocommerce-marketing-free-trial-featured-items {
+			max-width: auto;
+			gap: 0;
+			.woocommerce-marketing-free-trial-featured-items-title {
+				font-size: 1.67em;
+				padding: 0 20px 0 20px;
+				padding-left: 20px !important;
+				margin: 32px 0 32px 0;
+			}
+			.woocommerce-marketing-free-trial-featured-item {
+				padding: 20px;
+				gap: 20px;
+				flex-direction: column;
+				text-align: center;
+				font-size: 1em;
+				&:first {
+					padding-top: 0;
 				}
-				p {
-					text-align: center;
+
+				.woocommerce-marketing-free-trial-featured-item-content {
+					h3,
+					a,
+					p {
+						align-self: center;
+					}
+					h3,
+					p {
+						font-size: 1.33em;
+					}
+					p {
+						max-width: 530px;
+					}
 				}
 			}
 		}
 	}
 }
 
-@media ( max-width: 448px ) {
+@media (max-width: 664px) {
+	.woocommerce-marketing-free-trial {
+		.woocommerce-marketing-free-trial-welcome {
+			h1 {
+				text-align: center;
+				line-height: 1.33;
+			}
+			p {
+				font-size: 1.08em;
+				line-height: 1.33;
+				max-width: 333px;
+			}
+		}
+	}
+}
+
+@media (max-width: 448px) {
 	.woocommerce-marketing-free-trial-featured-items {
 		img {
 			object-fit: contain;
