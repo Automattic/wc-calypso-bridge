@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Add free trial plan picker banner #917
+
 = 2.0.2 =
 * Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #969.
 * Prevent a double footer issue when using Storefront in Ecommerce plan #970.
