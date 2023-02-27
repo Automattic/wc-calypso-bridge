@@ -3,8 +3,8 @@
 /**
  * Class WC_Calypso_Bridge_Free_Trial_Orders_Notice.
  *
- * @since   2.0.3
- * @version 2.0.3
+ * @since   2.0.4
+ * @version 2.0.4
  *
  * Renders an admin notice on Orders page.
  */
