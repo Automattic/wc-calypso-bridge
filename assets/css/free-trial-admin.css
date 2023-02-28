@@ -11,3 +11,9 @@
 .wc-calypso-notice a {
 	color: inherit;
 }
+
+.woocommerce-task-list__setup
+	.woocommerce-experimental-list
+	.woocommerce-experimental-list__item.complete {
+	color: var( --wp-admin-theme-color );
+}
