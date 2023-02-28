@@ -30,7 +30,6 @@ class WC_Calypso_Bridge_Frontend_Free_Trial {
 	}
 	
 	public function __construct() {
-
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
 		}
