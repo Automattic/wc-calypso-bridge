@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Class WC_Calypso_Bridge_Frontend_Free_Trial.
+ * Class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner.
  *
  * @since   2.0.5
  * @version 2.0.5
  *
- * Handles Free Trial frontend.
+ * Handles Free Trial Plan Picker Banner.
  */
-class WC_Calypso_Bridge_Frontend_Free_Trial {
+class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner {
 	/**
 	 * The single instance of the class.
 	 *
@@ -41,10 +41,10 @@ class WC_Calypso_Bridge_Frontend_Free_Trial {
 					$classes[] = 'has-free-trial-plan-picker';
 					return $classes;
 				});
+				add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 			}
 		});
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
 	}
 
 	/**
@@ -62,8 +62,8 @@ class WC_Calypso_Bridge_Frontend_Free_Trial {
 	}
 
 	public function add_styles() {
-		wp_enqueue_style( 'wp-calypso-bridge-ecommerce-free-trial', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_style( 'wp-calypso-bridge-ecommerce-free-trial-plan-picker-banner', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial-plan-picker-banner.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 }
 
-WC_Calypso_Bridge_Frontend_Free_Trial::get_instance();
+WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner::get_instance();
