@@ -9,6 +9,7 @@ import { render } from '@wordpress/element';
 /**
  * Internal dependencies
  */
+import './use-slot-patch';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
@@ -17,6 +18,11 @@ import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
 import { WoocommercePaymentsTaskPage } from './free-trial/fills/woocommerce-payments';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
+import {
+	ProgressHeaderFill,
+	ProgressTitleFill,
+} from './homescreen-progress-header';
+import { Marketing } from './marketing';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 
@@ -110,25 +116,60 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: CalypsoBridgeHomescreenBanner,
 		scope: 'woocommerce-admin',
 	} );
+
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
+		render: ProgressHeaderFill,
+		scope: 'woocommerce-admin',
+	} );
+
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-title', {
+		render: ProgressTitleFill,
+		scope: 'woocommerce-admin',
+	} );
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 	// Filter wc admin pages.
-	addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
+	addFilter(
+		'woocommerce_admin_pages_list',
+		'wc-calypso-bridge',
+		( pages ) => {
+			if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
+				/**
+				 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
+				 */
+				pages = pages.map( ( page ) =>
+					page.path === '/'
+						? { ...page, wpOpenMenu: 'menu-dashboard' }
+						: page
+				);
+				pages = pages.map( ( page ) =>
+					page.path === '/customers'
+						? { ...page, wpOpenMenu: '' }
+						: page
+				);
+			}
 
-		if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
-			/**
-			 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
-			 */
-			pages = pages.map( page => page.path === '/' ? {...page, wpOpenMenu: 'menu-dashboard' } : page );
-			pages = pages.map( page => page.path === '/customers' ? {...page, wpOpenMenu: ''} : page );
+			// Override marketing page.
+			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+				pages = pages.map( ( page ) => {
+					if ( page.path === '/marketing' ) {
+						page.container = Marketing;
+					}
+					return page;
+				} );
+			}
+
+			return pages;
 		}
-
-		return pages;
-	} );
+	);
 
 	// Embed code on woo pages.
-	if ( !! window.wcCalypsoBridge.isWooNavigationEnabled && !! window.wcCalypsoBridge.showEcommerceNavigationModal && !! window.wcCalypsoBridge.isWooPage ) {
+	if (
+		!! window.wcCalypsoBridge.isWooNavigationEnabled &&
+		!! window.wcCalypsoBridge.showEcommerceNavigationModal &&
+		!! window.wcCalypsoBridge.isWooPage
+	) {
 		const wpBody = document.getElementById( 'wpbody-content' );
 		const wrap =
 			wpBody.querySelector( '.wrap.woocommerce' ) ||
