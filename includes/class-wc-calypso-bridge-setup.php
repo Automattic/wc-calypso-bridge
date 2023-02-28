@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version 2.0.5
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -286,6 +286,36 @@ class WC_Calypso_Bridge_Setup {
 
 				WC_Install::create_pages();
 
+				// Get navigation menu page and set up the ecommerce menu items.
+				$menu_page = get_page_by_title( 'Primary', OBJECT, 'wp_navigation' );
+				if ( is_a( $menu_page, 'WP_Post' ) ) {
+					$menu_content = '';
+
+					foreach ( [ 'shop', 'cart', 'checkout', 'myaccount' ] as $page_name ) {
+						$page_id = get_option( "woocommerce_{$page_name}_page_id" );
+						if ( ! $page_id ) {
+							continue;
+						}
+						$page = get_post( $page_id );
+						if ( ! is_a( $page, 'WP_Post' ) ) {
+							continue;
+						}
+
+						$menu_item = '<!-- wp:navigation-link {"label":"' . $page->post_title . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->
+
+						';
+
+						$menu_content .= $menu_item;
+					}
+
+					if ( $menu_content ) {
+						wp_update_post( array(
+							'ID'           => $menu_page->ID,
+							'post_content' => $menu_content,
+						) );
+					}
+				}
+
 				$wpdb->query(
 					$wpdb->prepare( "
 					UPDATE `{$wpdb->options}`
@@ -299,6 +329,7 @@ class WC_Calypso_Bridge_Setup {
 				// Update and Release row.
 				$wpdb->query( 'COMMIT' );
 				wp_cache_delete( $this->option_prefix . $operation, 'options' );
+				wp_cache_flush();
 
 				return;
 			} catch ( Exception $e ) {
