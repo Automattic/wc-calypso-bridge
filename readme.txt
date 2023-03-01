@@ -24,6 +24,8 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Use the theme color for completed task strikethrough #1006
+* Add free trial notice on WooCommerce Orders page #936
+* Change illustration in tasklist completed component #1007
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
@@ -33,6 +35,7 @@ This section describes how to install the plugin and get it working.
 * Update webpack config to import scss variables and mixins as a global import #988.
 * Fixed wcpay customisation script error #989
 * Customize homescreen title and progress header #987.
+
 
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
