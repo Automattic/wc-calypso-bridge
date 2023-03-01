@@ -299,12 +299,17 @@ class WC_Calypso_Bridge_Setup {
 
 					$menu_content = '<!-- wp:navigation-link {"label":"' . __( 'Home', 'woocommerce' ) . '","url":"/","kind":"custom","isTopLevelLink":true} /-->';
 
-					foreach ( $menu_pages as $page ) {
+					foreach ( $menu_pages as $key => $page ) {
 						if ( ! is_a( $page, 'WP_Post' ) ) {
 							continue;
 						}
 
-						$menu_content .= '<!-- wp:navigation-link {"label":"' . $page->post_title . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
+						$title = $page->post_title;
+						if ( 'contact-us' === $key && 'Contact us' === $title ) {
+							$title = __( 'Contact', 'wc-calypso-bridge' );
+						}
+
+						$menu_content .= '<!-- wp:navigation-link {"label":"' . $title . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
 					}
 
 					wp_update_post( array(
