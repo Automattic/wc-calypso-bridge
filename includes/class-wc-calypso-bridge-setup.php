@@ -286,7 +286,7 @@ class WC_Calypso_Bridge_Setup {
 
 				WC_Install::create_pages();
 
-				// Get navigation menu page and set up the ecommerce menu items.
+				// Get navigation menu page and set up the menu.
 				$menu_page_post = get_page_by_path( 'primary', OBJECT, 'wp_navigation' );
 				if ( is_a( $menu_page_post, 'WP_Post' ) ) {
 
