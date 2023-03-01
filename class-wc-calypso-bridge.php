@@ -119,6 +119,7 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-hide-alerts.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-plugins.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-addons.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/class-wc-calypso-bridge-free-trial-hide-tasklist-tasks.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-free-trial-payment-task.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/class-wc-calypso-bridge-free-trial-orders-changes.php';

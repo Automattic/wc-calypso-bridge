@@ -43,6 +43,10 @@ class WC_Calypso_Bridge_Addons {
 			return;
 		}
 
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		add_action( 'init', array( $this, 'init' ), 2 );
 	}
 
@@ -53,6 +57,19 @@ class WC_Calypso_Bridge_Addons {
 		add_filter( 'woocommerce_show_addons_page', '__return_false' );
 		add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
 		add_action( 'woocommerce_loaded', array( $this, 'load_modified_addons_menu' ) );
+
+		// Add admin body class for the free trial landing page.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+
+			add_filter( 'admin_body_class', function( $classes ) {
+				$screen = get_current_screen();
+				if ( $screen && 'woocommerce_page_wc-addons' === $screen->id ) {
+					$classes .= 'woocommerce_page_wc-addons-landing-page';
+				}
+
+				return $classes;
+			} );
+		}
 	}
 
 	/**
