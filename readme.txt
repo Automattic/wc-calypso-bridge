@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.5 =
-* Prevent deletion of managed plugins (Avatax) #xxx.
+* Prevent deletion of managed plugins (Avatax) #1012.
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
