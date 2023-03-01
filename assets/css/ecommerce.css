@@ -204,3 +204,9 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	}
 }
 
+.woocommerce-task-list__setup
+	.woocommerce-experimental-list
+	.woocommerce-experimental-list__item.complete {
+	color: var( --wp-admin-theme-color );
+}
+
