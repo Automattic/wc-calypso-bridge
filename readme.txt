@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.4
+Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ This section describes how to install the plugin and get it working.
 
 = 2.0.5 =
 * Free trial: Use site title for domain suggestions #991.
+* Prevent deletion of managed plugins (Avatax) #1012.
+* Create navigation menu items #999.
+* Remove PRL, BIS, and GC hidden menu items from Calypso menu #944.
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
