@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.5 =
-* Create navigation menu items for Shop/Cart/Checkout/My Account #xxx.
+* Create navigation menu items #999.
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
