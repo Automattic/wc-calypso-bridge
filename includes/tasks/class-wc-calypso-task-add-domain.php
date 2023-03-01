@@ -70,6 +70,10 @@ class AddDomain extends Task {
 		$domain_path = sprintf( "https://wordpress.com/domains/add/%s", $site_suffix );
 		$home_url    = \home_url( '', 'https' );
 
+		if ( ! \str_ends_with( $home_url, '.wpcomstaging.com' ) ) {
+			return $domain_path;
+		}
+
 		if ( ! \str_starts_with( $home_url, 'https://woo-' ) && ! \str_starts_with( $home_url, 'https://wooexpress-' ) ) {
 			return $domain_path;
 		}
