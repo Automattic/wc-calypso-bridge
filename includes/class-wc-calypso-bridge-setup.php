@@ -287,22 +287,19 @@ class WC_Calypso_Bridge_Setup {
 				WC_Install::create_pages();
 
 				// Get navigation menu page and set up the ecommerce menu items.
-				$menu_page = get_page_by_path( 'primary', OBJECT, 'wp_navigation' );
-				if ( is_a( $menu_page, 'WP_Post' ) ) {
+				$menu_page_post = get_page_by_path( 'primary', OBJECT, 'wp_navigation' );
+				if ( is_a( $menu_page_post, 'WP_Post' ) ) {
+
+					$menu_pages = array(
+						'shop'       => get_post( get_option( 'woocommerce_shop_page_id' ) ),
+						'blog'       => get_page_by_path( 'blog' ),
+						'myaccount'  => get_post( get_option( 'woocommerce_myaccount_page_id' ) ),
+						'contact-us' => get_page_by_path( 'contact-us' ),
+					);
 
 					$menu_content = '<!-- wp:navigation-link {"label":"' . __( 'Home', 'woocommerce' ) . '","url":"/","kind":"custom","isTopLevelLink":true} /-->';
 
-					$blog_page = get_page_by_path( 'blog' );
-					if ( is_a( $blog_page, 'WP_Post' ) ) {
-						$menu_content .= '<!-- wp:navigation-link {"label":"' . $blog_page->post_title . '","type":"page","id":' . $blog_page->ID . ',"url":"' . get_permalink( $blog_page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
-					}
-
-					foreach ( [ 'shop', 'cart', 'checkout', 'myaccount' ] as $page_name ) {
-						$page_id = get_option( "woocommerce_{$page_name}_page_id" );
-						if ( ! $page_id ) {
-							continue;
-						}
-						$page = get_post( $page_id );
+					foreach ( $menu_pages as $page ) {
 						if ( ! is_a( $page, 'WP_Post' ) ) {
 							continue;
 						}
@@ -310,13 +307,8 @@ class WC_Calypso_Bridge_Setup {
 						$menu_content .= '<!-- wp:navigation-link {"label":"' . $page->post_title . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
 					}
 
-					$contact_page = get_page_by_path( 'contact-us' );
-					if ( is_a( $contact_page, 'WP_Post' ) ) {
-						$menu_content .= '<!-- wp:navigation-link {"label":"' . $contact_page->post_title . '","type":"page","id":' . $contact_page->ID . ',"url":"' . get_permalink( $contact_page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
-					}
-
 					wp_update_post( array(
-						'ID'           => $menu_page->ID,
+						'ID'           => $menu_page_post->ID,
 						'post_content' => $menu_content,
 					) );
 
