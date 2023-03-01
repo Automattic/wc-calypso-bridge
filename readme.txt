@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Add free trial notice on WooCommerce Orders page #936
 * Change illustration in tasklist completed component #1007
 
 = 2.0.4 =
@@ -33,6 +34,7 @@ This section describes how to install the plugin and get it working.
 * Update webpack config to import scss variables and mixins as a global import #988.
 * Fixed wcpay customisation script error #989
 * Customize homescreen title and progress header #987.
+
 
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
