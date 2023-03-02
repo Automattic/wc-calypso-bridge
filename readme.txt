@@ -43,6 +43,7 @@ This section describes how to install the plugin and get it working.
 * Fixed wcpay customisation script error #989
 * Customize homescreen title and progress header #987.
 
+
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
 * Bring Add a domain task back for free trial #985.
