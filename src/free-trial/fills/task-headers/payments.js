@@ -9,7 +9,7 @@ import { registerPlugin } from '@wordpress/plugins';
 /**
  * Internal dependencies
  */
-import TimerImage from './timer.svg';
+import TimerImage from '../../assets/timer.svg';
 import { WC_ASSET_URL } from '../../../utils/admin-settings';
 
 const PaymentsHeader = () => {
