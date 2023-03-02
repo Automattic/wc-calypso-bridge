@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.4
+Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,9 +23,16 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.5 =
-* Create navigation menu items #999.
+* Free trial: Use site title for domain suggestions #991.
 * Prevent deletion of managed plugins (Avatax) #1012.
-* Remove PRL, BIS, and GC hidden menu items from Calypso menu #944.
+* Create navigation menu items #999.
+* Remove PRL, BIS, and GC hidden menu items from Calypso menu #994.
+* Add free trial host value for tracks #995.
+* Use the theme color for completed task strikethrough #1006.
+* Add free trial notice on WooCommerce Orders page #936.
+* Change illustration in tasklist completed component #1007.
+* Add task header for "Add a domain" task #1013.
+* Add task header for "Launch your store" task #1015.
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
