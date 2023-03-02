@@ -56,7 +56,7 @@ class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner {
 		$link = sprintf( "https://wordpress.com/plans/%s", $site_suffix );
 
 		$text = sprintf( __("
-			At the moment you are the only one who can see your store. To let everyone see your store, you simply need to&nbsp;<a href='%s'>pick a plan</a>.
+			At the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s'>upgrade to a paid plan</a>.
 		", 'wc-calypso-bridge' ), $link );
 		echo "<div id='free-trial-plan-picker-banner'>$text</div>";
 	}
