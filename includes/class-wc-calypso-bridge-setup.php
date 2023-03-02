@@ -311,7 +311,7 @@ class WC_Calypso_Bridge_Setup {
 							$title = __( 'My Account', 'wc-calypso-bridge' );
 						}
 
-						$menu_content .= '<!-- wp:navigation-link {"label":"' . $title . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
+						$menu_content .= '<!-- wp:navigation-link {"label":"' . esc_attr( wp_strip_all_tags( $title ) ) . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
 					}
 
 					wp_update_post( array(
@@ -334,7 +334,6 @@ class WC_Calypso_Bridge_Setup {
 				// Update and Release row.
 				$wpdb->query( 'COMMIT' );
 				wp_cache_delete( $this->option_prefix . $operation, 'options' );
-				wp_cache_flush();
 
 				return;
 			} catch ( Exception $e ) {
