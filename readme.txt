@@ -26,7 +26,7 @@ This section describes how to install the plugin and get it working.
 * Free trial: Use site title for domain suggestions #991.
 * Prevent deletion of managed plugins (Avatax) #1012.
 * Create navigation menu items #999.
-* Remove PRL, BIS, and GC hidden menu items from Calypso menu #944.
+* Remove PRL, BIS, and GC hidden menu items from Calypso menu #994.
 * Add free trial host value for tracks #995.
 * Use the theme color for completed task strikethrough #1006
 * Add free trial notice on WooCommerce Orders page #936
