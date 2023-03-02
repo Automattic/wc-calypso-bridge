@@ -27,6 +27,10 @@ This section describes how to install the plugin and get it working.
 * Prevent deletion of managed plugins (Avatax) #1012.
 * Create navigation menu items #999.
 * Remove PRL, BIS, and GC hidden menu items from Calypso menu #944.
+* Add free trial host value for tracks #995.
+* Use the theme color for completed task strikethrough #1006
+* Add free trial notice on WooCommerce Orders page #936
+* Change illustration in tasklist completed component #1007
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
