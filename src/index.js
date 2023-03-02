@@ -25,6 +25,7 @@ import {
 import { Marketing } from './marketing';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
+import './task-headers';
 
 wcNavFilterRootUrl();
 

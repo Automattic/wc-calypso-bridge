@@ -11,7 +11,7 @@ import { Link } from '@woocommerce/components';
 /**
  * Internal dependencies
  */
-import TimerImage from './timer.svg';
+import TimerImage from '../../../task-headers/assets/images/timer.svg';
 import { WC_ASSET_URL } from '../../../utils/admin-settings';
 
 const WoocommercePaymentsHeader = () => {
