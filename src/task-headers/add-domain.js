@@ -9,8 +9,8 @@ import { registerPlugin } from '@wordpress/plugins';
 /**
  * Internal dependencies
  */
-import TimerImage from '../../assets/timer.svg';
-import DomainImage from '../../assets/add-domain-illustration.png';
+import TimerImage from './assets/images/timer.svg';
+import DomainImage from './assets/images/add-domain-illustration.png';
 
 const AddDomainHeader = () => {
 	return (
