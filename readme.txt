@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.6 =
-* Fix fatal error when trying to remove GC hidden menu items from Calypso menu #1017.
+* Fix fatal error when trying to remove GC hidden menu items from Calypso menu #1018.
 
 = 2.0.5 =
 * Free trial: Use site title for domain suggestions #991.
