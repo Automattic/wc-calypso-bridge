@@ -4,7 +4,7 @@
  * Class WC_Calypso_Bridge_Free_Trial_WC_Payments.
  *
  * @since   2.0.2
- * @version 2.0.2
+ * @version 2.0.4
  *
  * Includes JS on the WC Payments page to customize the look.
  */

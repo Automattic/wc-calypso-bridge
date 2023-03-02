@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,15 +25,20 @@ This section describes how to install the plugin and get it working.
 = Unreleased =
 * Fixed wcpay customisation script error #989
 * Customize homescreen title and progress header #987.
+
+= 2.0.5 =
+* Prevent deletion of managed plugins (Avatax) #1012.
 * Remove PRL, BIS, and GC hidden menu items from Calypso menu #944.
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
 * Free Trial: Introduce payment restrictions #930.
 * Free trial: Replace Marketing page #984.
-* Free trial: Introduce Extensions landing page - Hide Extensions > Manage #965.
+* Free trial: Introduce Extensions landing page - Hide Extensions > Manage #990.
 * Update webpack config to import scss variables and mixins as a global import #988.
+* Fixed wcpay customisation script error #989
 * Customize homescreen title and progress header #987.
+
 
 = 2.0.3 =
 * Override the wc.experimental.useSlot hook #986.
