@@ -7,8 +7,8 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * Add domain Task
  *
- * @since   1.9.12.
- * @version 1.9.12.
+ * @since   1.9.12
+ * @version 2.0.5
  */
 class AddDomain extends Task {
 
