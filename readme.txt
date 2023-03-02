@@ -22,8 +22,13 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Fixed wcpay customisation script error #989
+* Customize homescreen title and progress header #987.
+
 = 2.0.5 =
 * Prevent deletion of managed plugins (Avatax) #1012.
+* Remove PRL, BIS, and GC hidden menu items from Calypso menu #944.
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
