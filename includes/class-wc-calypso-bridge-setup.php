@@ -293,7 +293,7 @@ class WC_Calypso_Bridge_Setup {
 					$menu_pages = array(
 						'shop'       => get_post( get_option( 'woocommerce_shop_page_id' ) ),
 						'blog'       => get_page_by_path( 'blog' ),
-						'myaccount'  => get_post( get_option( 'woocommerce_myaccount_page_id' ) ),
+						'my-account' => get_post( get_option( 'woocommerce_myaccount_page_id' ) ),
 						'contact-us' => get_page_by_path( 'contact-us' ),
 					);
 
@@ -307,6 +307,8 @@ class WC_Calypso_Bridge_Setup {
 						$title = $page->post_title;
 						if ( 'contact-us' === $key && 'Contact us' === $title ) {
 							$title = __( 'Contact', 'wc-calypso-bridge' );
+						} elseif ( 'my-account' === $key && 'My account' === $title ) {
+							$title = __( 'My Account', 'wc-calypso-bridge' );
 						}
 
 						$menu_content .= '<!-- wp:navigation-link {"label":"' . $title . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
