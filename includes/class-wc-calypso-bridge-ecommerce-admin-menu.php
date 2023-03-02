@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.0.5
+ * @version 2.0.6
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -48,11 +48,16 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		/**
 		 * Fix stale admin menu items for GC, BIS, and PRL.
+		 *
+		 * @since   2.0.5
+		 * @version 2.0.6
 		 */
 		add_action( 'admin_menu', function() {
 
 			// GC.
-			$this->hide_submenu_page( WC_GC_Admin_Menus::$parent_file, 'gc_activity' );
+			if ( class_exists( 'WC_GC_Admin_Menus' ) ) {
+				$this->hide_submenu_page( WC_GC_Admin_Menus::$parent_file, 'gc_activity' );
+			}
 
 			// BIS.
 			$this->hide_submenu_page( 'woocommerce', 'bis_notifications' );
