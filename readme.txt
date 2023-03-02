@@ -31,6 +31,8 @@ This section describes how to install the plugin and get it working.
 * Use the theme color for completed task strikethrough #1006
 * Add free trial notice on WooCommerce Orders page #936
 * Change illustration in tasklist completed component #1007
+* Add task header for "Add a domain" task #1013.
+* Add task header for "Launch your store" task #1015.
 
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
