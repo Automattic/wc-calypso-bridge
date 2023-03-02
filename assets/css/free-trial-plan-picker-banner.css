@@ -1,4 +1,3 @@
-
 #free-trial-plan-picker-banner {
 	background-color: #c9356e;
 	color: #ffffff;
@@ -10,7 +9,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	top: calc( var(--wp-admin--admin-bar--height, 0px) ) !important;
+	top: calc( var( --wp-admin--admin-bar--height, 0px ) ) !important;
 }
 
 #free-trial-plan-picker-banner a {
@@ -18,9 +17,13 @@
 	text-decoration: underline;
 }
 
+body.has-free-trial-plan-picker {
+	margin-top: 40px;
+}
+
 /**
 * Store notice can be at the top or bottom depending on the activated theme.
-* Force it to be at the bottom all the time to place the free trial banner at the bottom.
+* Force it to be at the bottom all the time to place the free trial banner at the top.
 */
 body.has-free-trial-plan-picker .woocommerce-store-notice {
 	top: auto !important;
