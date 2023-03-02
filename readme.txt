@@ -24,14 +24,13 @@ This section describes how to install the plugin and get it working.
 
 = 2.0.5 =
 * Free trial: Use site title for domain suggestions #991.
-* Create navigation menu items #999.
 * Prevent deletion of managed plugins (Avatax) #1012.
 * Create navigation menu items #999.
 * Remove PRL, BIS, and GC hidden menu items from Calypso menu #994.
 * Add free trial host value for tracks #995.
-* Use the theme color for completed task strikethrough #1006
-* Add free trial notice on WooCommerce Orders page #936
-* Change illustration in tasklist completed component #1007
+* Use the theme color for completed task strikethrough #1006.
+* Add free trial notice on WooCommerce Orders page #936.
+* Change illustration in tasklist completed component #1007.
 * Add task header for "Add a domain" task #1013.
 * Add task header for "Launch your store" task #1015.
 
