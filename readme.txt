@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = 2.0.5 =
 * Free trial: Use site title for domain suggestions #991.
+* Create navigation menu items #999.
 * Prevent deletion of managed plugins (Avatax) #1012.
 * Create navigation menu items #999.
 * Remove PRL, BIS, and GC hidden menu items from Calypso menu #994.

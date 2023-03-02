@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version 2.0.5
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -285,6 +285,41 @@ class WC_Calypso_Bridge_Setup {
 				}
 
 				WC_Install::create_pages();
+
+				// Get navigation menu page and set up the menu.
+				$menu_page_post = get_page_by_path( 'primary', OBJECT, 'wp_navigation' );
+				if ( is_a( $menu_page_post, 'WP_Post' ) ) {
+
+					$menu_pages = array(
+						'shop'       => get_post( get_option( 'woocommerce_shop_page_id' ) ),
+						'blog'       => get_page_by_path( 'blog' ),
+						'my-account' => get_post( get_option( 'woocommerce_myaccount_page_id' ) ),
+						'contact-us' => get_page_by_path( 'contact-us' ),
+					);
+
+					$menu_content = '<!-- wp:navigation-link {"label":"' . __( 'Home', 'woocommerce' ) . '","url":"/","kind":"custom","isTopLevelLink":true} /-->';
+
+					foreach ( $menu_pages as $key => $page ) {
+						if ( ! is_a( $page, 'WP_Post' ) ) {
+							continue;
+						}
+
+						$title = $page->post_title;
+						if ( 'contact-us' === $key && 'Contact us' === $title ) {
+							$title = __( 'Contact', 'wc-calypso-bridge' );
+						} elseif ( 'my-account' === $key && 'My account' === $title ) {
+							$title = __( 'My Account', 'wc-calypso-bridge' );
+						}
+
+						$menu_content .= '<!-- wp:navigation-link {"label":"' . esc_attr( wp_strip_all_tags( $title ) ) . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
+					}
+
+					wp_update_post( array(
+						'ID'           => $menu_page_post->ID,
+						'post_content' => $menu_content,
+					) );
+
+				}
 
 				$wpdb->query(
 					$wpdb->prepare( "
