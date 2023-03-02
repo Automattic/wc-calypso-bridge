@@ -97,8 +97,11 @@ class WC_Calypso_Bridge_Tracks {
 		// Default value assumes business plan, inside wp-admin.
 		$host_value = 'bizplan-wp-admin';
 
-		// If an ecomm plan site, update host value.
-		if ( wc_calypso_bridge_has_ecommerce_features() ) {
+		// Update host value according to plan. Ordering could be important
+		// since some plans may have overlapping features.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			$host_value = 'ecommplan-freetrial';
+		} else if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$host_value = 'ecommplan';
 		}
 
