@@ -22,11 +22,6 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
-* Use the theme color for completed task strikethrough #1006
-* Add free trial notice on WooCommerce Orders page #936
-* Change illustration in tasklist completed component #1007
-
 = 2.0.4 =
 * Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
 * Free Trial: Introduce payment restrictions #930.
