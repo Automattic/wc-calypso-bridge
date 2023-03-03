@@ -34,3 +34,7 @@ export function createNoticesFromResponse( response ) {
 		createNotice( response.code ? 'error' : 'success', response.message );
 	}
 }
+
+export const getPlanUpgradeLink = () => {
+	return `https://wordpress.com/plans/${ window.wcCalypsoBridge.siteSlug }`;
+};

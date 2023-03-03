@@ -11,7 +11,6 @@ import {
 	TaskType,
 } from '@woocommerce/data';
 import { queueRecordEvent, recordEvent } from '@woocommerce/tracks';
-import { registerPlugin } from '@wordpress/plugins';
 import { updateQueryString } from '@woocommerce/navigation';
 import {
 	useCallback,
@@ -19,16 +18,22 @@ import {
 	useState,
 	createElement,
 } from '@wordpress/element';
-import { WooOnboardingTask } from '@woocommerce/onboarding';
+import { Link } from '@woocommerce/components';
+import interpolateComponents from '@automattic/interpolate-components';
 
 /**
  * Internal dependencies
  */
 import { redirectToTaxSettings } from './utils';
 import { Card as WooCommerceTaxCard } from './woocommerce-tax/card';
-import { getCountryCode, createNoticesFromResponse } from '../../utils';
+import {
+	getCountryCode,
+	createNoticesFromResponse,
+	getPlanUpgradeLink,
+} from '../../utils';
 import { ManualConfiguration } from './manual-configuration';
 import { WooCommerceTax } from './woocommerce-tax';
+import Notice from '../../notice';
 
 const TaskCard: React.FC = ( { children } ) => {
 	return (
@@ -43,6 +48,34 @@ export type TaxProps = {
 	query: Record< string, string >;
 	task: TaskType;
 };
+
+const UpgradeNotice = () => (
+	<div
+		className="woocommerce-task-notice-container"
+		style={ { maxWidth: '680px', margin: 'auto' } }
+	>
+		<Notice
+			text={ interpolateComponents( {
+				mixedString: __(
+					'During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}.',
+					'wc-calypso-bridge'
+				),
+				components: {
+					br: <br />,
+					link: (
+						<Link
+							href={ getPlanUpgradeLink() }
+							type="external"
+							target="_blank"
+						>
+							<></>
+						</Link>
+					),
+				},
+			} ) }
+		/>
+	</div>
+);
 
 export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 	const [ isPending, setIsPending ] = useState( false );
@@ -226,18 +259,24 @@ export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 
 	if ( ! partners.length ) {
 		return (
-			<TaskCard>
-				<ManualConfiguration { ...childProps } />
-			</TaskCard>
+			<>
+				<UpgradeNotice />
+				<TaskCard>
+					<ManualConfiguration { ...childProps } />
+				</TaskCard>
+			</>
 		);
 	}
 
 	if ( currentPartner ) {
 		return (
-			<TaskCard>
-				{ currentPartner.component &&
-					createElement( currentPartner.component, childProps ) }
-			</TaskCard>
+			<>
+				<UpgradeNotice />
+				<TaskCard>
+					{ currentPartner.component &&
+						createElement( currentPartner.component, childProps ) }
+				</TaskCard>
+			</>
 		);
 	}
 	return <p>Nothing here!</p>;
