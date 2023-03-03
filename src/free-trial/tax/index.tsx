@@ -29,7 +29,7 @@ import { Card as WooCommerceTaxCard } from './woocommerce-tax/card';
 import {
 	getCountryCode,
 	createNoticesFromResponse,
-	getPlanUpgradeLink,
+	getUpgradePlanLink,
 } from '../../utils';
 import { ManualConfiguration } from './manual-configuration';
 import { WooCommerceTax } from './woocommerce-tax';
@@ -64,7 +64,7 @@ const UpgradeNotice = () => (
 					br: <br />,
 					link: (
 						<Link
-							href={ getPlanUpgradeLink() }
+							href={ getUpgradePlanLink() }
 							type="external"
 							target="_blank"
 						>
