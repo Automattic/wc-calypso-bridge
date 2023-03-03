@@ -4,6 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { Button } from '@wordpress/components';
 import { useEffect } from 'react';
+import { recordEvent } from '@woocommerce/tracks';
 
 /**
  * Internal dependencies
@@ -48,6 +49,11 @@ const UpgradeButton = ( { primary = false }: { primary?: boolean } ) => {
 				'https://wordpress.com/plans/' + window.wcCalypsoBridge.siteSlug
 			}
 			variant={ primary ? 'primary' : 'secondary' }
+			onClick={ () => {
+				recordEvent( 'free_trial_upgrade_now', {
+					source: 'marketing',
+				} );
+			} }
 		>
 			{ __( 'Upgrade now', 'wc-calypso-bridge' ) }
 		</Button>

@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Add wcadmin_free_trial_upgrade_now track for task_list and marketing sources #1023.
 * Add wcadmin_free_trial_learn_more track #1024.
 
 = 2.0.6 =
