@@ -65,8 +65,7 @@ class AddDomain extends Task {
 	 * @return string
 	 */
 	public function get_action_url() {
-		$status      = new \Automattic\Jetpack\Status();
-		$site_suffix = $status->get_site_suffix();
+		$site_suffix = wc_calypso_bridge_get_site_slug();
 		$domain_path = sprintf( "https://wordpress.com/domains/add/%s", $site_suffix );
 		$home_url    = \home_url( '', 'https' );
 

@@ -106,10 +106,9 @@ class WC_Calypso_Bridge_Shared {
 			filemtime( WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/build/style-index.css' )
 		);
 
-		$status       = new \Automattic\Jetpack\Status();
-		$site_suffix  = $status->get_site_suffix();
+		$site_suffix = wc_calypso_bridge_get_site_slug();
 
-		$params       = array(
+		$params      = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
 			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.			
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),

@@ -61,3 +61,23 @@ if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 	require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/store-on-wpcom/class-wc-calypso-bridge.php';
 	return;
 }
+
+if ( ! function_exists( 'wc_calypso_bridge_get_site_slug' ) ) {
+	/**
+	 * Defensive helper function to return the current site slug in a way that will work
+	 * when Automattic\Jetpack\Status hasn't been loaded by the Jetpack plugin.
+	 *
+	 * @return string
+	 */
+	function wc_calypso_bridge_get_site_slug() {
+		if ( class_exists( '\Automattic\Jetpack\Status' ) ) {
+			$jetpack_status = new \Automattic\Jetpack\Status();
+
+			return $jetpack_status->get_site_suffix();
+		}
+
+		$home_url = home_url( '', 'https' );
+
+		return substr( $home_url, 8 );
+	}
+}
