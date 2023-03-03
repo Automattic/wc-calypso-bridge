@@ -277,7 +277,7 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 			<Notice
 				text={ interpolateComponents( {
 					mixedString: __(
-						'During the trial period you can only make test payments. To process real transactions, {{link}}upgrade now{{/link}}.',
+						'Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}.',
 						'wc-calypso-bridge'
 					),
 					components: {

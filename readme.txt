@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Free trial: Update notice messages and other copies #1022.
 * Add free trial plan picker banner #917
 * Add wcadmin_free_trial_upgrade_now track for task_list and marketing sources #1023.
 * Add wcadmin_free_trial_learn_more track #1024.

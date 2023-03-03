@@ -5,6 +5,8 @@
 	 * This is required as there's no official way of waiting for an React component to finish.
 	 *
 	 * Source: https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
+	 *
+	 * @param {string} selector The selector to wait for.
 	 */
 	const waitForElm = ( selector ) => {
 		return new Promise( ( resolve ) => {
@@ -27,7 +29,7 @@
 
 	const getNotice = ( copySelector ) => {
 		const defaultCopy = __(
-			"During the trial period you can only make test payments. To process real transactions, <a href='%s'>upgrade now.</a>",
+			"Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s'>upgrade to a paid plan</a>.",
 			'wc-calypso-bridge'
 		);
 
@@ -35,7 +37,7 @@
 			default: defaultCopy,
 			transactions: defaultCopy,
 			deposits: __(
-				"During the trial period you’ll not be able to get deposits. To receive payments and payouts, <a href='%s'>upgrade now.</a>",
+				"Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s'>upgrade to a pain plan</a>.",
 				'wc-calypso-bridge'
 			),
 		};
