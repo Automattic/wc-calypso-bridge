@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.6
- * @version 1.0.6
+ * @version 2.0.4
  */
 
 /**
@@ -49,6 +49,22 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 	 * See WooCommerce core for the original method within WC_Admin_Addons.
 	 */
 	public static function output() {
+
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+
+
+			$site_suffix = (new \Automattic\Jetpack\Status())->get_site_suffix();
+			$upgrade_url = sprintf( 'https://wordpress.com/plans/%s', $site_suffix );
+
+			/**
+			 * Addon page view.
+			 *
+			 * @uses $upgrade_url
+			 */
+			include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/templates/html-admin-page-addons-landing-page.php';
+			return;
+		}
+
 		if ( isset( $_GET['section'] ) && 'helper' === $_GET['section'] ) { // WPCS: CSRF ok.
 			do_action( 'woocommerce_helper_output' );
 			return;

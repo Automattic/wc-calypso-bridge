@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.2
+Stable tag: 2.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,51 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Add free trial plan picker banner #917
+* Add wcadmin_free_trial_upgrade_now track for task_list and marketing sources #1023.
+* Add wcadmin_free_trial_learn_more track #1024.
+
+= 2.0.6 =
+* Fix fatal error when trying to remove GC hidden menu items from Calypso menu #1018.
+
+= 2.0.5 =
+* Free trial: Use site title for domain suggestions #991.
+* Prevent deletion of managed plugins (Avatax) #1012.
+* Create navigation menu items #999.
+* Remove PRL, BIS, and GC hidden menu items from Calypso menu #994.
+* Add free trial host value for tracks #995.
+* Use the theme color for completed task strikethrough #1006.
+* Add free trial notice on WooCommerce Orders page #936.
+* Change illustration in tasklist completed component #1007.
+* Add task header for "Add a domain" task #1013.
+* Add task header for "Launch your store" task #1015.
+
+= 2.0.4 =
+* Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
+* Free Trial: Introduce payment restrictions #930.
+* Free trial: Replace Marketing page #984.
+* Free trial: Introduce Extensions landing page - Hide Extensions > Manage #990.
+* Update webpack config to import scss variables and mixins as a global import #988.
+* Fixed wcpay customisation script error #989
+* Customize homescreen title and progress header #987.
+
+
+= 2.0.3 =
+* Override the wc.experimental.useSlot hook #986.
+* Bring Add a domain task back for free trial #985.
+* Hides the Launch task for WooExpress sites #937.
+* Remove absolute path prefix from My Home and Customer menu URLs #974.
+* Fix woocommerce payments task #980.
+* Fix incorrect SVG size #978.
+* WC Payments customizations #977.
+* Replace tax task to remove Avalara #975.
+* Replace product task with custom completion logic #963.
+* Customize payment tasklist header #956.
+* Hide partial tasklist and tasks #951.
+* Override orders empty state screen CTA button class #948.
+* Add disabled tasks accordion component #940.
+* Add task completion task #939.
+* Add homescreen banner #933.
+* Add payment task #919.
 
 = 2.0.2 =
 * Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #969.
