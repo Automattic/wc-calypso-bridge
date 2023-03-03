@@ -33,10 +33,7 @@ const WCPayBannerText = ( { actionButton } ) => {
 				lineHeight="28px"
 				padding="0 20px 0 0"
 			>
-				{ __(
-					'Get ready to be paid and manage your business.',
-					'wc-calypso-bridge'
-				) }
+				{ __( 'Get ready to accept payments', 'wc-calypso-bridge' ) }
 			</Text>
 			<Text
 				className="woocommerce-recommended-payments__header-heading"
