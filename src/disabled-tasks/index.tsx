@@ -39,7 +39,7 @@ export const DisabledTasks = () => {
 					href={ signupUrl }
 					variant="secondary"
 					onClick={ () => {
-						recordEvent( 'wcadmin_free_trial_upgrade_now', {
+						recordEvent( 'free_trial_upgrade_now', {
 							source: 'task_list',
 						} );
 					} }
