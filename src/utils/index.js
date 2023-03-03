@@ -35,6 +35,6 @@ export function createNoticesFromResponse( response ) {
 	}
 }
 
-export const getPlanUpgradeLink = () => {
+export const getUpgradePlanLink = () => {
 	return `https://wordpress.com/plans/${ window.wcCalypsoBridge.siteSlug }`;
 };

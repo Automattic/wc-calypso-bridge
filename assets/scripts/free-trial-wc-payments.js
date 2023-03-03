@@ -6,7 +6,7 @@
 	 *
 	 * Source: https://stackoverflow.com/questions/5525071/how-to-wait-until-an-element-exists
 	 *
-	 * @param selector
+	 * @param {string} selector The selector to wait for.
 	 */
 	const waitForElm = ( selector ) => {
 		return new Promise( ( resolve ) => {
