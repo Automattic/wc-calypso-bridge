@@ -95,6 +95,20 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
+	 * Override the base implementation of add_plugins_menu() to avoid
+	 * adding the Plugins menu for eCommerce trials.
+	 *
+	 * @return void
+	 */
+	public function add_plugins_menu() {
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
+
+		return parent::add_plugins_menu();
+	}
+
+	/**
 	 * Groups WooCommerce items.
 	 */
 	public static function menu_order( $menu_order ) {
