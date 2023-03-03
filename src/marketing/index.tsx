@@ -50,8 +50,7 @@ const UpgradeButton = ( { primary = false }: { primary?: boolean } ) => {
 			}
 			variant={ primary ? 'primary' : 'secondary' }
 			onClick={ () => {
-				console.log( 'upgrade now' );
-				recordEvent( 'wcadmin_free_trial_upgrade_now', {
+				recordEvent( 'free_trial_upgrade_now', {
 					source: 'marketing',
 				} );
 			} }
