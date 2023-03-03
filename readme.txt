@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Free trial: Update notice messages and other copies #1022.
+
 = 2.0.6 =
 * Fix fatal error when trying to remove GC hidden menu items from Calypso menu #1018.
 
