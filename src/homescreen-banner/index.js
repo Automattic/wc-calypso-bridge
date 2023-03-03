@@ -5,6 +5,8 @@ import { Fill, Card, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
 import { useSelect, useDispatch } from '@wordpress/data';
+import { recordEvent } from '@woocommerce/tracks';
+
 /**
  * Internal dependencies
  */
@@ -48,6 +50,9 @@ export const CalypsoBridgeHomescreenBanner = () => {
 						<a
 							href={ `https://wordpress.com/plans/${ window.wcCalypsoBridge.siteSlug }` }
 							className="wc-calypso-bridge-woocommerce-admin-homescreen-banner__learn-more-button components-button is-secondary"
+							onClick={ () => {
+								recordEvent( 'free_trial_learn_more' );
+							} }
 						>
 							{ __( 'Learn more', 'wc-calypso-bridge' ) }
 						</a>
