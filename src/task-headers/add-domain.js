@@ -9,36 +9,30 @@ import { registerPlugin } from '@wordpress/plugins';
 /**
  * Internal dependencies
  */
-import TimerImage from '../../../task-headers/assets/images/timer.svg';
-import { WC_ASSET_URL } from '../../../utils/admin-settings';
+import TimerImage from './assets/images/timer.svg';
+import DomainImage from './assets/images/add-domain-illustration.png';
 
-const PaymentsHeader = () => {
+const AddDomainHeader = () => {
 	return (
-		<WooOnboardingTaskListHeader id="payments">
+		<WooOnboardingTaskListHeader id="add_domain">
 			{ ( { task, goToTask } ) => {
 				return (
 					<div className="woocommerce-task-header__contents-container">
 						<img
 							alt={ __(
-								'Payment illustration',
+								'Add a domain illustration',
 								'wc-calypso-bridge'
 							) }
-							src={
-								WC_ASSET_URL +
-								'images/task_list/payment-illustration.png'
-							}
+							src={ DomainImage }
 							className="svg-background"
 						/>
 						<div className="woocommerce-task-header__contents">
 							<h1>
-								{ __(
-									'It’s time to test payments',
-									'wc-calypso-bridge'
-								) }
+								{ __( 'Add a domain', 'wc-calypso-bridge' ) }
 							</h1>
 							<p>
 								{ __(
-									'Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods.',
+									'Choose a new website address for your store or transfer one you already own.',
 									'wc-calypso-bridge'
 								) }
 							</p>
@@ -47,7 +41,7 @@ const PaymentsHeader = () => {
 								isPrimary={ ! task.isComplete }
 								onClick={ goToTask }
 							>
-								{ __( 'Test payments', 'wc-calypso-bridge' ) }
+								{ __( 'Add a domain', 'wc-calypso-bridge' ) }
 							</Button>
 							<p className="woocommerce-task-header__timer">
 								<img src={ TimerImage } alt="Timer" />{ ' ' }
@@ -61,7 +55,7 @@ const PaymentsHeader = () => {
 	);
 };
 
-registerPlugin( 'wc-calypso-bridge-payments-task-header', {
-	render: PaymentsHeader,
+registerPlugin( 'wc-calypso-bridge-add-domain-task-header', {
+	render: AddDomainHeader,
 	scope: 'woocommerce-tasks',
 } );

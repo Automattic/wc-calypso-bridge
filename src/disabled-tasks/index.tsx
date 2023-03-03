@@ -5,6 +5,7 @@
 import { Fill } from '@wordpress/components';
 import { Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import { recordEvent } from '@woocommerce/tracks';
 
 /**
  * Internal dependencies
@@ -34,7 +35,15 @@ export const DisabledTasks = () => {
 		>
 			<div className="free-trial-disabled-tasks-content">
 				<p>{ notice }</p>
-				<Button href={ signupUrl } variant="primary">
+				<Button
+					href={ signupUrl }
+					variant="secondary"
+					onClick={ () => {
+						recordEvent( 'free_trial_upgrade_now', {
+							source: 'task_list',
+						} );
+					} }
+				>
 					{ __( 'Upgrade now', 'wc-calypso-bridge' ) }
 				</Button>
 				<p className="disabled-task">
