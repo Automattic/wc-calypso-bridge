@@ -119,7 +119,7 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 
 .wc-addons-landing-page__features-grid__item__icon {
 	text-align: center;
-	background: var( --color-accent-5 );
+	background-color: rgba(var( --wp-admin-theme-color--rgb ), .1); /* 50% Alpha */
 	width: 64px;
 	height: 64px;
 	border-radius: 50%;
