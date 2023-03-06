@@ -4,7 +4,7 @@
  * Class WC_Calypso_Bridge_Free_Trial_Orders_Notice.
  *
  * @since   2.0.5
- * @version 2.0.5
+ * @version 2.0.8
  *
  * Renders an admin notice on Orders page.
  */
@@ -61,10 +61,7 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
 	 * @return string
 	 */
 	public function get_action_url() {
-		$status      = new \Automattic\Jetpack\Status();
-		$site_suffix = $status->get_site_suffix();
-
-		return sprintf( "https://wordpress.com/plans/%s", $site_suffix );
+		return sprintf( "https://wordpress.com/plans/%s", WC_Calypso_Bridge_Instance()->get_site_slug() );
 	}
 
 }

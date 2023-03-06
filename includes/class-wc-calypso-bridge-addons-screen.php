@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.6
- * @version 2.0.4
+ * @version 2.0.8
  */
 
 /**
@@ -52,9 +52,7 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 
-
-			$site_suffix = (new \Automattic\Jetpack\Status())->get_site_suffix();
-			$upgrade_url = sprintf( 'https://wordpress.com/plans/%s', $site_suffix );
+			$upgrade_url = sprintf( 'https://wordpress.com/plans/%s', WC_Calypso_Bridge_Instance()->get_site_slug() );
 
 			/**
 			 * Addon page view.

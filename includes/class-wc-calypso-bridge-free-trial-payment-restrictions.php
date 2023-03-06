@@ -364,8 +364,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 				return;
 			}
 
-			$site_slug = ( new \Automattic\Jetpack\Status() )->get_site_suffix();
-			$plan_url  = 'https://wordpress.com/plans/' . $site_slug;
+			$plan_url  = sprintf( 'https://wordpress.com/plans/%s',  WC_Calypso_Bridge_Instance()->get_site_slug() );
 			$message   = sprintf( __( 'Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href="%s">upgrade to a paid plan</a>.', 'wc-calypso-bridge' ), $plan_url );
 
 			?>

@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version 2.0.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -106,12 +106,11 @@ class WC_Calypso_Bridge_Shared {
 			filemtime( WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/build/style-index.css' )
 		);
 
-		$status       = new \Automattic\Jetpack\Status();
-		$site_suffix  = $status->get_site_suffix();
+		$site_suffix = WC_Calypso_Bridge_Instance()->get_site_slug();
 
-		$params       = array(
+		$params      = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
-			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.			
+			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', true ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
@@ -159,7 +158,7 @@ class WC_Calypso_Bridge_Shared {
 	 */
 	public function add_ecommerce_trial_plan_styles() {
 		wp_enqueue_style( 'wp-calypso-bridge-ecommerce-trial', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial-admin.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
-	}	
+	}
 }
 
 WC_Calypso_Bridge_Shared::instance();
