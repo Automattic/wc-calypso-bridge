@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.0.6
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -98,6 +98,9 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Override the base implementation of add_plugins_menu() to avoid
 	 * adding the Plugins menu for eCommerce trials.
 	 *
+	 * @since   x.x.x
+	 * @version x.x.x
+	 *
 	 * @return void
 	 */
 	public function add_plugins_menu() {
@@ -181,7 +184,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
-	 * Fixes the menu highligting based on the changes of the self::add_woocommerce_menu.
+	 * Fixes the menu highlighting based on the changes of the self::add_woocommerce_menu.
 	 *
 	 * @param  string  $submenu_file
 	 * @return string
