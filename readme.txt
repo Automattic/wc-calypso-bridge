@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= unreleased =
+* Free trial: Avoid adding the Plugins menu for eCommerce trials #1027.
+
 = 2.0.7 =
 * Free trial: Update notice messages and other copies #1022.
 * Add free trial plan picker banner #917
