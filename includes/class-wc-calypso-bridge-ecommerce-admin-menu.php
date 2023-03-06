@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.0.6
+ * @version 2.0.8
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -95,6 +95,23 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
+	 * Override the base implementation of add_plugins_menu() to avoid
+	 * adding the Plugins menu for eCommerce trials.
+	 *
+	 * @since   2.0.8
+	 * @version 2.0.8
+	 *
+	 * @return void
+	 */
+	public function add_plugins_menu() {
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
+
+		return parent::add_plugins_menu();
+	}
+
+	/**
 	 * Groups WooCommerce items.
 	 */
 	public static function menu_order( $menu_order ) {
@@ -167,7 +184,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
-	 * Fixes the menu highligting based on the changes of the self::add_woocommerce_menu.
+	 * Fixes the menu highlighting based on the changes of the self::add_woocommerce_menu.
 	 *
 	 * @param  string  $submenu_file
 	 * @return string
