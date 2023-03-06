@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.0.8 =
+* Introduce site slug helper function #1025.
+
 = 2.0.7 =
 * Free trial: Update notice messages and other copies #1022.
 * Add free trial plan picker banner #917

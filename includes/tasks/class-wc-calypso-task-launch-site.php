@@ -7,8 +7,8 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * Launch Site Task
  *
- * @since   1.9.12.
- * @version 1.9.12.
+ * @since   1.9.12
+ * @version 2.0.8
  */
 class LaunchSite extends Task {
 
@@ -88,7 +88,7 @@ class LaunchSite extends Task {
 
 	/**
 	 * The task should not be displayed if the site is on the eCommerce trial.
-	 * 
+	 *
 	 * @return bool
 	 */
 	public function can_view() {
