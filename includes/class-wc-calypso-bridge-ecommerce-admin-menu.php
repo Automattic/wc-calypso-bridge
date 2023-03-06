@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version x.x.x
+ * @version 2.0.8
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -98,8 +98,8 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Override the base implementation of add_plugins_menu() to avoid
 	 * adding the Plugins menu for eCommerce trials.
 	 *
-	 * @since   x.x.x
-	 * @version x.x.x
+	 * @since   2.0.8
+	 * @version 2.0.8
 	 *
 	 * @return void
 	 */
