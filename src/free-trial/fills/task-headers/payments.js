@@ -38,7 +38,7 @@ const PaymentsHeader = () => {
 							</h1>
 							<p>
 								{ __(
-									'Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods.',
+									'Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods.',
 									'wc-calypso-bridge'
 								) }
 							</p>
