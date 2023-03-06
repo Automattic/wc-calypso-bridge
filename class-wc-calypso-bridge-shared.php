@@ -106,7 +106,7 @@ class WC_Calypso_Bridge_Shared {
 			filemtime( WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/build/style-index.css' )
 		);
 
-		$site_suffix = wc_calypso_bridge_get_site_slug();
+		$site_suffix = WC_Calypso_Bridge_Instance()->get_site_slug();
 
 		$params      = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
