@@ -74,10 +74,7 @@ class LaunchSite extends Task {
 	 * @return string|null
 	 */
 	public function get_action_url() {
-		$status      = new \Automattic\Jetpack\Status();
-		$site_suffix = $status->get_site_suffix();
-
-		return ! $this->is_complete() ? null : sprintf( "https://wordpress.com/settings/general/%s#site-privacy-settings", $site_suffix );
+		return ! $this->is_complete() ? null : sprintf( "https://wordpress.com/settings/general/%s#site-privacy-settings", WC_Calypso_Bridge_Instance()->get_site_slug() );
 	}
 
 	/**

@@ -86,8 +86,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 
 			// Hide Tools > Marketing and Tools > Earn submenus.
-			$status       = new \Automattic\Jetpack\Status();
-			$site_suffix  = $status->get_site_suffix();
+			$site_suffix  = WC_Calypso_Bridge_Instance()->get_site_slug();
 			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $site_suffix ) );
 			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $site_suffix ) );
 
