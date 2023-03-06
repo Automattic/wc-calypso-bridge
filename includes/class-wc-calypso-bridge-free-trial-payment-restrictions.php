@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.4
- * @version 2.0.4
+ * @version 2.0.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -301,8 +301,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 					return translation;
 				}
 
-				// Adding the filter
-				wp.hooks.addFilter(
+				window.wp && window.wp.hooks && window.wp.hooks.addFilter(
 					'i18n.gettext_woocommerce',
 					'wc-calypso-bridge/override-no-payment-methods-message',
 					overrideNoPaymentMethodsMessage
