@@ -228,7 +228,7 @@ class WC_Calypso_Bridge {
 		// The Jetpack class should be auto-loaded if Jetpack has been loaded,
 		// but we've seen fatals from cases where the class wasn't defined.
 		// So let's make double-sure it exists before calling it.
-		if ( false && class_exists( '\Automattic\Jetpack\Status' ) ) {
+		if ( class_exists( '\Automattic\Jetpack\Status' ) ) {
 			$jetpack_status = new \Automattic\Jetpack\Status();
 
 			return $jetpack_status->get_site_suffix();
