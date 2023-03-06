@@ -7,8 +7,8 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * Launch Site Task
  *
- * @since   1.9.12.
- * @version 1.9.12.
+ * @since   1.9.12
+ * @version 2.0.8
  */
 class LaunchSite extends Task {
 
@@ -74,10 +74,7 @@ class LaunchSite extends Task {
 	 * @return string|null
 	 */
 	public function get_action_url() {
-		$status      = new \Automattic\Jetpack\Status();
-		$site_suffix = $status->get_site_suffix();
-
-		return ! $this->is_complete() ? null : sprintf( "https://wordpress.com/settings/general/%s#site-privacy-settings", $site_suffix );
+		return ! $this->is_complete() ? null : sprintf( "https://wordpress.com/settings/general/%s#site-privacy-settings", WC_Calypso_Bridge_Instance()->get_site_slug() );
 	}
 
 	/**
@@ -91,7 +88,7 @@ class LaunchSite extends Task {
 
 	/**
 	 * The task should not be displayed if the site is on the eCommerce trial.
-	 * 
+	 *
 	 * @return bool
 	 */
 	public function can_view() {

@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.8 =
+* Introduce site slug helper function #1025.
 * Free trial: Avoid adding the Plugins menu for eCommerce trials #1027.
 
 = 2.0.7 =

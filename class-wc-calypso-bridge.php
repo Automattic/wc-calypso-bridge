@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.5
+ * @version 2.0.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -214,6 +214,32 @@ class WC_Calypso_Bridge {
 	 */
 	public function get_asset_path() {
 		return self::$plugin_asset_path ? self::$plugin_asset_path : self::MU_PLUGIN_ASSET_PATH;
+	}
+
+	/**
+	 * Defensive helper function to return the current site slug in a way that will work
+	 * when Automattic\Jetpack\Status hasn't been loaded by the Jetpack plugin.
+	 *
+	 * @since 2.0.8
+	 *
+	 * @return string
+	 */
+	public function get_site_slug() {
+		// The Jetpack class should be auto-loaded if Jetpack has been loaded,
+		// but we've seen fatals from cases where the class wasn't defined.
+		// So let's make double-sure it exists before calling it.
+		if ( class_exists( '\Automattic\Jetpack\Status' ) ) {
+			$jetpack_status = new \Automattic\Jetpack\Status();
+
+			return $jetpack_status->get_site_suffix();
+		}
+
+		// If the Jetpack Status class doesn't exist, fall back on site_url()
+		// with any trailing '/' characters removed.
+		$site_url = untrailingslashit( site_url( '/', 'https' ) );
+
+		// Remove the leading 'https://' and replace any remaining `/` characters with
+		return str_replace( '/', '::', substr( $site_url, 8 ) );
 	}
 
 	/**
