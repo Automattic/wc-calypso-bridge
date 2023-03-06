@@ -216,6 +216,32 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
+	 * Defensive helper function to return the current site slug in a way that will work
+	 * when Automattic\Jetpack\Status hasn't been loaded by the Jetpack plugin.
+	 *
+	 * @since 2.0.8
+	 *
+	 * @return string
+	 */
+	public function get_site_slug() {
+		// The Jetpack class should be auto-loaded if Jetpack has been loaded,
+		// but we've seen fatals from cases where the class wasn't defined.
+		// So let's make double-sure it exists before calling it.
+		if ( class_exists( '\Automattic\Jetpack\Status' ) ) {
+			$jetpack_status = new \Automattic\Jetpack\Status();
+
+			return $jetpack_status->get_site_suffix();
+		}
+
+		// If the Jetpack Status class doesn't exist, fall back on home_url()
+		// with any trailing '/' characters removed.
+		$home_url = trim( home_url( '', 'https' ), '/' );
+
+		// Remove the leading 'https://' and replace any remaining `/` characters with
+		return str_replace( '/', '::', substr( $home_url, 8 ) );
+	}
+
+	/**
 	 * Record event using JetPack if enabled
 	 *
 	 * @param string $event_name Name of the event.
