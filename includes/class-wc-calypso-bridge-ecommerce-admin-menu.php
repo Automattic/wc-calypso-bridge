@@ -40,7 +40,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Move Orders.
 		// TODO: What about the COT menu?
 		add_filter( 'woocommerce_register_post_type_shop_order', function( $args ) {
-			$args[ 'labels' ][ 'add_new' ] = __( 'Add new', 'woocommerce' );
+			$args[ 'labels' ][ 'add_new' ] = __( 'Add New', 'woocommerce' );
 			$args[ 'show_in_menu' ]        = true;
 			$args[ 'menu_icon' ]           = 'dashicons-cart';
 			return $args;
