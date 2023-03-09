@@ -33,6 +33,7 @@ jobs:
 
   build-and-release:
       needs: php-coding-standards
+      name: Build and Release
       runs-on: ubuntu-latest
 
       steps:
