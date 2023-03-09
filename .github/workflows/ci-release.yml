@@ -1,0 +1,71 @@
+name: Release CI
+
+on:
+  pull_request:
+    types:
+      - closed
+  branches:
+      - master
+
+jobs:
+
+  check-versions:
+      if: |
+        github.event.pull_request.merged == true &&
+        startsWith(github.head_ref, 'release/') &&
+        matches(github.head_ref, 'release/[0-9]+\.[0-9]+\.[0-9]+')
+      name: Check versions
+      runs-on: ubuntu-latest
+
+      steps:
+
+          - name: Checkout repository
+            uses: actions/checkout@v3
+
+          - name: Check Versions
+            run: |
+              bash ./bin/check-versions.sh
+
+  php-coding-standards:
+      needs: check-versions
+      name: PHP
+      uses: ./.github/workflows/check-coding-standards.yml
+
+  build-and-release:
+      needs: php-coding-standards
+      runs-on: ubuntu-latest
+
+      steps:
+
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Extract version number
+          id: extract-version
+          run: echo "${{ github.head_ref#release/ }}" >> $GITHUB_ENV
+
+        - name: Validate version number
+          run: |
+            if [[ ! ${{ env.VERSION }} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "Error: Invalid version number."
+              exit 1
+            fi
+
+        - name: Build project
+          run: |
+            npm run build
+            rm -rf node_modules
+
+        - name: Create tag and push changes
+          run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git tag ${{ env.VERSION }}
+            git checkout ${{ env.VERSION }}
+            git add ./build --force
+            git commit -m 'Adding build directory to release' --no-verify
+            git tag -f ${{ env.VERSION }}
+            git push origin ${{ env.VERSION }}
+
+
+
