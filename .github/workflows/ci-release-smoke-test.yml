@@ -27,13 +27,13 @@ jobs:
     #     uses: ./.github/workflows/check-coding-standards.yml
 
     handle-comment:
+      needs: check-versions
       name: Add PR Comment
       runs-on: ubuntu-latest
 
       steps:
 
           - name: Check PR Comment
-              needs: check-versions
               id: check_comment
               run: |
                 body=$(echo -n ':white_check_mark: This pull request has passed all tests and is ready to be merged.')
