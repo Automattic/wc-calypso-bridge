@@ -33,16 +33,19 @@ jobs:
 
       steps:
 
+          - name: Install tools
+            run: |
+              sudo apt-get install jq
+
           - name: Check PR Comment
-              id: check_comment
-              run: |
-                body=$(echo -n ':white_check_mark: This pull request has passed all tests and is ready to be merged.')
-                existing_comment=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments | jq -r ".[] | select(.user.login == \"${{ github.actor }}\") | select(.body == \"${body}\") | .id")
-                if [ "$existing_comment" != "" ]; then
-                  echo "::set-output name=comment_created::true"
-                else
-                  echo "::set-output name=comment_created::false"
-                fi
+            id: check_comment
+            run: |
+              body=$(echo -n ':white_check_mark: This pull request has passed all tests and is ready to be merged.')
+              existing_comment=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments | jq -r ".[] | select(.user.login == \"${{ github.actor }}\") | select(.body == \"${body}\") | .id")
+              if [ "$existing_comment" != "" ]; then
+                echo "Comment already created"
+                exit 1
+              fi
 
           - name: Add PR Comment
             if: ${{ success() && steps.check_comment.outputs.comment_created != 'true' }}
