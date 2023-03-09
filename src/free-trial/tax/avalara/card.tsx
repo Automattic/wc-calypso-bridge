@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { useState } from '@wordpress/element';
 import { getAdminLink } from '@woocommerce/settings';
 import interpolateComponents from '@automattic/interpolate-components';
 import { recordEvent } from '@woocommerce/tracks';
@@ -19,6 +20,7 @@ export const Card: React.FC< TaxChildProps > = ( { task } ) => {
 	const { additionalData: { avalaraActivated } = {} } = task;
 	const { activatePlugins } = useDispatch( PLUGINS_STORE_NAME );
 	const { createNotice } = useDispatch( 'core/notices' );
+	const [ isActivating, setIsActivating ] = useState( false );
 
 	return (
 		<PartnerCard
@@ -52,27 +54,31 @@ export const Card: React.FC< TaxChildProps > = ( { task } ) => {
 					? __( 'Continue setup', 'woocommerce' )
 					: __( 'Enable & set up', 'woocommerce' )
 			}
+			isBusy={ isActivating }
 			onClick={ async () => {
 				recordEvent( 'tasklist_tax_select_option', {
 					selected_option: 'avalara',
 				} );
 
-				try {
-					await activatePlugins( [ 'woocommerce-avatax' ] );
-				} catch ( error ) {
-					console.error( error );
-					createNotice(
-						'error',
-						__(
-							'There was a problem activating the plugin. Please try again.',
-							'woocommerce'
-						)
-					);
-					return;
+				if ( ! avalaraActivated ) {
+					try {
+						setIsActivating( true );
+						await activatePlugins( [ 'woocommerce-avatax' ] );
+					} catch ( error ) {
+						createNotice(
+							'error',
+							__(
+								'There was a problem activating the plugin. Please try again.',
+								'woocommerce'
+							)
+						);
+						setIsActivating( false );
+						return;
+					}
 				}
 
 				window.location.href = getAdminLink(
-					'/admin.php?page=wc-settings&tab=tax&section=avatax'
+					'admin.php?page=wc-settings&tab=tax&section=avatax'
 				);
 			} }
 		/>
