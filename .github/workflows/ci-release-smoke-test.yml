@@ -41,7 +41,7 @@ jobs:
             id: check_comment
             run: |
               body=$(echo -n 'The smoke tests for this PR have passed')
-              existing_comment=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments | jq -r ".[] | select(.user.login == \"${{ github.actor }}\") | select(.body | contains(\"${body}\")) | .id")
+              existing_comment=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments | jq -r ".[] | select(.body | contains(\"${body}\")) | .id")
               if [ "$existing_comment" != "" ]; then
                 echo "Comment already created"
                 exit 1
