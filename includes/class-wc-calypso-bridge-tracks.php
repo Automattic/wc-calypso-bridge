@@ -6,7 +6,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version 2.0.5
+ * @version 2.0.9
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -46,16 +46,8 @@ class WC_Calypso_Bridge_Tracks {
 	private function __construct() {
 
 		/**
-		 * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
+		 * Init tracking configuration.
 		 */
-		add_filter( 'pre_option_woocommerce_allow_tracking', static function() {
-			return 'yes';
-		} );
-
-		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
-			return;
-		}
-
 		add_action( 'init', array( $this, 'init' ) );
 	}
 
