@@ -26,6 +26,22 @@ jobs:
     #     name: PHP
     #     uses: ./.github/workflows/check-coding-standards.yml
 
+    - name: Check PR Comment
+        needs: check-versions
+        id: check_comment
+        run: |
+          body=$(echo -n ':white_check_mark: This pull request has passed all tests and is ready to be merged.')
+          existing_comment=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments | jq -r ".[] | select(.user.login == \"${{ github.actor }}\") | select(.body == \"${body}\") | .id")
+          if [ "$existing_comment" != "" ]; then
+            echo "::set-output name=comment_created::true"
+          else
+            echo "::set-output name=comment_created::false"
+          fi
+    - name: Add PR Comment
+      if: ${{ success() && steps.check_comment.outputs.comment_created != 'true' }}
+      run: |
+        curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -X POST -d '{"body": ":white_check_mark: This pull request has passed all tests and is ready to be merged."}' "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
+
     # setup:
     #     name: NodeJS
     #     needs: php-coding-standards
