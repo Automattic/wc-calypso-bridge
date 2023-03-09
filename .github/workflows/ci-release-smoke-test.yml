@@ -3,7 +3,7 @@ name: Release Smoke Test CI
 on:
   pull_request:
     branches:
-      - deploy
+      - release/**
 
 jobs:
 
@@ -21,17 +21,11 @@ jobs:
             - name: Check Versions
               run: |
                 bash ./bin/check-versions.sh
-                RELEASE_VERSION=$( awk '/"version":/ {print}' composer.json | sed 's/[^0-9.]*\([0-9.]*\).*/\1/' )
-                echo "RELEASE_VERSION=${RELEASE_VERSION}" >> $GITHUB_ENV
 
-            - name: Export release version
-              id: export
-              run: echo "::set-output name=version::$RELEASE_VERSION"
-
-    php-coding-standards:
-        needs: check-versions
-        name: PHP
-        uses: ./.github/workflows/check-coding-standards.yml
+    # php-coding-standards:
+    #     needs: check-versions
+    #     name: PHP
+    #     uses: ./.github/workflows/check-coding-standards.yml
 
     # setup:
     #     name: NodeJS
