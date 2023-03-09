@@ -3,11 +3,13 @@ name: Release Smoke Test CI
 on:
   pull_request:
     branches:
-      - release/**
+      - master
 
 jobs:
 
     check-versions:
+        if: startsWith(github.head_ref, 'release/')
+        # if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged && startsWith(github.head_ref, 'release/')
         name: Check versions
         runs-on: ubuntu-20.04
         outputs:
