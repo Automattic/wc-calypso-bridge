@@ -64,6 +64,7 @@ export const Card: React.FC< TaxChildProps > = ( { task } ) => {
 					try {
 						setIsActivating( true );
 						await activatePlugins( [ 'woocommerce-avatax' ] );
+						setIsActivating( false );
 					} catch ( error ) {
 						createNotice(
 							'error',
