@@ -53,6 +53,13 @@ if ( ! defined( 'WC_MIN_VERSION' ) ) {
 	define( 'WC_MIN_VERSION', '7.3' );
 }
 
+/**
+ * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
+ */
+add_filter( 'pre_option_woocommerce_allow_tracking', function() {
+	return 'yes';
+} );
+
 // The Bridge Main Controller.
 require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
 require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge.php';
