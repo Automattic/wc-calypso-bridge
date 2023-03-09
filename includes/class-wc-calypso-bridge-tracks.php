@@ -46,13 +46,6 @@ class WC_Calypso_Bridge_Tracks {
 	private function __construct() {
 
 		/**
-		 * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
-		 */
-		add_filter( 'pre_option_woocommerce_allow_tracking', static function() {
-			return 'yes';
-		} );
-
-		/**
 		 * Init tracking configuration.
 		 */
 		add_action( 'init', array( $this, 'init' ) );
