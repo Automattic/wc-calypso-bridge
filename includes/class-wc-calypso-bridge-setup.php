@@ -328,9 +328,7 @@ class WC_Calypso_Bridge_Setup {
 						'post_content' => $menu_content,
 					) );
 
-
 				}
-
 
 				$wpdb->query(
 					$wpdb->prepare( "
