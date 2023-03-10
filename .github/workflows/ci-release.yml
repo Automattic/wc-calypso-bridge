@@ -47,8 +47,13 @@ jobs:
       name: PHP
       uses: ./.github/workflows/check-coding-standards.yml
 
-  build-and-release:
+  setup:
+      name: NodeJS
       needs: php-coding-standards
+      uses: ./.github/workflows/setup-node.yml
+
+  build-and-release:
+      needs: setup
       name: Build and Release
       runs-on: ubuntu-latest
 
