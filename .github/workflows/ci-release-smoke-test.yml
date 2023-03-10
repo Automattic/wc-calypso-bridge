@@ -19,7 +19,12 @@ jobs:
 
             - name: Extract Version Number
               run: |
-                version=$(echo $GITHUB_REF | sed 's/refs\/heads\/release\///')
+                branch_name=${GITHUB_REF##*/} # Get the branch name without the "refs/heads/" prefix
+                version=${branch_name#"release/"} # Remove the "release/" prefix
+                if ! [[ $version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                  echo "Error: Branch name '$branch_name' is not in the format 'release/X.X.X'"
+                  exit 1
+                fi
                 echo "VERSION=${version}" >> $GITHUB_ENV
               env:
                 GITHUB_REF: ${{ github.ref }}
