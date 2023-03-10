@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 REQUIRED_VERSION=$1
+echo -e "${BLUE}Checking for version: $REQUIRED_VERSION${NC}"
 PACKAGE_BASE=$(echo "$GITHUB_REPOSITORY" | awk -F'/' '{print $2}' )
 
 # HELPERS.
