@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.5
+ * @version 2.0.10
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -287,8 +287,17 @@ class WC_Calypso_Bridge_Setup {
 				WC_Install::create_pages();
 
 				// Get navigation menu page and set up the menu.
-				$menu_page_post = get_page_by_path( 'primary', OBJECT, 'wp_navigation' );
-				if ( is_a( $menu_page_post, 'WP_Post' ) ) {
+				$menu_page_slugs = array(
+					'primary',
+					'header-navigation',
+				);
+
+				foreach ( $menu_page_slugs as $menu_page_slug ) {
+					$menu_page_post = get_page_by_path( $menu_page_slug, OBJECT, 'wp_navigation' );
+
+					if ( ! is_a( $menu_page_post, 'WP_Post' ) ) {
+						continue;
+					}
 
 					$menu_pages = array(
 						'shop'       => get_post( get_option( 'woocommerce_shop_page_id' ) ),
@@ -319,7 +328,9 @@ class WC_Calypso_Bridge_Setup {
 						'post_content' => $menu_content,
 					) );
 
+
 				}
+
 
 				$wpdb->query(
 					$wpdb->prepare( "
