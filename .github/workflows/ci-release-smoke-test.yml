@@ -17,9 +17,12 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v3
 
-            - name: Extract version number
-              id: extract-version
-              run: echo "${{ github.head_ref#release/ }}" >> $GITHUB_ENV
+            - name: Extract Version Number
+              run: |
+                version=$(echo $GITHUB_REF | sed 's/refs\/heads\/release\///')
+                echo "VERSION=${version}" >> $GITHUB_ENV
+              env:
+                GITHUB_REF: ${{ github.ref }}
 
             - name: Check Versions
               run: |
