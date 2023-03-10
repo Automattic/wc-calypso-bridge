@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.0.10 =
-* Create navigation menus with new slugs #xxx.
+* Create navigation menus with new slugs #1039.
 
 = 2.0.9 =
 * Fix an issue with the WC Tracker #1034.
