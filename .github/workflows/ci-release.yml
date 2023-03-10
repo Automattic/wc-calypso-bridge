@@ -5,15 +5,13 @@ on:
     types:
       - closed
     branches:
-        - master
+      - deploy
 
 jobs:
 
   check-versions:
-      if: |
-        github.event.pull_request.merged == true &&
-        startsWith(github.head_ref, 'release/') &&
-        matches(github.head_ref, 'release/[0-9]+\.[0-9]+\.[0-9]+')
+      if: startsWith(github.head_ref, 'release/')
+      # if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
       name: Check versions
       runs-on: ubuntu-latest
 
@@ -49,8 +47,13 @@ jobs:
       name: PHP
       uses: ./.github/workflows/check-coding-standards.yml
 
-  build-and-release:
+  setup:
+      name: NodeJS
       needs: php-coding-standards
+      uses: ./.github/workflows/setup-node.yml
+
+  build-and-release:
+      needs: setup
       name: Build and Release
       runs-on: ubuntu-latest
 
@@ -83,6 +86,15 @@ jobs:
               echo "Error: Invalid version number."
               exit 1
             fi
+
+        - name: Restore node_modules
+          id: cache-node-modules
+          uses: actions/cache@v3
+          env:
+              cache-name: cache-node-modules
+          with:
+              path: node_modules
+              key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
         - name: Build project
           run: |
