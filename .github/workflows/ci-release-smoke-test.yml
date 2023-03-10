@@ -19,13 +19,19 @@ jobs:
 
             - name: Extract Version Number
               run: |
-                branch_name=${GITHUB_REF##*/} # Get the branch name without the "refs/heads/" prefix
-                version=${branch_name#"release/"} # Remove the "release/" prefix
-                if ! [[ $version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-                  echo "Error: Branch name '$branch_name' is not in the format 'release/X.X.X'"
+                if [[ "${{ github.head_ref }}" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+                  version="${BASH_REMATCH[1]}"
+                  echo "Extracted version number: ${version}"
+                  if ! [[ "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                    echo "Invalid version number format: ${version}"
+                    exit 1
+                  fi
+                  echo "Valid version number format"
+                  echo "VERSION=${version}" >> $GITHUB_ENV
+                else
+                  echo "Branch name does not match the release/X.X.X format: ${{ github.head_ref }}"
                   exit 1
                 fi
-                echo "VERSION=${version}" >> $GITHUB_ENV
               env:
                 GITHUB_REF: ${{ github.ref }}
 
