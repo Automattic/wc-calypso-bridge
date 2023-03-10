@@ -24,7 +24,7 @@ else
 	echo -e "${BLUE}- Main PHP file versions: OK${NC}"
 fi
 
-COMPOSER_VERSION=$(awk '/"version":/ {print}' composer.json | sed 's/[^0-9v.]*\([0-9v.]*\).*/\1/' | sed 's/^v//')
+COMPOSER_VERSION=$(awk -F'"' '/version/{print $4; exit}' composer.json | sed 's/^v\?\(.*\)/\1/' | sed 's/[^0-9.]*\([0-9.]*\).*/\1/')
 if [[ $COMPOSER_VERSION != $PHP_CURRENT_VERSION ]]; then
 	echo "composer.json version does not match with main file... Exiting with error."
 	exit 1
