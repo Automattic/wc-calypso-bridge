@@ -17,6 +17,7 @@ concurrency:
 jobs:
 
     php-coding-standards:
+        if: ${{ !startsWith(github.head_ref, 'release/') }}
         # if: github.event.pull_request.draft == false
         name: PHP
         uses: ./.github/workflows/check-coding-standards.yml
