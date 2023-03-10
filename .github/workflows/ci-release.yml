@@ -22,9 +22,13 @@ jobs:
           - name: Checkout repository
             uses: actions/checkout@v3
 
+          - name: Extract version number
+            id: extract-version
+            run: echo "${{ github.head_ref#release/ }}" >> $GITHUB_ENV
+
           - name: Check Versions
             run: |
-              bash ./bin/check-versions.sh
+              bash ./bin/check-versions.sh ${{ env.VERSION }}
 
   php-coding-standards:
       needs: check-versions
