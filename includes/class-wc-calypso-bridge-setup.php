@@ -290,6 +290,7 @@ class WC_Calypso_Bridge_Setup {
 				$menu_page_slugs = array(
 					'primary',
 					'header-navigation',
+					'navigation',
 				);
 
 				foreach ( $menu_page_slugs as $menu_page_slug ) {
