@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Fixed css conflict for snackbar
+
 = 2.0.10 =
 * Create navigation menus with new slugs #1039.
 
