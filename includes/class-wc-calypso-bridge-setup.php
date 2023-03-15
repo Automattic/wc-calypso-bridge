@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.10
+ * @version 2.0.11
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -118,6 +118,18 @@ class WC_Calypso_Bridge_Setup {
 
 				$wp_admin_bar->remove_menu( 'ab-new-post' );
 			}, PHP_INT_MAX );
+
+			/**
+			 * Increase WC Tracker's frequency.
+			 * Priority is set to 999, so we can hook later and decide what the frequency is.
+			 *
+			 * @since   2.0.11
+			 *
+			 * @return int
+			 */
+			add_filter( 'woocommerce_tracker_last_send_interval', static function () {
+				return strtotime( '-1 day' );
+			}, 999 );
 		}
 	}
 
