@@ -23,7 +23,9 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Fixed css conflict for snackbar
+* Fixed css conflict for snackbar #1041
+* Add avalara plugin to Tax task #1032
+* Remove default store notice #1053
 
 = 2.0.10 =
 * Create navigation menus with new slugs #1039.
