@@ -51,6 +51,28 @@ class WC_Calypso_Bridge_Tracks {
 		 * Init tracking configuration.
 		 */
 		add_action( 'init', array( $this, 'init' ) );
+
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
+
+			// Increase the frequency of the WC Tracker for the first three months.
+			// TODO: Change it to 3 months before merging.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 36 * MONTH_IN_SECONDS ) ) {
+//				error_log( '🔥 Increasing WC Tracker frequency');
+				/**
+				 * Increase WC Tracker's frequency.
+				 *
+				 * @since   2.0.11
+				 *
+				 * @return int
+				 */
+				add_filter( 'woocommerce_tracker_last_send_interval', static function () {
+					return strtotime( '-1 hour' );
+				}, PHP_INT_MAX );
+
+				// Define constant so other plugins can check if this is set and adapt accordingly.
+				wc_maybe_define_constant( 'WC_CALYPSO_TRACKER_INCREASED_FREQUENCY', true );
+			}
+		}
 	}
 
 	/**
@@ -71,28 +93,6 @@ class WC_Calypso_Bridge_Tracks {
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );
 		add_filter( 'woocommerce_apply_user_tracking', '__return_true' );
 		add_filter( 'woocommerce_tracker_data', array( $this, 'add_host_to_wctracker_param' ) );
-
-		if ( wc_calypso_bridge_has_ecommerce_features() ) {
-
-			// Increase the frequency of the WC Tracker for the first three months.
-			// TODO: Change it to 3 months before merging.
-			if ( ! WCAdminHelper::is_wc_admin_active_for( 36 * MONTH_IN_SECONDS ) ) {
-				error_log( '🔥 Increasing WC Tracker frequency');
-				/**
-				 * Increase WC Tracker's frequency.
-				 *
-				 * @since   2.0.11
-				 *
-				 * @return int
-				 */
-				add_filter( 'woocommerce_tracker_last_send_interval', static function () {
-					return strtotime( '-1 day' );
-				}, PHP_INT_MAX );
-
-				// Define constant so other plugins can check if this is set and adapt accordingly.
-				wc_maybe_define_constant( 'WC_CALYPSO_TRACKER_INCREASED_FREQUENCY', true );
-			}
-		}
 	}
 
 	/**
