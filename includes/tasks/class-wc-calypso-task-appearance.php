@@ -29,6 +29,7 @@ class WCBridgeAppearance extends Appearance {
 	 * Check if the site has a homepage set up.
 	 */
 	public static function has_homepage() {
+		// Temporary hotfix, we should implement a better solution in Core.
 		$themes_no_need_homepage = array(
 			'Tsubaki',
 		);
