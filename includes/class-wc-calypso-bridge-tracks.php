@@ -57,7 +57,6 @@ class WC_Calypso_Bridge_Tracks {
 			// Increase the frequency of the WC Tracker for the first three months.
 			// TODO: Change it to 3 months before merging.
 			if ( ! WCAdminHelper::is_wc_admin_active_for( 36 * MONTH_IN_SECONDS ) ) {
-//				error_log( '🔥 Increasing WC Tracker frequency');
 				/**
 				 * Increase WC Tracker's frequency.
 				 *
@@ -66,11 +65,12 @@ class WC_Calypso_Bridge_Tracks {
 				 * @return int
 				 */
 				add_filter( 'woocommerce_tracker_last_send_interval', static function () {
+					error_log( '🔥 Bridge: Increased WC Tracker frequency' );
 					return strtotime( '-1 hour' );
 				}, PHP_INT_MAX );
 
 				// Define constant so other plugins can check if this is set and adapt accordingly.
-				wc_maybe_define_constant( 'WC_CALYPSO_TRACKER_INCREASED_FREQUENCY', true );
+				wc_maybe_define_constant( 'WC_CALYPSO_BRIDGE_TRACKER_INCREASED_FREQUENCY', true );
 			}
 		}
 	}
