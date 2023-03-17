@@ -38,6 +38,8 @@ class WC_Calypso_Bridge_Setup {
 	 * Array of operations - name => callback.
 	 *
 	 * @since 1.9.4
+	 * @see   $this->modify_one_time_operations() to unset operations that should not run.
+	 *
 	 * @var array
 	 */
 	protected $one_time_operations = array(
@@ -134,6 +136,8 @@ class WC_Calypso_Bridge_Setup {
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
 			unset( $this->one_time_operations[ 'woocommerce_create_pages' ] );
+			unset( $this->one_time_operations[ 'set_wc_tracker_twice_daily_callback' ] );
+			unset( $this->one_time_operations[ 'set_wc_tracker_default_callback' ] );
 		}
 	}
 
@@ -201,7 +205,7 @@ class WC_Calypso_Bridge_Setup {
 		}, PHP_INT_MAX );
 	}
 
-	/**
+	/**F
 	 * Create WooCommerce related pages for the Ecommerce Plan.
 	 *
 	 * @since 1.9.8
