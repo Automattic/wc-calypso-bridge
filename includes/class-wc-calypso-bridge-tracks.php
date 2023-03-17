@@ -66,7 +66,7 @@ class WC_Calypso_Bridge_Tracks {
 				 */
 				add_filter( 'woocommerce_tracker_last_send_interval', static function () {
 					error_log( '🔥 Bridge: Increased WC Tracker frequency' );
-					return strtotime( '-1 hour' );
+					return strtotime( '-1 day' );
 				}, PHP_INT_MAX );
 
 				// Define constant so other plugins can check if this is set and adapt accordingly.
