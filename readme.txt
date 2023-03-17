@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Fixed css conflict for snackbar
+* Remove homepage step from Personalize task for Tsubaki theme #1054.
 
 = 2.0.10 =
 * Create navigation menus with new slugs #1039.
