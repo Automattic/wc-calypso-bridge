@@ -24,9 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Fixed css conflict for snackbar
-
-= 2.0.11 =
-* Increase WC Tracker frequency to run on a daily basis #xxx.
+* Increase WC Tracker frequency to run on a daily basis for the first 3 months #1050.
 
 = 2.0.10 =
 * Create navigation menus with new slugs #1039.
