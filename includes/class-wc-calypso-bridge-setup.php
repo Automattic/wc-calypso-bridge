@@ -205,7 +205,7 @@ class WC_Calypso_Bridge_Setup {
 		}, PHP_INT_MAX );
 	}
 
-	/**F
+	/**
 	 * Create WooCommerce related pages for the Ecommerce Plan.
 	 *
 	 * @since 1.9.8
