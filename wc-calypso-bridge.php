@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Calypso Bridge
  * Plugin URI: https://wordpress.com/
  * Description: A feature plugin to provide ux enhancements for users of Store on WordPress.com.
- * Version: 2.1.0
+ * Version: 2.0.11
  * Author: Automattic
  * Author URI: https://wordpress.com/
  * Requires at least: 4.4
@@ -47,7 +47,7 @@ if ( ! defined( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH' ) ) {
 	define( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH', dirname( __FILE__ ) );
 }
 if ( ! defined( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION' ) ) {
-	define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '2.1.0' );
+	define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '2.0.11' );
 }
 if ( ! defined( 'WC_MIN_VERSION' ) ) {
 	define( 'WC_MIN_VERSION', '7.3' );
@@ -56,9 +56,12 @@ if ( ! defined( 'WC_MIN_VERSION' ) ) {
 /**
  * Always make the tracks setting be yes. Users can opt via WordPress.com privacy settings.
  */
-add_filter( 'pre_option_woocommerce_allow_tracking', function() {
-	return 'yes';
-} );
+add_filter(
+	'pre_option_woocommerce_allow_tracking',
+	function() {
+		return 'yes';
+	}
+);
 
 // The Bridge Main Controller.
 require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/class-wc-calypso-bridge-dotcom-features.php';
