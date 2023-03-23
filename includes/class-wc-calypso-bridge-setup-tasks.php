@@ -125,9 +125,15 @@ class WC_Calypso_Bridge_Setup_Tasks {
 	public function replace_tasks( $lists ) {
 		if ( isset( $lists['setup'] ) ) {
 			foreach ($lists['setup']->tasks as $index => $task) {
-				if ( $task->get_id() === 'products' ) {
-					require_once __DIR__ . '/tasks/class-wc-calypso-task-headstart-products.php';
-					$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\HeadstartProducts( $lists['setup'] );
+				switch ( $task->get_id() ) {
+					case 'products':
+						require_once __DIR__ . '/tasks/class-wc-calypso-task-headstart-products.php';
+						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\HeadstartProducts( $lists['setup'] );
+							break;
+					case 'appearance':
+						require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
+						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] );
+							break;
 				}
 			}
 		}
