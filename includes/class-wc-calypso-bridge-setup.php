@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.10
+ * @version 2.0.11
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -38,12 +38,16 @@ class WC_Calypso_Bridge_Setup {
 	 * Array of operations - name => callback.
 	 *
 	 * @since 1.9.4
+	 * @see   $this->modify_one_time_operations() to unset operations that should not run.
+	 *
 	 * @var array
 	 */
 	protected $one_time_operations = array(
-		'delete_coupon_moved_notes' => 'delete_coupon_moved_notes_callback',
-		'woocommerce_create_pages'  => 'woocommerce_create_pages_callback',
-		'set_jetpack_defaults'      => 'set_jetpack_defaults_callback',
+		'delete_coupon_moved_notes'  => 'delete_coupon_moved_notes_callback',
+		'woocommerce_create_pages'   => 'woocommerce_create_pages_callback',
+		'set_jetpack_defaults'       => 'set_jetpack_defaults_callback',
+		'set_wc_tracker_twice_daily' => 'set_wc_tracker_twice_daily_callback',
+		'set_wc_tracker_default'     => 'set_wc_tracker_default_callback',
 	);
 
 	/**
@@ -132,6 +136,8 @@ class WC_Calypso_Bridge_Setup {
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
 			unset( $this->one_time_operations[ 'woocommerce_create_pages' ] );
+			unset( $this->one_time_operations[ 'set_wc_tracker_twice_daily_callback' ] );
+			unset( $this->one_time_operations[ 'set_wc_tracker_default_callback' ] );
 		}
 	}
 
@@ -444,6 +450,47 @@ class WC_Calypso_Bridge_Setup {
 			}
 			$operation = 'set_jetpack_defaults';
 			update_option( $this->option_prefix . $operation, 'completed', 'no' );
+		}, PHP_INT_MAX );
+	}
+
+	/**
+	 * Set wc tracker recurrence to twice daily.
+	 * This job will run once if the store has been active for less than 3 months.
+	 *
+	 * @since 2.0.11
+	 */
+	public function set_wc_tracker_twice_daily_callback() {
+
+		add_action( 'plugins_loaded', function () {
+
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 3 * MONTH_IN_SECONDS ) ) {
+				wp_clear_scheduled_hook( 'woocommerce_tracker_send_event' );
+				wp_schedule_event( time() + 10, 'twicedaily', 'woocommerce_tracker_send_event' );
+			}
+
+			$operation = 'set_wc_tracker_twice_daily';
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
+		}, PHP_INT_MAX );
+	}
+
+	/**
+	 * Set wc tracker recurrence to its original value.
+	 * This job will run once after the store has been active for 3 months.
+	 *
+	 * @since 2.0.11
+	 */
+	public function set_wc_tracker_default_callback() {
+
+		add_action( 'plugins_loaded', function () {
+
+			if ( WCAdminHelper::is_wc_admin_active_for( 3 * MONTH_IN_SECONDS ) ) {
+				wp_clear_scheduled_hook( 'woocommerce_tracker_send_event' );
+				wp_schedule_event( time() + 10, apply_filters( 'woocommerce_tracker_event_recurrence', 'daily' ), 'woocommerce_tracker_send_event' );
+
+				$operation = 'set_wc_tracker_default';
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+			}
+
 		}, PHP_INT_MAX );
 	}
 
