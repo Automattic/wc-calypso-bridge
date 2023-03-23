@@ -6,10 +6,12 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version 2.0.9
+ * @version 2.0.11
  */
 
 defined( 'ABSPATH' ) || exit;
+
+use Automattic\WooCommerce\Admin\WCAdminHelper;
 
 /**
  * WC Calypso Bridge Tracks
@@ -49,6 +51,27 @@ class WC_Calypso_Bridge_Tracks {
 		 * Init tracking configuration.
 		 */
 		add_action( 'init', array( $this, 'init' ) );
+
+		if ( wc_calypso_bridge_has_ecommerce_features() ) {
+
+			// Increase the frequency of the WC Tracker for the first three months.
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 3 * MONTH_IN_SECONDS ) ) {
+
+				// Define constant so other plugins can check if this is set and adapt accordingly.
+				wc_maybe_define_constant( 'WC_CALYPSO_BRIDGE_TRACKER_FREQUENCY', 'daily' );
+
+				/**
+				 * Increase WC Tracker's frequency from weekly to daily.
+				 *
+				 * @since   2.0.11
+				 * @return int
+				 */
+				add_filter( 'woocommerce_tracker_last_send_interval', static function () {
+					return strtotime( '-1 day' );
+				}, PHP_INT_MAX );
+
+			}
+		}
 	}
 
 	/**
@@ -93,7 +116,7 @@ class WC_Calypso_Bridge_Tracks {
 		// since some plans may have overlapping features.
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			$host_value = 'ecommplan-freetrial';
-		} else if ( wc_calypso_bridge_has_ecommerce_features() ) {
+		} elseif ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$host_value = 'ecommplan';
 		}
 
