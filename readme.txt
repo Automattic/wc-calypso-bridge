@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Remove the onboarding purchase task #1060
+
 = 2.0.11 =
 * Fix css conflict for snackbar #1041
 * Add avalara plugin to Tax task #1032
