@@ -87,7 +87,7 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 
 		if (
 			$trial_plan_purchase
-			&& isset( $trial_plan_purchase['expiry_time'] )
+			&& ! empty( $trial_plan_purchase['expiry_time'] )
 			&& $trial_plan_purchase['expiry_time'] < $current_timestamp
 		) {
 			$expired_trial_url = 'https://wordpress.com/plans/my-plan/trial-expired/' . WC_Calypso_Bridge_Instance()->get_site_slug();
