@@ -63,6 +63,10 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 			return;
 		}
 
+		if ( ! function_exists( 'wpcom_get_site_purchases' ) || ! function_exists( 'wpcom_datetime_to_iso8601' ) ) {
+			return;
+		}
+
 		$site_purchases = wpcom_get_site_purchases();
 
 		$trial_plan_purchases = array_filter(
