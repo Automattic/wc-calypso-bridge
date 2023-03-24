@@ -134,6 +134,9 @@ class WC_Calypso_Bridge_Setup_Tasks {
 						require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
 						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] );
 							break;
+					case 'purchase':
+						// Remove the purchase task
+						unset( $lists['setup']->tasks[$index] );
 				}
 			}
 		}
