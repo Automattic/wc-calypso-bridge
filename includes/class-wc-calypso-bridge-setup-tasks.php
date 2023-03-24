@@ -129,14 +129,15 @@ class WC_Calypso_Bridge_Setup_Tasks {
 					case 'products':
 						require_once __DIR__ . '/tasks/class-wc-calypso-task-headstart-products.php';
 						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\HeadstartProducts( $lists['setup'] );
-							break;
+						break;
 					case 'appearance':
 						require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
 						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] );
-							break;
+						break;
 					case 'purchase':
 						// Remove the purchase task
 						unset( $lists['setup']->tasks[$index] );
+						break;
 				}
 			}
 		}
