@@ -72,7 +72,7 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 		$trial_plan_purchases = array_filter(
 			$site_purchases,
 			function ( $site_purchase ) {
-				return 'ecommerce-trial-bundle-monthly' === ( $site_purchase['product_slug'] ?? null );
+				return 'ecommerce-trial-bundle-monthly' === $site_purchase->product_slug;
 			}
 		);
 
@@ -89,8 +89,8 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 
 		if (
 			$trial_plan_purchase
-			&& ! empty( $trial_plan_purchase['expiry_time'] )
-			&& $trial_plan_purchase['expiry_time'] < $current_timestamp
+			&& ! empty( $trial_plan_purchase->expiry_date )
+			&& $trial_plan_purchase->expiry_date < $current_timestamp
 		) {
 			$expired_trial_url = 'https://wordpress.com/plans/my-plan/trial-expired/' . WC_Calypso_Bridge_Instance()->get_site_slug();
 
