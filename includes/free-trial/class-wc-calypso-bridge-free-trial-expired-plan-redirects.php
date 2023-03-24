@@ -76,7 +76,9 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 			}
 		);
 
-		// TODO: if we don't have a trial plan purchase, should we still redirect?
+		// If we don't have a trial plan purchase, we either have no purchase,
+		// or we have some other eCommerce plan.
+		// We want to bail either way.
 		if ( empty( $trial_plan_purchases ) ) {
 			return;
 		}
