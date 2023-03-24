@@ -3,8 +3,8 @@
 /**
  * Class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects.
  *
- * @since   2.0.9
- * @version 2.0.9
+ * @since   2.0.12
+ * @version 2.0.12
  *
  * Detects when we have an expired eCommerce trial plan, and redirects to Calypso for that case.
  */
@@ -14,14 +14,14 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 	/**
 	 * The single instance of the class.
 	 *
-	 * @var object
+	 * @var WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 	 */
 	protected static $instance = null;
 
 	/**
 	 * Get class instance.
 	 *
-	 * @return object Instance.
+	 * @return WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects Instance.
 	 */
 	final public static function get_instance() {
 		if ( is_null( self::$instance ) ) {
