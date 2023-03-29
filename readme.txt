@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.11
+Stable tag: 2.0.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,8 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
 * Remove the onboarding purchase task #1060
+
+= 2.0.12 =
+* Redirect admin pages to the Calypso upgrade page for free trials #1055.
 
 = 2.0.11 =
 * Fix css conflict for snackbar #1041
