@@ -54,7 +54,7 @@ body:
     id: plan
     attributes:
       label: What plan are you on?
-      description: |
+      description: 
      Woo Express has different rules based on which plan you have activated. Please let us know which plan you have activated while experiencing this issue.
       options:
         - label: Free trial 
