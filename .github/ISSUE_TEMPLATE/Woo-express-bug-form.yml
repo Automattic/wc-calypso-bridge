@@ -54,8 +54,7 @@ body:
     id: plan
     attributes:
       label: What plan is active?
-      description: 
-     Woo Express has different rules based on which plan you have activated. Please let us know which plan you have activated while experiencing this issue.
+      description: Woo Express has different rules based on which plan you have activated. Please let us know which plan you have activated while experiencing this issue.
       options:
         - Free trial 
         - Free trial expired
