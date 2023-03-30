@@ -1,5 +1,6 @@
 name: 🐞 Woo Express Bug Report
 description: Report a bug if something isn't working as expected in Woo Express
+labels: Woo Express
 body:
   - type: markdown
     attributes:
