@@ -34,6 +34,11 @@ class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner {
 			return;
 		}
 
+		/**
+		 * Disable the generic site launch banner for eCommerce trials.
+		 */
+		add_filter( 'wpcomsh_private_site_show_logged_in_banner', '__return_false' );
+
 		add_action('init', function() {
 			if ( current_user_can( 'manage_woocommerce' ) ) {
 				add_action( 'wp_head', array( $this, 'add_plan_picker_banner' ), -2000 );
