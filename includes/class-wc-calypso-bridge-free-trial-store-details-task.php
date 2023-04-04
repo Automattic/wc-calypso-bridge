@@ -35,6 +35,12 @@ class WC_Calypso_Bridge_Free_Trial_Store_Details_Task
 			return;
 		}
 
+		add_filter( 'option_woocommerce_onboarding_profile', static function ( $option_value ) {
+			$value = $option_value ?? array();
+			$value['skipped'] = true;
+			return $value;
+		}, 100 );
+
 		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', [ $this, 'replace_store_details_task' ] );
 	}
 
