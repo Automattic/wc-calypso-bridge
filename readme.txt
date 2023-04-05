@@ -29,7 +29,6 @@ This section describes how to install the plugin and get it working.
 * Remove the onboarding purchase task #1060.
 * Add WooCommerce task list options to Jetpack Sync #1009.
 
-
 = 2.0.12 =
 * Redirect admin pages to the Calypso upgrade page for free trials #1055.
 
