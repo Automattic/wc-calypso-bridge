@@ -36,9 +36,11 @@ class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner {
 
 		add_action('init', function() {
 			if ( current_user_can( 'manage_woocommerce' ) ) {
-				add_action( 'wp_footer', array( $this, 'add_plan_picker_banner' ), 10 );
+				add_action( 'wp_head', array( $this, 'add_plan_picker_banner' ), -2000 );
 				add_filter( 'body_class', function ( $classes ) {
-					$classes[] = 'has-free-trial-plan-picker';
+					if ( !in_array('admin-bar', $classes )) {
+						$classes[] = 'hide-free-trial-plan-picker';
+					}
 					return $classes;
 				});
 				add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
