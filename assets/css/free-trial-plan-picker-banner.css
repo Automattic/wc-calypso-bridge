@@ -28,6 +28,12 @@ body.has-free-trial-plan-picker .woocommerce-store-notice {
 	}
 }
 
+@media screen and (max-width: 480px) {
+	#free-trial-plan-picker-banner {
+		position: inherit;
+	}
+}
+
 body.hide-free-trial-plan-picker #free-trial-plan-picker-banner {
 	display: none;
 }
