@@ -27,7 +27,6 @@ This section describes how to install the plugin and get it working.
 = 2.0.14 =
 * Make the free trial banner responsive #1066
 
-
 = 2.0.13 =
 * Remove the onboarding purchase task #1060.
 * Add WooCommerce task list options to Jetpack Sync #1009.
