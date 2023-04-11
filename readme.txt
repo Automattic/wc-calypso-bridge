@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.13
+Stable tag: 2.0.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,8 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-
 * Mark Store_Details task as complete for free trial #1061 
+
+= 2.0.14 =
+* Make the free trial banner responsive #1066
+
 
 = 2.0.13 =
 * Remove the onboarding purchase task #1060.
