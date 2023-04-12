@@ -4,7 +4,7 @@
 /**
  * Class WC_Calypso_Bridge_Free_Trial_Store_Details_Task.
  *
- * @since   2.0.14
+ * @since   2.0.15
  * @version 2.0.15
  *
  */
