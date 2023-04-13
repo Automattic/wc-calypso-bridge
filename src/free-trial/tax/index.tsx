@@ -52,6 +52,12 @@ export type TaxProps = {
 	task: TaskType;
 };
 
+const trackUpgradeClick = () => {
+	recordEvent( 'free_trial_upgrade_now', {
+		source: 'tax_task',
+	} );
+};
+
 const UpgradeNotice = () => (
 	<div
 		className="woocommerce-task-notice-container"
@@ -70,6 +76,7 @@ const UpgradeNotice = () => (
 							href={ getUpgradePlanLink() }
 							type="external"
 							target="_blank"
+							onClick={ trackUpgradeClick }
 						>
 							<></>
 						</Link>
@@ -298,15 +305,18 @@ export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 	}
 
 	return (
-		<Partners { ...childProps }>
-			{ partners.map(
-				( partner ) =>
-					partner.card &&
-					createElement( partner.card, {
-						key: partner.id,
-						...childProps,
-					} )
-			) }
-		</Partners>
+		<>
+			<UpgradeNotice />
+			<Partners { ...childProps }>
+				{ partners.map(
+					( partner ) =>
+						partner.card &&
+						createElement( partner.card, {
+							key: partner.id,
+							...childProps,
+						} )
+				) }
+			</Partners>
+		</>
 	);
 };

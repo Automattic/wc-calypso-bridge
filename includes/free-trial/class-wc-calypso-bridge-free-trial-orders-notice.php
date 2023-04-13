@@ -46,10 +46,30 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
                         </p>
                     </div>
 					<div class="upgrade-action">
-						<a href="<?php echo $this->get_action_url()?>" class="button is-primary"><?php echo __('Upgrade now', 'wc-calypso-bridge'); ?></a>
+						<a href="<?php echo $this->get_action_url()?>" class="button is-primary" id="upgrade_now_button"><?php echo __('Upgrade now', 'wc-calypso-bridge'); ?></a>
 					</div>
 
 				</div>
+				<script>
+					document.addEventListener( 'DOMContentLoaded', function() {
+						let recordEvent = null;
+						if ( window.wc && window.wc.tracks && window.wc.tracks.recordEvent ) {
+							recordEvent = window.wc.tracks.recordEvent;
+						} else if ( window.wcTracks && window.wcTracks.recordEvent ) {
+							recordEvent = window.wcTracks.recordEvent;
+						} else {
+							recordEvent = function() {};
+						}
+						const el = document.getElementById( 'upgrade_now_button' );
+						if ( el ) {
+							el.addEventListener( 'click', function() {
+								recordEvent( 'free_trial_upgrade_now', {
+									source: 'orders_page',
+								} );
+							} );
+						}
+					} );
+				</script>
 				<?php
 			}
 		});

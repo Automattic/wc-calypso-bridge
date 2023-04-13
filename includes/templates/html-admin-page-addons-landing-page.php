@@ -4,7 +4,7 @@
 *
 * @package WC_Calypso_Bridge/Templates
 * @since   2.0.4
-* @version 2.0.4
+* @version 2.0.15
 *
 * @uses $upgrade_url
 */
@@ -24,10 +24,10 @@
 	</p>
 
 	<div class="wc-addons-landing-page__button-container">
-		<a href="<?php echo esc_url( $upgrade_url ); ?>" class="button button-primary">
+		<a href="<?php echo esc_url( $upgrade_url ); ?>" class="button button-primary" id="upgrade_now_button">
 			<?php esc_html_e( 'Upgrade now', 'wc-calypso-bridge' ); ?>
 		</a>
-		<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank" class="button button-secondary">
+		<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank" class="button button-secondary" id="browse_extension_button">
 			<?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?>
 		</a>
 	</div>
@@ -56,7 +56,7 @@
 			<p>
 				<?php esc_html_e( 'Add extra features and functionality, or integrate with other platforms and tools.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank" id="browse_extension_button_2"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-addons-landing-page__features-grid__item">
@@ -70,7 +70,7 @@
 			<p>
 				<?php esc_html_e( 'Quickly get started with our curated extension collections.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/collections" target="_blank"><?php esc_html_e( 'Discover collections', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/collections" target="_blank" id="discover_collections_button"><?php esc_html_e( 'Discover collections', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-addons-landing-page__features-grid__item">
@@ -84,9 +84,40 @@
 			<p>
 				<?php esc_html_e( 'Tips, tricks, and ecommerce inspiration from our blog.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/blog" target="_blank"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/blog" target="_blank" id="get_inspired_button"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 	</div>
 
 </div>
+
+<script>
+document.addEventListener( 'DOMContentLoaded', function() {
+	// Prefer wc.tracks.recordEvent since it supports debugging.
+	let recordEvent = null;
+	if ( window.wc && window.wc.tracks && window.wc.tracks.recordEvent ) {
+		recordEvent = window.wc.tracks.recordEvent;
+	} else if ( window.wcTracks && window.wcTracks.recordEvent ) {
+		recordEvent = window.wcTracks.recordEvent;
+	} else {
+		recordEvent = function() {};
+	}
+
+	const recordButtonEvent = function( buttonId, eventName ) {
+		const el = document.getElementById( buttonId );
+		if ( el ) {
+			el.addEventListener( 'click', function() {
+				recordEvent( eventName, {
+					source: 'extensions',
+				} );
+			} );
+		}
+	};
+
+	recordButtonEvent( 'upgrade_now_button', 'free_trial_upgrade_now' );
+	recordButtonEvent( 'browse_extension_button', 'free_trial_browse_extensions' );
+	recordButtonEvent( 'browse_extension_button_2', 'free_trial_browse_extensions' );
+	recordButtonEvent( 'discover_collections_button', 'free_trial_discover_collections' );
+	recordButtonEvent( 'get_inspired_button', 'free_trial_get_inspired' );
+} );
+</script>
