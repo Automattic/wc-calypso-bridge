@@ -76,8 +76,10 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		 * @param  mixed  $value
 		 * @return array
 		 */
-		add_filter( 'pre_option_woocommerce_onboarding_profile', static function ( $option_value ) {
-			return array( 'skipped' => true );
+		add_filter( 'option_woocommerce_onboarding_profile', static function ( $option_value ) {
+			$value = $option_value ?? array();
+			$value['skipped'] = true;
+			return $value;
 		}, 100 );
 
 		/**

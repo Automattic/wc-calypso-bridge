@@ -23,6 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 * Update default progress title to "Welcome to your Woo Express store" #1071.
+* Mark Store_Details task as complete for free trial #1061 
+
 
 = 2.0.14 =
 * Make the free trial banner responsive #1066
