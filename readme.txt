@@ -22,7 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-* Mark Store_Details task as complete for free trial #1061 
+= Unreleased =
+* Mark Store_Details task as complete for free trial #1061
+* Add tracking on various free trial CTAs #1074
 
 = 2.0.14 =
 * Make the free trial banner responsive #1066
