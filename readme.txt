@@ -22,7 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-* Mark Store_Details task as complete for free trial #1061 
+* Mark Store_Details task as complete for free trial #1061
+* Fix site launch checks #1073.
 
 = 2.0.14 =
 * Make the free trial banner responsive #1066
