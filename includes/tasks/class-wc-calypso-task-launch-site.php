@@ -86,7 +86,12 @@ class LaunchSite extends Task {
 		$launch_status = get_option( 'launch-status' );
 
 		// The site is launched when the launch status is 'launched' or missing.
-		return 'launched' === $launch_status || '' === $launch_status;
+		$launched_values = array(
+			'launched',
+			'',
+			false,
+		);
+		return in_array( $launch_status, $launched_values, true );
 	}
 
 	/**
