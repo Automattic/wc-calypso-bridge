@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.14
+Stable tag: 2.0.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,8 +23,12 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Mark Store_Details task as complete for free trial #1061
 * Add tracking on various free trial CTAs #1074
+
+= 2.0.15 =
+* Mark Store_Details task as complete for free trial #1061
+* Fix site launch checks #1073.
+* Hide site launch banner for eCommerce trials #1062.
 
 = 2.0.14 =
 * Make the free trial banner responsive #1066
