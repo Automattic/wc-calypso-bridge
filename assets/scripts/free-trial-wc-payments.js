@@ -27,9 +27,19 @@
 		} );
 	};
 
+	// Prefer wc.tracks.recordEvent since it supports debugging.
+	let recordEvent = null;
+	if ( window.wc && window.wc.tracks && window.wc.tracks.recordEvent ) {
+		recordEvent = window.wc.tracks.recordEvent;
+	} else if ( window.wcTracks && window.wcTracks.recordEvent ) {
+		recordEvent = window.wcTracks.recordEvent;
+	} else {
+		recordEvent = function () {};
+	}
+
 	const getNotice = ( copySelector ) => {
 		const defaultCopy = __(
-			"Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s'>upgrade to a paid plan</a>.",
+			"Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>.",
 			'wc-calypso-bridge'
 		);
 
@@ -37,7 +47,7 @@
 			default: defaultCopy,
 			transactions: defaultCopy,
 			deposits: __(
-				"Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s'>upgrade to a pain plan</a>.",
+				"Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a pain plan</a>.",
 				'wc-calypso-bridge'
 			),
 		};
@@ -50,6 +60,13 @@
 		const upgradeNotice = document.createElement( 'div' );
 		upgradeNotice.className = 'wc-calypso-notice';
 		upgradeNotice.innerHTML = upgradeNoticeText;
+		upgradeNotice.addEventListener( 'click', ( e ) => {
+			if ( e.target?.attributes?.id?.value === 'upgrade_now_button' ) {
+				recordEvent( 'free_trial_upgrade_now', {
+					source: 'wcpay_landing',
+				} );
+			}
+		} );
 
 		return upgradeNotice;
 	};
