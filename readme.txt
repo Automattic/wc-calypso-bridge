@@ -22,6 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* Fix store name not rendering special characters #1070.
+
 = 2.0.16 =
 * Add tracking on various free trial CTAs #1074
 
