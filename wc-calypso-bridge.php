@@ -47,7 +47,7 @@ if ( ! defined( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH' ) ) {
 	define( 'WC_CALYPSO_BRIDGE_PLUGIN_PATH', dirname( __FILE__ ) );
 }
 if ( ! defined( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION' ) ) {
-	define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '2.0.15' );
+	define( 'WC_CALYPSO_BRIDGE_CURRENT_VERSION', '2.0.16' );
 }
 if ( ! defined( 'WC_MIN_VERSION' ) ) {
 	define( 'WC_MIN_VERSION', '7.3' );
