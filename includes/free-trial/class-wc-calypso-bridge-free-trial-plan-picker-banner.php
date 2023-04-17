@@ -4,7 +4,7 @@
  * Class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner.
  *
  * @since   2.0.5
- * @version 2.0.14
+ * @version 2.0.16
  *
  * Handles Free Trial Plan Picker Banner.
  */
@@ -28,7 +28,7 @@ class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner {
 
 		return self::$instance;
 	}
-	
+
 	public function __construct() {
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
@@ -48,10 +48,22 @@ class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner {
 					}
 					return $classes;
 				});
-				add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+				if ( ! class_exists( 'WC_Site_Tracking' ) ) {
+					include_once WC_ABSPATH . 'includes/tracks/class-wc-tracks.php';
+					include_once WC_ABSPATH . 'includes/tracks/class-wc-tracks-event.php';
+					include_once WC_ABSPATH . 'includes/tracks/class-wc-tracks-client.php';
+					include_once WC_ABSPATH . 'includes/tracks/class-wc-tracks-footer-pixel.php';
+					include_once WC_ABSPATH . 'includes/tracks/class-wc-site-tracking.php';
+				}
+
+				add_action( 'wp_footer', array( $this, 'append_tracking_script' ) );
+				add_action( 'wp_enqueue_scripts', array( $this, 'add_styles_and_scripts' ) );
 			}
 		});
+	}
 
+	public function append_tracking_script() {
+		WC_Site_Tracking::add_tracking_function();
 	}
 
 	/**
@@ -63,13 +75,15 @@ class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner {
 		$link = sprintf( "https://wordpress.com/plans/%s", $site_suffix );
 
 		$text = sprintf( __("
-			At the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s'>upgrade to a paid plan</a>.
+			At the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.
 		", 'wc-calypso-bridge' ), $link );
 		echo "<div id='free-trial-plan-picker-banner'>$text</div>";
 	}
 
-	public function add_styles() {
+	public function add_styles_and_scripts() {
 		wp_enqueue_style( 'wp-calypso-bridge-ecommerce-free-trial-plan-picker-banner', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/free-trial-plan-picker-banner.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_script( 'wp-calypso-bridge-ecommerce-free-trial-plan-picker-banner', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/scripts/frontend-banner-tracks.js', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
+		wp_enqueue_script( 'woo-tracks', 'https://stats.wp.com/w.js', array( 'wp-hooks' ), gmdate( 'YW' ), false );
 	}
 }
 

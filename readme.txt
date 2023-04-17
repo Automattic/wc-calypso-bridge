@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Add tracking on various free trial CTAs #1074
+
 = 2.0.15 =
 * Mark Store_Details task as complete for free trial #1061
 * Fix site launch checks #1073.

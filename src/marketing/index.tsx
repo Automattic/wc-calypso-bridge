@@ -121,6 +121,11 @@ export const Marketing = () => {
 						<Button
 							href="/wp-admin/admin.php?page=automatewoo-dashboard"
 							variant="secondary"
+							onClick={ () => {
+								recordEvent( 'free_trial_try_automatewoo', {
+									source: 'marketing',
+								} );
+							} }
 						>
 							{ __( 'Try AutomateWoo', 'wc-calypso-bridge' ) }
 						</Button>
@@ -165,6 +170,14 @@ export const Marketing = () => {
 						<Button
 							href={ '/wp-admin/admin.php?page=gc_giftcards' }
 							variant="secondary"
+							onClick={ () => {
+								recordEvent(
+									'free_trial_create_digital_giftcards',
+									{
+										source: 'marketing',
+									}
+								);
+							} }
 						>
 							{ __(
 								'Create digital gift cards',
