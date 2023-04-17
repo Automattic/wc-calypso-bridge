@@ -58,7 +58,7 @@ export const ProgressTitle: React.FC< ProgressTitleProps > = ( {
 						__( 'Welcome to %s', 'woocommerce' ),
 						siteTitle
 				  )
-				: __( 'Welcome to your store', 'woocommerce' );
+				: __( 'Welcome to your Woo Express store', 'woocommerce' );
 		}
 		switch ( completedCount ) {
 			case 1:

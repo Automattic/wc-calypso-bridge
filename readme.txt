@@ -22,6 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* Update default progress title to "Welcome to your Woo Express store" #1071.
 * Fix store name not rendering special characters #1070.
 
 = 2.0.16 =
