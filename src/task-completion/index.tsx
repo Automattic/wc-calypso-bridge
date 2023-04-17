@@ -190,6 +190,7 @@ export const TaskListCompletedHeader: React.FC<
 									'wc-calypso-bridge'
 								) }
 							</Button>
+							
 							<div className="woocommerce-task-card__header-menu">
 								{ /* @ts-expect-error: type def. is not up to date. Ignoring for now. */ }
 								<EllipsisMenu
