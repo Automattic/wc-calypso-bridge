@@ -42,6 +42,10 @@ class WC_Calypso_Bridge_Filters {
 		}
 
 		add_action( 'init', array( $this, 'init' ) );
+
+		// Jetpack Sync is initialised from the 'plugins_loaded' action, so we need to do so as well.
+		// Ref: https://github.com/Automattic/jetpack/blob/db92236462824dc73e4cf4602388fc0ded99e984/projects/packages/sync/src/class-main.php#L24-L25
+		add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
 	}
 
 	/**
@@ -49,7 +53,6 @@ class WC_Calypso_Bridge_Filters {
 	 */
 	public function init() {
 		add_filter( 'admin_footer', array( $this, 'add_documentation_js_filter' ) );
-		add_filter( 'jetpack_sync_options_whitelist', array( $this, 'add_woocommerce_task_list_options_to_jetpack_sync' ), 10, 1 );
 
 		/**
 		 * Disable email based notifications.
@@ -57,6 +60,15 @@ class WC_Calypso_Bridge_Filters {
 		add_filter( 'pre_option_woocommerce_merchant_email_notifications', static function() {
 			return 'no';
 		} );
+	}
+
+	/**
+	 * Initialization function that runs on the `plugins_loaded` action.
+	 *
+	 * @return void
+	 */
+	public function on_plugins_loaded() {
+		add_filter( 'jetpack_sync_options_whitelist', array( $this, 'add_woocommerce_task_list_options_to_jetpack_sync' ) );
 	}
 
 	/**
