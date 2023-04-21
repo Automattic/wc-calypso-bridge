@@ -25,7 +25,7 @@ This section describes how to install the plugin and get it working.
 = 2.0.17 =
 * Update default progress title to "Welcome to your Woo Express store" #1071.
 * Fix store name not rendering special characters #1070.
-* Patch wc.data for Gutenberg 15.5+ and wc <= 7.6.0 #1086.
+* Patch wc.data for Gutenberg 15.5+ and wc < 7.7.0 #1086.
 
 = 2.0.16 =
 * Add tracking on various free trial CTAs #1074
