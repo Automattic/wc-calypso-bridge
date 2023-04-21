@@ -100,7 +100,25 @@ class AddDomain extends Task {
 	 * @return bool
 	 */
 	public function is_complete() {
-		// Determine if a custom domain is used by ensuring that the default atomic url wpcomstating is not part of the `siteurl` option.
-		return false === strpos( get_option( 'siteurl' ), 'wpcomstaging' );
+		// Determine if a custom domain is used by ensuring that the default atomic url .wpcomstaging.com is not part of the `siteurl` option.
+		if ( false === strpos( get_option( 'siteurl' ), '.wpcomstaging.com' ) ) {
+			return true;
+		}
+
+		if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
+			return false;
+		}
+
+		// Otherwise, check if the site has any domain purchases.
+		$site_purchases = wpcom_get_site_purchases();
+
+		$domain_purchases = array_filter(
+			$site_purchases,
+			function ( $site_purchase ) {
+				return in_array( $site_purchase->product_type, array( 'domain_map', 'domain_reg' ), true );
+			}
+		);
+
+		return ! empty( $domain_purchases );
 	}
 }
