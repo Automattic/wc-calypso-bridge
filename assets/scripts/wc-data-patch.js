@@ -14,7 +14,6 @@ const patch = () => {
 			const { isResolving, hasFinishedResolution } = select(
 				window.wc.data.OPTIONS_STORE_NAME
 			);
-
 			if ( ! data ) {
 				return {};
 			}

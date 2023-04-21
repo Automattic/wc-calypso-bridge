@@ -10,7 +10,6 @@ import { render } from '@wordpress/element';
  * Internal dependencies
  */
 import './use-slot-patch';
-import './wc-data-patch';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
