@@ -145,7 +145,7 @@ class WC_Calypso_Bridge_Shared {
 			wp_enqueue_script( 
 				'wp-calypso-bridge-wc-data-patch', 
 				WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/scripts/wc-data-patch.js', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION,
-				array('wc-store-data', 'wp-data', 'wp-element')
+				array( 'wc-store-data', 'wp-data', 'wp-element', 'wp-compose' )
 			);
 		}
 	}
