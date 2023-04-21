@@ -139,7 +139,7 @@ class WC_Calypso_Bridge_Shared {
 		$gutenberg_version         = $has_gutenberg ? get_plugin_data( WP_PLUGIN_DIR . '/gutenberg/gutenberg.php' )['Version'] : false;
 
 		if ( 
-			defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '7.6.0', '<=' ) &&
+			defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '7.7.0', '<' ) &&
 			$gutenberg_version && version_compare( $gutenberg_version, '15.5.0', '>=' )
 		) {
 			wp_enqueue_script( 
