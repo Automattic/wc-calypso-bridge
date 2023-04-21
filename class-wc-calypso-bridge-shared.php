@@ -134,7 +134,8 @@ class WC_Calypso_Bridge_Shared {
 		wp_enqueue_script( 'wc-calypso-bridge' );
 		wp_enqueue_style( 'wc-calypso-bridge' );
 
-		// Inject the WC data store patch for WooCommerce <= 7.6 with Gutenberg 15.5+
+		// Inject the WC data store patch for WooCommerce < 7.7.0 with Gutenberg 15.5+
+		// Issue: https://github.com/Automattic/wp-calypso/issues/76000
 		$has_gutenberg             = is_plugin_active( 'gutenberg/gutenberg.php' );
 		$gutenberg_version         = $has_gutenberg ? get_plugin_data( WP_PLUGIN_DIR . '/gutenberg/gutenberg.php' )['Version'] : false;
 
