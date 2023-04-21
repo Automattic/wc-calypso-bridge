@@ -22,6 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* Update _Add a domain_ task to check for domain purchases in addition to the site URL #1083.
+
 = 2.0.17 =
 * Update default progress title to "Welcome to your Woo Express store" #1071.
 * Fix store name not rendering special characters #1070.
