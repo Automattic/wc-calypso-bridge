@@ -133,6 +133,21 @@ class WC_Calypso_Bridge_Shared {
 
 		wp_enqueue_script( 'wc-calypso-bridge' );
 		wp_enqueue_style( 'wc-calypso-bridge' );
+
+		// Inject the WC data store patch for WooCommerce <= 7.6 with Gutenberg 15.5+
+		$has_gutenberg             = is_plugin_active( 'gutenberg/gutenberg.php' );
+		$gutenberg_version         = $has_gutenberg ? get_plugin_data( WP_PLUGIN_DIR . '/gutenberg/gutenberg.php' )['Version'] : false;
+
+		if ( 
+			defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '7.6.0', '<=' ) &&
+			$gutenberg_version && version_compare( $gutenberg_version, '15.5.0', '>=' )
+		) {
+			wp_enqueue_script( 
+				'wp-calypso-bridge-wc-data-patch', 
+				WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/scripts/wc-data-patch.js', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION,
+				array('wc-store-data', 'wp-data', 'wp-element')
+			);
+		}
 	}
 
 	/**
