@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.18
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.0 =
 * Update the hook we use to include additional task list options in Jetpack Sync #1084.
+* Update to node 16 and update other dependencies #1088.
+* Update unit tests after dependency updates #1092.
 
 = 2.0.18 =
 * Update _Add a domain_ task to check for domain purchases in addition to the site URL #1083.
