@@ -22,7 +22,4 @@ module.exports = {
 		path.resolve( __dirname, 'tests/setup/setup-react-testing-library.js' ),
 	],
 	transformIgnorePatterns: [ 'node_modules/(?!is-plain-obj)', '/build/' ],
-	transform: {
-		'^.+\\.[jt]sx?$': 'babel-jest',
-	},
 };
