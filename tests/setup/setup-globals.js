@@ -1,3 +1,6 @@
+/**
+ * External dependencies
+ */
 import { registerStore } from '@wordpress/data';
 
 // Mock core/notices store for components dispatching core notices
@@ -11,3 +14,4 @@ registerStore( 'core/notices', {
 	selectors: {},
 } );
 
+jest.mock( '@automattic/calypso-config' );
