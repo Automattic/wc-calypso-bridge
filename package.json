@@ -22,6 +22,8 @@
 	},
 	"devDependencies": {
 		"@automattic/color-studio": "^2.5.0",
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^12.1.5",
 		"@woocommerce/dependency-extraction-webpack-plugin": "^2.2.0",
 		"@woocommerce/eslint-plugin": "^2.2.0",
 		"@wordpress/prettier-config": "^2.14.0",
