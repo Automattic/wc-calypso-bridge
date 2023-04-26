@@ -18,7 +18,8 @@
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start",
 		"test:e2e": "wp-scripts test-e2e",
-		"test:unit": "wp-scripts test-unit-js"
+		"test:unit": "wp-scripts test-unit-js",
+		"create-release": "node ./scripts/release.js"
 	},
 	"devDependencies": {
 		"@automattic/color-studio": "^2.5.0",
