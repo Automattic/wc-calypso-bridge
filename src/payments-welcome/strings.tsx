@@ -3,8 +3,7 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
-// @ts-ignore
-import { __experimentalCreateInterpolateElement as createInterpolateElement } from 'wordpress-element';
+import { createInterpolateElement } from '@wordpress/element';
 
 export default {
 	button: __( 'Install', 'wc-calypso-bridge' ),
@@ -136,7 +135,7 @@ export default {
 		),
 
 		question3Answer1: __(
-			"Native dashboard: track cash flow from the same  WordPress dashboard you're already using to manage product catalogue, inventory, orders, fulfilment, and otherwise run your online storefront.",
+			"Native dashboard: track cash flow from the same WordPress dashboard you're already using to manage product catalogue, inventory, orders, fulfilment, and otherwise run your online storefront.",
 			'wc-calypso-bridge'
 		),
 

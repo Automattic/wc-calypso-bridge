@@ -8,8 +8,7 @@ import {
 	Button,
 	Notice,
 } from '@wordpress/components';
-// @ts-ignore
-import { useState, useEffect } from 'wordpress-element';
+import { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 
 /**

@@ -94,6 +94,7 @@ const FrequentlyAskedQuestions: React.FC = () => {
 				<a
 					href="https://www.woocommerce.com/my-account/tickets/"
 					target="_blank"
+					rel="noreferrer"
 				>
 					{ strings.faq.getInTouch }
 				</a>

@@ -5,7 +5,9 @@ import domReady from '@wordpress/dom-ready';
 
 declare global {
 	interface Window {
-		wcTracks: any;
+		wcTracks: {
+			isEnabled: boolean;
+		};
 		wc: any;
 	}
 }

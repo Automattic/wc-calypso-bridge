@@ -61,6 +61,10 @@ const Modal = ( { closeHandler } ) => {
 				{
 					image: (
 						<img
+							alt={ __(
+								'Welcome modal navigation illustration 2',
+								'wc-calypso-bridge'
+							) }
 							src={
 								ASSET_URL +
 								'images/welcome-modal-illustration-2.png'
@@ -87,6 +91,10 @@ const Modal = ( { closeHandler } ) => {
 				{
 					image: (
 						<img
+							alt={ __(
+								'Welcome modal navigation illustration 1',
+								'wc-calypso-bridge'
+							) }
 							src={
 								ASSET_URL +
 								'images/welcome-modal-illustration-1.png'
@@ -109,6 +117,7 @@ const Modal = ( { closeHandler } ) => {
 									),
 									{
 										a: (
+											// eslint-disable-next-line jsx-a11y/anchor-has-content
 											<a
 												href={
 													'https://wordpress.com/support/navigating-the-ecommerce-plan/'

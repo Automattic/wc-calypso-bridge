@@ -60,7 +60,7 @@ function ExitSurveyModal( {
 			moreInfo: isMoreInfoChecked ? 'Yes' : 'No',
 			anotherTime: isAnotherTimeChecked ? 'Yes' : 'No',
 			somethingElse: isSomethingElseChecked ? 'Yes' : 'No',
-			comments: comments,
+			comments,
 		} );
 
 		removeWCPayMenu();

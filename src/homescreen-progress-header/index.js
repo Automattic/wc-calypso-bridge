@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import { registerPlugin } from '@wordpress/plugins';
 import { Fill } from '@wordpress/components';
 
 /**

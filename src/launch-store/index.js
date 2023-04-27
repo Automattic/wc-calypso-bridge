@@ -53,7 +53,7 @@ const CopyButton = ( { contentToCopy } ) => {
 	const [ isFeedbackVisible, setIsFeedbackVisible ] = useState( false );
 
 	const handleClick = () => {
-		navigator.clipboard.writeText( contentToCopy );
+		window.navigator.clipboard.writeText( contentToCopy );
 		setIsFeedbackVisible( true );
 		setTimeout( () => {
 			setIsFeedbackVisible( false );
@@ -123,7 +123,7 @@ const LaunchButton = ( {
 						if ( xhr.status === 200 && xhr.responseText ) {
 							successCallback();
 						} else {
-							var response = JSON.parse( xhr.responseText );
+							const response = JSON.parse( xhr.responseText );
 							setErrorMessage(
 								escape( response.data[ 0 ].message )
 							);
@@ -215,6 +215,7 @@ const Congratulations = () => {
 							),
 							{
 								a: (
+									// eslint-disable-next-line jsx-a11y/anchor-has-content
 									<a
 										href={
 											'https://wordpress.com/settings/general/' +
@@ -264,6 +265,7 @@ const ReadyToLaunch = ( { launchHandler } ) => {
 						),
 						{
 							a: (
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
 								<a
 									href={
 										'https://wordpress.com/settings/general/' +
@@ -282,7 +284,6 @@ const ReadyToLaunch = ( { launchHandler } ) => {
 
 const BeforeLaunch = ( { tasks, launchHandler } ) => {
 	const siteSlug = escape( window.wcCalypsoBridge.siteSlug );
-	const siteUrl = escape( window.wcCalypsoBridge.homeUrl );
 
 	const pendingTasks = tasks.map( ( task ) => {
 		const { id, title, content, actionUrl, actionLabel } = task;
@@ -400,6 +401,7 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 						),
 						{
 							a: (
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
 								<a
 									href={
 										'https://wordpress.com/settings/general/' +
@@ -417,14 +419,6 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 };
 
 const LaunchStorePage = ( { onComplete, query } ) => {
-	if ( query.status && 'success' === query.status ) {
-		return (
-			<div className="woocommerce-launch-store">
-				<Congratulations />
-			</div>
-		);
-	}
-
 	const { isResolving, taskLists } = useSelect( ( select ) => {
 		return {
 			isResolving: ! select(
@@ -433,6 +427,14 @@ const LaunchStorePage = ( { onComplete, query } ) => {
 			taskLists: select( ONBOARDING_STORE_NAME ).getTaskLists(),
 		};
 	} );
+
+	if ( query.status && query.status === 'success' ) {
+		return (
+			<div className="woocommerce-launch-store">
+				<Congratulations />
+			</div>
+		);
+	}
 
 	if ( isResolving ) {
 		return <Loader />;
@@ -456,7 +458,7 @@ const LaunchStorePage = ( { onComplete, query } ) => {
 			const redirectPath =
 				'admin.php?page=wc-admin&task=launch_site&status=success';
 			onComplete( {
-				redirectPath: redirectPath,
+				redirectPath,
 			} );
 		} else {
 			onComplete();
