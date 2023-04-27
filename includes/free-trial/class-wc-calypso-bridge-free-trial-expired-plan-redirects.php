@@ -73,7 +73,7 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 		}
 
 		// Always allow access to /wp-admin/export.php
-		if ( '/wp-admin/export.php' === $request_uri ) {
+		if ( str_starts_with( $request_uri, '/wp-admin/export.php' ) ) {
 			return;
 		}
 
