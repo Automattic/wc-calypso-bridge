@@ -3,7 +3,11 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Guide } from '@wordpress/components';
-import { createInterpolateElement, useState, useEffect } from '@wordpress/element';
+import {
+	createInterpolateElement,
+	useState,
+	useEffect,
+} from '@wordpress/element';
 import { compose } from '@wordpress/compose';
 import { withDispatch, withSelect } from '@wordpress/data';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
@@ -34,11 +38,10 @@ const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
 		recordEvent( 'ecommerce_welcome_modal_close' );
 	};
 
-	return <Modal closeHandler={closeHandler} />
+	return <Modal closeHandler={ closeHandler } />;
 };
 
-const Modal = ({ closeHandler }) => {
-
+const Modal = ( { closeHandler } ) => {
 	useEffect( () => {
 		recordEvent( 'ecommerce_welcome_modal_open' );
 	}, [] );
@@ -53,7 +56,7 @@ const Modal = ({ closeHandler }) => {
 		<Guide
 			onFinish={ closeHandler }
 			className={ 'ecommerce__welcome-modal' }
-			finishButtonText={ __( "Get started", 'wc-calypso-bridge' ) }
+			finishButtonText={ __( 'Get started', 'wc-calypso-bridge' ) }
 			pages={ [
 				{
 					image: (
@@ -67,7 +70,10 @@ const Modal = ({ closeHandler }) => {
 					content: (
 						<div className="ecommerce__welcome-modal__page-content">
 							<h2 className="ecommerce__welcome-modal__page-content__header">
-								{ __( 'Meet your new Home', 'wc-calypso-bridge' ) }
+								{ __(
+									'Meet your new Home',
+									'wc-calypso-bridge'
+								) }
 							</h2>
 							<p className="ecommerce__welcome-modal__page-content__body">
 								{ __(
@@ -104,7 +110,9 @@ const Modal = ({ closeHandler }) => {
 									{
 										a: (
 											<a
-												href={ 'https://wordpress.com/support/navigating-the-ecommerce-plan/' }
+												href={
+													'https://wordpress.com/support/navigating-the-ecommerce-plan/'
+												}
 											/>
 										),
 									}
@@ -116,13 +124,12 @@ const Modal = ({ closeHandler }) => {
 			] }
 		/>
 	);
-}
+};
 
 export default compose(
 	withSelect( ( select ) => {
-		const { getOption, hasFinishedResolution } = select(
-			OPTIONS_STORE_NAME
-		);
+		const { getOption, hasFinishedResolution } =
+			select( OPTIONS_STORE_NAME );
 
 		const MODAL_DISMISS_OPTION_NAME =
 			'woocommerce_ecommerce_welcome_modal_dismissed';

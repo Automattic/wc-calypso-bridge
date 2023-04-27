@@ -20,45 +20,48 @@ import wcpayTracks from './tracks';
  * Provides a modal requesting customer feedback.
  *
  */
-function ExitSurveyModal({ setExitSurveyModalOpen }: {
-	setExitSurveyModalOpen: Function	
-}): JSX.Element | null {
+function ExitSurveyModal( {
+	setExitSurveyModalOpen,
+}: {
+	setExitSurveyModalOpen: Function;
+} ): JSX.Element | null {
 	const [ isOpen, setOpen ] = useState( true );
-	const [ isHappyChecked, setHappyChecked ] = useState(false);
-	const [ isInstallChecked, setInstallChecked ] = useState(false);
-	const [ isMoreInfoChecked, setMoreInfoChecked ] = useState(false);
-	const [ isAnotherTimeChecked, setAnotherTimeChecked ] = useState(false);
-	const [ isSomethingElseChecked, setSomethingElseChecked ] = useState(false);
+	const [ isHappyChecked, setHappyChecked ] = useState( false );
+	const [ isInstallChecked, setInstallChecked ] = useState( false );
+	const [ isMoreInfoChecked, setMoreInfoChecked ] = useState( false );
+	const [ isAnotherTimeChecked, setAnotherTimeChecked ] = useState( false );
+	const [ isSomethingElseChecked, setSomethingElseChecked ] =
+		useState( false );
 	const [ comments, setComments ] = useState( '' );
-	
+
 	const closeModal = () => {
 		setOpen( false );
 		setExitSurveyModalOpen( false );
-	}
+	};
 
 	const removeWCPayMenu = () => {
-		apiFetch({
+		apiFetch( {
 			path: 'wc-admin/options',
 			method: 'POST',
 			data: {
-				wc_calypso_bridge_payments_dismissed: 'yes'
-			}
-		}).then( () => {
+				wc_calypso_bridge_payments_dismissed: 'yes',
+			},
+		} ).then( () => {
 			window.location.href = 'admin.php?page=wc-admin';
-		});
+		} );
 
 		setOpen( false );
-	}
+	};
 
 	const sendFeedback = () => {
-		wcpayTracks.recordEvent(wcpayTracks.events.SURVEY_FEEDBACK, {
+		wcpayTracks.recordEvent( wcpayTracks.events.SURVEY_FEEDBACK, {
 			happy: isHappyChecked ? 'Yes' : 'No',
 			install: isInstallChecked ? 'Yes' : 'No',
 			moreInfo: isMoreInfoChecked ? 'Yes' : 'No',
 			anotherTime: isAnotherTimeChecked ? 'Yes' : 'No',
 			somethingElse: isSomethingElseChecked ? 'Yes' : 'No',
 			comments: comments,
-		});
+		} );
 
 		removeWCPayMenu();
 	};
@@ -74,10 +77,14 @@ function ExitSurveyModal({ setExitSurveyModalOpen }: {
 			onRequestClose={ closeModal }
 			shouldCloseOnClickOutside={ false }
 		>
-			<p className="wc-calypso-bridge-payments-welcome-survey__intro">{strings.surveyIntro}</p>
+			<p className="wc-calypso-bridge-payments-welcome-survey__intro">
+				{ strings.surveyIntro }
+			</p>
 
-			<p className="wc-calypso-bridge-payments-welcome-survey__question" >{strings.surveyQuestion}</p>
-			
+			<p className="wc-calypso-bridge-payments-welcome-survey__question">
+				{ strings.surveyQuestion }
+			</p>
+
 			<div className="wc-calypso-bridge-payments-welcome-survey__selection">
 				<CheckboxControl
 					label={ strings.surveyHappyLabel }
@@ -116,7 +123,12 @@ function ExitSurveyModal({ setExitSurveyModalOpen }: {
 			</div>
 
 			<div className="wc-calypso-bridge-payments-welcome-survey__buttons">
-				<Button isTertiary isDestructive onClick={ removeWCPayMenu } name="cancel">
+				<Button
+					isTertiary
+					isDestructive
+					onClick={ removeWCPayMenu }
+					name="cancel"
+				>
 					{ strings.surveyCancelButton }
 				</Button>
 				<Button isSecondary onClick={ sendFeedback } name="send">
