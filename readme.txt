@@ -22,6 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* Update product task to detect modified products #1106.
+
 = 2.1.0 =
 * Update the hook we use to include additional task list options in Jetpack Sync #1084.
 * Update to node 16 and update other dependencies #1088.
