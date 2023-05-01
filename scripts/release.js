@@ -20,21 +20,10 @@ async function main() {
 
 	const version = getCurrentVersion();
 	let res = null;
-
-	const shouldContinue = await promptContinue(
-		`The current version is ${ chalk.blue(
-			version
-		) }. Would you like to create a new release?`
-	);
-
-	if ( ! shouldContinue ) {
-		info( 'Aborting release build.' );
-		return;
-	}
+	const shouldContinue = null;
 
 	res = await buildRelease();
 	if ( ! res ) {
-		return;
 	}
 }
 

@@ -1,15 +1,18 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import { promises as fsPromises } from 'fs';
+
 import {
 	__dirname,
 	error,
 	success,
 	info,
+	getCurrentBranchName,
 	getCurrentVersion,
 	getStatus,
+	gitFactory,
 	isDevBuild,
-	pullLatestChanges,
+	promptContinue,
 	verifyBuild,
 } from '../utils.js';
 
@@ -44,11 +47,29 @@ async function buildRelease() {
 		return false;
 	}
 
-	await pullLatestChanges();
+	const git = gitFactory();
 	const version = getCurrentVersion();
+	const currentBranchName = await getCurrentBranchName();
+
+	await git.checkout( 'master' );
+	await git.pull( 'origin', 'master' );
 	info(
 		`Pulled latest changes from 'master'. Current version is ${ version }.`
 	);
+
+	const shouldContinue = await promptContinue(
+		'Would you like to create a new release?'
+	);
+
+	if ( ! shouldContinue ) {
+		info( 'Aborting release build.' );
+		if ( currentBranchName !== 'master' ) {
+			info( `Switching back to branch '${ currentBranchName }'` );
+			await git.checkout( currentBranchName );
+		}
+
+		return false;
+	}
 
 	await execAsync( 'npm i' );
 	const { stdout, stderr } = await execAsync( 'npm run build' );

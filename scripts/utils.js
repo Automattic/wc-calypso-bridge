@@ -24,6 +24,10 @@ export function info( message ) {
 	console.log( 'INFO: ' + chalk.blue( message ) );
 }
 
+export function gitFactory() {
+	return git;
+}
+
 export async function promptContinue( msg ) {
 	const answer = await inquirer.prompt( [
 		{
@@ -84,10 +88,9 @@ export async function getStatus() {
 	}
 }
 
-// Pull the latest master changes from origin.
-export async function pullLatestChanges() {
-	await git.checkout( 'master' );
-	await git.pull( 'origin', 'master' );
+export async function getCurrentBranchName() {
+	const currentBranch = await git.branch();
+	return currentBranch.current;
 }
 
 // Check to see if we're running a dev build.
