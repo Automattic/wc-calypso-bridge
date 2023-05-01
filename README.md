@@ -34,6 +34,8 @@ npm run build
     6. `git push origin x.x.x`
 7. 🎊 Congrats, you have released a new version of `wc-calypso-bridge`.
 
+_NOTE: Creating a new release doesn't automatically deploy the new version. A corresponding update PR will need to be opened to update the wc-calypso-bridge dependency in wpcomsh._
+
 ## Development Environment
 
 To get started with development of front-end components run `npm start`.
