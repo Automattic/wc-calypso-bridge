@@ -3,10 +3,12 @@
 	"version": "1.0.0",
 	"description": "This is a collection of scripts which help automate the wc-calypso-bridge release process.",
 	"main": "release.js",
+	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
+		"chalk": "^5.2.0",
 		"inquirer": "^8.0.0",
 		"simple-git": "^3.18.0"
 	}
