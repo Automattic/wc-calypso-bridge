@@ -7,12 +7,14 @@ import {
 	error,
 	success,
 	info,
+	warning,
 	getCurrentBranchName,
 	getCurrentVersion,
 	getStatus,
 	gitFactory,
 	isDevBuild,
 	promptContinue,
+	switchToBranchWithMessage,
 	verifyBuild,
 } from '../utils.js';
 
@@ -48,11 +50,12 @@ async function buildRelease() {
 	}
 
 	const git = gitFactory();
-	const version = getCurrentVersion();
 	const currentBranchName = await getCurrentBranchName();
 
 	await git.checkout( 'master' );
-	await git.pull( 'origin', 'master' );
+	await git.pull( [ 'origin', 'master', '--rebase' ] );
+
+	const version = getCurrentVersion();
 	info(
 		`Pulled latest changes from 'master'. Current version is ${ version }.`
 	);
@@ -63,10 +66,7 @@ async function buildRelease() {
 
 	if ( ! shouldContinue ) {
 		info( 'Aborting release build.' );
-		if ( currentBranchName !== 'master' ) {
-			info( `Switching back to branch '${ currentBranchName }'` );
-			await git.checkout( currentBranchName );
-		}
+		await switchToBranchWithMessage( currentBranchName );
 
 		return false;
 	}

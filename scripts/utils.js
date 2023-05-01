@@ -67,7 +67,7 @@ export function getCurrentVersion() {
 		);
 		const { version } = JSON.parse( packageJson );
 
-		return version;
+		return version.replace( /[^\d.]/g, '' );
 	} catch ( err ) {
 		error( err );
 		return null;
@@ -88,9 +88,23 @@ export async function getStatus() {
 	}
 }
 
+export async function tagExists( tagName ) {
+	const tags = await git.tag( [ '-l', tagName.replace( /[^\d.]/g, '' ) ] );
+	const tag = tags.replace( /\n/g, '' );
+
+	return tag && tag.length > 0;
+}
+
 export async function getCurrentBranchName() {
 	const currentBranch = await git.branch();
 	return currentBranch.current;
+}
+
+export async function switchToBranchWithMessage( branchName ) {
+	if ( branchName !== 'master' ) {
+		info( `Switching back to branch '${ branchName }'` );
+		await git.checkout( branchName );
+	}
 }
 
 // Check to see if we're running a dev build.
