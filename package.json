@@ -21,6 +21,9 @@
 		"test:unit": "wp-scripts test-unit-js",
 		"create-release": "node ./scripts/release.js"
 	},
+	"workspaces": [
+		"scripts"
+	],
 	"devDependencies": {
 		"@automattic/color-studio": "^2.5.0",
 		"@testing-library/jest-dom": "^5.16.5",
