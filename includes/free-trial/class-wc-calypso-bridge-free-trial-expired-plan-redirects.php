@@ -67,6 +67,16 @@ class WC_Calypso_Bridge_Free_Trial_Expired_Plan_Redirects
 			return;
 		}
 
+		$request_uri = '';
+		if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+			$request_uri = sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) );
+		}
+
+		// Always allow access to /wp-admin/export.php
+		if ( str_starts_with( $request_uri, '/wp-admin/export.php' ) ) {
+			return;
+		}
+
 		$site_purchases = wpcom_get_site_purchases();
 
 		$trial_plan_purchases = array_filter(

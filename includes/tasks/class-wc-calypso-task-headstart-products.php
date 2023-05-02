@@ -30,9 +30,14 @@ class HeadstartProducts extends Products {
 			'post_status' => 'publish',
 			'fields' => 'ids',
 			'meta_query' => array(
+				'relation' => 'OR',
 				array(
 					'key' => '_headstart_post',
 					'compare' => 'NOT EXISTS'
+				),
+				array(
+					'key' => '_edit_last',
+					'compare' => 'EXISTS'
 				)
 			)
 		);
