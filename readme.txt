@@ -22,6 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* Update product task to detect modified products #1106.
+
 = 2.1.1 =
 * Allow expired trial sites to access the Export tool #1104.
 
