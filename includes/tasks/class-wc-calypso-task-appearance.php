@@ -3,7 +3,7 @@
 namespace Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks;
 
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Appearance;
-use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\HeadstartProducts;
+use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Products;
 
 /**
  * WCBridgeAppearance Task
@@ -20,7 +20,7 @@ class WCBridgeAppearance extends Appearance {
 	public function get_additional_data() {
 		return array(
 			'has_homepage' => self::has_homepage(),
-			'has_products' => HeadstartProducts::has_products(),
+			'has_products' => Products::has_products(),
 			'stylesheet'   => get_option( 'stylesheet' ),
 			'theme_mods'   => get_theme_mods(),
 		);

@@ -22,6 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* Update Appearance task has_products logic #1107
 * Update product task to detect modified products #1106.
 
 = 2.1.1 =
