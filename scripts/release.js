@@ -9,7 +9,6 @@ import {
 	getCurrentBranchName,
 	getCurrentVersion,
 	getNvmrcVersion,
-	gitFactory,
 	promptContinue,
 	success,
 	switchToBranchWithMessage,
