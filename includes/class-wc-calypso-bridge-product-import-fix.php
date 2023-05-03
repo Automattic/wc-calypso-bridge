@@ -53,10 +53,10 @@ class WC_Calypso_Bridge_Product_Import_Fix {
 	 * Replace CSV importer args.
 	 */
 	public function replace_csv_importer_args( $args ) {
-			// The defining symptom is that the product type key has a value 'Type' instead of 'type'.
-			if ( isset( $args['mapping']['Type'] ) && 'Type' === $args['mapping']['Type'] ) {
-				$args['mapping'] = $this->get_header_mappings( array_keys( $args['mapping'] ) );
-			}
+		// The defining symptom is that the product type key has a value 'Type' instead of 'type'.
+		if ( isset( $args['mapping']['Type'] ) && 'Type' === $args['mapping']['Type'] ) {
+			$args['mapping'] = $this->get_header_mappings( array_keys( $args['mapping'] ) );
+		}
 		return $args;
 	}
 
