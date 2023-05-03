@@ -140,25 +140,6 @@ export async function promptChangeDegree() {
 	return answers.changeDegree;
 }
 
-/**
- * Prompts the user to confirm that they want to bump the version.
- *
- * @param {string} currentVersion The current version of the project
- * @param {string} newVersion The new version of the project
- * @returns {boolean} Whether or not the user wants to continue with the version bump
- */
-export async function promptVersionConfirmation( currentVersion, newVersion ) {
-	const confirmPrompt = {
-		type: 'confirm',
-		name: 'shouldUpdate',
-		message: `Are you sure you want to bump the version from ${ currentVersion } to ${newVersion}?`,
-		default: false
-	};
-
-	const answers = await inquirer.prompt(confirmPrompt);
-	return answers.shouldUpdate;
-}
-
 // Performs a git status on the project.
 export async function getStatus() {
 	try {

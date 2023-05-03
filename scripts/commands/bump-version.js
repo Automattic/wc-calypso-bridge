@@ -38,7 +38,11 @@ async function bumpVersion() {
             throw new Error(`Invalid degree of change: ${degree}`);
     }
 
-    if ( ! await promptVersionConfirmation( currentVersion, newVersion ) ) {
+    const shouldContinue = await promptContinue(
+		`Are you sure you want to bump the version from ${ currentVersion } to ${newVersion}?`
+	);
+
+    if ( ! shouldContinue ) {
         return error( 'Aborting version bump.' );
     }
 
