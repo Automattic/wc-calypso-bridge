@@ -40,23 +40,23 @@ class WC_Calypso_Bridge_Product_Import_Fix {
 	}
 
 	/**
-	 * Importer fix via filter.
-	 */
-	public function init() {
-		add_filter( 'woocommerce_product_csv_importer_args', array( $this, 'replace_csv_importer_args' ) );
-	}
-
-	/**
 	 * Patch for sample product import issue with WooCommerce < 7.8.0.
 	 * Issue: https://github.com/woocommerce/woocommerce/issues/38069
 	 */
-	public function replace_csv_importer_args( $args ) {
+	public function init() {
 		if ( defined( 'WC_VERSION' ) &&	version_compare( WC_VERSION, '7.8.0', '<' ) ) {
+			add_filter( 'woocommerce_product_csv_importer_args', array( $this, 'replace_csv_importer_args' ) );
+		}
+	}
+
+	/**
+	 * Replace CSV importer args.
+	 */
+	public function replace_csv_importer_args( $args ) {
 			// The defining symptom is that the product type key has a value 'Type' instead of 'type'.
 			if ( isset( $args['mapping']['Type'] ) && 'Type' === $args['mapping']['Type'] ) {
 				$args['mapping'] = $this->get_header_mappings( array_keys( $args['mapping'] ) );
 			}
-		}
 		return $args;
 	}
 
