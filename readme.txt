@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 * Update Appearance task has_products logic #1107
 * Update product task to detect modified products #1106.
+* Remove useSlot monkey patch. #1117
 
 = 2.1.1 =
 * Allow expired trial sites to access the Export tool #1104.
