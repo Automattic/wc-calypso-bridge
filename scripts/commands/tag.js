@@ -15,7 +15,7 @@ import {
 	warning,
 } from '../utils.js';
 
-async function tagRelease() {
+async function tagRelease( currentBranchName ) {
 	// Ensure we're always running in the project root.
 	process.chdir( `${ __dirname }/..` );
 
@@ -35,7 +35,6 @@ async function tagRelease() {
 
 	let res = null;
 	const git = gitFactory();
-	const currentBranchName = await getCurrentBranchName();
 	const version = getCurrentVersion();
 	const versionStr = `${ chalk.blue( version ) }`;
 

@@ -27,7 +27,7 @@ async function main() {
 	let res = null;
 	let shouldContinue = null;
 
-	res = await buildRelease();
+	res = await buildRelease( currentBranchName );
 	if ( ! res ) {
 		return;
 	}
@@ -47,14 +47,12 @@ async function main() {
 		return;
 	}
 
-	res = await tagRelease();
+	res = await tagRelease( currentBranchName );
 	if ( ! res ) {
 		return;
 	}
 
-	const git = gitFactory();
-
-	await git.checkout( 'master' );
+	await switchToBranchWithMessage( currentBranchName );
 	success( 'Release complete!' );
 }
 

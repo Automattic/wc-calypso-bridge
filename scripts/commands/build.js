@@ -20,7 +20,7 @@ import {
 
 const execAsync = promisify( exec );
 
-async function buildRelease() {
+async function buildRelease(currentBranchName) {
 	// Ensure we're always running in the project root.
 	process.chdir( `${ __dirname }/..` );
 
@@ -50,7 +50,6 @@ async function buildRelease() {
 	}
 
 	const git = gitFactory();
-	const currentBranchName = await getCurrentBranchName();
 
 	await git.checkout( 'master' );
 	await git.pull( [ 'origin', 'master', '--rebase' ] );
