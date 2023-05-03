@@ -5,6 +5,7 @@ import {
     updateComposerJsonVersion,
     promptVersionConfirmation,
     error,
+    isCorrectNodeVersion,
 } from "../utils.js";
 import { inc as incVersion } from "semver";
 
@@ -12,9 +13,16 @@ import { inc as incVersion } from "semver";
  * Bumps the version number in the composer.json file and the wc-calypso-bridge.php file.
  */
 async function bumpVersion() {
+	if ( ! isCorrectNodeVersion() ) {
+		error(
+			`Your version of NodeJS is not correct. Please install NodeJS v${ getNvmrcVersion() }.`
+		);
+		return;
+	}
+
     const degree = await promptChangeDegree();
 
-    const currentVersion = getCurrentVersion();
+    const currentVersion = getCurrentVersion().replace('v', '');
     let newVersion = null;
     switch (degree) {
         case 'Patch (bug fixes)':
@@ -31,10 +39,10 @@ async function bumpVersion() {
     }
 
     if ( ! await promptVersionConfirmation( currentVersion, newVersion ) ) {
-        error( 'Aborting version bump.' );
+        return error( 'Aborting version bump.' );
     }
 
-    updateComposerJsonVersion( newVersion )
+    updateComposerJsonVersion( `v${newVersion}` );
     updateWCCalypsoBridgeVersion( newVersion );
 }
 
