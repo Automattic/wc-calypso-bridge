@@ -71,8 +71,13 @@ async function buildRelease() {
 		return false;
 	}
 
+	info('Creating a new release build. This make take some time...');
+	const interval = setInterval( () => process.stdout.write( '.' ), 1000 );
+
 	await execAsync( 'npm i' );
 	const { stdout, stderr } = await execAsync( 'npm run build' );
+
+	clearInterval( interval );
 
 	// Verify that the build was successful.
 	// We do this by getting the last line of the build output (which is the webpack status line) and checking it for errors.
