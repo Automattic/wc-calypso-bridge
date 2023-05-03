@@ -4,6 +4,9 @@
  * External dependencies
  */
 import { Fill } from '@wordpress/components';
+/**
+ * Internal dependencies
+ */
 import { TaskListCompletedHeader } from './index';
 
 export const TaskListCompletedHeaderFill = () => (
