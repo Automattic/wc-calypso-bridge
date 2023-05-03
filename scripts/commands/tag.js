@@ -59,10 +59,15 @@ async function tagRelease( currentBranchName ) {
 	);
 
 	if ( ! shouldContinue ) {
+		await switchToBranchWithMessage( currentBranchName );
+
+		// Delete the tag we just created.
+		await git.tag( [ '-d', version ] );
+
 		warning(
-			`Aborting. The release for ${ versionStr } was not published!`
+			`Aborting. The release for ${ versionStr } was not published and the new tag has been deleted!`
 		);
-		// TODO - Should we delete the tag here?
+
 		return false;
 	}
 
