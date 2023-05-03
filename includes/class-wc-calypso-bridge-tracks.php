@@ -82,6 +82,10 @@ class WC_Calypso_Bridge_Tracks {
 
 		// Set track host and source.
 		add_filter( 'admin_footer', array( $this, 'add_tracks_js_filter' ) );
+		// Monkey patch for tracks id mismatch.
+		// Runs at priority 23 which is before wcTracks is initialized.
+		add_filter( 'admin_footer', array( $this, 'add_tracks_id_mismatch_monkey_patch' ), 23 );
+
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
 		add_filter( 'woocommerce_admin_survey_query', array( $this, 'set_survey_source' ) );
 
@@ -141,6 +145,30 @@ class WC_Calypso_Bridge_Tracks {
 			}
 		</script>
 		<?php
+	}
+
+	/**
+	 * Add a script to apply tracks ID mismatch in WooCommerce < 7.8.0.
+	 * Issue: https://github.com/woocommerce/woocommerce/issues/38093
+	 */
+	public function add_tracks_id_mismatch_monkey_patch() {
+		if (
+			defined( 'WC_VERSION' ) &&
+			version_compare( WC_VERSION, '7.8.0', '<' ) &&
+			class_exists( '\WC_Tracks_Client' )
+		) {
+			$user            = wp_get_current_user();
+			$tracks_identity = \WC_Tracks_Client::get_identity( $user->ID );
+			if ( 'anon' !== $tracks_identity['_ut'] ) {
+				?>
+				<!-- WooCommerce Tracks ID mismatch fix -->
+				<script type="text/javascript">
+					window._tkq = window._tkq || [];
+					window._tkq.push( [ 'identifyUser', '<?php echo esc_js( $tracks_identity['_ui'] ); ?>' ] );
+				</script>
+				<?php
+			}
+		}
 	}
 
 	/**
