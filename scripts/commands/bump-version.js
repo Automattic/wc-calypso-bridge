@@ -3,9 +3,9 @@ import {
     promptChangeDegree,
     updateWCCalypsoBridgeVersion,
     updateComposerJsonVersion,
-    promptVersionConfirmation,
     error,
     isCorrectNodeVersion,
+    promptContinue,
 } from "../utils.js";
 import { inc as incVersion } from "semver";
 
