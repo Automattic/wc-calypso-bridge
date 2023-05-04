@@ -21,9 +21,10 @@ npm run build
 5. *Back in your local copy of wc-calypso-bridge*, perform the following steps:
     1. `git checkout master`
     2. `git pull origin master`
-    3. `npm i`
-    4. `npm run build`
-    5. `rm -rf node_modules` so these don't get packaged up in the release
+    3. `nvm use` in case your current node version is different
+    4. `npm i`
+    5. `npm run build`
+    6. `rm -rf node_modules` so these don't get packaged up in the release
 
 6. Now you are ready to tag the release by replacing x.x.x with the version number being created:
     1. `git tag x.x.x`
