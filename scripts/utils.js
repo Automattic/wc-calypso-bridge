@@ -8,6 +8,10 @@ import chalk from 'chalk';
 const git = simpleGit();
 export const __dirname = path.dirname( fileURLToPath( import.meta.url ) );
 
+export const CHANGE_DEGREE_PATCH = 'Patch (bug fixes, x.x.N)';
+export const CHANGE_DEGREE_MINOR = 'Minor (new features, backwards compatible, x.N.x)';
+export const CHANGE_DEGREE_MAJOR = 'Major (breaking changes, N.x.x)';
+
 export function error( message ) {
 	console.log( 'ERROR: ' + chalk.red( message ) );
 }
@@ -132,12 +136,33 @@ export async function promptChangeDegree() {
 		name: 'changeDegree',
 		message: 'What is the degree of the change?',
 		choices: [
-			'Patch (bug fixes)',
-			'Minor (new features, backwards compatible)',
-			'Major (breaking changes)',
+			CHANGE_DEGREE_PATCH,
+			CHANGE_DEGREE_MINOR,
+			CHANGE_DEGREE_MAJOR,
 		],
 	});
 	return answers.changeDegree;
+}
+
+/**
+ * Gets the type of the change based on the degree of the change.
+ *
+ * @param {string} changeDegree The degree of the change
+ * @returns {string} The type of the change degree that can be:
+ * - patch
+ * - minor
+ * - major
+ */
+export function getChangeDegreeType( changeDegree ) {
+	if ( changeDegree === CHANGE_DEGREE_PATCH ) {
+		return 'patch';
+	}
+	if ( changeDegree === CHANGE_DEGREE_MINOR ) {
+		return 'minor';
+	}
+	if ( changeDegree === CHANGE_DEGREE_MAJOR ) {
+		return 'major';
+	}
 }
 
 // Performs a git status on the project.

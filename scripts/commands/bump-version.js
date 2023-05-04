@@ -6,6 +6,7 @@ import {
     error,
     isCorrectNodeVersion,
     promptContinue,
+    getChangeDegreeType,
 } from "../utils.js";
 import { inc as incVersion } from "semver";
 
@@ -22,21 +23,8 @@ async function bumpVersion() {
 
     const degree = await promptChangeDegree();
 
-    const currentVersion = getCurrentVersion().replace('v', '');
-    let newVersion = null;
-    switch (degree) {
-        case 'Patch (bug fixes)':
-            newVersion = incVersion(currentVersion, 'patch');
-            break;
-        case 'Minor (new features, backwards compatible)':
-            newVersion = incVersion(currentVersion, 'minor');
-            break;
-        case 'Major (breaking changes)':
-            newVersion = incVersion(currentVersion, 'major');
-            break;
-        default:
-            throw new Error(`Invalid degree of change: ${degree}`);
-    }
+    const currentVersion = getCurrentVersion().replace( 'v', '' );
+    let newVersion = incVersion( currentVersion, getChangeDegreeType( degree ) );
 
     const shouldContinue = await promptContinue(
 		`Are you sure you want to bump the version from ${ currentVersion } to ${newVersion}?`
