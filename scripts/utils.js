@@ -143,3 +143,23 @@ export async function verifyBuild() {
 
 	return errors;
 }
+
+export async function updateChangelog( newChangelog ) {
+	const readmeFile = `${ __dirname }/../readme.txt`;
+	const fileContents = fs.readFileSync( readmeFile, 'utf8' );
+	const changelogMarker = '== Changelog ==';
+	const changelogIndex = fileContents.indexOf( changelogMarker );
+	const startOfText = fileContents.substring(
+		0,
+		changelogIndex + changelogMarker.length
+	);
+	const restOfText = fileContents.substring(
+		changelogIndex + changelogMarker.length
+	);
+
+	fs.writeFileSync(
+		readmeFile,
+		startOfText + '\n\n' + newChangelog.trim() + restOfText,
+		'utf8'
+	);
+}
