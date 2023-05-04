@@ -12,7 +12,7 @@ import {
 	gitFactory,
 	isDevBuild,
 	promptContinue,
-	switchToBranchWithMessage,
+	abortAndSwitchToBranch,
 	verifyBuild,
 } from '../utils.js';
 
@@ -33,18 +33,12 @@ async function buildRelease( currentBranchName ) {
 		return false;
 	}
 
-	// TODO - Verify (somehow) that we're not running with `start`.
-	/*
-	Some possible ideas for checking for `start`:
-
-	- Check for `build/*.map` files.
-	- The real build has a 948.js (not sure if this number changes) and start doesn't.
-	*/
 	if ( isDevBuild() ) {
-		error(
-			"You may have a dev build. Please make sure you aren't running 'npm start'"
+		return abortAndSwitchToBranch(
+			"You may have a dev build. Please make sure you aren't running 'npm start'",
+			'error',
+			currentBranchName
 		);
-		return false;
 	}
 
 	const git = gitFactory();
@@ -62,17 +56,18 @@ async function buildRelease( currentBranchName ) {
 	);
 
 	if ( ! shouldContinue ) {
-		info( 'Aborting release build.' );
-		await switchToBranchWithMessage( currentBranchName );
-
-		return false;
+		return abortAndSwitchToBranch(
+			'Aborting release build.',
+			'info',
+			currentBranchName
+		);
 	}
 
 	info( 'Creating a new release build. This make take some time...' );
 	const interval = setInterval( () => process.stdout.write( '.' ), 1000 );
 
 	await execAsync( 'npm i' );
-	const { stdout, stderr } = await execAsync( 'npm run build' );
+	const { stdout } = await execAsync( 'npm run build' );
 
 	clearInterval( interval );
 
@@ -86,17 +81,24 @@ async function buildRelease( currentBranchName ) {
 	}
 
 	if ( ! buildSuccess ) {
-		error( `npm run build failed (${ statusLine })` );
-		error( stderr );
-		return false;
+		return abortAndSwitchToBranch(
+			`npm run build failed (${ statusLine })`,
+			'error',
+			currentBranchName
+		);
 	}
 
 	// Verify that the build is valid.
 	const verificationErrors = await verifyBuild();
 	if ( verificationErrors.length > 0 ) {
-		error( 'Build verification failed:' );
-		verificationErrors.map( ( err ) => error( `\t${ err }` ) );
-		return false;
+		let errorDetails = '';
+		verificationErrors.map( ( err ) => ( errorDetails += `\t${ err }` ) );
+
+		return abortAndSwitchToBranch(
+			`Build verification failed:\n${ errorDetails }`,
+			'error',
+			currentBranchName
+		);
 	}
 
 	// Delete the node_modules directory so they don't get packaged up.

@@ -41,6 +41,22 @@ export async function promptContinue( msg ) {
 	return answer.continue;
 }
 
+export async function abortAndSwitchToBranch( msg, type, branchName = null ) {
+	if ( type === 'error' ) {
+		error( msg );
+	} else if ( type === 'warning' ) {
+		warning( msg );
+	} else {
+		info( msg );
+	}
+
+	if ( branchName ) {
+		await switchToBranchWithMessage( branchName );
+	}
+
+	return false;
+}
+
 export function getNvmrcVersion() {
 	const nvmrcContents = fs.readFileSync( `${ __dirname }/../.nvmrc`, 'utf8' );
 

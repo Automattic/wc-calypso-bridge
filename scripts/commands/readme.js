@@ -3,13 +3,12 @@ import inquirer from 'inquirer';
 
 import {
 	__dirname,
-	error,
 	info,
 	success,
 	getCurrentVersion,
 	gitFactory,
 	promptContinue,
-	switchToBranchWithMessage,
+	abortAndSwitchToBranch,
 	updateChangelog,
 } from '../utils.js';
 
@@ -18,12 +17,11 @@ async function updateReadMe( currentBranchName ) {
 	process.chdir( `${ __dirname }/..` );
 
 	if ( ! fs.existsSync( 'readme.txt' ) ) {
-		error(
-			'The file readme.txt does not exist. Verify you are in the wc-calypso-bridge project directory.'
+		return abortAndSwitchToBranch(
+			'The file readme.txt does not exist. Verify you are in the wc-calypso-bridge project directory.',
+			'error',
+			currentBranchName
 		);
-		await switchToBranchWithMessage( currentBranchName );
-
-		return false;
 	}
 
 	const git = gitFactory();
@@ -49,10 +47,11 @@ async function updateReadMe( currentBranchName ) {
 	] );
 
 	if ( answer.commits.length === 0 ) {
-		error( 'No commits selected. Aborting readme update.' );
-		await switchToBranchWithMessage( currentBranchName );
-
-		return false;
+		return abortAndSwitchToBranch(
+			'No commits selected. Aborting readme update.',
+			'error',
+			currentBranchName
+		);
 	}
 
 	const version = getCurrentVersion();
@@ -69,10 +68,11 @@ async function updateReadMe( currentBranchName ) {
 		'Would you like to update readme.txt with the above changelog entry?'
 	);
 	if ( ! shouldContinue ) {
-		info( 'Aborting readme update.' );
-		await switchToBranchWithMessage( currentBranchName );
-
-		return false;
+		return abortAndSwitchToBranch(
+			'Aborting readme update.',
+			'info',
+			currentBranchName
+		);
 	}
 
 	// Update the changelog and commit the change.

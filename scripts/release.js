@@ -4,7 +4,6 @@ import buildRelease from './commands/build.js';
 import tagRelease from './commands/tag.js';
 import {
 	error,
-	info,
 	isCorrectNodeVersion,
 	getCurrentBranchName,
 	getCurrentVersion,
@@ -12,14 +11,15 @@ import {
 	promptContinue,
 	success,
 	switchToBranchWithMessage,
+	abortAndSwitchToBranch,
 } from './utils.js';
 
 async function main() {
 	if ( ! isCorrectNodeVersion() ) {
-		error(
-			`Your version of NodeJS is not correct. Please install NodeJS v${ getNvmrcVersion() }.`
+		return abortAndSwitchToBranch(
+			`Your version of NodeJS is not correct. Please install NodeJS v${ getNvmrcVersion() }.`,
+			'error'
 		);
-		return;
 	}
 
 	const currentBranchName = await getCurrentBranchName();
@@ -40,10 +40,11 @@ async function main() {
 	);
 
 	if ( ! shouldContinue ) {
-		info( 'Aborting release deploy.' );
-		await switchToBranchWithMessage( currentBranchName );
-
-		return;
+		return abortAndSwitchToBranch(
+			'Aborting release deploy.',
+			'info',
+			currentBranchName
+		);
 	}
 
 	res = await tagRelease( currentBranchName );
