@@ -233,6 +233,7 @@ export async function verifyBuild() {
 	// TODO - How else can we verify the build finished successfully?
 
 	return errors;
+<<<<<<< HEAD
 }
 
 export async function updateChangelog( newChangelog ) {
@@ -254,3 +255,6 @@ export async function updateChangelog( newChangelog ) {
 		'utf8'
 	);
 }
+=======
+}
+>>>>>>> f777aa0 (remove the readme update function as it is being addressed on #1098)
