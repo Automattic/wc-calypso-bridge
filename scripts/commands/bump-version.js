@@ -6,7 +6,8 @@ import {
     error,
     isCorrectNodeVersion,
     promptContinue,
-    getChangeDegreeType,
+    createNewBranch,
+    createNewCommit,
 } from "../utils.js";
 import { inc as incVersion } from "semver";
 
@@ -24,7 +25,7 @@ async function bumpVersion() {
     const degree = await promptChangeDegree();
 
     const currentVersion = getCurrentVersion().replace( 'v', '' );
-    let newVersion = incVersion( currentVersion, getChangeDegreeType( degree ) );
+    let newVersion = incVersion( currentVersion, degree );
 
     const shouldContinue = await promptContinue(
 		`Are you sure you want to bump the version from ${ currentVersion } to ${newVersion}?`
@@ -34,8 +35,16 @@ async function bumpVersion() {
         return error( 'Aborting version bump.' );
     }
 
+    if ( ! await createNewBranch( `update-version-${ newVersion }` ) ){
+        return error( 'Aborting version bump.' );
+    }
+
     updateComposerJsonVersion( `v${newVersion}` );
     updateWCCalypsoBridgeVersion( newVersion );
+
+    if ( ! await createNewCommit( `Bump version to ${ newVersion }` ) ){
+        return error( 'Aborting version bump.' );
+    }
 }
 
 bumpVersion();

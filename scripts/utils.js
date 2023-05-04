@@ -8,10 +8,6 @@ import chalk from 'chalk';
 const git = simpleGit();
 export const __dirname = path.dirname( fileURLToPath( import.meta.url ) );
 
-export const CHANGE_DEGREE_PATCH = 'Patch (bug fixes, x.x.N)';
-export const CHANGE_DEGREE_MINOR = 'Minor (new features, backwards compatible, x.N.x)';
-export const CHANGE_DEGREE_MAJOR = 'Major (breaking changes, N.x.x)';
-
 export function error( message ) {
 	console.log( 'ERROR: ' + chalk.red( message ) );
 }
@@ -136,33 +132,12 @@ export async function promptChangeDegree() {
 		name: 'changeDegree',
 		message: 'What is the degree of the change?',
 		choices: [
-			CHANGE_DEGREE_PATCH,
-			CHANGE_DEGREE_MINOR,
-			CHANGE_DEGREE_MAJOR,
+			{ name: 'Patch (bug fixes, x.x.N)', value: 'patch' },
+			{ name: 'Minor (new features, backwards compatible, x.N.x)', value: 'minor' },
+			{ name: 'Major (breaking changes, N.x.x)', value: 'major' },
 		],
 	});
 	return answers.changeDegree;
-}
-
-/**
- * Gets the type of the change based on the degree of the change.
- *
- * @param {string} changeDegree The degree of the change
- * @returns {string} The type of the change degree that can be:
- * - patch
- * - minor
- * - major
- */
-export function getChangeDegreeType( changeDegree ) {
-	if ( changeDegree === CHANGE_DEGREE_PATCH ) {
-		return 'patch';
-	}
-	if ( changeDegree === CHANGE_DEGREE_MINOR ) {
-		return 'minor';
-	}
-	if ( changeDegree === CHANGE_DEGREE_MAJOR ) {
-		return 'major';
-	}
 }
 
 // Performs a git status on the project.
@@ -233,7 +208,6 @@ export async function verifyBuild() {
 	// TODO - How else can we verify the build finished successfully?
 
 	return errors;
-<<<<<<< HEAD
 }
 
 export async function updateChangelog( newChangelog ) {
@@ -255,6 +229,38 @@ export async function updateChangelog( newChangelog ) {
 		'utf8'
 	);
 }
-=======
+
+/**
+ * Creates a new branch and switches to it.
+ *
+ * @param {string} branchName The name of the branch to create
+ */
+export async function createNewBranch( branchName ) {
+	const git = simpleGit();
+	try {
+		await git.checkoutLocalBranch(branchName);
+		success(`Successfully created and switched to new branch ${branchName}`);
+		return true;
+	} catch (error) {
+		error(`Error creating new branch: ${error.message}`);
+		return false;
+	}
 }
->>>>>>> f777aa0 (remove the readme update function as it is being addressed on #1098)
+
+/**
+ * Creates a new commit with the given message.
+ *
+ * @param {string} message The commit message
+ */
+export async function createNewCommit( message ) {
+	const git = simpleGit();
+	try {
+		await git.add('.');
+		await git.commit(message);
+		success(`Successfully created new commit with message: ${message}`);
+		return true;
+	} catch (error) {
+		error(`Error creating new commit: ${error.message}`);
+		return false;
+	}
+}
