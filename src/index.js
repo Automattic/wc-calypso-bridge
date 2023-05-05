@@ -25,6 +25,16 @@ import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 import './task-headers';
 
+// Modify webpack to append the ?ver parameter to JS chunk
+// https://webpack.js.org/api/module-variables/#__webpack_get_script_filename__-webpack-specific
+// eslint-disable-next-line no-undef,camelcase
+const oldGetScriptFileNameFn = __webpack_get_script_filename__;
+// eslint-disable-next-line no-undef,camelcase
+__webpack_get_script_filename__ = ( chunk ) => {
+	const filename = oldGetScriptFileNameFn( chunk );
+	return `${ filename }?ver=${ window.wcCalypsoBridge.version }`;
+};
+
 const PaymentGatewaySuggestions = lazy( () =>
 	import(
 		/* webpackChunkName: "payment-gateway-suggestions" */ './payment-gateway-suggestions'
