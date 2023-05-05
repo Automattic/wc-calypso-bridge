@@ -86,7 +86,15 @@ async function tagRelease( currentBranchName ) {
 		);
 	}
 
-	await git.push( [ 'origin', version ] );
+	try {
+		await git.push( [ 'origin', version ] );
+	} catch ( err ) {
+		return abortAndSwitchToBranch(
+			`The tag ${ version } was not deployed. ${ err }`,
+			'error',
+			currentBranchName
+		);
+	}
 
 	return true;
 }
