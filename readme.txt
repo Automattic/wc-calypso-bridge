@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,9 +22,15 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Remove useSlot monkey patch. #1117
+
+= 2.1.2 =
+* Fix JS lint errors #1105.
 * Update Appearance task has_products logic #1107
 * Update product task to detect modified products #1106.
-* Remove useSlot monkey patch. #1117
+* Fix Jetpack tracks ID mismatch #1118.
+* Patch for product import issue #1119.
 
 = 2.1.1 =
 * Allow expired trial sites to access the Export tool #1104.
