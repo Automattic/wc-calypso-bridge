@@ -24,7 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Remove useSlot monkey patch. #1117
-* Optimize bridge file size by lazy-loading payments components #1123.
+* Optimize bridge file size by lazy-loading components #1123.
 
 = 2.1.2 =
 * Fix JS lint errors #1105.
