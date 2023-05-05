@@ -327,3 +327,5 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 		</div>
 	);
 };
+
+export default PaymentGatewaySuggestions;
