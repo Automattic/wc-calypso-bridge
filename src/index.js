@@ -20,7 +20,6 @@ import {
 	ProgressHeaderFill,
 	ProgressTitleFill,
 } from './homescreen-progress-header';
-import { Marketing } from './marketing';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 import './task-headers';
@@ -34,6 +33,10 @@ __webpack_get_script_filename__ = ( chunk ) => {
 	const filename = oldGetScriptFileNameFn( chunk );
 	return `${ filename }?ver=${ window.wcCalypsoBridge.version }`;
 };
+
+const Marketing = lazy( () =>
+	import( /* webpackChunkName: "marketing" */ './marketing' )
+);
 
 const PaymentGatewaySuggestions = lazy( () =>
 	import(
