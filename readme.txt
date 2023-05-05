@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Remove useSlot monkey patch. #1117
 
 = 2.1.2 =
 * Fix JS lint errors #1105.
