@@ -52,47 +52,13 @@
 }
 
 // Adds animation to placeholder section
-@mixin placeholder( $include-border-radius: true ) {
-	outline: 0 !important;
-	border: 0 !important;
-	background-color: currentColor !important;
-	color: currentColor !important;
-	width: 100%;
-	@if $include-border-radius == true {
-		border-radius: 0.25rem;
-	}
-	display: block;
-	line-height: 1;
-	position: relative !important;
-	overflow: hidden !important;
-	max-width: 100% !important;
-	pointer-events: none;
-	box-shadow: none;
-	z-index: 1; /* Necessary for overflow: hidden to work correctly in Safari */
-	opacity: 0.15;
-
-	// Forces direct descendants to keep layout but lose visibility.
-	> * {
-		visibility: hidden;
-	}
+@mixin placeholder( $lighten-percentage: 30% ) {
+	animation: loading-fade 1.6s ease-in-out infinite;
+	background-color: $gray-100;
+	color: transparent;
 
 	&::after {
-		content: ' ';
-		display: block;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		height: 100%;
-		background-repeat: no-repeat;
-		background-image: linear-gradient(
-			90deg,
-			currentColor,
-			#f5f5f54d,
-			currentColor
-		);
-		transform: translateX( -100% );
-		animation: loading__animation 1.5s ease-in-out infinite;
+		content: '\00a0';
 	}
 
 	@media screen and ( prefers-reduced-motion: reduce ) {
