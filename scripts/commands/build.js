@@ -7,8 +7,6 @@ import {
 	error,
 	success,
 	info,
-	warning,
-	getCurrentBranchName,
 	getCurrentVersion,
 	getStatus,
 	gitFactory,
@@ -20,7 +18,7 @@ import {
 
 const execAsync = promisify( exec );
 
-async function buildRelease(currentBranchName) {
+async function buildRelease( currentBranchName ) {
 	// Ensure we're always running in the project root.
 	process.chdir( `${ __dirname }/..` );
 
@@ -70,7 +68,7 @@ async function buildRelease(currentBranchName) {
 		return false;
 	}
 
-	info('Creating a new release build. This make take some time...');
+	info( 'Creating a new release build. This make take some time...' );
 	const interval = setInterval( () => process.stdout.write( '.' ), 1000 );
 
 	await execAsync( 'npm i' );
