@@ -74,6 +74,72 @@ export function getCurrentVersion() {
 	}
 }
 
+/**
+ * Updates the version number in the composer.json file.
+ *
+ * @param {string} newVersion The new version number to set in the composer.json file
+ */
+export function updateComposerJsonVersion( newVersion ) {
+	const composerJsonPath = `${ __dirname }/../composer.json`;
+	// Read the contents of the composer.json file
+	const composerFile = fs.readFileSync( composerJsonPath );
+	const composerData = JSON.parse( composerFile );
+
+	composerData.version = newVersion;
+
+	fs.writeFileSync( composerJsonPath, JSON.stringify( composerData, null, 2 ));
+
+	success(`Updated version the composer.json file to ${ newVersion }`);
+}
+
+/**
+ * Updates the version number in the wc-calypso-bridge.php file.
+ *
+ * @param {string} newVersion The new version number to set in the wc-calypso-bridge.php file
+ */
+export function updateWCCalypsoBridgeVersion( newVersion ) {
+	const wcCalypsoBridgePath = `${ __dirname }/../wc-calypso-bridge.php`;
+	// Read the contents of the PHP file
+	const wcCalypsoBridgeContent = fs.readFileSync( wcCalypsoBridgePath, 'utf-8' );
+
+	// Update the version number in the define() statement using a regular expression
+	const updatedDefineStatement = wcCalypsoBridgeContent.replace(/(define\(\s*['"]WC_CALYPSO_BRIDGE_CURRENT_VERSION['"]\s*,\s*['"])(\d+\.\d+\.\d+)['"]\s*\)/i, ( match, prefix ) => {
+		return `${prefix}${newVersion}' )`;
+	});
+
+	// Update the version number in the Version: line using a regular expression
+	const updatedWcCalypsoBridge = updatedDefineStatement.replace(/(Version:\s*)(\d+\.\d+\.\d+)/i, ( match, prefix ) => {
+		return `${prefix}${newVersion}`;
+	});
+
+	// Write the updated contents back to the PHP file
+	fs.writeFileSync( wcCalypsoBridgePath, updatedWcCalypsoBridge );
+
+	success(`Successfully updated version number in wc-calypso-bridge.php to ${ newVersion }`);
+}
+
+/**
+ * Prompts the user to select the degree of the change.
+ *
+ * @returns {string} The deegree of the change that can be:
+ * - Patch (bug fixes)
+ * - Minor (new features, backwards compatible)
+ * - Major (breaking changes)
+ */
+export async function promptChangeDegree() {
+	const answers = await inquirer.prompt({
+		type: 'list',
+		name: 'changeDegree',
+		message: 'What is the degree of the change?',
+		choices: [
+			{ name: 'Patch (bug fixes, x.x.N)', value: 'patch' },
+			{ name: 'Minor (new features, backwards compatible, x.N.x)', value: 'minor' },
+			{ name: 'Major (breaking changes, N.x.x)', value: 'major' },
+		],
+	});
+	return answers.changeDegree;
+}
+
 // Performs a git status on the project.
 export async function getStatus() {
 	try {
@@ -162,4 +228,39 @@ export async function updateChangelog( newChangelog ) {
 		startOfText + '\n\n' + newChangelog.trim() + restOfText,
 		'utf8'
 	);
+}
+
+/**
+ * Creates a new branch and switches to it.
+ *
+ * @param {string} branchName The name of the branch to create
+ */
+export async function createNewBranch( branchName ) {
+	const git = simpleGit();
+	try {
+		await git.checkoutLocalBranch(branchName);
+		success(`Successfully created and switched to new branch ${branchName}`);
+		return true;
+	} catch (error) {
+		error(`Error creating new branch: ${error.message}`);
+		return false;
+	}
+}
+
+/**
+ * Creates a new commit with the given message.
+ *
+ * @param {string} message The commit message
+ */
+export async function createNewCommit( message ) {
+	const git = simpleGit();
+	try {
+		await git.add('.');
+		await git.commit(message);
+		success(`Successfully created new commit with message: ${message}`);
+		return true;
+	} catch (error) {
+		error(`Error creating new commit: ${error.message}`);
+		return false;
+	}
 }
