@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Remove useSlot monkey patch. #1117
+* Make OBW skip reliable for ecommerce and free trial plans #1125
 
 = 2.1.2 =
 * Fix JS lint errors #1105.
