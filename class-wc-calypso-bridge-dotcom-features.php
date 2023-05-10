@@ -34,12 +34,25 @@ if ( ! function_exists( 'wc_calypso_bridge_has_ecommerce_features' ) ) {
 
 if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	/**
-	 * Returns if a site is an eCommerce plan site or not.
+	 * Returns if a site is an eCommerce paid plan site or not.
 	 *
-	 * @return bool True if the site is an ecommerce site.
+	 * @return bool True if the site is an paid ecommerce site.
 	 */
 	function wc_calypso_bridge_is_ecommerce_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_plan();
+	}
+}
+
+if ( ! function_exists( 'wc_calypso_bridge_is_wpcom_ecommerce_plan' ) ) {
+	/**
+	 * Returns if a site is an eCommerce plan site from dotCom or not.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @return bool True if the site is an ecommerce from dotCom site.
+	 */
+	function wc_calypso_bridge_is_wpcom_ecommerce_plan() {
+		return WC_Calypso_Bridge_DotCom_Features::is_wpcom_ecommerce_plan();
 	}
 }
 
@@ -56,7 +69,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_trial_plan' ) ) {
 
 if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_small_plan' ) ) {
 	/**
-	 * Returns if a site is an Small eCommerce plan site or not.
+	 * Returns if a site is an Small eCommerce plan (Woo Express Essential) site or not.
 	 *
 	 * @since 2.1.3
 	 *
@@ -69,7 +82,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_small_plan' ) ) {
 
 if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_medium_plan' ) ) {
 	/**
-	 * Returns if a site is an Medium eCommerce plan site or not.
+	 * Returns if a site is an Medium eCommerce plan (Woo Express Performance) site or not.
 	 *
 	 * @since 2.1.3
 	 *
@@ -95,11 +108,20 @@ class WC_Calypso_Bridge_DotCom_Features {
 	protected static $has_ecommerce_features = null;
 
 	/**
-	 * Is Ecommerce plan.
+	 * Is a paid Ecommerce plan.
 	 *
 	 * @var bool
 	 */
 	protected static $is_ecommerce_plan = null;
+
+	/**
+	 * Is an Ecommerce plan from dotCom.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @var bool
+	 */
+	protected static $is_wpcom_ecommerce_plan = null;
 
 	/**
 	 * Is Ecommerce Trial plan.
@@ -109,14 +131,18 @@ class WC_Calypso_Bridge_DotCom_Features {
 	protected static $is_ecommerce_trial_plan = null;
 
 	/**
-	 * Is Ecommerce Small plan.
+	 * Is Ecommerce Small (Woo Express Essential) plan.
+	 *
+	 * @since 2.1.3
 	 *
 	 * @var bool
 	 */
 	protected static $is_ecommerce_small_plan = null;
 
 	/**
-	 * Is Ecommerce Medium plan.
+	 * Is Ecommerce Medium (Woo Express Performance) plan.
+	 *
+	 * @since 2.1.3
 	 *
 	 * @var bool
 	 */
@@ -143,20 +169,53 @@ class WC_Calypso_Bridge_DotCom_Features {
 	}
 
 	/**
-	 * Determine if site is Ecommerce and cache it.
+	 * Determine if site is a paid Ecommerce plan and cache it (refers all ecommerce plans from dotCom or WCCOM).
 	 *
 	 * @var bool
 	 */
 	public static function is_ecommerce_plan() {
+		if ( is_null( self::$is_wpcom_ecommerce_plan ) ) {
+			self::$is_wpcom_ecommerce_plan = self::has_ecommerce_features() && (
+				wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_SMALL ) || wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_MEDIUM )
+			);
+		}
+
+		return self::$is_wpcom_ecommerce_plan;
+	}
+
+	/**
+	 * Determine if site is Ecommerce from dotCom and cache it.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @var bool
+	 */
+	public static function is_wpcom_ecommerce_plan() {
 		if ( is_null( self::$is_ecommerce_plan ) ) {
-			self::$is_ecommerce_plan = self::has_ecommerce_features() && wpcom_site_has_feature( \WPCOM_Features::INSTALL_PLUGINS );
+
+			self::$is_ecommerce_plan = false;
+			$all_site_purchases      = wpcom_get_site_purchases();
+			$plan_purchases          = array_filter(
+				$all_site_purchases,
+				function ( $purchase ) {
+					return 'bundle' === $purchase->product_type;
+				}
+			);
+
+			if ( 1 === count( $plan_purchases ) ) {
+				// We have exactly one plan
+				$plan_purchase = reset( $plan_purchases );
+				if ( 'wp-bundle-ecommerce' === $plan_purchase->billing_product_slug ) {
+					self::$is_ecommerce_plan = self::has_ecommerce_features();
+				}
+			}
 		}
 
 		return self::$is_ecommerce_plan;
 	}
 
 	/**
-	 * Determine if site is Small Ecommerce and cache it.
+	 * Determine if site is Small Ecommerce (Woo Express Essential) and cache it.
 	 *
 	 * @since 2.1.3
 	 *
@@ -164,14 +223,34 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 */
 	public static function is_ecommerce_small_plan() {
 		if ( is_null( self::$is_ecommerce_small_plan ) ) {
-			self::$is_ecommerce_small_plan = self::has_ecommerce_features() && wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_SMALL );
+
+			self::$is_ecommerce_small_plan = false;
+			if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
+				return self::$is_ecommerce_small_plan;
+			}
+
+			$all_site_purchases = wpcom_get_site_purchases();
+			$plan_purchases     = array_filter(
+				$all_site_purchases,
+				function ( $purchase ) {
+					return 'bundle' === $purchase->product_type;
+				}
+			);
+
+			if ( 1 === count( $plan_purchases ) ) {
+				// We have exactly one plan
+				$plan_purchase = reset( $plan_purchases );
+				if ( 'wp-bundle-wooexpress-small' === $plan_purchase->billing_product_slug ) {
+					self::$is_ecommerce_small_plan = self::has_ecommerce_features();
+				}
+			}
 		}
 
 		return self::$is_ecommerce_small_plan;
 	}
 
 	/**
-	 * Determine if site is Medium Ecommerce and cache it.
+	 * Determine if site is Medium Ecommerce (Woo Express Performance) and cache it.
 	 *
 	 * @since 2.1.3
 	 *
@@ -179,7 +258,27 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 */
 	public static function is_ecommerce_medium_plan() {
 		if ( is_null( self::$is_ecommerce_medium_plan ) ) {
-			self::$is_ecommerce_medium_plan = self::has_ecommerce_features() && wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_MEDIUM );
+
+			self::$is_ecommerce_medium_plan = false;
+			if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
+				return self::$is_ecommerce_medium_plan;
+			}
+
+			$all_site_purchases = wpcom_get_site_purchases();
+			$plan_purchases     = array_filter(
+				$all_site_purchases,
+				function ( $purchase ) {
+					return 'bundle' === $purchase->product_type;
+				}
+			);
+
+			if ( 1 === count( $plan_purchases ) ) {
+				// We have exactly one plan
+				$plan_purchase = reset( $plan_purchases );
+				if ( in_array( $plan_purchase->billing_product_slug, array( 'wp-bundle-wooexpress-medium', 'wp-bundle-wooexpress-medium-yearly' ) ) ) { // This was a bug. We include both to be on the safe side.
+					self::$is_ecommerce_medium_plan = self::has_ecommerce_features();
+				}
+			}
 		}
 
 		return self::$is_ecommerce_medium_plan;
@@ -192,7 +291,7 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 */
 	public static function is_ecommerce_trial_plan() {
 		if ( is_null( self::$is_ecommerce_trial_plan ) ) {
-			self::$is_ecommerce_trial_plan = self::has_ecommerce_features() && ! wpcom_site_has_feature( \WPCOM_Features::INSTALL_PLUGINS );
+			self::$is_ecommerce_trial_plan = self::has_ecommerce_features() && wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_TRIAL );
 		}
 
 		return self::$is_ecommerce_trial_plan;
