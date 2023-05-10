@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.0.0
+ * @version 2.1.3
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -54,6 +54,32 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_trial_plan' ) ) {
 	}
 }
 
+if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_small_plan' ) ) {
+	/**
+	 * Returns if a site is an Small eCommerce plan site or not.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @return bool True if the site is an small ecommerce site.
+	 */
+	function wc_calypso_bridge_is_ecommerce_small_plan() {
+		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_small_plan();
+	}
+}
+
+if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_medium_plan' ) ) {
+	/**
+	 * Returns if a site is an Medium eCommerce plan site or not.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @return bool True if the site is an medium ecommerce site.
+	 */
+	function wc_calypso_bridge_is_ecommerce_medium_plan() {
+		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_medium_plan();
+	}
+}
+
 /**
  * WC Calypso Bridge DotCom Features class.
  */
@@ -81,6 +107,20 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 * @var bool
 	 */
 	protected static $is_ecommerce_trial_plan = null;
+
+	/**
+	 * Is Ecommerce Small plan.
+	 *
+	 * @var bool
+	 */
+	protected static $is_ecommerce_small_plan = null;
+
+	/**
+	 * Is Ecommerce Medium plan.
+	 *
+	 * @var bool
+	 */
+	protected static $is_ecommerce_medium_plan = null;
 
 	/**
 	 * Is Business plan.
@@ -115,6 +155,35 @@ class WC_Calypso_Bridge_DotCom_Features {
 		return self::$is_ecommerce_plan;
 	}
 
+	/**
+	 * Determine if site is Small Ecommerce and cache it.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @var bool
+	 */
+	public static function is_ecommerce_small_plan() {
+		if ( is_null( self::$is_ecommerce_small_plan ) ) {
+			self::$is_ecommerce_small_plan = self::has_ecommerce_features() && wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_SMALL );
+		}
+
+		return self::$is_ecommerce_small_plan;
+	}
+
+	/**
+	 * Determine if site is Medium Ecommerce and cache it.
+	 *
+	 * @since 2.1.3
+	 *
+	 * @var bool
+	 */
+	public static function is_ecommerce_medium_plan() {
+		if ( is_null( self::$is_ecommerce_medium_plan ) ) {
+			self::$is_ecommerce_medium_plan = self::has_ecommerce_features() && wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_MEDIUM );
+		}
+
+		return self::$is_ecommerce_medium_plan;
+	}
 
 	/**
 	 * Determine if site is Ecommerce Trial and cache it.
