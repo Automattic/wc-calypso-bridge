@@ -88,8 +88,8 @@ Here's a handy boilerplate for starting a new file in [this gist](https://gist.g
 Plan-specific tweaks can be managed using the following global functions:
 | Helper function |  Return value  |
 |---|---|
-| `wc_calypso_bridge_has_ecommerce_features()`   | This will return `true` for all ecommerce-related plans *(including all dotCom, Woo Express plans, and the Ecommerce Free Trial)* |
-| `wc_calypso_bridge_is_ecommerce_plan()`   | Returns `true` if the site has a paid Ecommerce plan (including all dotCom and Woo Express plans) |
+| `wc_calypso_bridge_has_ecommerce_features()`   | This will return `true` for all ecommerce-related plans *(including all WordPress.com, Woo Express plans, and the Ecommerce Free Trial)* |
+| `wc_calypso_bridge_is_ecommerce_plan()`   | Returns `true` if the site has a paid Ecommerce plan (including all WordPress.com and Woo Express plans) |
 | `wc_calypso_bridge_is_ecommerce_trial_plan()`  |  Returns `true` if the site has an Ecommerce Trial plan. |
 | `wc_calypso_bridge_is_woo_express_performance_plan()`  |  Returns `true` if the site has a Woo Express Performance plan. |
 | `wc_calypso_bridge_is_woo_express_essential_plan()`  |  Returns `true` if the site has a Woo Express Essential plan. |
