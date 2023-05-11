@@ -85,5 +85,3 @@ async function updateReadMe( currentBranchName ) {
 	success( 'Readme updated successfully.' );
 	return true;
 }
-
-updateReadMe( '1098-update/readme-section' );
