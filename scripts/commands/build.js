@@ -66,7 +66,7 @@ async function buildRelease( currentBranchName ) {
 	info( 'Creating a new release build. This make take some time...' );
 	const interval = setInterval( () => process.stdout.write( '.' ), 1000 );
 
-	await execAsync( 'npm i' );
+	await execAsync( 'npm ci' );
 	const { stdout } = await execAsync( 'npm run build' );
 
 	clearInterval( interval );
