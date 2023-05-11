@@ -8,6 +8,13 @@ import chalk from 'chalk';
 const git = simpleGit();
 export const __dirname = path.dirname( fileURLToPath( import.meta.url ) );
 
+export const NOTICE_LEVEL = {
+	INFO: 'info',
+	WARNING: 'warning',
+	ERROR: 'error',
+	SUCCESS: 'success',
+};
+
 export function error( message ) {
 	console.log( 'ERROR: ' + chalk.red( message ) );
 }
@@ -103,9 +110,12 @@ export function updateComposerJsonVersion( newVersion ) {
 
 	composerData.version = newVersion;
 
-	fs.writeFileSync( composerJsonPath, JSON.stringify( composerData, null, 2 ));
+	fs.writeFileSync(
+		composerJsonPath,
+		JSON.stringify( composerData, null, 2 )
+	);
 
-	success(`Updated version the composer.json file to ${ newVersion }`);
+	success( `Updated version the composer.json file to ${ newVersion }` );
 }
 
 /**
@@ -116,43 +126,57 @@ export function updateComposerJsonVersion( newVersion ) {
 export function updateWCCalypsoBridgeVersion( newVersion ) {
 	const wcCalypsoBridgePath = `${ __dirname }/../wc-calypso-bridge.php`;
 	// Read the contents of the PHP file
-	const wcCalypsoBridgeContent = fs.readFileSync( wcCalypsoBridgePath, 'utf-8' );
+	const wcCalypsoBridgeContent = fs.readFileSync(
+		wcCalypsoBridgePath,
+		'utf-8'
+	);
 
 	// Update the version number in the define() statement using a regular expression
-	const updatedDefineStatement = wcCalypsoBridgeContent.replace(/(define\(\s*['"]WC_CALYPSO_BRIDGE_CURRENT_VERSION['"]\s*,\s*['"])(\d+\.\d+\.\d+)['"]\s*\)/i, ( match, prefix ) => {
-		return `${prefix}${newVersion}' )`;
-	});
+	const updatedDefineStatement = wcCalypsoBridgeContent.replace(
+		/(define\(\s*['"]WC_CALYPSO_BRIDGE_CURRENT_VERSION['"]\s*,\s*['"])(\d+\.\d+\.\d+)['"]\s*\)/i,
+		( match, prefix ) => {
+			return `${ prefix }${ newVersion }' )`;
+		}
+	);
 
 	// Update the version number in the Version: line using a regular expression
-	const updatedWcCalypsoBridge = updatedDefineStatement.replace(/(Version:\s*)(\d+\.\d+\.\d+)/i, ( match, prefix ) => {
-		return `${prefix}${newVersion}`;
-	});
+	const updatedWcCalypsoBridge = updatedDefineStatement.replace(
+		/(Version:\s*)(\d+\.\d+\.\d+)/i,
+		( match, prefix ) => {
+			return `${ prefix }${ newVersion }`;
+		}
+	);
 
 	// Write the updated contents back to the PHP file
 	fs.writeFileSync( wcCalypsoBridgePath, updatedWcCalypsoBridge );
 
-	success(`Successfully updated version number in wc-calypso-bridge.php to ${ newVersion }`);
+	success(
+		`Successfully updated version number in wc-calypso-bridge.php to ${ newVersion }`
+	);
 }
 
 /**
  * Prompts the user to select the degree of the change.
  *
- * @returns {string} The deegree of the change that can be:
+ * @return {string} The deegree of the change that can be:
  * - Patch (bug fixes)
  * - Minor (new features, backwards compatible)
  * - Major (breaking changes)
  */
 export async function promptChangeDegree() {
-	const answers = await inquirer.prompt({
+	const answers = await inquirer.prompt( {
 		type: 'list',
 		name: 'changeDegree',
 		message: 'What is the degree of the change?',
 		choices: [
 			{ name: 'Patch (bug fixes, x.x.N)', value: 'patch' },
-			{ name: 'Minor (new features, backwards compatible, x.N.x)', value: 'minor' },
+			{
+				name: 'Minor (new features, backwards compatible, x.N.x)',
+				value: 'minor',
+			},
 			{ name: 'Major (breaking changes, N.x.x)', value: 'major' },
 		],
-	});
+	} );
 	return answers.changeDegree;
 }
 
@@ -254,11 +278,13 @@ export async function updateChangelog( newChangelog ) {
 export async function createNewBranch( branchName ) {
 	const git = simpleGit();
 	try {
-		await git.checkoutLocalBranch(branchName);
-		success(`Successfully created and switched to new branch ${branchName}`);
+		await git.checkoutLocalBranch( branchName );
+		success(
+			`Successfully created and switched to new branch ${ branchName }`
+		);
 		return true;
-	} catch (error) {
-		error(`Error creating new branch: ${error.message}`);
+	} catch ( error ) {
+		error( `Error creating new branch: ${ error.message }` );
 		return false;
 	}
 }
@@ -271,12 +297,12 @@ export async function createNewBranch( branchName ) {
 export async function createNewCommit( message ) {
 	const git = simpleGit();
 	try {
-		await git.add('.');
-		await git.commit(message);
-		success(`Successfully created new commit with message: ${message}`);
+		await git.add( '.' );
+		await git.commit( message );
+		success( `Successfully created new commit with message: ${ message }` );
 		return true;
-	} catch (error) {
-		error(`Error creating new commit: ${error.message}`);
+	} catch ( error ) {
+		error( `Error creating new commit: ${ error.message }` );
 		return false;
 	}
 }

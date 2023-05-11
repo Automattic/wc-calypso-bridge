@@ -5,6 +5,7 @@ import {
 	__dirname,
 	info,
 	success,
+	NOTICE_LEVEL,
 	getCurrentVersion,
 	gitFactory,
 	promptContinue,
@@ -19,7 +20,7 @@ async function updateReadMe( currentBranchName ) {
 	if ( ! fs.existsSync( 'readme.txt' ) ) {
 		return abortAndSwitchToBranch(
 			'The file readme.txt does not exist. Verify you are in the wc-calypso-bridge project directory.',
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -49,7 +50,7 @@ async function updateReadMe( currentBranchName ) {
 	if ( answer.commits.length === 0 ) {
 		return abortAndSwitchToBranch(
 			'No commits selected. Aborting readme update.',
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -70,7 +71,7 @@ async function updateReadMe( currentBranchName ) {
 	if ( ! shouldContinue ) {
 		return abortAndSwitchToBranch(
 			'Aborting readme update.',
-			'info',
+			NOTICE_LEVEL.INFO,
 			currentBranchName
 		);
 	}

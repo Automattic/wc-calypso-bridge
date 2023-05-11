@@ -4,6 +4,7 @@ import chalk from 'chalk';
 import {
 	__dirname,
 	info,
+	NOTICE_LEVEL,
 	getCurrentVersion,
 	gitFactory,
 	promptContinue,
@@ -24,7 +25,7 @@ async function tagRelease( currentBranchName ) {
 
 		return abortAndSwitchToBranch(
 			`Build verification failed:\n${ errorDetails }`,
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -32,7 +33,7 @@ async function tagRelease( currentBranchName ) {
 	if ( fs.existsSync( 'node_modules' ) ) {
 		return abortAndSwitchToBranch(
 			'A node_modules folder exists. Please remove it and try again.',
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -45,7 +46,7 @@ async function tagRelease( currentBranchName ) {
 	if ( res ) {
 		return abortAndSwitchToBranch(
 			`The tag ${ version } already exists. Deploy failed.`,
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -73,7 +74,7 @@ async function tagRelease( currentBranchName ) {
 
 		return abortAndSwitchToBranch(
 			`Aborting. The release for ${ versionStr } was not published and the new tag has been deleted!`,
-			'warning'
+			NOTICE_LEVEL.WARNING
 		);
 	}
 
@@ -81,7 +82,7 @@ async function tagRelease( currentBranchName ) {
 	if ( ! res ) {
 		return abortAndSwitchToBranch(
 			`The tag ${ version } does not exist. Deploy failed.`,
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -91,7 +92,7 @@ async function tagRelease( currentBranchName ) {
 	} catch ( err ) {
 		return abortAndSwitchToBranch(
 			`The tag ${ version } was not deployed. ${ err }`,
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}

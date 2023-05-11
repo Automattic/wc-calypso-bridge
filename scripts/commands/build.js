@@ -7,6 +7,7 @@ import {
 	error,
 	success,
 	info,
+	NOTICE_LEVEL,
 	getCurrentVersion,
 	getStatus,
 	gitFactory,
@@ -36,7 +37,7 @@ async function buildRelease( currentBranchName ) {
 	if ( isDevBuild() ) {
 		return abortAndSwitchToBranch(
 			"You may have a dev build. Please make sure you aren't running 'npm start'. You may need to delete the existing build directory by running `rm -rf ./build`.",
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -58,7 +59,7 @@ async function buildRelease( currentBranchName ) {
 	if ( ! shouldContinue ) {
 		return abortAndSwitchToBranch(
 			'Aborting release build.',
-			'info',
+			NOTICE_LEVEL.INFO,
 			currentBranchName
 		);
 	}
@@ -83,7 +84,7 @@ async function buildRelease( currentBranchName ) {
 	if ( ! buildSuccess ) {
 		return abortAndSwitchToBranch(
 			`npm run build failed (${ statusLine })`,
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}
@@ -95,7 +96,7 @@ async function buildRelease( currentBranchName ) {
 
 		return abortAndSwitchToBranch(
 			`Build verification failed:\n${ errorDetails }`,
-			'error',
+			NOTICE_LEVEL.ERROR,
 			currentBranchName
 		);
 	}

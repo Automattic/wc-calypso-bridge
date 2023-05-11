@@ -3,7 +3,7 @@ import chalk from 'chalk';
 import buildRelease from './commands/build.js';
 import tagRelease from './commands/tag.js';
 import {
-	error,
+	NOTICE_LEVEL,
 	isCorrectNodeVersion,
 	getCurrentBranchName,
 	getCurrentVersion,
@@ -18,7 +18,7 @@ async function main() {
 	if ( ! isCorrectNodeVersion() ) {
 		return abortAndSwitchToBranch(
 			`Your version of NodeJS is not correct. Please install NodeJS v${ getNvmrcVersion() }.`,
-			'error'
+			NOTICE_LEVEL.ERROR
 		);
 	}
 
@@ -42,7 +42,7 @@ async function main() {
 	if ( ! shouldContinue ) {
 		return abortAndSwitchToBranch(
 			'Aborting release deploy.',
-			'info',
+			NOTICE_LEVEL.INFO,
 			currentBranchName
 		);
 	}
