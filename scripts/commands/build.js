@@ -91,8 +91,7 @@ async function buildRelease( currentBranchName ) {
 	// Verify that the build is valid.
 	const verificationErrors = await verifyBuild();
 	if ( verificationErrors.length > 0 ) {
-		let errorDetails = '';
-		verificationErrors.map( ( err ) => ( errorDetails += `\t${ err }` ) );
+		const errorDetails = verificationErrors.join( `\t` );
 
 		return abortAndSwitchToBranch(
 			`Build verification failed:\n${ errorDetails }`,
