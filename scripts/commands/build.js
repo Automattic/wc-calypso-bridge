@@ -102,6 +102,9 @@ async function buildRelease( currentBranchName ) {
 
 	// Delete the node_modules directory so they don't get packaged up.
 	await fsPromises.rm( 'node_modules', { recursive: true } );
+	info(
+		"Deleted node_modules directory. Please note that you'll need to run 'npm install' again."
+	);
 
 	success( 'Release build complete.' );
 	return true;
