@@ -174,13 +174,13 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 * @var bool
 	 */
 	public static function is_ecommerce_plan() {
-		if ( is_null( self::$is_wpcom_ecommerce_plan ) ) {
-			self::$is_wpcom_ecommerce_plan = self::has_ecommerce_features() && (
+		if ( is_null( self::$is_ecommerce_plan ) ) {
+			self::$is_ecommerce_plan = self::has_ecommerce_features() && (
 				wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_SMALL ) || wpcom_site_has_feature( \WPCOM_Features::ECOMMERCE_MANAGED_PLUGINS_MEDIUM )
 			);
 		}
 
-		return self::$is_wpcom_ecommerce_plan;
+		return self::$is_ecommerce_plan;
 	}
 
 	/**
@@ -191,9 +191,9 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 * @var bool
 	 */
 	public static function is_wpcom_ecommerce_plan() {
-		if ( is_null( self::$is_ecommerce_plan ) ) {
+		if ( is_null( self::$is_wpcom_ecommerce_plan ) ) {
 
-			self::$is_ecommerce_plan = false;
+			self::$is_wpcom_ecommerce_plan = false;
 			$all_site_purchases      = wpcom_get_site_purchases();
 			$plan_purchases          = array_filter(
 				$all_site_purchases,
@@ -206,12 +206,12 @@ class WC_Calypso_Bridge_DotCom_Features {
 				// We have exactly one plan
 				$plan_purchase = reset( $plan_purchases );
 				if ( 'wp-bundle-ecommerce' === $plan_purchase->billing_product_slug ) {
-					self::$is_ecommerce_plan = self::has_ecommerce_features();
+					self::$is_wpcom_ecommerce_plan = self::has_ecommerce_features();
 				}
 			}
 		}
 
-		return self::$is_ecommerce_plan;
+		return self::$is_wpcom_ecommerce_plan;
 	}
 
 	/**
