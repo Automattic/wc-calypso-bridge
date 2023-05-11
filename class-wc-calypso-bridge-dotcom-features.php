@@ -67,7 +67,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_trial_plan' ) ) {
 	}
 }
 
-if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_small_plan' ) ) {
+if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_essential_plan' ) ) {
 	/**
 	 * Returns if a site is an Small eCommerce plan (Woo Express Essential) site or not.
 	 *
@@ -75,12 +75,12 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_small_plan' ) ) {
 	 *
 	 * @return bool True if the site is an small ecommerce site.
 	 */
-	function wc_calypso_bridge_is_ecommerce_small_plan() {
+	function wc_calypso_bridge_is_woo_express_essential_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_small_plan();
 	}
 }
 
-if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_medium_plan' ) ) {
+if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_performance_plan' ) ) {
 	/**
 	 * Returns if a site is an Medium eCommerce plan (Woo Express Performance) site or not.
 	 *
@@ -88,7 +88,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_medium_plan' ) ) {
 	 *
 	 * @return bool True if the site is an medium ecommerce site.
 	 */
-	function wc_calypso_bridge_is_ecommerce_medium_plan() {
+	function wc_calypso_bridge_is_woo_express_performance_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_medium_plan();
 	}
 }
