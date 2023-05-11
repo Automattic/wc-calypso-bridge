@@ -35,7 +35,7 @@ async function buildRelease( currentBranchName ) {
 
 	if ( isDevBuild() ) {
 		return abortAndSwitchToBranch(
-			"You may have a dev build. Please make sure you aren't running 'npm start'",
+			"You may have a dev build. Please make sure you aren't running 'npm start'. You may need to delete the existing build directory by running `rm -rf ./build`.",
 			'error',
 			currentBranchName
 		);
