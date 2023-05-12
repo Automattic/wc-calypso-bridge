@@ -2,10 +2,11 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 import https from 'https';
 import fs from 'fs';
-import { error, success, info, gitFactory } from '../utils.js';
+import { error, success, info, warning, gitFactory } from '../utils.js';
 
 const execPromise = promisify( exec );
 const REQUIRED_TRANSLATION_PERCENTAGE = 85;
+const POT_FILE_PATH = 'languages/wc-calypso-bridge.pot';
 
 async function downloadTranslations( url, outputPath ) {
 	return new Promise( ( resolve, reject ) => {
@@ -25,15 +26,51 @@ async function downloadTranslations( url, outputPath ) {
 	} );
 }
 
+async function verifyLangData( langData ) {
+	try {
+		const parsedData = JSON.parse( langData );
+		if (
+			! parsedData.translation_sets ||
+			! Array.isArray( parsedData.translation_sets )
+		) {
+			error( 'Invalid language data format.' );
+			process.exit( 1 );
+		}
+	} catch ( err ) {
+		error( 'Invalid language data format.' );
+		process.exit( 1 );
+	}
+}
+
 async function updateTranslations() {
 	const git = gitFactory();
 
 	try {
 		info( 'Executing wp i18n make-pot command...' );
-		await execPromise(
-			'wp i18n make-pot . languages/wc-calypso-bridge.pot --ignore-domain'
+
+		const makePotResult = await execPromise(
+			`wp i18n make-pot . ${ POT_FILE_PATH } --ignore-domain`
 		);
+
+		if ( makePotResult.stderr ) {
+			error( `wp i18n make-pot failure: ${ makePotResult.stderr }` );
+			process.exit( 1 );
+		}
+
 		success( 'wp i18n make-pot command executed successfully.' );
+
+		const status = await git.status();
+
+		const isPotFileUpdated =
+			status.modified.includes( POT_FILE_PATH ) ||
+			status.created.includes( POT_FILE_PATH );
+
+		if ( ! isPotFileUpdated ) {
+			warning(
+				`${ POT_FILE_PATH } is up to date. No need to update translations.`
+			);
+			process.exit( 0 );
+		}
 
 		info( 'Retrieving language data from translate.wordpress.com...' );
 		const langData = await new Promise( ( resolve, reject ) => {
@@ -55,12 +92,7 @@ async function updateTranslations() {
 				} );
 		} );
 
-		if ( ! langData ) {
-			error(
-				'Failed to retrieve language data from translate.wordpress.com.'
-			);
-			process.exit( 1 );
-		}
+		verifyLangData( langData );
 
 		success( 'Language data retrieved successfully.' );
 
@@ -77,6 +109,18 @@ async function updateTranslations() {
 				slug: LANG_SLUG,
 				wp_locale: LANG_WP_LOCALE,
 			} = lang;
+
+			if (
+				LANG_NAME === undefined ||
+				LANG_LOCALE === undefined ||
+				LANG_SLUG === undefined ||
+				LANG_WP_LOCALE === undefined
+			) {
+				error(
+					'Missing required properties in language data. Skipping...'
+				);
+				continue;
+			}
 
 			const LANG_FILENAME = `languages/wc-calypso-bridge-${
 				LANG_WP_LOCALE || LANG_LOCALE
