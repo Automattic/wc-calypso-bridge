@@ -45,6 +45,12 @@ async function runScript() {
 				reject(err);
 			});
 		});
+
+		if (!langData) {
+			error('Failed to retrieve language data from translate.wordpress.com.');
+			process.exit(1);
+		}
+
 		success('Language data retrieved successfully.');
 
 		const {translation_sets: translationSets} = JSON.parse(langData);
