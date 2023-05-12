@@ -49,9 +49,9 @@ export async function promptContinue( msg ) {
 }
 
 export async function abortAndSwitchToBranch( msg, type, branchName = null ) {
-	if ( type === 'error' ) {
+	if ( type === NOTICE_LEVEL.INFO ) {
 		error( msg );
-	} else if ( type === 'warning' ) {
+	} else if ( type === NOTICE_LEVEL.WARNING ) {
 		warning( msg );
 	} else {
 		info( msg );
