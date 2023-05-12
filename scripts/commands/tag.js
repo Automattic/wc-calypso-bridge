@@ -3,16 +3,15 @@ import chalk from 'chalk';
 
 import {
 	__dirname,
-	error,
 	info,
+	NOTICE_LEVEL,
 	getCurrentVersion,
-	getCurrentBranchName,
 	gitFactory,
 	promptContinue,
 	switchToBranchWithMessage,
+	abortAndSwitchToBranch,
 	tagExists,
 	verifyBuild,
-	warning,
 } from '../utils.js';
 
 async function tagRelease( currentBranchName ) {
@@ -21,29 +20,37 @@ async function tagRelease( currentBranchName ) {
 
 	const verificationErrors = await verifyBuild();
 	if ( verificationErrors.length > 0 ) {
-		error( 'Build verification failed:' );
-		verificationErrors.map( ( err ) => error( `\t${ err }` ) );
-		return false;
+		const errorDetails = verificationErrors.join( `\t` );
+
+		return abortAndSwitchToBranch(
+			`Build verification failed:\n${ errorDetails }`,
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
+		);
 	}
 
 	if ( fs.existsSync( 'node_modules' ) ) {
-		error(
-			'A node_modules folder exists. Please remove it and try again.'
+		return abortAndSwitchToBranch(
+			'A node_modules folder exists. Please remove it and try again.',
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
 		);
-		return false;
 	}
 
 	let res = null;
-	const git = gitFactory();
 	const version = getCurrentVersion();
 	const versionStr = `${ chalk.blue( version ) }`;
 
 	res = await tagExists( version );
 	if ( res ) {
-		error( `The tag ${ version } already exists. Deploy failed.` );
-		await switchToBranchWithMessage( currentBranchName );
-		return false;
+		return abortAndSwitchToBranch(
+			`The tag ${ version } already exists. Deploy failed.`,
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
+		);
 	}
+
+	const git = gitFactory();
 
 	await git.tag( [ version ] );
 	await git.checkout( version );
@@ -64,21 +71,30 @@ async function tagRelease( currentBranchName ) {
 		// Delete the tag we just created.
 		await git.tag( [ '-d', version ] );
 
-		warning(
-			`Aborting. The release for ${ versionStr } was not published and the new tag has been deleted!`
+		return abortAndSwitchToBranch(
+			`Aborting. The release for ${ versionStr } was not published and the new tag has been deleted!`,
+			NOTICE_LEVEL.WARNING
 		);
-
-		return false;
 	}
 
 	res = await tagExists( version );
 	if ( ! res ) {
-		error( `The tag ${ version } does not exist. Deploy failed.` );
-		await switchToBranchWithMessage( currentBranchName );
-		return false;
+		return abortAndSwitchToBranch(
+			`The tag ${ version } does not exist. Deploy failed.`,
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
+		);
 	}
 
-	await git.push( [ 'origin', version ] );
+	try {
+		await git.push( [ 'origin', version ] );
+	} catch ( err ) {
+		return abortAndSwitchToBranch(
+			`The tag ${ version } was not deployed. ${ err }`,
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
+		);
+	}
 
 	return true;
 }
