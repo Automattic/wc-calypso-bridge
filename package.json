@@ -21,7 +21,7 @@
 		"test:unit": "wp-scripts test-unit-js",
 		"create-release": "node ./scripts/release.js",
 		"bump-version": "node ./scripts/commands/bump-version.js",
-		"makepot": "wp i18n make-pot . languages/wc-calypso-bridge.pot && bash ./bin/update-translations.sh"
+		"makepot": "node ./scripts/commands/update-translations.js"
 	},
 	"workspaces": [
 		"scripts"
