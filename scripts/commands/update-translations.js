@@ -59,11 +59,16 @@ async function runScript() {
 
 			info(`Downloading ${LANG_NAME} (${LANG_LOCALE}/${LANG_SLUG} → ${LANG_WP_LOCALE || LANG_LOCALE})...`);
 
-			await downloadTranslations(poUrl, LANG_FILENAME);
-			success(`${LANG_FILENAME} downloaded successfully.`);
+			try {
+				await downloadTranslations(poUrl, LANG_FILENAME);
+				success(`${LANG_FILENAME} downloaded successfully.`);
 
-			await execPromise(`msgfmt ${LANG_FILENAME} -o ${LANG_FILENAME.replace('.po', '.mo')}`);
-			success(`${LANG_FILENAME} compiled successfully.`);
+				await execPromise(`msgfmt ${LANG_FILENAME} -o ${LANG_FILENAME.replace('.po', '.mo')}`);
+				success(`${LANG_FILENAME} compiled successfully.`);
+			} catch (err) {
+				error(`Error downloading or compiling ${LANG_FILENAME}: ${err.message}`);
+				process.exit(1);
+			}
 		}
 
 		info('Staging language files...');
