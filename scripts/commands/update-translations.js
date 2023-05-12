@@ -25,7 +25,7 @@ async function downloadTranslations( url, outputPath ) {
 	} );
 }
 
-async function runScript() {
+async function updateTranslations() {
 	const git = gitFactory();
 
 	try {
@@ -123,4 +123,4 @@ async function runScript() {
 	}
 }
 
-runScript();
+updateTranslations();
