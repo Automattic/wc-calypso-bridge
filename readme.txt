@@ -32,9 +32,14 @@ This section describes how to install the plugin and get it working.
 * Update product task to detect modified products #1106.
 * Fix Jetpack tracks ID mismatch #1118.
 * Patch for product import issue #1119.
+* New script to automate updating the plugin version #1116.
+* New script to automate updating the changelog #1122.
+* Refactoring release automation scripts #1126.
 
 = 2.1.1 =
 * Allow expired trial sites to access the Export tool #1104.
+* New script to automate creating a new build #1109.
+* New script to automate creating a release tag #1115.
 
 = 2.1.0 =
 * Update the hook we use to include additional task list options in Jetpack Sync #1084.
