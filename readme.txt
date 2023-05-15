@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Add helper functions to detect the new Essential and Performance Woo Express plans. #1128
 * Remove useSlot monkey patch. #1117
 * Make OBW skip reliable for ecommerce and free trial plans #1125
 

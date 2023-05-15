@@ -120,6 +120,12 @@ class WC_Calypso_Bridge_Tracks {
 		// since some plans may have overlapping features.
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			$host_value = 'ecommplan-freetrial';
+		} elseif ( wc_calypso_bridge_is_woo_express_performance_plan() ) {
+			$host_value = 'woo-express-performance';
+		} elseif ( wc_calypso_bridge_is_woo_express_essential_plan() ) {
+			$host_value = 'woo-express-essentials';
+		} elseif ( wc_calypso_bridge_is_wpcom_ecommerce_plan() ) {
+			$host_value = 'ecommplan';
 		} elseif ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$host_value = 'ecommplan';
 		}
