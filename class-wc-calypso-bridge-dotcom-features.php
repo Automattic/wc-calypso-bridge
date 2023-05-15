@@ -194,6 +194,10 @@ class WC_Calypso_Bridge_DotCom_Features {
 		if ( is_null( self::$is_wpcom_ecommerce_plan ) ) {
 
 			self::$is_wpcom_ecommerce_plan = false;
+			if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
+				return self::$is_wpcom_ecommerce_plan;
+			}
+
 			$all_site_purchases      = wpcom_get_site_purchases();
 			$plan_purchases          = array_filter(
 				$all_site_purchases,
