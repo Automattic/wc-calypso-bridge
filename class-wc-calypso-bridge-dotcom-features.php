@@ -36,7 +36,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 	/**
 	 * Returns if a site is an eCommerce paid plan site or not.
 	 *
-	 * @return bool True if the site is an paid ecommerce site.
+	 * @return bool True if the site is a paid ecommerce site.
 	 */
 	function wc_calypso_bridge_is_ecommerce_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_plan();
@@ -45,11 +45,11 @@ if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_plan' ) ) {
 
 if ( ! function_exists( 'wc_calypso_bridge_is_wpcom_ecommerce_plan' ) ) {
 	/**
-	 * Returns if a site is an eCommerce plan site from dotCom or not.
+	 * Returns if a site has an eCommerce plan from WordPress.com or not.
 	 *
 	 * @since 2.1.3
 	 *
-	 * @return bool True if the site is an ecommerce from dotCom site.
+	 * @return bool True if the site has a WordPress.com eCommerce plan.
 	 */
 	function wc_calypso_bridge_is_wpcom_ecommerce_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_wpcom_ecommerce_plan();
@@ -73,7 +73,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_essential_plan' ) ) {
 	 *
 	 * @since 2.1.3
 	 *
-	 * @return bool True if the site is an small ecommerce site.
+	 * @return bool True if the site has a small ecommerce plan.
 	 */
 	function wc_calypso_bridge_is_woo_express_essential_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_small_plan();
@@ -86,7 +86,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_performance_plan' ) ) 
 	 *
 	 * @since 2.1.3
 	 *
-	 * @return bool True if the site is an medium ecommerce site.
+	 * @return bool True if the site has a medium ecommerce plan.
 	 */
 	function wc_calypso_bridge_is_woo_express_performance_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_medium_plan();
@@ -115,7 +115,7 @@ class WC_Calypso_Bridge_DotCom_Features {
 	protected static $is_ecommerce_plan = null;
 
 	/**
-	 * Is an Ecommerce plan from dotCom.
+	 * Is an Ecommerce plan from WordPress.com.
 	 *
 	 * @since 2.1.3
 	 *
@@ -156,7 +156,7 @@ class WC_Calypso_Bridge_DotCom_Features {
 	protected static $is_business_plan = null;
 
 	/**
-	 * Determine if site is Ecommerce and cache it.
+	 * Determine if site has a WordPress.com eCommerce plan and cache the result.
 	 *
 	 * @var bool
 	 */
@@ -169,7 +169,7 @@ class WC_Calypso_Bridge_DotCom_Features {
 	}
 
 	/**
-	 * Determine if site is a paid Ecommerce plan and cache it (refers all ecommerce plans from dotCom or WCCOM).
+	 * Determine if site is a paid Ecommerce plan and cache it (includes all WordPress.com and Woo Express ecommerce plans).
 	 *
 	 * @var bool
 	 */
@@ -184,7 +184,7 @@ class WC_Calypso_Bridge_DotCom_Features {
 	}
 
 	/**
-	 * Determine if site is Ecommerce from dotCom and cache it.
+	 * Determine if site has a WordPress.com eCommerce plan and cache the result.
 	 *
 	 * @since 2.1.3
 	 *
