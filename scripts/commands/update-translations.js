@@ -65,11 +65,10 @@ async function updateTranslations() {
 			status.modified.includes( POT_FILE_PATH ) ||
 			status.created.includes( POT_FILE_PATH );
 
-		if ( ! isPotFileUpdated ) {
-			warning(
-				`${ POT_FILE_PATH } is up to date. No need to update translations.`
+		if ( isPotFileUpdated ) {
+			info(
+				`${ POT_FILE_PATH } updated. Changes will be added to the repository...`
 			);
-			process.exit( 0 );
 		}
 
 		info( 'Retrieving language data from translate.wordpress.com...' );
