@@ -93,7 +93,7 @@ Plan-specific tweaks can be managed using the following global functions:
 | `wc_calypso_bridge_is_ecommerce_trial_plan()`  |  Returns `true` if the site has an Ecommerce Trial plan. |
 | `wc_calypso_bridge_is_woo_express_performance_plan()`  |  Returns `true` if the site has a Woo Express Performance plan. |
 | `wc_calypso_bridge_is_woo_express_essential_plan()`  |  Returns `true` if the site has a Woo Express Essential plan. |
-| `wc_calypso_bridge_is_wpcom_ecommerce_plan()`  |  Returns `true` if the site has an Ecommerce plan from dotCom. |
+| `wc_calypso_bridge_is_wpcom_ecommerce_plan()`  |  Returns `true` if the site has an Ecommerce plan from WordPress.com. |
 | `wc_calypso_bridge_is_business_plan()` | Returns `true` if the site has a business plan. |
 
 Similarly, on the JS side, use the global `window.wcCalypsoBridge` object for fetching information about the active plan:
