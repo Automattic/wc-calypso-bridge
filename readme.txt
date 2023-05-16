@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,9 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 2.1.4 =
+* i18n: Add a mechanism to update the files in the languages/ folder #1130
 
 = 2.1.3 =
 * Add helper functions to detect the new Essential and Performance Woo Express plans. #1128
