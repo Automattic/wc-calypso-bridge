@@ -6,6 +6,7 @@ import {
 	info,
 	success,
 	NOTICE_LEVEL,
+	getCurrentBranchName,
 	getCurrentVersion,
 	gitFactory,
 	promptContinue,
@@ -13,9 +14,11 @@ import {
 	updateChangelog,
 } from '../utils.js';
 
-async function updateReadMe( currentBranchName ) {
+async function updateReadMe() {
 	// Ensure we're always running in the project root.
 	process.chdir( `${ __dirname }/..` );
+
+	const currentBranchName = await getCurrentBranchName();
 
 	if ( ! fs.existsSync( 'readme.txt' ) ) {
 		return abortAndSwitchToBranch(
@@ -85,3 +88,5 @@ async function updateReadMe( currentBranchName ) {
 	success( 'Readme updated successfully.' );
 	return true;
 }
+
+updateReadMe();
