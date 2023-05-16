@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.5 =
+* Make the readme update command run standalone
+
 = 2.1.4 =
 * i18n: Add a mechanism to update the files in the languages/ folder #1130
 
