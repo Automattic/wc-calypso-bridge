@@ -190,3 +190,5 @@ export const Marketing = () => {
 		</div>
 	);
 };
+
+export default Marketing;

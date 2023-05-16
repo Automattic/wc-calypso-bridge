@@ -119,6 +119,7 @@ class WC_Calypso_Bridge_Shared {
 			'assetPath'                    => esc_url( WC_Calypso_Bridge_Instance()->get_asset_path() ),
 			'wcpayConnectUrl'              => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
 			'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
+			'version'                      => WC_CALYPSO_BRIDGE_CURRENT_VERSION,
 		);
 
 		if ( wc_calypso_bridge_has_ecommerce_features() ) {
