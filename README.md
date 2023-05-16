@@ -21,7 +21,7 @@ We now have a series of scripts that will help with automating the release proce
 1. Make sure you're running NodeJS v16. If you use [nvm](https://github.com/nvm-sh/nvm), you can simply type `nvm use`. If you prefer [fnm](https://github.com/Schniz/fnm), you can run `fnm use` instead.
 2. Run `npm install` in the project root to make sure all dependencies are installed at the project level and in the `./scripts` folder.
 3. Run `npm run bump-version` in the project root. This will increment the project version and create a git commit.
-4. Run `node run update-readme` in the project root. This will prompt you to select the commits that are part of this release. The commit log messages will be automatically added to the [changelog](readme.txt) and committed.
+4. Run `npm run update-readme` in the project root. This will prompt you to select the commits that are part of this release. The commit log messages will be automatically added to the [changelog](readme.txt) and committed.
 5. Manually create a new PR with the updated version and change log.
 6. Once that PR is approved and merged, run `npm run create-release`. Follow the prompts to do a build, create a new release tag, and deploy the release tag.
 
