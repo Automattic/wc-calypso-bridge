@@ -20,7 +20,8 @@
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js",
 		"create-release": "node ./scripts/release.js",
-		"bump-version": "node ./scripts/commands/bump-version.js"
+		"bump-version": "node ./scripts/commands/bump-version.js",
+		"makepot": "node ./scripts/commands/update-translations.js"
 	},
 	"workspaces": [
 		"scripts"
