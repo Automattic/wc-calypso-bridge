@@ -14,6 +14,23 @@ npm run build
 
 ## Deployment
 
+### Automated Deployment
+
+We now have a series of scripts that will help with automating the release process. To use these scripts, do the following.
+
+1. Make sure you're running NodeJS v16. If you use [nvm](https://github.com/nvm-sh/nvm), you can simply type `nvm use`. If you prefer [fnm](https://github.com/Schniz/fnm), you can run `fnm use` instead.
+2. Run `npm install` in the project root to make sure all dependencies are installed at the project level and in the `./scripts` folder.
+3. Run `npm run bump-version` in the project root. This will increment the project version and create a git commit.
+4. Run `node scripts/commands/readme.js` in the project root. This will prompt you to select the commits that are part of this release. The commit log messages will be automatically added to the [changelog](readme.txt) and committed.
+5. Manually create a new PR with the updated version and change log.
+6. Once that PR is approved and merged, run `npm run create-release`. Follow the prompts to do a build, create a new release tag, and deploy the release tag.
+
+_NOTE: Creating a new release doesn't automatically deploy the new version. A corresponding update PR will need to be opened to update the wc-calypso-bridge dependency in wpcomsh._
+
+### Manual Deployment
+
+If, for some reason, you are unable to use the automated build/release scripts above, the process can be done manually as described below.
+
 1. Create a [version bump pull request](https://github.com/Automattic/wc-calypso-bridge/pull/613/files) on `wc-calypso-bridge` that increments the [version](https://github.com/Automattic/wc-calypso-bridge/blob/master/composer.json#L3) in `composer.json`, and in [two spots](https://github.com/Automattic/wc-calypso-bridge/blob/master/wc-calypso-bridge.php#L33) in `wc-calypso-bridge.php`.
 2. [Add a section](https://github.com/Automattic/wc-calypso-bridge/blob/master/readme.txt#L23-L26) to the `readme.txt` also with a changelog of what is in the release.
 3. Mark the pull request as ready for review, and **merge** once a 👍 review is given.
@@ -88,9 +105,12 @@ Here's a handy boilerplate for starting a new file in [this gist](https://gist.g
 Plan-specific tweaks can be managed using the following global functions:
 | Helper function |  Return value  |
 |---|---|
-| `wc_calypso_bridge_has_ecommerce_features()`   | This will return `true` for all ecommerce-related plans *(such as the Ecommerce and Ecommerce Trial.)* |
-| `wc_calypso_bridge_is_ecommerce_plan()`   | Returns `true` if site has the specific Ecommerce plan. e.g., `false` for the trial plan. |
+| `wc_calypso_bridge_has_ecommerce_features()`   | This will return `true` for all ecommerce-related plans *(including all WordPress.com, Woo Express plans, and the Ecommerce Free Trial)* |
+| `wc_calypso_bridge_is_ecommerce_plan()`   | Returns `true` if the site has a paid Ecommerce plan (including all WordPress.com and Woo Express plans) |
 | `wc_calypso_bridge_is_ecommerce_trial_plan()`  |  Returns `true` if the site has an Ecommerce Trial plan. |
+| `wc_calypso_bridge_is_woo_express_performance_plan()`  |  Returns `true` if the site has a Woo Express Performance plan. |
+| `wc_calypso_bridge_is_woo_express_essential_plan()`  |  Returns `true` if the site has a Woo Express Essential plan. |
+| `wc_calypso_bridge_is_wpcom_ecommerce_plan()`  |  Returns `true` if the site has an Ecommerce plan from WordPress.com. |
 | `wc_calypso_bridge_is_business_plan()` | Returns `true` if the site has a business plan. |
 
 Similarly, on the JS side, use the global `window.wcCalypsoBridge` object for fetching information about the active plan:

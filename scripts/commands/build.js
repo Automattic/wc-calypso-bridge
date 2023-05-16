@@ -7,20 +7,19 @@ import {
 	error,
 	success,
 	info,
-	warning,
-	getCurrentBranchName,
+	NOTICE_LEVEL,
 	getCurrentVersion,
 	getStatus,
 	gitFactory,
 	isDevBuild,
 	promptContinue,
-	switchToBranchWithMessage,
+	abortAndSwitchToBranch,
 	verifyBuild,
 } from '../utils.js';
 
 const execAsync = promisify( exec );
 
-async function buildRelease(currentBranchName) {
+async function buildRelease( currentBranchName ) {
 	// Ensure we're always running in the project root.
 	process.chdir( `${ __dirname }/..` );
 
@@ -35,18 +34,12 @@ async function buildRelease(currentBranchName) {
 		return false;
 	}
 
-	// TODO - Verify (somehow) that we're not running with `start`.
-	/*
-	Some possible ideas for checking for `start`:
-
-	- Check for `build/*.map` files.
-	- The real build has a 948.js (not sure if this number changes) and start doesn't.
-	*/
 	if ( isDevBuild() ) {
-		error(
-			"You may have a dev build. Please make sure you aren't running 'npm start'"
+		return abortAndSwitchToBranch(
+			"You may have a dev build. Please make sure you aren't running 'npm start'. You may need to delete the existing build directory by running `rm -rf ./build`.",
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
 		);
-		return false;
 	}
 
 	const git = gitFactory();
@@ -64,17 +57,18 @@ async function buildRelease(currentBranchName) {
 	);
 
 	if ( ! shouldContinue ) {
-		info( 'Aborting release build.' );
-		await switchToBranchWithMessage( currentBranchName );
-
-		return false;
+		return abortAndSwitchToBranch(
+			'Aborting release build.',
+			NOTICE_LEVEL.INFO,
+			currentBranchName
+		);
 	}
 
-	info('Creating a new release build. This make take some time...');
+	info( 'Creating a new release build. This make take some time...' );
 	const interval = setInterval( () => process.stdout.write( '.' ), 1000 );
 
-	await execAsync( 'npm i' );
-	const { stdout, stderr } = await execAsync( 'npm run build' );
+	await execAsync( 'npm ci' );
+	const { stdout } = await execAsync( 'npm run build' );
 
 	clearInterval( interval );
 
@@ -88,21 +82,30 @@ async function buildRelease(currentBranchName) {
 	}
 
 	if ( ! buildSuccess ) {
-		error( `npm run build failed (${ statusLine })` );
-		error( stderr );
-		return false;
+		return abortAndSwitchToBranch(
+			`npm run build failed (${ statusLine })`,
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
+		);
 	}
 
 	// Verify that the build is valid.
 	const verificationErrors = await verifyBuild();
 	if ( verificationErrors.length > 0 ) {
-		error( 'Build verification failed:' );
-		verificationErrors.map( ( err ) => error( `\t${ err }` ) );
-		return false;
+		const errorDetails = verificationErrors.join( `\t` );
+
+		return abortAndSwitchToBranch(
+			`Build verification failed:\n${ errorDetails }`,
+			NOTICE_LEVEL.ERROR,
+			currentBranchName
+		);
 	}
 
 	// Delete the node_modules directory so they don't get packaged up.
 	await fsPromises.rm( 'node_modules', { recursive: true } );
+	info(
+		"Deleted node_modules directory. Please note that you'll need to run 'npm install' again."
+	);
 
 	success( 'Release build complete.' );
 	return true;
