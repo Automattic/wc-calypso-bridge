@@ -14,7 +14,7 @@ import { inc as incVersion } from 'semver';
 /**
  * Bumps the version number in the composer.json file and the wc-calypso-bridge.php file.
  */
-async function bumpVersion() {
+export default async function bumpVersion() {
 	if ( ! isCorrectNodeVersion() ) {
 		error(
 			`Your version of NodeJS is not correct. Please install NodeJS v${ getNvmrcVersion() }.`

@@ -3,7 +3,6 @@ import chalk from 'chalk';
 import {
 	NOTICE_LEVEL,
 	abortAndSwitchToBranch,
-	bumpVersion,
 	checkBinaryExists,
 	getNvmrcVersion,
 	error,
@@ -11,6 +10,9 @@ import {
 	isCorrectNodeVersion,
 	promptContinue,
 } from './utils.js';
+
+import bumpVersion from './commands/bump-version.js';
+import updateReadMe from './commands/readme.js';
 
 async function main() {
 	if ( ! isCorrectNodeVersion() ) {
@@ -42,6 +44,10 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	}
 
 	if ( ! ( await bumpVersion() ) ) {
+		process.exit( 1 );
+	}
+
+	if ( ! ( await updateReadMe() ) ) {
 		process.exit( 1 );
 	}
 }

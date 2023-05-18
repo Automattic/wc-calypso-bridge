@@ -14,7 +14,7 @@ import {
 	updateChangelog,
 } from '../utils.js';
 
-async function updateReadMe() {
+export default async function updateReadMe() {
 	// Ensure we're always running in the project root.
 	process.chdir( `${ __dirname }/..` );
 
@@ -88,5 +88,3 @@ async function updateReadMe() {
 	success( 'Readme updated successfully.' );
 	return true;
 }
-
-updateReadMe();
