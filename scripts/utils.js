@@ -292,8 +292,8 @@ export async function createNewBranch( branchName ) {
 			`Successfully created and switched to new branch ${ branchName }`
 		);
 		return true;
-	} catch ( error ) {
-		error( `Error creating new branch: ${ error.message }` );
+	} catch ( err ) {
+		error( `Error creating new branch: ${ err.message }` );
 		return false;
 	}
 }
