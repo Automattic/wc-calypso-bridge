@@ -38,7 +38,7 @@ async function verifyLangData( langData ) {
 		}
 	} catch ( err ) {
 		error( 'Invalid language data format.' );
-		process.exit( 1 );
+		return false;
 	}
 }
 
@@ -54,7 +54,7 @@ export default async function updateTranslations() {
 
 		if ( makePotResult.stderr ) {
 			error( `wp i18n make-pot failure: ${ makePotResult.stderr }` );
-			process.exit( 1 );
+			return false;
 		}
 
 		success( 'wp i18n make-pot command executed successfully.' );
@@ -91,7 +91,9 @@ export default async function updateTranslations() {
 				} );
 		} );
 
-		verifyLangData( langData );
+		if ( ! verifyLangData( langData ) ) {
+			return false;
+		}
 
 		success( 'Language data retrieved successfully.' );
 
@@ -147,7 +149,8 @@ export default async function updateTranslations() {
 				error(
 					`Error downloading or compiling ${ LANG_FILENAME }: ${ err.message }`
 				);
-				process.exit( 1 );
+
+				continue;
 			}
 		}
 
@@ -159,9 +162,8 @@ export default async function updateTranslations() {
 		await git.commit( 'Add new translation files' );
 		success( 'Language files committed successfully.' );
 
-		success( 'Script execution completed.' );
+		return success( 'Script execution completed.' );
 	} catch ( err ) {
-		error( 'Error executing the script: ' + err.message );
-		process.exit( 1 );
+		return error( 'Error executing the script: ' + err.message );
 	}
 }
