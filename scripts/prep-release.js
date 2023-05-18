@@ -29,10 +29,11 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	}
 
 	info( `This command will prepare a new wc-calypso-bridge release with the following steps:
-	1. Bump the version number in the composer.json file and the wc-calypso-bridge.php file.
-	2. Update the changelog in readme.txt.
-	3. Update the translation files (optional).
-	4. Create a new PR with the changes.
+
+1. Bump the version number in the composer.json file and the wc-calypso-bridge.php file.
+2. Update the changelog in readme.txt.
+3. Update the translation files (optional).
+4. Create a new PR with the changes.
 	` );
 
 	if ( ! ( await promptContinue( 'Continue? (y/N)' ) ) ) {
