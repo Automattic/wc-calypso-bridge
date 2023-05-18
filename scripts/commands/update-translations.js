@@ -42,7 +42,7 @@ async function verifyLangData( langData ) {
 	}
 }
 
-async function updateTranslations() {
+export default async function updateTranslations() {
 	const git = gitFactory();
 
 	try {
@@ -165,5 +165,3 @@ async function updateTranslations() {
 		process.exit( 1 );
 	}
 }
-
-updateTranslations();

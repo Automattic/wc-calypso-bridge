@@ -13,6 +13,7 @@ import {
 
 import bumpVersion from './commands/bump-version.js';
 import updateReadMe from './commands/readme.js';
+import updateTranslations from './commands/update-translations.js';
 
 async function main() {
 	if ( ! isCorrectNodeVersion() ) {
@@ -49,6 +50,14 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 	if ( ! ( await updateReadMe() ) ) {
 		process.exit( 1 );
+	}
+
+	if (
+		await promptContinue(
+			'Would you like to update the translation files? (y/N)'
+		)
+	) {
+		await updateTranslations();
 	}
 }
 
