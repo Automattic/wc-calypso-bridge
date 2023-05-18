@@ -3,7 +3,9 @@ import chalk from 'chalk';
 import {
 	NOTICE_LEVEL,
 	abortAndSwitchToBranch,
+	checkBinaryExists,
 	getNvmrcVersion,
+	error,
 	info,
 	isCorrectNodeVersion,
 	promptContinue,
@@ -15,6 +17,15 @@ async function main() {
 			`Your version of NodeJS is not correct. Please install NodeJS v${ getNvmrcVersion() }.`,
 			NOTICE_LEVEL.ERROR
 		);
+	}
+
+	if ( ! checkBinaryExists( 'gh' ) ) {
+		error(
+			`The Github CLI (gh) is not installed. 
+			
+Please install it from https://cli.github.com/ or using 'brew install gh' if you're on a Mac.`
+		);
+		process.exit( 1 );
 	}
 
 	info( `This command will prepare a new wc-calypso-bridge release with the following steps:

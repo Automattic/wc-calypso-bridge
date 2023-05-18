@@ -1,3 +1,4 @@
+import which from 'which';
 import fs, { promises as fsPromises } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -303,6 +304,15 @@ export async function createNewCommit( message ) {
 		return true;
 	} catch ( error ) {
 		error( `Error creating new commit: ${ error.message }` );
+		return false;
+	}
+}
+
+export function checkBinaryExists( binaryName ) {
+	try {
+		which.sync( binaryName );
+		return true;
+	} catch ( error ) {
 		return false;
 	}
 }
