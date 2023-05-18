@@ -1,3 +1,4 @@
+import { execSync } from 'child_process';
 import which from 'which';
 import fs, { promises as fsPromises } from 'fs';
 import { fileURLToPath } from 'url';
@@ -42,6 +43,18 @@ export function info( message ) {
 
 export function gitFactory() {
 	return git;
+}
+
+export function createPullRequest( title, body ) {
+	try {
+		// Execute `gh pr create` command with the provided title and body
+		const command = `gh pr create --title "${ title }" --body "${ body }"`;
+		const output = execSync( command, { encoding: 'utf-8' } );
+
+		return output;
+	} catch ( err ) {
+		return err;
+	}
 }
 
 export async function promptContinue( msg ) {

@@ -4,6 +4,7 @@ import {
 	NOTICE_LEVEL,
 	abortAndSwitchToBranch,
 	checkBinaryExists,
+	createPullRequest,
 	getNvmrcVersion,
 	error,
 	info,
@@ -63,6 +64,15 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 		)
 	) {
 		await updateTranslations();
+	}
+
+	if (
+		! ( await promptContinue(
+			'Would you like to update the translation files? (y/N)'
+		) )
+	) {
+		error( 'Pull request creationg was cancelled.' );
+		process.exit( 1 );
 	}
 
 	// TODO - Make this a nicer message with a link to the PR.
