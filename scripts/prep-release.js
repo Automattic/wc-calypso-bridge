@@ -5,6 +5,7 @@ import {
 	abortAndSwitchToBranch,
 	checkBinaryExists,
 	createPullRequest,
+	getCurrentVersion,
 	getNvmrcVersion,
 	error,
 	info,
@@ -53,7 +54,8 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 		process.exit( 1 );
 	}
 
-	if ( ! ( await updateReadMe() ) ) {
+	const changelogEntry = await updateReadMe();
+	if ( changelogEntry === false ) {
 		error( 'Aborting, something went wrong while updating the readme.' );
 		process.exit( 1 );
 	}
@@ -75,7 +77,22 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 		process.exit( 1 );
 	}
 
-	// TODO - Make this a nicer message with a link to the PR.
+	const currentVersion = getCurrentVersion();
+	const title = `Prepare for release ${ currentVersion }`;
+	const body = `### Changes proposed in this Pull Request:
+
+Preparation for release of ${ currentVersion }
+
+### Changelog
+
+\`\`\`
+= ${ currentVersion } =
+${ changelogEntry }
+\`\`\``;
+
+	const output = createPullRequest( title, body );
+	console.log( output );
+
 	success( 'All done!' );
 }
 

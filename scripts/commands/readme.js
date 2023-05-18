@@ -86,5 +86,5 @@ export default async function updateReadMe() {
 	await git.commit( `Added version ${ version } to the changelog` );
 
 	success( 'Readme updated successfully.' );
-	return true;
+	return changelogEntry;
 }
