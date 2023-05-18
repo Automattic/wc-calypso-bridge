@@ -70,7 +70,7 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 	if (
 		! ( await promptContinue(
-			'Would you like to update the translation files? (y/N)'
+			'Would you like to create a pull request? (y/N)'
 		) )
 	) {
 		error( 'Pull request creationg was cancelled.' );
