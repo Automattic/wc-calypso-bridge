@@ -14,7 +14,7 @@ import {
 	updateChangelog,
 } from '../utils.js';
 
-async function updateReadMe() {
+export default async function updateReadMe() {
 	// Ensure we're always running in the project root.
 	process.chdir( `${ __dirname }/..` );
 
@@ -86,7 +86,5 @@ async function updateReadMe() {
 	await git.commit( `Added version ${ version } to the changelog` );
 
 	success( 'Readme updated successfully.' );
-	return true;
+	return changelogEntry;
 }
-
-updateReadMe();
