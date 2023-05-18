@@ -7,6 +7,7 @@ import {
 	getNvmrcVersion,
 	error,
 	info,
+	success,
 	isCorrectNodeVersion,
 	promptContinue,
 } from './utils.js';
@@ -45,10 +46,14 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	}
 
 	if ( ! ( await bumpVersion() ) ) {
+		error(
+			'Aborting, something went wrong while bumping the version number.'
+		);
 		process.exit( 1 );
 	}
 
 	if ( ! ( await updateReadMe() ) ) {
+		error( 'Aborting, something went wrong while updating the readme.' );
 		process.exit( 1 );
 	}
 
@@ -59,6 +64,9 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	) {
 		await updateTranslations();
 	}
+
+	// TODO - Make this a nicer message with a link to the PR.
+	success( 'All done!' );
 }
 
 main();

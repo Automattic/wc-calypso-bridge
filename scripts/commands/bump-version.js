@@ -45,4 +45,6 @@ export default async function bumpVersion() {
 	if ( ! ( await createNewCommit( `Bump version to ${ newVersion }` ) ) ) {
 		return error( 'Aborting version bump.' );
 	}
+
+	return true;
 }

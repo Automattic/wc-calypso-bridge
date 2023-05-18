@@ -18,18 +18,26 @@ export const NOTICE_LEVEL = {
 
 export function error( message ) {
 	console.log( 'ERROR: ' + chalk.red( message ) );
+
+	return false;
 }
 
 export function success( message ) {
 	console.log( 'SUCCESS: ' + chalk.green( message ) );
+
+	return true;
 }
 
 export function warning( message ) {
 	console.log( 'WARNING: ' + chalk.yellow( message ) );
+
+	return true;
 }
 
 export function info( message ) {
 	console.log( 'INFO: ' + chalk.blue( message ) );
+
+	return true;
 }
 
 export function gitFactory() {
