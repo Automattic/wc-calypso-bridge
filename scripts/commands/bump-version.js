@@ -35,7 +35,7 @@ async function bumpVersion() {
         return error( 'Aborting version bump.' );
     }
 
-    if ( ! await createNewBranch( `update-version-${ newVersion }` ) ){
+    if ( ! await createNewBranch( `release/version-${ newVersion }` ) ){
         return error( 'Aborting version bump.' );
     }
 
