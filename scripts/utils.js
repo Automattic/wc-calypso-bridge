@@ -1,4 +1,7 @@
+import { execSync } from 'child_process';
+import which from 'which';
 import fs, { promises as fsPromises } from 'fs';
+import tmp from 'tmp';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import inquirer from 'inquirer';
@@ -17,22 +20,63 @@ export const NOTICE_LEVEL = {
 
 export function error( message ) {
 	console.log( 'ERROR: ' + chalk.red( message ) );
+
+	return false;
 }
 
 export function success( message ) {
 	console.log( 'SUCCESS: ' + chalk.green( message ) );
+
+	return true;
 }
 
 export function warning( message ) {
 	console.log( 'WARNING: ' + chalk.yellow( message ) );
+
+	return true;
 }
 
 export function info( message ) {
 	console.log( 'INFO: ' + chalk.blue( message ) );
+
+	return true;
 }
 
 export function gitFactory() {
 	return git;
+}
+
+export function createPullRequest( title, body, labels = [] ) {
+	try {
+		const tempFilePath = tmp.tmpNameSync();
+		fs.writeFileSync( tempFilePath, body );
+
+		// Execute `gh pr create` command with the provided title and body
+		let command = `gh pr create --title "${ title }" --body-file "${ tempFilePath }"`;
+
+		labels.map( ( label ) => {
+			command += ` --label "${ label }"`;
+		} );
+
+		const output = execSync( command, { encoding: 'utf-8' } );
+
+		fs.unlinkSync( tempFilePath );
+
+		return output;
+	} catch ( err ) {
+		return err;
+	}
+}
+
+export function openPullRequest() {
+	try {
+		// Execute `gh pr create` command with the provided title and body
+		const command = `gh pr view -w`;
+
+		execSync( command, { encoding: 'utf-8' } );
+	} catch ( err ) {
+		// Ignore errors here
+	}
 }
 
 export async function promptContinue( msg ) {
@@ -283,8 +327,8 @@ export async function createNewBranch( branchName ) {
 			`Successfully created and switched to new branch ${ branchName }`
 		);
 		return true;
-	} catch ( error ) {
-		error( `Error creating new branch: ${ error.message }` );
+	} catch ( err ) {
+		error( `Error creating new branch: ${ err.message }` );
 		return false;
 	}
 }
@@ -303,6 +347,15 @@ export async function createNewCommit( message ) {
 		return true;
 	} catch ( error ) {
 		error( `Error creating new commit: ${ error.message }` );
+		return false;
+	}
+}
+
+export function checkBinaryExists( binaryName ) {
+	try {
+		which.sync( binaryName );
+		return true;
+	} catch ( error ) {
 		return false;
 	}
 }
