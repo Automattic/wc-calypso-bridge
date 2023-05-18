@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import {
 	NOTICE_LEVEL,
 	abortAndSwitchToBranch,
+	bumpVersion,
 	checkBinaryExists,
 	getNvmrcVersion,
 	error,
@@ -37,6 +38,10 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	` );
 
 	if ( ! ( await promptContinue( 'Continue? (y/N)' ) ) ) {
+		process.exit( 1 );
+	}
+
+	if ( ! ( await bumpVersion() ) ) {
 		process.exit( 1 );
 	}
 }
