@@ -143,7 +143,7 @@ ${ changelogEntry }
 		openPullRequest();
 	}
 
-	await switchToBranchWithMessage( 'master' );
+	await git.checkout( 'master' );
 	success( 'Done!' );
 }
 
