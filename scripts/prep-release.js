@@ -43,7 +43,7 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 4. Create a new PR with the changes.
 	` );
 
-	if ( ! ( await promptContinue( 'Continue? (y/N)' ) ) ) {
+	if ( ! ( await promptContinue( 'Continue?' ) ) ) {
 		process.exit( 1 );
 	}
 
@@ -62,16 +62,14 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 	if (
 		await promptContinue(
-			'Would you like to update the translation files? (y/N)'
+			'Would you like to update the translation files?'
 		)
 	) {
 		await updateTranslations();
 	}
 
 	if (
-		! ( await promptContinue(
-			'Would you like to create a pull request? (y/N)'
-		) )
+		! ( await promptContinue( 'Would you like to create a pull request?' ) )
 	) {
 		error( 'Pull request creationg was cancelled.' );
 		process.exit( 1 );
