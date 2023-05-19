@@ -122,7 +122,7 @@ ${ changelogEntry }
 	] );
 
 	const pattern =
-		/^https:\/\/github\.com\/Automattic\/wc-calypso-bridge\/pull\/\d+$/;
+		/https:\/\/github\.com\/Automattic\/wc-calypso-bridge\/pull\/\d+/;
 
 	if ( ! pattern.test( output ) ) {
 		error(
