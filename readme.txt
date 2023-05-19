@@ -22,6 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.6 =
+* Bump version to 2.1.6
+* fixup! WIP: prep-release command
+* fixup! WIP: prep-release command
+
 = 2.1.5 =
 * Make the readme update command run standalone
 
