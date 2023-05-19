@@ -159,7 +159,7 @@ export function updateComposerJsonVersion( newVersion ) {
 		JSON.stringify( composerData, null, 2 )
 	);
 
-	success( `Updated version the composer.json file to ${ newVersion }` );
+	success( `Updated composer.json version to ${ newVersion }` );
 }
 
 /**
@@ -194,9 +194,7 @@ export function updateWCCalypsoBridgeVersion( newVersion ) {
 	// Write the updated contents back to the PHP file
 	fs.writeFileSync( wcCalypsoBridgePath, updatedWcCalypsoBridge );
 
-	success(
-		`Successfully updated version number in wc-calypso-bridge.php to ${ newVersion }`
-	);
+	success( `Updated wc-calypso-bridge.php version to ${ newVersion }` );
 }
 
 /**
