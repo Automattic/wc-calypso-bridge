@@ -5,6 +5,7 @@ import {
 	abortAndSwitchToBranch,
 	checkBinaryExists,
 	createPullRequest,
+	getCurrentBranchName,
 	getCurrentVersion,
 	getNvmrcVersion,
 	gitFactory,
@@ -14,6 +15,8 @@ import {
 	isCorrectNodeVersion,
 	openPullRequest,
 	promptContinue,
+	switchToBranchWithMessage,
+	abortAndSwitchToBranch,
 } from './utils.js';
 
 import bumpVersion from './commands/bump-version.js';
@@ -49,16 +52,20 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 		process.exit( 1 );
 	}
 
+	const currentBranchName = await getCurrentBranchName();
+
 	if ( ! ( await bumpVersion() ) ) {
 		error(
 			'Aborting, something went wrong while bumping the version number.'
 		);
+		await switchToBranchWithMessage( currentBranchName );
 		process.exit( 1 );
 	}
 
 	const changelogEntry = await updateReadMe();
 	if ( changelogEntry === false ) {
 		error( 'Aborting, something went wrong while updating the readme.' );
+		await switchToBranchWithMessage( currentBranchName );
 		process.exit( 1 );
 	}
 
@@ -92,6 +99,7 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 			) )
 		) {
 			error( 'Aborting. The pull request was not created.' );
+			await switchToBranchWithMessage( currentBranchName );
 			process.exit( 1 );
 		}
 
@@ -138,6 +146,7 @@ ${ changelogEntry }
 		openPullRequest();
 	}
 
+	await switchToBranchWithMessage( 'master' );
 	success( 'Done!' );
 }
 
