@@ -75,6 +75,9 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 		process.exit( 1 );
 	}
 
+	// Push our release prep branch
+	await git.push( 'origin', git.branch() );
+
 	const currentVersion = getCurrentVersion();
 	const title = `Prepare for release ${ currentVersion }`;
 	const body = `### Changes proposed in this Pull Request:
