@@ -20,9 +20,7 @@
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js",
 		"prepare-release": "node ./scripts/prep-release.js",
-		"create-release": "node ./scripts/release.js",
-		"update-readme": "node ./scripts/commands/readme.js",
-		"makepot": "node ./scripts/commands/update-translations.js"
+		"create-release": "node ./scripts/release.js"
 	},
 	"workspaces": [
 		"scripts"
