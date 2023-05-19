@@ -22,6 +22,12 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.6 =
+* fixup! WIP: prep-release command
+* WIP: prep-release command
+* Merge pull request #1139 from Automattic/update-version-2.1.5
+* Added version 2.1.5 to the changelog
+
 = 2.1.5 =
 * Make the readme update command run standalone
 
