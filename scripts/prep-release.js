@@ -79,7 +79,24 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 	// Push our release prep branch
 	const git = gitFactory();
-	await git.push( 'origin', git.branch() );
+	try {
+		await git.push( 'origin', git.branch() );
+	} catch ( e ) {
+		error(
+			`Something went wrong pushing ${ git.branch() } to origin.\n${ e }`
+		);
+
+		if (
+			! ( await promptContinue(
+				'Would you like to try force pushing? WARNING: This will overwrite the remote branch.?'
+			) )
+		) {
+			error( 'Aborting. The pull request was not created.' );
+			process.exit( 1 );
+		}
+
+		await git.push( 'origin', git.branch(), { '--force': null } );
+	}
 
 	const currentVersion = getCurrentVersion();
 	const title = `Prepare for release ${ currentVersion }`;
