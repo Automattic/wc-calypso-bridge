@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import which from 'which';
 import fs, { promises as fsPromises } from 'fs';
+import tmp from 'tmp';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import inquirer from 'inquirer';
@@ -47,9 +48,14 @@ export function gitFactory() {
 
 export function createPullRequest( title, body ) {
 	try {
+		const tempFilePath = tmp.tmpNameSync();
+		fs.writeFileSync( tempFilePath, body );
+
 		// Execute `gh pr create` command with the provided title and body
-		const command = `gh pr create --title "${ title }" --body "${ body }"`;
+		const command = `gh pr create --title "${ title }" --body-file "${ tempFilePath }"`;
 		const output = execSync( command, { encoding: 'utf-8' } );
+
+		fs.unlinkSync( tempFilePath );
 
 		return output;
 	} catch ( err ) {
