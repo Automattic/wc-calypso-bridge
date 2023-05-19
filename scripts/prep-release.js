@@ -126,7 +126,7 @@ ${ changelogEntry }
 
 	if ( ! pattern.test( output ) ) {
 		error(
-			`Something went wrong while creating the pull request.\n${ output }`
+			`Something went wrong while creating the pull request.\nOutput: ${ output }`
 		);
 		process.exit( 1 );
 	}
