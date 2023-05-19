@@ -7,6 +7,7 @@ import {
 	createPullRequest,
 	getCurrentVersion,
 	getNvmrcVersion,
+	gitFactory,
 	error,
 	info,
 	success,
