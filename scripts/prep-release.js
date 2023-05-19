@@ -1,5 +1,3 @@
-import chalk from 'chalk';
-
 import {
 	NOTICE_LEVEL,
 	abortAndSwitchToBranch,
@@ -16,7 +14,6 @@ import {
 	openPullRequest,
 	promptContinue,
 	switchToBranchWithMessage,
-	abortAndSwitchToBranch,
 } from './utils.js';
 
 import bumpVersion from './commands/bump-version.js';
