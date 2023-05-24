@@ -42,6 +42,10 @@ class WC_Calypso_Bridge_Filters {
 		}
 
 		add_action( 'init', array( $this, 'init' ) );
+
+		// Jetpack Sync is initialised from the 'plugins_loaded' action, so we need to do so as well.
+		// Ref: https://github.com/Automattic/jetpack/blob/db92236462824dc73e4cf4602388fc0ded99e984/projects/packages/sync/src/class-main.php#L24-L25
+		add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
 	}
 
 	/**
@@ -56,6 +60,15 @@ class WC_Calypso_Bridge_Filters {
 		add_filter( 'pre_option_woocommerce_merchant_email_notifications', static function() {
 			return 'no';
 		} );
+	}
+
+	/**
+	 * Initialization function that runs on the `plugins_loaded` action.
+	 *
+	 * @return void
+	 */
+	public function on_plugins_loaded() {
+		add_filter( 'jetpack_sync_options_whitelist', array( $this, 'add_woocommerce_task_list_options_to_jetpack_sync' ) );
 	}
 
 	/**
@@ -82,6 +95,31 @@ class WC_Calypso_Bridge_Filters {
 			}
 		</script>
 		<?php
+	}
+
+	/**
+	 * Function to hook into the `jetpack_sync_options_whitelist` filter
+	 * and adds options related to the WooCommerce task list to the list of
+	 * options Jetpack will synchronize to WordPress.com.
+	 *
+	 * @param array $allowed_options
+	 * @return array
+	 */
+	public function add_woocommerce_task_list_options_to_jetpack_sync( $allowed_options ) {
+		if ( ! is_array( $allowed_options ) ) {
+			return $allowed_options;
+		}
+
+		$woocommerce_task_list_options = array(
+			'woocommerce_task_list_complete',
+			'woocommerce_task_list_completed_lists',
+			'woocommerce_task_list_dismissed_tasks',
+			'woocommerce_task_list_hidden_lists',
+			'woocommerce_task_list_keep_completed',
+			'woocommerce_task_list_tracked_completed_tasks',
+		);
+
+		return array_merge( $allowed_options, $woocommerce_task_list_options );
 	}
 }
 

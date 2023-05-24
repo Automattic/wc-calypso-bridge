@@ -3,14 +3,13 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
-// @ts-ignore
-import { __experimentalCreateInterpolateElement as createInterpolateElement } from 'wordpress-element';
+import { createInterpolateElement } from '@wordpress/element';
 
 export default {
-	button: __('Install', 'wc-calypso-bridge'),
-	nothanks: __('No thanks', 'wc-calypso-bridge'),
-	limitedTimeOffer: __('Limited time offer', 'wc-calypso-bridge'),
-	heading: __('WooCommerce Payments', 'wc-calypso-bridge'),
+	button: __( 'Install', 'wc-calypso-bridge' ),
+	nothanks: __( 'No thanks', 'wc-calypso-bridge' ),
+	limitedTimeOffer: __( 'Limited time offer', 'wc-calypso-bridge' ),
+	heading: __( 'WooCommerce Payments', 'wc-calypso-bridge' ),
 	bannerHeading: __(
 		'Save big with WooCommerce Payments',
 		'wc-calypso-bridge'
@@ -23,7 +22,7 @@ export default {
 		'Discount will be applied upon install and completed setup of WooCommerce Payments',
 		'wc-calypso-bridge'
 	),
-	learnMore: __('Learn more', 'wc-calypso-bridge'),
+	learnMore: __( 'Learn more', 'wc-calypso-bridge' ),
 
 	onboarding: {
 		description: __(
@@ -32,8 +31,11 @@ export default {
 		),
 	},
 
-	paymentMethodsHeading: __('Accepted payment methods', 'wc-calypso-bridge'),
-	surveyTitle: __('Remove WooCommerce Payments', 'wc-calypso-bridge'),
+	paymentMethodsHeading: __(
+		'Accepted payment methods',
+		'wc-calypso-bridge'
+	),
+	surveyTitle: __( 'Remove WooCommerce Payments', 'wc-calypso-bridge' ),
 
 	surveyIntro: createInterpolateElement(
 		// Note: \xa0 is used to create a non-breaking space.
@@ -76,14 +78,14 @@ export default {
 		'wc-calypso-bridge'
 	),
 
-	surveyCommentsLabel: __('Comments (Optional)', 'wc-calypso-bridge'),
+	surveyCommentsLabel: __( 'Comments (Optional)', 'wc-calypso-bridge' ),
 
 	surveyCancelButton: __(
 		'Just remove WooCommerce Payments',
 		'wc-calypso-bridge'
 	),
 
-	surveySubmitButton: __('Remove and send feedback', 'wc-calypso-bridge'),
+	surveySubmitButton: __( 'Remove and send feedback', 'wc-calypso-bridge' ),
 
 	terms: createInterpolateElement(
 		__(
@@ -103,9 +105,9 @@ export default {
 	),
 
 	faq: {
-		faqHeader: __('Frequently asked questions', 'wc-calypso-bridge'),
+		faqHeader: __( 'Frequently asked questions', 'wc-calypso-bridge' ),
 
-		question1: __('What is WooCommerce Payments?', 'wc-calypso-bridge'),
+		question1: __( 'What is WooCommerce Payments?', 'wc-calypso-bridge' ),
 
 		question1Answer1: __(
 			'WooCommerce Payments is an integrated payment solution, built by WooCommerce, for WooCommerce. Use WooCommerce Payments to manage your payments, track cash flow, and manage revenue from your dashboard.',
@@ -133,7 +135,7 @@ export default {
 		),
 
 		question3Answer1: __(
-			"Native dashboard: track cash flow from the same  WordPress dashboard you're already using to manage product catalogue, inventory, orders, fulfilment, and otherwise run your online storefront.",
+			"Native dashboard: track cash flow from the same WordPress dashboard you're already using to manage product catalogue, inventory, orders, fulfilment, and otherwise run your online storefront.",
 			'wc-calypso-bridge'
 		),
 
@@ -178,7 +180,7 @@ export default {
 		),
 
 		question5Answer2: createInterpolateElement(
-			__('<a>View all fees</a>', 'wc-calypso-bridge'),
+			__( '<a>View all fees</a>', 'wc-calypso-bridge' ),
 			{
 				a: (
 					// eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -209,7 +211,7 @@ export default {
 		),
 
 		question5Answer8: createInterpolateElement(
-			__('<a>View all fees</a>', 'wc-calypso-bridge'),
+			__( '<a>View all fees</a>', 'wc-calypso-bridge' ),
 			{
 				a: (
 					// eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -260,7 +262,7 @@ export default {
 		),
 
 		question6Answer5: createInterpolateElement(
-			__('<a>All deposits details</a>', 'wc-calypso-bridge'),
+			__( '<a>All deposits details</a>', 'wc-calypso-bridge' ),
 			{
 				a: (
 					// eslint-disable-next-line jsx-a11y/anchor-has-content
@@ -288,18 +290,21 @@ export default {
 			'wc-calypso-bridge'
 		),
 
-		question7Answer3: __('Counterfeit goods', 'wc-calypso-bridge'),
+		question7Answer3: __( 'Counterfeit goods', 'wc-calypso-bridge' ),
 
-		question7Answer4: __('Adult content and services', 'wc-calypso-bridge'),
+		question7Answer4: __(
+			'Adult content and services',
+			'wc-calypso-bridge'
+		),
 
 		question7Answer5: __(
 			'Drug paraphernalia (including e-cigarette, vapes and nutraceuticals)',
 			'wc-calypso-bridge'
 		),
 
-		question7Answer6: __('Multi-level marketing', 'wc-calypso-bridge'),
+		question7Answer6: __( 'Multi-level marketing', 'wc-calypso-bridge' ),
 
-		question7Answer7: __('Pseudo pharmaceuticals', 'wc-calypso-bridge'),
+		question7Answer7: __( 'Pseudo pharmaceuticals', 'wc-calypso-bridge' ),
 
 		question7Answer8: __(
 			'Social media activity, like Twitter followers, Facebook likes, YouTube views',
@@ -311,7 +316,7 @@ export default {
 			'wc-calypso-bridge'
 		),
 
-		question7Answer10: __('Firearms, ammunition', 'wc-calypso-bridge'),
+		question7Answer10: __( 'Firearms, ammunition', 'wc-calypso-bridge' ),
 
 		question7Answer11: createInterpolateElement(
 			__(
@@ -367,17 +372,23 @@ export default {
 			'wc-calypso-bridge'
 		),
 
-		question8Answer3: __('Subscription suspension', 'wc-calypso-bridge'),
+		question8Answer3: __( 'Subscription suspension', 'wc-calypso-bridge' ),
 
-		question8Answer4: __('Subscription cancellation', 'wc-calypso-bridge'),
+		question8Answer4: __(
+			'Subscription cancellation',
+			'wc-calypso-bridge'
+		),
 
-		question8Answer5: __('Subscription reactivation', 'wc-calypso-bridge'),
+		question8Answer5: __(
+			'Subscription reactivation',
+			'wc-calypso-bridge'
+		),
 
-		question8Answer6: __('Multiple subscriptions', 'wc-calypso-bridge'),
+		question8Answer6: __( 'Multiple subscriptions', 'wc-calypso-bridge' ),
 
-		question8Answer7: __('Recurring total changes', 'wc-calypso-bridge'),
+		question8Answer7: __( 'Recurring total changes', 'wc-calypso-bridge' ),
 
-		question8Answer8: __('Payment date changes', 'wc-calypso-bridge'),
+		question8Answer8: __( 'Payment date changes', 'wc-calypso-bridge' ),
 
 		question8Answer9: __(
 			'Customer & Store Manager payment method changes',
@@ -401,8 +412,8 @@ export default {
 			}
 		),
 
-		haveMoreQuestions: __('Have more questions?', 'wc-calypso-bridge'),
+		haveMoreQuestions: __( 'Have more questions?', 'wc-calypso-bridge' ),
 
-		getInTouch: __('Get in touch', 'wc-calypso-bridge'),
+		getInTouch: __( 'Get in touch', 'wc-calypso-bridge' ),
 	},
 };

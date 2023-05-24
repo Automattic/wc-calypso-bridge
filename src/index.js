@@ -4,17 +4,15 @@
 import { addFilter, addAction } from '@wordpress/hooks';
 import { WooOnboardingTask } from '@woocommerce/onboarding';
 import { registerPlugin, unregisterPlugin } from '@wordpress/plugins';
-import { render } from '@wordpress/element';
+import { render, lazy } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
-import './use-slot-patch';
 import wcNavFilterRootUrl from './wc-navigation-root-url';
 import LaunchStorePage from './launch-store';
 import WelcomeModal from './welcome-modal';
 import { DisabledTasksFill } from './disabled-tasks';
-import { PaymentGatewaySuggestions } from './payment-gateway-suggestions';
 import { Tax } from './free-trial/tax';
 import { WoocommercePaymentsTaskPage } from './free-trial/fills/woocommerce-payments';
 import { TaskListCompletedHeaderFill } from './task-completion/fill.tsx';
@@ -22,10 +20,29 @@ import {
 	ProgressHeaderFill,
 	ProgressTitleFill,
 } from './homescreen-progress-header';
-import { Marketing } from './marketing';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 import './task-headers';
+
+// Modify webpack to append the ?ver parameter to JS chunk
+// https://webpack.js.org/api/module-variables/#__webpack_get_script_filename__-webpack-specific
+// eslint-disable-next-line no-undef,camelcase
+const oldGetScriptFileNameFn = __webpack_get_script_filename__;
+// eslint-disable-next-line no-undef,camelcase
+__webpack_get_script_filename__ = ( chunk ) => {
+	const filename = oldGetScriptFileNameFn( chunk );
+	return `${ filename }?ver=${ window.wcCalypsoBridge.version }`;
+};
+
+const Marketing = lazy( () =>
+	import( /* webpackChunkName: "marketing" */ './marketing' )
+);
+
+const PaymentGatewaySuggestions = lazy( () =>
+	import(
+		/* webpackChunkName: "payment-gateway-suggestions" */ './payment-gateway-suggestions'
+	)
+);
 
 wcNavFilterRootUrl();
 

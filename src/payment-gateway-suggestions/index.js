@@ -272,6 +272,12 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 
 	const upgradeUrl = `https://wordpress.com/plans/${ window.wcCalypsoBridge.siteSlug }`;
 
+	const trackUpgradeClick = () => {
+		recordEvent( 'free_trial_upgrade_now', {
+			source: 'payments_task',
+		} );
+	};
+
 	return (
 		<div className="woocommerce-task-payments">
 			<Notice
@@ -287,6 +293,7 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 								href={ upgradeUrl }
 								type="external"
 								target="_blank"
+								onClick={ trackUpgradeClick }
 							>
 								<></>
 							</Link>
@@ -320,3 +327,5 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 		</div>
 	);
 };
+
+export default PaymentGatewaySuggestions;

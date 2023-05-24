@@ -27,8 +27,6 @@ dist
 build
 build-module
 build-style
-languages/*
-!languages/README.md
 
 # Directories/files that may appear in your environment
 wp-cli.local.yml

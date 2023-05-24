@@ -8,6 +8,7 @@ module.exports = {
 			'error',
 			{ definedTags: [ 'jest-environment' ] },
 		],
+		'react/react-in-jsx-scope': 'off',
 	},
 	overrides: [
 		{
@@ -29,6 +30,7 @@ module.exports = {
 				'no-shadow': 'off',
 				'@typescript-eslint/no-shadow': [ 'error' ],
 				'@typescript-eslint/no-empty-function': 'off',
+				'react/react-in-jsx-scope': 'off',
 			},
 		},
 	],

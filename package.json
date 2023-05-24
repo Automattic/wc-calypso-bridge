@@ -8,7 +8,7 @@
 		"build": "wp-scripts build",
 		"check-engines": "wp-scripts check-engines",
 		"check-licenses": "wp-scripts check-licenses",
-		"format:js": "wp-scripts format-js src/",
+		"format:js": "wp-scripts format src",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js src/",
 		"lint:js:report": "npm run lint:js -- --output-file eslint_report.json --ext=js,ts,tsx --format json",
@@ -18,22 +18,31 @@
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start",
 		"test:e2e": "wp-scripts test-e2e",
-		"test:unit": "wp-scripts test-unit-js"
+		"test:unit": "wp-scripts test-unit-js",
+		"create-release": "node ./scripts/release.js",
+		"bump-version": "node ./scripts/commands/bump-version.js",
+		"update-readme": "node ./scripts/commands/readme.js",
+		"makepot": "node ./scripts/commands/update-translations.js"
 	},
+	"workspaces": [
+		"scripts"
+	],
 	"devDependencies": {
-		"@automattic/color-studio": "2.5.0",
-		"@woocommerce/dependency-extraction-webpack-plugin": "^1.7.0",
-		"@woocommerce/eslint-plugin": "1.1.0",
-		"@wordpress/scripts": "^20.0.2",
-		"@wordpress/prettier-config": "^1.1.1",
-		"prettier": "npm:wp-prettier@^2.2.1-beta-1",
+		"@automattic/color-studio": "^2.5.0",
+		"@testing-library/jest-dom": "^5.16.5",
+		"@testing-library/react": "^12.1.5",
+		"@woocommerce/dependency-extraction-webpack-plugin": "^2.2.0",
+		"@woocommerce/eslint-plugin": "^2.2.0",
+		"@wordpress/prettier-config": "^2.14.0",
+		"@wordpress/scripts": "^24.6.0",
+		"prettier": "npm:wp-prettier@^2.8.5",
 		"typescript": "^4.9.5"
 	},
 	"dependencies": {
-		"@woocommerce/onboarding": "^3.2.0",
-		"classnames": "^2.3.2",
 		"@automattic/interpolate-components": "^1.2.1",
-		"dompurify": "^2.4.3",
-		"gridicons": "^3.4.1"
+		"@woocommerce/onboarding": "^3.3.0",
+		"classnames": "^2.3.2",
+		"dompurify": "^2.4.5",
+		"gridicons": "^3.4.2"
 	}
 }

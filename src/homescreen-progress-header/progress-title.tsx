@@ -7,6 +7,11 @@ import { useSelect } from '@wordpress/data';
 import { getVisibleTasks, ONBOARDING_STORE_NAME } from '@woocommerce/data';
 import { getSetting } from '@woocommerce/settings';
 
+/**
+ * Internal dependencies
+ */
+import { sanitizeHTML } from '../payment-gateway-suggestions/utils';
+
 export type ProgressTitleProps = {
 	taskListId: string;
 };
@@ -53,7 +58,7 @@ export const ProgressTitle: React.FC< ProgressTitleProps > = ( {
 						__( 'Welcome to %s', 'woocommerce' ),
 						siteTitle
 				  )
-				: __( 'Welcome to your store', 'woocommerce' );
+				: __( 'Welcome to your Woo Express store', 'woocommerce' );
 		}
 		switch ( completedCount ) {
 			case 1:
@@ -82,6 +87,10 @@ export const ProgressTitle: React.FC< ProgressTitleProps > = ( {
 	}
 
 	return (
-		<h1 id="woocommerce-task-progress-header__title" className="woocommerce-task-progress-header__title">{ title }</h1>
+		<h1
+			id="woocommerce-task-progress-header__title"
+			className="woocommerce-task-progress-header__title"
+			dangerouslySetInnerHTML={ sanitizeHTML( title ) }
+		/>
 	);
 };

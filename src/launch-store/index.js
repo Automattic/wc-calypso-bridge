@@ -10,7 +10,11 @@ import {
 	Button,
 	Spinner,
 } from '@wordpress/components';
-import { createInterpolateElement, useState, Fragment } from '@wordpress/element';
+import {
+	createInterpolateElement,
+	useState,
+	Fragment,
+} from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { Text } from '@woocommerce/experimental';
@@ -49,7 +53,7 @@ const CopyButton = ( { contentToCopy } ) => {
 	const [ isFeedbackVisible, setIsFeedbackVisible ] = useState( false );
 
 	const handleClick = () => {
-		navigator.clipboard.writeText( contentToCopy );
+		window.navigator.clipboard.writeText( contentToCopy );
 		setIsFeedbackVisible( true );
 		setTimeout( () => {
 			setIsFeedbackVisible( false );
@@ -101,7 +105,6 @@ const LaunchButton = ( {
 	};
 
 	const doLaunch = async () => {
-
 		if ( loading ) {
 			return;
 		}
@@ -120,8 +123,10 @@ const LaunchButton = ( {
 						if ( xhr.status === 200 && xhr.responseText ) {
 							successCallback();
 						} else {
-							var response = JSON.parse(xhr.responseText);
-							setErrorMessage( escape( response.data[0].message ) );
+							const response = JSON.parse( xhr.responseText );
+							setErrorMessage(
+								escape( response.data[ 0 ].message )
+							);
 						}
 					}
 				} catch ( error ) {
@@ -149,7 +154,11 @@ const LaunchButton = ( {
 				{ loading && <Spinner /> }
 				{ btnText || __( 'Launch your store', 'wc-calypso-bridge' ) }
 			</Button>
-			{ errorMessage && <p className="woocommerce-launch-store__button__error">{errorMessage}</p>}
+			{ errorMessage && (
+				<p className="woocommerce-launch-store__button__error">
+					{ errorMessage }
+				</p>
+			) }
 		</Fragment>
 	);
 };
@@ -206,6 +215,7 @@ const Congratulations = () => {
 							),
 							{
 								a: (
+									// eslint-disable-next-line jsx-a11y/anchor-has-content
 									<a
 										href={
 											'https://wordpress.com/settings/general/' +
@@ -234,21 +244,16 @@ const ReadyToLaunch = ( { launchHandler } ) => {
 					as="h2"
 					className="woocommerce-task-card__title"
 				>
-					{ __(
-						'Ready to launch your store?',
-						'wc-calypso-bridge'
-					) }
+					{ __( 'Ready to launch your store?', 'wc-calypso-bridge' ) }
 				</Text>
 				<Text as="span">
 					{ __(
-						'It\'s time to celebrate – you\'re ready to launch your store! Woo!',
+						"It's time to celebrate – you're ready to launch your store! Woo!",
 						'wc-calypso-bridge'
 					) }
 				</Text>
 				<div className="woocommerce-task-card__ready-to-launch__links">
-					<LaunchButton
-						successCallback={ launchHandler }
-					/>
+					<LaunchButton successCallback={ launchHandler } />
 				</div>
 			</CardBody>
 			<CardFooter>
@@ -260,6 +265,7 @@ const ReadyToLaunch = ( { launchHandler } ) => {
 						),
 						{
 							a: (
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
 								<a
 									href={
 										'https://wordpress.com/settings/general/' +
@@ -278,7 +284,6 @@ const ReadyToLaunch = ( { launchHandler } ) => {
 
 const BeforeLaunch = ( { tasks, launchHandler } ) => {
 	const siteSlug = escape( window.wcCalypsoBridge.siteSlug );
-	const siteUrl = escape( window.wcCalypsoBridge.homeUrl );
 
 	const pendingTasks = tasks.map( ( task ) => {
 		const { id, title, content, actionUrl, actionLabel } = task;
@@ -384,10 +389,7 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 			<CardFooter>
 				<div className="woocommerce-task-card__pending-tasks__links">
 					<LaunchButton
-						label={ __(
-							'Launch anyway',
-							'wc-calypso-bridge'
-						) }
+						label={ __( 'Launch anyway', 'wc-calypso-bridge' ) }
 						successCallback={ launchHandler }
 					/>
 				</div>
@@ -399,6 +401,7 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 						),
 						{
 							a: (
+								// eslint-disable-next-line jsx-a11y/anchor-has-content
 								<a
 									href={
 										'https://wordpress.com/settings/general/' +
@@ -415,16 +418,7 @@ const BeforeLaunch = ( { tasks, launchHandler } ) => {
 	);
 };
 
-const LaunchStorePage = ({ onComplete, query }) => {
-
-	if ( query.status && 'success' === query.status ) {
-		return (
-			<div className="woocommerce-launch-store">
-				<Congratulations />
-			</div>
-		);
-	}
-
+const LaunchStorePage = ( { onComplete, query } ) => {
 	const { isResolving, taskLists } = useSelect( ( select ) => {
 		return {
 			isResolving: ! select(
@@ -433,6 +427,14 @@ const LaunchStorePage = ({ onComplete, query }) => {
 			taskLists: select( ONBOARDING_STORE_NAME ).getTaskLists(),
 		};
 	} );
+
+	if ( query.status && query.status === 'success' ) {
+		return (
+			<div className="woocommerce-launch-store">
+				<Congratulations />
+			</div>
+		);
+	}
 
 	if ( isResolving ) {
 		return <Loader />;
@@ -448,30 +450,26 @@ const LaunchStorePage = ({ onComplete, query }) => {
 	);
 	const hasPendingCrucialTasks = pendingTasks.length;
 	const hasPendingTasks = setupList.tasks.filter(
-		( task ) =>
-			task.canView === true &&
-			task.isComplete === false
+		( task ) => task.canView === true && task.isComplete === false
 	).length;
 
 	const launchHandler = () => {
-
 		if ( hasPendingTasks ) {
-
-			const redirectPath = 'admin.php?page=wc-admin&task=launch_site&status=success';
+			const redirectPath =
+				'admin.php?page=wc-admin&task=launch_site&status=success';
 			onComplete( {
-				redirectPath: redirectPath
+				redirectPath,
 			} );
-
 		} else {
 			onComplete();
 		}
-	}
+	};
 
 	return (
 		<div className="woocommerce-launch-store">
-			{ ! hasPendingCrucialTasks && <ReadyToLaunch
-				launchHandler={ launchHandler }
-				/> }
+			{ ! hasPendingCrucialTasks && (
+				<ReadyToLaunch launchHandler={ launchHandler } />
+			) }
 			{ hasPendingCrucialTasks && (
 				<BeforeLaunch
 					tasks={ pendingTasks }

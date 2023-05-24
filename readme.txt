@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.0.8
+Stable tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,71 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= 2.1.5 =
+* Make the readme update command run standalone
+
+= 2.1.4 =
+* i18n: Add a mechanism to update the files in the languages/ folder #1130
+
+= 2.1.3 =
+* Add helper functions to detect the new Essential and Performance Woo Express plans. #1128
+* Remove useSlot monkey patch. #1117
+* Optimize bridge file size by lazy-loading components #1124.
+* Make OBW skip reliable for ecommerce and free trial plans #1125
+
+= 2.1.2 =
+* Fix JS lint errors #1105.
+* Update Appearance task has_products logic #1107
+* Update product task to detect modified products #1106.
+* Fix Jetpack tracks ID mismatch #1118.
+* Patch for product import issue #1119.
+* New script to automate updating the plugin version #1116.
+* New script to automate updating the changelog #1122.
+* Refactoring release automation scripts #1126.
+
+= 2.1.1 =
+* Allow expired trial sites to access the Export tool #1104.
+* New script to automate creating a new build #1109.
+* New script to automate creating a release tag #1115.
+
+= 2.1.0 =
+* Update the hook we use to include additional task list options in Jetpack Sync #1084.
+* Update to node 16 and update other dependencies #1088.
+* Update unit tests after dependency updates #1094.
+
+= 2.0.18 =
+* Update _Add a domain_ task to check for domain purchases in addition to the site URL #1083.
+
+= 2.0.17 =
+* Update default progress title to "Welcome to your Woo Express store" #1071.
+* Fix store name not rendering special characters #1070.
+* Patch wc.data for Gutenberg 15.5+ and wc < 7.7.0 #1086.
+
+= 2.0.16 =
+* Add tracking on various free trial CTAs #1074
+
+= 2.0.15 =
+* Mark Store_Details task as complete for free trial #1061
+* Fix site launch checks #1073.
+* Hide site launch banner for eCommerce trials #1062.
+
+= 2.0.14 =
+* Make the free trial banner responsive #1066
+
+= 2.0.13 =
+* Remove the onboarding purchase task #1060.
+* Add WooCommerce task list options to Jetpack Sync #1009.
+
+= 2.0.12 =
+* Redirect admin pages to the Calypso upgrade page for free trials #1055.
+
+= 2.0.11 =
+* Fix css conflict for snackbar #1041
+* Add avalara plugin to Tax task #1032
+* Remove default store notice #1053
+* Remove homepage step from Personalize task for Tsubaki theme #1054.
+* Increase WC Tracker frequency to run on a daily basis for the first 3 months #1050.
 
 = 2.0.10 =
 * Create navigation menus with new slugs #1039.

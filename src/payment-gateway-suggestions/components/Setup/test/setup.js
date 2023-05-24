@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
  * Internal dependencies
  */
 import { Setup } from '../';
-import { enqueueScript } from '~/utils/enqueue-script';
+import { enqueueScript } from '../../../utils';
 
 jest.mock( '@woocommerce/components', () => {
 	const originalModule = jest.requireActual( '@woocommerce/components' );
@@ -20,7 +20,14 @@ jest.mock( '@woocommerce/components', () => {
 } );
 
 jest.mock( '@woocommerce/settings' );
-jest.mock( '~/utils/enqueue-script' );
+jest.mock( '../../../utils', () => {
+	const originalModule = jest.requireActual( '../../../utils' );
+
+	return {
+		...originalModule,
+		enqueueScript: jest.fn(),
+	};
+} );
 
 const mockGateway = {
 	id: 'mock-gateway',

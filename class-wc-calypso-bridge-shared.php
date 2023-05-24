@@ -119,6 +119,7 @@ class WC_Calypso_Bridge_Shared {
 			'assetPath'                    => esc_url( WC_Calypso_Bridge_Instance()->get_asset_path() ),
 			'wcpayConnectUrl'              => 'admin.php?page=wc-admin&path=%2Fpayments%2Fconnect&wcpay-connect=1&_wpnonce=' . wp_create_nonce( 'wcpay-connect' ),
 			'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
+			'version'                      => WC_CALYPSO_BRIDGE_CURRENT_VERSION,
 		);
 
 		if ( wc_calypso_bridge_has_ecommerce_features() ) {
@@ -133,6 +134,22 @@ class WC_Calypso_Bridge_Shared {
 
 		wp_enqueue_script( 'wc-calypso-bridge' );
 		wp_enqueue_style( 'wc-calypso-bridge' );
+
+		// Inject the WC data store patch for WooCommerce < 7.7.0 with Gutenberg 15.5+
+		// Issue: https://github.com/Automattic/wp-calypso/issues/76000
+		$has_gutenberg             = is_plugin_active( 'gutenberg/gutenberg.php' );
+		$gutenberg_version         = $has_gutenberg ? get_plugin_data( WP_PLUGIN_DIR . '/gutenberg/gutenberg.php' )['Version'] : false;
+
+		if ( 
+			defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '7.7.0', '<' ) &&
+			$gutenberg_version && version_compare( $gutenberg_version, '15.5.0', '>=' )
+		) {
+			wp_enqueue_script( 
+				'wp-calypso-bridge-wc-data-patch', 
+				WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/scripts/wc-data-patch.js', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION,
+				array( 'wc-store-data', 'wp-data', 'wp-element', 'wp-compose' )
+			);
+		}
 	}
 
 	/**

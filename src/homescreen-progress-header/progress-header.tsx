@@ -58,7 +58,7 @@ export const ProgressHeader: React.FC< ProgressHeaderProps > = ( {
 										'You’re almost ready to start selling! Follow these steps to set up your test store.',
 										'woocommerce'
 									) }
-									<br/>
+									<br />
 								</span>
 							) }
 							{ sprintf(

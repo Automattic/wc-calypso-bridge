@@ -185,11 +185,9 @@ export const TaskListCompletedHeader: React.FC<
 								) }
 							</Text>
 							<Button href={ signupUrl } variant="primary">
-								{ __(
-									'Upgrade now',
-									'wc-calypso-bridge'
-								) }
+								{ __( 'Upgrade now', 'wc-calypso-bridge' ) }
 							</Button>
+
 							<div className="woocommerce-task-card__header-menu">
 								{ /* @ts-expect-error: type def. is not up to date. Ignoring for now. */ }
 								<EllipsisMenu
