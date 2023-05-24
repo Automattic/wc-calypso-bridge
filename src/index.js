@@ -23,6 +23,7 @@ import {
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 import './task-headers';
+import './track-menu-item';
 
 // Modify webpack to append the ?ver parameter to JS chunk
 // https://webpack.js.org/api/module-variables/#__webpack_get_script_filename__-webpack-specific
