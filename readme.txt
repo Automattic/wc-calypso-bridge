@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Default to wide alignment when provisioning the Cart and Checkout pages. #1043
+* Fix fatal errors in onboarding option filters #1162
 
 = 2.1.5 =
 * Make the readme update command run standalone
