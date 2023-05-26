@@ -77,7 +77,14 @@ class WC_Calypso_Bridge_Skip_OBW {
 	 */
 	public function add_skipped_state( $option_value ) {
 		$value = $option_value ?? array();
+
+		if ( ! is_array( $value ) ) {
+			// If we don't have an array, return a valid option value.
+			$value = array();
+		}
+
 		$value['skipped'] = true;
+
 		return $value;
 	}
 }
