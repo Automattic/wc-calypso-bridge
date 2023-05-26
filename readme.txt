@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.1.6 =
 * Default to wide alignment when provisioning the Cart and Checkout pages. #1043
 * Add WooExpress Upgrades > Plans track. #1156
 * Add UTM tags on the "Extensions > Discover" page links in Free Trial. #1161
