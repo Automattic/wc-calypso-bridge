@@ -27,6 +27,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		}
 
 		possiblePlanLink.addEventListener( 'click', function () {
+			// Note that we also track this event in Calypso Screen via wp-calypso. If you change this event, please update it there as well. See: https://github.com/Automattic/wp-calypso/pull/77303.
 			recordTracksEvent( 'calypso_sidebar_item_click', {
 				path: '/plans',
 			} );
