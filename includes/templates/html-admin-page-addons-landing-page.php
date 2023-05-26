@@ -4,7 +4,7 @@
 *
 * @package WC_Calypso_Bridge/Templates
 * @since   2.0.4
-* @version 2.0.16
+* @version 2.1.6
 *
 * @uses $upgrade_url
 */
@@ -27,7 +27,7 @@
 		<a href="<?php echo esc_url( $upgrade_url ); ?>" class="button button-primary" id="upgrade_now_button">
 			<?php esc_html_e( 'Upgrade now', 'wc-calypso-bridge' ); ?>
 		</a>
-		<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank" class="button button-secondary" id="browse_extension_button">
+		<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" class="button button-secondary" id="browse_extension_button">
 			<?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?>
 		</a>
 	</div>
@@ -56,7 +56,7 @@
 			<p>
 				<?php esc_html_e( 'Add extra features and functionality, or integrate with other platforms and tools.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1" target="_blank" id="browse_extension_button_2"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="browse_extension_button_2"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-addons-landing-page__features-grid__item">
@@ -70,7 +70,7 @@
 			<p>
 				<?php esc_html_e( 'Quickly get started with our curated extension collections.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/collections" target="_blank" id="discover_collections_button"><?php esc_html_e( 'Discover collections', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/collections?utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="discover_collections_button"><?php esc_html_e( 'Discover collections', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-addons-landing-page__features-grid__item">
@@ -84,7 +84,7 @@
 			<p>
 				<?php esc_html_e( 'Tips, tricks, and ecommerce inspiration from our blog.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/blog" target="_blank" id="get_inspired_button"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/blog?utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="get_inspired_button"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 	</div>
