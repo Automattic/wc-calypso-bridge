@@ -11,8 +11,15 @@ document.addEventListener( 'DOMContentLoaded', function () {
 	);
 	possiblePlansLinks.forEach( ( possiblePlanLink ) => {
 		possiblePlanLink.addEventListener( 'click', function ( evt ) {
-			const href = evt && evt.target ? evt.target.getAttribute( 'href' ) : null;
-			if ( ! href || typeof href !== 'string' || ! href.startsWith( 'https://wordpress.com/plans/' )  ) {
+			const href =
+				evt && evt.target
+					? ( evt.target as HTMLLinkElement ).getAttribute( 'href' )
+					: null;
+			if (
+				! href ||
+				typeof href !== 'string' ||
+				! href.startsWith( 'https://wordpress.com/plans/' )
+			) {
 				return;
 			}
 			// Check if we're navigating to /plans/:siteSlug or some deeper path below /plans/[something]/siteSlug
@@ -25,5 +32,5 @@ document.addEventListener( 'DOMContentLoaded', function () {
 				path: '/plans',
 			} );
 		} );
-	}
+	} );
 } );
