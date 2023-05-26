@@ -10,24 +10,23 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		'#toplevel_page_paid-upgrades a[href^="https://wordpress.com/plans/"]'
 	);
 	possiblePlansLinks.forEach( ( possiblePlanLink ) => {
-		possiblePlanLink.addEventListener( 'click', function ( evt ) {
-			const href =
-				evt && evt.target
-					? ( evt.target as HTMLLinkElement ).getAttribute( 'href' )
-					: null;
-			if (
-				! href ||
-				typeof href !== 'string' ||
-				! href.startsWith( 'https://wordpress.com/plans/' )
-			) {
-				return;
-			}
-			// Check if we're navigating to /plans/:siteSlug or some deeper path below /plans/[something]/siteSlug
-			// The implementation can be changed to be simpler or different, but the check is needed.
-			const hasDeeperPath = href.substring( 28 ).includes( '/' );
-			if ( hasDeeperPath ) {
-				return;
-			}
+		const href = possiblePlanLink.getAttribute( 'href' );
+		if (
+			! href ||
+			typeof href !== 'string' ||
+			! href.startsWith( 'https://wordpress.com/plans/' )
+		) {
+			return;
+		}
+
+		// Check if we're navigating to /plans/:siteSlug or some deeper path below /plans/[something]/siteSlug
+		// The implementation can be changed to be simpler or different, but the check is needed.
+		const hasDeeperPath = href.substring( 28 ).includes( '/' );
+		if ( hasDeeperPath ) {
+			return;
+		}
+
+		possiblePlanLink.addEventListener( 'click', function () {
 			recordTracksEvent( 'calypso_sidebar_item_click', {
 				path: '/plans',
 			} );
