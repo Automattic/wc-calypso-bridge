@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.1.7
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -43,11 +43,13 @@ class WC_Calypso_Bridge_Setup {
 	 * @var array
 	 */
 	protected $one_time_operations = array(
-		'delete_coupon_moved_notes'  => 'delete_coupon_moved_notes_callback',
-		'woocommerce_create_pages'   => 'woocommerce_create_pages_callback',
-		'set_jetpack_defaults'       => 'set_jetpack_defaults_callback',
-		'set_wc_tracker_twice_daily' => 'set_wc_tracker_twice_daily_callback',
-		'set_wc_tracker_default'     => 'set_wc_tracker_default_callback',
+		'delete_coupon_moved_notes'               => 'delete_coupon_moved_notes_callback',
+		'woocommerce_create_pages'                => 'woocommerce_create_pages_callback',
+		'set_jetpack_defaults'                    => 'set_jetpack_defaults_callback',
+		'set_wc_tracker_twice_daily'              => 'set_wc_tracker_twice_daily_callback',
+		'set_wc_tracker_default'                  => 'set_wc_tracker_default_callback',
+		'set_wc_subscriptions_siteurl'            => 'set_wc_subscriptions_siteurl_callback',
+		'set_wc_subscriptions_siteurl_add_domain' => 'set_wc_subscriptions_siteurl_add_domain_callback',
 	);
 
 	/**
@@ -138,6 +140,8 @@ class WC_Calypso_Bridge_Setup {
 			unset( $this->one_time_operations[ 'woocommerce_create_pages' ] );
 			unset( $this->one_time_operations[ 'set_wc_tracker_twice_daily_callback' ] );
 			unset( $this->one_time_operations[ 'set_wc_tracker_default_callback' ] );
+			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_callback' ] );
+			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_add_domain_callback' ] );
 		}
 	}
 
@@ -493,6 +497,76 @@ class WC_Calypso_Bridge_Setup {
 
 		}, PHP_INT_MAX );
 	}
+
+	/**
+	 * Force WooCommerce subscriptions to save the site URL to avoid move/duplicated site messages on new sites.
+	 *
+	 * @since 2.1.7
+	 * @return void
+	 */
+	public function set_wc_subscriptions_siteurl_callback() {
+
+		add_action( 'plugins_loaded', function () {
+
+			$operation = 'set_wc_subscriptions_siteurl';
+
+			if ( ! class_exists( 'WCS_Staging' )
+			     || ! method_exists( 'WCS_Staging', 'set_duplicate_site_url_lock' ) ) {
+				return;
+			}
+
+			// wc_subscriptions_siteurl does not exist on either new or existing sites.
+			// Update it only if it doesn't exist.
+			$exists = get_option( 'wc_subscriptions_siteurl', false );
+			if ( empty( $exists ) ) {
+				WCS_Staging::set_duplicate_site_url_lock();
+			}
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
+
+		}, PHP_INT_MAX );
+
+	}
+
+	/**
+	 * Force WooCommerce subscriptions to save the site URL to avoid move/duplicated site messages on domain purchase.
+	 * This job runs "forever" until a domain is purchased.
+	 *
+	 * @since 2.1.7
+	 * @return void
+	 */
+	public function set_wc_subscriptions_siteurl_add_domain_callback() {
+
+		add_action( 'plugins_loaded', function () {
+
+			$operation = 'set_wc_subscriptions_siteurl_add_domain';
+
+			if ( ! class_exists( 'WCS_Staging' )
+			     || ! method_exists( 'WCS_Staging', 'set_duplicate_site_url_lock' ) ) {
+				return;
+			}
+
+			// TODO: comments
+			$wc_subscriptions_siteurl = get_option( 'wc_subscriptions_siteurl', false );
+			if ( ! empty( $wc_subscriptions_siteurl ) ) {
+				$site_url = untrailingslashit( home_url( '', 'https' ) );
+
+				// TODO: What is the domain of staging sites?
+				if ( ! str_ends_with( $site_url, '.wpcomstaging.com' ) ) {
+					$wc_subscriptions_siteurl = str_replace( '_[wc_subscriptions_siteurl]_', '', $wc_subscriptions_siteurl );
+
+					if ( str_ends_with( $wc_subscriptions_siteurl, '.wpcomstaging.com' ) ) {
+						WCS_Staging::set_duplicate_site_url_lock();
+						update_option( $this->option_prefix . $operation, 'completed', 'no' );
+					}
+				}
+
+			}
+
+		}, PHP_INT_MAX );
+
+	}
+
+
 
 	/**
 	 * Prevent redirects on activation when WooCommerce is being setup. Some plugins
