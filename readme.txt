@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.7 =
+* Add prepare-release command
+* Prepare for 2.1.6 release (#1163)
+
 = 2.1.6 =
 * Default to wide alignment when provisioning the Cart and Checkout pages. #1043
 * Add WooExpress Upgrades > Plans track. #1156
