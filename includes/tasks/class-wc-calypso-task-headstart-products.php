@@ -2,13 +2,19 @@
 
 namespace Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks;
 
-use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Products;
 
 /**
  * HeadstartProducts Task
  */
 class HeadstartProducts extends Products {
+	/**
+	 * Cached onboarding data.
+	 *
+	 * @var array Onboarding data.
+	 */
+	private static $onboarding_data = [];
+
 	/**
 	 * Task completion.
 	 *
@@ -53,11 +59,7 @@ class HeadstartProducts extends Products {
 	 * @return string
 	 */
 	public function get_title() {
-		$data = $this->get_onboarding_data();
-		$already_selling_venues = array( 'other', 'brick-mortar', 'other-woocommerce', 'brick-mortar-other' );
-		$already_selling = in_array( $data['selling_venues'], $already_selling_venues );
-
-		if ( $already_selling ) {
+		if ( $this->is_already_selling() ) {
 			return __( 'Import your products', 'woocommerce' );
 		}
 
@@ -65,15 +67,60 @@ class HeadstartProducts extends Products {
 	}
 
 	/**
+	 * Action label.
+	 *
+	 * @return string
+	 */
+	public function get_action_label() {
+		if ( $this->is_already_selling() ) {
+			return __( 'Import products', 'woocommerce' );
+		}
+
+		return __( 'Add products', 'woocommerce' );
+	}
+
+	/**
+	 * Content.
+	 *
+	 * @return string
+	 */
+	public function get_content() {
+		if ( $this->is_already_selling() ) {
+			return __(
+				'Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions.',
+				'woocommerce'
+			);
+		}
+
+		return __(
+			'Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions.',
+			'woocommerce'
+		);
+	}
+
+	/**
+	 * Gets flag for already selling.
+	 * based on https://github.com/woocommerce/woocommerce/blob/3ae3a0df8dd800d573f330e623fe7b273fa0dbd3/plugins/woocommerce-admin/client/task-lists/fills/utils.js#L15.
+	 *
+	 * @return bool
+	 */
+	private function is_already_selling() {
+		$data = self::get_onboarding_data();
+		return $data['selling_venues'] !== 'no';
+	}
+
+	/**
 	 * Gets the profiler onboarding option data.
 	 *
 	 * @return array
 	 */
-	private function get_onboarding_data() {
-		$onboarding_data = get_option( 'woocommerce_onboarding_profile', array() );
-		if ( ! is_array( $onboarding_data ) ) {
-			return [];
+	private static function get_onboarding_data() {
+		if ( ! self::$onboarding_data ) {
+			self::$onboarding_data = get_option( 'woocommerce_onboarding_profile', array() );
+			if ( ! is_array( self::$onboarding_data ) ) {
+				return [];
+			}
 		}
-		return $onboarding_data;
+		return self::$onboarding_data;
 	}
 }

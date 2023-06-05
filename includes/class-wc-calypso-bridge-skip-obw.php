@@ -84,6 +84,7 @@ class WC_Calypso_Bridge_Skip_OBW {
 		}
 
 		$value['skipped'] = true;
+		$value['selling_venues'] = 'no';
 
 		return $value;
 	}
