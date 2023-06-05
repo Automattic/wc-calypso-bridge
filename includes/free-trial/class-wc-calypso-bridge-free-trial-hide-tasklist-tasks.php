@@ -81,6 +81,7 @@ class WC_Calypso_Bridge_Free_Trial_Hide_TaskList_Tasks {
 	private function hide_tasks( $lists ) {
 		$tasklist_id = 'setup';
 		$task_ids_to_be_hidden = Array(
+			'store_details',
 			'marketing',
 		);
 

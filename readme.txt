@@ -22,6 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+* Hide store_details task in free trial sites #1178
 * Fixed pain plan typo #1179
 
 = 2.1.6 =
