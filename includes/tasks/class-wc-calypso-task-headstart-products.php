@@ -46,4 +46,34 @@ class HeadstartProducts extends Products {
 
 		return $product_count > 0;
 	}
+
+	/**
+	 * Title.
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+		$data = $this->get_onboarding_data();
+		$already_selling_venues = array( 'other', 'brick-mortar', 'other-woocommerce', 'brick-mortar-other' );
+		$already_selling = in_array( $data['selling_venues'], $already_selling_venues );
+
+		if ( $already_selling ) {
+			return __( 'Import your products', 'woocommerce' );
+		}
+
+		return __( 'Add your products', 'woocommerce' );
+	}
+
+	/**
+	 * Gets the profiler onboarding option data.
+	 *
+	 * @return array
+	 */
+	private function get_onboarding_data() {
+		$onboarding_data = get_option( 'woocommerce_onboarding_profile', array() );
+		if ( ! is_array( $onboarding_data ) ) {
+			return [];
+		}
+		return $onboarding_data;
+	}
 }
