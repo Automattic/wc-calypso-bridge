@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.7 =
+* Bump version to 2.1.7
+* fixup! WIP: Fix push
+
 * Hide store_details task in free trial sites #1178
 * Fixed pain plan typo #1179
 
