@@ -105,7 +105,16 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 			process.exit( 1 );
 		}
 
-		await git.push( 'origin', git.branch(), { '--force': null } );
+		try {
+			await git.push( 'origin', git.branch(), { '--force': null } );
+		} catch ( e ) {
+			error(
+				`Something went wrong force pushing ${ newBranch.current } to origin.\n${ e }`
+			);
+
+			await switchToBranchWithMessage( currentBranchName );
+			process.exit( 1 );
+		}
 	}
 
 	const currentVersion = getCurrentVersion();
