@@ -83,12 +83,12 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 	// Push our release prep branch
 	const git = gitFactory();
+	const newBranch = await git.branch();
 	try {
-		await git.branch(['--set-upstream-to=origin/${branchName}', branchName]);
-		await git.push( 'origin', git.branch() );
+		await git.push( 'origin', newBranch.current );
 	} catch ( e ) {
 		error(
-			`Something went wrong pushing ${ git.branch() } to origin.\n${ e }`
+			`Something went wrong pushing ${ newBranch.current } to origin.\n${ e }`
 		);
 
 		if (
@@ -101,7 +101,16 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 			process.exit( 1 );
 		}
 
-		await git.push( 'origin', git.branch(), { '--force': null } );
+		try {
+			await git.push( 'origin', git.branch(), { '--force': null } );
+		} catch ( e ) {
+			error(
+				`Something went wrong force pushing ${ newBranch.current } to origin.\n${ e }`
+			);
+
+			await switchToBranchWithMessage( currentBranchName );
+			process.exit( 1 );
+		}
 	}
 
 	const currentVersion = getCurrentVersion();
