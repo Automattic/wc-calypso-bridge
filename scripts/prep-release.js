@@ -83,12 +83,16 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 	// Push our release prep branch
 	const git = gitFactory();
+	const newBranch = await git.branch();
 	try {
-		await git.branch(['--set-upstream-to=origin/${branchName}', branchName]);
+		await git.branch( [
+			'--set-upstream-to=origin/${branchName}',
+			newBranch.current,
+		] );
 		await git.push( 'origin', git.branch() );
 	} catch ( e ) {
 		error(
-			`Something went wrong pushing ${ git.branch() } to origin.\n${ e }`
+			`Something went wrong pushing ${ newBranch.current } to origin.\n${ e }`
 		);
 
 		if (
