@@ -85,11 +85,7 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	const git = gitFactory();
 	const newBranch = await git.branch();
 	try {
-		await git.branch( [
-			'--set-upstream-to=origin/${branchName}',
-			newBranch.current,
-		] );
-		await git.push( 'origin', git.branch() );
+		await git.push( 'origin', newBranch.current );
 	} catch ( e ) {
 		error(
 			`Something went wrong pushing ${ newBranch.current } to origin.\n${ e }`
