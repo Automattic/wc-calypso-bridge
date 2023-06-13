@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.1.7
+ * @version 2.1.8
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -501,7 +501,7 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Force WooCommerce subscriptions to save the site URL to avoid move/duplicated site messages on new sites.
 	 *
-	 * @since 2.1.7
+	 * @since 2.1.8
 	 * @return void
 	 */
 	public function set_wc_subscriptions_siteurl_callback() {
@@ -515,8 +515,8 @@ class WC_Calypso_Bridge_Setup {
 				return;
 			}
 
-			// wc_subscriptions_siteurl does not exist on either new or existing sites.
-			// Update it only if it doesn't exist.
+			// wc_subscriptions_siteurl is not created when a site is moved to the atomic platform.
+			// Update it only if it doesn't exist, so we cover new and existing sites.
 			$exists = get_option( 'wc_subscriptions_siteurl', false );
 			if ( empty( $exists ) ) {
 				WCS_Staging::set_duplicate_site_url_lock();
@@ -529,9 +529,9 @@ class WC_Calypso_Bridge_Setup {
 
 	/**
 	 * Force WooCommerce subscriptions to save the site URL to avoid move/duplicated site messages on domain purchase.
-	 * This job runs "forever" until a domain is purchased.
+	 * This job runs "forever" until a domain is purchased and then it gets marked as complete.
 	 *
-	 * @since 2.1.7
+	 * @since 2.1.8
 	 * @return void
 	 */
 	public function set_wc_subscriptions_siteurl_add_domain_callback() {
@@ -545,28 +545,29 @@ class WC_Calypso_Bridge_Setup {
 				return;
 			}
 
-			// TODO: comments
 			$wc_subscriptions_siteurl = get_option( 'wc_subscriptions_siteurl', false );
-			if ( ! empty( $wc_subscriptions_siteurl ) ) {
-				$site_url = untrailingslashit( home_url( '', 'https' ) );
+			if ( empty( $wc_subscriptions_siteurl ) ) {
+				return;
+			}
 
-				// TODO: What is the domain of staging sites?
-				if ( ! str_ends_with( $site_url, '.wpcomstaging.com' ) ) {
-					$wc_subscriptions_siteurl = str_replace( '_[wc_subscriptions_siteurl]_', '', $wc_subscriptions_siteurl );
+			$site_url = untrailingslashit( home_url( '', 'https' ) );
 
-					if ( str_ends_with( $wc_subscriptions_siteurl, '.wpcomstaging.com' ) ) {
-						WCS_Staging::set_duplicate_site_url_lock();
-						update_option( $this->option_prefix . $operation, 'completed', 'no' );
-					}
+			// If a domain is purchased, site_url will not end with .wpcomstaging.com.
+			if ( ! str_ends_with( $site_url, '.wpcomstaging.com' ) ) {
+				// See WCS_Staging::get_duplicate_site_lock_key
+				$wc_subscriptions_siteurl = str_replace( '_[wc_subscriptions_siteurl]_', '', $wc_subscriptions_siteurl );
+
+				// If wc_subscriptions_siteurl ends in .wpcomstaging.com, it means set_duplicate_site_url_lock has already run,
+				// has set a wpcomstaging domain and we can safely call set_duplicate_site_url_lock to set the new domain as url_lock.
+				if ( str_ends_with( $wc_subscriptions_siteurl, '.wpcomstaging.com' ) ) {
+					WCS_Staging::set_duplicate_site_url_lock();
+					update_option( $this->option_prefix . $operation, 'completed', 'no' );
 				}
-
 			}
 
 		}, PHP_INT_MAX );
 
 	}
-
-
 
 	/**
 	 * Prevent redirects on activation when WooCommerce is being setup. Some plugins
