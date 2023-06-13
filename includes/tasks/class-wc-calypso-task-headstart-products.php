@@ -2,13 +2,19 @@
 
 namespace Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks;
 
-use Automattic\WooCommerce\Admin\Features\Features;
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Products;
 
 /**
  * HeadstartProducts Task
  */
 class HeadstartProducts extends Products {
+	/**
+	 * Cached onboarding data.
+	 *
+	 * @var array Onboarding data.
+	 */
+	private static $onboarding_data = [];
+
 	/**
 	 * Task completion.
 	 *
@@ -45,5 +51,76 @@ class HeadstartProducts extends Products {
 		$product_count = count( $products );
 
 		return $product_count > 0;
+	}
+
+	/**
+	 * Title.
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+		if ( self::is_already_selling() ) {
+			return __( 'Import your products', 'woocommerce' );
+		}
+
+		return __( 'Add your products', 'woocommerce' );
+	}
+
+	/**
+	 * Action label.
+	 *
+	 * @return string
+	 */
+	public function get_action_label() {
+		if ( self::is_already_selling() ) {
+			return __( 'Import products', 'woocommerce' );
+		}
+
+		return __( 'Add products', 'woocommerce' );
+	}
+
+	/**
+	 * Content.
+	 *
+	 * @return string
+	 */
+	public function get_content() {
+		if ( self::is_already_selling() ) {
+			return __(
+				'Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions.',
+				'woocommerce'
+			);
+		}
+
+		return __(
+			'Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions.',
+			'woocommerce'
+		);
+	}
+
+	/**
+	 * Gets flag for already selling.
+	 *
+	 * @return bool
+	 */
+	public static function is_already_selling() {
+		$data = self::get_onboarding_data();
+		$already_selling_venues = array( 'other', 'brick-mortar', 'other-woocommerce', 'brick-mortar-other' );
+		return in_array( $data['selling_venues'], $already_selling_venues, true );
+	}
+
+	/**
+	 * Gets the profiler onboarding option data.
+	 *
+	 * @return array
+	 */
+	private static function get_onboarding_data() {
+		if ( ! self::$onboarding_data ) {
+			self::$onboarding_data = get_option( 'woocommerce_onboarding_profile', array() );
+			if ( ! is_array( self::$onboarding_data ) ) {
+				return [];
+			}
+		}
+		return self::$onboarding_data;
 	}
 }

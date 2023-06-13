@@ -47,7 +47,7 @@
 			default: defaultCopy,
 			transactions: defaultCopy,
 			deposits: __(
-				"Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a pain plan</a>.",
+				"Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>.",
 				'wc-calypso-bridge'
 			),
 		};
