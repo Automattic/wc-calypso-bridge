@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.8 =
+* Merge pull request #1172 from Automattic/fix/1048-wcs-staging-messages
+
 = unreleased =
 * Suppress WooCommerce Subscriptions move/duplicated site messages. #1172 
 
