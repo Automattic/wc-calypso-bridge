@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.9 =
+* Did some stuff.
+* Did more things.
+
 = 2.1.8 =
 * Suppress WooCommerce Subscriptions move/duplicated site messages #1172 
 
