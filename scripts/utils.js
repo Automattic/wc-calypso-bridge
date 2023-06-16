@@ -343,8 +343,8 @@ export async function createNewCommit( message ) {
 		await git.commit( message );
 		success( `Successfully created new commit with message: ${ message }` );
 		return true;
-	} catch ( error ) {
-		error( `Error creating new commit: ${ error.message }` );
+	} catch ( err ) {
+		error( `Error creating new commit: ${ err.message }` );
 		return false;
 	}
 }
@@ -353,7 +353,7 @@ export function checkBinaryExists( binaryName ) {
 	try {
 		which.sync( binaryName );
 		return true;
-	} catch ( error ) {
+	} catch ( err ) {
 		return false;
 	}
 }
