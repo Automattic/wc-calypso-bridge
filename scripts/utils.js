@@ -1,6 +1,7 @@
 import { execSync } from 'child_process';
 import which from 'which';
 import fs, { promises as fsPromises } from 'fs';
+import os from 'os';
 import tmp from 'tmp';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -355,5 +356,25 @@ export function checkBinaryExists( binaryName ) {
 		return true;
 	} catch ( err ) {
 		return false;
+	}
+}
+
+export function openEditorAndGetText() {
+	const tempFilePath = path.join(
+		os.tmpdir(),
+		`temp-file-${ Date.now() }.txt`
+	);
+	fs.writeFileSync( tempFilePath, '* _Enter your changes here_' );
+
+	try {
+		const command = `${ process.env.EDITOR || 'vi' } ${ tempFilePath }`;
+		execSync( command, { stdio: 'inherit' } );
+
+		return fs.readFileSync( tempFilePath, 'utf8' );
+	} catch ( err ) {
+		console.error( 'Error occurred while opening the editor:', err );
+		return false;
+	} finally {
+		fs.unlinkSync( tempFilePath );
 	}
 }

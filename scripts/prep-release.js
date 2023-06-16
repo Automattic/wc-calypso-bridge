@@ -122,7 +122,6 @@ Preparation for release of ${ currentVersion }
 ### Changelog
 
 \`\`\`
-= ${ currentVersion } =
 ${ changelogEntry }
 \`\`\``;
 
