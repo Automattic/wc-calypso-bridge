@@ -364,10 +364,12 @@ export function openEditorAndGetText() {
 		os.tmpdir(),
 		`temp-file-${ Date.now() }.txt`
 	);
-	const command = `${ process.env.EDITOR || 'vi' } ${ tempFilePath }`;
+	fs.writeFileSync( tempFilePath, '* _Enter your changes here_' );
 
 	try {
+		const command = `${ process.env.EDITOR || 'vi' } ${ tempFilePath }`;
 		execSync( command, { stdio: 'inherit' } );
+
 		return fs.readFileSync( tempFilePath, 'utf8' );
 	} catch ( err ) {
 		console.error( 'Error occurred while opening the editor:', err );
