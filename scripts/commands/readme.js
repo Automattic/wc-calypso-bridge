@@ -2,7 +2,6 @@ import fs from 'fs';
 
 import {
 	__dirname,
-	gitFactory,
 	info,
 	success,
 	NOTICE_LEVEL,
