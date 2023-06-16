@@ -1,8 +1,8 @@
 import fs from 'fs';
-import inquirer from 'inquirer';
 
 import {
 	__dirname,
+	gitFactory,
 	info,
 	success,
 	NOTICE_LEVEL,
@@ -12,6 +12,7 @@ import {
 	abortAndSwitchToBranch,
 	updateChangelog,
 	openEditorAndGetText,
+	gitFactory,
 } from '../utils.js';
 
 export default async function updateReadMe() {
@@ -54,6 +55,8 @@ export default async function updateReadMe() {
 
 	// Update the changelog and commit the change.
 	await updateChangelog( changelogEntry );
+
+	const git = gitFactory();
 
 	await git.add( [ './readme.txt' ] );
 	await git.commit( `Added version ${ version } to the changelog` );
