@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= unreleased = 
+* Avoid Crowdsignal activation redirect #xxx
+
 = 2.1.8 =
 * Suppress WooCommerce Subscriptions move/duplicated site messages #1172 
 
