@@ -56,11 +56,26 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
 
-		/**
+		/*
+		 * Hide the features under 'Advanced > Features' but let users disable our commerce-optimized menu.
+		 */
+		add_filter( 'woocommerce_get_settings_advanced', array( $this, 'filter_woocommerce_settings_features' ), 1000, 2 );
+		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'filter_woocommerce_settings_pages_order' ), 1000 );
+
+		/*
+		 * Refresh the page to get the menu to reload when saving the Settings under 'Advanced > Features'.
+		 */
+		add_action( 'woocommerce_settings_saved', function() {
+			global $current_section, $current_tab;
+			if ( 'advanced' === $current_tab and 'features' === $current_section ) {
+				wp_redirect( $_SERVER['REQUEST_URI'] );
+				exit;
+			}
+
+		}, 100 );
+
+		/*
 		 * Hide WC Admin's activity panel in all pages except Home.
-		 *
-		 * @param  mixed  $value
-		 * @return array
 		 */
 		add_filter( 'admin_body_class', array( $this, 'filter_woocommerce_body_classes' ) );
 		add_action( 'admin_init', array( $this, 'add_custom_activity_panels_styles' ) );
@@ -108,7 +123,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	}
 
 	/**
-	 * Enable/disable features for WooCommerce Admin .
+	 * Enable/disable features for WooCommerce Admin.
 	 *
 	 * @param array $features Array containing all wc-calypso-bridge features (enabled and disabled).
 	 *
@@ -117,12 +132,83 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	public function filter_woocommerce_admin_features( $features ) {
 
 		// Disable and revert the navigation experiment.
-		if ( array_key_exists( 'navigation', $features ) ) {
+		if ( isset( $features['navigation'] ) ) {
 			$features['navigation'] = false;
+		}
+
+		// Disable the new product management experiment.
+		if ( isset( $features['new-product-management-experience'] ) ) {
+			$features['new-product-management-experience'] = false;
 		}
 
 		return $features;
 	}
+
+	/**
+	 * Customize the 'Advanced > Features' Settings tab contents.
+	 *
+	 * @param array $settings Array containing all advanced feature settings.
+	 * @param string $current_section Current settings section.
+	 *
+	 * @return array
+	 */
+	public function filter_woocommerce_settings_features( $settings, $current_section ) {
+
+		if ( 'features' !== $current_section ) {
+			return $settings;
+		}
+
+		$inject_at = wp_list_filter( $settings, array(
+			'id'   => 'woocommerce_navigation_enabled',
+		) );
+
+		array_splice( $settings, key( $inject_at ), 0,
+			array(
+				array(
+					'title'   => __( 'Woo Express Navigation', 'wc-calypso-bridge' ),
+					'desc'    => __( 'A custom navigation experience for Woo Express stores on WordPress.com, optimized for selling.', 'woocommerce' ),
+					'type'    => 'checkbox',
+					'id'      => 'wooexpress_navigation_enabled',
+					'default' => 'yes'
+				)
+        	)
+		);
+
+		$whitelist = array( 'features_options', 'wooexpress_navigation_enabled' );
+
+		foreach ( $settings as $setting_id => $setting_data ) {
+
+			if ( ! is_numeric( $setting_id ) && ! in_array( $setting_id, $whitelist ) ) {
+				unset( $settings[ $setting_id ] );
+			}
+
+			if ( is_array( $setting_data ) && isset( $setting_data['id'] ) && ! in_array( $setting_data['id'], $whitelist ) ) {
+				unset( $settings[ $setting_id ] );
+			}
+		}
+
+		return $settings;
+	}
+
+	/**
+	 * Move the 'Advanced' Settings tab to the end.
+	 *
+	 * @param array $pages Array of tabs.
+	 *
+	 * @return array
+	 */
+	public function filter_woocommerce_settings_pages_order( $pages ) {
+		foreach ( $pages as $page_id => $page ) {
+			if ( 'advanced' === $page_id ) {
+				unset( $pages[ $page_id ] );
+				$pages[ $page_id ] = $page;
+				break;
+			}
+		}
+		return $pages;
+	}
+
+
 
 	/**
 	 * Add is-woocommerce-home body class.
