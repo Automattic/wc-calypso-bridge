@@ -124,22 +124,28 @@ class WC_Calypso_Bridge_Setup_Tasks {
 	 */
 	public function replace_tasks( $lists ) {
 		if ( isset( $lists['setup'] ) ) {
+			// Default product task index.
+			$product_task_index = 2;
+
 			foreach ($lists['setup']->tasks as $index => $task) {
 				switch ( $task->get_id() ) {
 					case 'products':
+						$product_task_index = $index;
 						require_once __DIR__ . '/tasks/class-wc-calypso-task-headstart-products.php';
 						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\HeadstartProducts( $lists['setup'] );
 						break;
 					case 'appearance':
-						require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
-						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] );
-						break;
 					case 'purchase':
-						// Remove the purchase task
+						// Remove appearance and purchase task.
 						unset( $lists['setup']->tasks[$index] );
 						break;
 				}
 			}
+
+			// Insert appearance task after products task.
+			require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
+			$appearance_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] ) );
+			array_splice( $lists['setup']->tasks, $product_task_index, 0, $appearance_task );
 		}
 		return $lists;
 	}

@@ -2,41 +2,60 @@
 
 namespace Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks;
 
-use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Appearance;
-use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Products;
+use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 
 /**
  * WCBridgeAppearance Task
  *
  * @since   2.0.11
- * @version 2.0.11
+ * @version 2.1.10
  */
-class WCBridgeAppearance extends Appearance {
+class WCBridgeAppearance extends Task {
 	/**
-	 * Addtional data.
+	 * ID.
 	 *
-	 * @return array
+	 * @return string
 	 */
-	public function get_additional_data() {
-		return array(
-			'has_homepage' => self::has_homepage(),
-			'has_products' => Products::has_products(),
-			'stylesheet'   => get_option( 'stylesheet' ),
-			'theme_mods'   => get_theme_mods(),
+	public function get_id() {
+		return 'appearance';
+	}
+
+	/**
+	 * Title.
+	 *
+	 * @return string
+	 */
+	public function get_title() {
+		return __( 'Choose a theme', 'woocommerce' );
+	}
+
+	/**
+	 * Content.
+	 *
+	 * @return string
+	 */
+	public function get_content() {
+		return __(
+			"Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages.",
+			'woocommerce'
 		);
 	}
-	/**
-	 * Check if the site has a homepage set up.
-	 */
-	public static function has_homepage() {
-		// Temporary hotfix, we should implement a better solution in Core.
-		$themes_no_need_homepage = array(
-			'Tsubaki',
-		);
-		if ( in_array( wp_get_theme()->get( 'Name' ), $themes_no_need_homepage, true ) ) {
-			return true;
-		}
 
-		return Appearance::has_homepage();
+	/**
+	 * Time.
+	 *
+	 * @return string
+	 */
+	public function get_time() {
+		return __( '2 minutes', 'woocommerce' );
+	}
+
+	/**
+	 * Action label.
+	 *
+	 * @return string
+	 */
+	public function get_action_label() {
+		return __( 'Choose theme', 'woocommerce' );
 	}
 }
