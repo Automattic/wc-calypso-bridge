@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Replace appearance task with choosing theme #1202
+
 = 2.1.9 =
 * Avoid Crowdsignal activation redirect #1192
 
