@@ -26,7 +26,7 @@ class WCBridgeAppearance extends Task {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Choose a theme', 'woocommerce' );
+		return __( 'Choose your theme', 'woocommerce' );
 	}
 
 	/**
