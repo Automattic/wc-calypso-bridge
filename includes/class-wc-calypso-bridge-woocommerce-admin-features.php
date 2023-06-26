@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Admin\PageController;
 use Automattic\WooCommerce\Utilities\OrderUtil;
+use Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists;
 
 /**
  * WC EComm Bridge
@@ -98,9 +99,13 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		}, PHP_INT_MAX );
 
 		/*
-		 * Suppress WooCommerce Help tab.
+		 * Suppress WooCommerce Help tab and move onboarding reset settings under 'Settings > General > Onboarding'.
 		 */
 		add_filter( 'woocommerce_enable_admin_help_tab', '__return_false' );
+		add_action( 'current_screen', array( $this, 'remove_onboarding_help_tab' ), 100 );
+		add_filter( 'woocommerce_general_settings', array( $this, 'add_onboarding_reset_settings' ) );
+		add_action( 'woocommerce_admin_field_restore_setup_task_list_button', array( $this, 'restore_setup_task_list_button' ) );
+		add_action( 'woocommerce_admin_field_restore_extended_task_list_button', array( $this, 'restore_extended_task_list_button' ) );
 	}
 
 	/**
@@ -311,6 +316,135 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		$css = 'body:not(.is-woocommerce-home) #wpbody { margin-top: 0 !important; } body:not(.is-woocommerce-home) .woocommerce-layout__header { display:none; } body.is-woocommerce-home #screen-meta-links { display: none; } body.is-woocommerce-home .woocommerce-layout__header-heading, body.is-woocommerce-home .woocommerce-task-progress-header__title, .woocommerce-layout__inbox-title span { font-size: 20px; font-weight: 400; } body.is-woocommerce-home .woocommerce-layout__inbox-panel-header { padding: 0; } .woocommerce-layout__inbox-subtitle { margin-top: 5px; } .woocommerce-layout__inbox-subtitle span { color: #757575; }';
 		wp_add_inline_style( 'activity-panels-hide', $css );
+	}
+
+	/**
+	 * Remove Woo Onboarding settings in site-wide Help tab. They have no place there.
+	 *
+	 * @return void
+	 */
+	public function remove_onboarding_help_tab() {
+
+		if ( ! function_exists( 'wc_get_screen_ids' ) ) {
+			return;
+		}
+
+		$screen = get_current_screen();
+
+		if ( ! $screen || ! in_array( $screen->id, wc_get_screen_ids(), true ) ) {
+			return;
+		}
+
+		$help_tabs = $screen->get_help_tabs();
+		foreach ( $help_tabs as $help_tab ) {
+			if ( 'woocommerce_onboard_tab' !== $help_tab['id'] ) {
+				continue;
+			}
+
+			$screen->remove_help_tab( 'woocommerce_onboard_tab' );
+		}
+	}
+
+	/**
+	 * Introduces onboarding settings under Settings > General.
+	 * Visibile only when the primary or secondary task list is hidden.
+	 *
+	 * @param array $settings Settings configuration
+	 */
+	public function add_onboarding_reset_settings( $settings ) {
+
+		$setup_list    = TaskLists::get_list( 'setup' );
+		$extended_list = TaskLists::get_list( 'extended' );
+
+		$is_setup_list_hidden    = $setup_list->is_hidden();
+		$is_extended_list_hidden = $extended_list->is_hidden();
+
+		if ( ! $is_setup_list_hidden && ! $is_extended_list_hidden ) {
+			return $settings;
+		}
+
+		$settings = array_merge( $settings,
+			array(
+				array(
+					'title' => __( 'Onboarding', 'wc-calypso-bridge' ),
+					'type'  => 'title',
+					'desc'  => __( 'Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home.', 'woocommerce' ),
+					'id'    => 'onboarding_options',
+				)
+			)
+		);
+
+		if ( $is_setup_list_hidden ) {
+
+			$settings = array_merge( $settings,
+				array(
+					array(
+						'type'    => 'restore_setup_task_list_button'
+					)
+				)
+			);
+		}
+
+		if ( $is_extended_list_hidden ) {
+
+			$settings = array_merge( $settings,
+				array(
+					array(
+						'type'  => 'restore_extended_task_list_button'
+					)
+				)
+			);
+		}
+
+		$settings = array_merge( $settings,
+			array(
+				array(
+					'type' => 'sectionend',
+					'id'   => 'onboarding_options',
+				),
+			)
+		);
+
+		return $settings;
+	}
+
+	/**
+	 * Render button to restore the primary task list.
+	 */
+	public function restore_setup_task_list_button( $value ) {
+		self::render_restore_task_list_button( 'setup' );
+	}
+
+	/**
+	 * Render button to restore the extended task list.
+	 */
+	public function restore_extended_task_list_button( $value ) {
+		self::render_restore_task_list_button( 'extended' );
+	}
+
+	/**
+	 * Render button to restore the setup/extended task list.
+	 * The request itself is handled by Automattic\WooCommerce\Internal\Admin\Onboarding
+	 *
+	 * @param $type Task list type - setup or extended.
+	 */
+	private static function render_restore_task_list_button( $type ) {
+
+		$reset_url   = esc_url( add_query_arg( $type === 'setup' ? 'reset_task_list' : 'reset_extended_task_list', true, wc_admin_url() ) );
+		$description = $type === 'setup' ? __( 'Restore the visibility of the primary onboarding Task List.', 'wc-calypso-bridge' ) : __( 'Restore the visibility of the "Things to do next" Task List.', 'wc-calypso-bridge' );
+		$label       = $type === 'setup' ? __( 'Setup task list', 'wc-calypso-bridge' ) : __( '"Things to do next"', 'c-calypso-bridge' );
+		?>
+			<tr valign="top" class="render_restore_task_list_button_wrapper">
+				<th scope="row" class="titledesc">
+					<label for="reset_<?php echo $type; ?>_task_list_button"><?php echo esc_html( $label ); ?><?php echo wc_help_tip( esc_html( $description ) );; // WPCS: XSS ok. ?></label>
+				</th>
+				<td class="forminp">
+					<a id="reset_<?php echo $type; ?>_task_list_button" href="<?php echo $reset_url ?>" class="woocommerce_reset_task_list button">
+						<?php echo esc_html( __( 'Restore', 'wc-calypso-bridge' ) ); ?>
+					</a>
+				</td>
+			</tr>
+		<?php
 	}
 }
 
