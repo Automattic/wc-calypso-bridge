@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.10 =
+* Remove the Core Shippnig Task
+
 = 2.1.9 =
 * Avoid Crowdsignal activation redirect #1192
 

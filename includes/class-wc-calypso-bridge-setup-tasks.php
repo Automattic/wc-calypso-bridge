@@ -138,6 +138,10 @@ class WC_Calypso_Bridge_Setup_Tasks {
 						// Remove the purchase task
 						unset( $lists['setup']->tasks[$index] );
 						break;
+					case 'shipping':
+						// Remove the shipping task
+						unset( $lists['setup']->tasks[$index] );
+						break;
 				}
 			}
 		}
