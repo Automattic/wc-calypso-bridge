@@ -359,7 +359,13 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		$is_setup_list_hidden    = $setup_list->is_hidden();
 		$is_extended_list_hidden = $extended_list->is_hidden();
 
-		if ( ! $is_setup_list_hidden && ! $is_extended_list_hidden ) {
+		$is_setup_list_complete    = $setup_list->is_complete();
+		$is_extended_list_complete = $extended_list->is_complete();
+
+		$is_setup_list_restorable    = $is_setup_list_hidden && ! $is_setup_list_complete;
+		$is_extended_list_restorable = $is_extended_list_hidden && ! $is_extended_list_complete;
+
+		if ( ! $is_setup_list_restorable && ! $is_extended_list_restorable ) {
 			return $settings;
 		}
 
@@ -374,7 +380,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			)
 		);
 
-		if ( $is_setup_list_hidden ) {
+		if ( $is_setup_list_restorable ) {
 
 			$settings = array_merge( $settings,
 				array(
@@ -385,7 +391,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			);
 		}
 
-		if ( $is_extended_list_hidden ) {
+		if ( $is_extended_list_restorable ) {
 
 			$settings = array_merge( $settings,
 				array(
