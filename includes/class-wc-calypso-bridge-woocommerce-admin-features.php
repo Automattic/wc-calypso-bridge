@@ -10,6 +10,7 @@
 defined( 'ABSPATH' ) || exit;
 
 use Automattic\WooCommerce\Admin\PageController;
+use Automattic\WooCommerce\Utilities\OrderUtil;
 
 /**
  * WC EComm Bridge
@@ -61,6 +62,9 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		 */
 		add_filter( 'woocommerce_get_settings_advanced', array( $this, 'filter_woocommerce_settings_features' ), 1000, 2 );
 		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'filter_woocommerce_settings_pages_order' ), 1000 );
+		add_filter( 'option_woocommerce_analytics_enabled', function( $value ) {
+			return 'yes';
+		}, PHP_INT_MAX );
 
 		/*
 		 * Refresh the page to get the menu to reload when saving the Settings under 'Advanced > Features'.
@@ -141,6 +145,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			$features['new-product-management-experience'] = false;
 		}
 
+		// Keep Woo Analytics enabled.
+		if ( ! isset( $features['analytics'] ) ) {
+			$features['analytics'] = true;
+		}
+
 		return $features;
 	}
 
@@ -174,7 +183,12 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
         	)
 		);
 
-		$whitelist = array( 'features_options', 'wooexpress_navigation_enabled' );
+		$hpos_enabled = OrderUtil::custom_orders_table_usage_is_enabled();
+		$whitelist    = array( 'features_options', 'wooexpress_navigation_enabled' );
+
+		if ( $hpos_enabled ) {
+			$whitelist[] = 'experimental_features_options';
+		}
 
 		foreach ( $settings as $setting_id => $setting_data ) {
 
@@ -183,6 +197,12 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			}
 
 			if ( is_array( $setting_data ) && isset( $setting_data['id'] ) && ! in_array( $setting_data['id'], $whitelist ) ) {
+
+				if ( 'woocommerce_feature_custom_order_tables_enabled' === $setting_data['id'] && $hpos_enabled ) {
+					// If HPOS is enabled, show the option until it's disabled.
+					continue;
+				}
+
 				unset( $settings[ $setting_id ] );
 			}
 		}
