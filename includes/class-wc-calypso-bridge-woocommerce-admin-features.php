@@ -96,6 +96,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		add_filter( 'pre_option_woocommerce_navigation_enabled', static function ( $pre ) {
 			return 'no';
 		}, PHP_INT_MAX );
+
+		/*
+		 * Suppress WooCommerce Help tab.
+		 */
+		add_filter( 'woocommerce_enable_admin_help_tab', '__return_false' );
 	}
 
 	/**
