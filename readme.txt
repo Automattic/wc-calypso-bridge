@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.1.10 =
+* Update Free Trial Upgrade message on Task List
+
 = 2.1.9 =
 * Avoid Crowdsignal activation redirect #1192
 
