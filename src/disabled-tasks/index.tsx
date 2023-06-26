@@ -18,7 +18,7 @@ export const DisabledTasks = () => {
 		'wc-calypso-bridge'
 	);
 	const listLabel = __(
-		'Upgrade to paid plan to unlock the next tasks',
+		'Upgrade to a paid plan to unlock more features and start selling',
 		'wc-calypso-bridge'
 	);
 	const signupUrl =
