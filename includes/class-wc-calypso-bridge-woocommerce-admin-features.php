@@ -73,7 +73,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		add_action( 'woocommerce_settings_saved', function() {
 			global $current_section, $current_tab;
 			if ( 'advanced' === $current_tab and 'features' === $current_section ) {
-				wp_redirect( $_SERVER['REQUEST_URI'] );
+				wp_redirect( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) );
 				exit;
 			}
 
