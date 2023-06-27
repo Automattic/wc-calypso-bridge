@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -61,11 +61,15 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		/*
 		 * Hide the features under 'Advanced > Features' but let users disable our commerce-optimized menu.
 		 */
-		add_filter( 'woocommerce_get_settings_advanced', array( $this, 'filter_woocommerce_settings_features' ), 1000, 2 );
-		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'filter_woocommerce_settings_pages_order' ), 1000 );
-		add_filter( 'option_woocommerce_analytics_enabled', function( $value ) {
-			return 'yes';
-		}, PHP_INT_MAX );
+		add_filter( 'woocommerce_get_settings_advanced', array( $this, 'filter_woocommerce_settings_features' ), PHP_INT_MAX, 2 );
+
+		if ( wc_calypso_bridge_is_woo_express_plan() ) {
+
+			add_filter( 'woocommerce_settings_tabs_array', array( $this, 'filter_woocommerce_settings_pages_order' ), PHP_INT_MAX );
+			add_filter( 'option_woocommerce_analytics_enabled', function( $value ) {
+				return 'yes';
+			}, PHP_INT_MAX );
+		}
 
 		/*
 		 * Refresh the page to get the menu to reload when saving the Settings under 'Advanced > Features'.
@@ -177,15 +181,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			return $settings;
 		}
 
-		$inject_at = wp_list_filter( $settings, array(
-			'id'   => 'woocommerce_navigation_enabled',
-		) );
-
-		array_splice( $settings, key( $inject_at ), 0,
+		array_splice( $settings, 1, 0,
 			array(
 				array(
-					'title'   => __( 'Woo Express Navigation', 'wc-calypso-bridge' ),
-					'desc'    => __( 'A custom navigation experience for Woo Express stores on WordPress.com, optimized for selling.', 'woocommerce' ),
+					'title'   => __( 'Navigation', 'wc-calypso-bridge' ),
+					'desc'    => __( 'A custom navigation experience that is optimized for selling.', 'wc-calypso-bridge' ),
 					'type'    => 'checkbox',
 					'id'      => 'wooexpress_navigation_enabled',
 					'default' => 'yes'
@@ -193,27 +193,38 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
         	)
 		);
 
-		$hpos_enabled = OrderUtil::custom_orders_table_usage_is_enabled();
-		$whitelist    = array( 'features_options', 'wooexpress_navigation_enabled' );
+		if ( wc_calypso_bridge_is_woo_express_plan() ) {
 
-		if ( $hpos_enabled ) {
-			$whitelist[] = 'experimental_features_options';
-		}
+			$hpos_enabled = OrderUtil::custom_orders_table_usage_is_enabled();
+			$whitelist    = array( 'features_options', 'wooexpress_navigation_enabled' );
 
-		foreach ( $settings as $setting_id => $setting_data ) {
-
-			if ( ! is_numeric( $setting_id ) && ! in_array( $setting_id, $whitelist ) ) {
-				unset( $settings[ $setting_id ] );
+			if ( $hpos_enabled ) {
+				$whitelist[] = 'experimental_features_options';
 			}
 
-			if ( is_array( $setting_data ) && isset( $setting_data['id'] ) && ! in_array( $setting_data['id'], $whitelist ) ) {
+			foreach ( $settings as $setting_id => $setting_data ) {
 
-				if ( 'woocommerce_feature_custom_order_tables_enabled' === $setting_data['id'] && $hpos_enabled ) {
-					// If HPOS is enabled, show the option until it's disabled.
-					continue;
+				if ( ! is_numeric( $setting_id ) && ! in_array( $setting_id, $whitelist ) ) {
+					unset( $settings[ $setting_id ] );
 				}
 
-				unset( $settings[ $setting_id ] );
+				if ( is_array( $setting_data ) && isset( $setting_data['id'] ) && ! in_array( $setting_data['id'], $whitelist ) ) {
+
+					if ( 'woocommerce_feature_custom_order_tables_enabled' === $setting_data['id'] && $hpos_enabled ) {
+						// If HPOS is enabled, show the option until it's disabled.
+						continue;
+					}
+
+					unset( $settings[ $setting_id ] );
+				}
+			}
+
+		} else {
+
+			foreach ( $settings as $setting_id => $setting_data ) {
+				if ( is_array( $setting_data ) && isset( $setting_data['id'] ) && 'woocommerce_navigation_enabled' === $setting_data['id'] ) {
+					unset( $settings[ $setting_id ] );
+				}
 			}
 		}
 
