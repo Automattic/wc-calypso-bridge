@@ -29,6 +29,7 @@ This section describes how to install the plugin and get it working.
 * Ensure the woocommerce key exists in the global submenu at all times #1206
 * Suppress the WooCommerce Help tab in all WooCommerce pages #1205
 * Creates a dedicated section under "Settings > General > Onboarding", where users can restore the visibility of suppressed Task Lists #1205
+* Remove extension's hidden admin menu items handling from the ecommerce menu controller #1207
 
 = 2.1.9 =
 * Avoid Crowdsignal activation redirect #1192
