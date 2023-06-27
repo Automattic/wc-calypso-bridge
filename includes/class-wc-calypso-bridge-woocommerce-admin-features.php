@@ -40,7 +40,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 */
 	public function __construct() {
 
-		// Only in Woo Express plans.
+		// Only in Ecommerce and Woo Express plans.
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
