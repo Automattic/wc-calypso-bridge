@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.0.8
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -45,6 +45,25 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			$args[ 'menu_icon' ]           = 'dashicons-cart';
 			return $args;
 		} );
+
+		// Ensure the $submenu['woocommerce] will be available at prio 10.
+		add_action( 'admin_menu', function() {
+			add_submenu_page(
+				'woocommerce-express-dummy-menu-item',
+				'',
+				'',
+				'manage_woocommerce',
+				'woocommerce-express-dummy-menu-item'
+			);
+		}, 10);
+
+		// Remote it after a certain timeframe. See \WC_Admin_Menus::settings_menu which runs at priority 50.
+		add_action( 'admin_menu', function() {
+			remove_submenu_page(
+				'woocommerce',
+				'woocommerce-express-dummy-menu-item'
+			);
+		}, 49);
 
 		/**
 		 * Fix stale admin menu items for GC, BIS, and PRL.
