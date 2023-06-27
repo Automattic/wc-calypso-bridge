@@ -49,13 +49,13 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Ensure the $submenu['woocommerce] will be available at prio 10.
 		add_action( 'admin_menu', function() {
 			add_submenu_page(
-				'woocommerce-express-dummy-menu-item',
+				'woocommerce',
 				'',
 				'',
 				'manage_woocommerce',
 				'woocommerce-express-dummy-menu-item'
 			);
-		}, 10);
+		}, 9);
 
 		// Remote it after a certain timeframe. See \WC_Admin_Menus::settings_menu which runs at priority 50.
 		add_action( 'admin_menu', function() {
