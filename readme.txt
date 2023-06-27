@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleashed =
+* Ensure the woocommerce key exists in the global submenu at all times
+
 = 2.1.9 =
 * Avoid Crowdsignal activation redirect #1192
 
