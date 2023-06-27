@@ -22,8 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleashed =
-* Ensure the woocommerce key exists in the global submenu at all times
+= Unreleased =
+* Introduce option to disable Woo Express menu under "Settings > Advanced > Features" #1199
+* Move "Settings > Advanced" tab to the end of the list #1199
+* Hide advanced options under "Settings > Advanced > Features" for Woo Express stores #1199
+* Ensure the woocommerce key exists in the global submenu at all times #1206
 
 = 2.1.9 =
 * Avoid Crowdsignal activation redirect #1192
