@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.1.3
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -90,6 +90,19 @@ if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_performance_plan' ) ) 
 	 */
 	function wc_calypso_bridge_is_woo_express_performance_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_medium_plan();
+	}
+}
+
+if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_plan' ) ) {
+	/**
+	 * Returns if a site is on the Woo Express plan.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return bool True if the site is on the Woo Express plan.
+	 */
+	function wc_calypso_bridge_is_woo_express_plan() {
+		return wc_calypso_bridge_is_ecommerce_trial_plan() || wc_calypso_bridge_is_woo_express_essential_plan() || wc_calypso_bridge_is_woo_express_performance_plan();
 	}
 }
 
