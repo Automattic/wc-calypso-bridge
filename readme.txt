@@ -28,6 +28,8 @@ This section describes how to install the plugin and get it working.
 * Hide advanced options under "Settings > Advanced > Features" for Woo Express stores #1199
 * Replace appearance task with choosing theme #1202
 * Ensure the woocommerce key exists in the global submenu at all times #1206
+* Suppress the WooCommerce Help tab in all WooCommerce pages #1205
+* Creates a dedicated section under "Settings > General > Onboarding", where users can restore the visibility of suppressed Task Lists #1205
 * Remove extension's hidden admin menu items handling from the ecommerce menu controller #1207
 * Fix array missing key warning in product task #1208
 
