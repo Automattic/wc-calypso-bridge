@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 2.1.10 =
+= Unreleased =
 * Update Free Trial Upgrade message on Task List
 
 = 2.1.9 =
