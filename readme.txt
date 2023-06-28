@@ -23,6 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+
+* Update Free Trial Upgrade message on Task List #1203
 * Introduce option to disable Woo Express menu under "Settings > Advanced > Features" #1199
 * Move "Settings > Advanced" tab to the end of the list #1199
 * Hide advanced options under "Settings > Advanced > Features" for Woo Express stores #1199
