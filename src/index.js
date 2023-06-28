@@ -22,6 +22,7 @@ import {
 } from './homescreen-progress-header';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
+import { AppearanceFill } from './task-fills';
 import './task-headers';
 import './track-menu-item';
 
@@ -70,6 +71,16 @@ registerPlugin( 'wc-calypso-bridge', {
 	),
 } );
 
+// Unregister task fills from WooCommerce Core
+// Otherwise we'll have both the original and new fills rendered.
+const oldTaskNames = [ 'wc-admin-onboarding-task-appearance' ];
+
+// Appearance task fill.
+registerPlugin( 'wc-calypso-bridge-task-appearance', {
+	scope: 'woocommerce-tasks',
+	render: AppearanceFill,
+} );
+
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	import( './free-trial/fills' );
 
@@ -78,22 +89,11 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		scope: 'woocommerce-admin',
 	} );
 
-	// Unregister task fills from WooCommerce Core
-	// Otherwise we'll have both the original and new fills rendered.
-	const oldTaskNames = [
+	oldTaskNames.push(
 		'wc-admin-onboarding-task-payments',
 		'woocommerce-admin-task-wcpay', // WCPay task item which handles direct click on the task. (Not needed in free trial)
 		'woocommerce-admin-task-wcpay-page', // WCPay task page which handles URL navigation to the task.
 		'wc-admin-onboarding-task-tax',
-	];
-	addAction(
-		'plugins.pluginRegistered',
-		'wc-calypso-bridge',
-		function ( _settings, name ) {
-			if ( oldTaskNames.includes( name ) ) {
-				unregisterPlugin( name );
-			}
-		}
 	);
 
 	// Add slot fill for payments task.
@@ -202,3 +202,13 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 		);
 	}
 }
+
+addAction(
+	'plugins.pluginRegistered',
+	'wc-calypso-bridge',
+	function ( _settings, name ) {
+		if ( oldTaskNames.includes( name ) ) {
+			unregisterPlugin( name );
+		}
+	}
+);
