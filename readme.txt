@@ -28,6 +28,7 @@ This section describes how to install the plugin and get it working.
 * Hide advanced options under "Settings > Advanced > Features" for Woo Express stores #1199
 * Ensure the woocommerce key exists in the global submenu at all times #1206
 * Remove extension's hidden admin menu items handling from the ecommerce menu controller #1207
+* Fix array missing key warning in product task #1208
 
 = 2.1.9 =
 * Avoid Crowdsignal activation redirect #1192
