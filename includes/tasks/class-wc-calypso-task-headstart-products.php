@@ -106,7 +106,8 @@ class HeadstartProducts extends Products {
 	public static function is_already_selling() {
 		$data = self::get_onboarding_data();
 		$already_selling_venues = array( 'other', 'brick-mortar', 'other-woocommerce', 'brick-mortar-other' );
-		return in_array( $data['selling_venues'], $already_selling_venues, true );
+		return isset( $data['selling_venues'] ) ?
+			in_array( $data['selling_venues'], $already_selling_venues, true ) : false;
 	}
 
 	/**
