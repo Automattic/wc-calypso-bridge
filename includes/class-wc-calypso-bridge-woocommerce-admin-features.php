@@ -369,14 +369,20 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		$setup_list    = TaskLists::get_list( 'setup' );
 		$extended_list = TaskLists::get_list( 'extended' );
 
-		$is_setup_list_hidden    = $setup_list->is_hidden();
-		$is_extended_list_hidden = $extended_list->is_hidden();
+		$is_setup_list_restorable    = false;
+		$is_extended_list_restorable = false;
 
-		$is_setup_list_complete    = $setup_list->is_complete();
-		$is_extended_list_complete = $extended_list->is_complete();
+		if ( ! is_null( $setup_list ) ) {
+			$is_setup_list_hidden     = $setup_list->is_hidden();
+			$is_setup_list_complete   = $setup_list->is_complete();
+			$is_setup_list_restorable = $is_setup_list_hidden && ! $is_setup_list_complete;
+		}
 
-		$is_setup_list_restorable    = $is_setup_list_hidden && ! $is_setup_list_complete;
-		$is_extended_list_restorable = $is_extended_list_hidden && ! $is_extended_list_complete;
+		if ( ! is_null( $extended_list ) ) {
+			$is_extended_list_hidden     = $extended_list->is_hidden();
+			$is_extended_list_complete   = $extended_list->is_complete();
+			$is_extended_list_restorable = $is_extended_list_hidden && ! $is_extended_list_complete;
+		}
 
 		if ( ! $is_setup_list_restorable && ! $is_extended_list_restorable ) {
 			return $settings;
