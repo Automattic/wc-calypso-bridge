@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version x.x.x
+ * @version 2.2.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -97,7 +97,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_plan' ) ) {
 	/**
 	 * Returns if a site is on the Woo Express plan.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 *
 	 * @return bool True if the site is on the Woo Express plan.
 	 */

@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.1 =
+* Fixed fatal error caused by not checking if tasklist exists #1212
+
 = 2.2.0 =
 * Update Free Trial Upgrade message on Task List #1203
 * Introduce option to disable Woo Express menu under "Settings > Advanced > Features" #1199

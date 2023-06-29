@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.2.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -330,7 +330,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	/**
 	 * Remove Woo Onboarding settings in site-wide Help tab. They have no place there.
 	 *
-	 * @since  x.x.x
+	 * @since  2.2.0
 	 *
 	 * @return void
 	 */
@@ -360,7 +360,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * Introduces onboarding settings under Settings > General.
 	 * Visible only when the primary or secondary task list is hidden.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 *
 	 * @param array $settings Settings configuration
 	 */
@@ -436,7 +436,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	/**
 	 * Render button to restore the primary task list.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 */
 	public function restore_setup_task_list_button( $value ) {
 		self::render_restore_task_list_button( 'setup' );
@@ -445,7 +445,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	/**
 	 * Render button to restore the extended task list.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 */
 	public function restore_extended_task_list_button( $value ) {
 		self::render_restore_task_list_button( 'extended' );
@@ -455,7 +455,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * Render button to restore the setup/extended task list.
 	 * The request itself is handled by Automattic\WooCommerce\Internal\Admin\Onboarding
 	 *
-	 * @since x.x.x
+	 * @since 2.2.0
 	 *
 	 * @param $type Task list type - setup or extended.
 	 */
