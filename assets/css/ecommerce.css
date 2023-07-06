@@ -210,3 +210,7 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	color: var( --wp-admin-theme-color );
 }
 
+.woocommerce-layout__header .woocommerce-layout__header-tasks-reminder-bar {
+	background-color: var(--wp-admin-theme-color);
+}
+
