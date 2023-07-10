@@ -43,6 +43,14 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 			return;
 		}
 
+		if ( defined('REST_REQUEST') && REST_REQUEST ) {
+			return;
+		}
+
+		if ( ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined('DOING_AJAX') && DOING_AJAX ) || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
+			return;
+		}
+ 
 		$this->init();
 	}
 
@@ -51,8 +59,8 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 	 */
 	public function init() {
 
-		add_filter( 'pre_option_woocommerce_task_list_reminder_bar_hidden', function( $pre ) {
-			return self::is_experiment_treatment() ? $pre : 'yes';
+		add_filter( 'pre_option_woocommerce_task_list_reminder_bar_hidden', function( $pre_option ) {
+			return self::is_experiment_treatment() ? $pre_option : 'yes';
 		} );
 	}
 
