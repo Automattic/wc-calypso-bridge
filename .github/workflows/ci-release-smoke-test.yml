@@ -1,0 +1,74 @@
+name: Release Smoke Test CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+
+    check-versions:
+        if: startsWith(github.head_ref, 'release/')
+        name: Check versions
+        runs-on: ubuntu-20.04
+
+        steps:
+
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Extract Version Number
+              run: |
+                if [[ "${{ github.head_ref }}" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+                  version="${BASH_REMATCH[1]}"
+                  echo "Extracted version number: ${version}"
+                  if ! [[ "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                    echo "Invalid version number format: ${version}"
+                    exit 1
+                  fi
+                  echo "Valid version number format"
+                  echo "VERSION=${version}" >> $GITHUB_ENV
+                else
+                  echo "Branch name does not match the release/X.X.X format: ${{ github.head_ref }}"
+                  exit 1
+                fi
+              env:
+                GITHUB_REF: ${{ github.ref }}
+
+            - name: Check Versions
+              run: |
+                bash ./bin/check-versions.sh ${{ env.VERSION }}
+
+    php-coding-standards:
+        needs: check-versions
+        name: PHP
+        uses: ./.github/workflows/check-coding-standards.yml
+
+    # handle-comment:
+    #   needs: php-coding-standards
+    #   name: Add PR Comment
+    #   runs-on: ubuntu-latest
+
+    #   steps:
+
+    #       - name: Install tools
+    #         run: |
+    #           sudo apt-get install jq
+
+    #       - name: Check PR Comment
+    #         id: check_comment
+    #         run: |
+    #           body=$(echo -n 'The smoke tests for this PR have passed')
+    #           existing_comment=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments | jq -r ".[] | select(.body | contains(\"${body}\")) | .id")
+    #           if [ "$existing_comment" != "" ]; then
+    #             echo "Comment already created"
+    #             echo "COMMENT_CREATED=false" >> $GITHUB_ENV
+    #           else
+    #             echo "COMMENT_CREATED=true" >> $GITHUB_ENV
+    #           fi
+
+    #       - name: Add PR Comment
+    #         if: ${{ success() && env.COMMENT_CREATED == 'true' }}
+    #         run: |
+    #           curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -X POST -d '{"body": ":tada: The smoke tests for this PR have passed! Please merge it and check the release process in the _Actions_ tab."}' "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
+

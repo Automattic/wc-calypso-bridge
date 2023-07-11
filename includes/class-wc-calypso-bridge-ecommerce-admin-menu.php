@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 1.9.18
+ * @version 2.2.0
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -28,6 +28,11 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		add_action( 'admin_menu', array( $this, 'add_woocommerce_menu' ), 99999 );
 		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
+		// Handle menu for ecommerce free trial.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			$this->handle_free_trial_menu();
+		}
+
 		if ( ! $this->is_api_request ) {
 			add_filter( 'submenu_file', array( $this, 'modify_woocommerce_menu_highlighting' ), 99999 );
 		}
@@ -35,11 +40,71 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Move Orders.
 		// TODO: What about the COT menu?
 		add_filter( 'woocommerce_register_post_type_shop_order', function( $args ) {
-			$args[ 'labels' ][ 'add_new' ] = __( 'Add new', 'woocommerce' );
+			$args[ 'labels' ][ 'add_new' ] = __( 'Add New', 'woocommerce' );
 			$args[ 'show_in_menu' ]        = true;
 			$args[ 'menu_icon' ]           = 'dashicons-cart';
 			return $args;
 		} );
+
+		// Ensure the $submenu['woocommerce] will be available at prio 10.
+		add_action( 'admin_menu', function() {
+			add_submenu_page(
+				'woocommerce',
+				'',
+				'',
+				'manage_woocommerce',
+				'woocommerce-express-dummy-menu-item'
+			);
+		}, 9);
+
+		// Remote it after a certain timeframe. See \WC_Admin_Menus::settings_menu which runs at priority 50.
+		add_action( 'admin_menu', function() {
+			remove_submenu_page(
+				'woocommerce',
+				'woocommerce-express-dummy-menu-item'
+			);
+		}, 49);
+	}
+
+	/**
+	 * Modify admin menu for the Ecommerce Free Trial plan.
+	 */
+	protected function handle_free_trial_menu() {
+
+		add_action( 'admin_menu', function() {
+
+			// Hide Extensions > Manage.
+			$this->hide_submenu_page( 'woocommerce', 'admin.php?page=wc-addons&section=helper' );
+
+			// Move Feedback under Jetpack > Feedback.
+			$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
+			remove_menu_page( 'feedback' );
+			add_submenu_page( 'jetpack', __( 'Feedback', 'wc-calypso-bridge' ), __( 'Feedback', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=feedback', '', 10 );
+
+
+			// Hide Tools > Marketing and Tools > Earn submenus.
+			$site_suffix  = WC_Calypso_Bridge_Instance()->get_site_slug();
+			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $site_suffix ) );
+			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $site_suffix ) );
+
+		}, 99999 );
+	}
+
+	/**
+	 * Override the base implementation of add_plugins_menu() to avoid
+	 * adding the Plugins menu for eCommerce trials.
+	 *
+	 * @since   2.0.8
+	 * @version 2.0.8
+	 *
+	 * @return void
+	 */
+	public function add_plugins_menu() {
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
+
+		return parent::add_plugins_menu();
 	}
 
 	/**
@@ -111,17 +176,17 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Adds My Home menu.
 	 */
 	public function add_my_home_menu() {
-		$this->update_menu( 'index.php', '/admin.php?page=wc-admin', __( 'My Home', 'jetpack' ), 'edit_posts', 'dashicons-admin-home' );
+		$this->update_menu( 'index.php', 'admin.php?page=wc-admin', __( 'My Home', 'jetpack' ), 'edit_posts', 'dashicons-admin-home' );
 	}
 
 	/**
-	 * Fixes the menu highligting based on the changes of the self::add_woocommerce_menu.
+	 * Fixes the menu highlighting based on the changes of the self::add_woocommerce_menu.
 	 *
 	 * @param  string  $submenu_file
 	 * @return string
 	 */
 	public function modify_woocommerce_menu_highlighting( $submenu_file ) {
-		global $parent_file, $submenu_file, $plugin_page, $current_screen;
+		global $parent_file, $submenu_file, $plugin_page, $current_screen, $pagenow;
 		// We change the global $plugin_page due to the get_admin_page_parent() that replaces parent_file with this.
 
 		// Move WooCommerce > Settings to Settings > WooCommerce.
@@ -153,6 +218,20 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-reports' ), true ) ) {
 			$plugin_page  = 'wc-admin&path=/analytics/overview';
 			$submenu_file = 'admin.php?page=wc-reports';
+		}
+
+		// Move Feedback to Jetpack > Feedback (Free trial).
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() && in_array( $screen_id, array( 'edit-feedback' ) ) ) {
+			$plugin_page = 'jetpack';
+			$parent_file = 'jetpack';
+			$submenu_file = 'edit.php?post_type=feedback';
+			// Force the `get_admin_page_parent` core function to avoid handling this as a CPT.
+			$pagenow = null;
+			// Fix the typenow global, after the menu print.
+			add_action('adminmenu', static function() {
+				global $typenow;
+				$typenow = 'edit.php';
+			} );
 		}
 
 		return $submenu_file;
@@ -206,7 +285,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'analytics' ) ) {
 			// Move Customers to root menu.
 			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/customers' );
-			add_menu_page( __( 'Customers', 'woocommerce' ), __( 'Customers', 'woocommerce' ), 'manage_woocommerce', '/admin.php?page=wc-admin&path=/customers', null, 'dashicons-money', 100 );
+			add_menu_page( __( 'Customers', 'woocommerce' ), __( 'Customers', 'woocommerce' ), 'manage_woocommerce', 'admin.php?page=wc-admin&path=/customers', null, 'dashicons-money', 100 );
 		}
 
 		// Update WooCommerce to Extensions

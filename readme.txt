@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 1.9.6
+Stable tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,176 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' screen in WordPress
 
 == Changelog ==
+
+= Unreleased =
+* Reverted hidden activity bar in WC Admin pages #1217
+
+= 2.2.1 =
+* Fixed fatal error caused by not checking if tasklist exists #1212
+
+= 2.2.0 =
+* Update Free Trial Upgrade message on Task List #1203
+* Introduce option to disable Woo Express menu under "Settings > Advanced > Features" #1199
+* Move "Settings > Advanced" tab to the end of the list #1199
+* Hide advanced options under "Settings > Advanced > Features" for Woo Express stores #1199
+* Replace appearance task with choosing theme #1202
+* Ensure the woocommerce key exists in the global submenu at all times #1206
+* Suppress the WooCommerce Help tab in all WooCommerce pages #1205
+* Creates a dedicated section under "Settings > General > Onboarding", where users can restore the visibility of suppressed Task Lists #1205
+* Remove extension's hidden admin menu items handling from the ecommerce menu controller #1207
+* Fix array missing key warning in product task #1208
+
+= 2.1.9 =
+* Avoid Crowdsignal activation redirect #1192
+
+= 2.1.8 =
+* Suppress WooCommerce Subscriptions move/duplicated site messages #1172 
+
+= 2.1.7 =
+* Hide store_details task in free trial sites #1178
+* Fixed pain plan typo #1179
+* Tailor add products task copies according to NUX onboarding #1180
+
+= 2.1.6 =
+* Default to wide alignment when provisioning the Cart and Checkout pages. #1043
+* Add WooExpress Upgrades > Plans track. #1156
+* Add UTM tags on the "Extensions > Discover" page links in Free Trial. #1161
+* Fix fatal errors in onboarding option filters #1162
+
+= 2.1.5 =
+* Make the readme update command run standalone
+
+= 2.1.4 =
+* i18n: Add a mechanism to update the files in the languages/ folder #1130
+
+= 2.1.3 =
+* Add helper functions to detect the new Essential and Performance Woo Express plans. #1128
+* Remove useSlot monkey patch. #1117
+* Optimize bridge file size by lazy-loading components #1124.
+* Make OBW skip reliable for ecommerce and free trial plans #1125
+
+= 2.1.2 =
+* Fix JS lint errors #1105.
+* Update Appearance task has_products logic #1107
+* Update product task to detect modified products #1106.
+* Fix Jetpack tracks ID mismatch #1118.
+* Patch for product import issue #1119.
+* New script to automate updating the plugin version #1116.
+* New script to automate updating the changelog #1122.
+* Refactoring release automation scripts #1126.
+
+= 2.1.1 =
+* Allow expired trial sites to access the Export tool #1104.
+* New script to automate creating a new build #1109.
+* New script to automate creating a release tag #1115.
+
+= 2.1.0 =
+* Update the hook we use to include additional task list options in Jetpack Sync #1084.
+* Update to node 16 and update other dependencies #1088.
+* Update unit tests after dependency updates #1094.
+
+= 2.0.18 =
+* Update _Add a domain_ task to check for domain purchases in addition to the site URL #1083.
+
+= 2.0.17 =
+* Update default progress title to "Welcome to your Woo Express store" #1071.
+* Fix store name not rendering special characters #1070.
+* Patch wc.data for Gutenberg 15.5+ and wc < 7.7.0 #1086.
+
+= 2.0.16 =
+* Add tracking on various free trial CTAs #1074
+
+= 2.0.15 =
+* Mark Store_Details task as complete for free trial #1061
+* Fix site launch checks #1073.
+* Hide site launch banner for eCommerce trials #1062.
+
+= 2.0.14 =
+* Make the free trial banner responsive #1066
+
+= 2.0.13 =
+* Remove the onboarding purchase task #1060.
+* Add WooCommerce task list options to Jetpack Sync #1009.
+
+= 2.0.12 =
+* Redirect admin pages to the Calypso upgrade page for free trials #1055.
+
+= 2.0.11 =
+* Fix css conflict for snackbar #1041
+* Add avalara plugin to Tax task #1032
+* Remove default store notice #1053
+* Remove homepage step from Personalize task for Tsubaki theme #1054.
+* Increase WC Tracker frequency to run on a daily basis for the first 3 months #1050.
+
+= 2.0.10 =
+* Create navigation menus with new slugs #1039.
+
+= 2.0.9 =
+* Fix an issue with the WC Tracker #1034.
+
+= 2.0.8 =
+* Introduce site slug helper function #1025.
+* Free trial: Avoid adding the Plugins menu for eCommerce trials #1027.
+
+= 2.0.7 =
+* Free trial: Update notice messages and other copies #1022.
+* Add free trial plan picker banner #917
+* Add wcadmin_free_trial_upgrade_now track for task_list and marketing sources #1023.
+* Add wcadmin_free_trial_learn_more track #1024.
+
+= 2.0.6 =
+* Fix fatal error when trying to remove GC hidden menu items from Calypso menu #1018.
+
+= 2.0.5 =
+* Free trial: Use site title for domain suggestions #991.
+* Prevent deletion of managed plugins (Avatax) #1012.
+* Create navigation menu items #999.
+* Remove PRL, BIS, and GC hidden menu items from Calypso menu #994.
+* Add free trial host value for tracks #995.
+* Use the theme color for completed task strikethrough #1006.
+* Add free trial notice on WooCommerce Orders page #936.
+* Change illustration in tasklist completed component #1007.
+* Add task header for "Add a domain" task #1013.
+* Add task header for "Launch your store" task #1015.
+
+= 2.0.4 =
+* Free Trial: Hide Tools > Marketing, Tools > Earn - Move Feedback under Jetpack #979.
+* Free Trial: Introduce payment restrictions #930.
+* Free trial: Replace Marketing page #984.
+* Free trial: Introduce Extensions landing page - Hide Extensions > Manage #990.
+* Update webpack config to import scss variables and mixins as a global import #988.
+* Fixed wcpay customisation script error #989
+* Customize homescreen title and progress header #987.
+
+
+= 2.0.3 =
+* Override the wc.experimental.useSlot hook #986.
+* Bring Add a domain task back for free trial #985.
+* Hides the Launch task for WooExpress sites #937.
+* Remove absolute path prefix from My Home and Customer menu URLs #974.
+* Fix woocommerce payments task #980.
+* Fix incorrect SVG size #978.
+* WC Payments customizations #977.
+* Replace tax task to remove Avalara #975.
+* Replace product task with custom completion logic #963.
+* Customize payment tasklist header #956.
+* Hide partial tasklist and tasks #951.
+* Override orders empty state screen CTA button class #948.
+* Add disabled tasks accordion component #940.
+* Add task completion task #939.
+* Add homescreen banner #933.
+* Add payment task #919.
+
+= 2.0.2 =
+* Prevent deletion of managed plugins (AutomateWoo, FedEx Shipping) #969.
+* Prevent a double footer issue when using Storefront in Ecommerce plan #970.
+
+= 2.0.1 =
+* Make plugin_asset_path a static prop #959.
+* Fix conflict between woocommerce navigation and nav unification #952.
+
+= 2.0.0 =
+* Refactor and introduce plan detection controller #926.
 
 = 1.9.18 =
 * Arrange menu order for the menu items of Mailpoet and AutomateWoo #921.

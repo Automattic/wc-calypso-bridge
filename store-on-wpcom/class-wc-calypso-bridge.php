@@ -8,7 +8,7 @@
 /**
  * WC Calypso Bridge
  */
-class WC_Calypso_Bridge {
+class WC_Calypso_Bridge_Deprecated {
 
 	/**
 	 * Paths to assets act oddly in production
@@ -24,7 +24,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Class instance.
 	 *
-	 * @var WC_Calypso_Bridge
+	 * @var WC_Calypso_Bridge_Deprecated
 	 */
 	protected static $instance = null;
 
@@ -134,4 +134,4 @@ class WC_Calypso_Bridge {
 	}
 }
 
-WC_Calypso_Bridge::instance();
+WC_Calypso_Bridge_Deprecated::instance();

@@ -1,6 +1,6 @@
 {
   "name": "automattic/wc-calypso-bridge",
-  "version": "v1.9.18",
+  "version": "v2.2.1",
   "autoload": {
     "files": [
       "wc-calypso-bridge.php"
@@ -24,7 +24,7 @@
     "composer/installers": "~1.2"
   },
   "require-dev": {
-    "phpunit/phpunit": "7.5.20",
+    "phpunit/phpunit": "^8.0.0",
     "squizlabs/php_codesniffer": "*",
     "wp-coding-standards/wpcs": "1.1.0",
     "woocommerce/woocommerce-sniffs": "*",
@@ -48,6 +48,12 @@
       "test": "Run unit tests",
       "phpcs": "Analyze code against the WordPress coding standards with PHP_CodeSniffer",
       "phpcbf": "Fix coding standards warnings/errors automatically with PHP Code Beautifier"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   }
 }

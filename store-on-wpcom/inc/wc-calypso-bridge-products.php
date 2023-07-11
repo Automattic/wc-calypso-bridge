@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function wc_calypso_bridge_products_get_context() {
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-		$referrer        = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : '';
+    	$referrer        = isset( $_SERVER[ 'HTTP_REFERER' ] ) ? sanitize_text_field( wp_unslash( $_SERVER[ 'HTTP_REFERER' ] ) ) : '';
 		$known_referrers = array(
 			'page=product_importer' => 'ajax-product-importer',
 			'/post-new.php'         => 'ajax-post-new',
@@ -27,7 +27,7 @@ function wc_calypso_bridge_products_get_context() {
 		return 'ajax-unknown';
 	}
 
-	$request_uri     = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+    $request_uri = isset( $_SERVER[ 'REQUEST_URI' ] ) ? sanitize_text_field( wp_unslash( $_SERVER[ 'REQUEST_URI' ] ) ) : '';
 	$known_fragments = array(
 		'&_via_calypso'           => 'calypso',
 		'/wp-json/wc/v2'          => 'rest-api-v2',

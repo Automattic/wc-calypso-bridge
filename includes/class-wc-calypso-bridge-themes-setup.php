@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.0.0
+ * @version 2.0.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -35,9 +35,32 @@ class WC_Calypso_Bridge_Themes_Setup {
 	 * Constructor.
 	 */
 	private function __construct() {
-		// Set default theme values.
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
+		add_action( 'init', array( $this, 'setup_storefront' ) );
+
+		if ( ! is_admin() && ! defined( 'DOING_CRON' ) ) {
+			return;
+		}
+
 		add_action( 'init', array( $this, 'set_theme_default_values' ) );
 		add_action( 'customize_save_after', array( $this, 'mark_import_as_completed' ) );
+	}
+
+	/**
+	 * Setup Storefront theme for dotCom.
+	 *
+	 * @since 2.0.2
+	 *
+	 * @return void
+	 */
+	public function setup_storefront() {
+		remove_action( 'storefront_footer', 'storefront_credit', 20 );
+		add_action( 'storefront_footer', array( $this, 'wpcom_ecommerce_plan_storefront_credit' ), 20 );
 	}
 
 	/**
@@ -80,7 +103,6 @@ class WC_Calypso_Bridge_Themes_Setup {
 			set_theme_mod( 'sp_homepage_on_sale', false ); // Removes On Sale Products area from starter content.
 			set_theme_mod( 'sp_homepage_best_sellers', false ); // Removes Best Sellers Products area from starter content.
 			update_option( 'woocommerce_demo_store', 'yes' ); // enables demo store notice.
-			update_option( 'woocommerce_demo_store_notice', __( 'This is an example of a sitewide notice - you can change or remove this text in the Customizer under "Store Notice"', 'wc-calypso-bridge' ) ); // Default store notice message.
 			// Force Fresh Site.
 			update_option( 'fresh_site', true );
 			// Save option that says the setup has been run already.
@@ -88,6 +110,27 @@ class WC_Calypso_Bridge_Themes_Setup {
 		}
 	}
 
+	/**
+	 * Display the new WordPress.com like theme credit
+	 *
+	 * @return void
+	 */
+	public function wpcom_ecommerce_plan_storefront_credit() {
+		?>
+		<div class="site-info">
+			<?php echo esc_html( apply_filters( 'storefront_copyright_text', '&copy; ' . get_bloginfo( 'name' ) . ' ' . date( 'Y' ) ) ); ?>
+			<?php if ( apply_filters( 'storefront_credit_link', true ) ) { ?>
+			<br />
+				<?php
+				if ( apply_filters( 'storefront_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
+					the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
+				}
+				?>
+				<?php echo '<a href="https://wordpress.com/?ref=footer_website" target="_blank" title="' . esc_attr__( 'WordPress.com - The Best eCommerce Platform for WordPress', 'wc-calypso-bridge' ) . '" rel="author">' . esc_html__( 'Built with Storefront &amp; WordPress.com', 'wc-calypso-bridge' ) . '</a>.'; ?>
+			<?php } ?>
+		</div><!-- .site-info -->
+		<?php
+	}
 }
 
-$wc_calypso_bridge_themes_setup = WC_Calypso_Bridge_Themes_Setup::get_instance();
+WC_Calypso_Bridge_Themes_Setup::get_instance();

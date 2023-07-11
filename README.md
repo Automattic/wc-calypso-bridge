@@ -1,141 +1,127 @@
+
 # WooCommerce Calypso Bridge
 
 This repository houses various fixes and extensions for wp-admin to enhance the experience for users of the WordPress.com Store.
 
-## Getting Started
+## Pre-Flight Checklist
 
-To get started with development run `composer install` from the this repo's root directory. This will:
-
-- Install all vendor dependencies
-- Create pre-commit hooks to catch lint and WPCS errors
-
-To check WPCS and lint errors via CLI, run the following from the root directory.
-`./vendor/bin/phpcs [filename]`
-To automatically fix errors and beautify files, run the following from the root directory.
-`./vendor/bin/phpcbf [filename]`
-
-To turn on development mode for this plugin, the following filter can be added:
-
-`add_filter( 'wc_calypso_bridge_development_mode', '__return_true' );`
-
-For working with front-end components, run the following commands:
-
-```text
+Before activating `master` in your WordPress environment, remember to install dependencies and build all the assets:
+```
 npm install
-npm start
+npm run build
 ```
-
-See [wp-scripts](https://github.com/WordPress/gutenberg/tree/master/packages/scripts) for more usage information.
-
-### Activating the Ecommerce Plan Layout
-
-To use the ecommerce plan changes in the dashboard and test various functionality in this plugin, there are a number of conditions that must be met.
-
-#### Plugin Dependencies
-
-- WooCommerce >= 3.0.0
-- Jetpack
-
-Note that the plugin expects to find these plugins in their original folders, so renaming these folders may prevent the plugin from running.
-
-#### Jetpack Connection && Option Values
-
-You will need either a connected Jetpack site or use the following filter to force Jetpack into development mode:
-
-`add_filter( 'jetpack_offline_mode', '__return_true' );`
-
-To make bridge work, the site must have the eCommerce plan.
-
-Note that this checklist can't work simultaneously with the new WooCommerce Admin onboarding experience. To use the checklist in this plugin, make sure that you opt out of the new onboarding experience:
-
-```
-update_option( 'woocommerce_setup_ab_wc_admin_onboarding', 'a' );
-update_option( 'wc_onboarding_opt_in', 'no' );
-```
-
-If you would like to skip all of the above, [just download this gist](https://gist.github.com/moon0326/cac46c70a2cee81b61faef517fef7178) (recommended) as a plugin and activate it :).
-
-### Plugin Integrations
-
-The ecommerce plan comes bundled with a number of plugins that this plugin integrates with if activated. To fully test this plugin's functionality, the following plugins can be installed.
-
-- Payments
-  - [WooCommerce Stripe Payment Gateway](https://wordpress.org/plugins/woocommerce-gateway-stripe/)
-  - [WooCommerce PayPal Checkout Payment Gateway](https://wordpress.org/plugins/woocommerce-gateway-paypal-express-checkout/)
-  - [WooCommerce Square](https://wordpress.org/plugins/woocommerce-square/)
-  - [Klarna Payments for WooCommerce](https://wordpress.org/plugins/klarna-payments-for-woocommerce/)
-  - [Klarna Checkout for WooCommerce](https://wordpress.org/plugins/klarna-checkout-for-woocommerce/)
-  - [WooCommerce eWAY Gateway](https://wordpress.org/plugins/woocommerce-gateway-eway/)
-  - [WooCommerce PayFast Gateway](https://wordpress.org/plugins/woocommerce-payfast-gateway/)
-- Taxes:
-  - [TaxJar -- Sales Tax Automation for WooCommerce](https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
-- Shipping:
-  - [WooCommerce Services](https://wordpress.org/plugins/woocommerce-services/)
-- Marketing:
-  - [MailChimp for WooCommerce](https://wordpress.org/plugins/mailchimp-for-woocommerce/)
-  - [Facebook  for WooCommerce](https://woocommerce.com/products/facebook/)
-  - [Creative Mail](https://wordpress.org/plugins/creative-mail-by-constant-contact/)
-  - [Crowdsignal Forms](https://wordpress.org/plugins/crowdsignal-forms/)
-- Store Management:
-
-  - [TaxJar -- Sales Tax Automation for WooCommerce](https://wordpress.org/plugins/taxjar-simplified-taxes-for-woocommerce/)
-
-- Theme:
-  - [Storefront](https://woocommerce.com/storefront/)
-
-#### Paid extensions
-
-- Shipping (everywhere):
-  - [UPS Shipping Method](https://woocommerce.com/products/ups-shipping-method/)
-- Shipping (based on geo):
-  - [USPS Shipping Method](https://woocommerce.com/products/usps-shipping-method/)
-  - [Canada Post shipping](https://woocommerce.com/products/canada-post-shipping-method/)
-  - [Royal Mail](https://woocommerce.com/products/royal-mail/)
-  - [Australia Post Shipping Method](https://woocommerce.com/products/australia-post-shipping-method/)
-- Product Page Features:
-  - [Product Add-Ons](https://woocommerce.com/products/product-add-ons/)
-- Storefront premium options
-  - [Galleria](https://woocommerce.com/products/galleria/)
-  - [Homestore](https://woocommerce.com/products/homestore/)
-  - [Bookshop](https://woocommerce.com/products/bookshop/)
-  - [Storefront Powerpack design options](https://woocommerce.com/products/storefront-powerpack/)
-  - [Blog Customizer](https://woocommerce.com/products/storefront-blog-customiser/)
-  - [Parallax Hero](https://woocommerce.com/products/storefront-parallax-hero/)
-  - [Product Hero](https://woocommerce.com/products/storefront-product-hero/)
-  - [Reviews](https://woocommerce.com/products/storefront-reviews/)
-
-## Test Suite
-
-This repository does have a test suite, which depends upon `wc-api-dev`, and `woocommerce` both being present witin the same `wp-content/plugins` directory. Much like the test suite in `wc-api-dev` it borrows heavily from the base `woocommerce` API test suite to enable quick testing via all of the core helper methods.
-
-Ideally all API functionality will eventually be contained within `wc-api-dev` ( and subsequently core ), but at least now we can have unit tests around various _quick fixes_ implemented here.
-
-### Running the Test Suite
-
-From a test install of WordPress with `wc-api-dev` and `woocommerce` present, run `phpunit` from the `store-on-wpcom` directory to run legacy Store on WP.com hotfix/API tests.
-
-Run `phpunit` in the root plugin directory to run the new test suites.
-
-Code coverage reports can be ran with `phpunit --coverage-html /tmp/coverage`.
+**Note:** Ensure that you currently running the [required](https://github.com/Automattic/wc-calypso-bridge/blob/master/.nvmrc) NodeJS version. Check [NVM](https://www.npmjs.com/package/nvm) for running multiple node versions.
 
 ## Deployment
+
+### Automated Deployment
+
+We now have a series of scripts that will help with automating the release process. To use these scripts, do the following.
+
+1. Make sure you're running NodeJS v16. If you use [nvm](https://github.com/nvm-sh/nvm), you can simply type `nvm use`. If you prefer [fnm](https://github.com/Schniz/fnm), you can run `fnm use` instead.
+2. Run `npm install` in the project root to make sure all dependencies are installed at the project level and in the `./scripts` folder.
+3. Run `npm run prepare-release` in the project root. This will guide you through incrementing the version, updating the changelog, and creating a PR.
+4. Once that PR is approved and merged, run `npm run create-release`. Follow the prompts to do a build, create a new release tag, and deploy the release tag.
+
+_NOTE: Creating a new release doesn't automatically deploy the new version. A corresponding update PR will need to be opened to update the wc-calypso-bridge dependency in wpcomsh._
+
+### Manual Deployment
+
+If, for some reason, you are unable to use the automated build/release scripts above, the process can be done manually as described below.
 
 1. Create a [version bump pull request](https://github.com/Automattic/wc-calypso-bridge/pull/613/files) on `wc-calypso-bridge` that increments the [version](https://github.com/Automattic/wc-calypso-bridge/blob/master/composer.json#L3) in `composer.json`, and in [two spots](https://github.com/Automattic/wc-calypso-bridge/blob/master/wc-calypso-bridge.php#L33) in `wc-calypso-bridge.php`.
 2. [Add a section](https://github.com/Automattic/wc-calypso-bridge/blob/master/readme.txt#L23-L26) to the `readme.txt` also with a changelog of what is in the release.
 3. Mark the pull request as ready for review, and **merge** once a 👍 review is given.
 4. Make sure you've closed your `start` script if you have it running.
 5. *Back in your local copy of wc-calypso-bridge*, perform the following steps:
-	1. `git checkout master`
-	2. `git pull origin master`
-	3. `npm i`
-	4. `npm run build`
-	5. `rm -rf node_modules` so these don't get packaged up in the release
+    1. `git checkout master`
+    2. `git pull origin master`
+    3. `nvm use` in case your current node version is different
+    4. `npm i`
+    5. `npm run build`
+    6. `rm -rf node_modules` so these don't get packaged up in the release
 
 6. Now you are ready to tag the release by replacing x.x.x with the version number being created:
-	1. `git tag x.x.x`
-	2. `git checkout x.x.x`
-	3. `git add ./build --force`
-	4. `git commit -m 'Adding build directory to release' --no-verify`
-	5. `git tag -f x.x.x`
-	6. `git push origin x.x.x`
+    1. `git tag x.x.x`
+    2. `git checkout x.x.x`
+    3. `git add ./build --force`
+    4. `git commit -m 'Adding build directory to release' --no-verify`
+    5. `git tag -f x.x.x`
+    6. `git push origin x.x.x`
 7. 🎊 Congrats, you have released a new version of `wc-calypso-bridge`.
+
+_NOTE: Creating a new release doesn't automatically deploy the new version. A corresponding update PR will need to be opened to update the wc-calypso-bridge dependency in wpcomsh._
+
+## Development Environment
+
+To get started with development of front-end components run `npm start`.
+
+See [wp-scripts](https://github.com/WordPress/gutenberg/tree/master/packages/scripts) for more usage information.
+
+#### Running under a local WordPress installation
+To use this plugin, several conditions must be met.
+
+##### Plugin Dependencies
+
+- WooCommerce >= 7.3.0
+- Jetpack
+
+Note that the plugin expects to find these plugins in their original folders, so renaming them may prevent the plugin from running.
+
+##### Jetpack Connection & Option Values
+
+You will need either a connected Jetpack site or use the following filter to force Jetpack into development mode:
+
+`add_filter( 'jetpack_offline_mode', '__return_true' );`
+
+For the Bridge to work, the site must have a plan. [Download this gist](https://gist.github.com/moon0326/cac46c70a2cee81b61faef517fef7178) (recommended) as a plugin and activate it.
+
+#### Running on WoA
+
+The recommended way for developing on Atomic is to have a `rsync` configuration in place for sending files directly into your WoA.
+
+
+## Contributing to The Bridge
+
+### Repository Structure
+
+Key folders and files:
+
+- The `src` folder includes JS/TSX files compiled with Webpack,
+- The `includes` folder contains PHP files,
+- The `class-wc-calypso-bridge-shared.php` file contains logic for enqueueing assets and managing localized parameters.
+- The `class-wc-calypso-bridge-dotcom-features.php` file includes logic for determing the active plan. More information below.
+
+Before contributing, it's recommended to scan the `includes` folder in case the fix can be placed in existing controllers/files. If not, create a new file, e.g., `includes/class-wc-calypso-bridge-my-custom-fix.php`, and ensure that it gets included in the [includes](https://github.com/Automattic/wc-calypso-bridge/blob/master/class-wc-calypso-bridge.php#L100-L122) section of the main controller.
+
+Regarding the timeline, all files under the `includes` folder will be loaded at `plugins_loaded` at `0` priority.
+
+Here's a handy boilerplate for starting a new file in [this gist](https://gist.github.com/somewherewarm-snippets/ee3d68b9bfb56232fdd94a2edbcfd25e).
+
+### Active Plan Detection
+
+Plan-specific tweaks can be managed using the following global functions:
+| Helper function |  Return value  |
+|---|---|
+| `wc_calypso_bridge_has_ecommerce_features()`   | This will return `true` for all ecommerce-related plans *(including all WordPress.com, Woo Express plans, and the Ecommerce Free Trial)* |
+| `wc_calypso_bridge_is_ecommerce_plan()`   | Returns `true` if the site has a paid Ecommerce plan (including all WordPress.com and Woo Express plans) |
+| `wc_calypso_bridge_is_ecommerce_trial_plan()`  |  Returns `true` if the site has an Ecommerce Trial plan. |
+| `wc_calypso_bridge_is_woo_express_performance_plan()`  |  Returns `true` if the site has a Woo Express Performance plan. |
+| `wc_calypso_bridge_is_woo_express_essential_plan()`  |  Returns `true` if the site has a Woo Express Essential plan. |
+| `wc_calypso_bridge_is_wpcom_ecommerce_plan()`  |  Returns `true` if the site has an Ecommerce plan from WordPress.com. |
+| `wc_calypso_bridge_is_business_plan()` | Returns `true` if the site has a business plan. |
+
+Similarly, on the JS side, use the global `window.wcCalypsoBridge` object for fetching information about the active plan:
+- `window.wcCalypsoBridge.hasEcommerceFeatures (bool)`
+- `window.wcCalypsoBridge.isEcommercePlan (bool)`
+- `window.wcCalypsoBridge.isEcommerceTrialPlan (bool)`
+
+**Note:** This list will be updated as new plans come into play.
+
+### Test Suite
+
+This repo runs a CI process during PRs using GH Actions workflows. For now, we only run the following:
+- PHPCS checks to ensure some basic coding standards,
+- A file comparison check in the build files.
+
+More to come in this section.
