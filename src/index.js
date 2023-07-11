@@ -153,7 +153,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 		'woocommerce_admin_pages_list',
 		'wc-calypso-bridge',
 		( pages ) => {
-			if ( !! window.wcCalypsoBridge.isJetpackSSOEnabled && !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
+			if ( !! window.wcCalypsoBridge.isWooNavigationEnabled ) {
 				/**
 				 * Ensure that WooCommerce Home page will not highlight the WooCommerce parent menu item.
 				 */
@@ -185,7 +185,6 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 
 	// Embed code on woo pages.
 	if (
-		!! window.wcCalypsoBridge.isJetpackSSOEnabled &&
 		!! window.wcCalypsoBridge.isWooNavigationEnabled &&
 		!! window.wcCalypsoBridge.showEcommerceNavigationModal &&
 		!! window.wcCalypsoBridge.isWooPage
