@@ -111,7 +111,7 @@ class WC_Calypso_Bridge_Shared {
 		$params      = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
 			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.
-			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && \Jetpack::is_module_active( 'sso' ),
+			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && class_exists('\Jetpack') && \Jetpack::is_module_active( 'sso' ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
 			'siteSlug'                     => $site_suffix,
@@ -165,7 +165,7 @@ class WC_Calypso_Bridge_Shared {
 	public function add_ecommerce_plan_styles() {
 		wp_enqueue_style( 'wp-calypso-bridge-ecommerce', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/ecommerce.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 
-		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && \Jetpack::is_module_active( 'sso' ) ) {
+		if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && class_exists('\Jetpack') && \Jetpack::is_module_active( 'sso' ) ) {
 			wp_enqueue_style( 'wp-calypso-bridge-ecommerce-navigation', WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/css/ecommerce-navigation.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 		}
 	}
