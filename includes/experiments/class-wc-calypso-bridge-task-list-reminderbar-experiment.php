@@ -38,8 +38,8 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 	 */
 	public function __construct() {
 
-		// Only in Ecommerce and Woo Express sites.
-		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+		// Only in Woo Express trial.
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
 		}
 
@@ -58,7 +58,7 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 	 * Init experiment.
 	 */
 	public function init() {
-
+		
 		add_filter( 'pre_option_woocommerce_task_list_reminder_bar_hidden', function( $pre_option ) {
 			return self::is_experiment_treatment() ? $pre_option : 'yes';
 		} );
@@ -75,14 +75,7 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 			return false;
 		}
 
-		$anon_id        = isset( $_COOKIE['tk_ai'] ) ? sanitize_text_field( wp_unslash( $_COOKIE['tk_ai'] ) ) : '';
-		$allow_tracking = 'yes' === get_option( 'woocommerce_allow_tracking' );
-		$abtest         = new \WooCommerce\Admin\Experimental_Abtest(
-			$anon_id,
-			'woocommerce',
-			$allow_tracking
-		);
-		return $abtest->get_variation( 'woocommerce_woo_express_remindertopbar_woo_screens_nudge_202307_v1' ) === 'treatment';
+		return \WooCommerce\Admin\Experimental_Abtest::in_treatment( 'test_woocommerce_woo_express_remindertopbar_woo_screens_nudge_202307_v1' );
 	}
 }
 
