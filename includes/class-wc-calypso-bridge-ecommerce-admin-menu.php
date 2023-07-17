@@ -176,7 +176,17 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Adds My Home menu.
 	 */
 	public function add_my_home_menu() {
-		$this->update_menu( 'index.php', 'admin.php?page=wc-admin', __( 'My Home', 'jetpack' ), 'edit_posts', 'dashicons-admin-home' );
+		// $menu item.
+		$label = __( 'My Home', 'jetpack' );
+
+		if ( class_exists( '\Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists' ) ) {
+			$tasks_count = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::setup_tasks_remaining();
+			if ( $tasks_count ) {
+				$label .= ' <span class="awaiting-mod update-plugins remaining-tasks-badge woocommerce-task-list-remaining-tasks-badge"><span class="count-' . esc_attr( $tasks_count ) . '">' . absint( $tasks_count ) . '</span></span>';
+			}
+		}
+
+		$this->update_menu( 'index.php', 'admin.php?page=wc-admin', $label, 'edit_posts', 'dashicons-admin-home' );
 	}
 
 	/**
