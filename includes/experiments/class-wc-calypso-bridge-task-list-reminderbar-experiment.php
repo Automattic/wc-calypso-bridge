@@ -38,20 +38,30 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 	 */
 	public function __construct() {
 
-		// Only in Woo Express trial.
-		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+		if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
 			return;
 		}
 
-		if ( defined('REST_REQUEST') && REST_REQUEST ) {
+		if ( ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 			return;
 		}
 
-		if ( ( defined( 'DOING_CRON' ) && DOING_CRON ) || ( defined('DOING_AJAX') && DOING_AJAX ) || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
-			return;
+		// Force-hide on all ecommerce plans, and run experiment on free trials.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			$this->init();
+		} elseif ( wc_calypso_bridge_has_ecommerce_features() ) {
+			$this->force_hide_reminder_bar();
 		}
- 
-		$this->init();
+	}
+
+	/**
+	 * Init experiment.
+	 */
+	public function force_hide_reminder_bar() {
+		
+		add_filter( 'pre_option_woocommerce_task_list_reminder_bar_hidden', function( $pre_option ) {
+			return 'yes';
+		} );
 	}
 
 	/**
