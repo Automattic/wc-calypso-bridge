@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Reverted hidden activity bar in WC Admin pages #1217
+* Hide storefront theme suggestion in addons page #xxx
 
 = 2.2.1 =
 * Fixed fatal error caused by not checking if tasklist exists #1212
