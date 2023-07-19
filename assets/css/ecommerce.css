@@ -214,3 +214,7 @@ body.woocommerce_page_wc-addons .wc-addons-wrap .storefront {
 	color: var( --wp-admin-theme-color );
 }
 
+.woocommerce-layout__header .woocommerce-layout__header-tasks-reminder-bar {
+	background-color: var(--wp-admin-theme-color);
+}
+
