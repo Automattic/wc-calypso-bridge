@@ -23,12 +23,9 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.2.2 =
-* _Enter your changes here_
-
-= Unreleased =
 * Reverted hidden activity bar in WC Admin pages #1217
 * Introduced the woocommerce_woo_express_remindertopbar_woo_screens_nudge_202307_v1 experiment #1219
-* Hide storefront theme suggestion in addons page #xxx
+* Hide storefront theme suggestion in addons page #1227
 
 = 2.2.1 =
 * Fixed fatal error caused by not checking if tasklist exists #1212
