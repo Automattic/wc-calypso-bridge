@@ -3,8 +3,8 @@
  * AB Experiment handling for the reminder bar task list nudge.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.2.2
+ * @version 2.2.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -58,7 +58,7 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 	 * Init experiment.
 	 */
 	public function force_hide_reminder_bar() {
-		
+
 		add_filter( 'pre_option_woocommerce_task_list_reminder_bar_hidden', function( $pre_option ) {
 			return 'yes';
 		} );
@@ -68,7 +68,7 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 	 * Init experiment.
 	 */
 	public function init() {
-		
+
 		add_filter( 'pre_option_woocommerce_task_list_reminder_bar_hidden', function( $pre_option ) {
 			return self::is_experiment_treatment() ? $pre_option : 'yes';
 		} );
@@ -80,7 +80,7 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 	 * @return bool Returns true if the current session is treatment.
 	 */
 	protected static function is_experiment_treatment() {
-		
+
 		if ( ! class_exists( '\WooCommerce\Admin\Experimental_Abtest' ) ) {
 			return false;
 		}
