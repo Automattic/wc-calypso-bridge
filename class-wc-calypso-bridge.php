@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.8
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -130,6 +130,10 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-free-trial-store-details-task.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-product-import-fix.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-skip-obw.php';
+
+		// Experiments.
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/experiments/class-wc-calypso-bridge-task-list-reminderbar-experiment.php';
+
 	}
 
 	/**

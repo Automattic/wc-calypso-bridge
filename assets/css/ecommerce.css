@@ -153,6 +153,10 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	text-decoration: underline;
 }
 
+body.woocommerce_page_wc-addons .wc-addons-wrap .storefront {
+	display: none;
+}
+
 @media screen and (max-width: 782px) {
 	.wc-addons-landing-page__features-grid__item {
 		padding: 0 10px;
@@ -208,5 +212,9 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	.woocommerce-experimental-list
 	.woocommerce-experimental-list__item.complete {
 	color: var( --wp-admin-theme-color );
+}
+
+.woocommerce-layout__header .woocommerce-layout__header-tasks-reminder-bar {
+	background-color: var(--wp-admin-theme-color);
 }
 
