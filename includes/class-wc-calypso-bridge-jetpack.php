@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.9.8
- * @version 2.0.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;

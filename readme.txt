@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Reverted hidden activity bar in WC Admin pages #1217
+* Disable ecommerce menu and relevant JS fixes when SSO is disabled #925
 
 = 2.2.1 =
 * Fixed fatal error caused by not checking if tasklist exists #1212
