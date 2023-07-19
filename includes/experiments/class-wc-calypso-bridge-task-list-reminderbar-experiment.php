@@ -85,7 +85,7 @@ class WC_Calypso_Bridge_Task_List_ReminderBar_Experiment {
 			return false;
 		}
 
-		return \WooCommerce\Admin\Experimental_Abtest::in_treatment( 'test_woocommerce_woo_express_remindertopbar_woo_screens_nudge_202307_v1' );
+		return \WooCommerce\Admin\Experimental_Abtest::in_treatment( 'woocommerce_woo_express_remindertopbar_woo_screens_nudge_202307_v1' );
 	}
 }
 
