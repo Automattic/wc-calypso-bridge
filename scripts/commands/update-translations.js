@@ -52,11 +52,7 @@ export default async function updateTranslations() {
 			`wp i18n make-pot . ${ POT_FILE_PATH } --ignore-domain`
 		);
 
-		if ( makePotResult.stderr ) {
-			error( `wp i18n make-pot failure: ${ makePotResult.stderr }` );
-			return false;
-		}
-
+		// If execPromise doesn't reject the promise, the command was successful
 		success( 'wp i18n make-pot command executed successfully.' );
 
 		const status = await git.status();
