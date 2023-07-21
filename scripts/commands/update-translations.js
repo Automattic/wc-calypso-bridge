@@ -53,6 +53,13 @@ export default async function updateTranslations() {
 		);
 
 		// If execPromise doesn't reject the promise, the command was successful
+
+		info( makePotResult.stdout );
+
+		if ( makePotResult.stderr ) {
+			warning( makePotResult.stderr )
+		}
+
 		success( 'wp i18n make-pot command executed successfully.' );
 
 		const status = await git.status();
