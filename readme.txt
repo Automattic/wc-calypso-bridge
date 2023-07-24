@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Reverted !important fixed positioning on snackbar css as it's been changed to absolute on WooCommerce Core #1234
+* Fixe free trial banner position #xxx
 
 = 2.2.2 =
 * Reverted hidden activity bar in WC Admin pages #1217
