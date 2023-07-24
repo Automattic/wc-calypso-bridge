@@ -33,8 +33,3 @@ $ces-feedback-height: 64px;
 	padding-top: 32px;
 	padding-bottom: 8px;
 }
-
-.woocommerce-transient-notices {
-	// there's an ordering conflict which causes this to be overriden by the styles from .components-snackbar-list
-	position: fixed !important; 
-}
