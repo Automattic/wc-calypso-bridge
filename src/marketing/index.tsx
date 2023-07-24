@@ -71,9 +71,6 @@ export const Marketing = () => {
 
 	return (
 		<div className="woocommerce-marketing-free-trial">
-			<div className="woocommerce-marketing-free-trial-page-title">
-				{ __( 'Marketing', 'wc-calypso-bridge' ) }
-			</div>
 			<div className="woocommerce-marketing-free-trial-welcome">
 				<h1>
 					{ __(

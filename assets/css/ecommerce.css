@@ -36,14 +36,6 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	color: #2F2F2F; /* gray-80 */
 }
 
-.wc-addons-landing-page__section-header {
-	font-size: 14px;
-	font-weight: 700;
-	padding: 24px;
-	border-bottom: 1px solid #ddd;
-	margin-bottom: 80px;
-}
-
 .wc-addons-landing-page__title {
 	font-size: 32px;
 	line-height: 40px;
@@ -168,9 +160,6 @@ body.woocommerce_page_wc-addons .wc-addons-wrap .storefront {
 		padding-bottom: 0;
 	}
 
-	.wc-addons-landing-page__section-header {
-		display: none;
-	}
 	.wc-addons-landing-page__title {
 		font-size: 24px;
 		line-height: 32px;

@@ -4,16 +4,12 @@
 *
 * @package WC_Calypso_Bridge/Templates
 * @since   2.0.4
-* @version 2.1.6
+* @version x.x.x
 *
 * @uses $upgrade_url
 */
 ?>
 <div class="woocommerce woocommerce-page wc-addons-landing-page">
-
-	<div class="wc-addons-landing-page__section-header">
-		<?php esc_html_e( 'Extensions', 'wc-calypso-bridge' ); ?>
-	</div>
 
 	<h1 class="wc-addons-landing-page__title">
 		<?php esc_html_e( 'Take your store to the next level, with extensions', 'wc-calypso-bridge' ); ?>
