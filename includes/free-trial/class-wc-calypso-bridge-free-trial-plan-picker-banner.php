@@ -4,7 +4,7 @@
  * Class WC_Calypso_Bridge_Free_Trial_Plan_Picker_Banner.
  *
  * @since   2.0.5
- * @version x.x.x
+ * @version 2.2.4
  *
  * Handles Free Trial Plan Picker Banner.
  */

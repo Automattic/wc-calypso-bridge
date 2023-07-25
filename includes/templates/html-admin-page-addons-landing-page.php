@@ -4,7 +4,7 @@
 *
 * @package WC_Calypso_Bridge/Templates
 * @since   2.0.4
-* @version x.x.x
+* @version 2.2.4
 *
 * @uses $upgrade_url
 */
