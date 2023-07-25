@@ -48,11 +48,11 @@ export default async function updateTranslations() {
 	try {
 		info( 'Executing wp i18n make-pot command...' );
 
+		// If the `wp i18n make-pot` command generates an error, an exception is thrown
 		const makePotResult = await execPromise(
 			`wp i18n make-pot . ${ POT_FILE_PATH } --ignore-domain`
 		);
 
-		// If execPromise doesn't reject the promise, the command was successful
 		success( 'wp i18n make-pot command executed successfully.' );
 
 		const status = await git.status();
@@ -160,6 +160,12 @@ export default async function updateTranslations() {
 
 		return success( 'Script execution completed.' );
 	} catch ( err ) {
+		if ( err.stdout ) {
+			info( err.stdout )
+		}
+		if ( err.stderr ) {
+			warning( err.stderr );
+		}
 		return error( 'Error executing the script: ' + err.message );
 	}
 }
