@@ -23,7 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Hide Brands column in Products list table #xxx
+* Hide Brands column in Products list table #1235
+* Reverted !important fixed positioning on snackbar css as it's been changed to absolute on WooCommerce Core #1234
 
 = 2.2.2 =
 * Reverted hidden activity bar in WC Admin pages #1217
