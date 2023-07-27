@@ -1,0 +1,774 @@
+# Translation of WooCommerce - Calypso Bridge in French (Belgium)
+# This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-04-05 11:52:46+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: fr_BE\n"
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+
+#: src/welcome-modal/index.js:100
+msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
+msgstr "Faire avancer les choses avec WooCommerce est devenu plus rapide. <a>Apprenez-en plus</a> sur notre nouvelle navigation ou découvrez-la par vous-même."
+
+#: src/welcome-modal/index.js:93
+msgid "Move faster with our new navigation"
+msgstr "Allez plus vite grâce à notre nouvelle navigation"
+
+#: src/welcome-modal/index.js:73
+msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
+msgstr "Obtenez des conseils et des tendances sur les performances de votre boutique chaque fois que vous revenez dans votre tableau de bord WordPress.com."
+
+#: src/welcome-modal/index.js:70
+msgid "Meet your new Home"
+msgstr "Découvrez votre nouvel accueil"
+
+#: src/task-headers/add-domain.js:34
+msgid "Choose a new website address for your store or transfer one you already own."
+msgstr "Choisissez une nouvelle adresse de site Web pour votre boutique ou transférez-en une que vous possédez déjà."
+
+#: src/task-headers/add-domain.js:22
+msgid "Add a domain illustration"
+msgstr "Ajouter une illustration de domaine"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:160
+msgid "Save"
+msgstr "Enregistrer"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:147
+msgid "BIC / Swift"
+msgstr "BIC / Swift"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:139
+msgid "IBAN"
+msgstr "IBAN"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:129
+msgid "Sort code"
+msgstr "Code guichet"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:119
+msgid "Bank name"
+msgstr "Nom de la banque"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:109
+msgid "Account number"
+msgstr "Numéro du compte"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:99
+msgid "Account name"
+msgstr "Nom du compte"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:92
+msgid "These details are required to receive payments via bank transfer"
+msgstr "Ces détails sont requis pour pouvoir recevoir des paiements par virement bancaire."
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:86
+msgid "Add your bank details"
+msgstr "Ajouter vos coordonnées bancaires"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:53
+msgid "Direct bank transfer details added successfully"
+msgstr "Les coordonnées de virement bancaire ont bien été ajoutées."
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:32
+msgid "Please enter an account number or IBAN"
+msgstr "Veuillez entrer un numéro de compte ou un numéro IBAN."
+
+#: src/payment-gateway-suggestions/index.js:279
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
+msgstr "Seuls les administrateurs et les gérants de boutique peuvent passer des commandes pendant l’essai gratuit. Si vous êtes prêt à accepter les paiements des clients, {{link}}passez à un plan payant{{/link}}."
+
+#: src/payment-gateway-suggestions/index.js:266
+msgid "Offline payment methods"
+msgstr "Moyens de paiement hors ligne"
+
+#: src/payment-gateway-suggestions/index.js:257
+msgid "See more"
+msgstr "En savoir plus"
+
+#: src/payment-gateway-suggestions/index.js:236
+msgid "Try one of the alternative payment providers."
+msgstr "Testez l’un des fournisseurs de paiement alternatifs."
+
+#: src/payment-gateway-suggestions/index.js:232
+#: src/payment-gateway-suggestions/index.js:304
+msgid "Other payment providers"
+msgstr "Autres fournisseurs de paiement"
+
+#: src/payment-gateway-suggestions/index.js:227
+msgid "Give your customers additional choices in ways to pay."
+msgstr "Offrez à vos clients des choix supplémentaires en matière de moyens de paiement."
+
+#: src/payment-gateway-suggestions/index.js:223
+msgid "Additional payment options"
+msgstr "Options de paiement supplémentaires"
+
+#: src/payment-gateway-suggestions/index.js:217
+msgid "To get ready to accept online payments"
+msgstr "Pour se préparer à accepter des paiements en ligne"
+
+#: src/payment-gateway-suggestions/index.js:213
+msgid "Choose a payment provider"
+msgstr "Choisir un fournisseur de paiement"
+
+#: src/payment-gateway-suggestions/components/WCPay/utils.js:15
+msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
+msgstr "Une erreur est survenue lors de la connexion à WooCommerce Payments. Réessayez ou connectez-vous plus tard dans les réglages de la boutique."
+
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
+msgid "I agree"
+msgstr "J’accepte"
+
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
+msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
+msgstr "En acceptant de partager des {{link}}données d’utilisation{{/link}} non sensibles, vous nous aiderez à améliorer les fonctionnalités et à optimiser l’expérience de WooCommerce Payments. Vous pouvez vous désabonner à tout moment."
+
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
+msgid "Help us build a better WooCommerce Payments experience"
+msgstr "Aidez-nous à améliorer l’expérience de WooCommerce Payments."
+
+#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
+msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
+msgstr "En utilisant WooCommerce Payments, vous acceptez de vous soumettre à nos {{tosLink}}Conditions d’utilisation{{/tosLink}} et vous reconnaissez avoir lu notre {{privacyLink}}Politique de confidentialité{{/privacyLink}}. "
+
+#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
+msgid "Get ready to accept payments"
+msgstr "Se préparer à accepter des paiements"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:132
+msgid "Yes, count me in!"
+msgstr "Oui, vous pouvez compter sur moi !"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:114
+msgid "Build a better WooCommerce"
+msgstr "Créer un meilleur WooCommerce"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:55
+msgid "There was a problem updating your preferences"
+msgstr "Un problème est survenu lors de la mise à jour de vos préférences"
+
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:122
+msgid "Configure your %(title)s account"
+msgstr "Configurer votre compte %(title)s"
+
+#. translators: %s = title of the payment gateway to install
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:90
+msgid "Install %s"
+msgstr "Installer %s"
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:152
+msgid "You can manage this payment gateway's settings by clicking the button below"
+msgstr "Vous pouvez gérer les réglages de ce portail de paiement en cliquant sur le bouton ci-dessous."
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:133
+msgid "Connect"
+msgstr "Connecter"
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:100
+msgid "Proceed"
+msgstr "Continuer"
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:84
+#: src/payment-gateway-suggestions/plugins/Bacs.js:63
+msgid "There was a problem saving your payment settings"
+msgstr "Un problème est survenu lors de l’enregistrement de vos réglages de paiement"
+
+#. translators: %s = title of the payment gateway
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:75
+msgid "%s configured successfully"
+msgstr "Configuration de %s réussie"
+
+#: src/payment-gateway-suggestions/components/List/Item.js:81
+msgid "Recommended"
+msgstr "Recommandé"
+
+#: src/payment-gateway-suggestions/components/List/Item.js:80
+msgid "Local Partner"
+msgstr "Partenaire local"
+
+#: src/payment-gateway-suggestions/components/Action.js:138
+msgid "Finish setup"
+msgstr "Terminer la configuration"
+
+#: src/payment-gateway-suggestions/components/Action.js:99
+msgid "Enable"
+msgstr "Activer"
+
+#: src/launch-store/index.js:387
+msgid "Launch anyway"
+msgstr "Lancer quand même"
+
+#: src/launch-store/index.js:377
+msgid "A few things to check before launching your store"
+msgstr "Quelques points à vérifier avant de lancer votre boutique"
+
+#: src/launch-store/index.js:374
+msgid "Before you launch"
+msgstr "Avant le lancement"
+
+#: src/launch-store/index.js:313
+msgid "Choose an address for your new website or transfer a domain you already own."
+msgstr "Choisissez une adresse pour votre nouveau site Web ou transférez un domaine que vous possédez déjà."
+
+#: src/launch-store/index.js:309
+msgid "List products"
+msgstr "Répertorier des produits"
+
+#: src/launch-store/index.js:305
+msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
+msgstr "Commencez à vendre en ajoutant des produits ou services à votre boutique. Créez vos produits manuellement ou importez-les depuis une boutique existante."
+
+#: src/launch-store/index.js:304
+msgid "List your products"
+msgstr "Répertorier vos produits"
+
+#: src/launch-store/index.js:296
+msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
+msgstr "Proposez à vos clients un moyen de paiement à la fois simple et pratique ! Configurez un (ou plusieurs) de nos moyens de paiement rapides et sécurisés en ligne ou en personne."
+
+#: src/launch-store/index.js:295 src/launch-store/index.js:300
+msgid "Get paid"
+msgstr "Faites-vous payer"
+
+#: src/launch-store/index.js:257 src/launch-store/index.js:396
+msgid "You can always revert this under <a>Settings</a>."
+msgstr "Vous pouvez toujours l’annuler dans <a>Réglages</a>."
+
+#: src/launch-store/index.js:243
+msgid "It's time to celebrate – you're ready to launch your store! Woo!"
+msgstr "Félicitations, vous êtes prêt à lancer votre boutique ! Génial !"
+
+#: src/launch-store/index.js:237
+msgid "Ready to launch your store?"
+msgstr "Prêt à lancer votre boutique ?"
+
+#: src/launch-store/index.js:203
+msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
+msgstr "Vous avez changé d’avis ? Vous pouvez rendre votre boutique à nouveau privée en mettant à jour vos réglages de <a>Confidentialité</a>."
+
+#: src/launch-store/index.js:197
+msgid "View your store"
+msgstr "Voir votre boutique"
+
+#: src/launch-store/index.js:177
+msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
+msgstr "Félicitations pour le lancement de votre boutique WooCommerce. Prenez un moment pour célébrer la nouvelle et la partager !"
+
+#: src/launch-store/index.js:173
+msgid "Woo! You did it!"
+msgstr "Génial ! Vous l’avez fait !"
+
+#: src/launch-store/index.js:137
+msgid "Launching your store"
+msgstr "Lancement de votre boutique"
+
+#: src/launch-store/index.js:67
+msgid "Copied"
+msgstr "Copié"
+
+#: src/homescreen-banner/index.js:61
+msgid "Dismiss this free trial informational banner."
+msgstr "Ignorez cette bannière d’information sur l’essai gratuit."
+
+#: src/homescreen-banner/index.js:45
+msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
+msgstr "Ceci est votre boutique d’essai gratuit où vous pouvez commencer à explorer ce qui est disponible ! Pour en savoir plus sur l’essai gratuit, cliquez sur Lire la suite."
+
+#: src/free-trial/tax/components/location.js:53
+msgid "There was a problem saving your store location"
+msgstr "Un problème est survenu lors de l’enregistrement de la localisation de votre boutique"
+
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:49
+msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
+msgstr "En cliquant sur « Tester les paiements », vous acceptez les {{tosLink}}conditions d’utilisation{{/tosLink}}"
+
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:42
+msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
+msgstr "Optimisez vos paiements à l’aide d’une solution simple et tout-en-un. Vérifiez les détails de votre entreprise pour commencer à tester les transactions avec WooCommerce Payments."
+
+#: src/free-trial/fills/task-headers/payments.js:50
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:71
+msgid "Test payments"
+msgstr "Tester les paiements"
+
+#: src/free-trial/fills/task-headers/payments.js:40
+msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
+msgstr "Proposez à vos clients un moyen de paiement à la fois simple et pratique ! Configurez et testez certains de nos moyens de paiement rapides et sécurisés en ligne ou en personne."
+
+#: src/free-trial/fills/task-headers/payments.js:34
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:36
+msgid "It’s time to test payments"
+msgstr "Il est temps de tester les paiements"
+
+#: src/free-trial/fills/task-headers/payments.js:22
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:24
+msgid "Payment illustration"
+msgstr "Illustration de paiements"
+
+#: assets/scripts/free-trial-wc-payments.js:76
+msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
+msgstr "Vous êtes prêt à tester les fonctionnalités et les avantages de WooCommerce Payments."
+
+#: assets/scripts/free-trial-wc-payments.js:62
+msgid "You’re only steps away from getting ready to be paid"
+msgstr "Il ne reste que quelques étapes avant que vous puissiez être payé"
+
+#: assets/scripts/free-trial-wc-payments.js:39
+msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s'>upgrade to a pain plan</a>."
+msgstr "Les acomptes ne sont pas disponibles pendant la période d’essai. Pour commencer à traiter les transactions réelles et recevoir des paiements et des versements, <a href='%s'>passez à un plan payant</a>."
+
+#: assets/scripts/free-trial-wc-payments.js:31
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s'>upgrade to a paid plan</a>."
+msgstr "Seuls les administrateurs et les gérants de boutique peuvent passer des commandes pendant l’essai gratuit. Si vous êtes prêt à accepter les paiements des clients, <a href='%s'>passez à un plan payant</a>."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:85
+msgid "Tips, tricks, and ecommerce inspiration from our blog."
+msgstr "Conseils, astuces et inspiration eCommerce de notre blog."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:83
+#: includes/templates/html-admin-page-addons-landing-page.php:87
+msgid "Get inspired"
+msgstr "Trouver l’inspiration"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:73
+msgid "Discover collections"
+msgstr "Découvrir les collections"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:71
+msgid "Quickly get started with our curated extension collections."
+msgstr "Démarrer rapidement avec nos collections d’extensions sélectionnées."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:69
+msgid "Curated collections"
+msgstr "Collections sélectionnées"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:57
+msgid "Add extra features and functionality, or integrate with other platforms and tools."
+msgstr "Ajoutez des fonctionnalités supplémentaires ou intégrez-les à d’autres plateformes et outils."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:55
+msgid "Customize and extend"
+msgstr "Personnaliser et étendre"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:43
+msgid "Do more with your store – add extensions"
+msgstr "Allez plus loin avec votre boutique : ajoutez des extensions"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:31
+#: includes/templates/html-admin-page-addons-landing-page.php:59
+msgid "Browse extensions"
+msgstr "Parcourir les extensions"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:23
+msgid "Customize your store to work perfectly for your business, with Woo extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your business goals. Curious about what’s available? Browse our extensions marketplace."
+msgstr "Personnalisez votre boutique pour qu’elle fonctionne parfaitement pour votre entreprise, avec des extensions Woo. Passez à un plan payant pour pouvoir accéder à des centaines d’outils et de fonctionnalités qui peuvent vous aider à atteindre vos objectifs commerciaux. Envie de savoir ce qui est disponible ? Parcourez notre marché d’extensions."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:19
+#: includes/templates/html-admin-page-addons-landing-page.php:36
+#: includes/templates/html-admin-page-addons-landing-page.php:39
+msgid "Take your store to the next level, with extensions"
+msgstr "Passer votre boutique au niveau supérieur, avec des extensions"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:59
+msgid "1 minute"
+msgstr "1 minute"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:47
+msgid "It's time to celebrate! Ready to launch your store?"
+msgstr "L’heure de la fête est venue ! Prêt à lancer votre boutique ?"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:35
+#: includes/tasks/class-wc-calypso-task-launch-site.php:38
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: src/launch-store/index.js:150
+msgid "Launch your store"
+msgstr "Lancez votre boutique"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:32
+msgid "You've already launched your store"
+msgstr "Vous avez déjà lancé votre boutique"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:59
+msgid "2 minutes"
+msgstr "2 minutes"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:47
+msgid "Add your domain name and make your store unique."
+msgstr "Ajoutez votre nom de domaine et rendez votre boutique unique."
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:38
+msgid "Domain"
+msgstr "Domaine"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:35
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94
+#: src/launch-store/index.js:317 src/task-headers/add-domain.js:31
+#: src/task-headers/add-domain.js:44
+msgid "Add a domain"
+msgstr "Ajouter un domaine"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:32
+msgid "You added your domain"
+msgstr "Vous avez ajouté votre domaine"
+
+#: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:67
+msgid "Save up to $800 in fees by managing transactions with WooCommerce Payments. With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies."
+msgstr "Économisez jusqu’à 800 USD sur les frais en gérant les transactions avec WooCommerce Payments. Avec WooCommerce Payments, vous pouvez accepter en toute sécurité les principales cartes bancaires, Apple Pay et les paiements dans plus de 100 devises."
+
+#: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:41
+msgid "To deliver a smooth checkout experience to your shoppers, we have supercharged your store with our brand-new, conversion-optimized checkout. Please take a few minutes to review some important information on Extension compatibility with the new Cart and Checkout Blocks. Then, go ahead and customize your store's Cart and Checkout pages."
+msgstr "Pour offrir une expérience fluide de validation de commande à vos acheteurs, nous avons amélioré votre boutique avec notre toute nouvelle validation de commande optimisée pour la conversion. Prenez quelques minutes pour lire des informations importantes sur la compatibilité de l’extension avec les nouveaux blocs de panier et de validation de commande. Ensuite, personnalisez les pages de panier et de validation de commande de votre boutique."
+
+#: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:39
+msgid "Meet our new, customizable checkout"
+msgstr "Découvrez notre nouvelle validation de commande personnalisable"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:58
+msgid ""
+"\n"
+"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s'>upgrade to a paid plan</a>.\n"
+"\t\t"
+msgstr ""
+"\n"
+"\t\t\tPour le moment, vous êtes la seule personne à pouvoir voir votre boutique. Pour rendre votre boutique accessible à tous, <a href='%s'>passez à un plan payant</a>.\n"
+"\t\t"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
+#: includes/templates/html-admin-page-addons-landing-page.php:28
+msgid "Upgrade now"
+msgstr "Mettre à niveau maintenant"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:45
+msgid "During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling."
+msgstr "Pendant la période d’essai, vous ne pouvez passer que des commandes de test ! Pour recevoir des commandes des clients, passez à un plan payant. Vous pourrez alors commencer à vendre."
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:43
+msgid "Start selling to everyone"
+msgstr "Commencer à vendre à tout le monde"
+
+#: includes/class-wc-calypso-bridge-setup.php:327
+msgid "My Account"
+msgstr "Mon compte :"
+
+#: includes/class-wc-calypso-bridge-setup.php:325
+msgid "Contact"
+msgstr "contact"
+
+#: includes/class-wc-calypso-bridge-setup.php:316
+msgid "Home"
+msgstr "Accueil"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:59
+msgid "This site has already been launched"
+msgstr "Ce site a déjà été lancé"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:54
+msgid "You don't have permissions to launch this site"
+msgstr "Vous n’êtes pas autorisé à lancer ce site"
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:368
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "Seuls les administrateurs et les gérants de boutique peuvent passer des commandes pendant l’essai gratuit. Si vous êtes prêt à accepter les paiements des clients, <a href=\"%s\">passez à un plan payant</a>."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:297
+msgid "There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order."
+msgstr "Aucun moyen de paiement disponible. L'erreur vient peut-être de notre côté. Contactez-nous si vous avez besoin d’aide pour passer votre commande."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:283
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:315
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:322
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:330
+msgid "Your order could not be placed. Checkout functionality is currently enabled for preview purposes only."
+msgstr "Votre commande n’a pas pu être passée. Actuellement, la fonctionnalité de validation de commande est activée à des fins d’aperçu uniquement."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:271
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:298
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:340
+msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
+msgstr "Cette boutique n’est pas prête à accepter des commandes. Actuellement, la fonctionnalité de validation de commande est activée à des fins d’aperçu uniquement."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+msgid "Jetpack Stats"
+msgstr "Statistiques Jetpack"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:475
+msgid "Jetpack Status"
+msgstr "État de Jetpack"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:454
+msgid "Anti-Spam"
+msgstr "Anti-spam"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+msgid "Discover"
+msgstr "Découvrir"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+#: src/payment-gateway-suggestions/components/Action.js:76
+msgid "Manage"
+msgstr "Gérer"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+msgid "WooCommerce Subscriptions"
+msgstr "WooCommerce Subscriptions"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:295
+#: includes/templates/html-admin-page-addons-landing-page.php:15
+msgid "Extensions"
+msgstr "Extensions"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+msgid "Customers"
+msgstr "Clients"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:281
+msgid "Legacy Reports"
+msgstr "Anciens rapports"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:274
+msgid "WooCommerce Status"
+msgstr "État de WooCommerce"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+msgid "WooCommerce Settings"
+msgstr "Réglages WooCommerce"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:265
+msgid "Orders"
+msgstr "Commandes"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:182
+msgid "My Home"
+msgstr "Mon accueil"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+msgid "Feedback"
+msgstr "Remarque"
+
+#: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:70
+msgid "Save big with WooCommerce Payments"
+msgstr "Faites de grosses économies avec WooCommerce Payments"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:131
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
+msgid "No thanks"
+msgstr "Non merci"
+
+#: src/payment-gateway-suggestions/components/Action.js:27
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:159
+#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
+#: src/welcome-modal/index.js:56
+msgid "Get started"
+msgstr "Commencer"
+
+#. Author of the plugin
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
+msgstr "Une extension de fonctionnalités destinée à améliorer l’expérience des utilisateurs de boutiques sur WordPress.com."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://wordpress.com/"
+msgstr "http://wordpress.com/"
+
+#. Plugin Name of the plugin
+msgid "WooCommerce Calypso Bridge"
+msgstr "WooCommerce Calypso Bridge"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:16
+msgid "Make your check payable to..."
+msgstr "Faire un chèque à l'ordre de…"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:15
+msgid "Pay for this order by check."
+msgstr "Payer cette commande par chèque."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-add-bacs-accounts.php:92
+msgid "An invalid setting value was passed."
+msgstr "Une valeur de paramètre non valide a été passée."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:118
+msgid "Cannot create order note, please try again."
+msgstr "Impossible de créer une note de commande, veuillez essayer de nouveau."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:116
+msgid "Order details manually sent to customer."
+msgstr "Détails de la commande envoyés manuellement au client."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:107
+msgid "Invalid order ID."
+msgstr "ID commande non valide."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:70
+msgid "Sorry, you cannot view this resource."
+msgstr "Désolé, vous ne pouvez pas afficher cette ressource."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:374
+msgid "Featured image for the product."
+msgstr "Image à la une du produit."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:368
+msgid "Name of the product."
+msgstr "Nom du produit."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:362
+msgid "ID of the product."
+msgstr "Identifiant du produit."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:356
+msgid "Basic information on the product that the review is for."
+msgstr "Informations de base sur le produit auquel l’avis est destiné."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:349
+msgid "Status of the review"
+msgstr "État de l'avis"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:343
+msgid "Shows if the reviewer bought the product or not."
+msgstr "Indique si l&rsquo;évaluateur a acheté le produit ou non."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:338
+msgid "URLs for the reviewer's avatar."
+msgstr "URL de l’avatar de d'évaluateur."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:333
+msgid "Reviewer email."
+msgstr "Email de l&rsquo;évaluateur."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:328
+msgid "Reviewer name."
+msgstr "Nom de l&rsquo;évaluateur."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:323
+msgid "Review rating (0 to 5)."
+msgstr "Note de l’avis (0 à 5)."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:318
+msgid "The date the review was created, as GMT."
+msgstr "La date à laquelle l&rsquo;avis a été créé, format GMT."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:313
+msgid "The date the review was created, in the site's timezone."
+msgstr "La date à laquelle l&rsquo;avis a été créé, en fuseau horaire du site."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:308
+msgid "The content of the review."
+msgstr "Le contenu de l&rsquo;avis."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:302
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:49
+msgid "Unique identifier for the resource."
+msgstr "Identifiant unique pour la ressource."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:281
+msgid "Limit results to those matching a string."
+msgstr "Limiter les résultats à ceux qui correspondent à une chaîne de caractères."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:274
+msgid "Limit result set to reviews assigned a specific product."
+msgstr "Limitez le jeu de résultats aux avis affectés à un produit spécifique."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:266
+msgid "Order sort attribute ascending or descending."
+msgstr "Le paramètre order trie les attributs dans l’ordre croissant ou décroissant."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:256
+msgid "Maximum number of items to be returned in result set."
+msgstr "Nombre maximal d'éléments à renvoyer dans le groupe de résultats."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:247
+msgid "Current page of the collection."
+msgstr "Page courante dans la collection."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:240
+msgid "Limit result set to reviews with a specific status."
+msgstr "Limiter le jeu de résultats aux avis affectés à un état spécifique."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-mailchimp-settings-controller.php:111
+msgid "Sorry, you cannot edit this resource."
+msgstr "Désolé, vous ne pouvez pas modifier cette ressource."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+msgid "Collection of review totals by comment status."
+msgstr "Ensemble des avis totaux par statut de commentaire."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+msgid "Collection of product totals by stock status."
+msgstr "Ensemble des produits totaux par état de stock."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+msgid "Collection of order totals by order status."
+msgstr "Ensemble des commandes totales par état de commande."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:60
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:63
+msgid "Sorry, you cannot list resources."
+msgstr "Désolé, vous ne pouvez pas lister les ressources."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "You can change this text by editing the \"Parallax Hero\" Section via the \"Powerpack\" settings in the Customizer on the left hand side of your screen."
+msgstr "Vous pouvez modifier ce texte en modifiant la section « Parallax Hero » au moyen du paramètre « Powerpack » dans l’outil de personnalisation situé à gauche de l’écran."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "This is your homepage which is what most visitors will see when they first visit your shop."
+msgstr "Il s’agit de votre page d’accueil et de la page que la plupart des visiteurs verront lorsqu’ils accéderont à votre boutique pour la première fois."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:96
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:43
+msgid "Add New"
+msgstr "Ajouter"
+
+#: includes/class-wc-calypso-bridge-plugins.php:181
+msgid "WooCommerce can't be deactivated on the eCommerce plan."
+msgstr "Impossible de désactiver WooCommerce dans le plan eCommerce."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
+msgid "Store"
+msgstr "Boutique"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+msgid "Stats"
+msgstr "Statistiques"
+
+#: src/free-trial/tax/components/location.js:23
+msgid "Continue"
+msgstr "Continuer"
+
+#: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:52
+#: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:76
+#: src/homescreen-banner/index.js:57
+msgid "Learn more"
+msgstr "Informations détaillées."
+
+#: includes/class-wc-calypso-bridge-addons.php:89
+msgid "WooCommerce extensions"
+msgstr "Extensions de WooCommerce"
+
+#. translators: %s: extensions count
+#: includes/class-wc-calypso-bridge-addons.php:88
+msgid "Extensions %s"
+msgstr "Extensions %s"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:129
+msgid "Built with Storefront &amp; WordPress.com"
+msgstr "Intègre Storefront et WordPress.com"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:129
+msgid "WordPress.com - The Best eCommerce Platform for WordPress"
+msgstr "WordPress.com - La meilleure plate-forme d’eCommerce pour WordPress"
