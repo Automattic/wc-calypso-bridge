@@ -22,8 +22,18 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.2.4 =
+* Hide Brands column in Products list table #1235
+* Reverted !important fixed positioning on snackbar css as it's been changed to absolute on WooCommerce Core #1234
+* Fixed free trial banner position #1237
+* Remove double headings in the Marketing and Extensions pages on the free trial #1239
+* Disable ecommerce menu and relevant JS fixes when SSO is disabled #925
+
+= 2.2.2 =
 * Reverted hidden activity bar in WC Admin pages #1217
+* Disable ecommerce menu and relevant JS fixes when SSO is disabled #925
+* Introduced the woocommerce_woo_express_remindertopbar_woo_screens_nudge_202307_v1 experiment #1219
+* Hide storefront theme suggestion in addons page #1227
 
 = 2.2.1 =
 * Fixed fatal error caused by not checking if tasklist exists #1212

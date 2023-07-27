@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.5
+ * @version 2.2.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -238,7 +238,7 @@ class WC_Calypso_Bridge_Plugins {
 	 */
 	public function hide_product_columns( $hidden, $screen ) {
 		if ( isset( $screen->id ) && 'edit-product' === $screen->id ) {
-			return array_merge( $hidden, array( 'likes', 'date' ) );
+			return array_merge( $hidden, array( 'likes', 'date', 'taxonomy-product_brand' ) );
 		}
 
 		return $hidden;

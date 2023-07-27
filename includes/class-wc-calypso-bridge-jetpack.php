@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.9.8
- * @version 2.0.0
+ * @version 2.2.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -72,7 +72,7 @@ class WC_Calypso_Bridge_Jetpack {
 			 * @return bool
 			 */
 
-			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
+			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) && class_exists('\Jetpack') && \Jetpack::is_module_active( 'sso' ) ) {
 				require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-ecommerce-admin-menu.php';
 				return Ecommerce_Atomic_Admin_Menu::class;
 			}
