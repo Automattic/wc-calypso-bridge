@@ -43,3 +43,8 @@
 	.woocommerce-experimental-list__item.complete {
 	color: var( --wp-admin-theme-color );
 }
+
+.woocommerce-task-tax__success {
+	flex-direction: row !important;
+	padding: 0!important;
+}
