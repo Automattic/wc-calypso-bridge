@@ -1,10 +1,10 @@
 <?php
 /**
-* Admin View: Page - Addons
+* Admin View: Page - Plugins
 *
 * @package WC_Calypso_Bridge/Templates
-* @since   2.0.4
-* @version 2.2.4
+* @since   x.x.x
+* @version x.x.x
 *
 * @uses $upgrade_url
 */
@@ -86,34 +86,3 @@
 	</div>
 
 </div>
-
-<script>
-document.addEventListener( 'DOMContentLoaded', function() {
-	// Prefer wc.tracks.recordEvent since it supports debugging.
-	let recordEvent = null;
-	if ( window.wc && window.wc.tracks && window.wc.tracks.recordEvent ) {
-		recordEvent = window.wc.tracks.recordEvent;
-	} else if ( window.wcTracks && window.wcTracks.recordEvent ) {
-		recordEvent = window.wcTracks.recordEvent;
-	} else {
-		recordEvent = function() {};
-	}
-
-	const recordButtonEvent = function( buttonId, eventName ) {
-		const el = document.getElementById( buttonId );
-		if ( el ) {
-			el.addEventListener( 'click', function() {
-				recordEvent( eventName, {
-					source: 'extensions',
-				} );
-			} );
-		}
-	};
-
-	recordButtonEvent( 'upgrade_now_button', 'free_trial_upgrade_now' );
-	recordButtonEvent( 'browse_extension_button', 'free_trial_browse_extensions' );
-	recordButtonEvent( 'browse_extension_button_2', 'free_trial_browse_extensions' );
-	recordButtonEvent( 'discover_collections_button', 'free_trial_discover_collections' );
-	recordButtonEvent( 'get_inspired_button', 'free_trial_get_inspired' );
-} );
-</script>

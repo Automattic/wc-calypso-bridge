@@ -23,20 +23,20 @@
 
 /* Extensions > Discover landing page styles. */
 
-body.woocommerce_page_wc-addons-landing-page {
+body.woocommerce_page_wc-bridge-landing-page {
 	background: white;
 }
 
-body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
+body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	display: none;
 }
 
-.wc-addons-landing-page {
+.wc-bridge-landing-page {
 	background: white;
 	color: #2F2F2F; /* gray-80 */
 }
 
-.wc-addons-landing-page__title {
+.wc-bridge-landing-page__title {
 	font-size: 32px;
 	line-height: 40px;
 	font-weight: 400;
@@ -45,7 +45,7 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	margin: .67em auto;
 	padding: 0 2em;
 }
-.wc-addons-landing-page__description {
+.wc-bridge-landing-page__description {
 	font-size: 16px;
 	line-height: 24px;
 	text-align: center;
@@ -54,39 +54,39 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	padding: 0 2em;
 }
 
-.wc-addons-landing-page__button-container {
+.wc-bridge-landing-page__button-container {
 	margin: 0 auto 120px;
 	text-align: center;
 }
-.wc-addons-landing-page__button-container .button {
+.wc-bridge-landing-page__button-container .button {
 	line-height: 1em;
 	padding: 13px 16px;
 }
-.wc-addons-landing-page__button-container .button-secondary {
+.wc-bridge-landing-page__button-container .button-secondary {
 	background: white;
 	color: var( --wp-admin-theme-color ) !important;
 }
-.wc-addons-landing-page__button-container .button-primary {
+.wc-bridge-landing-page__button-container .button-primary {
 	margin-right: 20px;
 	color: white !important;
 }
 
-.wc-addons-landing-page__hero-image-container--mobile {
+.wc-bridge-landing-page__hero-image-container--mobile {
 	display: none;
 	background-color: #F6F7F7; /* Gray-0 */
 	text-align: center;
 }
-.wc-addons-landing-page__hero-image-container {
+.wc-bridge-landing-page__hero-image-container {
 	background-color: #F6F7F7; /* Gray-0 */
 	text-align: center;
 }
-.wc-addons-landing-page__hero-image-container--mobile img,
-.wc-addons-landing-page__hero-image-container img {
+.wc-bridge-landing-page__hero-image-container--mobile img,
+.wc-bridge-landing-page__hero-image-container img {
 	width: 80%;
 	margin-top: -60px;
 }
 
-.wc-addons-landing-page__sub-title {
+.wc-bridge-landing-page__sub-title {
 	font-size: 24px;
 	line-height: 32px;
 	font-weight: 400;
@@ -96,7 +96,7 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	padding: 0 2em;
 }
 
-.wc-addons-landing-page__features-grid {
+.wc-bridge-landing-page__features-grid {
 	max-width: 1100px;
 	margin: 65px auto 0;
 	display: flex;
@@ -104,12 +104,12 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	text-align: center;
 }
 
-.wc-addons-landing-page__features-grid__item {
+.wc-bridge-landing-page__features-grid__item {
 	width: 33%;
 	padding: 0 35px;
 }
 
-.wc-addons-landing-page__features-grid__item__icon {
+.wc-bridge-landing-page__features-grid__item__icon {
 	text-align: center;
 	background: var( --color-accent-5 );
 	width: 64px;
@@ -121,80 +121,85 @@ body.woocommerce_page_wc-addons-landing-page #screen-meta-links {
 	justify-content: center;
 }
 
-.wc-addons-landing-page__features-grid__item h3 {
+.wc-bridge-landing-page__features-grid__item h3 {
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 600;
 	margin: 30px 0 10px;
 }
-.wc-addons-landing-page__features-grid__item p {
+.wc-bridge-landing-page__features-grid__item p {
 	font-size: 16px;
 	line-height: 24px;
 	font-weight: 400;
 	margin: 0;
 }
-.wc-addons-landing-page__features-grid__item a {
+.wc-bridge-landing-page__features-grid__item a {
 	font-size: 13px;
 	text-decoration: none;
 	color: var( --wp-admin-theme-color );
 	padding: 1em;
 	display: inline-block;
 }
-.wc-addons-landing-page__features-grid__item a:hover {
+.wc-bridge-landing-page__features-grid__item a:hover {
 	color: var( --wp-admin-theme-color );
 	text-decoration: underline;
 }
 
-body.woocommerce_page_wc-addons .wc-addons-wrap .storefront {
+body.woocommerce_page_wc-bridge .wc-bridge-wrap .storefront {
 	display: none;
 }
 
 @media screen and (max-width: 782px) {
-	.wc-addons-landing-page__features-grid__item {
+	.wc-bridge-landing-page__features-grid__item {
 		padding: 0 10px;
 	}
 }
 @media screen and (max-width: 600px) {
 
-	body.woocommerce_page_wc-addons-landing-page #wpbody-content {
+	body.woocommerce_page_wc-bridge-landing-page #wpbody-content {
 		padding-bottom: 0;
 	}
 
-	.wc-addons-landing-page__title {
+	.wc-bridge-landing-page__title {
 		font-size: 24px;
 		line-height: 32px;
 		margin: 40px auto .67em;
 	}
-	.wc-addons-landing-page__description {
+	.wc-bridge-landing-page__description {
 		font-size: 13px;
 		line-height: 16px;
 	}
-	.wc-addons-landing-page__button-container {
+	.wc-bridge-landing-page__button-container {
 		margin: 0 auto 80px;
 	}
-	.wc-addons-landing-page__sub-title {
+	.wc-bridge-landing-page__sub-title {
 		font-size: 20px;
 		line-height: 28px;
 		margin: 50px auto .67em;
 	}
-	.wc-addons-landing-page__hero-image-container--mobile {
+	.wc-bridge-landing-page__hero-image-container--mobile {
 		display: block;
 	}
-	.wc-addons-landing-page__hero-image-container--mobile img {
+	.wc-bridge-landing-page__hero-image-container--mobile img {
 		width: 100%;
 	}
-	.wc-addons-landing-page__hero-image-container {
+	.wc-bridge-landing-page__hero-image-container {
 		display: none;
 	}
-	.wc-addons-landing-page__features-grid {
+	.wc-bridge-landing-page__features-grid {
 		flex-wrap: wrap;
 		margin: 32px auto 0;
 	}
-	.wc-addons-landing-page__features-grid__item {
+	.wc-bridge-landing-page__features-grid__item {
 		width: 100%;
 		padding: 0 50px;
 		margin-bottom: 40px;
 	}
+}
+
+/* Plugins landing page styles. */
+body.woocommerce_page_wc-plugins-landing-page .wc-bridge-landing-page {
+	margin-top: 10em;
 }
 
 .woocommerce-task-list__setup
