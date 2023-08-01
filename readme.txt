@@ -22,12 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= unreleased = 
-* Add 'host' parameter to WooCommerce analytics collected by Jetpack #xxx
+= 2.2.6 =
+* Add 'host' parameter to WooCommerce analytics collected by Jetpack #1244
 
 = 2.2.5 =
 * Enable downloading updated translation files
-
 
 = 2.2.4 =
 * Hide Brands column in Products list table #1235
