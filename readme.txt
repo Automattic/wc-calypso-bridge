@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.6 =
+* Add 'host' parameter to WooCommerce analytics collected by Jetpack #1244
+
 = unreleased = 
 * Add 'host' parameter to WooCommerce analytics collected by Jetpack #xxx
 
