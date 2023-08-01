@@ -55,10 +55,9 @@ export default async function updateTranslations() {
 		info( 'Executing wp i18n make-pot command...' );
 
 		// If the `wp i18n make-pot` command generates an error, an exception is thrown
-		const makePotResult = await execPromise(
+		await execPromise(
 			`${ wpPath } i18n make-pot . ${ POT_FILE_PATH } --ignore-domain`
 		);
-
 		success( 'wp i18n make-pot command executed successfully.' );
 
 		const status = await git.status();
