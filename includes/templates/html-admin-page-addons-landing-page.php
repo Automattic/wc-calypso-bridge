@@ -16,7 +16,7 @@
 	</h1>
 
 	<p class="wc-bridge-landing-page__description">
-		<?php esc_html_e( 'Customize your store to work perfectly for your business, with Woo extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your business goals. Curious about what’s available? Browse our extensions marketplace.', 'wc-calypso-bridge' ); ?>
+		<?php esc_html_e( 'Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace.', 'wc-calypso-bridge' ); ?>
 	</p>
 
 	<div class="wc-bridge-landing-page__button-container">
@@ -24,7 +24,7 @@
 			<?php esc_html_e( 'Upgrade now', 'wc-calypso-bridge' ); ?>
 		</a>
 		<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" class="button button-secondary" id="browse_extension_button">
-			<?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?>
+			<?php esc_html_e( 'Browse Extensions', 'wc-calypso-bridge' ); ?>
 		</a>
 	</div>
 
@@ -34,10 +34,6 @@
 	<div class="wc-bridge-landing-page__hero-image-container--mobile">
 		<img src="<?php echo WC_Calypso_Bridge_Instance()->get_asset_path() . 'assets/images/extensions-landing-page-hero-mobile.png' ?>" alt="<?php esc_html_e( 'Take your store to the next level, with extensions', 'wc-calypso-bridge' ); ?>">
 	</div>
-
-	<h2 class="wc-bridge-landing-page__sub-title">
-		<?php esc_html_e( 'Do more with your store – add extensions', 'wc-calypso-bridge' ); ?>
-	</h2>
 
 	<div class="wc-bridge-landing-page__features-grid">
 

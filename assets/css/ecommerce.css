@@ -126,6 +126,7 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	line-height: 24px;
 	font-weight: 600;
 	margin: 30px 0 10px;
+	text-transform: capitalize;
 }
 .wc-bridge-landing-page__features-grid__item p {
 	font-size: 16px;
