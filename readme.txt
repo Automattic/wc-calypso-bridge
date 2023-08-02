@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.6 =
+* Fix Tax task for free trial #1247
+
 = 2.2.5 =
 * Enable downloading updated translation files
 
