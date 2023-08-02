@@ -74,7 +74,7 @@
 			</div>
 			<h3><?php esc_html_e( 'Do it your way', 'wc-calypso-bridge' ); ?></h3>
 			<p>
-				<?php esc_html_e( 'Can’t find the right plugin for your needs? From service integrations to new, exotic features, our experts can help you build the store of your dreams.', 'wc-calypso-bridge' ); ?>
+				<?php esc_html_e( 'Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right.', 'wc-calypso-bridge' ); ?>
 			</p>
 			<a href="https://woocommerce.com/customizations?utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="get_inspired_button"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
 		</div>
