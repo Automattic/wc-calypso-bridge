@@ -30,22 +30,7 @@ export const AutomatedTaxes: React.FC<
 					onAutomate();
 				} }
 			>
-				{ __( 'Yes please', 'woocommerce' ) }
-			</Button>
-			<Button
-				disabled={ isPending }
-				isTertiary
-				onClick={ () => {
-					recordEvent( 'tasklist_tax_setup_automated_proceed', {
-						setup_automatically: false,
-					} );
-					onManual();
-				} }
-			>
-				{ __( "No thanks, I'll set up manually", 'woocommerce' ) }
-			</Button>
-			<Button disabled={ isPending } isTertiary onClick={ onDisable }>
-				{ __( "I don't charge sales tax", 'woocommerce' ) }
+				{ __( 'Automate taxes', 'woocommerce' ) }
 			</Button>
 		</div>
 	);
