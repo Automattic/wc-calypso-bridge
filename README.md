@@ -14,6 +14,15 @@ npm run build
 
 ## Deployment
 
+**IMPORTANT NOTE**
+
+Deployment steps shouldn't be followed until after the PR containing your changes has been approved and merged. Release/Deploy PRs shouldn't contain any function changes.
+
+1. Create a PR for your changes (bug fix, update, etc).
+2. Get a review and approval.
+3. Merge your change PR.
+4. Start following the automated deployment process below.
+
 ### Automated Deployment
 
 We now have a series of scripts that will help with automating the release process. To use these scripts, do the following.
