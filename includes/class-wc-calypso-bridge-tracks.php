@@ -6,7 +6,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version 2.1.3
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -87,6 +87,7 @@ class WC_Calypso_Bridge_Tracks {
 		add_filter( 'admin_footer', array( $this, 'add_tracks_id_mismatch_monkey_patch' ), 23 );
 
 		add_filter( 'woocommerce_tracks_event_properties', array( $this, 'add_tracks_php_filter' ), 10, 2 );
+		add_filter( 'jetpack_woocommerce_analytics_event_props', array( $this, 'filter_jetpack_woocommerce_analytics_event_props' ) );
 		add_filter( 'woocommerce_admin_survey_query', array( $this, 'set_survey_source' ) );
 
 		// Hide WooCommerce.com advanced settings page.
@@ -181,10 +182,23 @@ class WC_Calypso_Bridge_Tracks {
 	 * Add filter to PHP-based tracks events.
 	 *
 	 * @param array  $properties Current event properties array.
-	 * @param string $event_name Nmae of the event.
+	 * @param string $event_name Name of the event.
 	 */
 	public function add_tracks_php_filter( $properties, $event_name ) {
 		$properties['host'] = self::$tracks_host_value;
+		return $properties;
+	}
+
+	/**
+	 * Filter JS-based Jetpack WooCommerce Analytics events.
+	 *
+	 * @param array  $properties Current event properties array.
+	 *
+	 * @since x.x.x
+	 */
+	public function filter_jetpack_woocommerce_analytics_event_props( $properties ) {
+		$properties['host'] = self::$tracks_host_value;
+
 		return $properties;
 	}
 
