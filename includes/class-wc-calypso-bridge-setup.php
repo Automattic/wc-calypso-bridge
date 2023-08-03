@@ -234,7 +234,7 @@ class WC_Calypso_Bridge_Setup {
 			// Set the operation as completed if the store is active for more than 1 hour.
 			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
-				$this->write_to_log( $operation, 'completed (15 minutes)' );
+				$this->write_to_log( $operation, 'completed (60 minutes)' );
 
 				return;
 			}
