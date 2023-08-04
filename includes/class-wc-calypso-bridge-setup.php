@@ -61,14 +61,6 @@ class WC_Calypso_Bridge_Setup {
 	protected $option_prefix = 'wc_calypso_bridge_one_time_operation_';
 
 	/**
-	 * Log prefix.
-	 *
-	 * @since xxx
-	 * @var string
-	 */
-	protected $log_prefix = 'WooExpress: Operation: ';
-
-	/**
 	 * Constructor.
 	 */
 	private function __construct() {
@@ -270,7 +262,7 @@ class WC_Calypso_Bridge_Setup {
 
 			if ( 'completed' === $status ) {
 				$wpdb->query( 'ROLLBACK' );
-				$this->write_to_log( $operation, 'ROLLBACK' );
+				$this->write_to_log( $operation, 'ROLLBACK - already completed' );
 
 				return;
 			}
@@ -282,11 +274,11 @@ class WC_Calypso_Bridge_Setup {
 				 * `My Account` page, has slug `my-account`.
 				 * @see WC_Install::create_pages()
 				 */
-				foreach ( [ 'shop', 'cart', 'my-account', 'checkout', 'refund_returns' ] as $page ) {
-					$page = get_page_by_path( $page, ARRAY_A );
+				foreach ( [ 'shop', 'cart', 'my-account', 'checkout', 'refund_returns' ] as $page_slug ) {
+					$page = get_page_by_path( $page_slug, ARRAY_A );
 					if ( is_array( $page ) && isset( $page['ID'] ) ) {
 						wp_delete_post( $page['ID'], true );
-						$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page );
+						$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page_slug );
 					}
 				}
 
@@ -301,8 +293,8 @@ class WC_Calypso_Bridge_Setup {
 				 */
 				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
 					delete_option( "woocommerce_{$page}_page_id" );
+					$this->write_to_log( $operation, 'deleted WooCommerce page id for page ' . $page );
 				}
-				$this->write_to_log( $operation, 'deleted WooCommerce page ids' );
 
 				// Delete the following note, so it can be recreated with the correct refund page ID.
 				if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
@@ -310,7 +302,7 @@ class WC_Calypso_Bridge_Setup {
 				}
 
 				WC_Install::create_pages();
-				$this->write_to_log( $operation, 'called WC_Install::create_pages' );
+				$this->write_to_log( $operation, 'finished WC_Install::create_pages' );
 
 				// Get navigation menu page and set up the menu.
 				$menu_page_slugs = array(
@@ -649,7 +641,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	private function write_to_log( $operation, $message ) {
-		error_log( $this->log_prefix . '(' . microtime( true ) . ') ' . $operation . ': ' . print_r( $message, 1 ) );
+		error_log(  'WooExpress: Operation: (' . microtime( true ) . ') ' . $operation . ': ' . print_r( $message, 1 ) );
 	}
 }
 
