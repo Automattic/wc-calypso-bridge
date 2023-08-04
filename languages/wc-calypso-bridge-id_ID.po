@@ -1,0 +1,774 @@
+# Translation of WooCommerce - Calypso Bridge in Indonesian
+# This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-04-14 12:54:19+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: id\n"
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+
+#: src/welcome-modal/index.js:100
+msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
+msgstr "Menyelesaikan pekerjaan dengan WooCommerce jadi lebih cepat. <a>Pelajari selengkapnya</a> tentang navigasi baru kami—atau jelajahi secara mandiri."
+
+#: src/welcome-modal/index.js:93
+msgid "Move faster with our new navigation"
+msgstr "Gerak lebih cepat dengan navigasi baru kami"
+
+#: src/welcome-modal/index.js:73
+msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
+msgstr "Dapatkan tips dan wawasan mengenai performa toko Anda setiap kali Anda masuk ke dasbor WordPress.com."
+
+#: src/welcome-modal/index.js:70
+msgid "Meet your new Home"
+msgstr "Selamat datang di Beranda baru Anda"
+
+#: src/task-headers/add-domain.js:34
+msgid "Choose a new website address for your store or transfer one you already own."
+msgstr "Tentukan alamat situs baru untuk toko Anda atau alihkan yang sudah Anda punya."
+
+#: src/task-headers/add-domain.js:22
+msgid "Add a domain illustration"
+msgstr "Tambahkan ilustrasi domain"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:160
+msgid "Save"
+msgstr "Simpan"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:147
+msgid "BIC / Swift"
+msgstr "BIC / Swift"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:139
+msgid "IBAN"
+msgstr "IBAN"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:129
+msgid "Sort code"
+msgstr "Kode Pengurutan"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:119
+msgid "Bank name"
+msgstr "Nama Bank"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:109
+msgid "Account number"
+msgstr "Nomor Rekening"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:99
+msgid "Account name"
+msgstr "Nama Rekening"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:92
+msgid "These details are required to receive payments via bank transfer"
+msgstr "Detail ini diperlukan untuk menerima pembayaran melalui transfer bank"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:86
+msgid "Add your bank details"
+msgstr "Tambahkan detail bank Anda"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:53
+msgid "Direct bank transfer details added successfully"
+msgstr "Detail transfer bank langsung berhasil ditambahkan"
+
+#: src/payment-gateway-suggestions/plugins/Bacs.js:32
+msgid "Please enter an account number or IBAN"
+msgstr "Harap masukkan nomor akun atau IBAN"
+
+#: src/payment-gateway-suggestions/index.js:279
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
+msgstr "Hanya Administrator dan Pengelola Toko yang bisa membuat pesanan selama percobaan gratis. Jika Anda siap menerima pembayaran dari pelanggan, {{link}}lakukan upgrade ke paket berbayar{{/link}}."
+
+#: src/payment-gateway-suggestions/index.js:266
+msgid "Offline payment methods"
+msgstr "Metode pembayaran offline"
+
+#: src/payment-gateway-suggestions/index.js:257
+msgid "See more"
+msgstr "Lihat Selengkapnya"
+
+#: src/payment-gateway-suggestions/index.js:236
+msgid "Try one of the alternative payment providers."
+msgstr "Coba salah satu penyedia pembayaran alternatif."
+
+#: src/payment-gateway-suggestions/index.js:232
+#: src/payment-gateway-suggestions/index.js:304
+msgid "Other payment providers"
+msgstr "Penyedia pembayaran lainnya"
+
+#: src/payment-gateway-suggestions/index.js:227
+msgid "Give your customers additional choices in ways to pay."
+msgstr "Berikan pilihan tambahan bagi pelanggan terkait metode pembayaran."
+
+#: src/payment-gateway-suggestions/index.js:223
+msgid "Additional payment options"
+msgstr "Pilihan pembayaran tambahan"
+
+#: src/payment-gateway-suggestions/index.js:217
+msgid "To get ready to accept online payments"
+msgstr "Siap menerima pembayaran secara online"
+
+#: src/payment-gateway-suggestions/index.js:213
+msgid "Choose a payment provider"
+msgstr "Pilih penyedia pembayaran"
+
+#: src/payment-gateway-suggestions/components/WCPay/utils.js:15
+msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
+msgstr "Ada error saat menyambunkan ke WooCommerce Payments. Silakan coba lagi atau hubungkan nanti di pengaturan toko."
+
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
+msgid "I agree"
+msgstr "Saya setuju"
+
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
+msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
+msgstr "Dengan setuju untuk membagikan {{link}}data penggunaan{{/link}} yang tidak sensitif, Anda membantu kami meningkatkan fitur dan mengoptimalkan pengalaman WooCommerce Payments. Anda dapat berhenti membagikan kapan saja."
+
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
+msgid "Help us build a better WooCommerce Payments experience"
+msgstr "Bantu kami membangun pengalaman WooCommerce Payments yang lebih baik"
+
+#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
+msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
+msgstr "Dengan menggunakan WooCommerce Payments, Anda sepakat untuk terikat pada {{tosLink}}Ketentuan Layanan{{/tosLink}} kami dan mengonfirmasi bahwa Anda sudah membaca {{privacyLink}}Kebijakan Privasi{{/privacyLink}} kami "
+
+#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
+msgid "Get ready to accept payments"
+msgstr "Bersiaplah menerima pembayaran"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:132
+msgid "Yes, count me in!"
+msgstr "Ya, saya ikut!"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:114
+msgid "Build a better WooCommerce"
+msgstr "Buat WooCommerce yang lebih baik"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:55
+msgid "There was a problem updating your preferences"
+msgstr "Ada kendala saat memperbarui preferensi Anda"
+
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:122
+msgid "Configure your %(title)s account"
+msgstr "Konfigurasikan %(title)s akun Anda"
+
+#. translators: %s = title of the payment gateway to install
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:90
+msgid "Install %s"
+msgstr "Instal %s"
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:152
+msgid "You can manage this payment gateway's settings by clicking the button below"
+msgstr "Anda dapat mengelola pengaturan gateway pembayaran ini dengan mengeklik tombol di bawah"
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:133
+msgid "Connect"
+msgstr "Hubungkan"
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:100
+msgid "Proceed"
+msgstr "Lanjutkan"
+
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:84
+#: src/payment-gateway-suggestions/plugins/Bacs.js:63
+msgid "There was a problem saving your payment settings"
+msgstr "Ada masalah saat menyimpan pengaturan pembayaran Anda"
+
+#. translators: %s = title of the payment gateway
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:75
+msgid "%s configured successfully"
+msgstr "%s berhasil dikonfigurasi"
+
+#: src/payment-gateway-suggestions/components/List/Item.js:81
+msgid "Recommended"
+msgstr "Disarankan"
+
+#: src/payment-gateway-suggestions/components/List/Item.js:80
+msgid "Local Partner"
+msgstr "Mitra Lokal"
+
+#: src/payment-gateway-suggestions/components/Action.js:138
+msgid "Finish setup"
+msgstr "Selesaikan Penyiapan"
+
+#: src/payment-gateway-suggestions/components/Action.js:99
+msgid "Enable"
+msgstr "Aktifkan"
+
+#: src/launch-store/index.js:387
+msgid "Launch anyway"
+msgstr "Tetap luncurkan"
+
+#: src/launch-store/index.js:377
+msgid "A few things to check before launching your store"
+msgstr "Beberapa hal yang perlu diperiksa sebelum meluncurkan toko Anda"
+
+#: src/launch-store/index.js:374
+msgid "Before you launch"
+msgstr "Sebelum Anda meluncurkan"
+
+#: src/launch-store/index.js:313
+msgid "Choose an address for your new website or transfer a domain you already own."
+msgstr "Tentukan alamat untuk situs baru Anda atau alihkan domain yang sudah Anda punya."
+
+#: src/launch-store/index.js:309
+msgid "List products"
+msgstr "Buat daftar produk"
+
+#: src/launch-store/index.js:305
+msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
+msgstr "Mulai berjualan dengan menambahkan produk atau layanan ke toko Anda. Buat produk-produk Anda secara manual, atau impor dari toko yang sudah ada."
+
+#: src/launch-store/index.js:304
+msgid "List your products"
+msgstr "Buat daftar produk Anda"
+
+#: src/launch-store/index.js:296
+msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
+msgstr "Hadirkan metode pembayaran yang praktis dan mudah untuk pelanggan! Siapkan satu (atau lebih!) metode pembayaran langsung atau online yang cepat dan aman."
+
+#: src/launch-store/index.js:295 src/launch-store/index.js:300
+msgid "Get paid"
+msgstr "Terima pembayaran"
+
+#: src/launch-store/index.js:257 src/launch-store/index.js:396
+msgid "You can always revert this under <a>Settings</a>."
+msgstr "Anda selalu bisa mengembalikan perubahan ini di <a>Pengaturan</a>."
+
+#: src/launch-store/index.js:243
+msgid "It's time to celebrate – you're ready to launch your store! Woo!"
+msgstr "Sudah tiba waktunya – toko Anda siap diluncurkan! Yey!"
+
+#: src/launch-store/index.js:237
+msgid "Ready to launch your store?"
+msgstr "Siap meluncurkan toko Anda?"
+
+#: src/launch-store/index.js:203
+msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
+msgstr "Berubah pikiran? Anda bisa mengatur agar toko kembali berstatus privat dengan memperbarui pengaturan <a>Privasi</a>."
+
+#: src/launch-store/index.js:197
+msgid "View your store"
+msgstr "Lihat toko Anda"
+
+#: src/launch-store/index.js:177
+msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
+msgstr "Selamat! Anda berhasil meluncurkan toko WooCommerce. Luangkan waktu untuk merayakan dan memberitakannya!"
+
+#: src/launch-store/index.js:173
+msgid "Woo! You did it!"
+msgstr "Yey! Anda berhasil!"
+
+#: src/launch-store/index.js:137
+msgid "Launching your store"
+msgstr "Meluncurkan toko Anda"
+
+#: src/launch-store/index.js:67
+msgid "Copied"
+msgstr "Disalin"
+
+#: src/homescreen-banner/index.js:61
+msgid "Dismiss this free trial informational banner."
+msgstr "Tutup banner informasi percobaan gratis ini."
+
+#: src/homescreen-banner/index.js:45
+msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
+msgstr "Ini adalah toko percobaan gratis. Anda bisa mulai menjelajahi semua fitur yang tersedia! Untuk mempelajari selengkapnya tentang percobaan gratis, klik \"Pelajari selengkapnya\"."
+
+#: src/free-trial/tax/components/location.js:53
+msgid "There was a problem saving your store location"
+msgstr "Ada masalah saat menyimpan lokasi toko Anda"
+
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:49
+msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
+msgstr "Dengan mengeklik \"Uji pembayaran,\" Anda setuju dengan {{tosLink}}Ketentuan Layanan{{/tosLink}}"
+
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:42
+msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
+msgstr "Perkuat sistem pembayaran Anda dengan pilihan lengkap dan mudah. Periksa detail bisnis Anda untuk mulai menguji transaksi dengan WooCommerce Payments."
+
+#: src/free-trial/fills/task-headers/payments.js:50
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:71
+msgid "Test payments"
+msgstr "Uji pembayaran"
+
+#: src/free-trial/fills/task-headers/payments.js:40
+msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
+msgstr "Hadirkan metode pembayaran yang praktis dan mudah untuk pelanggan! Siapkan dan uji beberapa metode pembayaran langsung atau online yang cepat dan aman."
+
+#: src/free-trial/fills/task-headers/payments.js:34
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:36
+msgid "It’s time to test payments"
+msgstr "Kini saatnya menguji pembayaran"
+
+#: src/free-trial/fills/task-headers/payments.js:22
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:24
+msgid "Payment illustration"
+msgstr "Ilustrasi pembayaran"
+
+#: assets/scripts/free-trial-wc-payments.js:76
+msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
+msgstr "Anda siap untuk menguji berbagai fitur dan manfaat WooCommerce Payments"
+
+#: assets/scripts/free-trial-wc-payments.js:62
+msgid "You’re only steps away from getting ready to be paid"
+msgstr "Tinggal beberapa langkah lagi, Anda akan siap menerima pembayaran"
+
+#: assets/scripts/free-trial-wc-payments.js:39
+msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s'>upgrade to a pain plan</a>."
+msgstr "Deposit tidak tersedia selama periode percobaan. Untuk mulai memproses transaksi aktual serta menerima pembayaran, <a href='%s'>lakukan upgrade ke paket berbayar</a>."
+
+#: assets/scripts/free-trial-wc-payments.js:31
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s'>upgrade to a paid plan</a>."
+msgstr "Hanya Administrator dan Pengelola Toko yang bisa membuat pesanan selama uji coba gratis. Jika Anda siap menerima pembayaran dari pelanggan, <a href='%s'>lakukan upgrade ke paket berbayar</a>."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:85
+msgid "Tips, tricks, and ecommerce inspiration from our blog."
+msgstr "Tips, trik, dan inspirasi eCommerce dari blog kami."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:83
+#: includes/templates/html-admin-page-addons-landing-page.php:87
+msgid "Get inspired"
+msgstr "Dapatkan inspirasi"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:73
+msgid "Discover collections"
+msgstr "Jelajahi koleksi"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:71
+msgid "Quickly get started with our curated extension collections."
+msgstr "Mulai segera dengan koleksi lengkap kami yang terkurasi."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:69
+msgid "Curated collections"
+msgstr "Koleksi yang terkurasi"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:57
+msgid "Add extra features and functionality, or integrate with other platforms and tools."
+msgstr "Beri fitur dan fungsi tambahan, atau integrasikan dengan platform dan alat lainnya."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:55
+msgid "Customize and extend"
+msgstr "Atur kustomisasi dan perluas"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:43
+msgid "Do more with your store – add extensions"
+msgstr "Sempurnakan toko Anda – tambahkan ekstensi"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:31
+#: includes/templates/html-admin-page-addons-landing-page.php:59
+msgid "Browse extensions"
+msgstr "Jelajahi ekstensi"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:23
+msgid "Customize your store to work perfectly for your business, with Woo extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your business goals. Curious about what’s available? Browse our extensions marketplace."
+msgstr "Atur kustomisasi toko Anda agar optimal untuk bisnis dengan ekstensi Woo. Lakukan upgrade ke paket berbayar untuk memperoleh akses ke ratusan alat dan fitur yang dapat membantu Anda meraih kesuksesan bisnis. Penasaran dengan apa saja yang tersedia? Jelajahi marketplace ekstensi kami."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:19
+#: includes/templates/html-admin-page-addons-landing-page.php:36
+#: includes/templates/html-admin-page-addons-landing-page.php:39
+msgid "Take your store to the next level, with extensions"
+msgstr "Tingkatkan toko Anda dengan ekstensi"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:59
+msgid "1 minute"
+msgstr "1 menit"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:47
+msgid "It's time to celebrate! Ready to launch your store?"
+msgstr "Saatnya merayakan! Siap meluncurkan toko Anda?"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:35
+#: includes/tasks/class-wc-calypso-task-launch-site.php:38
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: src/launch-store/index.js:150
+msgid "Launch your store"
+msgstr "Luncurkan toko Anda"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:32
+msgid "You've already launched your store"
+msgstr "Anda sudah meluncurkan toko"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:59
+msgid "2 minutes"
+msgstr "2 menit"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:47
+msgid "Add your domain name and make your store unique."
+msgstr "Tambahkan nama domain dan buat toko Anda jadi unik."
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:38
+msgid "Domain"
+msgstr "Domain"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:35
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94
+#: src/launch-store/index.js:317 src/task-headers/add-domain.js:31
+#: src/task-headers/add-domain.js:44
+msgid "Add a domain"
+msgstr "Tambah domain"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:32
+msgid "You added your domain"
+msgstr "Anda telah menambahkan domain"
+
+#: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:67
+msgid "Save up to $800 in fees by managing transactions with WooCommerce Payments. With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies."
+msgstr "Hemat biaya sampai $800 dengan mengelola transaksi menggunakan WooCommerce Payments. Anda dapat menerima pembayaran berbagai kartu kredit terkemuka serta Apple Pay dalam 100 lebih mata uang secara aman menggunakan WooCommerce Payments."
+
+#: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:41
+msgid "To deliver a smooth checkout experience to your shoppers, we have supercharged your store with our brand-new, conversion-optimized checkout. Please take a few minutes to review some important information on Extension compatibility with the new Cart and Checkout Blocks. Then, go ahead and customize your store's Cart and Checkout pages."
+msgstr "Demi kelancaran checkout bagi pembeli, kami telah menyempurnakan toko Anda dengan fungsi checkout baru yang dioptimalkan dengan konversi. Luangkan sedikit waktu untuk meninjau beberapa informasi penting mengenai kesesuaian Ekstensi dengan Blok Keranjang dan Checkout yang baru. Jika sudah, silakan atur kustomisasi halaman Keranjang dan Checkout toko Anda."
+
+#: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:39
+msgid "Meet our new, customizable checkout"
+msgstr "Inilah checkout baru kami yang bisa dikustomisasi"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:58
+msgid ""
+"\n"
+"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s'>upgrade to a paid plan</a>.\n"
+"\t\t"
+msgstr ""
+"\n"
+"\t\t\tUntuk saat ini, hanya Anda yang bisa melihat toko Anda. Agar toko Anda bisa dilihat semua orang, silakan <a href='%s'>lakukan upgrade ke paket berbayar</a>.\n"
+"\t\t"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
+#: includes/templates/html-admin-page-addons-landing-page.php:28
+msgid "Upgrade now"
+msgstr "Upgrade sekarang"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:45
+msgid "During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling."
+msgstr "Selama periode percobaan, Anda hanya bisa membuat pesanan uji coba! Untuk menerima pesanan dari pelanggan, lakukan upgrade ke paket berbayar dan Anda akan siap berjualan."
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:43
+msgid "Start selling to everyone"
+msgstr "Mulai berjualan ke semua orang"
+
+#: includes/class-wc-calypso-bridge-setup.php:327
+msgid "My Account"
+msgstr "Akun Saya"
+
+#: includes/class-wc-calypso-bridge-setup.php:325
+msgid "Contact"
+msgstr "kontak"
+
+#: includes/class-wc-calypso-bridge-setup.php:316
+msgid "Home"
+msgstr "Beranda"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:59
+msgid "This site has already been launched"
+msgstr "Situs ini sudah diluncurkan"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:54
+msgid "You don't have permissions to launch this site"
+msgstr "Anda tidak memiliki izin untuk meluncurkan situs ini"
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:368
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "Hanya Administrator dan Pengelola Toko yang bisa membuat pesanan selama percobaan gratis. Jika Anda siap menerima pembayaran dari pelanggan, <a href=\"%s\">lakukan upgrade ke paket berbayar</a>."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:297
+msgid "There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order."
+msgstr "Tidak ada metode pembayaran yang tersedia. Mungkin error ini disebabkan oleh pihak kami. Silakan hubungi kami jika Anda membutuhkan bantuan untuk melakukan pemesanan."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:283
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:315
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:322
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:330
+msgid "Your order could not be placed. Checkout functionality is currently enabled for preview purposes only."
+msgstr "Pesanan Anda tidak dapat dibuat. Saat ini fungsi checkout diaktifkan hanya untuk tujuan pratinjau."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:271
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:298
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:340
+msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
+msgstr "Toko ini belum siap menerima pesanan. Saat ini fungsi checkout diaktifkan hanya untuk tujuan pratinjau."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+msgid "Jetpack Stats"
+msgstr "Statistik Jetpack"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:475
+msgid "Jetpack Status"
+msgstr "Status Jetpack"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:454
+msgid "Anti-Spam"
+msgstr "Anti-Spam"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+msgid "Discover"
+msgstr "Temukan"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+#: src/payment-gateway-suggestions/components/Action.js:76
+msgid "Manage"
+msgstr "Atur"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+msgid "WooCommerce Subscriptions"
+msgstr "WooCommerce Subscriptions"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:295
+#: includes/templates/html-admin-page-addons-landing-page.php:15
+msgid "Extensions"
+msgstr "Ekstensi"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+msgid "Customers"
+msgstr "Pelanggan"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:281
+msgid "Legacy Reports"
+msgstr "Laporan Lawas"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:274
+msgid "WooCommerce Status"
+msgstr "Status WooCommerce"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+msgid "WooCommerce Settings"
+msgstr "Pengaturan WooCommerce"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:265
+msgid "Orders"
+msgstr "Pesanan"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:182
+msgid "My Home"
+msgstr "Beranda Saya"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+msgid "Feedback"
+msgstr "Umpan Balik"
+
+#: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:70
+msgid "Save big with WooCommerce Payments"
+msgstr "Hemat besar-besaran dengan WooCommerce Payments"
+
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:131
+#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
+msgid "No thanks"
+msgstr "Tidak, terima kasih"
+
+#: src/payment-gateway-suggestions/components/Action.js:27
+#: src/payment-gateway-suggestions/components/Setup/Configure.js:159
+#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
+#: src/welcome-modal/index.js:56
+msgid "Get started"
+msgstr "Mulai"
+
+#. Author of the plugin
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
+msgstr "Plugin fitur untuk memberikan peningkatan UX bagi pengguna Toko di WordPress.com."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://wordpress.com/"
+msgstr "https://wordpress.com/"
+
+#. Plugin Name of the plugin
+msgid "WooCommerce Calypso Bridge"
+msgstr "WooCommerce Calypso Bridge"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:16
+msgid "Make your check payable to..."
+msgstr "Arahkan pembayaran cek Anda ke..."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:15
+msgid "Pay for this order by check."
+msgstr "Bayar pesanan ini dengan cek."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-add-bacs-accounts.php:92
+msgid "An invalid setting value was passed."
+msgstr "Nilai pengaturan tidak valid diberikan."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:118
+msgid "Cannot create order note, please try again."
+msgstr "Tidak dapat membuat pesanan, coba lagi."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:116
+msgid "Order details manually sent to customer."
+msgstr "Detail pesanan dikirim secara manual kepada pelanggan."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:107
+msgid "Invalid order ID."
+msgstr "ID pesanan tidak valid."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:70
+msgid "Sorry, you cannot view this resource."
+msgstr "Maaf, Anda tidak dapat melihat sumber daya ini."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:374
+msgid "Featured image for the product."
+msgstr "Gambar andalan untuk produk."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:368
+msgid "Name of the product."
+msgstr "Nama produk."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:362
+msgid "ID of the product."
+msgstr "ID produk."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:356
+msgid "Basic information on the product that the review is for."
+msgstr "Informasi dasar untuk produk yang diulas."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:349
+msgid "Status of the review"
+msgstr "Status ulasan"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:343
+msgid "Shows if the reviewer bought the product or not."
+msgstr "Menunjukkan apakah pengulas membeli produk atau tidak."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:338
+msgid "URLs for the reviewer's avatar."
+msgstr "URL untuk avatar pengulas."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:333
+msgid "Reviewer email."
+msgstr "Email pengulas."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:328
+msgid "Reviewer name."
+msgstr "Nama pengulas."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:323
+msgid "Review rating (0 to 5)."
+msgstr "Nilai ulasan (0 sampai 5)."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:318
+msgid "The date the review was created, as GMT."
+msgstr "Tanggal pembuatan ulasan, waktu GMT."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:313
+msgid "The date the review was created, in the site's timezone."
+msgstr "Tanggal pembuatan ulasan, di zona waktu situs."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:308
+msgid "The content of the review."
+msgstr "Konten ulasan."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:302
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:49
+msgid "Unique identifier for the resource."
+msgstr "Pengenal unik untuk sumber daya."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:281
+msgid "Limit results to those matching a string."
+msgstr "Limit results to those matching a string."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:274
+msgid "Limit result set to reviews assigned a specific product."
+msgstr "Membatasi hasil untuk ulasan produk tertentu."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:266
+msgid "Order sort attribute ascending or descending."
+msgstr "Urutkan atribut penyortiran naik atau menurun."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:256
+msgid "Maximum number of items to be returned in result set."
+msgstr "Jumlah maksimal item yang akan dimunculkan dalam set hasil."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:247
+msgid "Current page of the collection."
+msgstr "Laman koleksi saat ini."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:240
+msgid "Limit result set to reviews with a specific status."
+msgstr "Membatasi hasil untuk ulasan dengan status tertentu."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-mailchimp-settings-controller.php:111
+msgid "Sorry, you cannot edit this resource."
+msgstr "Maaf, Anda tidak dapat menyunting sumber daya ini."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+msgid "Collection of review totals by comment status."
+msgstr "Kumpulan total ulasan menurut status komentar."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+msgid "Collection of product totals by stock status."
+msgstr "Kumpulan total produk menurut status stok."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+msgid "Collection of order totals by order status."
+msgstr "Kumpulan total pesanan menurut status pesanan."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:60
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:63
+msgid "Sorry, you cannot list resources."
+msgstr "Maaf, Anda tidak dapat mencantumkan sumber daya."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "You can change this text by editing the \"Parallax Hero\" Section via the \"Powerpack\" settings in the Customizer on the left hand side of your screen."
+msgstr "Anda dapat mengubah teks ini dengan menyunting Bagian \"Parallax Hero\" melalui pengaturan \"Powerpack\" di Customizer di sisi kiri layar."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "This is your homepage which is what most visitors will see when they first visit your shop."
+msgstr "Ini adalah beranda Anda, yaitu halaman yang akan dilihat sebagian besar pengunjung saat mengunjungi toko Anda pertama kali."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:96
+msgid "Welcome"
+msgstr "Selamat Datang"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:43
+msgid "Add New"
+msgstr "Tambahkan Baru"
+
+#: includes/class-wc-calypso-bridge-plugins.php:181
+msgid "WooCommerce can't be deactivated on the eCommerce plan."
+msgstr "WooCommerce tidak dapat dinonaktifkan pada paket eCommerce."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
+msgid "Store"
+msgstr "Toko"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+msgid "Stats"
+msgstr "Statistik"
+
+#: src/free-trial/tax/components/location.js:23
+msgid "Continue"
+msgstr "Lanjutkan"
+
+#: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:52
+#: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:76
+#: src/homescreen-banner/index.js:57
+msgid "Learn more"
+msgstr "Pelajari lebih lanjut."
+
+#: includes/class-wc-calypso-bridge-addons.php:89
+msgid "WooCommerce extensions"
+msgstr "Ekstensi WooCommerce"
+
+#. translators: %s: extensions count
+#: includes/class-wc-calypso-bridge-addons.php:88
+msgid "Extensions %s"
+msgstr "Ekstensi %s"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:129
+msgid "Built with Storefront &amp; WordPress.com"
+msgstr "Buat dengan Storefront & WordPress.com"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:129
+msgid "WordPress.com - The Best eCommerce Platform for WordPress"
+msgstr "WordPress.com - Platform eCommerce Terbaik untuk WordPress"

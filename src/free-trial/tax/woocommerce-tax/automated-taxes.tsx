@@ -20,28 +20,6 @@ export const AutomatedTaxes: React.FC<
 > = ( { isPending, onAutomate, onManual, onDisable } ) => {
 	return (
 		<div className="woocommerce-task-tax__success">
-			<span
-				className="woocommerce-task-tax__success-icon"
-				role="img"
-				aria-labelledby="woocommerce-task-tax__success-message"
-			>
-				🎊
-			</span>
-			<H id="woocommerce-task-tax__success-message">
-				{ __( 'Good news!', 'woocommerce' ) }
-			</H>
-			<p>
-				{ interpolateComponents( {
-					mixedString: __(
-						'{{strong}}Jetpack{{/strong}} and {{strong}}WooCommerce Tax{{/strong}} ' +
-							'can automate your sales tax calculations for you.',
-						'woocommerce'
-					),
-					components: {
-						strong: <strong />,
-					},
-				} ) }
-			</p>
 			<Button
 				isPrimary
 				isBusy={ isPending }
@@ -52,22 +30,7 @@ export const AutomatedTaxes: React.FC<
 					onAutomate();
 				} }
 			>
-				{ __( 'Yes please', 'woocommerce' ) }
-			</Button>
-			<Button
-				disabled={ isPending }
-				isTertiary
-				onClick={ () => {
-					recordEvent( 'tasklist_tax_setup_automated_proceed', {
-						setup_automatically: false,
-					} );
-					onManual();
-				} }
-			>
-				{ __( "No thanks, I'll set up manually", 'woocommerce' ) }
-			</Button>
-			<Button disabled={ isPending } isTertiary onClick={ onDisable }>
-				{ __( "I don't charge sales tax", 'woocommerce' ) }
+				{ __( 'Automate taxes', 'woocommerce' ) }
 			</Button>
 		</div>
 	);

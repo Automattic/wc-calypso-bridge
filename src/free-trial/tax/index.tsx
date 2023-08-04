@@ -8,7 +8,6 @@ import { getAdminLink } from '@woocommerce/settings';
 import {
 	OPTIONS_STORE_NAME,
 	SETTINGS_STORE_NAME,
-	PLUGINS_STORE_NAME,
 	TaskType,
 } from '@woocommerce/data';
 import { queueRecordEvent, recordEvent } from '@woocommerce/tracks';
@@ -25,7 +24,7 @@ import interpolateComponents from '@automattic/interpolate-components';
 /**
  * Internal dependencies
  */
-import { redirectToTaxSettings, supportsAvalara } from './utils';
+import { redirectToTaxSettings } from './utils';
 import { Card as WooCommerceTaxCard } from './woocommerce-tax/card';
 import {
 	getCountryCode,
@@ -35,7 +34,6 @@ import {
 import { ManualConfiguration } from './manual-configuration';
 import { WooCommerceTax } from './woocommerce-tax';
 import Notice from '../../notice';
-import { Card as AvalaraCard } from './avalara/card';
 import { Partners } from './components/partners';
 
 const TaskCard: React.FC = ( { children } ) => {
@@ -93,12 +91,10 @@ export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 	const { createNotice } = useDispatch( 'core/notices' );
 	const { updateAndPersistSettingsForGroup } =
 		useDispatch( SETTINGS_STORE_NAME );
-	const { generalSettings, isResolving, taxSettings, avalaraInstallState } =
-		useSelect( ( select ) => {
+	const { generalSettings, isResolving, taxSettings } = useSelect(
+		( select ) => {
 			const { getSettings, hasFinishedResolution } =
 				select( SETTINGS_STORE_NAME );
-
-			const { getPluginInstallState } = select( PLUGINS_STORE_NAME );
 
 			return {
 				generalSettings: getSettings( 'general' ).general,
@@ -106,10 +102,9 @@ export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 					'general',
 				] ),
 				taxSettings: getSettings( 'tax' ).tax || {},
-				avalaraInstallState:
-					getPluginInstallState( 'woocommerce-avatax' ),
 			};
-		} );
+		}
+	);
 
 	const onManual = useCallback( async () => {
 		setIsPending( true );
@@ -210,16 +205,6 @@ export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 				isVisible:
 					! taxJarActivated && // WCS integration doesn't work with the official TaxJar plugin.
 					woocommerceTaxCountries.includes( countryCode ),
-			},
-			{
-				id: 'avalara',
-				card: AvalaraCard,
-				component: null,
-				isVisible:
-					supportsAvalara( countryCode ) &&
-					[ 'installed', 'activated' ].includes(
-						avalaraInstallState
-					),
 			},
 		];
 
