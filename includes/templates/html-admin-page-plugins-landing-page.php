@@ -23,7 +23,7 @@
 		<a href="<?php echo esc_url( $upgrade_url ); ?>" class="button button-primary" id="upgrade_now_button">
 			<?php esc_html_e( 'Upgrade now', 'wc-calypso-bridge' ); ?>
 		</a>
-		<a href="https://wordpress.org/plugins/" target="_blank" class="button button-secondary" id="browse_extension_button">
+		<a href="https://wordpress.org/plugins/" target="_blank" class="button button-secondary" id="browse_plugins_button">
 			<?php esc_html_e( 'Browse plugins', 'wc-calypso-bridge' ); ?>
 		</a>
 	</div>
@@ -48,7 +48,7 @@
 			<p>
 				<?php esc_html_e( 'Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://wordpress.org/plugins/" target="_blank" id="browse_extension_button_2"><?php esc_html_e( 'Browse plugins', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://wordpress.org/plugins/" target="_blank" id="browse_plugins_button_2"><?php esc_html_e( 'Browse plugins', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-bridge-landing-page__features-grid__item">
@@ -62,7 +62,7 @@
 			<p>
 				<?php esc_html_e( 'Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="discover_collections_button"><?php esc_html_e( 'Discover Extensions', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="discover_extensions_button"><?php esc_html_e( 'Discover Extensions', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-bridge-landing-page__features-grid__item">
@@ -82,3 +82,34 @@
 	</div>
 
 </div>
+
+<script>
+document.addEventListener( 'DOMContentLoaded', function() {
+	// Prefer wc.tracks.recordEvent since it supports debugging.
+	let recordEvent = null;
+	if ( window.wc && window.wc.tracks && window.wc.tracks.recordEvent ) {
+		recordEvent = window.wc.tracks.recordEvent;
+	} else if ( window.wcTracks && window.wcTracks.recordEvent ) {
+		recordEvent = window.wcTracks.recordEvent;
+	} else {
+		recordEvent = function() {};
+	}
+
+	const recordButtonEvent = function( buttonId, eventName ) {
+		const el = document.getElementById( buttonId );
+		if ( el ) {
+			el.addEventListener( 'click', function() {
+				recordEvent( eventName, {
+					source: 'plugins',
+				} );
+			} );
+		}
+	};
+
+	recordButtonEvent( 'upgrade_now_button', 'free_trial_upgrade_now' );
+	recordButtonEvent( 'browse_plugins_button', 'free_trial_browse_plugins' );
+	recordButtonEvent( 'browse_plugins_button_2', 'free_trial_browse_plugins' );
+	recordButtonEvent( 'discover_extensions_button', 'free_trial_discover_extensions' );
+	recordButtonEvent( 'get_inspired_button', 'free_trial_get_inspired' );
+} );
+</script>
