@@ -20,6 +20,7 @@ import { Connect } from './connect';
 import { Plugins } from './plugins';
 import { StoreLocation } from '../components/store-location';
 import './setup.scss';
+import { AutomatedTaxes } from './automated-taxes';
 
 export type SetupProps = {
 	isPending: boolean;
@@ -102,24 +103,13 @@ export const Setup: React.FC< SetupProps > = ( {
 			content: <StoreLocation { ...stepProps } />,
 		},
 		{
-			key: 'plugins',
-			label: pluginsToActivate.includes( 'woocommerce-services' )
-				? __( 'Install Jetpack and WooCommerce Tax', 'woocommerce' )
-				: __( 'Install Jetpack', 'woocommerce' ),
-			description: __(
-				'Jetpack and WooCommerce Tax allow you to automate sales tax calculations',
-				'woocommerce'
-			),
-			content: <Plugins { ...stepProps } />,
-		},
-		{
 			key: 'connect',
-			label: __( 'Connect your store', 'woocommerce' ),
+			label: __( 'Automate Taxes', 'woocommerce' ),
 			description: __(
-				'Connect your store to WordPress.com to enable automated sales tax calculations',
+				'WooCommerce Tax can automate your sales tax calculations for you.',
 				'woocommerce'
 			),
-			content: <Connect { ...stepProps } />,
+			content: <AutomatedTaxes { ...stepProps } />,
 		},
 	];
 
