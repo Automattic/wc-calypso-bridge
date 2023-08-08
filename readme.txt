@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Fix Tax task for free trial #1247
+* Fix tax task component UIs #1261
 
 = 2.2.7 =
 * Add `wp-cli` as a developer dependency #1250
