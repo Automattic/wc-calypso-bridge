@@ -294,7 +294,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 			?>
 			<script type="text/javascript">
 				function overrideNoPaymentMethodsMessage( translation, text, domain ) {
-					if ( text === '<?php esc_html_e( 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.', 'woocommerce' ); ?>' ) {
+					if ( text === '<?php /* phpcs:ignore WordPress.WP.I18n.TextDomainMismatch */ esc_html_e( 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.', 'woocommerce' ); ?>' ) {
 						return '<?php esc_html_e( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' ); ?>';
 					}
 

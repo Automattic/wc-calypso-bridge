@@ -29,13 +29,13 @@ class AddDomain extends Task {
 	public function get_title() {
 		if ( true === $this->get_parent_option( 'use_completed_title' ) ) {
 			if ( $this->is_complete() ) {
-				return __( 'You added your domain', 'woocommerce' );
+				return __( 'You added your domain', 'wc-calypso-bridge' );
 			}
 
-			return __( 'Add a domain', 'woocommerce' );
+			return __( 'Add a domain', 'wc-calypso-bridge' );
 		}
 
-		return __( 'Domain', 'woocommerce' );
+		return __( 'Domain', 'wc-calypso-bridge' );
 	}
 
 	/**
@@ -46,7 +46,7 @@ class AddDomain extends Task {
 	public function get_content() {
 		return __(
 			'Add your domain name and make your store unique.',
-			'woocommerce'
+			'wc-calypso-bridge'
 		);
 	}
 

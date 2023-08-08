@@ -378,7 +378,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		$reset_url   = esc_url( add_query_arg( $type === 'setup' ? 'reset_task_list' : 'reset_extended_task_list', true, wc_admin_url() ) );
 		$description = $type === 'setup' ? __( 'Restore the visibility of the primary onboarding Task List.', 'wc-calypso-bridge' ) : __( 'Restore the visibility of the "Things to do next" Task List.', 'wc-calypso-bridge' );
-		$label       = $type === 'setup' ? __( 'Setup task list', 'wc-calypso-bridge' ) : __( '"Things to do next"', 'c-calypso-bridge' );
+		$label       = $type === 'setup' ? __( 'Setup task list', 'wc-calypso-bridge' ) : __( '"Things to do next"', 'wc-calypso-bridge' );
 		?>
 			<tr valign="top" class="render_restore_task_list_button_wrapper">
 				<th scope="row" class="titledesc">
