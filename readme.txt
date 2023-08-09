@@ -22,13 +22,13 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= unreleased = 
+= Unreleased =
+* Fix Tax task for free trial #1247
+* Fix tax task component UIs #1261
+* Introduce the remaining tasks bubble nudge under My Home > Home admin menu item #1225
 * Add logging in the page creation one time job #xxx
 * Increase old site identification to older than 1 hour for the page creation one time job #xxx
 * Properly unset one time jobs for non commerce sites #xxx
-
-= 2.2.8 =
-* Fix Tax task for free trial #1247
 
 = 2.2.7 =
 * Add `wp-cli` as a developer dependency #1250
