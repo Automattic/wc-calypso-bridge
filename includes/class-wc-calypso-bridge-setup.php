@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.1.8
+ * @version 2.2.8
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -138,10 +138,10 @@ class WC_Calypso_Bridge_Setup {
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
 			unset( $this->one_time_operations[ 'woocommerce_create_pages' ] );
-			unset( $this->one_time_operations[ 'set_wc_tracker_twice_daily_callback' ] );
-			unset( $this->one_time_operations[ 'set_wc_tracker_default_callback' ] );
-			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_callback' ] );
-			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_add_domain_callback' ] );
+			unset( $this->one_time_operations[ 'set_wc_tracker_twice_daily' ] );
+			unset( $this->one_time_operations[ 'set_wc_tracker_default' ] );
+			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl' ] );
+			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_add_domain' ] );
 		}
 	}
 
@@ -221,9 +221,12 @@ class WC_Calypso_Bridge_Setup {
 
 			$operation = 'woocommerce_create_pages';
 
-			// Set the operation as completed if the store is active for more than 5 minutes.
-			if ( WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
+			$this->write_to_log( $operation, 'initialized' );
+
+			// Set the operation as completed if the store is active for more than 1 hour.
+			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+				$this->write_to_log( $operation, 'completed (60 minutes)' );
 
 				return;
 			}
@@ -231,6 +234,7 @@ class WC_Calypso_Bridge_Setup {
 			global $wpdb;
 
 			$wpdb->query( 'START TRANSACTION' );
+			$this->write_to_log( $operation, 'START TRANSACTION' );
 
 			// Prepare to lock the row, when it gets updated.
 			$status = $wpdb->get_var(
@@ -258,6 +262,7 @@ class WC_Calypso_Bridge_Setup {
 
 			if ( 'completed' === $status ) {
 				$wpdb->query( 'ROLLBACK' );
+				$this->write_to_log( $operation, 'ROLLBACK - already completed' );
 
 				return;
 			}
@@ -269,10 +274,11 @@ class WC_Calypso_Bridge_Setup {
 				 * `My Account` page, has slug `my-account`.
 				 * @see WC_Install::create_pages()
 				 */
-				foreach ( [ 'shop', 'cart', 'my-account', 'checkout', 'refund_returns' ] as $page ) {
-					$page = get_page_by_path( $page, ARRAY_A );
+				foreach ( [ 'shop', 'cart', 'my-account', 'checkout', 'refund_returns' ] as $page_slug ) {
+					$page = get_page_by_path( $page_slug, ARRAY_A );
 					if ( is_array( $page ) && isset( $page['ID'] ) ) {
 						wp_delete_post( $page['ID'], true );
+						$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page_slug );
 					}
 				}
 
@@ -287,6 +293,7 @@ class WC_Calypso_Bridge_Setup {
 				 */
 				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
 					delete_option( "woocommerce_{$page}_page_id" );
+					$this->write_to_log( $operation, 'deleted WooCommerce page id for page ' . $page );
 				}
 
 				// Delete the following note, so it can be recreated with the correct refund page ID.
@@ -295,6 +302,7 @@ class WC_Calypso_Bridge_Setup {
 				}
 
 				WC_Install::create_pages();
+				$this->write_to_log( $operation, 'finished WC_Install::create_pages' );
 
 				// Get navigation menu page and set up the menu.
 				$menu_page_slugs = array(
@@ -340,6 +348,7 @@ class WC_Calypso_Bridge_Setup {
 					) );
 
 				}
+				$this->write_to_log( $operation, 'created menu items' );
 
 				$wpdb->query(
 					$wpdb->prepare( "
@@ -354,12 +363,13 @@ class WC_Calypso_Bridge_Setup {
 				// Update and Release row.
 				$wpdb->query( 'COMMIT' );
 				wp_cache_delete( $this->option_prefix . $operation, 'options' );
+				$this->write_to_log( $operation, 'COMMIT and cache deleted' );
 
 				return;
 			} catch ( Exception $e ) {
 				// Release row.
 				$wpdb->query( 'ROLLBACK' );
-				error_log( 'Exception: ' . $e->getMessage() );
+				$this->write_to_log( $operation, 'ROLLBACK with Exception: ' . $e->getMessage() );
 
 				return;
 			}
@@ -368,6 +378,8 @@ class WC_Calypso_Bridge_Setup {
 
 		// Gets triggered from the above WC_Install::create_pages call.
 		add_filter( 'woocommerce_create_pages', function ( $pages ) {
+
+			$operation = 'woocommerce_create_pages';
 
 			// Set the cart and checkout blocks as defaults.
 			if (
@@ -382,6 +394,7 @@ class WC_Calypso_Bridge_Setup {
 				if ( isset( $pages['checkout']['content'] ) ) {
 					$pages['checkout']['content'] = '<!-- wp:woocommerce/checkout {"align":"wide"} --><div class="wp-block-woocommerce-checkout alignwide wc-block-checkout is-loading"><!-- wp:woocommerce/checkout-fields-block --><div class="wp-block-woocommerce-checkout-fields-block"><!-- wp:woocommerce/checkout-express-payment-block --><div class="wp-block-woocommerce-checkout-express-payment-block"></div><!-- /wp:woocommerce/checkout-express-payment-block --><!-- wp:woocommerce/checkout-contact-information-block --><div class="wp-block-woocommerce-checkout-contact-information-block"></div><!-- /wp:woocommerce/checkout-contact-information-block --><!-- wp:woocommerce/checkout-shipping-address-block --><div class="wp-block-woocommerce-checkout-shipping-address-block"></div><!-- /wp:woocommerce/checkout-shipping-address-block --><!-- wp:woocommerce/checkout-billing-address-block --><div class="wp-block-woocommerce-checkout-billing-address-block"></div><!-- /wp:woocommerce/checkout-billing-address-block --><!-- wp:woocommerce/checkout-shipping-methods-block --><div class="wp-block-woocommerce-checkout-shipping-methods-block"></div><!-- /wp:woocommerce/checkout-shipping-methods-block --><!-- wp:woocommerce/checkout-payment-block --><div class="wp-block-woocommerce-checkout-payment-block"></div><!-- /wp:woocommerce/checkout-payment-block --><!-- wp:woocommerce/checkout-order-note-block --><div class="wp-block-woocommerce-checkout-order-note-block"></div><!-- /wp:woocommerce/checkout-order-note-block --><!-- wp:woocommerce/checkout-terms-block --><div class="wp-block-woocommerce-checkout-terms-block"></div><!-- /wp:woocommerce/checkout-terms-block --><!-- wp:woocommerce/checkout-actions-block --><div class="wp-block-woocommerce-checkout-actions-block"></div><!-- /wp:woocommerce/checkout-actions-block --></div><!-- /wp:woocommerce/checkout-fields-block --><!-- wp:woocommerce/checkout-totals-block --><div class="wp-block-woocommerce-checkout-totals-block"><!-- wp:woocommerce/checkout-order-summary-block --><div class="wp-block-woocommerce-checkout-order-summary-block"></div><!-- /wp:woocommerce/checkout-order-summary-block --></div><!-- /wp:woocommerce/checkout-totals-block --></div><!-- /wp:woocommerce/checkout -->';
 				}
+				$this->write_to_log( $operation, 'set cart/checkout blocks' );
 
 				// Inform the merchant that we've enabled the new checkout experience.
 				include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
@@ -389,9 +402,22 @@ class WC_Calypso_Bridge_Setup {
 				WC_Calypso_Bridge_Cart_Checkout_Blocks_Default_Inbox_Note::possibly_add_note();
 			}
 
+			$log_pages = array();
+			foreach ( $pages as $key => $details ) {
+				$log_pages[] = $key;
+			}
+			$this->write_to_log( $operation, 'woocommerce_create_pages filter - pages:' . implode( ', ', $log_pages ) );
+
 			return $pages;
 
 		}, PHP_INT_MAX );
+
+		// Log which pages have been created.
+		add_action( 'woocommerce_page_created', function ( $page_id, $page_data ) {
+			$operation = 'woocommerce_create_pages';
+			$slug      = isset( $page_data['post_name'] ) ? $page_data['post_name'] : '';
+			$this->write_to_log( $operation, 'woocommerce_page_created action - ' . 'id: ' . $page_id . ', slug: ' . $slug );
+		}, PHP_INT_MAX, 2 );
 
 	}
 
@@ -602,6 +628,20 @@ class WC_Calypso_Bridge_Setup {
 		}
 
 		return $location;
+	}
+
+	/**
+	 * error_log wrapper
+	 *
+	 * @param string       $operation Operation.
+	 * @param string|array $message   Message.
+	 *
+	 * @since 2.2.8
+	 *
+	 * @return void
+	 */
+	private function write_to_log( $operation, $message ) {
+		error_log(  'WooExpress: Operation: (' . microtime( true ) . ') ' . $operation . ': ' . print_r( $message, 1 ) );
 	}
 }
 
