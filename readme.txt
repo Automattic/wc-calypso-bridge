@@ -26,9 +26,9 @@ This section describes how to install the plugin and get it working.
 * Fix Tax task for free trial #1247
 * Fix tax task component UIs #1261
 * Introduce the remaining tasks bubble nudge under My Home > Home admin menu item #1225
-* Add logging in the page creation one time job #xxx
-* Increase old site identification to older than 1 hour for the page creation one time job #xxx
-* Properly unset one time jobs for non commerce sites #xxx
+* Add logging in the page creation one time job #1258
+* Increase old site identification to older than 1 hour for the page creation one time job #1258
+* Properly unset one time jobs for non commerce sites #1258
 
 = 2.2.7 =
 * Add `wp-cli` as a developer dependency #1250

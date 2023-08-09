@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.2.8
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -636,7 +636,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @param string       $operation Operation.
 	 * @param string|array $message   Message.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.8
 	 *
 	 * @return void
 	 */
