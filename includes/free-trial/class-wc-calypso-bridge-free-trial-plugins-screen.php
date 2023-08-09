@@ -3,8 +3,8 @@
  * WC Calypso Bridge Free Trial Plugins Screen - Landing page.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.2.8
+ * @version 2.2.8
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -34,7 +34,6 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 	 * Constructor.
 	 */
 	protected function __construct() {
-
 		// Only for free trials.
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
@@ -47,7 +46,6 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 	 * Initialize hooks.
 	 */
 	protected function init() {
-
 		add_action( 'admin_menu', array($this, 'add_menu_page'));
 		add_filter( 'admin_body_class', function( $classes ) {
 				$screen = get_current_screen();
@@ -67,7 +65,6 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 	}
 
 	public function output() {
-
 		$upgrade_url = sprintf( 'https://wordpress.com/plans/%s', WC_Calypso_Bridge_Instance()->get_site_slug() );
 
 		/**

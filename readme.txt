@@ -29,6 +29,7 @@ This section describes how to install the plugin and get it working.
 * Add logging in the page creation one time job #1258
 * Increase old site identification to older than 1 hour for the page creation one time job #1258
 * Properly unset one time jobs for non commerce sites #1258
+* Add the Plugins menu item back to free trial sites #1249
 
 = 2.2.7 =
 * Add `wp-cli` as a developer dependency #1250

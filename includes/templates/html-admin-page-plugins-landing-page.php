@@ -3,8 +3,8 @@
 * Admin View: Page - Plugins
 *
 * @package WC_Calypso_Bridge/Templates
-* @since   x.x.x
-* @version x.x.x
+* @since   2.2.8
+* @version 2.2.8
 *
 * @uses $upgrade_url
 */
