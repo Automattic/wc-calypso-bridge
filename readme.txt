@@ -22,6 +22,14 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Fix Tax task for free trial #1247
+* Fix tax task component UIs #1261
+* Introduce the remaining tasks bubble nudge under My Home > Home admin menu item #1225
+
+= 2.2.7 =
+* Add `wp-cli` as a developer dependency #1250
+
 = 2.2.6 =
 * Add 'host' parameter to WooCommerce analytics collected by Jetpack #1244
 

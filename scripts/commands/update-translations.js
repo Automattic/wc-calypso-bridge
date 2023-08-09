@@ -44,15 +44,20 @@ async function verifyLangData( langData ) {
 
 export default async function updateTranslations() {
 	const git = gitFactory();
+	const wpPath = 'vendor/bin/wp';
 
 	try {
+		if ( ! fs.existsSync( wpPath ) ) {
+			warning( 'wp not found, running composer install...' );
+			await execPromise( 'composer install' );
+		}
+
 		info( 'Executing wp i18n make-pot command...' );
 
 		// If the `wp i18n make-pot` command generates an error, an exception is thrown
-		const makePotResult = await execPromise(
-			`wp i18n make-pot . ${ POT_FILE_PATH } --ignore-domain`
+		await execPromise(
+			`${ wpPath } i18n make-pot . ${ POT_FILE_PATH } --ignore-domain`
 		);
-
 		success( 'wp i18n make-pot command executed successfully.' );
 
 		const status = await git.status();
@@ -161,7 +166,7 @@ export default async function updateTranslations() {
 		return success( 'Script execution completed.' );
 	} catch ( err ) {
 		if ( err.stdout ) {
-			info( err.stdout )
+			info( err.stdout );
 		}
 		if ( err.stderr ) {
 			warning( err.stderr );
