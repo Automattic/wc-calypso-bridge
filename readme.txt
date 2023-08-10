@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.2.8 =
 * Fix Tax task for free trial #1247
 * Fix tax task component UIs #1261
 * Introduce the remaining tasks bubble nudge under My Home > Home admin menu item #1225
