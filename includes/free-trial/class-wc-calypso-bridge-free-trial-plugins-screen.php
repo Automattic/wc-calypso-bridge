@@ -50,7 +50,7 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 		add_filter( 'admin_body_class', function( $classes ) {
 				$screen = get_current_screen();
 				if ( $screen && 'toplevel_page_plugins-upgrade' === $screen->id ) {
-					$classes .= 'woocommerce_page_wc-bridge-landing-page woocommerce_page_wc-plugins-landing-page';
+					$classes .= ' woocommerce_page_wc-bridge-landing-page woocommerce_page_wc-plugins-landing-page ';
 				}
 
 				return $classes;
