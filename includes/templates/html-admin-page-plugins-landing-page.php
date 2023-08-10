@@ -1,10 +1,10 @@
 <?php
 /**
-* Admin View: Page - Addons
+* Admin View: Page - Plugins
 *
 * @package WC_Calypso_Bridge/Templates
-* @since   2.0.4
-* @version 2.2.4
+* @since   2.2.8
+* @version 2.2.8
 *
 * @uses $upgrade_url
 */
@@ -12,19 +12,19 @@
 <div class="woocommerce woocommerce-page wc-bridge-landing-page">
 
 	<h1 class="wc-bridge-landing-page__title">
-		<?php esc_html_e( 'Take your store to the next level, with extensions', 'wc-calypso-bridge' ); ?>
+		<?php esc_html_e( 'Make anything happen, with plugins', 'wc-calypso-bridge' ); ?>
 	</h1>
 
 	<p class="wc-bridge-landing-page__description">
-		<?php esc_html_e( 'Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace.', 'wc-calypso-bridge' ); ?>
+		<?php esc_html_e( 'Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?', 'wc-calypso-bridge' ); ?>
 	</p>
 
 	<div class="wc-bridge-landing-page__button-container">
 		<a href="<?php echo esc_url( $upgrade_url ); ?>" class="button button-primary" id="upgrade_now_button">
 			<?php esc_html_e( 'Upgrade now', 'wc-calypso-bridge' ); ?>
 		</a>
-		<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" class="button button-secondary" id="browse_extension_button">
-			<?php esc_html_e( 'Browse Extensions', 'wc-calypso-bridge' ); ?>
+		<a href="https://wordpress.org/plugins/" target="_blank" class="button button-secondary" id="browse_plugins_button">
+			<?php esc_html_e( 'Browse plugins', 'wc-calypso-bridge' ); ?>
 		</a>
 	</div>
 
@@ -44,11 +44,11 @@
 					<path d="M32 17.2307H28.8978C28.3246 23.4014 23.4014 28.3245 17.2308 28.8978V32H14.7693V28.8978C8.59855 28.3246 3.67546 23.4014 3.10222 17.2307H0V14.7692H3.10222C3.67543 8.59851 8.59861 3.67542 14.7693 3.10218V-4.57764e-05H17.2308V3.10218C23.4015 3.67538 28.3246 8.59857 28.8978 14.7692H32V17.2307ZM17.2308 5.56366V8.56473H14.7693V5.56366C9.98107 6.13687 6.13701 9.9473 5.56377 14.7692H8.56483V17.2307H5.56377C6.13698 22.0189 9.94741 25.8629 14.7693 26.4362V23.4351H17.2308V26.4362C22.019 25.863 25.863 22.0525 26.4363 17.2307H23.4352V14.7692H26.4363C25.8294 9.94736 22.019 6.1369 17.2308 5.56366Z" fill="var( --color-accent )"/>
 				</svg>
 			</div>
-			<h3><?php esc_html_e( 'Customize and extend', 'wc-calypso-bridge' ); ?></h3>
+			<h3><?php esc_html_e( 'Transform WordPress', 'wc-calypso-bridge' ); ?></h3>
 			<p>
-				<?php esc_html_e( 'Add extra features and functionality, or integrate with other platforms and tools.', 'wc-calypso-bridge' ); ?>
+				<?php esc_html_e( 'Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="browse_extension_button_2"><?php esc_html_e( 'Browse extensions', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://wordpress.org/plugins/" target="_blank" id="browse_plugins_button_2"><?php esc_html_e( 'Browse plugins', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-bridge-landing-page__features-grid__item">
@@ -58,11 +58,11 @@
 					<path d="M22.7511 0.158203L24.2496 4.20773L28.2991 5.70619L24.2496 7.20465L22.7511 11.2542L21.2527 7.20465L17.2031 5.70619L21.2527 4.20773L22.7511 0.158203Z" fill="var( --color-accent-light )"/>
 				</svg>
 			</div>
-			<h3><?php esc_html_e( 'Curated collections', 'wc-calypso-bridge' ); ?></h3>
+			<h3><?php esc_html_e( 'Extend your store', 'wc-calypso-bridge' ); ?></h3>
 			<p>
-				<?php esc_html_e( 'Quickly get started with our curated extension collections.', 'wc-calypso-bridge' ); ?>
+				<?php esc_html_e( 'Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/collections?utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="discover_collections_button"><?php esc_html_e( 'Discover collections', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/product-category/woocommerce-extensions/?categoryIds=1021&collections=product&page=1&utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="discover_extensions_button"><?php esc_html_e( 'Discover Extensions', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 		<div class="wc-bridge-landing-page__features-grid__item">
@@ -72,11 +72,11 @@
 					<path fill-rule="evenodd" clip-rule="evenodd" d="M22.6988 9.93852C23.9677 9.93852 25.1847 9.43442 26.082 8.53712C26.9793 7.63981 27.4834 6.42281 27.4834 5.15383C27.4834 3.88485 26.9793 2.66785 26.082 1.77054C25.1847 0.87324 23.9677 0.369141 22.6988 0.369141C21.4298 0.369141 20.2128 0.87324 19.3155 1.77054C18.4182 2.66785 17.9141 3.88485 17.9141 5.15383C17.9141 6.42281 18.4182 7.63981 19.3155 8.53712C20.2128 9.43442 21.4298 9.93852 22.6988 9.93852ZM31.7897 17.594V21.4218H28.9188V17.594C28.9188 16.2734 27.8471 15.2017 26.5265 15.2017H21.7418V12.3309H26.5265C27.9224 12.3309 29.2611 12.8854 30.2481 13.8724C31.2351 14.8594 31.7897 16.1981 31.7897 17.594ZM22.6988 7.06759C23.2063 7.06759 23.6931 6.86595 24.0521 6.50703C24.411 6.1481 24.6126 5.6613 24.6126 5.15371C24.6126 4.64612 24.411 4.15932 24.0521 3.8004C23.6931 3.44148 23.2063 3.23984 22.6988 3.23984C22.1912 3.23984 21.7044 3.44148 21.3454 3.8004C20.9865 4.15932 20.7849 4.64612 20.7849 5.15371C20.7849 5.6613 20.9865 6.1481 21.3454 6.50703C21.7044 6.86595 22.1912 7.06759 22.6988 7.06759Z" fill="var( --color-accent-light )"/>
 				</svg>
 			</div>
-			<h3><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></h3>
+			<h3><?php esc_html_e( 'Do it your way', 'wc-calypso-bridge' ); ?></h3>
 			<p>
-				<?php esc_html_e( 'Tips, tricks, and ecommerce inspiration from our blog.', 'wc-calypso-bridge' ); ?>
+				<?php esc_html_e( 'Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right.', 'wc-calypso-bridge' ); ?>
 			</p>
-			<a href="https://woocommerce.com/blog?utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="get_inspired_button"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
+			<a href="https://woocommerce.com/customizations?utm_source=wooextensionstab&utm_medium=product&utm_campaign=woocommerceplugin" target="_blank" id="get_inspired_button"><?php esc_html_e( 'Get inspired', 'wc-calypso-bridge' ); ?></a>
 		</div>
 
 	</div>
@@ -100,16 +100,16 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		if ( el ) {
 			el.addEventListener( 'click', function() {
 				recordEvent( eventName, {
-					source: 'extensions',
+					source: 'plugins',
 				} );
 			} );
 		}
 	};
 
 	recordButtonEvent( 'upgrade_now_button', 'free_trial_upgrade_now' );
-	recordButtonEvent( 'browse_extension_button', 'free_trial_browse_extensions' );
-	recordButtonEvent( 'browse_extension_button_2', 'free_trial_browse_extensions' );
-	recordButtonEvent( 'discover_collections_button', 'free_trial_discover_collections' );
+	recordButtonEvent( 'browse_plugins_button', 'free_trial_browse_plugins' );
+	recordButtonEvent( 'browse_plugins_button_2', 'free_trial_browse_plugins' );
+	recordButtonEvent( 'discover_extensions_button', 'free_trial_discover_extensions' );
 	recordButtonEvent( 'get_inspired_button', 'free_trial_get_inspired' );
 } );
 </script>
