@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -39,6 +39,11 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 */
 	private function __construct() {
 
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
 		/**
 		 * Suppress inbox messages not applicable to the ecommerce plan.
 		 *
@@ -52,34 +57,50 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		 */
 		add_filter( 'woocommerce_note_where_clauses', static function ( $where_clauses, $args, $context ) {
 
-			$suppressed_messages = array(
-				'wc-admin-adding-and-managing-products',
-				'wc-admin-choosing-a-theme',
-				'wc-admin-customizing-product-catalog',
-				'wc-admin-first-product',
-				'wc-admin-store-notice-giving-feedback-2',
-				'wc-admin-insight-first-product-and-payment',
-				'wc-admin-insight-first-sale',
-				'wc-admin-install-jp-and-wcs-plugins',
-				'wc-admin-launch-checklist',
-				'wc-admin-manage-store-activity-from-home-screen',
-				'wc-admin-onboarding-payments-reminder',
-				'wc-admin-usage-tracking-opt-in',
-				'wc-admin-remove-unsecured-report-files',
-				'wc-admin-update-store-details',
-				'wc-admin-welcome-to-woocommerce-for-store-users',
-				'wc-admin-woocommerce-payments',
-				'wc-admin-woocommerce-subscriptions',
-				'wc-pb-bulk-discounts',
-				'wc-payments-notes-set-up-refund-policy',
-				'wc-admin-marketing-jetpack-backup', // suppress for now, to be revisited.
-				'wc-admin-mobile-app', // suppress for now, to be revisited.
-				'wc-admin-migrate-from-shopify', // suppress for now, to be revisited.
-				'wc-admin-magento-migration', // suppress for now, to be revisited.
-				'wc-admin-woocommerce-subscriptions', // suppress for now, to be revisited.
-				'wc-admin-online-clothing-store', // suppress for now, to be revisited.
-				'wc-admin-selling-online-courses', // suppress for now, to be revisited.
-			);
+			$whitelisted_messages = array();
+			$suppressed_messages  = array();
+
+			if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+
+				$whitelisted_messages = array(
+					'wc-admin-add-first-product-note',
+					'wc-admin-mobile-app',
+					'wc-calypso-bridge-cart-checkout-blocks-default-inbox-note',
+					'wc-calypso-bridge-free-trial-welcome',
+					'wc-calypso-bridge-free-trial-support-checkin',
+					'wc-calypso-bridge-free-trial-halfway-checkin',
+					'wc-calypso-bridge-free-trial-expiry-checkin',
+				);
+
+			} else {
+
+				$suppressed_messages = array(
+					'wc-admin-adding-and-managing-products',
+					'wc-admin-choosing-a-theme',
+					'wc-admin-customizing-product-catalog',
+					'wc-admin-first-product',
+					'wc-admin-store-notice-giving-feedback-2',
+					'wc-admin-insight-first-product-and-payment',
+					'wc-admin-insight-first-sale',
+					'wc-admin-install-jp-and-wcs-plugins',
+					'wc-admin-manage-store-activity-from-home-screen',
+					'wc-admin-onboarding-payments-reminder',
+					'wc-admin-usage-tracking-opt-in',
+					'wc-admin-remove-unsecured-report-files',
+					'wc-admin-update-store-details',
+					'wc-admin-welcome-to-woocommerce-for-store-users',
+					'wc-admin-woocommerce-payments',
+					'wc-admin-woocommerce-subscriptions',
+					'wc-pb-bulk-discounts',
+					'wc-payments-notes-set-up-refund-policy',
+					'wc-admin-marketing-jetpack-backup', // suppress for now, to be revisited.
+					'wc-admin-migrate-from-shopify', // suppress for now, to be revisited.
+					'wc-admin-magento-migration', // suppress for now, to be revisited.
+					'wc-admin-woocommerce-subscriptions', // suppress for now, to be revisited.
+					'wc-admin-online-clothing-store', // suppress for now, to be revisited.
+					'wc-admin-selling-online-courses', // suppress for now, to be revisited.
+				);
+			}
 
 			// Suppress the message if the site is active for less than 5 days.
 			if ( ! WCAdminHelper::is_wc_admin_active_for( 5 * DAY_IN_SECONDS ) ) {
@@ -91,24 +112,40 @@ class WC_Calypso_Bridge_Hide_Alerts {
 				$suppressed_messages[] = 'wc-calypso-bridge-cart-checkout-blocks-default-inbox-note';
 			}
 
-			$where_excluded_name_array = array();
-			foreach ( $suppressed_messages as $name ) {
-				$where_excluded_name_array[] = sprintf( "'%s'", esc_sql( $name ) );
-			}
-			$escaped_where_excluded_names = implode( ',', $where_excluded_name_array );
+			// When whitelisting, only query for whitelisted messages excl blacklisted ones.
+			if ( ! empty( $whitelisted_messages ) ) {
 
-			if ( ! empty( $escaped_where_excluded_names ) ) {
-				$where_clauses .= " AND name NOT IN ($escaped_where_excluded_names) ";
+				// Remove suppressed messages from the whitelist.
+				$whitelisted_messages = array_diff( $whitelisted_messages, $suppressed_messages );
+				$where_name_array     = array();
+
+				foreach ( $whitelisted_messages as $name ) {
+					$where_name_array[] = sprintf( "'%s'", esc_sql( $name ) );
+				}
+				$escaped_where_names = implode( ',', $where_name_array );
+
+				if ( ! empty( $escaped_where_names ) ) {
+					$where_clauses .= " AND name IN ($escaped_where_names) ";
+				}
+
+			// When blacklisting, exclude blacklisted messages.
+			} elseif ( ! empty( $suppressed_messages ) ) {
+
+				$where_excluded_name_array = array();
+
+				foreach ( $suppressed_messages as $name ) {
+					$where_excluded_name_array[] = sprintf( "'%s'", esc_sql( $name ) );
+				}
+				$escaped_where_excluded_names = implode( ',', $where_excluded_name_array );
+
+				if ( ! empty( $escaped_where_excluded_names ) ) {
+					$where_clauses .= " AND name NOT IN ($escaped_where_excluded_names) ";
+				}
 			}
 
 			return $where_clauses;
 
 		}, PHP_INT_MAX, 3 );
-
-		// Only in Ecommerce.
-		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
-			return;
-		}
 
 		add_action( 'init', array( $this, 'init' ) );
 	}
@@ -117,6 +154,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Initialize.
 	 */
 	public function init() {
+
 		if ( ! is_admin() ) {
 			return;
 		}

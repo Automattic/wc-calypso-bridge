@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.8
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -43,6 +43,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @var array
 	 */
 	protected $one_time_operations = array(
+		'add_free_trial_welcome_note'             => 'add_free_trial_welcome_note_callback',
 		'delete_coupon_moved_notes'               => 'delete_coupon_moved_notes_callback',
 		'woocommerce_create_pages'                => 'woocommerce_create_pages_callback',
 		'set_jetpack_defaults'                    => 'set_jetpack_defaults_callback',
@@ -143,6 +144,10 @@ class WC_Calypso_Bridge_Setup {
 			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl' ] );
 			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_add_domain' ] );
 		}
+
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			unset( $this->one_time_operations[ 'add_free_trial_welcome_note' ] );
+		}
 	}
 
 	/**
@@ -180,6 +185,31 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
+	 * Add a welcome note for Woo Express Free Trial users.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function add_free_trial_welcome_note_callback() {
+
+		add_action( 'woocommerce_init', function () {
+
+			if ( ! class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
+				return;
+			}
+
+			include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-free-trial-welcome.php';
+			$note = new WC_Calypso_Bridge_Free_Trial_Welcome_Note();
+			$note->get_note()->save();
+
+			$operation = 'add_free_trial_welcome_note';
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
+
+		}, PHP_INT_MAX );
+
+	}
+
+	/**
 	 * Delete all `wc-admin-coupon-page-moved` notes and sets the operation as completed.
 	 *
 	 * @since 1.9.4
@@ -199,7 +229,6 @@ class WC_Calypso_Bridge_Setup {
 			$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
 			if ( false === $note ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
-
 				return;
 			}
 
