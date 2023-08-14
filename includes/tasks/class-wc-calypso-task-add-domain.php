@@ -91,7 +91,7 @@ class AddDomain extends Task {
 	 * @return string
 	 */
 	public function get_action_label() {
-		return __( "Add a domain", 'woocommerce' );
+		return __( "Add a domain", 'wc-calypso-bridge' );
 	}
 
 	/**
