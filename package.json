@@ -21,7 +21,8 @@
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js",
 		"prepare-release": "node ./scripts/prep-release.js",
-		"create-release": "node ./scripts/release.js"
+		"create-release": "node ./scripts/release.js",
+		"prepare": "husky install"
 	},
 	"workspaces": [
 		"scripts"
@@ -34,6 +35,7 @@
 		"@woocommerce/eslint-plugin": "^2.2.0",
 		"@wordpress/prettier-config": "^2.14.0",
 		"@wordpress/scripts": "^24.6.0",
+		"husky": "^8.0.3",
 		"prettier": "npm:wp-prettier@^2.8.5",
 		"typescript": "^4.9.5"
 	},
