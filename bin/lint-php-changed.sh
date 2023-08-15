@@ -6,4 +6,4 @@ if [ -z "$CHANGED_PHP_FILES" ]; then
 	echo "No PHP files changed. Exiting."
 	exit 0
 fi
-vendor/bin/phpcs-changed --warning-severity=0 --extensions=php,html --git --git-base $DEFAULT_BRANCH $CHANGED_PHP_FILES
+vendor/bin/phpcs-changed --warning-severity=0 --extensions=php,html --git --git-staged $CHANGED_PHP_FILES
