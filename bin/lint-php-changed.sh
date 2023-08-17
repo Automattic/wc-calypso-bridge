@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
-INITIAL_COMMIT_FOR_BRANCH=$(git merge-base origin/$DEFAULT_BRANCH HEAD)
-CHANGED_PHP_FILES=$(git diff --name-only --diff-filter=d $INITIAL_COMMIT_FOR_BRANCH | grep '\.php$' | xargs)
-if [ -z "$CHANGED_PHP_FILES" ]; then
-	echo "No PHP files changed. Exiting."
+CHANGED_STAGED_PHP_FILES=$(git diff --staged --name-only --diff-filter=d | grep '\.php$' | xargs)
+if [ -z "$CHANGED_STAGED_PHP_FILES" ]; then
+	echo "No modified PHP files are staged. Exiting."
 	exit 0
 fi
-vendor/bin/phpcs-changed --warning-severity=0 --extensions=php,html --git --git-staged $CHANGED_PHP_FILES
+vendor/bin/phpcs-changed --warning-severity=0 --extensions=php --git --git-staged $CHANGED_STAGED_PHP_FILES
