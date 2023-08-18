@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.9 =
+* Use the correct text domain for i18n functions #1127
+* Add a text domain linter #1272
+
 = 2.2.8 =
 * Fix Tax task for free trial #1247
 * Fix tax task component UIs #1261
