@@ -111,5 +111,11 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	recordButtonEvent( 'browse_plugins_button_2', 'free_trial_browse_plugins' );
 	recordButtonEvent( 'discover_extensions_button', 'free_trial_discover_extensions' );
 	recordButtonEvent( 'get_inspired_button', 'free_trial_get_inspired' );
+
+	recordEvent( 'page_view', {
+		has_navigation: !! window.wcNavigation,
+		path: document.location.pathname + document.location.search,
+	});
+	recordEvent( 'plugins_view' );
 } );
 </script>
