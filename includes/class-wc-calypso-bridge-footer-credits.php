@@ -48,7 +48,7 @@ class WC_Calypso_Bridge_Footer_Credits {
      */
     public function get_footer_credits(): string {
         $utm_string = '?utm_source=referral&utm_medium=footer-credit&utm_campaign=woo-express-footer-credit';
-        return sprintf( 'Powered by <a href="https://woocommerce.com/express/%1$s" rel="nofollow">Woo</a>', $utm_string );
+        return sprintf( __( 'Powered by <a href="https://woocommerce.com/express/%1$s" rel="nofollow">Woo</a>' ), $utm_string );
     }
 
 };
