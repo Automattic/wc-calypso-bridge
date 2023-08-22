@@ -116,6 +116,5 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		has_navigation: !! window.wcNavigation,
 		path: document.location.pathname + document.location.search,
 	});
-	recordEvent( 'plugins_view' );
 } );
 </script>

@@ -67,6 +67,7 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 	public function output() {
 		$upgrade_url = sprintf( 'https://wordpress.com/plans/%s', WC_Calypso_Bridge_Instance()->get_site_slug() );
 
+		\WC_Tracks::record_event( 'plugins_view' );
 		/**
 		 * Addon page view.
 		 *
