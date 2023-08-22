@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WooCommerce Calypso Bridge plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Calypso Bridge 2.2.5\n"
+"Project-Id-Version: WooCommerce Calypso Bridge 2.2.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-calypso-bridge\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-27T15:13:21+00:00\n"
+"POT-Creation-Date: 2023-08-18T13:06:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 
@@ -47,65 +47,65 @@ msgstr ""
 msgid "Feedback"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:179
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:180
 msgid "My Home"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:262
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:272
 msgid "Orders"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:267
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:277
 msgid "WooCommerce Settings"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:267
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:277
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:271
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:281
 msgid "WooCommerce Status"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:278
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:288
 msgid "Legacy Reports"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:288
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
 msgid "Customers"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:292
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:302
 msgid "Extensions"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:295
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
 msgid "WooCommerce Subscriptions"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:295
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:302
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:312
 msgid "Discover"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:451
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:461
 msgid "Anti-Spam"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:472
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:482
 msgid "Jetpack Status"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:474
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:484
 msgid "Jetpack Stats"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:474
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:484
 msgid "Stats"
 msgstr ""
 
@@ -126,7 +126,8 @@ msgstr ""
 msgid "There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:368
+#. translators: %s is the plans URL
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:369
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr ""
 
@@ -142,15 +143,15 @@ msgstr ""
 msgid "This site has already been launched"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-setup.php:320
+#: includes/class-wc-calypso-bridge-setup.php:328
 msgid "Home"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-setup.php:329
+#: includes/class-wc-calypso-bridge-setup.php:337
 msgid "Contact"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-setup.php:331
+#: includes/class-wc-calypso-bridge-setup.php:339
 msgid "My Account"
 msgstr ""
 
@@ -220,6 +221,7 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
+#: includes/templates/html-admin-page-plugins-landing-page.php:24
 msgid "Upgrade now"
 msgstr ""
 
@@ -228,6 +230,10 @@ msgid ""
 "\n"
 "\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.\n"
 "\t\t"
+msgstr ""
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:64
+msgid "Plugins"
 msgstr ""
 
 #: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:39
@@ -336,49 +342,92 @@ msgstr ""
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: includes/templates/html-admin-page-plugins-landing-page.php:32
+#: includes/templates/html-admin-page-plugins-landing-page.php:35
 msgid "Take your store to the next level, with extensions"
 msgstr ""
 
 #: includes/templates/html-admin-page-addons-landing-page.php:19
-msgid "Customize your store to work perfectly for your business, with Woo extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your business goals. Curious about what’s available? Browse our extensions marketplace."
+msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
 msgstr ""
 
 #: includes/templates/html-admin-page-addons-landing-page.php:27
-#: includes/templates/html-admin-page-addons-landing-page.php:55
-msgid "Browse extensions"
+msgid "Browse Extensions"
 msgstr ""
 
-#: includes/templates/html-admin-page-addons-landing-page.php:39
-msgid "Do more with your store – add extensions"
-msgstr ""
-
-#: includes/templates/html-admin-page-addons-landing-page.php:51
+#: includes/templates/html-admin-page-addons-landing-page.php:47
 msgid "Customize and extend"
 msgstr ""
 
-#: includes/templates/html-admin-page-addons-landing-page.php:53
+#: includes/templates/html-admin-page-addons-landing-page.php:49
 msgid "Add extra features and functionality, or integrate with other platforms and tools."
 msgstr ""
 
-#: includes/templates/html-admin-page-addons-landing-page.php:65
+#: includes/templates/html-admin-page-addons-landing-page.php:51
+msgid "Browse extensions"
+msgstr ""
+
+#: includes/templates/html-admin-page-addons-landing-page.php:61
 msgid "Curated collections"
 msgstr ""
 
-#: includes/templates/html-admin-page-addons-landing-page.php:67
+#: includes/templates/html-admin-page-addons-landing-page.php:63
 msgid "Quickly get started with our curated extension collections."
 msgstr ""
 
-#: includes/templates/html-admin-page-addons-landing-page.php:69
+#: includes/templates/html-admin-page-addons-landing-page.php:65
 msgid "Discover collections"
 msgstr ""
 
+#: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: includes/templates/html-admin-page-addons-landing-page.php:83
+#: includes/templates/html-admin-page-plugins-landing-page.php:79
 msgid "Get inspired"
 msgstr ""
 
-#: includes/templates/html-admin-page-addons-landing-page.php:81
+#: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:15
+msgid "Make anything happen, with plugins"
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:19
+msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:27
+#: includes/templates/html-admin-page-plugins-landing-page.php:51
+msgid "Browse plugins"
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:47
+msgid "Transform WordPress"
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:49
+msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:61
+msgid "Extend your store"
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:63
+msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:65
+msgid "Discover Extensions"
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:75
+msgid "Do it your way"
+msgstr ""
+
+#: includes/templates/html-admin-page-plugins-landing-page.php:77
+msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
 msgstr ""
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:60
@@ -562,7 +611,7 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: src/free-trial/tax/components/location.js:53
+#: src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr ""
 
