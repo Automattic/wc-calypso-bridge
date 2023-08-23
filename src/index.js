@@ -5,6 +5,7 @@ import { addFilter, addAction } from '@wordpress/hooks';
 import { WooOnboardingTask } from '@woocommerce/onboarding';
 import { registerPlugin, unregisterPlugin } from '@wordpress/plugins';
 import { render, lazy } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -185,7 +186,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 				pages.push( {
 					container: Plugins,
 					path: '/plugins-upgrade',
-					breadcrumbs: [ 'Plugins', 'Upgrade' ],
+					breadcrumbs: [ __( 'Plugins' ), __( 'Plugins' ) ],
 					navArgs: {
 						id: 'plugins-upgrade',
 					},
