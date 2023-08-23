@@ -56,7 +56,7 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 		wc_admin_register_page(
 			array(
 				'id'        => 'woocommerce-wccom-plugins',
-				'title'     => __('Plugins', 'wc-calyso-bridge'),
+				'title'     => __( 'Plugins', 'wc-calypso-bridge' ),
 				'nav_args'  => array(
 					'title'  => __( 'Plugins', 'wc-calyso-bridge' ),
 				),
