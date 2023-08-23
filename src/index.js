@@ -46,6 +46,10 @@ const PaymentGatewaySuggestions = lazy( () =>
 	)
 );
 
+const HelloWorld = lazy( () =>
+	import( /* webpackChunkName: "hello-world" */ './hello-world' )
+);
+
 wcNavFilterRootUrl();
 
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
@@ -93,7 +97,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		'wc-admin-onboarding-task-payments',
 		'woocommerce-admin-task-wcpay', // WCPay task item which handles direct click on the task. (Not needed in free trial)
 		'woocommerce-admin-task-wcpay-page', // WCPay task page which handles URL navigation to the task.
-		'wc-admin-onboarding-task-tax',
+		'wc-admin-onboarding-task-tax'
 	);
 
 	// Add slot fill for payments task.
@@ -202,6 +206,20 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 		);
 	}
 }
+
+addFilter( 'woocommerce_admin_pages_list', 'wc-calypso-bridge', ( pages ) => {
+	pages.push( {
+		container: HelloWorld,
+		path: '/hello-world',
+		breadcrumbs: [ 'Hello', 'World' ],
+		navArgs: {
+			id: 'hello-world',
+		},
+		capability: 'manage_woocommerce',
+	} );
+
+	return pages;
+} );
 
 addAction(
 	'plugins.pluginRegistered',
