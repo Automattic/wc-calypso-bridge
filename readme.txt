@@ -22,6 +22,12 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Handling footer credits for Woo Express plans #1265
+
+= 2.2.10 =
+* Update translation files on every release
+
 = 2.2.9 =
 * Use the correct text domain for i18n functions #1127
 * Add a text domain linter #1272
