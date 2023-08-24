@@ -36,7 +36,7 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	color: #2F2F2F; /* gray-80 */
 }
 
-.wc-bridge-landing-page__title {
+.woocommerce.wc-bridge-landing-page .wc-bridge-landing-page__title {
 	font-size: 32px;
 	line-height: 40px;
 	font-weight: 400;
@@ -133,6 +133,7 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	line-height: 24px;
 	font-weight: 400;
 	margin: 0;
+	box-sizing: initial;
 }
 .wc-bridge-landing-page__features-grid__item a {
 	font-size: 13px;
