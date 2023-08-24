@@ -11,7 +11,6 @@ const PluginsPage = () => {
 			'woocommerce_page_wc-bridge-landing-page',
 			'woocommerce_page_wc-plugins-landing-page'
 		);
-		recordEvent( 'plugins_view' );
 
 		return () => {
 			document.body.classList.remove(
