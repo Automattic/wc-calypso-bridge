@@ -25,6 +25,7 @@ This section describes how to install the plugin and get it working.
 = Unreleased =
 * Handling footer credits for Woo Express plans #1265
 * Convert plugins page to a WC page #1278
+* Fix plugins mobile screen UI #1281
 
 = 2.2.10 =
 * Update translation files on every release
