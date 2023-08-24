@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.2.11 =
 * Handling footer credits for Woo Express plans #1265
 * Convert plugins page to a WC page #1278
 * Fix plugins mobile screen UI #1281
