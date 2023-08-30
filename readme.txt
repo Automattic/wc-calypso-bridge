@@ -22,6 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= unreleased = 
+* Introduce a blocklist for feature settings to be hidden (Analytics, Old Navigation) #1284
+* Add logic to search explicitly for the right key in order to inject the Navigation setting under the "Features" section #1284
+* Restore access to the editor and HPOS experimental options #1284
+
 = 2.2.11 =
 * Handling footer credits for Woo Express plans #1265
 * Convert plugins page to a WC page #1278
