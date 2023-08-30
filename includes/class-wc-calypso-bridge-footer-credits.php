@@ -1,4 +1,11 @@
 <?php
+/**
+ * WC Calypso Bridge Footer Credits
+ *
+ * @package WC_Calypso_Bridge/Classes
+ * @since   2.2.11
+ * @version x.x.x
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -36,21 +43,32 @@ class WC_Calypso_Bridge_Footer_Credits {
 			return;
 		}
 
-        return add_filter( 'wpcom_better_footer_credit_link', array( $this, 'get_footer_credits' ) );
+        add_filter( 'wpcom_better_footer_credit_link', array( $this, 'get_footer_credits' ), PHP_INT_MAX, 2 );
     }
 
-    /**
-     * Get footer credit as HTML.
-     *
-     * @see <wpcomsh/block-theme-footer-credits/class-wpcom-block-theme-footer-credits.php>
-     *
-     * @return string
-     */
-    public function get_footer_credits(): string {
-        $utm_string = '?utm_source=referral&utm_medium=footer-credit&utm_campaign=woo-express-footer-credit';
-				/* translators: %1$s is replaced with a link to WooCommerce.com */
-        return sprintf( __( 'Powered by %1$s', 'wc-calypso-bridge' ), '<a href="https://woocommerce.com/express/' . $utm_string . '" rel="nofollow">Woo</a>' );
-    }
+	/**
+	 * Override footer credit as HTML - Only if there is no option in the DB or if it's set to default.
+	 *
+	 * @param $credit
+	 * @param $lang
+	 *
+	 * @return string
+	 * @see <wpcomsh/block-theme-footer-credits/class-wpcom-block-theme-footer-credits.php>
+	 *
+	 */
+	public function get_footer_credits( $credit, $lang ) {
+
+		$credit_option = get_option( 'footercredit', false );
+		if ( empty( $credit_option ) || 'default' === $credit_option ) {
+			$utm_string = '?utm_source=referral&utm_medium=footer-credit&utm_campaign=woo-express-footer-credit';
+
+			/* translators: %1$s is replaced with a link to WooCommerce.com */
+			return sprintf( __( 'Powered by %1$s', 'wc-calypso-bridge' ), '<a href="https://woocommerce.com/express/' . $utm_string . '" rel="nofollow">Woo</a>' );
+		}
+
+		return $credit;
+
+	}
 
 };
 WC_Calypso_Bridge_Footer_Credits::get_instance();
