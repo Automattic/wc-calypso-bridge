@@ -23,7 +23,10 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = unreleased =
-* Improve handling footer credits for Woo Express plans #xxx
+* Improve handling footer credits for Woo Express plans #1286
+* Introduce a blocklist for feature settings to be hidden (Analytics, Old Navigation) #1284
+* Add logic to search explicitly for the right key in order to inject the Navigation setting under the "Features" section #1284
+* Restore access to the editor and HPOS experimental options #1284
 
 = 2.2.11 =
 * Handling footer credits for Woo Express plans #1265
