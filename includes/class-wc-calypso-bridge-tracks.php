@@ -6,7 +6,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version x.x.x
+ * @version 2.2.12
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -194,7 +194,7 @@ class WC_Calypso_Bridge_Tracks {
 	 *
 	 * @param array  $properties Current event properties array.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.12
 	 */
 	public function filter_jetpack_woocommerce_analytics_event_props( $properties ) {
 		$properties['host'] = self::$tracks_host_value;
