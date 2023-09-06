@@ -13,8 +13,13 @@ import { Link } from '@woocommerce/components';
  */
 import TimerImage from '../../../task-headers/assets/images/timer.svg';
 import { WC_ASSET_URL } from '../../../utils/admin-settings';
+import { sanitizeHTML } from '../../../payment-gateway-suggestions/utils';
 
 const WoocommercePaymentsHeader = () => {
+	const incentive =
+		window.wcSettings?.admin?.wcpayWelcomePageIncentive ||
+		window.wcpaySettings?.connectIncentive;
+
 	return (
 		<WooOnboardingTaskListHeader id="woocommerce-payments">
 			{ ( { task, goToTask } ) => {
@@ -38,12 +43,20 @@ const WoocommercePaymentsHeader = () => {
 									'wc-calypso-bridge'
 								) }
 							</h1>
-							<p>
-								{ __(
-									'Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments.',
-									'wc-calypso-bridge'
-								) }
-							</p>
+							{ incentive?.task_header_content ? (
+								<p
+									dangerouslySetInnerHTML={ sanitizeHTML(
+										incentive.task_header_content
+									) }
+								/>
+							) : (
+								<p>
+									{ __(
+										'Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments.',
+										'wc-calypso-bridge'
+									) }
+								</p>
+							) }
 							<p>
 								{ interpolateComponents( {
 									mixedString: __(
