@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = unreleased =
-* Display a server based WooPayments setup task header when an incentive is available.
+* Display a server based WooPayments setup task header when an incentive is available #1294
 
 = 2.2.12 =
 * Improve handling footer credits for Woo Express plans #1286
