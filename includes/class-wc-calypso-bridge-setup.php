@@ -280,15 +280,17 @@ class WC_Calypso_Bridge_Setup {
 				$query_pages   = new WP_Query( $args_pages );
 
 				$this->write_to_log( $operation, 'DELETING PAGES ');
-				foreach ( $query_pages->posts as $page ) {
-					if ( ! in_array( $page->post_name, $exclude_pages ) ) {
-						$result = wp_delete_post( $page->ID, true );
-						$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
-						if ( ! $result ) {
-							$this->write_to_log( $operation, 'failed to delete WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
+				if ( ! empty( $query_pages->posts ) ) {
+					foreach ( $query_pages->posts as $page ) {
+						if ( ! in_array( $page->post_name, $exclude_pages ) ) {
+							$result = wp_delete_post( $page->ID, true );
+							$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
+							if ( ! $result ) {
+								$this->write_to_log( $operation, 'failed to delete WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
+							}
+						} else {
+							$this->write_to_log( $operation, 'skipped WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
 						}
-					} else {
-						$this->write_to_log( $operation, 'skipped WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
 					}
 				}
 
