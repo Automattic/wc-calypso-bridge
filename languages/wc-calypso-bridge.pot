@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WooCommerce Calypso Bridge plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Calypso Bridge 2.2.12\n"
+"Project-Id-Version: WooCommerce Calypso Bridge 2.2.13\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-calypso-bridge\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-30T09:21:44+00:00\n"
+"POT-Creation-Date: 2023-09-12T11:25:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 
@@ -149,15 +149,15 @@ msgstr ""
 msgid "This site has already been launched"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-setup.php:328
+#: includes/class-wc-calypso-bridge-setup.php:351
 msgid "Home"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-setup.php:337
+#: includes/class-wc-calypso-bridge-setup.php:360
 msgid "Contact"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-setup.php:339
+#: includes/class-wc-calypso-bridge-setup.php:362
 msgid "My Account"
 msgstr ""
 
@@ -556,13 +556,13 @@ msgstr ""
 
 #: build/53.js:1
 #: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:24
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
 msgid "Payment illustration"
 msgstr ""
 
 #: build/53.js:1
 #: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:36
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
 msgid "It’s time to test payments"
 msgstr ""
 
@@ -573,17 +573,17 @@ msgstr ""
 
 #: build/53.js:1
 #: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:71
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
 msgid "Test payments"
 msgstr ""
 
 #: build/53.js:1
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:42
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr ""
 
 #: build/53.js:1
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:49
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr ""
 
