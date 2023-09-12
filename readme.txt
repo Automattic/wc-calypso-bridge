@@ -23,12 +23,9 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.2.13 =
-* _Enter your changes here_
-
-= unreleased =
 * Display a server based WooPayments setup task header when an incentive is available #1294
-* Introduce additional logging in the page creation one time job #xxx
-* Delete all created pages (except an allow-list) and then recreate WooCommerce ones, to avoid ending up with duplicates #xxx 
+* Introduce additional logging in the page creation one time job #1296
+* Delete all created pages (except an allow-list) and then recreate WooCommerce ones, to avoid ending up with duplicates #1296 
 
 = 2.2.12 =
 * Improve handling footer credits for Woo Express plans #1286
