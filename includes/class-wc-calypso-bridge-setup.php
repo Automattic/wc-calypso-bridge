@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.8
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -269,16 +269,28 @@ class WC_Calypso_Bridge_Setup {
 
 			try {
 				/*
-				 * Force delete all WooCommerce pages. Some themes create them, and we end up with duplicates.
-				 *
-				 * `My Account` page, has slug `my-account`.
-				 * @see WC_Install::create_pages()
+				 * Force delete all pages (including duplicates), except some which are whitelisted.
 				 */
-				foreach ( [ 'shop', 'cart', 'my-account', 'checkout', 'refund_returns' ] as $page_slug ) {
-					$page = get_page_by_path( $page_slug, ARRAY_A );
-					if ( is_array( $page ) && isset( $page['ID'] ) ) {
-						wp_delete_post( $page['ID'], true );
-						$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page_slug );
+				$exclude_pages = array( 'faq', 'contact-us', 'blog' );
+				$args_pages    = array(
+					'post_type'      => 'page',
+					'post_status'    => 'any',
+					'posts_per_page' => - 1,
+				);
+				$query_pages   = new WP_Query( $args_pages );
+
+				$this->write_to_log( $operation, 'DELETING PAGES ');
+				if ( ! empty( $query_pages->posts ) ) {
+					foreach ( $query_pages->posts as $page ) {
+						if ( ! in_array( $page->post_name, $exclude_pages ) ) {
+							$result = wp_delete_post( $page->ID, true );
+							$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
+							if ( ! $result ) {
+								$this->write_to_log( $operation, 'failed to delete WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
+							}
+						} else {
+							$this->write_to_log( $operation, 'skipped WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
+						}
 					}
 				}
 
@@ -291,9 +303,19 @@ class WC_Calypso_Bridge_Setup {
 				 * `My Account` page id setting, is created with key `myaccount`.
 				 * @see WC_Install::create_pages()
 				 */
+				$this->write_to_log( $operation, 'DELETING OPTIONS ');
 				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
-					delete_option( "woocommerce_{$page}_page_id" );
-					$this->write_to_log( $operation, 'deleted WooCommerce page id for page ' . $page );
+					$value  = get_option( "woocommerce_{$page}_page_id" );
+					$result = delete_option( "woocommerce_{$page}_page_id" );
+					$this->write_to_log( $operation, 'deleted option woocommerce_' . $page . '_page_id : ' . $value );
+					if ( ! $result ) {
+						$this->write_to_log( $operation, 'failed to delete option woocommerce_' . $page . '_page_id : ' . $value );
+					}
+				}
+
+				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
+					$value  = get_option( "woocommerce_{$page}_page_id" );
+					$this->write_to_log( $operation, 'getting option woocommerce_' . $page . '_page_id : ' . $value );
 				}
 
 				// Delete the following note, so it can be recreated with the correct refund page ID.
@@ -301,6 +323,7 @@ class WC_Calypso_Bridge_Setup {
 					Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-refund-returns-page' );
 				}
 
+				$this->write_to_log( $operation, 'CREATING PAGES ');
 				WC_Install::create_pages();
 				$this->write_to_log( $operation, 'finished WC_Install::create_pages' );
 
@@ -394,7 +417,7 @@ class WC_Calypso_Bridge_Setup {
 				if ( isset( $pages['checkout']['content'] ) ) {
 					$pages['checkout']['content'] = '<!-- wp:woocommerce/checkout {"align":"wide"} --><div class="wp-block-woocommerce-checkout alignwide wc-block-checkout is-loading"><!-- wp:woocommerce/checkout-fields-block --><div class="wp-block-woocommerce-checkout-fields-block"><!-- wp:woocommerce/checkout-express-payment-block --><div class="wp-block-woocommerce-checkout-express-payment-block"></div><!-- /wp:woocommerce/checkout-express-payment-block --><!-- wp:woocommerce/checkout-contact-information-block --><div class="wp-block-woocommerce-checkout-contact-information-block"></div><!-- /wp:woocommerce/checkout-contact-information-block --><!-- wp:woocommerce/checkout-shipping-address-block --><div class="wp-block-woocommerce-checkout-shipping-address-block"></div><!-- /wp:woocommerce/checkout-shipping-address-block --><!-- wp:woocommerce/checkout-billing-address-block --><div class="wp-block-woocommerce-checkout-billing-address-block"></div><!-- /wp:woocommerce/checkout-billing-address-block --><!-- wp:woocommerce/checkout-shipping-methods-block --><div class="wp-block-woocommerce-checkout-shipping-methods-block"></div><!-- /wp:woocommerce/checkout-shipping-methods-block --><!-- wp:woocommerce/checkout-payment-block --><div class="wp-block-woocommerce-checkout-payment-block"></div><!-- /wp:woocommerce/checkout-payment-block --><!-- wp:woocommerce/checkout-order-note-block --><div class="wp-block-woocommerce-checkout-order-note-block"></div><!-- /wp:woocommerce/checkout-order-note-block --><!-- wp:woocommerce/checkout-terms-block --><div class="wp-block-woocommerce-checkout-terms-block"></div><!-- /wp:woocommerce/checkout-terms-block --><!-- wp:woocommerce/checkout-actions-block --><div class="wp-block-woocommerce-checkout-actions-block"></div><!-- /wp:woocommerce/checkout-actions-block --></div><!-- /wp:woocommerce/checkout-fields-block --><!-- wp:woocommerce/checkout-totals-block --><div class="wp-block-woocommerce-checkout-totals-block"><!-- wp:woocommerce/checkout-order-summary-block --><div class="wp-block-woocommerce-checkout-order-summary-block"></div><!-- /wp:woocommerce/checkout-order-summary-block --></div><!-- /wp:woocommerce/checkout-totals-block --></div><!-- /wp:woocommerce/checkout -->';
 				}
-				$this->write_to_log( $operation, 'set cart/checkout blocks' );
+				$this->write_to_log( $operation, 'woocommerce_create_pages filter - updated content to use cart/checkout blocks' );
 
 				// Inform the merchant that we've enabled the new checkout experience.
 				include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php';
@@ -412,11 +435,24 @@ class WC_Calypso_Bridge_Setup {
 
 		}, PHP_INT_MAX );
 
+		// Log if valid page exists.
+		add_filter( 'woocommerce_create_page_id', function ( $valid_page_found, $slug, $page_content ) {
+
+			$operation = 'woocommerce_create_pages';
+			if ( $valid_page_found ) {
+				$this->write_to_log( $operation, 'woocommerce_create_page_id filter - valid page found - slug: ' . $slug );
+			} else {
+				$this->write_to_log( $operation, 'woocommerce_create_page_id filter - valid page not found - slug: ' . $slug );
+			}
+
+			return $valid_page_found;
+		}, PHP_INT_MAX, 3 );
+
 		// Log which pages have been created.
 		add_action( 'woocommerce_page_created', function ( $page_id, $page_data ) {
 			$operation = 'woocommerce_create_pages';
 			$slug      = isset( $page_data['post_name'] ) ? $page_data['post_name'] : '';
-			$this->write_to_log( $operation, 'woocommerce_page_created action - ' . 'id: ' . $page_id . ', slug: ' . $slug );
+			$this->write_to_log( $operation, 'woocommerce_page_created action - id: ' . $page_id . ', slug: ' . $slug );
 		}, PHP_INT_MAX, 2 );
 
 	}
