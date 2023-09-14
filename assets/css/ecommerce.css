@@ -31,6 +31,13 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	display: none;
 }
 
+body.woocommerce_page_wc-bridge-landing-page .woocommerce-layout .woocommerce-layout__main {
+	padding-right: 0;
+}
+body.woocommerce_page_wc-bridge-landing-page .woocommerce-layout__primary {
+	margin: 0;
+}
+
 .wc-bridge-landing-page {
 	background: white;
 	color: #2F2F2F; /* gray-80 */
@@ -103,6 +110,10 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	display: flex;
 	flex-wrap: nowrap;
 	text-align: center;
+}
+
+body.woocommerce_page_wc-bridge-landing-page.woocommerce_page_wc-admin #wpbody-content {
+	padding-bottom: 64px;
 }
 
 .wc-bridge-landing-page__features-grid__item {
