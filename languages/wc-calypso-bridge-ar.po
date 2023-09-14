@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-12 09:54:03+0000\n"
+"PO-Revision-Date: 2023-09-13 15:54:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,27 +11,435 @@ msgstr ""
 "Language: ar\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: src/welcome-modal/index.js:100
+#: build/plugins.js:1
+msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
+msgstr "هل يتعذر العثور على الإضافة المناسبة لاحتياجاتك؟  بدءًا من عمليات تكامل الخدمات ووصولاً إلى التخصيصات الغريبة، يمكن لفريق الخبراء لدينا مساعدتك على إنجاز المهمة بشكل سليم."
+
+#: build/plugins.js:1
+msgid "Do it your way"
+msgstr "القيام بذلك بطريقتك"
+
+#: build/plugins.js:1
+msgid "Discover Extensions"
+msgstr "اكتشاف الامتدادات"
+
+#: build/plugins.js:1
+msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
+msgstr "هل تبحث عن مزيد من طرق الدفع والشحن؟ هل تريد إنشاء موقع عضوية أو قبول التبرعات؟ اختر من ضمن مئات الامتدادات التي اختارها فريقنا بعناية."
+
+#: build/plugins.js:1
+msgid "Extend your store"
+msgstr "توسيع متجرك"
+
+#: build/plugins.js:1
+msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
+msgstr "اجعل ووردبريس يفعل أي شيء. أنشئ متجرًا أو استضف حلقة بودكاست أو اعرض متجرك. تتحكم في أكثر من 550000 إضافة."
+
+#: build/plugins.js:1
+msgid "Transform WordPress"
+msgstr "تحويل ووردبريس"
+
+#: build/plugins.js:1
+msgid "Browse plugins"
+msgstr "تصفُّح الإضافات"
+
+#: build/plugins.js:1
+msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
+msgstr "حوّل موقعك على ووردبريس إلى أي شيء تضعه في ذهنك. قم بالترقية إلى خطة مدفوعة وتمتع بالوصول إلى آلاف من الإضافات المجانية والمدفوعة. هل تشعر بالفضول لمعرفة ما يُعد ممكنًا؟"
+
+#: build/plugins.js:1
+msgid "Make anything happen, with plugins"
+msgstr "جعل أي شيء قابلاً للحدوث باستخدام الإضافات"
+
+#: build/payment-gateway-suggestions.js:3
+msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
+msgstr "احصل على ميزات مُحسَّنة وإصلاحات أسرع عن طريق مشاركة البيانات غير الحسَّاسة من خلال ميزة {{link}}تتبُّع الاستخدام{{/link}} التي توضِّح لنا كيفية استخدام WooCommerce. لا يتم تتبُّع أي بيانات شخصية أو تخزينها."
+
+#: build/marketing.js:1
+msgid "Create digital gift cards"
+msgstr "إنشاء بطاقات هدايا رقمية"
+
+#: build/marketing.js:1
+msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
+msgstr "ابدأ بيع بطاقات الهدايا الرقمية واقبلها لزيادة ولاء العملاء وتحقيق مزيد من الإيرادات وتقديم عملاء جدد إلى متجرك."
+
+#: build/marketing.js:1
+msgid "Increase customer loyalty with gift cards"
+msgstr "زيادة ولاء العملاء باستخدام بطاقات الهدايا"
+
+#: build/marketing.js:1
+msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
+msgstr "اعرض منتجاتك أمام ملايين من المتسوقين المشاركين الذين يتصفحون منصات TikTok وبينتريست وMeta مع الإعلانات الاجتماعية."
+
+#: build/marketing.js:1
+msgid "Reach more customers across social media"
+msgstr "الوصول إلى مزيد من العملاء عبر شبكات التواصل الاجتماعي"
+
+#: build/marketing.js:1
+msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
+msgstr "يمكنك الوصول إلى المتسوقين النشطين عبر غوغل من خلال قوائم المنتجات والإعلانات التي يمكنك إنشاؤها وإدارتها مباشرةً من لوحة التحكم لديك."
+
+#: build/marketing.js:1
+msgid "Advertise your products on Google"
+msgstr "الإعلان عن منتجاتك على غوغل"
+
+#: build/marketing.js:1
+msgid "Try AutomateWoo"
+msgstr "تجربة AutomateWoo"
+
+#: build/marketing.js:1
+msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
+msgstr "زيادة المبيعات وبناء الولاء من خلال الرسائل التسويقية الآلية التي تستجيب لبيانات الشراء الخاصة بالعميل."
+
+#: build/marketing.js:1
+msgid "Automate your marketing"
+msgstr "أتمتة التسويق الخاص بك"
+
+#: build/marketing.js:1
+msgid "Discover our built-in marketing tools to reach more customers and boost sales"
+msgstr "اكتشاف أدوات التسويق المدمجة لدينا للوصول إلى مزيد من العملاء وتعزيز المبيعات"
+
+#: build/marketing.js:1
+msgid "Grow your business with hundreds of extensions"
+msgstr "تطوير أعمالك باستخدام مئات من الامتدادات"
+
+#: build/marketing.js:1
+msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
+msgstr "يمكنك الوصول إلى مزيد من العملاء وتطوير أعمالك باستخدام أدوات التسويق والإعلان المدمجة لدينا. قم بالترقية إلى خطة مدفوعة لإطلاق العنان لأدوات التسويق الفعالة لدينا، وابدأ بتطوير أعمالك اليوم!"
+
+#: build/marketing.js:1
+msgid "Get ready to grow your business"
+msgstr "الاستعداد لتطوير أعمالك"
+
+#: build/index.js:3 src/task-headers/appearance.js:29
+msgid "Appearance illustration"
+msgstr "رسم توضيحي للمظهر"
+
+#: build/index.js:3 src/task-headers/products.js:26
+msgid "Products illustration"
+msgstr "مثال توضيحي للمنتجات"
+
+#: build/index.js:3
+msgid "Everything is looking great, keep it up!"
+msgstr "يبدو أن كل شيء رائع، واصل الأمر!"
+
+#: build/index.js:3
+msgid "Woo! We’ve made it to the last step! Great job"
+msgstr "Woo! لقد وصلنا إلى الخطوة الأخيرة! أحسنت!"
+
+#: build/index.js:3
+msgid "Only a few more tasks to tick off!"
+msgstr "عدد قليل فقط من المهام لوضع علامة عليها!"
+
+#: build/index.js:3
+msgid "Welcome to your Woo Express store"
+msgstr "مرحبًا بك في متجر Woo Express الخاص بك"
+
+#. translators: %s = site title
+#: build/index.js:3
+msgid "Welcome to %s"
+msgstr "مرحبًا بكم في %s"
+
+#. translators: 1: completed tasks, 2: total tasks
+#: build/index.js:2
+msgid "%1$d out of %2$d complete."
+msgstr "⁦%1$d⁩ من أصل ⁦%2$d⁩ مكتمل."
+
+#: build/index.js:1
+msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
+msgstr "أصبحت مستعدًا لتبدأ بالبيع! اتبع هذه الخطوات لإعداد متجر الاختبار الخاص بك."
+
+#: build/index.js:1
+msgid "Hide setup list"
+msgstr "إخفاء قائمة الإعداد"
+
+#: build/index.js:1
+msgid "The store setup process meets my needs."
+msgstr "تستوفي عملية إعداد المتجر الاحتياجات."
+
+#: build/index.js:1
+msgid "The store setup is easy to complete."
+msgstr "يسهل إكمال إعداد المتجر."
+
+#: build/index.js:1
+msgid "We appreciate your feedback!"
+msgstr "نقدِّر الملاحظات التي تقدِّمها!"
+
+#: build/index.js:1
+msgid "How was your experience?"
+msgstr "كيف كانت تجربتك؟"
+
+#: build/index.js:1
+msgid "Hide this"
+msgstr "إخفاء هذا"
+
+#: build/index.js:1
+msgid "Show setup task list"
+msgstr "إظهار قائمة مهام الإعداد"
+
+#: build/index.js:1
+msgid "Task List Options"
+msgstr "خيارات قائمة المهام"
+
+#: build/index.js:1
+msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
+msgstr "تهانينا! خصص لحظة للاحتفال. وبمجرد أن تصبح مستعدًا لبدء متجرك، كل ما عليك فعله هو الترقية إلى خطة مدفوعة. سيؤدي ذلك أيضًا إلى فتح المهمتَين المقبلتَين في قائمة المهام."
+
+#: build/index.js:1
+msgid "Woohoo! Your trial store has been set up!"
+msgstr "Woohoo! تم إعداد متجرك التجريبي!"
+
+#: build/index.js:1
+msgid "You're awesome! One less item on your to-do list ✅"
+msgstr "أحسنتَ صنعًا! عنصر واحد أقل في قائمة المهام الخاصة بك ✅"
+
+#: build/index.js:1
+msgid "There was a problem setting up automated taxes. Please try again."
+msgstr "كانت هناك مشكلة في أثناء إعداد الضرائب التلقائية. ترجى المحاولة مجددًا."
+
+#: build/index.js:1
+msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
+msgstr "في أثناء فترة الإصدار التجريبي المجاني، يمكنك تكوين إعدادات ضرائب المبيعات، ولكن لا يمكنك تحصيلها. {{br/}}لبدء بيع المنتجات، {{link}}قم بالترقية الآن{{/link}}."
+
+#: build/index.js:1
+msgid "I don't charge sales tax"
+msgstr "أنا لا أتقاضى ضريبة المبيعات"
+
+#: build/index.js:1
+msgid "Set up taxes manually"
+msgstr "إعداد الضرائب يدويًا"
+
+#: build/index.js:1
+msgid "Choose a tax partner"
+msgstr "اختيار شريك ضريبي"
+
+#: build/index.js:1
+msgid "WooCommerce Tax can automate your sales tax calculations for you."
+msgstr "يمكن أن تُنفِّذ خدمات WooCommerce Tax عملياتك الحسابية الخاصة بضرائب المبيعات تلقائيًا من أجلك."
+
+#: build/index.js:1
+msgid "Automate Taxes"
+msgstr "أتمتة الضرائب"
+
+#: build/index.js:1
+msgid "Automate taxes"
+msgstr "أتمتة الضرائب"
+
+#: build/index.js:1
+msgid "Head over to the tax rate settings screen to configure your tax rates"
+msgstr "التوجُّه إلى شاشة إعدادات نسبة الضريبة لتكوين نسب الضرائب الخاصة بك"
+
+#: build/index.js:1
+msgid "Configure tax rates"
+msgstr "تكوين نسب الضرائب"
+
+#: build/index.js:1
+msgid "The address from which your business operates"
+msgstr "العنوان الذي تُدير أعمالك من خلاله"
+
+#: build/index.js:1
+msgid "Set store location"
+msgstr "تعيين موقع المتجر"
+
+#: build/index.js:1
+msgid "Please select a country / region"
+msgstr "يرجى تحديد دولة / منطقة"
+
+#: build/index.js:1
+msgid "Post code"
+msgstr "الرمز البريدي"
+
+#: build/index.js:1
+msgid "Address"
+msgstr "العنوان"
+
+#: build/index.js:1
+msgid "Country / Region"
+msgstr "الدولة / المنطقة"
+
+#: build/index.js:1
+msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
+msgstr "يعني النقر على \"تكوين\" أنَّك تقوم بتمكين نسب الضرائب والعمليات الحسابية لها. يتوافر المزيد من المعلومات {{link}}هنا{{/link}}."
+
+#: build/index.js:1
+msgid "Configure"
+msgstr "ضبط"
+
+#: build/index.js:1
+msgid "Continue setup"
+msgstr "متابعة الإعداد"
+
+#: build/index.js:1
+msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
+msgstr "يعني تثبيت ضريبة WooCommerce وJetpack أنك توافق على {{link}}شروط الخدمة{{/link}}."
+
+#: build/index.js:1
+msgid "100% free"
+msgstr "مجاني بنسبة 100%"
+
+#: build/index.js:1
+msgid "Powered by {{link}}Jetpack{{/link}}"
+msgstr "مدعوم من {{link}}Jetpack{{/link}}"
+
+#: build/index.js:1
+msgid "{{strong}}Single{{/strong}} economic nexus compliance"
+msgstr "{{strong}}الامتثال برابطة{{/strong}} اقتصادية واحدة"
+
+#: build/index.js:1
+msgid "Real-time sales tax calculation"
+msgstr "حساب ضريبة المبيعات في الوقت الفعلي"
+
+#: build/index.js:1
+msgid "Best for new stores"
+msgstr "الأفضل للمخازن الجديدة"
+
+#: build/index.js:1
+msgid "WooCommerce Tax"
+msgstr "ضريبة WooCommerce"
+
+#: build/index.js:1
+msgid "Get more sales"
+msgstr "الحصول على مزيد من المبيعات"
+
+#: build/index.js:1
+msgid "Upgrade to a paid plan to unlock more features and start selling"
+msgstr "الترقية إلى خطة مدفوعة لفتح مزيد من الميزات وبدء البيع"
+
+#: build/index.js:1
+msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
+msgstr "تستخدم حاليًا إصدارًا تجريبيًا مجانية! للوصول إلى مجموعة كاملة من الميزات، ترجى الترقية إلى خطة مدفوعة."
+
+#: build/index.js:1 src/welcome-modal/index.js:94
+msgid "Welcome modal navigation illustration 1"
+msgstr "مرحبًا بك في الرسم التوضيحي 1 للتنقل في النموذج"
+
+#: build/index.js:1 src/welcome-modal/index.js:64
+msgid "Welcome modal navigation illustration 2"
+msgstr "مرحبًا بك في الرسم التوضيحي 2 للتنقل في النموذج"
+
+#: build/index.js:1
+msgid "Setup required"
+msgstr "يلزم الإعداد"
+
+#: build/index.js:1
+msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
+msgstr "اربح الإيرادات المتكررة وقم بإدارتها واحصل على ودائع تلقائية في حسابك البنكي المحدَّد."
+
+#: build/index.js:1
+msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
+msgstr "يمكنك البيع للأسواق الدولية وقبول أكثر من 135 عملة باستخدام طرق الدفع المحلية."
+
+#: build/index.js:1
+msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
+msgstr "وفّر لعملائك طريقتهم المفضلة للدفع، بما في ذلك مدفوعات بطاقات الخصم والائتمان وApple Pay وSofort وSEPA وiDeal وأكثر من ذلك بكثير."
+
+#: build/index.js:1
+msgid "Accepted payment methods include:"
+msgstr "تتضمن طرق الدفع المقبولة ما يأتي:"
+
+#: build/index.js:1
+msgid "& more."
+msgstr "وأكثر."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:27
+msgid "Browse Extensions"
+msgstr "تصفح الامتدادات"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:95
+msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
+msgstr "أضف منتجاتك. تعرض منتجاتك أو خدماتك وتستعد لبدء البيع - أضف معلومات منتجك وصوره وأوصافه."
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:89
+msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
+msgstr "قم باستيراد منتجاتك. تعرض منتجاتك أو خدماتك وتستعد لبدء البيع - قم باستيراد معلومات منتجك الموجودة وصوره وأوصافه."
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:79
+msgid "Add products"
+msgstr "إضافة منتجات"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:76
+msgid "Import products"
+msgstr "استيراد المنتجات"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:66
+msgid "Add your products"
+msgstr "إضافة منتجاتك"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:63
+msgid "Import your products"
+msgstr "استيراد منتجاتك"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:59
+msgid "Choose theme"
+msgstr "اختر قالبًا"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:38
+msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
+msgstr "اختر قالبًا يناسب شكل علامتك التجارية ومظهرها، ثم اجعله خاصًا بك. غيِّر الألوان وأضف شعارك وأنشئ الصفحات."
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:29
+msgid "Choose your theme"
+msgstr "اختر قالبك"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
+#: build/index.js:3 src/index.js:189
+msgid "Plugins"
+msgstr "إضافات"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:388
+msgid "Restore"
+msgstr "استعادة"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
+msgid "\"Things to do next\""
+msgstr "\"الأشياء التي يجب القيام بها لاحقًا\""
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
+msgid "Setup task list"
+msgstr "إظهار قائمة المهام"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
+msgid "Restore the visibility of the \"Things to do next\" Task List."
+msgstr "قم باستعادة رؤية قائمة المهام \"الأشياء التي يجب القيام بها لاحقًا\"."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
+msgid "Restore the visibility of the primary onboarding Task List."
+msgstr "قم باستعادة رؤية قائمة مهام الإعداد الأولي."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:310
+msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
+msgstr "استخدم هذه الخيارات لاستعادة رؤية قوائم مهمة الإعداد في WooCommerce Home."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:308
+msgid "Onboarding"
+msgstr "الإعداد"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:187
+msgid "A custom navigation experience that is optimized for selling."
+msgstr "تجربة تنقل مخصصة تم تحسينها للبيع."
+
+#: build/index.js:1 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "أصبح تنفيذ المهام من خلال WooCommerce أسرع. <a>تعرّف على المزيد</a> حول التنقل الجديد لدينا - أو استمر واستكشف الأمر بمفردك."
 
-#: src/welcome-modal/index.js:93
+#: build/index.js:1 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "التحرك أسرع من خلال التنقل الجديد لدينا"
 
-#: src/welcome-modal/index.js:73
+#: build/index.js:1 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "احصل على النصائح والرؤى حول أداء متجرك في كل مرة ترجع فيها إلى لوحة تحكم ووردبريس.كوم الخاصة بك."
 
-#: src/welcome-modal/index.js:70
+#: build/index.js:1 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "التعرّف على صفحتك الرئيسية الجديدة"
 
-#: src/task-headers/add-domain.js:34
+#: build/index.js:3 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "اختر عنوان موقع جديدًا على الويب لمتجرك أو انقل واحدًا تملكه بالفعل. "
 
-#: src/task-headers/add-domain.js:22
+#: build/index.js:3 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "إضافة رسم توضيحي خاص بالنطاق"
 
@@ -79,43 +487,53 @@ msgstr "تمت إضافة تفاصيل التحويل البنكي المباش�
 msgid "Please enter an account number or IBAN"
 msgstr "يرجى إدخال رقم حساب أو رقم الحساب المصرفي الدولي (IBAN)"
 
-#: src/payment-gateway-suggestions/index.js:279
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/index.js:285
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
 msgstr "لا يمكن سوى للمسؤولين ومديري المتاجر تقديم الطلبات في أثناء الإصدار التجريبي المجاني. إذا كنت مستعدًا لقبول المدفوعات من العملاء، {{link}}فقم بالترقية إلى خطة مدفوعة{{/link}}."
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:266
 msgid "Offline payment methods"
 msgstr "طرق دفع من دون اتصال بالإنترنت"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:257
 msgid "See more"
 msgstr "مشاهدة المزيد"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:236
 msgid "Try one of the alternative payment providers."
 msgstr "قم بتجربة أحد مزوِّدي الدفع البديلة."
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:232
-#: src/payment-gateway-suggestions/index.js:304
+#: src/payment-gateway-suggestions/index.js:311
 msgid "Other payment providers"
 msgstr "مزوِّدو الدفع الآخرين"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:227
 msgid "Give your customers additional choices in ways to pay."
 msgstr "امنح عملائك اختيارات إضافية للدفع."
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:223
 msgid "Additional payment options"
 msgstr "خيارات دفع إضافية"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:217
 msgid "To get ready to accept online payments"
 msgstr "للاستعداد لقبول المدفوعات عبر الإنترنت"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:213
 msgid "Choose a payment provider"
 msgstr "اختيار مزوِّد الدفع"
 
+#: build/index.js:3
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "حدث خطأ في أثناء الاتصال بمدفوعات WooCommerce. يُرجى المحاولة مرة أخرى أو الاتصال في وقت لاحق في إعدادات المتجر."
@@ -132,245 +550,258 @@ msgstr "تعني الموافقة على مشاركة {{link}}بيانات ال�
 msgid "Help us build a better WooCommerce Payments experience"
 msgstr "ساعدنا على إنشاء تجربة أفضل للمدفوعات في WooCommerce"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
 msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
 msgstr "يعني استخدام WooCommerce Payments أنك توافق على الالتزام {{tosLink}}بشروط الخدمة التي نقرِّها{{/tosLink}}، والاعتراف بأنك قرأت {{privacyLink}}سياسة الخصوصية الخاصة بنا{{/privacyLink}} "
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
 msgid "Get ready to accept payments"
 msgstr "الاستعداد لقبول المدفوعات"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:132
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
 msgid "Yes, count me in!"
 msgstr "أجل، يمكنك الاعتماد عليّ!"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:114
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
 msgid "Build a better WooCommerce"
 msgstr "إنشاء WooCommerce بشكل أفضل"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:55
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
 msgid "There was a problem updating your preferences"
 msgstr "حدثت مشكلة أثناء تحديث تفضيلاتك"
 
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:122
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:120
 msgid "Configure your %(title)s account"
 msgstr "تكوين حسابك على %(title)s"
 
 #. translators: %s = title of the payment gateway to install
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:90
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:88
 msgid "Install %s"
 msgstr "تنصيب %s"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
 msgid "You can manage this payment gateway's settings by clicking the button below"
 msgstr "يمكنك تغيير إعدادات بوابة الدفع هذه عن طريق النقر على الزر أدناه."
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:133
 msgid "Connect"
 msgstr "ربط"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:100
 msgid "Proceed"
 msgstr "تقدم"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:84
 #: src/payment-gateway-suggestions/plugins/Bacs.js:63
 msgid "There was a problem saving your payment settings"
 msgstr "حدثت مشكلة في أثناء حفظ إعدادات الدفع الخاصة بك"
 
 #. translators: %s = title of the payment gateway
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:75
 msgid "%s configured successfully"
 msgstr "تم تكوين %s بنجاح"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/List/Item.js:81
 msgid "Recommended"
 msgstr "موصى به"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/List/Item.js:80
 msgid "Local Partner"
 msgstr "الشريك المحلي"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:138
 msgid "Finish setup"
 msgstr "إنهاء التنصيب"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:99
 msgid "Enable"
 msgstr "تفعيل"
 
-#: src/launch-store/index.js:387
+#: build/index.js:1 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "البدء على أي حال"
 
-#: src/launch-store/index.js:377
+#: build/index.js:1 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "بضعة أشياء يجب التحقق منها قبل بدء متجرك"
 
-#: src/launch-store/index.js:374
+#: build/index.js:1 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "قبل أن تبدأ"
 
-#: src/launch-store/index.js:313
+#: build/index.js:1 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "اختر عنوانًا لموقع جديد على الويب أو انقل نطاقًا تملكه بالفعل. "
 
-#: src/launch-store/index.js:309
+#: build/index.js:1 src/launch-store/index.js:314
 msgid "List products"
 msgstr "سرد المنتجات"
 
-#: src/launch-store/index.js:305
+#: build/index.js:1 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "ابدأ البيع عن طريق إضافة المنتجات أو الخدمات إلى متجرك. أنشئ منتجاتك يدويًا، أو استوردها من متجر موجود."
 
-#: src/launch-store/index.js:304
+#: build/index.js:1 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "سرد منتجاتك"
 
-#: src/launch-store/index.js:296
+#: build/index.js:1 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "امنح عملاءك طريقة سهلة ومريحة للدفع! قم بإعداد واحدة (أو أكثر!) من طرق الدفع عبر الإنترنت أو الشخصية السريعة والآمنة التي نوفرها. "
 
-#: src/launch-store/index.js:295 src/launch-store/index.js:300
+#: build/index.js:1 src/launch-store/index.js:300 src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "تحصيل الأموال"
 
-#: src/launch-store/index.js:257 src/launch-store/index.js:396
+#: build/index.js:1 src/launch-store/index.js:262 src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "يمكنك دومًا التراجع عن ذلك ضمن <a>الإعدادات</a>."
 
-#: src/launch-store/index.js:243
+#: build/index.js:1 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "حان وقت الاحتفال - أصبحت جاهزًا لبدء متجرك! Woo!"
 
-#: src/launch-store/index.js:237
+#: build/index.js:1 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "هل أنت مستعد لبدء متجرك؟"
 
-#: src/launch-store/index.js:203
+#: build/index.js:1 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "هل غيَّرت رأيك؟ يمكنك جعل متجرك خاصًا مجددًا عن طريق تحديث إعدادات <a>الخصوصية</a> لديك."
 
-#: src/launch-store/index.js:197
+#: build/index.js:1 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "عرض متجرك"
 
-#: src/launch-store/index.js:177
+#: build/index.js:1 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "تهانينا على بدء متجر WooCommerce الخاص بك. خصص بعض الوقت للاحتفال ومشاركة الأخبار!"
 
-#: src/launch-store/index.js:173
+#: build/index.js:1 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "Woo! لقد فعلتها!"
 
-#: src/launch-store/index.js:137
+#: build/index.js:1 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "بدء متجرك"
 
-#: src/launch-store/index.js:67
+#: build/index.js:1 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "تم النسخ"
 
-#: src/homescreen-banner/index.js:61
+#: build/index.js:3 src/homescreen-banner/index.js:61
 msgid "Dismiss this free trial informational banner."
 msgstr "ارفض هذا الشعار المعلوماتي للإصدار التجريبي المجاني."
 
-#: src/homescreen-banner/index.js:45
+#: build/index.js:3 src/homescreen-banner/index.js:45
 msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
 msgstr "هذا هو متجر اختبار الإصدار التجريبي المجاني الخاص بك حيث يمكنك بدء استكشاف ما هو متوافر! لمعرفة المزيد حول الإصدار التجريبي، انقر على \"معرفة المزيد\"."
 
-#: src/free-trial/tax/components/location.js:53
+#: build/index.js:1 src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr "حدثت مشكلة أثناء حفظ موقع متجرك"
 
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:49
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "يعني النقر على \"اختبار المدفوعات\" أنك توافق على {{tosLink}}شروط الخدمة{{/tosLink}}"
 
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:42
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "ادعم مدفوعاتك بخيار بسيط وشامل. تحقق من تفاصيل أعمالك لبدء اختبار المعاملات باستخدام مدفوعات WooCommerce."
 
-#: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:71
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
 msgid "Test payments"
 msgstr "اختبار المدفوعات"
 
-#: src/free-trial/fills/task-headers/payments.js:40
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:40
 msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
 msgstr "امنح عملاءك طريقة سهلة ومريحة للدفع! قم بإعداد بعض طرق الدفع عبر الإنترنت أو الشخصية السريعة والآمنة التي نوفرها، واختبارها. "
 
-#: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:36
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
 msgid "It’s time to test payments"
 msgstr "حان وقت اختبار المدفوعات"
 
-#: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:24
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
 msgid "Payment illustration"
 msgstr "مثال توضيحي لعملية الدفع"
 
-#: assets/scripts/free-trial-wc-payments.js:76
+#: assets/scripts/free-trial-wc-payments.js:93
 msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
 msgstr "أصبحت جاهزًا لبدء اختبار ميزات مدفوعات WooCommerce ومزاياه"
 
-#: assets/scripts/free-trial-wc-payments.js:62
+#: assets/scripts/free-trial-wc-payments.js:79
 msgid "You’re only steps away from getting ready to be paid"
 msgstr "إنك على بُعد خطوات من الاستعداد للدفع"
 
-#: assets/scripts/free-trial-wc-payments.js:39
-msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s'>upgrade to a pain plan</a>."
-msgstr "الودائع غير متوافرة في أثناء الفترة التجريبية. لبدء معالجة المعاملات الحقيقية وتلقي المدفوعات والمبالغ، <a href='%s'>قم بالترقية إلى خطة مدفوعة</a>."
+#: assets/scripts/free-trial-wc-payments.js:49
+msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
+msgstr "الودائع غير متوافرة في أثناء الفترة التجريبية. لبدء معالجة المعاملات الحقيقية وتلقي المدفوعات والمبالغ، <a href='%s' id='upgrade_now_button'>قم بالترقية إلى خطة مدفوعة</a>."
 
-#: assets/scripts/free-trial-wc-payments.js:31
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s'>upgrade to a paid plan</a>."
-msgstr "لا يمكن سوى للمسؤولين ومديري المتاجر تقديم الطلبات في أثناء الإصدار التجريبي المجاني. إذا كنت مستعدًا لقبول المدفوعات من العملاء، <a href='%s'>فقم بالترقية إلى خطة مدفوعة</a>."
+#: assets/scripts/free-trial-wc-payments.js:41
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
+msgstr "لا يمكن سوى للمسؤولين ومديري المتاجر تقديم الطلبات في أثناء الإصدار التجريبي المجاني. إذا كنت مستعدًا لقبول المدفوعات من العملاء، <a href='%s' id='upgrade_now_button'>فقم بالترقية إلى خطة مدفوعة</a>."
 
-#: includes/templates/html-admin-page-addons-landing-page.php:85
+#: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
 msgstr "التلميحات والحيل وعمليات إلهام التجارة الإلكترونية الواردة من مدونتنا."
 
-#: includes/templates/html-admin-page-addons-landing-page.php:83
-#: includes/templates/html-admin-page-addons-landing-page.php:87
+#: includes/templates/html-admin-page-addons-landing-page.php:75
+#: includes/templates/html-admin-page-addons-landing-page.php:79
+#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "الحصول على الإلهام"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:73
+#: includes/templates/html-admin-page-addons-landing-page.php:65
 msgid "Discover collections"
 msgstr "اكتشاف المجموعات"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:71
+#: includes/templates/html-admin-page-addons-landing-page.php:63
 msgid "Quickly get started with our curated extension collections."
 msgstr "ابدأ بسرعة من خلال مجموعات الامتدادات المنسقة لدينا."
 
-#: includes/templates/html-admin-page-addons-landing-page.php:69
+#: includes/templates/html-admin-page-addons-landing-page.php:61
 msgid "Curated collections"
 msgstr "المجموعات المنسقة"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:57
+#: includes/templates/html-admin-page-addons-landing-page.php:49
 msgid "Add extra features and functionality, or integrate with other platforms and tools."
 msgstr "أضف ميزات ووظائف إضافية، أو حقق التكامل مع المنصات والأدوات الأخرى. "
 
-#: includes/templates/html-admin-page-addons-landing-page.php:55
+#: includes/templates/html-admin-page-addons-landing-page.php:47
 msgid "Customize and extend"
 msgstr "التخصيص والتوسعة"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:43
-msgid "Do more with your store – add extensions"
-msgstr "فعل المزيد من خلال متجرك - إضافة الامتدادات"
-
-#: includes/templates/html-admin-page-addons-landing-page.php:31
-#: includes/templates/html-admin-page-addons-landing-page.php:59
+#: includes/templates/html-admin-page-addons-landing-page.php:51
 msgid "Browse extensions"
 msgstr "تصفح الامتدادات"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:23
-msgid "Customize your store to work perfectly for your business, with Woo extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your business goals. Curious about what’s available? Browse our extensions marketplace."
-msgstr "خصص متجرك لكي يعمل بشكل مثالي مع عملك من خلال امتدادات Woo. قم بالترقية إلى خطة مدفوعة للحصول على إمكانية الوصول إلى مئات من الأدوات والميزات التي يمكن أن تساعدك على تحقيق أهداف الأعمال التي ترجوها. هل تشعر بالفضول تجاه ما هو متوافر؟ تصفح سوق الامتدادات الخاصة بنا."
-
 #: includes/templates/html-admin-page-addons-landing-page.php:19
-#: includes/templates/html-admin-page-addons-landing-page.php:36
-#: includes/templates/html-admin-page-addons-landing-page.php:39
+msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
+msgstr "خصص متجرك لكي يعمل بشكل مثالي مع عملك من خلال WooCommerce Extensions. قم بالترقية إلى خطة مدفوعة للحصول على إمكانية الوصول إلى مئات من الأدوات والميزات التي يمكن أن تساعدك على تحقيق أهدافك. هل تشعر بالفضول تجاه ما هو متوافر؟ تصفَّح سوق الامتدادات الخاصة بنا."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:15
+#: includes/templates/html-admin-page-addons-landing-page.php:32
+#: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "انقل متجرك إلى المستوى التالي إلى جانب الامتدادات."
 
@@ -384,8 +815,8 @@ msgstr "وقت الاحتفال! هل أنت مستعد لبدء متجرك؟"
 
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
-#: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: src/launch-store/index.js:150
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:1
+#: src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "أطلق متجرك"
 
@@ -394,6 +825,8 @@ msgid "You've already launched your store"
 msgstr "هل بدأت بالفعل متجرك"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:3
+#: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "دقيقتان"
 
@@ -406,9 +839,9 @@ msgid "Domain"
 msgstr "نطاق"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:317 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:1
+#: build/index.js:3 src/launch-store/index.js:322
+#: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "إضافة نطاق"
 
@@ -428,18 +861,19 @@ msgstr "لتقديم تجربة سداد سلسة إلى المتسوقين، ز
 msgid "Meet our new, customizable checkout"
 msgstr "التعرّف على ميزة السداد الجديدة القابلة للتخصيص لدينا"
 
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:58
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:77
 msgid ""
 "\n"
-"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s'>upgrade to a paid plan</a>.\n"
+"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.\n"
 "\t\t"
 msgstr ""
 "\n"
-"\t\t\tفي الوقت الحالي، أنت الشخص الذي يمكنه رؤية متجرك. لجعل متجرك متوافرًا للجميع، ترجى <a href='%s'>الترقية إلى خطة مدفوعة</a>.\n"
+"\t\t\tفي الوقت الحالي، أنت الشخص الذي يمكنه رؤية متجرك. لجعل متجرك متوافرًا للجميع، ترجى <a href='%s' id='banner_button'>الترقية إلى خطة مدفوعة</a>.\n"
 "\t\t"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
-#: includes/templates/html-admin-page-addons-landing-page.php:28
+#: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:1 build/marketing.js:1 build/plugins.js:1
 msgid "Upgrade now"
 msgstr "بادر بالترقية الآن"
 
@@ -451,15 +885,15 @@ msgstr "في أثناء الفترة التجريبية، يمكنك تقديم 
 msgid "Start selling to everyone"
 msgstr "بدء البيع للجميع"
 
-#: includes/class-wc-calypso-bridge-setup.php:327
+#: includes/class-wc-calypso-bridge-setup.php:362
 msgid "My Account"
 msgstr "حسابي"
 
-#: includes/class-wc-calypso-bridge-setup.php:325
+#: includes/class-wc-calypso-bridge-setup.php:360
 msgid "Contact"
 msgstr "جهة الاتصال"
 
-#: includes/class-wc-calypso-bridge-setup.php:316
+#: includes/class-wc-calypso-bridge-setup.php:351
 msgid "Home"
 msgstr "الصفحة الرئيسية"
 
@@ -471,7 +905,8 @@ msgstr "تم بدء هذا الموقع بالفعل"
 msgid "You don't have permissions to launch this site"
 msgstr "ليست لديك الصلاحيات اللازمة لبدء هذا الموقع"
 
-#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:368
+#. translators: %s is the plans URL
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:369
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr "لا يمكن سوى للمسؤولين ومديري المتاجر تقديم الطلبات في أثناء الإصدار التجريبي المجاني. إذا كنت مستعدًا لقبول المدفوعات من العملاء، <a href=\"%s\">فقم بالترقية إلى خطة مدفوعة</a>."
 
@@ -492,61 +927,61 @@ msgstr "يتعذر تقديم طلبك. تم تمكين وظيفة السداد 
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "هذا المتجر غير جاهز لقبول الطلبات. تم تمكين وظيفة السداد حاليًا لأغراض المعاينة فقط."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:484
 msgid "Jetpack Stats"
 msgstr "إحصاءات Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:475
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:482
 msgid "Jetpack Status"
 msgstr "حالة Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:454
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:461
 msgid "Anti-Spam"
 msgstr "مكافحة البريد المزعج"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:312
 msgid "Discover"
 msgstr "اكتشاف"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "إدارة"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:295
-#: includes/templates/html-admin-page-addons-landing-page.php:15
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:302
 msgid "Extensions"
 msgstr "الإضافات"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
 msgid "Customers"
 msgstr "العملاء"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:281
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:288
 msgid "Legacy Reports"
 msgstr "تقارير قديمة"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:274
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:281
 msgid "WooCommerce Status"
 msgstr "حالة WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:277
 msgid "WooCommerce Settings"
 msgstr "إعدادات WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:265
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:272
 msgid "Orders"
 msgstr "الطلبات"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:182
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:180
 msgid "My Home"
 msgstr "صفحتي الرئيسية"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:82
 msgid "Feedback"
 msgstr "الرسائل"
 
@@ -554,17 +989,25 @@ msgstr "الرسائل"
 msgid "Save big with WooCommerce Payments"
 msgstr "ادخر ادخارًا كبيرًا باستخدام مدفوعات WooCommerce"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:131
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
 msgid "No thanks"
 msgstr "لا شكرًا"
 
+#: build/index.js:1 build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/Action.js:27
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:159
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:56
+#: src/welcome-modal/index.js:59
 msgid "Get started"
 msgstr "ابدأ"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:186
+msgid "Navigation"
+msgstr "القائمة"
 
 #. Author of the plugin
 msgid "Automattic"
@@ -607,7 +1050,7 @@ msgstr "تم إرسال تفاصيل الطلب يدويًّا إلى العمي
 msgid "Invalid order ID."
 msgstr "مُعرّف طلب غير صالح."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:277
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -742,17 +1185,21 @@ msgstr "يتعذّر إلغاء تفعيل WooCommerce في خطة التجار�
 msgid "Store"
 msgstr "المتجر"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:484
 msgid "Stats"
 msgstr "الإحصاءات"
 
-#: src/free-trial/tax/components/location.js:23
+#: build/index.js:1
+msgid "City"
+msgstr "المدينة"
+
+#: build/index.js:1 src/free-trial/tax/components/location.js:23
 msgid "Continue"
 msgstr "المتابعة"
 
 #: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:52
 #: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:76
-#: src/homescreen-banner/index.js:57
+#: build/index.js:3 src/homescreen-banner/index.js:57
 msgid "Learn more"
 msgstr "اعرف المزيد."
 
@@ -764,6 +1211,11 @@ msgstr "امتدادات WooCommerce"
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "Extensions %s"
 msgstr "%s من الامتدادات"
+
+#. translators: %1$s is replaced with a link to WooCommerce.com
+#: includes/class-wc-calypso-bridge-footer-credits.php:66
+msgid "Powered by %1$s"
+msgstr "مدعوم من ⁦%1$s⁩"
 
 #: includes/class-wc-calypso-bridge-themes-setup.php:129
 msgid "Built with Storefront &amp; WordPress.com"

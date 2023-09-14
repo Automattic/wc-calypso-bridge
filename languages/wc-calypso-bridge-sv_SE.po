@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-06 19:25:38+0000\n"
+"PO-Revision-Date: 2023-09-14 12:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,7 +13,7 @@ msgstr ""
 
 #: build/plugins.js:1
 msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr ""
+msgstr "Kan du inte hitta rätt tillägg för dina behov? Vårt team av experter kan hjälpa dig att få jobbet gjort på rätt sätt, från tjänsteintegreringar till exotiska anpassningar."
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -25,7 +25,7 @@ msgstr "Upptäck utökningar"
 
 #: build/plugins.js:1
 msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr ""
+msgstr "Letar du efter fler betalnings- och fraktmetoder? Vill du bygga en medlemskapswebbplats eller ta emot donationer? Välj bland hundratals olika utökningar, handplockade av vårt team."
 
 #: build/plugins.js:1
 msgid "Extend your store"
@@ -33,7 +33,7 @@ msgstr "Utöka din butik"
 
 #: build/plugins.js:1
 msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr ""
+msgstr "Få WordPress att göra vad som helst. Skapa en butik, starta en podcast eller visa upp ditt arbete. Med över 55 000 tillägg är det du som har kontrollen."
 
 #: build/plugins.js:1
 msgid "Transform WordPress"
@@ -45,7 +45,7 @@ msgstr "Bläddra bland tillägg"
 
 #: build/plugins.js:1
 msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr ""
+msgstr "Förvandla din WordPress-webbplats till vad du vill. Uppgradera till ett betalpaket och få tillgång till tusentals gratis- och betaltillägg. Är du nyfiken på vad som är möjligt?"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -53,7 +53,7 @@ msgstr "Få vad som helst att hända med tillägg"
 
 #: build/payment-gateway-suggestions.js:3
 msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
-msgstr ""
+msgstr "Få förbättrade funktioner och snabbare korrigeringar genom att dela icke-känsliga data via {{link}}användningsspårning{{/link}} som visar oss hur WooCommerce används. Inga personliga data spåras eller lagras."
 
 #: build/marketing.js:1
 msgid "Create digital gift cards"
@@ -69,7 +69,7 @@ msgstr "Öka kundlojalitet med presentkort"
 
 #: build/marketing.js:1
 msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
-msgstr ""
+msgstr "Få dina produkter att synas för miljontals engagerade köpare på plattformarna TikTok, Pinterest och Meta med hjälp av social annonsering."
 
 #: build/marketing.js:1
 msgid "Reach more customers across social media"
@@ -77,7 +77,7 @@ msgstr "Nå fler kunder via sociala medier"
 
 #: build/marketing.js:1
 msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
-msgstr ""
+msgstr "Nå aktiva köpare i Google med produktlistor och annonser som du kan skapa och hantera direkt i din adminpanel."
 
 #: build/marketing.js:1
 msgid "Advertise your products on Google"
@@ -105,19 +105,19 @@ msgstr "Öka ditt företag med hundratals utökningar"
 
 #: build/marketing.js:1
 msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
-msgstr ""
+msgstr "Nå fler kunder och få ditt företag att växa med vår inbyggda marknadsförings- och annonseringsverktyg. Uppgradera till ett betalpaket för att låsa upp våra kraftfulla marknadsföringsverktyg och få ditt företag att börja växa idag."
 
 #: build/marketing.js:1
 msgid "Get ready to grow your business"
-msgstr ""
+msgstr "Är du redo att få ditt företag att växa?"
 
 #: build/index.js:3 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
-msgstr ""
+msgstr "Illustration av utseende"
 
 #: build/index.js:3 src/task-headers/products.js:26
 msgid "Products illustration"
-msgstr ""
+msgstr "Produktillustration"
 
 #: build/index.js:3
 msgid "Everything is looking great, keep it up!"
@@ -155,11 +155,11 @@ msgstr "Dölj listan med konfigurationsåtgärder"
 
 #: build/index.js:1
 msgid "The store setup process meets my needs."
-msgstr ""
+msgstr "Butikskonfigurationsprocessen uppfyller mina behov."
 
 #: build/index.js:1
 msgid "The store setup is easy to complete."
-msgstr ""
+msgstr "Butikskonfigurationen är enkel att slutföra."
 
 #: build/index.js:1
 msgid "We appreciate your feedback!"
@@ -175,19 +175,19 @@ msgstr "Dölj detta"
 
 #: build/index.js:1
 msgid "Show setup task list"
-msgstr ""
+msgstr "Visa uppgiftslista för inställning"
 
 #: build/index.js:1
 msgid "Task List Options"
-msgstr ""
+msgstr "Uppgiftslistealternativ"
 
 #: build/index.js:1
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
-msgstr ""
+msgstr "Grattis! Ta en stund och fira. Och när du är redo att lansera din butik är allt du behöver göra att uppgradera till ett betalpaket. Detta låser även upp de två kommande uppgifterna i uppgiftslistan."
 
 #: build/index.js:1
 msgid "Woohoo! Your trial store has been set up!"
-msgstr ""
+msgstr "Hurra! Din provperiodsbutik har konfigurerats."
 
 #: build/index.js:1
 msgid "You're awesome! One less item on your to-do list ✅"
@@ -199,7 +199,7 @@ msgstr "Det var ett problem med att ställa in automatiska momser. Försök igen
 
 #: build/index.js:1
 msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
-msgstr ""
+msgstr "Under den kostnadsfria provperioden kan du konfigurera dina inställningar för försäljningsmoms, men inte samla in moms. {{br/}}För att börja sälja produkter, {{link}}uppgradera nu{{/link}}."
 
 #: build/index.js:1
 msgid "I don't charge sales tax"
@@ -215,7 +215,7 @@ msgstr "Välj en momspartner"
 
 #: build/index.js:1
 msgid "WooCommerce Tax can automate your sales tax calculations for you."
-msgstr ""
+msgstr "WooCommerce Tax kan beräkna försäljningsmoms i realtid åt dig."
 
 #: build/index.js:1
 msgid "Automate Taxes"
@@ -227,7 +227,7 @@ msgstr "Automatisera momser"
 
 #: build/index.js:1
 msgid "Head over to the tax rate settings screen to configure your tax rates"
-msgstr ""
+msgstr "Gå till inställningsvyn för momssatser för att konfigurera dina momssatser"
 
 #: build/index.js:1
 msgid "Configure tax rates"
@@ -259,7 +259,7 @@ msgstr "Land/Region"
 
 #: build/index.js:1
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
-msgstr ""
+msgstr "Genom att klicka på Konfigurera aktiverar du momssatser och beräkningar. Du hittar mer information {{link}}här{{/link}}."
 
 #: build/index.js:1
 msgid "Configure"
@@ -271,7 +271,7 @@ msgstr "Fortsätt installationen"
 
 #: build/index.js:1
 msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
-msgstr ""
+msgstr "Genom att installera WooCommerce Tax och Jetpack samtycker du till {{link}}användarvillkoren{{/link}}."
 
 #: build/index.js:1
 msgid "100% free"
@@ -283,11 +283,11 @@ msgstr "Drivs med {{link}}Jetpack{{/link}}"
 
 #: build/index.js:1
 msgid "{{strong}}Single{{/strong}} economic nexus compliance"
-msgstr ""
+msgstr "{{strong}}Enkel{{/strong}} överensstämmelse med ekonomisk nexus"
 
 #: build/index.js:1
 msgid "Real-time sales tax calculation"
-msgstr ""
+msgstr "Beräkning av försäljningsmoms i realtid"
 
 #: build/index.js:1
 msgid "Best for new stores"
@@ -311,27 +311,27 @@ msgstr "Du använder för närvarande en gratis provperiod! För att få åtkoms
 
 #: build/index.js:1 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
-msgstr ""
+msgstr "Välkommen modal navigering illustration 1"
 
 #: build/index.js:1 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
-msgstr ""
+msgstr "Välkommen modal navigering illustration 2"
 
 #: build/index.js:1
 msgid "Setup required"
-msgstr ""
+msgstr "Konfiguration krävs"
 
 #: build/index.js:1
 msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
-msgstr ""
+msgstr "Tjäna och hantera återkommande intäkter och få automatiska insättningar till ditt valda bankkonto."
 
 #: build/index.js:1
 msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
-msgstr ""
+msgstr "Sälj till internationella marknader och acceptera mer än 135 valutor med lokala betalningsmetoder."
 
 #: build/index.js:1
 msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
-msgstr ""
+msgstr "Erbjud dina kunder deras föredragna sätt att betala inklusive bank- och kreditkortsbetalningar, Apple Pay, Sofort, SEPA, iDeal och många fler."
 
 #: build/index.js:1
 msgid "Accepted payment methods include:"
@@ -375,7 +375,7 @@ msgstr "Välj tema"
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:38
 msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
-msgstr ""
+msgstr "Välj ett tema som bäst passar ditt varumärkes utseende och känsla och gör det sedan till ditt eget. Ändra färgerna, lägg till din logga och skapa sidor."
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:29
 msgid "Choose your theme"
@@ -401,15 +401,15 @@ msgstr "Ställ in uppgiftslista"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
 msgid "Restore the visibility of the \"Things to do next\" Task List."
-msgstr ""
+msgstr "Återställ synligheten för uppgiftslistan \"Saker att göra härnäst\"."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
 msgid "Restore the visibility of the primary onboarding Task List."
-msgstr ""
+msgstr "Återställ synligheten för den primära uppgiftslistan för onboarding."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:310
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
-msgstr ""
+msgstr "Använd dessa alternativ för att återställa synligheten för uppgiftslistorna för onboarding på WooCommerce-startsidan."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:308
 msgid "Onboarding"
@@ -717,16 +717,16 @@ msgstr "Det här är din kostnadsfria provperiodsbutik där du kan börja utfors
 msgid "There was a problem saving your store location"
 msgstr "Det var ett problem att spara din butiksplats"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:49
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "Genom att klicka på \"Testa betalningar\" samtycker du till {{tosLink}}användarvillkoren{{/tosLink}}"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:42
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "Hantera dina betalningar med ett enkelt allt-i-ett-alternativ. Verifiera dina företagsuppgifter för att börja testa transaktioner med WooCommerce Payments."
 
 #: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:71
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
 msgid "Test payments"
 msgstr "Testa betalningar"
 
@@ -735,12 +735,12 @@ msgid "Give your customers an easy and convenient way to pay! Set up and test so
 msgstr "Ge dina kunder ett enkelt och bekvämt sätt att betala. Konfigurera och testa några av våra snabba och säkra betalningsmetoder för onlinebetalningar eller personliga betalningar."
 
 #: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:36
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
 msgid "It’s time to test payments"
 msgstr "Det är dags att testa betalningar."
 
 #: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:24
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
 msgid "Payment illustration"
 msgstr "Betalningsillustration"
 
@@ -796,7 +796,7 @@ msgstr "Bläddra bland utökningar"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:19
 msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
-msgstr ""
+msgstr "Anpassa din butik för att fungera perfekt för ditt företag, med WooCommerce-utökningar. Uppgradera till ett betalt paket för att få åtkomst till hundratals verktyg och funktioner som kan hjälpa dig att nå dina mål. Nyfiken på vad som finns? Bläddra i vår marknadsplats för utökningar."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
@@ -866,7 +866,10 @@ msgid ""
 "\n"
 "\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.\n"
 "\t\t"
-msgstr "\n"
+msgstr ""
+"\n"
+"\t\t\tJust nu är du den enda som kan se din butik. För att göra din butik tillgänglig för alla, &nbsp;<a href='%s' id='banner_button'>uppgradera till ett betalt paket</a>.\n"
+"\t\t"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
@@ -882,15 +885,15 @@ msgstr "Under provperioden kan du bara lägga testbeställningar. För att ta em
 msgid "Start selling to everyone"
 msgstr "Börja sälja till alla"
 
-#: includes/class-wc-calypso-bridge-setup.php:339
+#: includes/class-wc-calypso-bridge-setup.php:362
 msgid "My Account"
 msgstr "Mitt konto"
 
-#: includes/class-wc-calypso-bridge-setup.php:337
+#: includes/class-wc-calypso-bridge-setup.php:360
 msgid "Contact"
 msgstr "Kontakt"
 
-#: includes/class-wc-calypso-bridge-setup.php:328
+#: includes/class-wc-calypso-bridge-setup.php:351
 msgid "Home"
 msgstr "Hem"
 
