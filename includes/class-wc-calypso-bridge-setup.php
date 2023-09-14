@@ -313,10 +313,11 @@ class WC_Calypso_Bridge_Setup {
 					}
 				}
 
-				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
-					$value  = get_option( "woocommerce_{$page}_page_id" );
-					$this->write_to_log( $operation, 'getting option woocommerce_' . $page . '_page_id : ' . $value );
-				}
+				// Commenting this out, to see if this was the reason that the pages are now created.
+//				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
+//					$value  = get_option( "woocommerce_{$page}_page_id" );
+//					$this->write_to_log( $operation, 'getting option woocommerce_' . $page . '_page_id : ' . $value );
+//				}
 
 				// Delete the following note, so it can be recreated with the correct refund page ID.
 				if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
