@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.14 =
+* _Enter your changes here_
+
 = unreleased =
 * Updated plugins landing page (free trial) #xxx
 
