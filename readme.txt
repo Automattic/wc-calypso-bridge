@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= unreleased =
+* Updated plugins landing page (free trial) #xxx
+
 = 2.2.13 =
 * Display a server based WooPayments setup task header when an incentive is available #1294
 * Introduce additional logging in the page creation one time job #1296

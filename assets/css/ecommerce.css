@@ -31,6 +31,13 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	display: none;
 }
 
+body.woocommerce_page_wc-bridge-landing-page .woocommerce-layout .woocommerce-layout__main {
+	padding-right: 0;
+}
+body.woocommerce_page_wc-bridge-landing-page .woocommerce-layout__primary {
+	margin: 0;
+}
+
 .wc-bridge-landing-page {
 	background: white;
 	color: #2F2F2F; /* gray-80 */
@@ -84,6 +91,7 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 .wc-bridge-landing-page__hero-image-container img {
 	width: 80%;
 	margin-top: -60px;
+	max-width: 791px;
 }
 
 .wc-bridge-landing-page__sub-title {
@@ -104,14 +112,17 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 	text-align: center;
 }
 
+body.woocommerce_page_wc-bridge-landing-page.woocommerce_page_wc-admin #wpbody-content {
+	padding-bottom: 64px;
+}
+
 .wc-bridge-landing-page__features-grid__item {
 	width: 33%;
 	padding: 0 35px;
 }
 
 .wc-bridge-landing-page__features-grid__item__icon {
-	text-align: center;
-	background: var( --color-accent-5 );
+	background: rgba(var(--wp-admin-theme-color--rgb), 0.1);
 	width: 64px;
 	height: 64px;
 	border-radius: 50%;
@@ -145,6 +156,15 @@ body.woocommerce_page_wc-bridge-landing-page #screen-meta-links {
 .wc-bridge-landing-page__features-grid__item a:hover {
 	color: var( --wp-admin-theme-color );
 	text-decoration: underline;
+}
+.wc-bridge-landing-page__features-grid.wc-bridge-landing-page__features-grid--align-left {
+	text-align: left;
+}
+.wc-bridge-landing-page__features-grid.wc-bridge-landing-page__features-grid--align-left .wc-bridge-landing-page__features-grid__item__icon {
+	margin: 0;
+}
+.wc-bridge-landing-page__features-grid.wc-bridge-landing-page__features-grid--align-left .wc-bridge-landing-page__features-grid__item a {
+	padding-left: 0;
 }
 
 body.woocommerce_page_wc-bridge .wc-bridge-wrap .storefront {
@@ -194,7 +214,7 @@ body.woocommerce_page_wc-bridge .wc-bridge-wrap .storefront {
 	}
 	.wc-bridge-landing-page__features-grid {
 		flex-wrap: wrap;
-		margin: 32px auto 0;
+		margin: 64px auto 0;
 	}
 	.wc-bridge-landing-page__features-grid__item {
 		width: 100%;
