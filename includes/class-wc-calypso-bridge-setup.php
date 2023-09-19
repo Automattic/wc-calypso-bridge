@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.13
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -221,10 +221,10 @@ class WC_Calypso_Bridge_Setup {
 
 			$operation = 'woocommerce_create_pages';
 
-			$this->write_to_log( $operation, 'initialized' );
+			$this->write_to_log( $operation, 'INITIALIZED' );
 
-			// Set the operation as completed if the store is active for more than 1 hour.
-			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
+			// Set the operation as completed if the store is active for more than 5 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 5 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
 				$this->write_to_log( $operation, 'completed (60 minutes)' );
 
@@ -268,28 +268,27 @@ class WC_Calypso_Bridge_Setup {
 			}
 
 			try {
-				/*
-				 * Force delete all pages (including duplicates), except some which are whitelisted.
-				 */
-				$exclude_pages = array( 'faq', 'contact-us', 'blog' );
-				$args_pages    = array(
-					'post_type'      => 'page',
-					'post_status'    => 'any',
-					'posts_per_page' => - 1,
-				);
-				$query_pages   = new WP_Query( $args_pages );
 
-				$this->write_to_log( $operation, 'DELETING PAGES ');
-				if ( ! empty( $query_pages->posts ) ) {
-					foreach ( $query_pages->posts as $page ) {
-						if ( ! in_array( $page->post_name, $exclude_pages ) ) {
-							$result = wp_delete_post( $page->ID, true );
-							$this->write_to_log( $operation, 'deleted WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
-							if ( ! $result ) {
-								$this->write_to_log( $operation, 'failed to delete WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
+				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGES ');
+
+				$woocommerce_slugs = array(
+					'shop'           => _x( 'shop', 'Page slug', 'woocommerce' ),
+					'cart'           => _x( 'cart', 'Page slug', 'woocommerce' ),
+					'checkout'       => _x( 'checkout', 'Page slug', 'woocommerce' ),
+					'myaccount'      => _x( 'my-account', 'Page slug', 'woocommerce' ),
+					'refund_returns' => _x( 'refund_returns', 'Page slug', 'woocommerce' ),
+				);
+				foreach ( $woocommerce_slugs as $key => $page_slug ) {
+					$slugs = array( $page_slug, $page_slug . '-2' );
+					foreach ( $slugs as $slug ) {
+						$page = get_page_by_path( $slug, ARRAY_A );
+						if ( is_array( $page ) && isset( $page['ID'] ) ) {
+							$result = wp_delete_post( $page['ID'], true );
+							if ( $result ) {
+								$this->write_to_log( $operation, 'deleted WooCommerce page ' . $slug );
+							} else {
+								$this->write_to_log( $operation, 'failed to delete WooCommerce page ' . $slug );
 							}
-						} else {
-							$this->write_to_log( $operation, 'skipped WooCommerce page ' . $page->ID . ' - ' . $page->post_name );
 						}
 					}
 				}
@@ -303,21 +302,41 @@ class WC_Calypso_Bridge_Setup {
 				 * `My Account` page id setting, is created with key `myaccount`.
 				 * @see WC_Install::create_pages()
 				 */
-				$this->write_to_log( $operation, 'DELETING OPTIONS ');
-				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
-					$value  = get_option( "woocommerce_{$page}_page_id" );
-					$result = delete_option( "woocommerce_{$page}_page_id" );
-					$this->write_to_log( $operation, 'deleted option woocommerce_' . $page . '_page_id : ' . $value );
-					if ( ! $result ) {
-						$this->write_to_log( $operation, 'failed to delete option woocommerce_' . $page . '_page_id : ' . $value );
+				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGE OPTIONS ');
+
+				foreach ( $woocommerce_slugs as $key => $page_slug ) {
+					$value  = get_option( "woocommerce_{$key}_page_id" );
+					$result = delete_option( "woocommerce_{$key}_page_id" );
+					if ( $result ) {
+						$this->write_to_log( $operation, 'deleted option woocommerce_' . $key . '_page_id : ' . $value );
+					} else {
+						$this->write_to_log( $operation, 'failed to delete option woocommerce_' . $key . '_page_id : ' . $value );
 					}
 				}
 
-				// Commenting this out, to see if this was the reason that the pages are now created.
-//				foreach ( [ 'shop', 'cart', 'myaccount', 'checkout', 'refund_returns' ] as $page ) {
-//					$value  = get_option( "woocommerce_{$page}_page_id" );
-//					$this->write_to_log( $operation, 'getting option woocommerce_' . $page . '_page_id : ' . $value );
-//				}
+				$this->write_to_log( $operation, 'DELETING HEADSTART PAGES ');
+
+				// See https://github.com/Automattic/theme-tsubaki/blob/trunk/inc/headstart/en.json
+				$headstart_slugs   = array( 'shop', 'cart', 'checkout', 'my-account', 'refund_returns' );
+				foreach ( $headstart_slugs as $page_slug ) {
+					$slugs = array( $page_slug, $page_slug . '-2' );
+					foreach ( $slugs as $slug ) {
+						$page = get_page_by_path( $slug, ARRAY_A );
+						if ( is_array( $page ) && isset( $page['ID'] ) ) {
+							$result = wp_delete_post( $page['ID'], true );
+							if ( $result ) {
+								$this->write_to_log( $operation, 'deleted headstart page ' . $slug );
+							} else {
+								$this->write_to_log( $operation, 'failed to delete headstart page ' . $slug );
+							}
+						}
+					}
+				}
+
+				$this->write_to_log( $operation, 'FLUSH CACHE AND SLEEP ');
+				// sleep for 0.5 second to give enough time to memcache to flush and revalidate.
+				wp_cache_flush();
+				usleep( 500000 );
 
 				// Delete the following note, so it can be recreated with the correct refund page ID.
 				if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
@@ -435,19 +454,6 @@ class WC_Calypso_Bridge_Setup {
 			return $pages;
 
 		}, PHP_INT_MAX );
-
-		// Log if valid page exists.
-		add_filter( 'woocommerce_create_page_id', function ( $valid_page_found, $slug, $page_content ) {
-
-			$operation = 'woocommerce_create_pages';
-			if ( $valid_page_found ) {
-				$this->write_to_log( $operation, 'woocommerce_create_page_id filter - valid page found - slug: ' . $slug );
-			} else {
-				$this->write_to_log( $operation, 'woocommerce_create_page_id filter - valid page not found - slug: ' . $slug );
-			}
-
-			return $valid_page_found;
-		}, PHP_INT_MAX, 3 );
 
 		// Log which pages have been created.
 		add_action( 'woocommerce_page_created', function ( $page_id, $page_data ) {
