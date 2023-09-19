@@ -226,7 +226,7 @@ class WC_Calypso_Bridge_Setup {
 			// Set the operation as completed if the store is active for more than 5 minutes.
 			if ( WCAdminHelper::is_wc_admin_active_for( 5 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
-				$this->write_to_log( $operation, 'completed (60 minutes)' );
+				$this->write_to_log( $operation, 'completed (5 minutes)' );
 
 				return;
 			}
@@ -269,27 +269,24 @@ class WC_Calypso_Bridge_Setup {
 
 			try {
 
+				/*
+				 * Delete all WooCommerce pages, by translated slug, and start fresh.
+				 *
+				 * @see WC_Install::create_pages()
+				 */
 				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGES ');
 
-				$woocommerce_slugs = array(
+				$woocommerce_pages = array(
 					'shop'           => _x( 'shop', 'Page slug', 'woocommerce' ),
 					'cart'           => _x( 'cart', 'Page slug', 'woocommerce' ),
 					'checkout'       => _x( 'checkout', 'Page slug', 'woocommerce' ),
 					'myaccount'      => _x( 'my-account', 'Page slug', 'woocommerce' ),
 					'refund_returns' => _x( 'refund_returns', 'Page slug', 'woocommerce' ),
 				);
-				foreach ( $woocommerce_slugs as $key => $page_slug ) {
+				foreach ( $woocommerce_pages as $key => $page_slug ) {
 					$slugs = array( $page_slug, $page_slug . '-2' );
 					foreach ( $slugs as $slug ) {
-						$page = get_page_by_path( $slug, ARRAY_A );
-						if ( is_array( $page ) && isset( $page['ID'] ) ) {
-							$result = wp_delete_post( $page['ID'], true );
-							if ( $result ) {
-								$this->write_to_log( $operation, 'deleted WooCommerce page ' . $slug );
-							} else {
-								$this->write_to_log( $operation, 'failed to delete WooCommerce page ' . $slug );
-							}
-						}
+						$this->delete_page_by_slug( $slug, $operation );
 					}
 				}
 
@@ -299,12 +296,11 @@ class WC_Calypso_Bridge_Setup {
 				 * for an ecommerce plan. WC_Install:create_pages() might not create all the
 				 * required pages without resetting these options first.
 				 *
-				 * `My Account` page id setting, is created with key `myaccount`.
 				 * @see WC_Install::create_pages()
 				 */
 				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGE OPTIONS ');
 
-				foreach ( $woocommerce_slugs as $key => $page_slug ) {
+				foreach ( $woocommerce_pages as $key => $page_slug ) {
 					$value  = get_option( "woocommerce_{$key}_page_id" );
 					$result = delete_option( "woocommerce_{$key}_page_id" );
 					if ( $result ) {
@@ -314,22 +310,18 @@ class WC_Calypso_Bridge_Setup {
 					}
 				}
 
+				/*
+				 * Deleting the hardcoded pages created by Headstart.
+				 *
+				 * @see https://github.com/Automattic/theme-tsubaki/blob/trunk/inc/headstart/en.json
+				 */
 				$this->write_to_log( $operation, 'DELETING HEADSTART PAGES ');
 
-				// See https://github.com/Automattic/theme-tsubaki/blob/trunk/inc/headstart/en.json
-				$headstart_slugs   = array( 'shop', 'cart', 'checkout', 'my-account', 'refund_returns' );
+				$headstart_slugs = array( 'shop', 'cart', 'checkout', 'my-account', 'refund_returns' );
 				foreach ( $headstart_slugs as $page_slug ) {
 					$slugs = array( $page_slug, $page_slug . '-2' );
 					foreach ( $slugs as $slug ) {
-						$page = get_page_by_path( $slug, ARRAY_A );
-						if ( is_array( $page ) && isset( $page['ID'] ) ) {
-							$result = wp_delete_post( $page['ID'], true );
-							if ( $result ) {
-								$this->write_to_log( $operation, 'deleted headstart page ' . $slug );
-							} else {
-								$this->write_to_log( $operation, 'failed to delete headstart page ' . $slug );
-							}
-						}
+						$this->delete_page_by_slug( $slug, $operation );
 					}
 				}
 
@@ -685,6 +677,30 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	private function write_to_log( $operation, $message ) {
 		error_log(  'WooExpress: Operation: (' . microtime( true ) . ') ' . $operation . ': ' . print_r( $message, 1 ) );
+	}
+
+	/**
+	 * Delete page by slug
+	 *
+	 * @param string $slug Slug.
+	 * @param string $operation Operation.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return void
+	 */
+	private function delete_page_by_slug( $slug, $operation ) {
+
+		$page = get_page_by_path( $slug, ARRAY_A );
+		if ( is_array( $page ) && isset( $page['ID'] ) ) {
+			$result = wp_delete_post( $page['ID'], true );
+			if ( $result ) {
+				$this->write_to_log( $operation, 'deleted page ' . $slug );
+			} else {
+				$this->write_to_log( $operation, 'failed to delete page ' . $slug );
+			}
+		}
+
 	}
 }
 
