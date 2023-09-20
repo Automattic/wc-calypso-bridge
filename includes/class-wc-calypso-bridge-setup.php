@@ -223,10 +223,10 @@ class WC_Calypso_Bridge_Setup {
 
 			$this->write_to_log( $operation, 'INITIALIZED' );
 
-			// Set the operation as completed if the store is active for more than 5 minutes.
-			if ( WCAdminHelper::is_wc_admin_active_for( 5 * MINUTE_IN_SECONDS ) ) {
+			// Set the operation as completed if the store is active for more than 10 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 10 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
-				$this->write_to_log( $operation, 'completed (5 minutes)' );
+				$this->write_to_log( $operation, 'completed (10 minutes)' );
 
 				return;
 			}
@@ -446,6 +446,14 @@ class WC_Calypso_Bridge_Setup {
 			return $pages;
 
 		}, PHP_INT_MAX );
+
+		// Force WooCommerce to recreate pages.
+		add_filter( 'woocommerce_create_page_id', function ( $valid_page_found, $slug, $page_content ) {
+			$operation = 'woocommerce_create_pages';
+			$this->write_to_log( $operation, 'woocommerce_create_page_id force create slug: ' . $slug );
+			return false;
+		}, PHP_INT_MAX, 3 );
+
 
 		// Log which pages have been created.
 		add_action( 'woocommerce_page_created', function ( $page_id, $page_data ) {
@@ -692,7 +700,23 @@ class WC_Calypso_Bridge_Setup {
 	private function delete_page_by_slug( $slug, $operation ) {
 
 		$page = get_page_by_path( $slug, ARRAY_A );
+
 		if ( is_array( $page ) && isset( $page['ID'] ) ) {
+
+			$page_gmt_ts = get_post_time( 'U', true, $page['ID'] );
+			// draft pages don't have a post_date_gmt, so we need to calculate it.
+			if ( false === $page_gmt_ts ) {
+				$page_gmt_ts = get_gmt_from_date( $page['post_date'], 'U' );
+			}
+			$current_time_gmt_ts = current_time( 'U', true );
+			$diff_ts             = $current_time_gmt_ts - $page_gmt_ts;
+
+			if ( $diff_ts > 10 * MINUTE_IN_SECONDS ) {
+				$this->write_to_log( $operation, 'ignored page deletion (too old) ' . $slug . ' diff: ' . $diff_ts );
+
+				return;
+			}
+
 			$result = wp_delete_post( $page['ID'], true );
 			if ( $result ) {
 				$this->write_to_log( $operation, 'deleted page ' . $slug );
