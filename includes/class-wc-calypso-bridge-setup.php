@@ -224,7 +224,7 @@ class WC_Calypso_Bridge_Setup {
 			$this->write_to_log( $operation, 'INITIALIZED' );
 
 			// Set the operation as completed if the store is active for more than 10 minutes.
-			if ( WCAdminHelper::is_wc_admin_active_for( 10 * MINUTE_IN_SECONDS ) ) {
+			if ( WCAdminHelper::is_wc_admin_active_for( 5 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
 				$this->write_to_log( $operation, 'completed (10 minutes)' );
 
@@ -286,7 +286,7 @@ class WC_Calypso_Bridge_Setup {
 				foreach ( $woocommerce_pages as $key => $page_slug ) {
 					$slugs = array( $page_slug, $page_slug . '-2' );
 					foreach ( $slugs as $slug ) {
-						$this->delete_page_by_slug( $slug, $operation );
+						$this->maybe_delete_page_by_slug( $slug, $operation );
 					}
 				}
 
@@ -321,7 +321,7 @@ class WC_Calypso_Bridge_Setup {
 				foreach ( $headstart_slugs as $page_slug ) {
 					$slugs = array( $page_slug, $page_slug . '-2' );
 					foreach ( $slugs as $slug ) {
-						$this->delete_page_by_slug( $slug, $operation );
+						$this->maybe_delete_page_by_slug( $slug, $operation );
 					}
 				}
 
@@ -688,16 +688,17 @@ class WC_Calypso_Bridge_Setup {
 	}
 
 	/**
-	 * Delete page by slug
-	 *
-	 * @param string $slug Slug.
-	 * @param string $operation Operation.
+	 * Maybe delete page by slug.
+	 * If the page is older than 10 minutes, it will be ignored.
 	 *
 	 * @since x.x.x
 	 *
+	 * @param string $operation Operation.
+	 *
+	 * @param string $slug Slug.
 	 * @return void
 	 */
-	private function delete_page_by_slug( $slug, $operation ) {
+	private function maybe_delete_page_by_slug( $slug, $operation ) {
 
 		$page = get_page_by_path( $slug, ARRAY_A );
 
@@ -712,7 +713,7 @@ class WC_Calypso_Bridge_Setup {
 			$diff_ts             = $current_time_gmt_ts - $page_gmt_ts;
 
 			if ( $diff_ts > 10 * MINUTE_IN_SECONDS ) {
-				$this->write_to_log( $operation, 'ignored page deletion (too old) ' . $slug . ' diff: ' . $diff_ts );
+				$this->write_to_log( $operation, 'ignored page deletion ' . $slug . ' diff: ' . $diff_ts / 60 . ' minutes (older than 10 minutes) ' );
 
 				return;
 			}
