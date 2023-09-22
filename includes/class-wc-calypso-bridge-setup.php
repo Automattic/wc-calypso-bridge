@@ -684,7 +684,7 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	private function write_to_log( $operation, $message ) {
-		error_log(  'WooExpress: Operation: (' . microtime( true ) . ') ' . $operation . ': ' . print_r( $message, 1 ) );
+		error_log(  'WooExpress: Operation: ' . $operation . ': (' . microtime( true ) . ') ' . print_r( $message, 1 ) );
 	}
 
 	/**
