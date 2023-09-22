@@ -702,29 +702,31 @@ class WC_Calypso_Bridge_Setup {
 
 		$page = get_page_by_path( $slug, ARRAY_A );
 
-		if ( is_array( $page ) && isset( $page['ID'] ) ) {
-
-			$page_gmt_ts = get_post_time( 'U', true, $page['ID'] );
-			// draft pages don't have a post_date_gmt, so we need to calculate it.
-			if ( false === $page_gmt_ts ) {
-				$page_gmt_ts = get_gmt_from_date( $page['post_date'], 'U' );
-			}
-			$current_time_gmt_ts = current_time( 'U', true );
-			$diff_ts             = $current_time_gmt_ts - $page_gmt_ts;
-
-			if ( $diff_ts > 10 * MINUTE_IN_SECONDS ) {
-				$this->write_to_log( $operation, 'ignored page deletion ' . $slug . ' diff: ' . $diff_ts / 60 . ' minutes (older than 10 minutes) ' );
-
-				return;
-			}
-
-			$result = wp_delete_post( $page['ID'], true );
-			if ( $result ) {
-				$this->write_to_log( $operation, 'deleted page ' . $slug );
-			} else {
-				$this->write_to_log( $operation, 'failed to delete page ' . $slug );
-			}
+		if ( ! is_array( $page ) || ! isset( $page['ID'] ) ) {
+			return;
 		}
+
+		$page_gmt_ts = get_post_time( 'U', true, $page['ID'] );
+		// draft pages don't have a post_date_gmt, so we need to calculate it.
+		if ( false === $page_gmt_ts ) {
+			$page_gmt_ts = get_gmt_from_date( $page['post_date'], 'U' );
+		}
+		$current_time_gmt_ts = current_time( 'U', true );
+		$diff_ts             = $current_time_gmt_ts - $page_gmt_ts;
+
+		if ( $diff_ts > 10 * MINUTE_IN_SECONDS ) {
+			$this->write_to_log( $operation, 'ignored page deletion ' . $slug . ' diff: ' . $diff_ts / 60 . ' minutes (older than 10 minutes) ' );
+
+			return;
+		}
+
+		$result = wp_delete_post( $page['ID'], true );
+		if ( $result ) {
+			$this->write_to_log( $operation, 'deleted page ' . $slug );
+		} else {
+			$this->write_to_log( $operation, 'failed to delete page ' . $slug );
+		}
+
 
 	}
 }
