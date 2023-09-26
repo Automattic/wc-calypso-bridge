@@ -46,7 +46,8 @@ class WC_Calypso_Bridge_Customize_Store {
 	}
 
 	/**
-	 * Mark Customize Store task as completed on Site Editor
+	 * Mark Customize Store task as completed on Site Editor by checking $_GET['from'] value.
+	 * The value is set from WP-Calypso. 
 	 *
 	 * @since 2.2.14
 	 *
