@@ -37,7 +37,7 @@ class WC_Calypso_Bridge_Customize_Store {
 	private function __construct() {
 
 		// Only in Ecommerce or Free Trial
-		if ( ! wc_calypso_bridge_has_ecommerce_features() || ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+		if ( ! wc_calypso_bridge_has_ecommerce_features() && ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
 		}
 
@@ -54,13 +54,8 @@ class WC_Calypso_Bridge_Customize_Store {
 	 */
 	public function mark_customize_store_task_as_completed_on_site_editor() {
 		$screen = get_current_screen();
-		if ( $screen->id === 'site-editor' ) {
-			$referrer = wp_get_referer();
-			$pattern = "/^\/theme\/[^\/]+\/[^\/]+\/?$/";
-			$isFromThemeDetailsPage = preg_match( $pattern, parse_url( $referrer, PHP_URL_PATH ) );
-			if ( $isFromThemeDetailsPage ) {
-				update_option( 'woocommerce_admin_customize_store_completed', 'yes' );
-			}
+		if ( $screen->id === 'site-editor' && isset( $_GET['from'] ) && $_GET['from'] === 'theme-browser' ) {
+			update_option( 'woocommerce_admin_customize_store_completed', 'yes' );
 		}
 	}
 }
