@@ -25,6 +25,7 @@ This section describes how to install the plugin and get it working.
 = unreleased = 
 * Revert all page deletion and delete only WooCommerce related pages #xxx
 * Purge cache before creating WooCommerce related pages #xxx
+* Change "Blog Home" template name to "Home" #1263
 
 = 2.2.14 =
 * Updated plugins landing page (free trial) #1300
