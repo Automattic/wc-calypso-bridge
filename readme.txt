@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.15 =
+* _Enter your changes here_
+
 = unreleased = 
 * Revert all page deletion and delete only WooCommerce related pages #xxx
 * Purge cache before creating WooCommerce related pages #xxx
