@@ -35,13 +35,11 @@ class WC_Calypso_Bridge_Customize_Store {
 	 * Constructor.
 	 */
 	private function __construct() {
-
-		// Only in Ecommerce or Free Trial
-		if ( ! wc_calypso_bridge_has_ecommerce_features() && ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
-			return;
-		}
-
-		add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
+		add_action( 'plugins_loaded', function() {
+			if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'customize-store' ) ) {
+				add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
+			}
+		});
 	}
 
 	/**
