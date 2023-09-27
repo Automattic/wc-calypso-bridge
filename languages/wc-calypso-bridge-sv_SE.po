@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-14 12:54:03+0000\n"
+"PO-Revision-Date: 2023-09-20 13:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "Kan du inte hitta rätt tillägg för dina behov? Vårt team av experter kan hjälpa dig att få jobbet gjort på rätt sätt, från tjänsteintegreringar till exotiska anpassningar."
+msgid "Hire an expert"
+msgstr "Anlita en expert"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "Kan du inte hitta det du letar efter? Anlita en av våra expertbyråer. Från nya utökningar till hela butiksbyggen, våra Woo-experter kan hjälpa dig att skapa din drömbutik."
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "Vill du utöka din butiks e-handelsfunktioner? Woo Marketplace har hundratals tillförlitliga utökningar utformade specifikt för din butik."
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "Från SEO-verktyg till flerspråksfunktionalitet, med WordPress-tillägg kan du anpassa din webbplats för att göra allt du behöver."
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "Anpassa din webbplats"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "Lägg till ytterligare funktioner till din webbplats med en knapptryckning. Uppgradera till ett betalpaket och få tillgång till tusentals gratis- och betaltillägg för WordPress. Är du nyfiken på vad som är möjligt?"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -24,28 +44,12 @@ msgid "Discover Extensions"
 msgstr "Upptäck utökningar"
 
 #: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "Letar du efter fler betalnings- och fraktmetoder? Vill du bygga en medlemskapswebbplats eller ta emot donationer? Välj bland hundratals olika utökningar, handplockade av vårt team."
-
-#: build/plugins.js:1
 msgid "Extend your store"
 msgstr "Utöka din butik"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "Få WordPress att göra vad som helst. Skapa en butik, starta en podcast eller visa upp ditt arbete. Med över 55 000 tillägg är det du som har kontrollen."
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "Omvandla WordPress"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "Bläddra bland tillägg"
-
-#: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "Förvandla din WordPress-webbplats till vad du vill. Uppgradera till ett betalpaket och få tillgång till tusentals gratis- och betaltillägg. Är du nyfiken på vad som är möjligt?"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -255,7 +259,7 @@ msgstr "Adress"
 
 #: build/index.js:1
 msgid "Country / Region"
-msgstr "Land/Region"
+msgstr "Land/region"
 
 #: build/index.js:1
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
@@ -449,7 +453,7 @@ msgstr "Spara"
 
 #: src/payment-gateway-suggestions/plugins/Bacs.js:147
 msgid "BIC / Swift"
-msgstr "BIC / Swift"
+msgstr "BIC/Swift"
 
 #: src/payment-gateway-suggestions/plugins/Bacs.js:139
 msgid "IBAN"
@@ -766,7 +770,6 @@ msgstr "Tips, tricks och e-handelsinspiration från vår blogg."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "Bli inspirerad"
 
@@ -885,15 +888,15 @@ msgstr "Under provperioden kan du bara lägga testbeställningar. För att ta em
 msgid "Start selling to everyone"
 msgstr "Börja sälja till alla"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "Mitt konto"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "Kontakt"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "Hem"
 

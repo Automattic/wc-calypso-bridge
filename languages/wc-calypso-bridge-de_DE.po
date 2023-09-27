@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-14 12:54:03+0000\n"
+"PO-Revision-Date: 2023-09-20 13:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "Du findest für deine Anforderungen nicht das passende Plugin? Von Serviceintegrationen bis hin zu ausgefallenen Anpassungen – unser Expertenteam kann dich bei der Umsetzung unterstützen."
+msgid "Hire an expert"
+msgstr "Engagiere einen Experten"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "Deine Suche war nicht erfolgreich? Engagiere eine unserer erfahrenen Agenturen! Von neuen Erweiterungen bis hin zu kompletten Shops: Unsere Woo-Experten helfen dir dabei, den Shop deiner Träume zu gestalten."
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "Du möchtest die E-Commerce-Funktionen deines Shops erweitern? Der Woo-Marktplatz bietet Hunderte vertrauenswürdiger Erweiterungen, die speziell für deinen Shop entwickelt wurden."
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "Von SEO-Tools bis zu mehrsprachigen Funktionen – mit WordPress-Plugins kannst du deine Website individuell anpassen."
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "Deine Website anpassen"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "Füge mit nur einem Button-Klick zusätzliche Funktionen und Features zu deiner Website hinzu. Führe ein Upgrade auf einen kostenpflichtigen Tarif durch und erhalte Zugang zu Tausenden von kostenlosen und kostenpflichtigen WordPress-Plugins. Möchtest du wissen, was alles möglich ist?"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -24,28 +44,12 @@ msgid "Discover Extensions"
 msgstr "Erweiterungen entdecken"
 
 #: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "Bist du auf der Suche nach weiteren Zahlungs- und Versandarten? Möchtest du eine Mitgliedschaftswebsite erstellen oder Spenden empfangen? Wähle aus Hunderten von Erweiterungen aus, die von unserem Team sorgfältig ausgesucht wurden."
-
-#: build/plugins.js:1
 msgid "Extend your store"
 msgstr "Deinen Shop ausbauen"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "Du kannst WordPress für alles nutzen. Zum Erstellen eines Shops, zum Hosten eines Podcasts und zum Präsentieren deiner Arbeit. Mit über 55.000 Plugins hast du die Zügel in der Hand."
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "WordPress verändern"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "Plugins durchsuchen"
-
-#: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "Gestalte deine WordPress-Website ganz nach deinen Vorstellungen. Führe ein Upgrade auf einen kostenpflichtigen Tarif durch und erhalte Zugang zu Tausenden von kostenlosen und kostenpflichtigen Plugins. Möchtest du wissen, was alles möglich ist?"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -766,7 +770,6 @@ msgstr "Tipps, Tricks und E-Commerce-Inspiration aus unserem Blog."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "Lass dich inspirieren"
 
@@ -885,15 +888,15 @@ msgstr "Während des Gratis-Tests kannst du nur Testbestellungen aufgeben! Um Be
 msgid "Start selling to everyone"
 msgstr "Beginne mit dem Verkauf an alle"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "Mein Account"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "Kontakt"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "Home"
 

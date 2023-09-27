@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-13 13:54:04+0000\n"
+"PO-Revision-Date: 2023-09-21 11:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "İhtiyaçlarınıza uygun eklentiyi bulamıyor musunuz? Hizmet entegrasyonlarından egzotik özelleştirmelere kadar çeşitli alanlarda uzman ekibimiz işlerinizi doğru yapmanıza yardımcı olabilir."
+msgid "Hire an expert"
+msgstr "Bir uzmanla çalışın"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "Aradığınız şeyi bulamıyor musunuz? Uzman ajanslarımızdan birini işe alın! Yeni uzantılardan tam mağaza kurulumlarına kadar çeşitli alanlarda destek veren Woo Uzmanlarımız hayallerinizdeki mağazayı oluşturmanıza yardımcı olabilir."
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "Mağazanızın e-ticaret işlevini genişletmek mi istiyorsunuz? Woo Pazar Yeri mağazanız için özel olarak tasarlanmış yüzlerce güvenilir uzantıya sahiptir."
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "SEO araçlarından birden fazla dil işlevine kadar WordPress eklentileriyle web sitenizi dilediğiniz her şeyi yapacak şekilde özelleştirebilirsiniz."
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "Web sitenizi özelleştirin"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "Bir düğmeye tıklayarak web sitenize ekstra işlev ve özellikler ekleyin. Ücretli bir pakete yükseltip binlerce ücretsiz ve ücretli WordPress eklentisine erişim edinin. Nelerin mümkün olduğunu mu merak ediyorsunuz?"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -24,28 +44,12 @@ msgid "Discover Extensions"
 msgstr "Uzantıları Keşfedin"
 
 #: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "Daha fazla ödeme ve gönderim yöntemi mi arıyorsunuz? Üyelik sitesi oluşturmak veya bağış kabul etmek mi istiyorsunuz? Ekibimizin özenle seçtiği yüzlerce Uzantı arasından seçim yapın."
-
-#: build/plugins.js:1
 msgid "Extend your store"
 msgstr "Mağazanızı genişletin"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "WordPress'in dilediğiniz her şeyi yapmasını sağlayın. Mağaza oluşturun, podcast barındırın veya işinizi vitrine çıkarın. 55.000'den fazla eklenti ile kontrol sizin elinizde."
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "WordPress'i Dönüştürün"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "Eklentilere göz atın"
-
-#: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "WordPress sitenizi aklınıza koyduğunuz şeye dönüştürün. Ücretli bir pakete yükseltip binlerce ücretsiz ve ücretli eklentiye erişim edinin. Nelerin mümkün olduğunu mu merak ediyorsunuz?"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -766,7 +770,6 @@ msgstr "Blogumuzdan ipuçları, püf noktaları ve e-ticaret ilhamı."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "İlham alma"
 
@@ -885,15 +888,15 @@ msgstr "Ücretsiz deneme süresi boyunca sadece test siparişleri verebilirsiniz
 msgid "Start selling to everyone"
 msgstr "Herkese satış yapmaya başlama"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "Hesabım"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "İletişim"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "Başlangıç"
 

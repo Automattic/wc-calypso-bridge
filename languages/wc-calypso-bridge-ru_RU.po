@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-14 12:54:05+0000\n"
+"PO-Revision-Date: 2023-09-21 17:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "Не можете найти подходящий плагин? Наша команда специалистов поможет справиться с любой задачей, от интеграции служб до создания самых причудливых настроек."
+msgid "Hire an expert"
+msgstr "Нанять эксперта"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "Не можете найти то, что вам нужно? Воспользуйтесь услугами одного из наших экспертных агентств! Специалисты из Woo Experts помогут создать магазин вашей мечты: всё — от новых расширений до создания с нуля «под ключ»."
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "Хотите расширить функциональность вашего магазина? На Woo Marketplace вы найдёте сотни проверенных расширений, созданных специально для вашего магазина."
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "От инструментов поисковой оптимизации до поддержки различных языков: плагины WordPress помогут вам настроить сайт именно так, как вы хотите."
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "Настройка веб-сайта"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "Добавляйте дополнительные функции и возможности одним нажатием кнопки. Перейдите на платный тарифный план и получите доступ к тысячам платных и бесплатных плагинов WordPress . Хотите узнать, где границы возможного?"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -24,28 +44,12 @@ msgid "Discover Extensions"
 msgstr "Знакомьтесь с расширениями"
 
 #: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "Ищете альтернативные способы оплаты и доставки товаров? Хотите создать сайт с подпиской или принимать пожертвования?  Мы подберем для вас сотни расширений, и вы сможете выбрать нужное."
-
-#: build/plugins.js:1
 msgid "Extend your store"
 msgstr "Развивайте свой магазин"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "WordPress поможет решить любые задачи. Создать магазин, разместить подкаст или похвастаться работой. В вашем распоряжении 55 000 плагинов."
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "Преобразуйте WordPress"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "Плагины"
-
-#: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "Превратите ваш веб-сайт WordPress во что угодно. Перейдите на платный тариф и получите доступ к тысячам платных и бесплатных плагинов. Хотите узнать, где границы возможного?"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -105,7 +109,7 @@ msgstr "Развивайте свой бизнес с помощью сотен 
 
 #: build/marketing.js:1
 msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
-msgstr "Встроенные маркетинговые и рекламные инструменты помогут вам охватить больше клиентов и развивать бизнес Перейдите на платный тариф, чтобы получить доступ к мощным маркетинговым инструментам и сразу же приступить к развитию бизнеса!"
+msgstr "Встроенные маркетинговые и рекламные инструменты помогут вам охватить больше клиентов и развивать бизнес. Перейдите на платный тариф, чтобы получить доступ к мощным маркетинговым инструментам и сразу же приступить к развитию бизнеса!"
 
 #: build/marketing.js:1
 msgid "Get ready to grow your business"
@@ -167,7 +171,7 @@ msgstr "Ваш отзыв очень важен для нас!"
 
 #: build/index.js:1
 msgid "How was your experience?"
-msgstr "Как вам это понравилось?"
+msgstr "Каковы ваши впечатления?"
 
 #: build/index.js:1
 msgid "Hide this"
@@ -183,7 +187,7 @@ msgstr "Параметры списка задач"
 
 #: build/index.js:1
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
-msgstr "Поздравляем! Возьмите паузу, чтобы отпраздновать. И когда вы уже будете готовы к запуску магазина, всё, что вам останется сделать — перейти на платный тариф. Так вы сможете получить доступ ещё к двум задачам из списка."
+msgstr "Поздравляем! Возьмите паузу, чтобы отпраздновать. И когда вы уже будете готовы к запуску магазина, всё, что вам останется сделать, — перейти на платный тариф. Так вы сможете получить доступ ещё к двум задачам из списка."
 
 #: build/index.js:1
 msgid "Woohoo! Your trial store has been set up!"
@@ -191,7 +195,7 @@ msgstr "Ура! Пробная версия магазина настроена!
 
 #: build/index.js:1
 msgid "You're awesome! One less item on your to-do list ✅"
-msgstr "Вы отлично справились! В вашем списке задач стало на один пункт меньше✅"
+msgstr "Вы отлично справились! В вашем списке задач стало на один пункт меньше ✅"
 
 #: build/index.js:1
 msgid "There was a problem setting up automated taxes. Please try again."
@@ -203,7 +207,7 @@ msgstr "В течение бесплатного пробного периода
 
 #: build/index.js:1
 msgid "I don't charge sales tax"
-msgstr "Я не взимаю налог с продаж"
+msgstr "Я не взимаю налога с продаж"
 
 #: build/index.js:1
 msgid "Set up taxes manually"
@@ -215,7 +219,7 @@ msgstr "Выберите налогового партнёра"
 
 #: build/index.js:1
 msgid "WooCommerce Tax can automate your sales tax calculations for you."
-msgstr "Сервис «Налоги» WooCommerce Services может автоматизировать расчёт налогов с продаж."
+msgstr "Плагин WooCommerce Tax может автоматизировать расчёт налогов с продаж."
 
 #: build/index.js:1
 msgid "Automate Taxes"
@@ -259,7 +263,7 @@ msgstr "Страна/регион"
 
 #: build/index.js:1
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
-msgstr "Нажав «Настроить», вы включаете налоговые ставки и расчеты. Дополнительные сведения см. {{link}}здесь{{/link}}."
+msgstr "Нажав «Настроить», вы включаете налоговые ставки и расчёты. Дополнительные сведения см. {{link}}здесь{{/link}}."
 
 #: build/index.js:1
 msgid "Configure"
@@ -275,7 +279,7 @@ msgstr "Устанавливая плагины WooCommerce Tax и Jetpack, вы
 
 #: build/index.js:1
 msgid "100% free"
-msgstr "100% бесплатно"
+msgstr "100 % бесплатно"
 
 #: build/index.js:1
 msgid "Powered by {{link}}Jetpack{{/link}}"
@@ -283,7 +287,7 @@ msgstr "На сайте используется {{link}}Jetpack{{/link}}"
 
 #: build/index.js:1
 msgid "{{strong}}Single{{/strong}} economic nexus compliance"
-msgstr "Соблюдение {{strong}}единых{{/strong}} налоговых обязательств @@@@@"
+msgstr "Соблюдение {{strong}}единых{{/strong}} правил определения экономических связей"
 
 #: build/index.js:1
 msgid "Real-time sales tax calculation"
@@ -291,11 +295,11 @@ msgstr "Расчёт налога с продаж в реальном време
 
 #: build/index.js:1
 msgid "Best for new stores"
-msgstr "Подходит для новых магазинов"
+msgstr "Оптимально для новых магазинов"
 
 #: build/index.js:1
 msgid "WooCommerce Tax"
-msgstr "Налоги WooCommerce"
+msgstr "WooCommerce Tax"
 
 #: build/index.js:1
 msgid "Get more sales"
@@ -307,15 +311,15 @@ msgstr "Перейдите на платный тариф, чтобы получ
 
 #: build/index.js:1
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
-msgstr "Сейчас у вас бесплатный пробный период. Чтобы получить доступ ко всем функциям, перейдите на платный тариф."
+msgstr "Сейчас для вас действует бесплатный пробный период! Чтобы получить доступ ко всем функциям, перейдите на платный тариф."
 
 #: build/index.js:1 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
-msgstr "Введение в модальную навигацию, изображение 1 @@@@@"
+msgstr "Иллюстрация 1. Введение в модальную навигацию"
 
 #: build/index.js:1 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
-msgstr "Введение в модальную навигацию, изображение 2 @@@@@"
+msgstr "Иллюстрация 2. Введение в модальную навигацию"
 
 #: build/index.js:1
 msgid "Setup required"
@@ -347,11 +351,11 @@ msgstr "Просмотр расширений"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:95
 msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
-msgstr "Добавить товары Демонстрируйте свои товары и услуги и готовьтесь к началу продаж: загрузите сведения о товарах, изображения и описания."
+msgstr "Добавьте товары. Демонстрируйте свои товары и услуги и готовьтесь к началу продаж: загрузите сведения о товарах, изображения и описания."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:89
 msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
-msgstr "Импортировать товары Демонстрируйте свои товары и услуги и готовьтесь к началу продаж: загрузите сведения о товарах, изображения и описания."
+msgstr "Импортируйте товары. Демонстрируйте свои товары и услуги и готовьтесь к началу продаж: импортируйте сведения о товарах, изображения и описания."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:79
 msgid "Add products"
@@ -401,11 +405,11 @@ msgstr "Список задач по настройке"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
 msgid "Restore the visibility of the \"Things to do next\" Task List."
-msgstr "Показывать список задач по настройке «Что дальше»"
+msgstr "Показывать список задач по настройке «Что дальше»."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
 msgid "Restore the visibility of the primary onboarding Task List."
-msgstr "Показывать список задач по первичной адаптации"
+msgstr "Показывать список задач по первичной адаптации."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:310
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
@@ -417,7 +421,7 @@ msgstr "Адаптация"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:187
 msgid "A custom navigation experience that is optimized for selling."
-msgstr "Настраиваемая навигация, приспособленная для продаж."
+msgstr "Пользовательская навигация, приспособленная для продаж."
 
 #: build/index.js:1 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
@@ -766,7 +770,6 @@ msgstr "Советы, рекомендации и идеи по интернет
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "Вдохновляйтесь"
 
@@ -885,15 +888,15 @@ msgstr "В течение пробного периода вы можете ра
 msgid "Start selling to everyone"
 msgstr "Начинайте продажи для всех"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "Моя учётная запись"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "Связаться"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "Главная страница"
 

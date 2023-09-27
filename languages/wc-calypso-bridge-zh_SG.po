@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-14 08:54:42+0000\n"
+"PO-Revision-Date: 2023-09-20 15:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "无法找到符合需求的合适插件？ 从服务集成到独特的自定义项，我们的专家团队能帮助您做好各项工作。"
+msgid "Hire an expert"
+msgstr "聘请专家"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "无法找到您要查找的内容？ 聘请我们的专家代理机构！ 从新扩展功能到全店建设，我们的 Woo Expertsthey 可帮助您打造梦想中的商店。"
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "希望扩展您商店的电子商务功能？ Woo Marketplace 提供数百种值得信赖的扩展程序，专为您的店铺而设计。"
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "从搜索引擎优化工具到多语言功能，WordPress 插件可支持您对网站进行定制，满足您的任何需求。"
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "定制您的网站"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "只需点击按钮，即可为您的网站添加额外的功能和特性。 升级至付费套餐即可获得数千款免费和付费 WordPress 插件的使用权限。 想知道有哪些可能的功能？"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -24,28 +44,12 @@ msgid "Discover Extensions"
 msgstr "了解扩展程序"
 
 #: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "寻求更多付款和配送方式？ 想要构建会员站点或接受捐赠？ 从我们团队精挑细选的数百款扩展程序中进行选择。"
-
-#: build/plugins.js:1
 msgid "Extend your store"
 msgstr "扩展您的商店"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "将一切交给 WordPress 来完成。 创建商店、托管播客或展示您的作品。 超过 55,000 款插件让您尽在掌控。"
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "转变 WordPress"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "浏览插件"
-
-#: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "将您的 WordPress 站点变成您想要的任何形式。 升级至付费套餐即可获得数千款免费和付费插件的使用权限。 想知道有哪些可能功能？"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -143,7 +147,7 @@ msgstr "欢迎使用 %s"
 #. translators: 1: completed tasks, 2: total tasks
 #: build/index.js:2
 msgid "%1$d out of %2$d complete."
-msgstr "已完成%1$d 项，共 %2$d 项。"
+msgstr "已完成 %1$d 项，共 %2$d 项。"
 
 #: build/index.js:1
 msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
@@ -191,7 +195,7 @@ msgstr "哇哦！ 试用版商店已设置完成！"
 
 #: build/index.js:1
 msgid "You're awesome! One less item on your to-do list ✅"
-msgstr "您真棒！ 任务清单上又少一项 ✅"
+msgstr "您真棒！ 任务清单上又少了一项 ✅"
 
 #: build/index.js:1
 msgid "There was a problem setting up automated taxes. Please try again."
@@ -303,7 +307,7 @@ msgstr "提升销售额"
 
 #: build/index.js:1
 msgid "Upgrade to a paid plan to unlock more features and start selling"
-msgstr "升级至付费套餐，解锁新功能并开始销售。"
+msgstr "升级至付费套餐，解锁更多功能并开始销售"
 
 #: build/index.js:1
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
@@ -409,7 +413,7 @@ msgstr "恢复显示主登录任务列表。"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:310
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
-msgstr "使用这些选项可在 WooCommerce 主页中恢复显示主登录任务列表。"
+msgstr "使用这些选项可在 WooCommerce 主页中恢复显示登录任务列表。"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:308
 msgid "Onboarding"
@@ -766,7 +770,6 @@ msgstr "来自我们博客的提示、技巧和电子商务灵感。"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "受到启发"
 
@@ -796,7 +799,7 @@ msgstr "浏览扩展程序"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:19
 msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
-msgstr "使用 Woo 扩展程序自定义您的商店，使其完美贴合您的业务。 升级至付费套餐，获得数百种工具和功能的使用权限，借此实现目标。 好奇有哪些可用功能？ 浏览我们的扩展程序市场。"
+msgstr "使用 WooCommerce 扩展程序自定义您的商店，使其完美贴合您的业务。 升级至付费套餐，获得数百种工具和功能的使用权限，借此实现目标。 好奇有哪些可用功能？ 浏览我们的扩展程序市场。"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
@@ -885,15 +888,15 @@ msgstr "在试用期间，您只能下达测试订单！ 要接收来自客户�
 msgid "Start selling to everyone"
 msgstr "开始面向所有人销售"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "我的账户"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "联系"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "首页"
 
