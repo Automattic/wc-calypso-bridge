@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.15
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -50,6 +50,7 @@ class WC_Calypso_Bridge_Setup {
 		'set_wc_tracker_default'                  => 'set_wc_tracker_default_callback',
 		'set_wc_subscriptions_siteurl'            => 'set_wc_subscriptions_siteurl_callback',
 		'set_wc_subscriptions_siteurl_add_domain' => 'set_wc_subscriptions_siteurl_add_domain_callback',
+		'set_wc_measurement_units'                => 'set_wc_measurement_units_callback',
 	);
 
 	/**
@@ -142,6 +143,7 @@ class WC_Calypso_Bridge_Setup {
 			unset( $this->one_time_operations[ 'set_wc_tracker_default' ] );
 			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl' ] );
 			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_add_domain' ] );
+			unset( $this->one_time_operations[ 'set_wc_measurement_units' ] );
 		}
 	}
 
@@ -634,6 +636,58 @@ class WC_Calypso_Bridge_Setup {
 				}
 			}
 
+		}, PHP_INT_MAX );
+
+	}
+
+	/**
+	 * Preconfigure product measurement units.
+	 *
+	 * @since x.x.x
+	 */
+	public function set_wc_measurement_units_callback() {
+
+		add_action( 'plugins_loaded', function () {
+
+			$operation = 'set_wc_measurement_units';
+
+			// Set the operation as completed if the store is active for more than 10 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 10 * MINUTE_IN_SECONDS ) ) {
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+				$this->write_to_log( $operation, 'completed (10 minutes)' );
+
+				return;
+			}
+
+			// Bail out early if WooCommerce is not active.
+			if (
+				! function_exists( 'WC' ) ||
+				! method_exists( WC(), 'plugin_path' )
+			) {
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+				$this->write_to_log( $operation, 'plugin_path does not exist' );
+
+				return;
+			};
+
+			list( $country ) = explode( ':', get_option( 'woocommerce_default_country' ) );
+			$locale_info = (array) include WC()->plugin_path() . '/i18n/locale-info.php';
+
+			if (
+				! isset( $locale_info[ $country ]['weight_unit'] ) ||
+				! isset( $locale_info[ $country ]['dimension_unit'] )
+			) {
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+				$this->write_to_log( $operation, 'locale_info does not exist for country ' . $country );
+
+				return;
+			}
+
+			update_option('woocommerce_weight_unit', $locale_info[ $country ]['weight_unit']);
+			update_option('woocommerce_dimension_unit', $locale_info[ $country ]['dimension_unit']);
+
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
+			$this->write_to_log( $operation, 'done for country ' . $country );
 		}, PHP_INT_MAX );
 
 	}

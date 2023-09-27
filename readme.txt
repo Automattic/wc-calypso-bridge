@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= unreleased =
+* Preconfigure product measurement units #xxx
+
 = 2.2.15 =
 * Revert all page deletion and delete only WooCommerce related pages #1304
 * Purge cache before creating WooCommerce related pages #1304
