@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-13 09:54:24+0000\n"
+"PO-Revision-Date: 2023-09-20 09:54:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "Tidak menemukan plugin yang sesuai dengan kebutuhan Anda? Mulai dari integrasi layanan hingga penyesuaian yang unik, tim ahli kami siap membantu Anda mewujudkannya."
+msgid "Hire an expert"
+msgstr "Sewa jasa profesional"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "Tidak bisa menemukan yang Anda cari? Gunakan jasa salah satu agensi ahli kami! Dari ekstensi baru hingga pembuatan toko secara lengkap, Tim Ahli Woo kami bisa membantu mewujudkan toko impian Anda."
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "Ingin menambah fungsionalitas e-commerce toko Anda? Woo Marketplace punya ratusan ekstensi tepercaya yang dirancang khusus untuk toko Anda."
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "Dari peralatan SEO hingga fungsionalitas multibahasa, Anda bisa sesuaikan situs agar mampu melakukan apa pun yang Anda perlukan menggunakan plugin-plugin WordPress."
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "Sesuaikan situs Anda"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "Tambahkan fungsionalitas dan fitur tambahan ke situs Anda dengan sekali klik. Upgrade ke paket berbayar dan dapatkan akses ke ribuan plugin WordPress gratis dan berbayar. Ingin menjadikan situs sesuai keinginan?"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -24,28 +44,12 @@ msgid "Discover Extensions"
 msgstr "Jelajahi Ekstensi"
 
 #: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "Sedang mencari metode pembayaran dan pengiriman yang lebih beragam? Ingin membuat situs keanggotaan, atau menerima donasi? Pilih dari ratusan Ekstensi yang diseleksi dengan cermat oleh tim kami."
-
-#: build/plugins.js:1
 msgid "Extend your store"
 msgstr "Perluas toko Anda"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "Serahkan semuanya kepada WordPress. Buat toko, hosting podcast, atau pamerkan karya Anda. Anda yang mengendalikan lebih dari 55.000 plugin."
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "Sesuaikan Situs WordPress Sesuka Anda"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "Telusuri plugin"
-
-#: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "Ubah situs WordPress Anda menjadi apa pun yang Anda inginkan. Upgrade ke paket berbayar dan dapatkan akses ke ribuan plugin gratis dan berbayar. Ingin menjadikan situs sesuai keinginan?"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -766,7 +770,6 @@ msgstr "Tips, trik, dan inspirasi eCommerce dari blog kami."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "Dapatkan inspirasi"
 
@@ -885,15 +888,15 @@ msgstr "Selama periode percobaan, Anda hanya bisa membuat pesanan uji coba! Untu
 msgid "Start selling to everyone"
 msgstr "Mulai berjualan ke semua orang"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "Akun Saya"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "kontak"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "Beranda"
 

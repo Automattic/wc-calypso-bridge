@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "Vous ne trouvez pas l’extension qui répond à vos besoins ? Des intégrations de services aux personnalisations exotiques, notre équipe d’experts vous aide à matérialiser correctement votre travail."
+msgid "Hire an expert"
+msgstr "Faire appel à un expert"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "Vous ne trouvez pas ce que vous cherchez ? Faites appel aux services de l’une de nos agences spécialisées ! Que vous recherchiez de nouvelles extensions ou souhaitiez créer une boutique de A à Z, nos experts Woo peuvent vous aider à créer la boutique de vos rêves."
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "Vous souhaitez développer les fonctionnalités eCommerce de votre boutique ? Le Woo Marketplace propose des centaines d’extensions de confiance conçues spécifiquement pour votre boutique."
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "Des outils d’optimisation des moteurs de recherche aux fonctionnalités multilingues, les extensions WordPress facilitent la personnalisation de votre site Web pour qu’il réponde à tous vos besoins."
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "Personnaliser votre site Web"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "Ajoutez des fonctionnalités supplémentaires à votre site Web en un clic. Passez à un plan payant et accédez à des milliers d’extensions WordPress gratuites et payantes. Votre curiosité vous pousse à découvrir tous les possibles ?"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -24,28 +44,12 @@ msgid "Discover Extensions"
 msgstr "Découvrir les extensions"
 
 #: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "Vous recherchez d’autres moyens de paiement et modes de livraison ? Vous souhaitez créer un site d’adhésion ou accepter des dons ? Choisissez parmi les centaines d’extensions sélectionnées par notre équipe."
-
-#: build/plugins.js:1
 msgid "Extend your store"
 msgstr "Développer votre boutique"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "WordPress peut faire ce que vous voulez. Créez une boutique, hébergez un podcast ou présentez votre travail. Vous êtes le maître de la situation grâce à plus de 55 000 extensions."
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "Transformer WordPress"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "Parcourir les extensions"
-
-#: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "Créez le site WordPress que vous avez à l’esprit. Passez à un plan payant et accédez à des milliers d’extensions gratuites et payantes. Votre curiosité vous pousse à découvrir tous les possibles ?"
 
 #: build/plugins.js:1
 msgid "Make anything happen, with plugins"
@@ -766,7 +770,6 @@ msgstr "Conseils, astuces et inspiration eCommerce de notre blog."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "Trouver l’inspiration"
 
@@ -885,15 +888,15 @@ msgstr "Pendant la période d’essai, vous ne pouvez passer que des commandes d
 msgid "Start selling to everyone"
 msgstr "Commencer à vendre à tout le monde"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "Mon compte"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "contact"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "Accueil "
 

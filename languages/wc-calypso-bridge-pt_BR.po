@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-14 08:54:05+0000\n"
+"PO-Revision-Date: 2023-09-21 09:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,8 +12,28 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/plugins.js:1
-msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
-msgstr "Não consegue encontrar o plugin certo? Desde integrações de serviços até personalizações diferenciadas, nossa equipe de especialistas pode ajudar você nessa."
+msgid "Hire an expert"
+msgstr "Contrate um especialista"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "Não encontrou o que você está procurando? Contrate uma de nossas agências especializadas. Desde novas extensões à elaboração de lojas completas, nossos especialistas do Woo ajudam você a criar a loja dos seus sonhos."
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "Quer expandir a funcionalidade de comércio eletrônico da sua loja? O Woo Marketplace tem centenas de extensões confiáveis desenvolvidas especificamente para sua loja."
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "Desde ferramentas de SEO a funcionalidades em vários idiomas, os plugins do WordPress permitem personalizar seu site para fazer o que você precisa."
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "Personalize o seu site"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "Adicione mais funcionalidades ao seu site com apenas um clique. Faça upgrade para um plano pago e acesse milhares de plugins gratuitos e pagos do WordPress. Quer descobrir o que é possível?"
 
 #: build/plugins.js:1
 msgid "Do it your way"
@@ -21,63 +41,47 @@ msgstr "Faça do seu jeito"
 
 #: build/plugins.js:1
 msgid "Discover Extensions"
-msgstr "Explore extensões"
-
-#: build/plugins.js:1
-msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
-msgstr "Procurando por mais métodos de pagamento e envio? Deseja criar um site para assinantes ou aceitar doações? Escolha entre as centenas de extensões selecionadas a dedo pelo nosso time."
+msgstr "Conheça as extensões"
 
 #: build/plugins.js:1
 msgid "Extend your store"
 msgstr "Amplie sua loja"
 
 #: build/plugins.js:1
-msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
-msgstr "Com o WordPress, você pode fazer qualquer coisa. Crie uma loja, tenha um podcast ou exiba seu trabalho. Você quem manda, com mais de 55.000 plugins."
-
-#: build/plugins.js:1
-msgid "Transform WordPress"
-msgstr "Transformar o WordPress"
-
-#: build/plugins.js:1
 msgid "Browse plugins"
 msgstr "Procurar plugins"
 
 #: build/plugins.js:1
-msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
-msgstr "Transforme seu site WordPress naquilo que deseja. Faça upgrade para um plano pago e obtenha acesso a milhares de plugins gratuitos e pagos. Quer descobrir o que é possível?"
-
-#: build/plugins.js:1
 msgid "Make anything happen, with plugins"
-msgstr "Com os plugins, faça o que quiser"
+msgstr "Com os plugins, tudo é possível"
 
 #: build/payment-gateway-suggestions.js:3
 msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
-msgstr "Obtenha funcionalidades melhoradas e correções mais rápidas compartilhando dados não pessoais por meio do {{link}}rastreamento de uso{{/link}} que nos mostra como o WooCommerce é usado. Nenhum dado pessoal é rastreado ou armazenado."
+msgstr "Obtenha funcionalidades melhoradas e correções mais rápidas compartilhando dados não confidenciais por meio do {{link}}rastreamento de uso{{/link}}, que nos mostra como o WooCommerce é usado. Nenhum dado pessoal é rastreado ou armazenado."
 
 #: build/marketing.js:1
 msgid "Create digital gift cards"
-msgstr "Crie cartões de presente digitais"
+msgstr "Crie cartões-presente digitais"
 
 #: build/marketing.js:1
 msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
-msgstr "Comece a vender e aceitar cartões de presente digitais para aumentar a fidelidade dos clientes, gerar mais receita e apresentar sua loja a novos compradores."
+msgstr "Comece a vender e aceitar cartões-presente digitais para aumentar a fidelidade dos clientes, gerar mais receita e apresentar sua loja a novos compradores."
 
 #: build/marketing.js:1
 msgid "Increase customer loyalty with gift cards"
-msgstr "Aumente a lealdade dos clientes com cartões de presente"
+msgstr "Aumente a fidelidade dos clientes com cartões-presente"
 
 #: build/marketing.js:1
 msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
-msgstr "Exiba seus produtos para milhões de compradores engajados que navegam nas plataformas TikTok, Pinterest e Meta com a publicidade em redes sociais."
+msgstr "Exiba seus produtos para milhões de compradores engajados que navegam pelo TikTok, Pinterest e plataformas Meta com a publicidade em redes sociais."
 
 #: build/marketing.js:1
 msgid "Reach more customers across social media"
-msgstr "Alcance mais clientes por meio das redes sociais"
+msgstr "Alcance mais clientes usando redes sociais"
 
 #: build/marketing.js:1
 msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
-msgstr "Alcance compradores ativos em todo o Google com listagens de produtos e anúncios que você pode criar e gerenciar diretamente no seu painel."
+msgstr "Alcance compradores ativos em todo o Google com catálogos de produtos e anúncios que você pode criar e gerenciar diretamente no seu painel."
 
 #: build/marketing.js:1
 msgid "Advertise your products on Google"
@@ -105,7 +109,7 @@ msgstr "Expanda seu negócio com centenas de extensões"
 
 #: build/marketing.js:1
 msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
-msgstr "Alcance mais clientes e expanda seus negócios com as nossas ferramentas integradas de marketing e de publicidade. Faça upgrade para um plano pago para desbloquear nossas poderosas ferramentas de marketing e comece a expandir seu negócio hoje mesmo!"
+msgstr "Alcance mais clientes e expanda seus negócios com as nossas ferramentas integradas de marketing e de publicidade. Faça upgrade para um plano pago para desbloquear nossas eficientes ferramentas de marketing e comece a expandir seu negócio hoje mesmo!"
 
 #: build/marketing.js:1
 msgid "Get ready to grow your business"
@@ -121,11 +125,11 @@ msgstr "Ilustração de produtos"
 
 #: build/index.js:3
 msgid "Everything is looking great, keep it up!"
-msgstr "Está tudo muito bonito, continue assim!"
+msgstr "Está tudo muito bom, continue assim!"
 
 #: build/index.js:3
 msgid "Woo! We’ve made it to the last step! Great job"
-msgstr "Oba! Chegamos à última etapa! Bom trabalho"
+msgstr "Oba! Chegamos à última etapa. Bom trabalho"
 
 #: build/index.js:3
 msgid "Only a few more tasks to tick off!"
@@ -143,7 +147,7 @@ msgstr "Boas-vindas a %s"
 #. translators: 1: completed tasks, 2: total tasks
 #: build/index.js:2
 msgid "%1$d out of %2$d complete."
-msgstr "%1$d de %2$d concluído."
+msgstr "%1$d de %2$d tarefas concluída(s)."
 
 #: build/index.js:1
 msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
@@ -183,11 +187,11 @@ msgstr "Opções da lista de tarefas"
 
 #: build/index.js:1
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
-msgstr "Parabéns! Tire um momento para comemorar. E, quando estiver tudo pronto para lançar sua loja, você só precisa fazer upgrade para um plano pago. Isso também desbloqueará as duas próximas tarefas na lista de tarefas."
+msgstr "Parabéns! Tire um momento para comemorar. E, quando quiser lançar sua loja, você só precisa fazer upgrade para um plano pago. Isso também desbloqueará as duas próximas tarefas na lista de tarefas."
 
 #: build/index.js:1
 msgid "Woohoo! Your trial store has been set up!"
-msgstr "Oba! Sua loja de teste foi configurada!"
+msgstr "Oba! Sua loja de teste foi configurada."
 
 #: build/index.js:1
 msgid "You're awesome! One less item on your to-do list ✅"
@@ -211,7 +215,7 @@ msgstr "Configurar impostos manualmente"
 
 #: build/index.js:1
 msgid "Choose a tax partner"
-msgstr "Escolher um parceiro para impostos"
+msgstr "Escolher um parceiro fiscal"
 
 #: build/index.js:1
 msgid "WooCommerce Tax can automate your sales tax calculations for you."
@@ -227,11 +231,11 @@ msgstr "Automatizar impostos"
 
 #: build/index.js:1
 msgid "Head over to the tax rate settings screen to configure your tax rates"
-msgstr "Vá para a tela de configurações de taxas de impostos para configurar suas taxas de impostos"
+msgstr "Vá para a tela de configurações de impostos para configurá-los"
 
 #: build/index.js:1
 msgid "Configure tax rates"
-msgstr "Configurar taxas de impostos"
+msgstr "Configurar impostos"
 
 #: build/index.js:1
 msgid "The address from which your business operates"
@@ -259,7 +263,7 @@ msgstr "País"
 
 #: build/index.js:1
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
-msgstr "Ao clicar em \"Configurar\", você ativa as taxas de impostos e os cálculos. Obtenha mais informações {{link}}aqui{{/link}}."
+msgstr "Ao clicar em \"Configurar\", você ativa os impostos e os cálculos. Saiba mais {{link}}aqui{{/link}}."
 
 #: build/index.js:1
 msgid "Configure"
@@ -271,11 +275,11 @@ msgstr "Prossiga com a configuração"
 
 #: build/index.js:1
 msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
-msgstr "Ao instalar o WooCommerce Tax e o Jetpack você concorda com os {{link}}Termos de Serviço{{/link}}."
+msgstr "Ao instalar o WooCommerce Tax e o Jetpack, você concorda com os {{link}}Termos de serviço{{/link}}."
 
 #: build/index.js:1
 msgid "100% free"
-msgstr "100% gratuito"
+msgstr "100% grátis"
 
 #: build/index.js:1
 msgid "Powered by {{link}}Jetpack{{/link}}"
@@ -283,7 +287,7 @@ msgstr "Com tecnologia {{link}}Jetpack{{/link}}"
 
 #: build/index.js:1
 msgid "{{strong}}Single{{/strong}} economic nexus compliance"
-msgstr "Conformidade com nexo econômico {{strong}}único{{/strong}}"
+msgstr "Conformidade com nexus econômico {{strong}}único{{/strong}}"
 
 #: build/index.js:1
 msgid "Real-time sales tax calculation"
@@ -303,11 +307,11 @@ msgstr "Obtenha mais vendas"
 
 #: build/index.js:1
 msgid "Upgrade to a paid plan to unlock more features and start selling"
-msgstr "Faça upgrade para um plano pago para desbloquear novas funcionalidades e começar a vender"
+msgstr "Desbloqueie novas funcionalidades e comece a vender ao fazer upgrade para um plano pago"
 
 #: build/index.js:1
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
-msgstr "No momento, você está usando o teste gratuito. Para ter acesso a toda gama de funcionalidades, faça upgrade para um plano pago."
+msgstr "No momento, você está no teste gratuito. Para ter acesso a toda gama de funcionalidades, faça upgrade para um plano pago."
 
 #: build/index.js:1 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
@@ -323,7 +327,7 @@ msgstr "Configuração obrigatória"
 
 #: build/index.js:1
 msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
-msgstr "Receba e gerencie pagamentos recorrentes e receba depósitos automáticos na conta bancária indicada."
+msgstr "Obtenha e gerencie pagamentos recorrentes e receba depósitos automáticos na conta bancária indicada."
 
 #: build/index.js:1
 msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
@@ -331,7 +335,7 @@ msgstr "Venda para mercados internacionais e aceite mais de 135 moedas com méto
 
 #: build/index.js:1
 msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
-msgstr "Ofereça aos seus clientes a forma de pagamento preferida deles, incluindo pagamentos com cartão de débito e crédito, Apple Pay, Sofort, SEPA, iDeal e muito mais."
+msgstr "Permita que seus clientes paguem como preferirem, incluindo pagamentos com cartão de débito e crédito, Apple Pay, Sofort, SEPA, iDeal e muito mais."
 
 #: build/index.js:1
 msgid "Accepted payment methods include:"
@@ -339,7 +343,7 @@ msgstr "Os métodos de pagamento aceitos incluem:"
 
 #: build/index.js:1
 msgid "& more."
-msgstr "e mais."
+msgstr "e muito mais."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
@@ -347,11 +351,11 @@ msgstr "Navegar pelas extensões"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:95
 msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
-msgstr "Adicione seus produtos. Exiba seus produtos ou serviços e prepare-se para começar a vender – adicione informações, imagens e descrições dos produtos."
+msgstr "Adicione seus produtos. Exiba seus produtos ou serviços e se prepare para começar a vender: adicione informações, imagens e descrições dos produtos."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:89
 msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
-msgstr "Importe seus produtos. Exiba seus produtos ou serviços e prepare-se para começar a vender – adicione informações, imagens e descrições dos produtos existentes."
+msgstr "Importe seus produtos. Exiba seus produtos ou serviços e prepare-se para começar a vender: importe informações, imagens e descrições dos seus produtos existentes."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:79
 msgid "Add products"
@@ -375,7 +379,7 @@ msgstr "Escolher tema"
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:38
 msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
-msgstr "Escolha um tema que melhor se adapte à aparência da sua marca e, em seguida, personalize-o. Altere as cores, adicione seu logotipo e crie páginas."
+msgstr "Escolha um tema que melhor se adapte à aparência da sua marca e personalize-o. Altere as cores, adicione seu logotipo e crie páginas."
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:29
 msgid "Choose your theme"
@@ -393,7 +397,7 @@ msgstr "Restaurar"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
 msgid "\"Things to do next\""
-msgstr "\"Coisas a fazer\""
+msgstr "O que fazer a seguir"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
 msgid "Setup task list"
@@ -401,7 +405,7 @@ msgstr "Configurar lista de tarefas"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
 msgid "Restore the visibility of the \"Things to do next\" Task List."
-msgstr "Restaure a visibilidade da lista de tarefas \"Coisas a fazer\"."
+msgstr "Restaure a visibilidade da lista de tarefas \"O que fazer a seguir\"."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
 msgid "Restore the visibility of the primary onboarding Task List."
@@ -409,7 +413,7 @@ msgstr "Restaure a visibilidade da lista de tarefas de integração principal."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:310
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
-msgstr "Use essas opções para restaurar a visibilidade das listas de tarefas de integração na página inicial do WooCommerce."
+msgstr "Use estas opções para restaurar a visibilidade das listas de tarefas de integração na página inicial do WooCommerce."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:308
 msgid "Onboarding"
@@ -417,7 +421,7 @@ msgstr "Integração"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:187
 msgid "A custom navigation experience that is optimized for selling."
-msgstr "Uma experiência de navegação personalizada otimizada para vendas."
+msgstr "Uma experiência de navegação personalizada e otimizada para vendas."
 
 #: build/index.js:1 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
@@ -754,11 +758,11 @@ msgstr "Falta pouco para sua loja estar pronta para receber pagamentos"
 
 #: assets/scripts/free-trial-wc-payments.js:49
 msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "Os depósitos não estão disponíveis durante o período de teste gratuito. Para começar a processar transações reais e receber pagamentos, <a href='%s' id='upgrade_now_button'>faça upgrade para um plano pago</a>."
+msgstr "Os depósitos não estão disponíveis durante o teste gratuito. Para começar a processar transações reais e receber pagamentos, <a href='%s' id='upgrade_now_button'>faça upgrade para um plano pago</a>."
 
 #: assets/scripts/free-trial-wc-payments.js:41
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "Somente administradores e gerentes de loja podem fazer pedidos durante o período de teste gratuito. Se sua loja já estiver pronta para aceitar pagamentos de clientes, <a href='%s' id='upgrade_now_button'>faça upgrade para um plano pago</a>."
+msgstr "Somente administradores e gerentes de loja podem fazer pedidos durante o teste gratuito. Se sua loja já estiver pronta para aceitar pagamentos de clientes, <a href='%s' id='upgrade_now_button'>faça upgrade para um plano pago</a>."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
@@ -766,7 +770,6 @@ msgstr "Dicas, truques e inspirações de comércio eletrônico do nosso blog."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:75
 #: includes/templates/html-admin-page-addons-landing-page.php:79
-#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "Busque inspiração"
 
@@ -796,7 +799,7 @@ msgstr "Navegar pelas extensões"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:19
 msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
-msgstr "Personalize sua loja com as extensões WooCommerce para que ela combine perfeitamente com seus negócios. Faça upgrade para um plano pago e obtenha acesso a centenas de ferramentas e funcionalidades que podem ajudar você a alcançar seus objetivos. Quer saber o que está disponível? Navegue pelo nosso marketplace de extensões."
+msgstr "Deixe sua loja com a cara dos seus negócios usando as extensões do WooCommerce. Faça upgrade para um plano pago e obtenha acesso a centenas de ferramentas e funcionalidades que podem ajudar você a alcançar seus objetivos. Quer saber o que está disponível? Navegue pelo nosso marketplace de extensões."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
@@ -885,15 +888,15 @@ msgstr "Durante o período de teste gratuito, você só pode fazer pedidos de te
 msgid "Start selling to everyone"
 msgstr "Comece a vender para todo mundo"
 
-#: includes/class-wc-calypso-bridge-setup.php:362
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "My Account"
 msgstr "Minha conta"
 
-#: includes/class-wc-calypso-bridge-setup.php:360
+#: includes/class-wc-calypso-bridge-setup.php:361
 msgid "Contact"
 msgstr "contato"
 
-#: includes/class-wc-calypso-bridge-setup.php:351
+#: includes/class-wc-calypso-bridge-setup.php:352
 msgid "Home"
 msgstr "Inicial"
 
