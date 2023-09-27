@@ -23,11 +23,8 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.2.15 =
-* _Enter your changes here_
-
-= unreleased = 
-* Revert all page deletion and delete only WooCommerce related pages #xxx
-* Purge cache before creating WooCommerce related pages #xxx
+* Revert all page deletion and delete only WooCommerce related pages #1304
+* Purge cache before creating WooCommerce related pages #1304
 * Change "Blog Home" template name to "Home" #1263
 
 = 2.2.14 =

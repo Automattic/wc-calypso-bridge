@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.2.15
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -684,14 +684,14 @@ class WC_Calypso_Bridge_Setup {
 	 * @return void
 	 */
 	private function write_to_log( $operation, $message ) {
-		error_log(  'WooExpress: Operation: ' . $operation . ': (' . microtime( true ) . ') ' . print_r( $message, 1 ) );
+		error_log( 'WooExpress: Operation: ' . $operation . ': (' . microtime( true ) . ') ' . print_r( $message, 1 ) );
 	}
 
 	/**
 	 * Maybe delete page by slug.
 	 * If the page is older than 10 minutes, it will be ignored.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.15
 	 *
 	 * @param string $operation Operation.
 	 *
@@ -726,7 +726,6 @@ class WC_Calypso_Bridge_Setup {
 		} else {
 			$this->write_to_log( $operation, 'failed to delete page ' . $slug );
 		}
-
 
 	}
 }
