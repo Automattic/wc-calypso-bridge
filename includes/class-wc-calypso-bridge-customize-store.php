@@ -41,7 +41,7 @@ class WC_Calypso_Bridge_Customize_Store {
 			return;
 		}
 
-		add_action( 'current_screen', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
+		add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
 
 	}
 
