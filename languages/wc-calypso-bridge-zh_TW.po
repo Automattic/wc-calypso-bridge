@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-13 09:54:04+0000\n"
+"PO-Revision-Date: 2023-09-14 08:54:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,27 +11,435 @@ msgstr ""
 "Language: zh_TW\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: src/welcome-modal/index.js:100
+#: build/plugins.js:1
+msgid "Can’t find the right plugin for your needs? From service integrations to exotic customizations, our team of experts can help you get the job done right."
+msgstr "找不到符合自身需求的外掛程式嗎？ 從服務整合到充滿異國風味的自訂項目，我們的專家團隊都能協助你妥善完成。"
+
+#: build/plugins.js:1
+msgid "Do it your way"
+msgstr "用自己的方式進行"
+
+#: build/plugins.js:1
+msgid "Discover Extensions"
+msgstr "探索擴充功能"
+
+#: build/plugins.js:1
+msgid "Looking for more payment and shipping methods? Want to build a memberships site, or accept donations? Choose among hundreds of Extensions hand-picked by our team."
+msgstr "在尋找更多的付款和運送方法嗎？ 想建立會員網站，或接受捐款嗎？ 從我們的團隊精挑細選的數百種擴充功能中，盡情選擇。"
+
+#: build/plugins.js:1
+msgid "Extend your store"
+msgstr "擴大商店"
+
+#: build/plugins.js:1
+msgid "Make WordPress do anything. Create a store, host a podcast, or showcase your work. You are in control with over 55,000 plugins."
+msgstr "讓 WordPress 代勞一切。 建立商店、主持 Podcast 或展示工作成果。 超過 55,000 種外掛程式，都掌握在你的手中。"
+
+#: build/plugins.js:1
+msgid "Transform WordPress"
+msgstr "為 WordPress 改頭換面"
+
+#: build/plugins.js:1
+msgid "Browse plugins"
+msgstr "瀏覽外掛程式"
+
+#: build/plugins.js:1
+msgid "Turn your WordPress site into anything you set your mind on. Upgrade to a paid plan and gain access to thousands of free and paid plugins. Curious to find out what’s possible?"
+msgstr "將你的 WordPress 網站改造成任何你一心嚮往的面貌。 升級為付費方案，即可使用數千種免費與付費外掛程式。 想知道哪些夢想能夠實現嗎？"
+
+#: build/plugins.js:1
+msgid "Make anything happen, with plugins"
+msgstr "透過外掛程式，實現一切"
+
+#: build/payment-gateway-suggestions.js:3
+msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
+msgstr "透過{{link}}使用情況追蹤{{/link}}分享非敏感性資料，可以協助我們改善功能、快速修復程式。「使用情況追蹤」可讓我們知道你的 WooCommerce 使用情況。 我們不會追蹤或儲存任何個人資料。"
+
+#: build/marketing.js:1
+msgid "Create digital gift cards"
+msgstr "製作數位禮物卡"
+
+#: build/marketing.js:1
+msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
+msgstr "開始販售並接受數位禮物卡來提高顧客忠誠度、創造更多收益，並向新顧客介紹你的商店。"
+
+#: build/marketing.js:1
+msgid "Increase customer loyalty with gift cards"
+msgstr "透過禮物卡提高顧客忠誠度"
+
+#: build/marketing.js:1
+msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
+msgstr "運用社群媒體廣告，向瀏覽 TikTok、Pinterest 和 Meta 平台的數百萬熱情買家展示自家產品。"
+
+#: build/marketing.js:1
+msgid "Reach more customers across social media"
+msgstr "在社群媒體上觸及更多顧客"
+
+#: build/marketing.js:1
+msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
+msgstr "透過可直接從儀表板建立及管理的產品清單和廣告，觸及整個 Google 上的活躍買家。"
+
+#: build/marketing.js:1
+msgid "Advertise your products on Google"
+msgstr "在 Google 上廣告自家產品"
+
+#: build/marketing.js:1
+msgid "Try AutomateWoo"
+msgstr "試用 AutomateWoo"
+
+#: build/marketing.js:1
+msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
+msgstr "透過呼應顧客購買資料的自動化行銷訊息，提高銷售額並建立忠誠度。"
+
+#: build/marketing.js:1
+msgid "Automate your marketing"
+msgstr "行銷自動化"
+
+#: build/marketing.js:1
+msgid "Discover our built-in marketing tools to reach more customers and boost sales"
+msgstr "探索我們的內建行銷工具，觸及更多顧客並提升銷售額"
+
+#: build/marketing.js:1
+msgid "Grow your business with hundreds of extensions"
+msgstr "透過數百個擴充功能，拓展你的業務"
+
+#: build/marketing.js:1
+msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
+msgstr "運用我們的內建行銷和廣告工具，觸及更多顧客並拓展業務。 升級為付費方案，即可解鎖我們強大的行銷工具，立即開始拓展業務！"
+
+#: build/marketing.js:1
+msgid "Get ready to grow your business"
+msgstr "準備好拓展業務"
+
+#: build/index.js:3 src/task-headers/appearance.js:29
+msgid "Appearance illustration"
+msgstr "外觀插圖"
+
+#: build/index.js:3 src/task-headers/products.js:26
+msgid "Products illustration"
+msgstr "產品插圖"
+
+#: build/index.js:3
+msgid "Everything is looking great, keep it up!"
+msgstr "一切看起來都好極了，繼續維持！"
+
+#: build/index.js:3
+msgid "Woo! We’ve made it to the last step! Great job"
+msgstr "Woo！ 終於到最後一個步驟了！ 太好了"
+
+#: build/index.js:3
+msgid "Only a few more tasks to tick off!"
+msgstr "只要再完成幾個部分，就大功告成了！"
+
+#: build/index.js:3
+msgid "Welcome to your Woo Express store"
+msgstr "歡迎蒞臨你的 Woo Express 商店"
+
+#. translators: %s = site title
+#: build/index.js:3
+msgid "Welcome to %s"
+msgstr "歡迎造訪 %s"
+
+#. translators: 1: completed tasks, 2: total tasks
+#: build/index.js:2
+msgid "%1$d out of %2$d complete."
+msgstr "已完成 %1$d 個，共 %2$d 個。"
+
+#: build/index.js:1
+msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
+msgstr "你即將準備好開始販售！ 請依照這些步驟，設定測試商店。"
+
+#: build/index.js:1
+msgid "Hide setup list"
+msgstr "隱藏設定清單"
+
+#: build/index.js:1
+msgid "The store setup process meets my needs."
+msgstr "商店設定流程符合我的需求。"
+
+#: build/index.js:1
+msgid "The store setup is easy to complete."
+msgstr "商店設定很容易完成。"
+
+#: build/index.js:1
+msgid "We appreciate your feedback!"
+msgstr "感謝你的意見回饋！"
+
+#: build/index.js:1
+msgid "How was your experience?"
+msgstr "你的使用體驗如何？"
+
+#: build/index.js:1
+msgid "Hide this"
+msgstr "隱藏此項目"
+
+#: build/index.js:1
+msgid "Show setup task list"
+msgstr "顯示設定工作清單"
+
+#: build/index.js:1
+msgid "Task List Options"
+msgstr "任務清單選項"
+
+#: build/index.js:1
+msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
+msgstr "恭喜！ 花點時間慶祝一下吧。 準備好推出商店後，只要升級為付費方案即可。 升級後，也會解鎖任務清單中即將開始的任務。"
+
+#: build/index.js:1
+msgid "Woohoo! Your trial store has been set up!"
+msgstr "哇！ 你的免費試用商店已設定完畢！"
+
+#: build/index.js:1
+msgid "You're awesome! One less item on your to-do list ✅"
+msgstr "太好了！ 你又完成待辦清單上的一項任務了 ✅"
+
+#: build/index.js:1
+msgid "There was a problem setting up automated taxes. Please try again."
+msgstr "設定自動計算稅額時發生問題。 請再試一次。"
+
+#: build/index.js:1
+msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
+msgstr "在免費試用期間，你可以進行營業稅相關設定，但還不能收取這些款項。 {{br/}}若要開始販售產品，{{link}}請立即升級{{/link}}。"
+
+#: build/index.js:1
+msgid "I don't charge sales tax"
+msgstr "我不收營業稅"
+
+#: build/index.js:1
+msgid "Set up taxes manually"
+msgstr "手動設定稅金"
+
+#: build/index.js:1
+msgid "Choose a tax partner"
+msgstr "選擇稅務合作夥伴"
+
+#: build/index.js:1
+msgid "WooCommerce Tax can automate your sales tax calculations for you."
+msgstr "WooCommerce Tax 可自動為你計算營業稅。"
+
+#: build/index.js:1
+msgid "Automate Taxes"
+msgstr "自動處理稅務"
+
+#: build/index.js:1
+msgid "Automate taxes"
+msgstr "自動處理稅務"
+
+#: build/index.js:1
+msgid "Head over to the tax rate settings screen to configure your tax rates"
+msgstr "前往稅率設定畫面設定稅率"
+
+#: build/index.js:1
+msgid "Configure tax rates"
+msgstr "設定稅率"
+
+#: build/index.js:1
+msgid "The address from which your business operates"
+msgstr "公司營運地址"
+
+#: build/index.js:1
+msgid "Set store location"
+msgstr "設定商店地點"
+
+#: build/index.js:1
+msgid "Please select a country / region"
+msgstr "請選擇國家／地區"
+
+#: build/index.js:1
+msgid "Post code"
+msgstr "郵遞區號"
+
+#: build/index.js:1
+msgid "Address"
+msgstr "位址"
+
+#: build/index.js:1
+msgid "Country / Region"
+msgstr "國家/地區或區域"
+
+#: build/index.js:1
+msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
+msgstr "按一下「設定」，即可啟用稅率和計算功能。 詳情請參閱{{link}}此處{{/link}}。"
+
+#: build/index.js:1
+msgid "Configure"
+msgstr "設定"
+
+#: build/index.js:1
+msgid "Continue setup"
+msgstr "繼續設定"
+
+#: build/index.js:1
+msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
+msgstr "安裝 WooCommerce Tax 和 Jetpack，即表示你同意{{link}}服務條款{{/link}}。"
+
+#: build/index.js:1
+msgid "100% free"
+msgstr "完全免費"
+
+#: build/index.js:1
+msgid "Powered by {{link}}Jetpack{{/link}}"
+msgstr "採用 {{link}}Jetpack{{/link}} 提供的技術"
+
+#: build/index.js:1
+msgid "{{strong}}Single{{/strong}} economic nexus compliance"
+msgstr "{{strong}}單一{{/strong}}經濟關係規範"
+
+#: build/index.js:1
+msgid "Real-time sales tax calculation"
+msgstr "營業稅即時計算"
+
+#: build/index.js:1
+msgid "Best for new stores"
+msgstr "適合新商店"
+
+#: build/index.js:1
+msgid "WooCommerce Tax"
+msgstr "WooCommerce Tax"
+
+#: build/index.js:1
+msgid "Get more sales"
+msgstr "創造更多銷量"
+
+#: build/index.js:1
+msgid "Upgrade to a paid plan to unlock more features and start selling"
+msgstr "升級為付費方案，即可解鎖更多功能並開始銷售"
+
+#: build/index.js:1
+msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
+msgstr "你正在免費試用中！ 若要取得完整功能，請升級為付費方案。"
+
+#: build/index.js:1 src/welcome-modal/index.js:94
+msgid "Welcome modal navigation illustration 1"
+msgstr "歡迎模式導覽插圖 1"
+
+#: build/index.js:1 src/welcome-modal/index.js:64
+msgid "Welcome modal navigation illustration 2"
+msgstr "歡迎模式導覽插圖 2"
+
+#: build/index.js:1
+msgid "Setup required"
+msgstr "需要設定"
+
+#: build/index.js:1
+msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
+msgstr "賺取並管理定期收益，並自動存款至指定的銀行帳號。"
+
+#: build/index.js:1
+msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
+msgstr "銷售到國際市場，並透過當地付款方式接受超過 135 種貨幣。"
+
+#: build/index.js:1
+msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
+msgstr "為顧客提供他們偏好的付款方式，包括簽帳金融卡和信用卡付款、Apple Pay、Sofort、SEPA、iDeal 等。"
+
+#: build/index.js:1
+msgid "Accepted payment methods include:"
+msgstr "接受的付款方式包括："
+
+#: build/index.js:1
+msgid "& more."
+msgstr "及其他方式。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:27
+msgid "Browse Extensions"
+msgstr "瀏覽擴充功能"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:95
+msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
+msgstr "新增產品。 炫耀自家產品與服務，並準備好開始銷售：新增產品資訊、圖片與說明。"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:89
+msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
+msgstr "匯入你的產品 炫耀自家產品與服務，並準備好開始銷售：匯入現有的產品資訊、圖片與說明。"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:79
+msgid "Add products"
+msgstr "新增商品"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:76
+msgid "Import products"
+msgstr "匯入商品"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:66
+msgid "Add your products"
+msgstr "新增產品"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:63
+msgid "Import your products"
+msgstr "匯入你的產品"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:59
+msgid "Choose theme"
+msgstr "選擇佈景主題"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:38
+msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
+msgstr "選擇最符合品牌外觀與風格的佈景主題，然後開始用於自家品牌。 變更顏色、新增標誌並建立頁面。"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:29
+msgid "Choose your theme"
+msgstr "選擇佈景主題"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
+#: build/index.js:3 src/index.js:189
+msgid "Plugins"
+msgstr "外掛程式"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:388
+msgid "Restore"
+msgstr "還原"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
+msgid "\"Things to do next\""
+msgstr "「後續步驟」"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
+msgid "Setup task list"
+msgstr "設定工作清單"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
+msgid "Restore the visibility of the \"Things to do next\" Task List."
+msgstr "還原「後續步驟」工作清單的可見度。"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
+msgid "Restore the visibility of the primary onboarding Task List."
+msgstr "還原主要引導工作清單的可見度。"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:310
+msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
+msgstr "使用這些選項來還原 WooCommerce 首頁的引導工作清單可見度。"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:308
+msgid "Onboarding"
+msgstr "申請"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:187
+msgid "A custom navigation experience that is optimized for selling."
+msgstr "已針對銷售最佳化的自訂導覽體驗。"
+
+#: build/index.js:1 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "WooCommerce 讓你事半功倍。 <a>深入瞭解</a>我們全新的導覽 — 或自行探索。"
 
-#: src/welcome-modal/index.js:93
+#: build/index.js:1 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "我們全新的導覽讓你事半功倍"
 
-#: src/welcome-modal/index.js:73
+#: build/index.js:1 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "每次返回 WordPress.com 儀表板，都能查看提升商店表現的提示和洞察報告。"
 
-#: src/welcome-modal/index.js:70
+#: build/index.js:1 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "認識新首頁"
 
-#: src/task-headers/add-domain.js:34
+#: build/index.js:3 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "為商店選擇一個新的網站位址，或移轉現有網站位址。"
 
-#: src/task-headers/add-domain.js:22
+#: build/index.js:3 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "新增網域圖例"
 
@@ -79,43 +487,53 @@ msgstr "已成功新增直接銀行轉帳詳細資料"
 msgid "Please enter an account number or IBAN"
 msgstr "請輸入帳號或 IBAN"
 
-#: src/payment-gateway-suggestions/index.js:279
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/index.js:285
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
 msgstr "免費試用期只有管理員和商店經理可以下單。 如果你已準備好接受顧客付款，請{{link}}升級到付費方案{{/link}}。"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:266
 msgid "Offline payment methods"
 msgstr "離線付款方式"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:257
 msgid "See more"
 msgstr "查看更多"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:236
 msgid "Try one of the alternative payment providers."
 msgstr "試試其他付款服務供應商。"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:232
-#: src/payment-gateway-suggestions/index.js:304
+#: src/payment-gateway-suggestions/index.js:311
 msgid "Other payment providers"
 msgstr "其他付款服務供應商"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:227
 msgid "Give your customers additional choices in ways to pay."
 msgstr "讓顧客擁有更多付款選項。"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:223
 msgid "Additional payment options"
 msgstr "其他付款選項"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:217
 msgid "To get ready to accept online payments"
 msgstr "準備好在線上接受付款"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:213
 msgid "Choose a payment provider"
 msgstr "選擇付款供應商"
 
+#: build/index.js:3
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "連結到 WooCommerce Payments 時發生錯誤。 請再試一次，或稍後再從商店設定連結。"
@@ -132,245 +550,258 @@ msgstr "同意分享非敏感{{link}}使用狀況資料{{/link}}，可以協助�
 msgid "Help us build a better WooCommerce Payments experience"
 msgstr "協助我們建立更流暢的 WooCommerce Payments 使用體驗"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
 msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
 msgstr "使用 WooCommerce Payments，即表示你同意遵守我們的{{tosLink}}服務條款{{/tosLink}}，並確認已詳閱我們的{{privacyLink}}隱私權政策{{/privacyLink}} "
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
 msgid "Get ready to accept payments"
 msgstr "準備好接受付款"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:132
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
 msgid "Yes, count me in!"
 msgstr "是的，我要加入！"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:114
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
 msgid "Build a better WooCommerce"
 msgstr "建立更強大的 WooCommerce"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:55
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
 msgid "There was a problem updating your preferences"
 msgstr "更新喜好設定時發生問題"
 
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:122
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:120
 msgid "Configure your %(title)s account"
 msgstr "設定你的 %(title)s 帳號"
 
 #. translators: %s = title of the payment gateway to install
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:90
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/Setup/Setup.js:88
 msgid "Install %s"
 msgstr "安裝 %s"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
 msgid "You can manage this payment gateway's settings by clicking the button below"
 msgstr "點選下方按鈕即可管理此付款閘道的設定"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:133
 msgid "Connect"
 msgstr "連結"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:100
 msgid "Proceed"
 msgstr "繼續"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:84
 #: src/payment-gateway-suggestions/plugins/Bacs.js:63
 msgid "There was a problem saving your payment settings"
 msgstr "儲存你的付款設定時發生問題"
 
 #. translators: %s = title of the payment gateway
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:75
 msgid "%s configured successfully"
 msgstr "%s 設定成功"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/List/Item.js:81
 msgid "Recommended"
 msgstr "推薦"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/List/Item.js:80
 msgid "Local Partner"
 msgstr "當地合作夥伴"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:138
 msgid "Finish setup"
 msgstr "完成設定手續"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:99
 msgid "Enable"
 msgstr "啓用"
 
-#: src/launch-store/index.js:387
+#: build/index.js:1 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "仍要推出"
 
-#: src/launch-store/index.js:377
+#: build/index.js:1 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "推出商店前的檢查事項"
 
-#: src/launch-store/index.js:374
+#: build/index.js:1 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "推出之前"
 
-#: src/launch-store/index.js:313
+#: build/index.js:1 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "為新網站選擇一個位址，或移轉現有網域。"
 
-#: src/launch-store/index.js:309
+#: build/index.js:1 src/launch-store/index.js:314
 msgid "List products"
 msgstr "產品上架"
 
-#: src/launch-store/index.js:305
+#: build/index.js:1 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "為你的商店新增產品或服務，立即開始銷售。 手動建立產品，或從現有商店匯入。"
 
-#: src/launch-store/index.js:304
+#: build/index.js:1 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "將你的產品上架"
 
-#: src/launch-store/index.js:296
+#: build/index.js:1 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "為顧客提供簡單方便的付款方式！ 設定一或多個快速安全的付款方式，可選擇線上收款或親自收款。 "
 
-#: src/launch-store/index.js:295 src/launch-store/index.js:300
+#: build/index.js:1 src/launch-store/index.js:300 src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "收取付款"
 
-#: src/launch-store/index.js:257 src/launch-store/index.js:396
+#: build/index.js:1 src/launch-store/index.js:262 src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "你可以隨時在「<a>設定</a>」下還原此設定。"
 
-#: src/launch-store/index.js:243
+#: build/index.js:1 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "你已經準備好推出商店了，準備慶祝吧！ Woo！"
 
-#: src/launch-store/index.js:237
+#: build/index.js:1 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "準備好推出你的商店了嗎？"
 
-#: src/launch-store/index.js:203
+#: build/index.js:1 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "改變主意了？ 更新「<a>隱私權</a>」設定，就能將商店設回私人模式。"
 
-#: src/launch-store/index.js:197
+#: build/index.js:1 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "查看商店"
 
-#: src/launch-store/index.js:177
+#: build/index.js:1 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "恭喜你推出了 WooCommerce 商店。 好好慶祝一番，別忘了分享這個好消息！"
 
-#: src/launch-store/index.js:173
+#: build/index.js:1 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "Woo！ 你辦到了！"
 
-#: src/launch-store/index.js:137
+#: build/index.js:1 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "正在推出商店"
 
-#: src/launch-store/index.js:67
+#: build/index.js:1 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "已複製"
 
-#: src/homescreen-banner/index.js:61
+#: build/index.js:3 src/homescreen-banner/index.js:61
 msgid "Dismiss this free trial informational banner."
 msgstr "關閉此免費試用資訊橫幅。"
 
-#: src/homescreen-banner/index.js:45
+#: build/index.js:3 src/homescreen-banner/index.js:45
 msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
 msgstr "這是你的免費試用測試商店，你可以在這裡開始探索可用的功能！ 若要深入瞭解免費試用，請按一下「深入瞭解」。"
 
-#: src/free-trial/tax/components/location.js:53
+#: build/index.js:1 src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr "儲存商店地點時發生問題"
 
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:49
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "按一下「測試付款」，即表示你同意{{tosLink}}服務條款{{/tosLink}}"
 
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:42
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "利用簡單的多合一選項，增強付款功能。 驗證企業詳細資料就能開始使用 WooCommerce Payments 測試交易。"
 
-#: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:71
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
 msgid "Test payments"
 msgstr "測試付款"
 
-#: src/free-trial/fills/task-headers/payments.js:40
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:40
 msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
 msgstr "為顧客提供簡單方便的付款方式！ 設定並測試快速安全的付款方式，可選擇線上收款或親自收款。 "
 
-#: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:36
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
 msgid "It’s time to test payments"
 msgstr "是時候測試付款了"
 
-#: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:24
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
 msgid "Payment illustration"
 msgstr "付款插圖"
 
-#: assets/scripts/free-trial-wc-payments.js:76
+#: assets/scripts/free-trial-wc-payments.js:93
 msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
 msgstr "你準備好開始測試 WooCommerce Payments 的功能和優勢了"
 
-#: assets/scripts/free-trial-wc-payments.js:62
+#: assets/scripts/free-trial-wc-payments.js:79
 msgid "You’re only steps away from getting ready to be paid"
 msgstr "只要再幾個步驟，就能開始收款"
 
-#: assets/scripts/free-trial-wc-payments.js:39
-msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s'>upgrade to a pain plan</a>."
-msgstr "試用期不提供匯款功能。 若要開始處理真正的交易和收付款，請<a href='%s'>升級到付費方案</a>。"
+#: assets/scripts/free-trial-wc-payments.js:49
+msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
+msgstr "試用期不提供匯款功能。 若要開始處理真正的交易和收付款，請<a href='%s' id='upgrade_now_button'>升級為付費方案</a>。"
 
-#: assets/scripts/free-trial-wc-payments.js:31
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s'>upgrade to a paid plan</a>."
-msgstr "免費試用期只有管理員和商店經理可以下單。 如果你已準備好接受顧客付款，請<a href='%s'>升級到付費方案</a>。"
+#: assets/scripts/free-trial-wc-payments.js:41
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
+msgstr "免費試用期只有管理員和商店經理可以下單。 如果你已準備好接受顧客付款，請<a href='%s' id='upgrade_now_button'>升級為付費方案</a>。"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:85
+#: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
 msgstr "從我們的網誌查看各種秘訣、技巧和電子商務靈感。"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:83
-#: includes/templates/html-admin-page-addons-landing-page.php:87
+#: includes/templates/html-admin-page-addons-landing-page.php:75
+#: includes/templates/html-admin-page-addons-landing-page.php:79
+#: build/plugins.js:1
 msgid "Get inspired"
 msgstr "獲得啟發"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:73
+#: includes/templates/html-admin-page-addons-landing-page.php:65
 msgid "Discover collections"
 msgstr "探索系列"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:71
+#: includes/templates/html-admin-page-addons-landing-page.php:63
 msgid "Quickly get started with our curated extension collections."
 msgstr "透過我們精選的擴充功能系列快速上手。"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:69
+#: includes/templates/html-admin-page-addons-landing-page.php:61
 msgid "Curated collections"
 msgstr "精選系列"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:57
+#: includes/templates/html-admin-page-addons-landing-page.php:49
 msgid "Add extra features and functionality, or integrate with other platforms and tools."
 msgstr "新增額外的特色和功能，或與其他平台和工具整合。"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:55
+#: includes/templates/html-admin-page-addons-landing-page.php:47
 msgid "Customize and extend"
 msgstr "自訂和擴充"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:43
-msgid "Do more with your store – add extensions"
-msgstr "讓商店發揮更多成效 — 新增擴充功能"
-
-#: includes/templates/html-admin-page-addons-landing-page.php:31
-#: includes/templates/html-admin-page-addons-landing-page.php:59
+#: includes/templates/html-admin-page-addons-landing-page.php:51
 msgid "Browse extensions"
 msgstr "瀏覽擴充功能"
 
-#: includes/templates/html-admin-page-addons-landing-page.php:23
-msgid "Customize your store to work perfectly for your business, with Woo extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your business goals. Curious about what’s available? Browse our extensions marketplace."
-msgstr "使用 Woo 擴充功能自訂商店，以完美滿足你的業務需求。 升級到付費方案，使用數百種工具和功能來協助你實現業務目標。 想知道有哪些功能嗎？ 歡迎瀏覽我們的擴充功能市集。"
-
 #: includes/templates/html-admin-page-addons-landing-page.php:19
-#: includes/templates/html-admin-page-addons-landing-page.php:36
-#: includes/templates/html-admin-page-addons-landing-page.php:39
+msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
+msgstr "使用 WooCommerce 擴充功能自訂商店，以完美滿足你的業務需求。 升級為付費方案，使用數百種工具和功能來協助你實現目標。 想知道有哪些功能嗎？ 歡迎瀏覽我們的擴充功能市集。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:15
+#: includes/templates/html-admin-page-addons-landing-page.php:32
+#: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "透過擴充功能讓你的商店更上一層樓"
 
@@ -384,8 +815,8 @@ msgstr "是時候慶祝一下了！ 準備好推出你的商店了嗎？"
 
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
-#: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: src/launch-store/index.js:150
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:1
+#: src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "推出你的商店"
 
@@ -394,6 +825,8 @@ msgid "You've already launched your store"
 msgstr "你已經推出商店了"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:3
+#: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2 分鐘"
 
@@ -406,9 +839,9 @@ msgid "Domain"
 msgstr "網域"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:317 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:1
+#: build/index.js:3 src/launch-store/index.js:322
+#: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "新增網域"
 
@@ -428,18 +861,19 @@ msgstr "為了讓顧客享有流暢的結帳體驗，我們提供全新的轉換
 msgid "Meet our new, customizable checkout"
 msgstr "認識我們全新的客製化結帳體驗"
 
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:58
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:77
 msgid ""
 "\n"
-"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s'>upgrade to a paid plan</a>.\n"
+"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.\n"
 "\t\t"
 msgstr ""
 "\n"
-"\t\t\t目前只有你可以看到商店。 若要讓所有人都能造訪你的商店，請<a href='%s'>升級到付費方案</a>。\n"
+"\t\t\t目前只有你可以看到商店。 若要讓所有人都能造訪你的商店，請<a href='%s' id='banner_button'>升級為付費方案</a>。\n"
 "\t\t"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
-#: includes/templates/html-admin-page-addons-landing-page.php:28
+#: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:1 build/marketing.js:1 build/plugins.js:1
 msgid "Upgrade now"
 msgstr "立即升級"
 
@@ -451,15 +885,15 @@ msgstr "試用期只能送出測試訂單！ 若要接收顧客的訂單，請�
 msgid "Start selling to everyone"
 msgstr "開始向所有人銷售"
 
-#: includes/class-wc-calypso-bridge-setup.php:327
+#: includes/class-wc-calypso-bridge-setup.php:362
 msgid "My Account"
 msgstr "我的帳號"
 
-#: includes/class-wc-calypso-bridge-setup.php:325
+#: includes/class-wc-calypso-bridge-setup.php:360
 msgid "Contact"
 msgstr "聯絡頁面"
 
-#: includes/class-wc-calypso-bridge-setup.php:316
+#: includes/class-wc-calypso-bridge-setup.php:351
 msgid "Home"
 msgstr "主頁"
 
@@ -471,7 +905,8 @@ msgstr "本網站已經發佈。"
 msgid "You don't have permissions to launch this site"
 msgstr "你無權推出此網站"
 
-#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:368
+#. translators: %s is the plans URL
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:369
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr "免費試用期只有管理員和商店經理可以下單。 如果你已準備好接受顧客付款，請<a href=\"%s\">升級到付費方案</a>。"
 
@@ -492,61 +927,61 @@ msgstr "無法送出你的訂單。 結帳功能目前僅供預覽。"
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "這家商店還沒有準備好接受訂單。 結帳功能目前僅供預覽。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:484
 msgid "Jetpack Stats"
 msgstr "Jetpack Stats"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:475
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:482
 msgid "Jetpack Status"
 msgstr "Jetpack 狀態"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:454
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:461
 msgid "Anti-Spam"
 msgstr "反垃圾內容"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:312
 msgid "Discover"
 msgstr "探索"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "管理"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:295
-#: includes/templates/html-admin-page-addons-landing-page.php:15
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:302
 msgid "Extensions"
 msgstr "擴充功能"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
 msgid "Customers"
 msgstr "顧客"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:281
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:288
 msgid "Legacy Reports"
 msgstr "舊版報告"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:274
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:281
 msgid "WooCommerce Status"
 msgstr "WooCommerce 狀態"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:277
 msgid "WooCommerce Settings"
 msgstr "WooCommerce 設定"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:265
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:272
 msgid "Orders"
 msgstr "訂單"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:182
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:180
 msgid "My Home"
 msgstr "我的首頁"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:82
 msgid "Feedback"
 msgstr "意見反應"
 
@@ -554,17 +989,25 @@ msgstr "意見反應"
 msgid "Save big with WooCommerce Payments"
 msgstr "透過 WooCommerce Payments 省更多"
 
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:131
+#: build/payment-gateway-suggestions.js:3
+#: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
 msgid "No thanks"
 msgstr "不用了，謝謝"
 
+#: build/index.js:1 build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/Action.js:27
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:159
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:56
+#: src/welcome-modal/index.js:59
 msgid "Get started"
 msgstr "開始使用"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:186
+msgid "Navigation"
+msgstr "導覽"
 
 #. Author of the plugin
 msgid "Automattic"
@@ -607,7 +1050,7 @@ msgstr "訂單詳細資料已手動傳送給客戶。"
 msgid "Invalid order ID."
 msgstr "無效的訂單編號。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:270
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:277
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -742,17 +1185,21 @@ msgstr "電子商務方案無法停用 WooCommerce。"
 msgid "Store"
 msgstr "商店"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:477
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:484
 msgid "Stats"
 msgstr "統計資料"
 
-#: src/free-trial/tax/components/location.js:23
+#: build/index.js:1
+msgid "City"
+msgstr "城市"
+
+#: build/index.js:1 src/free-trial/tax/components/location.js:23
 msgid "Continue"
 msgstr "繼續"
 
 #: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:52
 #: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:76
-#: src/homescreen-banner/index.js:57
+#: build/index.js:3 src/homescreen-banner/index.js:57
 msgid "Learn more"
 msgstr "瞭解更多。"
 
@@ -764,6 +1211,11 @@ msgstr "WooCommerce 擴充功能"
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "Extensions %s"
 msgstr "擴充功能數量：%s"
+
+#. translators: %1$s is replaced with a link to WooCommerce.com
+#: includes/class-wc-calypso-bridge-footer-credits.php:66
+msgid "Powered by %1$s"
+msgstr "技術支援：%1$s"
 
 #: includes/class-wc-calypso-bridge-themes-setup.php:129
 msgid "Built with Storefront &amp; WordPress.com"

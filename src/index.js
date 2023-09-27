@@ -5,6 +5,7 @@ import { addFilter, addAction } from '@wordpress/hooks';
 import { WooOnboardingTask } from '@woocommerce/onboarding';
 import { registerPlugin, unregisterPlugin } from '@wordpress/plugins';
 import { render, lazy } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -44,6 +45,10 @@ const PaymentGatewaySuggestions = lazy( () =>
 	import(
 		/* webpackChunkName: "payment-gateway-suggestions" */ './payment-gateway-suggestions'
 	)
+);
+
+const Plugins = lazy( () =>
+	import( /* webpackChunkName: "plugins" */ './plugins' )
 );
 
 wcNavFilterRootUrl();
@@ -93,7 +98,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		'wc-admin-onboarding-task-payments',
 		'woocommerce-admin-task-wcpay', // WCPay task item which handles direct click on the task. (Not needed in free trial)
 		'woocommerce-admin-task-wcpay-page', // WCPay task page which handles URL navigation to the task.
-		'wc-admin-onboarding-task-tax',
+		'wc-admin-onboarding-task-tax'
 	);
 
 	// Add slot fill for payments task.
@@ -176,6 +181,16 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 						page.container = Marketing;
 					}
 					return page;
+				} );
+
+				pages.push( {
+					container: Plugins,
+					path: '/plugins-upgrade',
+					breadcrumbs: [ __( 'Plugins' ), __( 'Plugins' ) ],
+					navArgs: {
+						id: 'plugins-upgrade',
+					},
+					capability: 'manage_woocommerce',
 				} );
 			}
 

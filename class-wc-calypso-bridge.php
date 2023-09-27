@@ -128,9 +128,11 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/class-wc-calypso-bridge-free-trial-wc-payments.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-free-trial-store-details-task.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-product-import-fix.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-skip-obw.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-footer-credits.php';
 
 		// Experiments.
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/experiments/class-wc-calypso-bridge-task-list-reminderbar-experiment.php';

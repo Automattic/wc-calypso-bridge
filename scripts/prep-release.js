@@ -30,8 +30,8 @@ async function main() {
 
 	if ( ! checkBinaryExists( 'gh' ) ) {
 		error(
-			`The Github CLI (gh) is not installed. 
-			
+			`The Github CLI (gh) is not installed.
+
 Please install it from https://cli.github.com/ or using 'brew install gh' if you're on a Mac.`
 		);
 		process.exit( 1 );
@@ -41,8 +41,7 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 1. Bump the version number in the composer.json file and the wc-calypso-bridge.php file.
 2. Update the changelog in readme.txt.
-3. Update the translation files (optional).
-4. Create a new PR with the changes.
+3. Create a new PR with the changes.
 	` );
 
 	if ( ! ( await promptContinue( 'Continue?' ) ) ) {
@@ -66,13 +65,8 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 		process.exit( 1 );
 	}
 
-	if (
-		await promptContinue(
-			'Would you like to update the translation files?'
-		)
-	) {
-		await updateTranslations();
-	}
+	info( 'Updating translations...' );
+	await updateTranslations();
 
 	if (
 		! ( await promptContinue( 'Would you like to create a pull request?' ) )

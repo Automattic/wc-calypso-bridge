@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.2
+ * @version 2.2.12
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -147,11 +147,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			$features['navigation'] = false;
 		}
 
-		// Disable the new product management experiment.
-		if ( isset( $features['new-product-management-experience'] ) ) {
-			$features['new-product-management-experience'] = false;
-		}
-
 		// Keep Woo Analytics enabled.
 		if ( ! isset( $features['analytics'] ) ) {
 			$features['analytics'] = true;
@@ -174,44 +169,48 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			return $settings;
 		}
 
-		array_splice( $settings, 1, 0,
-			array(
-				array(
-					'title'   => __( 'Navigation', 'wc-calypso-bridge' ),
-					'desc'    => __( 'A custom navigation experience that is optimized for selling.', 'wc-calypso-bridge' ),
-					'type'    => 'checkbox',
-					'id'      => 'wooexpress_navigation_enabled',
-					'default' => 'yes'
-				)
-        	)
-		);
+		$inject_at = false;
 
+		foreach ( $settings as $setting_id => $setting_data ) {
+			if ( isset( $setting_data[ 'type' ] ) && 'title' === $setting_data[ 'type' ] && isset( $setting_data[ 'id' ] ) && 'features_options' === $setting_data[ 'id' ] ) {
+				$inject_at = $setting_id + 1;
+				break;
+			}
+		}
+
+		// Inject new setting.
+		if ( $inject_at ) {
+			array_splice( $settings, $inject_at, 0,
+				array(
+					array(
+						'title'   => __( 'Navigation', 'wc-calypso-bridge' ),
+						'desc'    => __( 'A custom navigation experience that is optimized for selling.', 'wc-calypso-bridge' ),
+						'type'    => 'checkbox',
+						'id'      => 'wooexpress_navigation_enabled',
+						'default' => 'yes'
+					)
+				)
+			);
+		}
+
+		// Remove toggles for features that Woo Express users shouldn't be able to enable or disable.
 		if ( wc_calypso_bridge_is_woo_express_plan() ) {
 
 			$hpos_enabled = OrderUtil::custom_orders_table_usage_is_enabled();
-			$whitelist    = array( 'features_options', 'wooexpress_navigation_enabled' );
-
-			if ( $hpos_enabled ) {
-				$whitelist[] = 'experimental_features_options';
-			}
+			$blocklist    = array( 'woocommerce_analytics_enabled', 'woocommerce_navigation_enabled' );
 
 			foreach ( $settings as $setting_id => $setting_data ) {
 
-				if ( ! is_numeric( $setting_id ) && ! in_array( $setting_id, $whitelist ) ) {
+				if ( ! is_numeric( $setting_id ) && in_array( $setting_id, $blocklist ) ) {
 					unset( $settings[ $setting_id ] );
 				}
 
-				if ( is_array( $setting_data ) && isset( $setting_data['id'] ) && ! in_array( $setting_data['id'], $whitelist ) ) {
-
-					if ( 'woocommerce_feature_custom_order_tables_enabled' === $setting_data['id'] && $hpos_enabled ) {
-						// If HPOS is enabled, show the option until it's disabled.
-						continue;
-					}
-
+				if ( is_array( $setting_data ) && isset( $setting_data['id'] ) && in_array( $setting_data['id'], $blocklist ) ) {
 					unset( $settings[ $setting_id ] );
 				}
 			}
 
+		// Prevent Ecommerce Plan users from seeing toggling the old navigation experiment.
 		} else {
 
 			foreach ( $settings as $setting_id => $setting_data ) {
@@ -378,7 +377,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		$reset_url   = esc_url( add_query_arg( $type === 'setup' ? 'reset_task_list' : 'reset_extended_task_list', true, wc_admin_url() ) );
 		$description = $type === 'setup' ? __( 'Restore the visibility of the primary onboarding Task List.', 'wc-calypso-bridge' ) : __( 'Restore the visibility of the "Things to do next" Task List.', 'wc-calypso-bridge' );
-		$label       = $type === 'setup' ? __( 'Setup task list', 'wc-calypso-bridge' ) : __( '"Things to do next"', 'c-calypso-bridge' );
+		$label       = $type === 'setup' ? __( 'Setup task list', 'wc-calypso-bridge' ) : __( '"Things to do next"', 'wc-calypso-bridge' );
 		?>
 			<tr valign="top" class="render_restore_task_list_button_wrapper">
 				<th scope="row" class="titledesc">

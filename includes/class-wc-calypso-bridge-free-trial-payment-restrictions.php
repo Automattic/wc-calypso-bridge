@@ -294,7 +294,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 			?>
 			<script type="text/javascript">
 				function overrideNoPaymentMethodsMessage( translation, text, domain ) {
-					if ( text === '<?php esc_html_e( 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.', 'woocommerce' ); ?>' ) {
+					if ( text === '<?php /* phpcs:ignore WordPress.WP.I18n.TextDomainMismatch */ esc_html_e( 'There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order.', 'woocommerce' ); ?>' ) {
 						return '<?php esc_html_e( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' ); ?>';
 					}
 
@@ -365,6 +365,7 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 			}
 
 			$plan_url  = sprintf( 'https://wordpress.com/plans/%s',  WC_Calypso_Bridge_Instance()->get_site_slug() );
+			/* translators: %s is the plans URL */
 			$message   = sprintf( __( 'Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href="%s">upgrade to a paid plan</a>.', 'wc-calypso-bridge' ), $plan_url );
 
 			?>

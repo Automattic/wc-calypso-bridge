@@ -64,7 +64,7 @@ class WC_Calypso_Bridge_Addons {
 			add_filter( 'admin_body_class', function( $classes ) {
 				$screen = get_current_screen();
 				if ( $screen && 'woocommerce_page_wc-addons' === $screen->id ) {
-					$classes .= 'woocommerce_page_wc-addons-landing-page';
+					$classes .= ' woocommerce_page_wc-bridge-landing-page woocommerce_page_wc-addons-landing-page ';
 				}
 
 				return $classes;
