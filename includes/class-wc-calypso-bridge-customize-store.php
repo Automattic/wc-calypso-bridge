@@ -42,20 +42,18 @@ class WC_Calypso_Bridge_Customize_Store {
 		}
 
 		add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
-
 	}
 
 	/**
 	 * Mark Customize Store task as completed on Site Editor by checking $_GET['from'] value.
-	 * The value is set from WP-Calypso. 
+	 * The value is set from WP-Calypso.
 	 *
 	 * @since 2.2.14
 	 *
 	 * @return void
 	 */
 	public function mark_customize_store_task_as_completed_on_site_editor() {
-		$screen = get_current_screen();
-		if ( $screen->id === 'site-editor' && isset( $_GET['from'] ) && $_GET['from'] === 'theme-browser' ) {
+		if ( isset( $_GET['from'] ) && $_GET['from'] === 'theme-browser' ) {
 			update_option( 'woocommerce_admin_customize_store_completed', 'yes' );
 		}
 	}
