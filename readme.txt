@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= unreleased = 
+* Revert all page deletion and delete only WooCommerce related pages #xxx
+* Purge cache before creating WooCommerce related pages #xxx
+
 = 2.2.14 =
 * Updated plugins landing page (free trial) #1300
 * Removed some get_options logging during the page creation one time job #1296
