@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-09-20 13:54:03+0000\n"
+"PO-Revision-Date: 2023-09-27 14:10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,36 @@ msgstr ""
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: de\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
+
+#: includes/class-wc-calypso-bridge-setup.php:284
+msgctxt "Page slug"
+msgid "refund_returns"
+msgstr "rückerstattung_rückgaben"
+
+#: includes/class-wc-calypso-bridge-setup.php:283
+msgctxt "Page slug"
+msgid "my-account"
+msgstr "mein-konto"
+
+#: includes/class-wc-calypso-bridge-setup.php:282
+msgctxt "Page slug"
+msgid "checkout"
+msgstr "kasse"
+
+#: includes/class-wc-calypso-bridge-setup.php:281
+msgctxt "Page slug"
+msgid "cart"
+msgstr "warenkorb"
+
+#: includes/class-wc-calypso-bridge-setup.php:280
+msgctxt "Page slug"
+msgid "shop"
+msgstr "shop"
+
+#: includes/class-wc-calypso-bridge-fse.php:52
+msgctxt "Template name"
+msgid "Blog Home"
+msgstr "Blog-Startseite"
 
 #: build/plugins.js:1
 msgid "Hire an expert"
@@ -29,7 +59,7 @@ msgstr "Von SEO-Tools bis zu mehrsprachigen Funktionen – mit WordPress-Plugin
 
 #: build/plugins.js:1
 msgid "Customize your website"
-msgstr "Deine Website anpassen"
+msgstr "Anpassen Ihrer Website"
 
 #: build/plugins.js:1
 msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
@@ -247,7 +277,7 @@ msgstr "Shop-Standort einstellen"
 
 #: build/index.js:1
 msgid "Please select a country / region"
-msgstr "Wähle bitte ein Land/eine Region aus."
+msgstr "Bitte wählen Sie ein Land / eine Region aus"
 
 #: build/index.js:1
 msgid "Post code"
@@ -299,11 +329,11 @@ msgstr "Das Beste für neue Stores"
 
 #: build/index.js:1
 msgid "WooCommerce Tax"
-msgstr "WooCommerce Tax"
+msgstr "WooCommerce Steuer"
 
 #: build/index.js:1
 msgid "Get more sales"
-msgstr "Verkaufszahlen steigern"
+msgstr "Steigern Sie Ihre Verkaufszahlen"
 
 #: build/index.js:1
 msgid "Upgrade to a paid plan to unlock more features and start selling"
@@ -347,7 +377,7 @@ msgstr "und mehr."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
-msgstr "Erweiterungen durchsuchen"
+msgstr "Erweiterungen durchsuchen "
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:95
 msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
@@ -588,7 +618,7 @@ msgstr "Konfiguriere dein %(title)s-Konto"
 #: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:88
 msgid "Install %s"
-msgstr "%s installieren "
+msgstr "Installiere %s"
 
 #: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
@@ -630,12 +660,12 @@ msgstr "Partner vor Ort"
 #: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:138
 msgid "Finish setup"
-msgstr "Einrichtung abschließen"
+msgstr "Einrichtung fertigstellen"
 
 #: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:99
 msgid "Enable"
-msgstr "Aktivieren"
+msgstr "Freischalten"
 
 #: build/index.js:1 src/launch-store/index.js:392
 msgid "Launch anyway"
@@ -683,7 +713,7 @@ msgstr "Es ist an der Zeit, zu feiern – du bist bereit, deinen Shop zu starte
 
 #: build/index.js:1 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
-msgstr "Bist du bereit, deinen Shop zu starten?"
+msgstr "Sind Sie bereit, Ihren Shop zu starten?"
 
 #: build/index.js:1 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
@@ -854,7 +884,7 @@ msgstr "Du hast deine Domain hinzugefügt"
 
 #: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:67
 msgid "Save up to $800 in fees by managing transactions with WooCommerce Payments. With WooCommerce Payments, you can securely accept major cards, Apple Pay, and payments in over 100 currencies."
-msgstr "Spare bis zu 800 USD Gebühren, indem du Transaktionen in WooCommerce Payments verwaltest. Mit WooCommerce Payments kannst du sichere Zahlungen in über 100 Währungen akzeptieren – über alle geläufigen Kreditkarten und Apple Pay."
+msgstr "Sparen Sie bis zu 800 $ Gebühren, indem Sie Transaktionen in WooCommerce Payments verwalten. Mit WooCommerce Payments können Sie sichere Zahlungen in über 100 Währungen akzeptieren – über alle geläufigen Kreditkarten und Apple Pay."
 
 #: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:41
 msgid "To deliver a smooth checkout experience to your shoppers, we have supercharged your store with our brand-new, conversion-optimized checkout. Please take a few minutes to review some important information on Extension compatibility with the new Cart and Checkout Blocks. Then, go ahead and customize your store's Cart and Checkout pages."
@@ -888,17 +918,18 @@ msgstr "Während des Gratis-Tests kannst du nur Testbestellungen aufgeben! Um Be
 msgid "Start selling to everyone"
 msgstr "Beginne mit dem Verkauf an alle"
 
-#: includes/class-wc-calypso-bridge-setup.php:363
+#: includes/class-wc-calypso-bridge-setup.php:374
 msgid "My Account"
-msgstr "Mein Account"
+msgstr "Mein Konto"
 
-#: includes/class-wc-calypso-bridge-setup.php:361
+#: includes/class-wc-calypso-bridge-setup.php:372
 msgid "Contact"
 msgstr "Kontakt"
 
-#: includes/class-wc-calypso-bridge-setup.php:352
+#: includes/class-wc-calypso-bridge-fse.php:53
+#: includes/class-wc-calypso-bridge-setup.php:363
 msgid "Home"
-msgstr "Home"
+msgstr "Startseite"
 
 #: includes/class-wc-calypso-bridge-setup-tasks.php:59
 msgid "This site has already been launched"
@@ -944,7 +975,7 @@ msgstr "Anti-Spam"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:312
 msgid "Discover"
-msgstr "Entdecken"
+msgstr "Discover"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
 #: build/payment-gateway-suggestions.js:1
@@ -962,7 +993,7 @@ msgstr "Erweiterungen"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:298
 msgid "Customers"
-msgstr "Kunde"
+msgstr "Kunden"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:288
 msgid "Legacy Reports"
@@ -986,17 +1017,17 @@ msgstr "Meine Startseite"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:82
 msgid "Feedback"
-msgstr "Rückmeldungen"
+msgstr "Feedback"
 
 #: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:70
 msgid "Save big with WooCommerce Payments"
-msgstr "Mit WooCommerce Payments kannst du viel Geld sparen"
+msgstr "Mit WooCommerce Payments können Sie viel Geld sparen"
 
 #: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
 msgid "No thanks"
-msgstr "Nein danke"
+msgstr "Nein, danke"
 
 #: build/index.js:1 build/payment-gateway-suggestions.js:1
 #: build/payment-gateway-suggestions.js:2
@@ -1039,19 +1070,19 @@ msgstr "Zahle diese Bestellung mit einem Scheck."
 
 #: store-on-wpcom/inc/wc-calypso-bridge-add-bacs-accounts.php:92
 msgid "An invalid setting value was passed."
-msgstr "Ein ungültiger Einstellungswert wurde übergeben."
+msgstr "Ein ungültiger Einstellwert wurde übergeben."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:118
 msgid "Cannot create order note, please try again."
-msgstr "Auftragsnotiz kann nicht erstellt werden, bitte versuche es erneut."
+msgstr "Bestellhinweis kann nicht erstellt werden. Bitte versuchen Sie es nochmal."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:116
 msgid "Order details manually sent to customer."
-msgstr "Auftragsdetails manuell an Kunden gesendet."
+msgstr "Die Auftragsdaten wurden manuell an den Kunden gesendet."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:107
 msgid "Invalid order ID."
-msgstr "Ungültige Bestellnummer-ID."
+msgstr "Ungültige Bestellnummer."
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:277
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
@@ -1060,7 +1091,7 @@ msgstr "WooCommerce"
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:70
 msgid "Sorry, you cannot view this resource."
-msgstr "Dir ist es nicht erlaubt, diese Ressource anzusehen."
+msgstr "Entschuldigung, Sie können diese Ressource nicht anzeigen."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:374
 msgid "Featured image for the product."
@@ -1084,7 +1115,7 @@ msgstr "Status der Bewertung"
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:343
 msgid "Shows if the reviewer bought the product or not."
-msgstr "Zeigt, ob der Rezensent das Produkt gekauft hat oder nicht."
+msgstr "Zeigt an, ob der Bewertende das Produkt gekauft hat oder nicht."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:338
 msgid "URLs for the reviewer's avatar."
@@ -1092,23 +1123,23 @@ msgstr "URLs für den Avatar des Rezensenten."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:333
 msgid "Reviewer email."
-msgstr "E-Mail-Adresse des Rezensenten."
+msgstr "E-Mail-Adresse des Bewertenden."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:328
 msgid "Reviewer name."
-msgstr "Name des Rezensenten."
+msgstr "Name des Bewertenden."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:323
 msgid "Review rating (0 to 5)."
-msgstr "Bewertung (0 bis 5)."
+msgstr "Bewertung (von 0 bis 5)."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:318
 msgid "The date the review was created, as GMT."
-msgstr "Das Datum, an dem die Bewertung erstellt wurde, gemäß GMT."
+msgstr "Das Datum, an dem die Bewertung erstellt wurde, als GMT."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:313
 msgid "The date the review was created, in the site's timezone."
-msgstr "Das Datum, an dem die Bewertung erstellt wurde, in der Zeitzone der Website."
+msgstr "Das Datum, an dem die Bewertung erstellt wurde (in der Zeitzone der Seite)."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:308
 msgid "The content of the review."
@@ -1145,7 +1176,7 @@ msgstr "Ergebnismenge auf Bewertungen mit einem bestimmten Status begrenzen."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-mailchimp-settings-controller.php:111
 msgid "Sorry, you cannot edit this resource."
-msgstr "Du kannst diese Ressource nicht bearbeiten."
+msgstr "Entschuldigung, Sie können diese Ressource nicht bearbeiten."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
 msgid "Collection of review totals by comment status."
@@ -1162,7 +1193,7 @@ msgstr "Sammlung der Gesamtzahl der Aufträge nach Auftragsstatus."
 #: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:60
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:63
 msgid "Sorry, you cannot list resources."
-msgstr "Du kannst Ressourcen leider nicht auflisten."
+msgstr "Entschuldigung, es können keine Ressourcen aufgelistet werden."
 
 #: includes/class-wc-calypso-bridge-themes-setup.php:97
 msgid "You can change this text by editing the \"Parallax Hero\" Section via the \"Powerpack\" settings in the Customizer on the left hand side of your screen."
@@ -1178,7 +1209,7 @@ msgstr "Willkommen!"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:43
 msgid "Add New"
-msgstr "Hinzufügen"
+msgstr "Erstellen"
 
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce can't be deactivated on the eCommerce plan."
@@ -1198,13 +1229,13 @@ msgstr "Stadt"
 
 #: build/index.js:1 src/free-trial/tax/components/location.js:23
 msgid "Continue"
-msgstr "Fortsetzen"
+msgstr "Weiter"
 
 #: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:52
 #: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:76
 #: build/index.js:3 src/homescreen-banner/index.js:57
 msgid "Learn more"
-msgstr "Weitere Informationen."
+msgstr "Mehr erfahren"
 
 #: includes/class-wc-calypso-bridge-addons.php:89
 msgid "WooCommerce extensions"
