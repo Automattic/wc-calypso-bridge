@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.16 =
+* _Enter your changes here_
+
 = unreleased = 
 * Introduce additional cache purging while creating WooCommerce related pages #xxx
 * Ensure existing WooCommerce related pages are deleted #xxx
