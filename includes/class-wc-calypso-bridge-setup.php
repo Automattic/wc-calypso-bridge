@@ -225,10 +225,10 @@ class WC_Calypso_Bridge_Setup {
 
 			$this->write_to_log( $operation, 'INITIALIZED' );
 
-			// Set the operation as completed if the store is active for more than 10 minutes.
-			if ( WCAdminHelper::is_wc_admin_active_for( 10 * MINUTE_IN_SECONDS ) ) {
+			// Set the operation as completed if the store is active for more than 60 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
-				$this->write_to_log( $operation, 'completed (10 minutes)' );
+				$this->write_to_log( $operation, 'completed (60 minutes)' );
 
 				return;
 			}
@@ -310,6 +310,13 @@ class WC_Calypso_Bridge_Setup {
 					} else {
 						$this->write_to_log( $operation, 'failed to delete option woocommerce_' . $key . '_page_id : ' . $value );
 					}
+
+					$result_cache = wp_cache_delete( "woocommerce_{$key}_page_id", 'options' );
+					if ( $result_cache ) {
+						$this->write_to_log( $operation, 'deleted cache for option woocommerce_' . $key . '_page_id : ' . $value );
+					} else {
+						$this->write_to_log( $operation, 'failed to delete cache for option woocommerce_' . $key . '_page_id : ' . $value );
+					}
 				}
 
 				/*
@@ -331,6 +338,12 @@ class WC_Calypso_Bridge_Setup {
 				// sleep for 0.5 second to give enough time to memcache to flush and revalidate.
 				wp_cache_flush();
 				usleep( 500000 );
+
+				$this->write_to_log( $operation, 'GETTING WOOCOMMERCE PAGE OPTIONS AFTER DELETION');
+				foreach ( $woocommerce_pages as $key => $page_slug ) {
+					$value = get_option( "woocommerce_{$key}_page_id" );
+					$this->write_to_log( $operation, 'getting option woocommerce_' . $key . '_page_id : ' . $value );
+				}
 
 				// Delete the following note, so it can be recreated with the correct refund page ID.
 				if ( class_exists( 'Automattic\WooCommerce\Admin\Notes\Notes' ) ) {
@@ -748,7 +761,7 @@ class WC_Calypso_Bridge_Setup {
 
 	/**
 	 * Maybe delete page by slug.
-	 * If the page is older than 10 minutes, it will be ignored.
+	 * If the page is older than 60 minutes, it will be ignored.
 	 *
 	 * @since 2.2.15
 	 *
@@ -773,13 +786,14 @@ class WC_Calypso_Bridge_Setup {
 		$current_time_gmt_ts = current_time( 'U', true );
 		$diff_ts             = $current_time_gmt_ts - $page_gmt_ts;
 
-		if ( $diff_ts > 10 * MINUTE_IN_SECONDS ) {
-			$this->write_to_log( $operation, 'ignored page deletion ' . $slug . ' diff: ' . $diff_ts / 60 . ' minutes (older than 10 minutes) ' );
+		if ( $diff_ts > 60 * MINUTE_IN_SECONDS ) {
+			$this->write_to_log( $operation, 'ignored page deletion ' . $slug . ' diff: ' . $diff_ts / 60 . ' minutes (older than 60 minutes) ' );
 
 			return;
 		}
 
 		$result = wp_delete_post( $page['ID'], true );
+		clean_post_cache( $page['ID'] );
 		if ( $result ) {
 			$this->write_to_log( $operation, 'deleted page ' . $slug );
 		} else {
