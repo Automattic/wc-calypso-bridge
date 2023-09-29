@@ -651,10 +651,10 @@ class WC_Calypso_Bridge_Setup {
 
 			$operation = 'set_wc_measurement_units';
 
-			// Set the operation as completed if the store is active for more than 10 minutes.
-			if ( WCAdminHelper::is_wc_admin_active_for( 10 * MINUTE_IN_SECONDS ) ) {
+			// Set the operation as completed if the store is active for more than 60 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
-				$this->write_to_log( $operation, 'completed (10 minutes)' );
+				$this->write_to_log( $operation, 'completed (60 minutes)' );
 
 				return;
 			}
@@ -683,8 +683,13 @@ class WC_Calypso_Bridge_Setup {
 				return;
 			}
 
-			update_option('woocommerce_weight_unit', $locale_info[ $country ]['weight_unit']);
-			update_option('woocommerce_dimension_unit', $locale_info[ $country ]['dimension_unit']);
+			// Dimension unit for US/UK is foot; WooCommerce does not use foot, so we need to convert it to inches.
+			if ( 'foot' === $locale_info[ $country ]['dimension_unit'] ) {
+				$locale_info[ $country ]['dimension_unit'] = 'in';
+			}
+
+			update_option( 'woocommerce_weight_unit', $locale_info[ $country ]['weight_unit'] );
+			update_option( 'woocommerce_dimension_unit', $locale_info[ $country ]['dimension_unit'] );
 
 			update_option( $this->option_prefix . $operation, 'completed', 'no' );
 			$this->write_to_log( $operation, 'done for country ' . $country );
