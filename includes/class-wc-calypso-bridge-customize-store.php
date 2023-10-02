@@ -51,7 +51,7 @@ class WC_Calypso_Bridge_Customize_Store {
 	 * @return void
 	 */
 	public function mark_customize_store_task_as_completed_on_site_editor() {
-		if ( isset( $_GET['from'] ) && $_GET['from'] === 'theme-browser' ) {
+		if ( isset( $_GET['from'] ) && $_GET['from'] === 'theme-info' ) {
 			update_option( 'woocommerce_admin_customize_store_completed', 'yes' );
 		}
 	}
