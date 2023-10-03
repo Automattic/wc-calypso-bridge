@@ -4,12 +4,10 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.2.0
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
-
-use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
 class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu {
 
@@ -297,7 +295,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			);
 		}
 
-		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) && FeaturesUtil::feature_is_enabled( 'analytics' ) ) {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) && \Automattic\WooCommerce\Utilities\FeaturesUtil::feature_is_enabled( 'analytics' ) ) {
 			// Move Customers to root menu.
 			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/customers' );
 			add_menu_page( __( 'Customers', 'woocommerce' ), __( 'Customers', 'woocommerce' ), 'manage_woocommerce', 'admin.php?page=wc-admin&path=/customers', null, 'dashicons-money', 100 );
@@ -522,16 +520,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				return ( $A < $B ) ? -1 : 1;
 			} );
 		}
-	}
-
-	/**
-	 * Addons menu item.
-	 */
-	public function add_addons_menu() {
-		$count_html = \WC_Helper_Updater::get_updates_count_html();
-		/* translators: %s: extensions count */
-		$menu_title = sprintf( __( 'Extensions %s', 'wc-calypso-bridge' ), $count_html );
-		add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'wc-calypso-bridge' ), $menu_title, 'manage_woocommerce', 'wc-addons', array( $this, 'addons_page' ) );
 	}
 
 	/**

@@ -8,8 +8,6 @@
  * @version x.x.x
  */
 
-use Automattic\WooCommerce\Utilities\FeaturesUtil;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -77,7 +75,7 @@ class WC_Calypso_Bridge_Addons {
 	}
 
 	public function get_menu_slug() {
-		return class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) && FeaturesUtil::feature_is_enabled( 'marketplace' ) && ! wc_calypso_bridge_is_ecommerce_trial_plan() ? 'wc-admin&path=/extensions' : 'wc-addons';
+		return class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) && \Automattic\WooCommerce\Utilities\FeaturesUtil::feature_is_enabled( 'marketplace' ) && ! wc_calypso_bridge_is_ecommerce_trial_plan() ? 'wc-admin&path=/extensions' : 'wc-addons';
 	}
 
 	/**
