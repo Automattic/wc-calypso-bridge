@@ -5,8 +5,10 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.6
- * @version 2.0.0
+ * @version x.x.x
  */
+
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -54,9 +56,11 @@ class WC_Calypso_Bridge_Addons {
 	 * Initialize.
 	 */
 	public function init() {
+
+		// Hide the default marketplace.
 		add_filter( 'woocommerce_show_addons_page', '__return_false' );
+		// Handle the addons legacy page.
 		add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
-		add_action( 'woocommerce_loaded', array( $this, 'load_modified_addons_menu' ) );
 
 		// Add admin body class for the free trial landing page.
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
@@ -72,11 +76,8 @@ class WC_Calypso_Bridge_Addons {
 		}
 	}
 
-	/**
-	 * Load the class for the modified Addons menu.
-	 */
-	public function load_modified_addons_menu() {
-		require 'class-wc-modified-admin-addons.php';
+	public function get_menu_slug() {
+		return class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) && FeaturesUtil::feature_is_enabled( 'marketplace' ) && ! wc_calypso_bridge_is_ecommerce_trial_plan() ? 'wc-admin&path=/extensions' : 'wc-addons';
 	}
 
 	/**

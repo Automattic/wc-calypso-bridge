@@ -8,6 +8,9 @@
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
+
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
+
 class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu {
 
 	const WPCOM_ECOMMERCE_MANAGED_PAGES = array(
@@ -18,6 +21,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		'wc-settings',
 		'wc-status',
 		'wc-addons',
+		'wc-admin&path=/extensions',
 	);
 
 	/**
@@ -75,6 +79,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 			// Hide Extensions > Manage.
 			$this->hide_submenu_page( 'woocommerce', 'admin.php?page=wc-addons&section=helper' );
+			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/extensions' );
 
 			// Move Feedback under Jetpack > Feedback.
 			$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
@@ -292,7 +297,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			);
 		}
 
-		if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'analytics' ) ) {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) && FeaturesUtil::feature_is_enabled( 'analytics' ) ) {
 			// Move Customers to root menu.
 			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/customers' );
 			add_menu_page( __( 'Customers', 'woocommerce' ), __( 'Customers', 'woocommerce' ), 'manage_woocommerce', 'admin.php?page=wc-admin&path=/customers', null, 'dashicons-money', 100 );
@@ -306,10 +311,16 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Move WooCommerce > Extensions under Extensions > Discover.
 		foreach ( $submenu['woocommerce'] as $key => $data ) {
-			if ( 'wc-addons' !== $data[2] ) {
+			if ( WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() !== $data[2] ) {
 				continue;
 			}
+
 			$submenu['woocommerce'][ $key ][0] = __( 'Discover', 'wc-calypso-bridge' );
+		}
+
+		// Hide the wc-addons menu if the marketplace feature is enabled.
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() && 'wc-addons' !== WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() ) {
+			$this->hide_submenu_page( 'woocommerce', 'wc-addons' );
 		}
 
 		// Add Orders count.
@@ -347,7 +358,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$A = 1;
 				$B = 1;
 				if ( in_array( $a[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
-					if ( 'wc-addons' === $a[2] ) {
+					if ( WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() === $a[2]) {
 						$A = 0;
 					} else {
 						$A = 3;
@@ -359,7 +370,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				}
 
 				if ( in_array( $b[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
-					if ( 'wc-addons' === $b[2] ) {
+					if ( WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() === $b[2]) {
 						$B = 0;
 					} else {
 						$B = 3;
@@ -511,6 +522,16 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				return ( $A < $B ) ? -1 : 1;
 			} );
 		}
+	}
+
+	/**
+	 * Addons menu item.
+	 */
+	public function add_addons_menu() {
+		$count_html = \WC_Helper_Updater::get_updates_count_html();
+		/* translators: %s: extensions count */
+		$menu_title = sprintf( __( 'Extensions %s', 'wc-calypso-bridge' ), $count_html );
+		add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'wc-calypso-bridge' ), $menu_title, 'manage_woocommerce', 'wc-addons', array( $this, 'addons_page' ) );
 	}
 
 	/**
