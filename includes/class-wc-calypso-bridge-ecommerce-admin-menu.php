@@ -75,7 +75,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		add_action( 'admin_menu', function() {
 
-			// Hide Extensions > Manage.
+			// Hide Extensions > Manage and the new Extensions page.
 			$this->hide_submenu_page( 'woocommerce', 'admin.php?page=wc-addons&section=helper' );
 			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/extensions' );
 
