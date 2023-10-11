@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version x.x.x
+ * @version 2.2.17
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
