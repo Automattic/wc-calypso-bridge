@@ -60,6 +60,11 @@ class WC_Calypso_Bridge_Filters {
 		add_filter( 'pre_option_woocommerce_merchant_email_notifications', static function() {
 			return 'no';
 		} );
+
+		/**
+		 * Filter recommended themes
+		 */
+		add_filter( '__experimental_woocommerce_rest_get_recommended_themes', array( $this, 'woocommerce_filter_get_recommended_themes'), 10, 3);
 	}
 
 	/**
@@ -120,6 +125,105 @@ class WC_Calypso_Bridge_Filters {
 		);
 
 		return array_merge( $allowed_options, $woocommerce_task_list_options );
+	}
+
+	/**
+	 * Function to filter the theme recommendations for sites on WPCOM
+	 *
+	 * @param array $result
+	 * @param string $industry
+	 * @param string $currency
+	 * @return array
+	 */
+	public function woocommerce_filter_get_recommended_themes( $result, $industry, $currency ) {
+		$result['themes'] = array(
+			array(
+				'name'           => 'Tsubaki',
+				'price'          => 'Free',
+				'color_palettes' => array(),
+				'total_palettes' => 0,
+				'slug'           => 'tsubaki',
+				'is_active'      => false,
+				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/tsubaki/screenshot.png',
+				'link_url'       => 'https://wordpress.com/theme/tsubaki/',
+			),
+			array(
+				'name'           => 'Tazza',
+				'price'          => 'Free',
+				'color_palettes' => array(),
+				'total_palettes' => 0,
+				'slug'           => 'tazza',
+				'is_active'      => false,
+				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/tazza/screenshot.png',
+				'link_url'       => 'https://wordpress.com/theme/tazza/',
+			),
+			array(
+				'name'           => 'Amulet',
+				'price'          => 'Free',
+				'color_palettes' => array(
+					array(
+						'title'     => 'Default',
+						'primary'   => '#FEFBF3',
+						'secondary' => '#7F7E7A',
+					),
+					array(
+						'title'     => 'Brown Sugar',
+						'primary'   => '#EFEBE0',
+						'secondary' => '#AC6239',
+					),
+					array(
+						'title'     => 'Midnight',
+						'primary'   => '#161514',
+						'secondary' => '#AFADA7',
+					),
+					array(
+						'title'     => 'Olive',
+						'primary'   => '#FEFBF3',
+						'secondary' => '#7F7E7A',
+					),
+				),
+				'total_palettes' => 5,
+				'slug'           => 'amulet',
+				'is_active'      => false,
+				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/amulet/screenshot.png',
+				'link_url'       => 'https://wordpress.com/theme/amulet/',
+			),
+			array(
+				'name'           => 'Zaino',
+				'price'          => 'Free',
+				'color_palettes' => array(
+					array(
+						'title'     => 'Default',
+						'primary'   => '#202124',
+						'secondary' => '#E3CBC0',
+					),
+					array(
+						'title'     => 'Aubergine',
+						'primary'   => '#1B1031',
+						'secondary' => '#E1746D',
+					),
+					array(
+						'title'     => 'Block out',
+						'primary'   => '#FF5252',
+						'secondary' => '#252525',
+					),
+					array(
+						'title'     => 'Canary',
+						'primary'   => '#FDFF85',
+						'secondary' => '#353535',
+					),
+				),
+				'total_palettes' => 11,
+				'slug'           => 'zaino',
+				'is_active'      => false,
+				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/zaino/screenshot.png',
+				'link_url'       => 'https://wordpress.com/theme/zaino/',
+			),
+		);
+
+		$result['_links']['browse_all']['href'] = 'https://wordpress.com/themes/';
+
+		return $result;
 	}
 }
 
