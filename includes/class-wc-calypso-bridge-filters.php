@@ -136,6 +136,8 @@ class WC_Calypso_Bridge_Filters {
 	 * @return array
 	 */
 	public function woocommerce_filter_get_recommended_themes( $result, $industry, $currency ) {
+		$site_slug = WC_Calypso_Bridge_Instance()->get_site_slug();
+		
 		$result['themes'] = array(
 			array(
 				'name'           => 'Tsubaki',
@@ -145,7 +147,7 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'tsubaki',
 				'is_active'      => false,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/tsubaki/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/tsubaki/',
+				'link_url'       => 'https://wordpress.com/theme/tsubaki/' . $site_slug,
 			),
 			array(
 				'name'           => 'Tazza',
@@ -155,7 +157,7 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'tazza',
 				'is_active'      => false,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/tazza/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/tazza/',
+				'link_url'       => 'https://wordpress.com/theme/tazza/' . $site_slug,
 			),
 			array(
 				'name'           => 'Amulet',
@@ -186,7 +188,7 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'amulet',
 				'is_active'      => false,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/amulet/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/amulet/',
+				'link_url'       => 'https://wordpress.com/theme/amulet/' . $site_slug,
 			),
 			array(
 				'name'           => 'Zaino',
@@ -217,11 +219,11 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'zaino',
 				'is_active'      => false,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/zaino/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/zaino/',
+				'link_url'       => 'https://wordpress.com/theme/zaino/' . $site_slug,
 			),
 		);
 
-		$result['_links']['browse_all']['href'] = 'https://wordpress.com/themes/';
+		$result['_links']['browse_all']['href'] = 'https://wordpress.com/themes/' . $site_slug;
 
 		return $result;
 	}
