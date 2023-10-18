@@ -4,10 +4,11 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.2.0
+ * @version 2.2.17
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
+
 class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu {
 
 	const WPCOM_ECOMMERCE_MANAGED_PAGES = array(
@@ -18,6 +19,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		'wc-settings',
 		'wc-status',
 		'wc-addons',
+		'wc-admin&path=/extensions',
 	);
 
 	/**
@@ -73,8 +75,9 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		add_action( 'admin_menu', function() {
 
-			// Hide Extensions > Manage.
+			// Hide Extensions > Manage and the new Extensions page.
 			$this->hide_submenu_page( 'woocommerce', 'admin.php?page=wc-addons&section=helper' );
+			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/extensions' );
 
 			// Move Feedback under Jetpack > Feedback.
 			$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
@@ -306,10 +309,16 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Move WooCommerce > Extensions under Extensions > Discover.
 		foreach ( $submenu['woocommerce'] as $key => $data ) {
-			if ( 'wc-addons' !== $data[2] ) {
+			if ( WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() !== $data[2] ) {
 				continue;
 			}
+
 			$submenu['woocommerce'][ $key ][0] = __( 'Discover', 'wc-calypso-bridge' );
+		}
+
+		// Hide the wc-addons menu if the marketplace feature is enabled.
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() && 'wc-addons' !== WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() ) {
+			$this->hide_submenu_page( 'woocommerce', 'wc-addons' );
 		}
 
 		// Add Orders count.
@@ -347,7 +356,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				$A = 1;
 				$B = 1;
 				if ( in_array( $a[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
-					if ( 'wc-addons' === $a[2] ) {
+					if ( WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() === $a[2]) {
 						$A = 0;
 					} else {
 						$A = 3;
@@ -359,7 +368,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				}
 
 				if ( in_array( $b[2], self::WPCOM_ECOMMERCE_MANAGED_PAGES ) ) {
-					if ( 'wc-addons' === $b[2] ) {
+					if ( WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() === $b[2]) {
 						$B = 0;
 					} else {
 						$B = 3;

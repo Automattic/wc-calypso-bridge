@@ -174,8 +174,17 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 				);
 			}
 
-			// Override marketing page.
 			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
+
+				// Remove the marketplace page from the list.
+				for ( let i = 0; i < pages.length; i++ ) {
+					if ( pages[ i ].path === '/extensions' ) {
+						pages.splice( i, 1 );
+						break;
+					}
+				}
+
+				// Override marketing page.
 				pages = pages.map( ( page ) => {
 					if ( page.path === '/marketing' ) {
 						page.container = Marketing;
@@ -183,6 +192,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 					return page;
 				} );
 
+				// Add the Plugins landing page.
 				pages.push( {
 					container: Plugins,
 					path: '/plugins-upgrade',
