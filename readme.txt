@@ -22,6 +22,50 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleashed =
+* Fix the "Orders" menu position when using HPOS #1330
+* Preconfigure product measurement units #xxx
+* Add filter for recommended WPCOM themes #1324
+
+= 2.2.17 =
+* Enable the reactified WC Admin Marketplace under the "Extensions > Discover" menu item #1318
+
+= 2.2.16 =
+* Introduce additional cache purging while creating WooCommerce related pages #1311
+* Ensure existing WooCommerce related pages are deleted #1311
+
+= 2.2.15 =
+* Revert all page deletion and delete only WooCommerce related pages #1304
+* Purge cache before creating WooCommerce related pages #1304
+* Change "Blog Home" template name to "Home" #1263
+
+= 2.2.14 =
+* Updated plugins landing page (free trial) #1300
+* Removed some get_options logging during the page creation one time job #1296
+
+= 2.2.13 =
+* Display a server based WooPayments setup task header when an incentive is available #1294
+* Introduce additional logging in the page creation one time job #1296
+* Delete all created pages (except an allow-list) and then recreate WooCommerce ones, to avoid ending up with duplicates #1296 
+
+= 2.2.12 =
+* Improve handling footer credits for Woo Express plans #1286
+* Introduce a blocklist for feature settings to be hidden (Analytics, Old Navigation) #1284
+* Add logic to search explicitly for the right key in order to inject the Navigation setting under the "Features" section #1284
+* Restore access to the editor and HPOS experimental options #1284
+
+= 2.2.11 =
+* Handling footer credits for Woo Express plans #1265
+* Convert plugins page to a WC page #1278
+* Fix plugins mobile screen UI #1281
+
+= 2.2.10 =
+* Update translation files on every release
+
+= 2.2.9 =
+* Use the correct text domain for i18n functions #1127
+* Add a text domain linter #1272
+
 = 2.2.8 =
 * Fix Tax task for free trial #1247
 * Fix tax task component UIs #1261

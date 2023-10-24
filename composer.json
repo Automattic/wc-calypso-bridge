@@ -1,6 +1,6 @@
 {
   "name": "automattic/wc-calypso-bridge",
-  "version": "v2.2.8",
+  "version": "v2.2.17",
   "autoload": {
     "files": [
       "wc-calypso-bridge.php"
@@ -31,7 +31,8 @@
     "wimg/php-compatibility": "9.0.0",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "yoast/phpunit-polyfills": "^1.0",
-    "wp-cli/wp-cli-bundle": "^2.8.1"
+    "wp-cli/wp-cli-bundle": "^2.8.1",
+    "sirbrillig/phpcs-changed": "^2.11"
   },
   "scripts": {
     "test": [

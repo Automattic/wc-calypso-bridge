@@ -14,13 +14,15 @@
 		"lint:js:report": "npm run lint:js -- --output-file eslint_report.json --ext=js,ts,tsx --format json",
 		"lint:md:docs": "wp-scripts lint-md-docs",
 		"lint:md:js": "wp-scripts lint-md-js",
+		"lint:php:staged": "bin/lint-php-staged.sh",
 		"lint:pkg-json": "wp-scripts lint-pkg-json",
 		"packages-update": "wp-scripts packages-update",
 		"start": "wp-scripts start",
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js",
 		"prepare-release": "node ./scripts/prep-release.js",
-		"create-release": "node ./scripts/release.js"
+		"create-release": "node ./scripts/release.js",
+		"prepare": "husky install"
 	},
 	"workspaces": [
 		"scripts"
@@ -33,6 +35,7 @@
 		"@woocommerce/eslint-plugin": "^2.2.0",
 		"@wordpress/prettier-config": "^2.14.0",
 		"@wordpress/scripts": "^24.6.0",
+		"husky": "^8.0.3",
 		"prettier": "npm:wp-prettier@^2.8.5",
 		"typescript": "^4.9.5"
 	},
