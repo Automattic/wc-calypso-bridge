@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version x.x.x
+ * @version 2.2.18
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -97,7 +97,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	/**
 	 * Moves the "WooCommerce > Orders" menu item to the top level.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.18
 	 *
 	 * @return void
 	 */

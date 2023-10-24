@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version x.x.x
+ * @version 2.2.18
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -130,7 +130,7 @@ class WC_Calypso_Bridge_Filters {
 	/**
 	 * Function to filter the theme recommendations for sites on WPCOM
 	 *
-	 * @since x.x.x
+	 * @since 2.2.18
 	 *
 	 * @param array $result
 	 * @param string $industry
