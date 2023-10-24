@@ -124,11 +124,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 			if ( $order_count ) {
 				$bubble = '<span class="awaiting-mod update-plugins count-' . esc_attr( $order_count ) . '"><span class="processing-count">' . number_format_i18n( $order_count ) . '</span></span>'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-				
+
 				// Add for Orders (CPT).
 				foreach ( $menu as $i => $menu_item ) {
 					if ( 'edit.php?post_type=shop_order' === $menu_item[2] || 'admin.php?page=wc-orders' === $menu_item[2] ) {
-						error_log('******  found:' . $menu_item[2]);
 						$menu[ $i ][0] .= ' ' . $bubble;
 						break;
 					}
@@ -299,11 +298,11 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		// Move WooCommerce > Orders (HPOS) to Orders.
 		if ( in_array( $screen_id, array( 'woocommerce_page_wc-orders' ), true ) ) {
-			$plugin_page = '';
-			$parent_file = 'admin.php?page=wc-orders';
+			$plugin_page  = '';
+			$parent_file  = 'admin.php?page=wc-orders';
 			$submenu_file = 'admin.php?page=wc-orders';
 
-			if ( isset( $_GET[ 'action' ] ) && 'new' === $_GET[ 'action' ] ) {
+			if ( isset( $_GET['action'] ) && 'new' === $_GET['action'] ) {
 				$submenu_file = 'admin.php?page=wc-orders&action=new';
 			}
 		}
