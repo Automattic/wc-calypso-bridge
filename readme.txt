@@ -22,7 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= unreleased =
+= Unreleashed =
+* Fix the "Orders" menu position when using HPOS #1330
 * Preconfigure product measurement units #xxx
 
 = 2.2.17 =

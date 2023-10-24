@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.2.17
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -39,14 +39,15 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			add_filter( 'submenu_file', array( $this, 'modify_woocommerce_menu_highlighting' ), 99999 );
 		}
 
-		// Move Orders.
-		// TODO: What about the COT menu?
-		add_filter( 'woocommerce_register_post_type_shop_order', function( $args ) {
-			$args[ 'labels' ][ 'add_new' ] = __( 'Add New', 'woocommerce' );
-			$args[ 'show_in_menu' ]        = true;
-			$args[ 'menu_icon' ]           = 'dashicons-cart';
-			return $args;
-		} );
+		// Move Orders CPT.
+		if ( ! \Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled() ) {
+			add_filter( 'woocommerce_register_post_type_shop_order', function( $args ) {
+				$args[ 'labels' ][ 'add_new' ] = __( 'Add New', 'woocommerce' );
+				$args[ 'show_in_menu' ]        = true;
+				$args[ 'menu_icon' ]           = 'dashicons-cart';
+				return $args;
+			} );
+		}
 
 		// Ensure the $submenu['woocommerce] will be available at prio 10.
 		add_action( 'admin_menu', function() {
@@ -94,11 +95,57 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
+	 * Moves the "WooCommerce > Orders" menu item to the top level.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return void
+	 */
+	protected function handle_orders_menu() {
+		global $submenu, $menu;
+
+		if ( \Automattic\WooCommerce\Utilities\OrderUtil::custom_orders_table_usage_is_enabled() ) {
+
+			// Create the toplevel menu from scratch.
+			$this->hide_submenu_page( 'woocommerce', 'wc-orders' );
+			add_menu_page( __( 'Orders', 'woocommerce' ), __( 'Orders', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders', null, 'dashicons-cart', 40 );
+			add_submenu_page( 'admin.php?page=wc-orders', __( 'Orders', 'woocommerce' ), __( 'Orders', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders', null, 1 );
+			add_submenu_page( 'admin.php?page=wc-orders', __( 'Add New Order', 'woocommerce' ), __( 'Add New', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders&action=new', null, 2 );
+		} else {
+
+			// Restore the Orders submenu CPT page for backwards compatibility.
+			add_submenu_page( 'woocommerce', __( 'Orders', 'wc-calypso-bridge' ), __( 'Orders', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=shop_order', '', 1 );
+			$this->hide_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );
+		}
+
+		// Add Orders count.
+		if ( apply_filters( 'woocommerce_include_processing_order_count_in_menu', true ) && current_user_can( 'edit_others_shop_orders' ) ) {
+			$order_count = (int) apply_filters( 'woocommerce_menu_order_count', wc_processing_order_count() );
+
+			if ( $order_count ) {
+				$bubble = '<span class="awaiting-mod update-plugins count-' . esc_attr( $order_count ) . '"><span class="processing-count">' . number_format_i18n( $order_count ) . '</span></span>'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+
+				// Add for Orders (CPT).
+				foreach ( $menu as $i => $menu_item ) {
+					if ( 'edit.php?post_type=shop_order' === $menu_item[2] || 'admin.php?page=wc-orders' === $menu_item[2] ) {
+						$menu[ $i ][0] .= ' ' . $bubble;
+						break;
+					}
+				}
+
+				// Add for Orders (HPOS) submenu.
+				if ( isset( $submenu['admin.php?page=wc-orders'][0] ) && is_string( $submenu['admin.php?page=wc-orders'][0][0] ) ) {
+					$submenu['admin.php?page=wc-orders'][0][0] .= ' ' . $bubble;
+				}
+			}
+		}
+	}
+
+	/**
 	 * Override the base implementation of add_plugins_menu() to avoid
 	 * adding the Plugins menu for eCommerce trials.
 	 *
 	 * @since   2.0.8
-	 * @version 2.0.8
 	 *
 	 * @return void
 	 */
@@ -131,6 +178,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 				$woocommerce_menu_order[] = 'wc-calypso-bridge-separator-top'; // Separator WC top.
 				$woocommerce_menu_order[] = 'edit.php?post_type=shop_order'; // Orders.
+				$woocommerce_menu_order[] = 'admin.php?page=wc-orders'; // Orders (HPOS).
 				$woocommerce_menu_order[] = 'edit.php?post_type=product'; // Products.
 				$woocommerce_menu_order[] = 'admin.php?page=wc-admin&path=/customers'; // Customers.
 				if ( false !== $payments_connect_exists ) {
@@ -165,6 +213,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				'wc-admin&path=/analytics/overview',
 				'edit.php?post_type=product',
 				'edit.php?post_type=shop_order',
+				'admin.php?page=wc-orders',
 				'admin.php?page=wc-admin&path=/customers'
 			), true ) ) {
 				$woocommerce_menu_order[] = $item;
@@ -247,6 +296,17 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			} );
 		}
 
+		// Move WooCommerce > Orders (HPOS) to Orders.
+		if ( in_array( $screen_id, array( 'woocommerce_page_wc-orders' ), true ) ) {
+			$plugin_page  = '';
+			$parent_file  = 'admin.php?page=wc-orders';
+			$submenu_file = 'admin.php?page=wc-orders';
+
+			if ( isset( $_GET['action'] ) && 'new' === $_GET['action'] ) {
+				$submenu_file = 'admin.php?page=wc-orders&action=new';
+			}
+		}
+
 		return $submenu_file;
 	}
 
@@ -271,9 +331,8 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Hide WooCommerce > Home.
 		$this->hide_submenu_page( 'woocommerce', 'wc-admin' );
 
-		// Restore the Orders submenu page for backwards compatibility.
-		add_submenu_page( 'woocommerce', __( 'Orders', 'wc-calypso-bridge' ), __( 'Orders', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=shop_order', '', 1 );
-		$this->hide_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );
+		// Handle Orders menu item.
+		$this->handle_orders_menu();
 
 		// Move WooCommerce > Settings under Settings > WooCommerce.
 		$this->hide_submenu_page( 'woocommerce', 'wc-settings' );
@@ -319,20 +378,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		// Hide the wc-addons menu if the marketplace feature is enabled.
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() && 'wc-addons' !== WC_Calypso_Bridge_Addons::get_instance()->get_menu_slug() ) {
 			$this->hide_submenu_page( 'woocommerce', 'wc-addons' );
-		}
-
-		// Add Orders count.
-		if ( apply_filters( 'woocommerce_include_processing_order_count_in_menu', true ) && current_user_can( 'edit_others_shop_orders' ) ) {
-			$order_count = (int) apply_filters( 'woocommerce_menu_order_count', wc_processing_order_count() );
-
-			if ( $order_count ) {
-				foreach ( $menu as $i => $menu_item ) {
-					if ( 'edit.php?post_type=shop_order' === $menu_item[2] ) {
-						$menu[ $i ][0] .= ' <span class="awaiting-mod update-plugins count-' . esc_attr( $order_count ) . '"><span class="processing-count">' . number_format_i18n( $order_count ) . '</span></span>'; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-						break;
-					}
-				}
-			}
 		}
 
 		// Re-order submenus.
