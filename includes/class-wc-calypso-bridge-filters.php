@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version 1.0.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -130,6 +130,8 @@ class WC_Calypso_Bridge_Filters {
 	/**
 	 * Function to filter the theme recommendations for sites on WPCOM
 	 *
+	 * @since x.x.x
+	 *
 	 * @param array $result
 	 * @param string $industry
 	 * @param string $currency
@@ -138,7 +140,7 @@ class WC_Calypso_Bridge_Filters {
 	public function woocommerce_filter_get_recommended_themes( $result, $industry, $currency ) {
 		$site_slug = WC_Calypso_Bridge_Instance()->get_site_slug();
 		$current_theme_slug = get_stylesheet();
-		
+
 		$result['themes'] = array(
 			array(
 				'name'           => 'Tsubaki',
