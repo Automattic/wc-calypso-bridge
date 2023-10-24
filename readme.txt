@@ -27,11 +27,6 @@ This section describes how to install the plugin and get it working.
 * Preconfigure product measurement units #1309
 * Add filter for recommended WPCOM themes #1324
 
-= Unreleashed =
-* Fix the "Orders" menu position when using HPOS #1330
-* Preconfigure product measurement units #xxx
-* Add filter for recommended WPCOM themes #1324
-
 = 2.2.17 =
 * Enable the reactified WC Admin Marketplace under the "Extensions > Discover" menu item #1318
 

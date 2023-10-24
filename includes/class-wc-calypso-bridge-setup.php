@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.2.18
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -656,7 +656,7 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Preconfigure product measurement units.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.18
 	 */
 	public function set_wc_measurement_units_callback() {
 
