@@ -22,10 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 2.2.17 =
-* Enable the reactified WC Admin Marketplace under the "Extensions > Discover" menu item #1318
+= unreleased =
+* Preconfigure product measurement units #xxx
 
-= Unreleashed =
+= 2.2.17 =
 * Enable the reactified WC Admin Marketplace under the "Extensions > Discover" menu item #1318
 
 = 2.2.16 =
