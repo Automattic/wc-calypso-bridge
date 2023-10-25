@@ -39,12 +39,19 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 		}
 
 		return array(
+			// Woo Core.
 			'wc-admin-add-first-product-note',
 			'wc-admin-mobile-app',
+			'wc-admin-test-checkout',
+			'wc-admin-payments-remind-me-later',
+			'wc-admin-onboarding-payments-reminder',
+			'wc-admin-orders-milestone',
+			'',
+			// Woo Express lifeycle messages.
 			'wc-calypso-bridge-free-trial-welcome',
-			'wc-calypso-bridge-free-trial-support-checkin',
-			'wc-calypso-bridge-free-trial-halfway-checkin',
-			'wc-calypso-bridge-free-trial-expiry-checkin',
+			'wc-calypso-bridge-free-trial-choose-domain',
+			// Extensions.
+			'stripe-apple-pay-domain-verification-needed',
 		);
 	}
 
@@ -79,8 +86,11 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 		}
 
 		$suppress_list = array(
+			// Woo Core.
 			'wc-admin-adding-and-managing-products',
 			'wc-admin-choosing-a-theme',
+			'wc-admin-launch-checklist',
+			'wc-admin-personalize-store',
 			'wc-admin-customizing-product-catalog',
 			'wc-admin-first-product',
 			'wc-admin-store-notice-giving-feedback-2',
@@ -88,21 +98,33 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 			'wc-admin-insight-first-sale',
 			'wc-admin-install-jp-and-wcs-plugins',
 			'wc-admin-manage-store-activity-from-home-screen',
-			'wc-admin-onboarding-payments-reminder',
 			'wc-admin-usage-tracking-opt-in',
 			'wc-admin-remove-unsecured-report-files',
 			'wc-admin-update-store-details',
 			'wc-admin-welcome-to-woocommerce-for-store-users',
 			'wc-admin-woocommerce-payments',
-			'wc-admin-woocommerce-subscriptions',
-			'wc-pb-bulk-discounts',
 			'wc-payments-notes-set-up-refund-policy',
-			'wc-admin-marketing-jetpack-backup', // suppress for now, to be revisited.
+			'wc-admin-marketing-jetpack-backup',
 			'wc-admin-migrate-from-shopify', // suppress for now, to be revisited.
 			'wc-admin-magento-migration', // suppress for now, to be revisited.
 			'wc-admin-woocommerce-subscriptions', // suppress for now, to be revisited.
 			'wc-admin-online-clothing-store', // suppress for now, to be revisited.
 			'wc-admin-selling-online-courses', // suppress for now, to be revisited.
+			// Extensions.
+			'gla-invalid-php-version',
+			'gla-64-bit',
+			'gla-wc-admin',
+			'gla-wc-requirement',
+			'facebook-for-woocommerce-settings-moved-to-marketing',
+			'wc-payments-notes-set-up-stripe-link',
+			'wc-pb-bulk-discounts',
+			'wc-prl-whats-new-1-4',
+			'automatewoo-system-checks',
+			'automatewoo-php-minimum-version-check',
+			'automatewoo-wc-minimum-version-check',
+			'automatewoo-welcome-notification',
+			'automatewoo-subscriptions-addon-deactivated',
+			'automatewoo-update',
 		);
 
 		if ( ! WCAdminHelper::is_wc_admin_active_for( 5 * DAY_IN_SECONDS ) ) {
