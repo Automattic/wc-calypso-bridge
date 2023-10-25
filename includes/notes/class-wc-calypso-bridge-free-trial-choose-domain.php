@@ -84,9 +84,9 @@ class WC_Calypso_Bridge_Free_Trial_Choose_Domain_Note {
 
 		$note = new Note();
 
-		$note->set_title( __( 'Pick a domain for your store', 'wc-calypso-bridge' ) );
+		$note->set_title( __( 'Pick a domain for your new store', 'wc-calypso-bridge' ) );
 		$note->set_content(
-			__( 'A short, easy-to-remember domain name is a must-have for your business. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust.', 'wc-calypso-bridge' ) .
+			__( 'A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust.', 'wc-calypso-bridge' ) .
 			'<br><br>' .
 			__( 'Ready to make that perfect domain yours?', 'wc-calypso-bridge' )
 		);
