@@ -135,7 +135,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 		}
 
 		// If a suppress-list exists and the message is there, do not create it.
-		if ( $this->has_suppress_list() && ! $this->is_suppress_listed( $note ) ) {
+		if ( $this->has_suppress_list() && $this->is_suppress_listed( $note ) ) {
 			return;
 		}
 
