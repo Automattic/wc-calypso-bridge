@@ -178,7 +178,7 @@ class WC_Calypso_Bridge_Plugins {
 		if ( isset( $_GET['prevent_wc_deactivation'] ) ) { // WPCS: CSRF ok, input var ok, sanitization ok.
 			?>
 			<div class="notice notice-error is-dismissible">
-				<p><?php esc_html_e( 'WooCommerce can\'t be deactivated on the eCommerce plan.', 'wc-calypso-bridge' ); ?></p>
+				<p><?php esc_html_e( 'WooCommerce cannot be deactivated on this plan.', 'wc-calypso-bridge' ); ?></p>
 			</div>
 			<?php
 		}
