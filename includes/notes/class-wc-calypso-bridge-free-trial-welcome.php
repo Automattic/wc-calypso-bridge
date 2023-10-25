@@ -34,7 +34,6 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 	 */
 	public static function get_note() {
 
-		// Note is added from the woocommerce_create_pages one-time operation.
 		$note = new Note();
 		$note->set_title( __( 'Your Woo Express free trial has just started', 'wc-calypso-bridge' ) );
 		$note->set_content(
