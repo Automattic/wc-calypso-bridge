@@ -9,14 +9,22 @@
 
 defined( 'ABSPATH' ) || exit;
 
+use Automattic\WooCommerce\Admin\WCAdminHelper;
 use Automattic\WooCommerce\Admin\Notes\Note;
 use Automattic\WooCommerce\Admin\Notes\DataStore;
-use Automattic\WooCommerce\Admin\WCAdminHelper;
+use Automattic\WooCommerce\Admin\RemoteInboxNotifications\DataSourcePoller;
 
 /**
  * WC Calypso Bridge Admin Notes Data Store
  */
 class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
+
+	/**
+	 * Runtime-cached allow list.
+	 *
+	 * @var array
+	 */
+	protected $allow_list = null;
 
 	/**
 	 * Indicates whether there's an allow-list.
@@ -34,25 +42,47 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 */
 	protected function get_allow_list() {
 
-		if ( ! $this->has_allow_list() ) {
-			return array();
+		if ( ! is_null( $this->allow_list ) ) {
+			return $this->allow_list;
 		}
 
-		return array(
-			// Woo Core.
-			'wc-admin-add-first-product-note',
-			'wc-admin-mobile-app',
-			'wc-admin-test-checkout',
-			'wc-admin-payments-remind-me-later',
-			'wc-admin-onboarding-payments-reminder',
-			'wc-admin-orders-milestone',
-			'',
-			// Woo Express lifeycle messages.
-			'wc-calypso-bridge-free-trial-welcome',
-			'wc-calypso-bridge-free-trial-choose-domain',
-			// Extensions.
-			'stripe-apple-pay-domain-verification-needed',
-		);
+		if ( ! $this->has_allow_list() ) {
+
+			$this->allow_list = array();
+
+		} else {
+
+			$allow_list = array(
+				// Woo Core.
+				'wc-admin-add-first-product-note',
+				'wc-admin-mobile-app',
+				'wc-admin-test-checkout',
+				'wc-admin-payments-remind-me-later',
+				'wc-admin-onboarding-payments-reminder',
+				'wc-admin-orders-milestone',
+				// Woo Express lifeycle messages.
+				'wc-calypso-bridge-free-trial-welcome',
+				'wc-calypso-bridge-free-trial-choose-domain',
+				// Extensions.
+				'stripe-apple-pay-domain-verification-needed',
+			);
+
+			// Allow Remote Inbox Notifications targeting Woo Express sites to be saved.
+			$data = DataSourcePoller::get_instance()->get_specs_from_data_sources();
+			foreach ( $data as $spec ) {
+				if ( isset( $spec->rules ) && is_array( $spec->rules ) ) {
+					foreach ( $spec->rules as $rule ) {
+						if ( isset( $rule->type ) && 'is_wooexpress' === $rule->type ) {
+							$allow_list[] = $spec->slug;
+						}
+					}
+				}
+			}
+
+			$this->allow_list = $allow_list;
+		}
+
+		return $this->allow_list;
 	}
 
 	/**
