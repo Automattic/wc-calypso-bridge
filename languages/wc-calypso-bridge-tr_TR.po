@@ -11,27 +11,31 @@ msgstr ""
 "Language: tr\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: includes/class-wc-calypso-bridge-setup.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+msgid "Add New Order"
+msgstr ""
+
+#: includes/class-wc-calypso-bridge-setup.php:286
 msgctxt "Page slug"
 msgid "refund_returns"
 msgstr "refund_returns"
 
-#: includes/class-wc-calypso-bridge-setup.php:283
+#: includes/class-wc-calypso-bridge-setup.php:285
 msgctxt "Page slug"
 msgid "my-account"
 msgstr "hesabim"
 
-#: includes/class-wc-calypso-bridge-setup.php:282
+#: includes/class-wc-calypso-bridge-setup.php:284
 msgctxt "Page slug"
 msgid "checkout"
 msgstr "odeme"
 
-#: includes/class-wc-calypso-bridge-setup.php:281
+#: includes/class-wc-calypso-bridge-setup.php:283
 msgctxt "Page slug"
 msgid "cart"
 msgstr "sepet"
 
-#: includes/class-wc-calypso-bridge-setup.php:280
+#: includes/class-wc-calypso-bridge-setup.php:282
 msgctxt "Page slug"
 msgid "shop"
 msgstr "magaza"
@@ -918,16 +922,16 @@ msgstr "Ücretsiz deneme süresi boyunca sadece test siparişleri verebilirsiniz
 msgid "Start selling to everyone"
 msgstr "Herkese satış yapmaya başlama"
 
-#: includes/class-wc-calypso-bridge-setup.php:387
+#: includes/class-wc-calypso-bridge-setup.php:389
 msgid "My Account"
 msgstr "Hesabım"
 
-#: includes/class-wc-calypso-bridge-setup.php:385
+#: includes/class-wc-calypso-bridge-setup.php:387
 msgid "Contact"
 msgstr "İletişim"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:376
+#: includes/class-wc-calypso-bridge-setup.php:378
 msgid "Home"
 msgstr "Başlangıç"
 
@@ -961,61 +965,63 @@ msgstr "Siparişiniz verilemedi. Ödeme işlevi şu anda yalnızca önizleme ama
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Bu mağaza sipariş almaya hazır değil. Ödeme işlevi şu anda yalnızca önizleme amacıyla etkinleştirilmiştir."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Jetpack Stats"
 msgstr "Jetpack İstatistikleri"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:491
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:536
 msgid "Jetpack Status"
 msgstr "Jetpack Durumu"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:470
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:515
 msgid "Anti-Spam"
 msgstr "Anti-Spam"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:316
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:375
 msgid "Discover"
 msgstr "Keşfet"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 #: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "Yönetin"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:364
 msgid "Extensions"
 msgstr "Genişleme paketleri"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:301
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:360
 msgid "Customers"
 msgstr "Müşteriler"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:350
 msgid "Legacy Reports"
 msgstr "Eski Raporlar"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:343
 msgid "WooCommerce Status"
 msgstr "WooCommerce durumu"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 msgid "WooCommerce Settings"
 msgstr "WooCommerce Ayarları"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:275
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:111
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:112
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:117
 msgid "Orders"
 msgstr "Siparişler"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:183
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:232
 msgid "My Home"
 msgstr "Evim"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:86
 msgid "Feedback"
 msgstr "Geri Bildirim"
 
@@ -1084,7 +1090,7 @@ msgstr "Sipariş ayrıntıları müşteriye postayla gönderildi."
 msgid "Invalid order ID."
 msgstr "Geçersiz sipariş kimliği."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -1208,6 +1214,7 @@ msgid "Welcome"
 msgstr "Hoşgeldiniz"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New"
 msgstr "Yeni ekle"
 
@@ -1219,7 +1226,7 @@ msgstr "WooCommerce, E-Ticaret paketinde devre dışı bırakılamaz."
 msgid "Store"
 msgstr "Mağaza"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Stats"
 msgstr "İstatistikler"
 

@@ -11,27 +11,31 @@ msgstr ""
 "Language: id\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: includes/class-wc-calypso-bridge-setup.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+msgid "Add New Order"
+msgstr ""
+
+#: includes/class-wc-calypso-bridge-setup.php:286
 msgctxt "Page slug"
 msgid "refund_returns"
 msgstr "pengembalian_dana_dan_barang"
 
-#: includes/class-wc-calypso-bridge-setup.php:283
+#: includes/class-wc-calypso-bridge-setup.php:285
 msgctxt "Page slug"
 msgid "my-account"
 msgstr "my-account"
 
-#: includes/class-wc-calypso-bridge-setup.php:282
+#: includes/class-wc-calypso-bridge-setup.php:284
 msgctxt "Page slug"
 msgid "checkout"
 msgstr "checkout"
 
-#: includes/class-wc-calypso-bridge-setup.php:281
+#: includes/class-wc-calypso-bridge-setup.php:283
 msgctxt "Page slug"
 msgid "cart"
 msgstr "cart"
 
-#: includes/class-wc-calypso-bridge-setup.php:280
+#: includes/class-wc-calypso-bridge-setup.php:282
 msgctxt "Page slug"
 msgid "shop"
 msgstr "shop"
@@ -918,16 +922,16 @@ msgstr "Selama periode percobaan, Anda hanya bisa membuat pesanan uji coba! Untu
 msgid "Start selling to everyone"
 msgstr "Mulai berjualan ke semua orang"
 
-#: includes/class-wc-calypso-bridge-setup.php:387
+#: includes/class-wc-calypso-bridge-setup.php:389
 msgid "My Account"
 msgstr "Akun Saya"
 
-#: includes/class-wc-calypso-bridge-setup.php:385
+#: includes/class-wc-calypso-bridge-setup.php:387
 msgid "Contact"
 msgstr "kontak"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:376
+#: includes/class-wc-calypso-bridge-setup.php:378
 msgid "Home"
 msgstr "Beranda"
 
@@ -961,61 +965,63 @@ msgstr "Pesanan Anda tidak dapat dibuat. Saat ini fungsi checkout diaktifkan han
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Toko ini belum siap menerima pesanan. Saat ini fungsi checkout diaktifkan hanya untuk tujuan pratinjau."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Jetpack Stats"
 msgstr "Statistik Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:491
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:536
 msgid "Jetpack Status"
 msgstr "Status Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:470
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:515
 msgid "Anti-Spam"
 msgstr "Anti-Spam"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:316
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:375
 msgid "Discover"
 msgstr "Temukan"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 #: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "Atur"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:364
 msgid "Extensions"
 msgstr "Ekstensi"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:301
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:360
 msgid "Customers"
 msgstr "Pelanggan"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:350
 msgid "Legacy Reports"
 msgstr "Laporan Lawas"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:343
 msgid "WooCommerce Status"
 msgstr "Status WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 msgid "WooCommerce Settings"
 msgstr "Pengaturan WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:275
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:111
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:112
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:117
 msgid "Orders"
 msgstr "Pesanan"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:183
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:232
 msgid "My Home"
 msgstr "Beranda Saya"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:86
 msgid "Feedback"
 msgstr "Umpan Balik"
 
@@ -1084,7 +1090,7 @@ msgstr "Detail pesanan dikirim secara manual kepada pelanggan."
 msgid "Invalid order ID."
 msgstr "ID pesanan tidak valid."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -1208,6 +1214,7 @@ msgid "Welcome"
 msgstr "Selamat Datang"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New"
 msgstr "Tambahkan Baru"
 
@@ -1219,7 +1226,7 @@ msgstr "WooCommerce tidak dapat dinonaktifkan pada paket eCommerce."
 msgid "Store"
 msgstr "Toko"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Stats"
 msgstr "Statistik"
 
