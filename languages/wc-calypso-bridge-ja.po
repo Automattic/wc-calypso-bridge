@@ -11,27 +11,31 @@ msgstr ""
 "Language: ja_JP\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: includes/class-wc-calypso-bridge-setup.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+msgid "Add New Order"
+msgstr ""
+
+#: includes/class-wc-calypso-bridge-setup.php:286
 msgctxt "Page slug"
 msgid "refund_returns"
 msgstr "refund_returns"
 
-#: includes/class-wc-calypso-bridge-setup.php:283
+#: includes/class-wc-calypso-bridge-setup.php:285
 msgctxt "Page slug"
 msgid "my-account"
 msgstr "my-account"
 
-#: includes/class-wc-calypso-bridge-setup.php:282
+#: includes/class-wc-calypso-bridge-setup.php:284
 msgctxt "Page slug"
 msgid "checkout"
 msgstr "checkout"
 
-#: includes/class-wc-calypso-bridge-setup.php:281
+#: includes/class-wc-calypso-bridge-setup.php:283
 msgctxt "Page slug"
 msgid "cart"
 msgstr "cart"
 
-#: includes/class-wc-calypso-bridge-setup.php:280
+#: includes/class-wc-calypso-bridge-setup.php:282
 msgctxt "Page slug"
 msgid "shop"
 msgstr "shop"
@@ -918,16 +922,16 @@ msgstr "無料お試し期間中に行えるのはテスト注文のみです ! 
 msgid "Start selling to everyone"
 msgstr "すべての人に販売を開始"
 
-#: includes/class-wc-calypso-bridge-setup.php:387
+#: includes/class-wc-calypso-bridge-setup.php:389
 msgid "My Account"
 msgstr "マイアカウント"
 
-#: includes/class-wc-calypso-bridge-setup.php:385
+#: includes/class-wc-calypso-bridge-setup.php:387
 msgid "Contact"
 msgstr "お問い合わせ"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:376
+#: includes/class-wc-calypso-bridge-setup.php:378
 msgid "Home"
 msgstr "ホーム"
 
@@ -961,61 +965,63 @@ msgstr "注文できませんでした。 現在、購入手続き機能はプ�
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "このストアで注文を受け付ける準備ができていません。 現在、購入手続き機能はプレビュー目的でのみ有効になっています。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Jetpack Stats"
 msgstr "Jetpack 統計"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:491
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:536
 msgid "Jetpack Status"
 msgstr "Jetpack ステータス"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:470
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:515
 msgid "Anti-Spam"
 msgstr "スパム対策"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:316
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:375
 msgid "Discover"
 msgstr "Discover"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 #: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "管理"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:364
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:301
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:360
 msgid "Customers"
 msgstr "顧客"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:350
 msgid "Legacy Reports"
 msgstr "レガシーレポート"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:343
 msgid "WooCommerce Status"
 msgstr "WooCommerce ステータス"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 msgid "WooCommerce Settings"
 msgstr "WooCommerce 設定"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:275
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:111
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:112
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:117
 msgid "Orders"
 msgstr "注文"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:183
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:232
 msgid "My Home"
 msgstr "ホーム"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:86
 msgid "Feedback"
 msgstr "フィードバック"
 
@@ -1084,7 +1090,7 @@ msgstr "注文の詳細が手動でお客様に送信されました。"
 msgid "Invalid order ID."
 msgstr "無効な注文番号です。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -1208,6 +1214,7 @@ msgid "Welcome"
 msgstr "ようこそ"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New"
 msgstr "新規追加"
 
@@ -1219,7 +1226,7 @@ msgstr "eコマースプランでは、WooCommerce を無効化できません�
 msgid "Store"
 msgstr "ストア"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Stats"
 msgstr "統計"
 

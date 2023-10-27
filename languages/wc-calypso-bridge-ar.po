@@ -11,27 +11,31 @@ msgstr ""
 "Language: ar\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: includes/class-wc-calypso-bridge-setup.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+msgid "Add New Order"
+msgstr ""
+
+#: includes/class-wc-calypso-bridge-setup.php:286
 msgctxt "Page slug"
 msgid "refund_returns"
 msgstr "refund_returns"
 
-#: includes/class-wc-calypso-bridge-setup.php:283
+#: includes/class-wc-calypso-bridge-setup.php:285
 msgctxt "Page slug"
 msgid "my-account"
 msgstr "my-account"
 
-#: includes/class-wc-calypso-bridge-setup.php:282
+#: includes/class-wc-calypso-bridge-setup.php:284
 msgctxt "Page slug"
 msgid "checkout"
 msgstr "checkout"
 
-#: includes/class-wc-calypso-bridge-setup.php:281
+#: includes/class-wc-calypso-bridge-setup.php:283
 msgctxt "Page slug"
 msgid "cart"
 msgstr "cart"
 
-#: includes/class-wc-calypso-bridge-setup.php:280
+#: includes/class-wc-calypso-bridge-setup.php:282
 msgctxt "Page slug"
 msgid "shop"
 msgstr "shop"
@@ -918,16 +922,16 @@ msgstr "في أثناء الفترة التجريبية، يمكنك تقديم 
 msgid "Start selling to everyone"
 msgstr "بدء البيع للجميع"
 
-#: includes/class-wc-calypso-bridge-setup.php:387
+#: includes/class-wc-calypso-bridge-setup.php:389
 msgid "My Account"
 msgstr "حسابي"
 
-#: includes/class-wc-calypso-bridge-setup.php:385
+#: includes/class-wc-calypso-bridge-setup.php:387
 msgid "Contact"
 msgstr "جهة الاتصال"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:376
+#: includes/class-wc-calypso-bridge-setup.php:378
 msgid "Home"
 msgstr "الصفحة الرئيسية"
 
@@ -961,61 +965,63 @@ msgstr "يتعذر تقديم طلبك. تم تمكين وظيفة السداد 
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "هذا المتجر غير جاهز لقبول الطلبات. تم تمكين وظيفة السداد حاليًا لأغراض المعاينة فقط."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Jetpack Stats"
 msgstr "إحصاءات Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:491
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:536
 msgid "Jetpack Status"
 msgstr "حالة Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:470
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:515
 msgid "Anti-Spam"
 msgstr "مكافحة البريد المزعج"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:316
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:375
 msgid "Discover"
 msgstr "اكتشاف"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 #: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "إدارة"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:308
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:305
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:364
 msgid "Extensions"
 msgstr "الإضافات"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:301
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:360
 msgid "Customers"
 msgstr "العملاء"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:291
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:350
 msgid "Legacy Reports"
 msgstr "تقارير قديمة"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:284
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:343
 msgid "WooCommerce Status"
 msgstr "حالة WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 msgid "WooCommerce Settings"
 msgstr "إعدادات WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:275
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:111
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:112
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:117
 msgid "Orders"
 msgstr "الطلبات"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:183
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:232
 msgid "My Home"
 msgstr "صفحتي الرئيسية"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:85
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:86
 msgid "Feedback"
 msgstr "الرسائل"
 
@@ -1084,7 +1090,7 @@ msgstr "تم إرسال تفاصيل الطلب يدويًّا إلى العمي
 msgid "Invalid order ID."
 msgstr "مُعرّف طلب غير صالح."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:280
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -1208,6 +1214,7 @@ msgid "Welcome"
 msgstr "مرحباً"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New"
 msgstr "أضف جديدا"
 
@@ -1219,7 +1226,7 @@ msgstr "يتعذّر إلغاء تفعيل WooCommerce في خطة التجار�
 msgid "Store"
 msgstr "المتجر"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:493
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
 msgid "Stats"
 msgstr "الإحصاءات"
 

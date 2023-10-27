@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.2.19 =
 * Fix CYS conflict with wpcom.editor #1336
 
 = 2.2.18 =
