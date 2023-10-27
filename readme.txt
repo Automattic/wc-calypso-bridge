@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Fix CYS conflict with wpcom.editor #1336
+
 = 2.2.18 =
 * Fix the "Orders" menu position when using HPOS #1330
 * Preconfigure product measurement units #1309

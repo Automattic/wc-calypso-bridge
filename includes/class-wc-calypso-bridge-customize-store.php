@@ -40,6 +40,14 @@ class WC_Calypso_Bridge_Customize_Store {
 				add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
 			}
 		});
+
+		// wpcom.editor.js conflicts with CYS scripts due to double registration of the private-apis
+		// dequeue it on CYS pages.
+		add_action( 'admin_print_scripts', function() {
+			if ( isset( $_GET['path'] ) && str_contains( wp_unslash( $_GET['path'] ), '/customize-store/' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				wp_dequeue_script( 'wpcom-block-editor-wpcom-editor-script' );
+			}
+		}, 9999);
 	}
 
 	/**
