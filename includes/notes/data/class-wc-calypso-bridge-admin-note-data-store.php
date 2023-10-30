@@ -24,7 +24,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 *
 	 * @var array
 	 */
-	protected $allow_list = null;
+	protected $allow_list;
 
 	/**
 	 * Indicates whether there's an allow-list.
@@ -38,49 +38,47 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	/**
 	 * Returns a list of messages to allow.
 	 *
-	 * @return array
+	 * @return array|null
 	 */
 	protected function get_allow_list() {
 
-		if ( ! is_null( $this->allow_list ) ) {
+		if ( ! $this->has_allow_list() ) {
+			return null;
+		}
+
+		// If initialized, return it.
+		if ( is_array( $this->allow_list ) ) {
 			return $this->allow_list;
 		}
 
-		if ( ! $this->has_allow_list() ) {
+		$allow_list = array(
+			// Woo Core.
+			'wc-admin-add-first-product-note',
+			'wc-admin-mobile-app',
+			'wc-admin-test-checkout',
+			'wc-admin-payments-remind-me-later',
+			'wc-admin-onboarding-payments-reminder',
+			'wc-admin-orders-milestone',
+			// Woo Express lifeycle messages.
+			'wc-calypso-bridge-free-trial-welcome',
+			'wc-calypso-bridge-free-trial-choose-domain',
+			// Extensions.
+			'stripe-apple-pay-domain-verification-needed',
+		);
 
-			$this->allow_list = array();
-
-		} else {
-
-			$allow_list = array(
-				// Woo Core.
-				'wc-admin-add-first-product-note',
-				'wc-admin-mobile-app',
-				'wc-admin-test-checkout',
-				'wc-admin-payments-remind-me-later',
-				'wc-admin-onboarding-payments-reminder',
-				'wc-admin-orders-milestone',
-				// Woo Express lifeycle messages.
-				'wc-calypso-bridge-free-trial-welcome',
-				'wc-calypso-bridge-free-trial-choose-domain',
-				// Extensions.
-				'stripe-apple-pay-domain-verification-needed',
-			);
-
-			// Allow Remote Inbox Notifications targeting Woo Express sites to be saved.
-			$data = DataSourcePoller::get_instance()->get_specs_from_data_sources();
-			foreach ( $data as $spec ) {
-				if ( isset( $spec->rules ) && is_array( $spec->rules ) ) {
-					foreach ( $spec->rules as $rule ) {
-						if ( isset( $rule->type ) && 'is_wooexpress' === $rule->type ) {
-							$allow_list[] = $spec->slug;
-						}
+		// Allow Remote Inbox Notifications targeting Woo Express sites to be saved.
+		$data = DataSourcePoller::get_instance()->get_specs_from_data_sources();
+		foreach ( $data as $spec ) {
+			if ( isset( $spec->rules ) && is_array( $spec->rules ) ) {
+				foreach ( $spec->rules as $rule ) {
+					if ( isset( $rule->type ) && 'is_wooexpress' === $rule->type ) {
+						$allow_list[] = $spec->slug;
 					}
 				}
 			}
-
-			$this->allow_list = $allow_list;
 		}
+
+		$this->allow_list = $allow_list;
 
 		return $this->allow_list;
 	}
@@ -92,6 +90,9 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 * @return boolean
 	 */
 	protected function is_allow_listed( $note ) {
+		if ( ! $this->has_allow_list() ) {
+			return true;
+		}
 		return in_array( $note->get_name(), $this->get_allow_list() );
 	}
 
@@ -107,12 +108,12 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	/**
 	 * Returns a list of messages to suppress.
 	 *
-	 * @return array
+	 * @return array|null
 	 */
 	protected function get_suppress_list() {
 
 		if ( ! $this->has_suppress_list() ) {
-			return array();
+			return null;
 		}
 
 		$suppress_list = array(
@@ -171,6 +172,9 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 * @return boolean
 	 */
 	protected function is_suppress_listed( $note ) {
+		if ( ! $this->has_suppress_list() ) {
+			return false;
+		}
 		return in_array( $note->get_name(), $this->get_suppress_list() );
 	}
 
