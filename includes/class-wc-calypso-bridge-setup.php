@@ -200,14 +200,17 @@ class WC_Calypso_Bridge_Setup {
 				return;
 			}
 
-			if ( ! WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
+			$operation = 'add_free_trial_welcome_note';
 
-				include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-free-trial-welcome.php';
-				$note = new WC_Calypso_Bridge_Free_Trial_Welcome_Note();
-				$note->get_note()->save();
+			// Set the operation as completed if the store is active for more than 60 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+				return;
 			}
 
-			$operation = 'add_free_trial_welcome_note';
+			include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-free-trial-welcome.php';
+			WC_Calypso_Bridge_Free_Trial_Welcome_Note::possibly_add_note();
+
 			update_option( $this->option_prefix . $operation, 'completed', 'no' );
 
 		}, PHP_INT_MAX );
@@ -560,7 +563,7 @@ class WC_Calypso_Bridge_Setup {
 			);
 
 			// Set defaults only if the store is brand new (been active for less than 5 minutes).
-			if ( ! WCAdminHelper::is_wc_admin_active_for( 300 ) ) {
+			if ( ! WCAdminHelper::is_wc_admin_active_for( 5 * MINUTE_IN_SECONDS ) ) {
 				update_option( 'jetpack_active_modules', $active_modules );
 				update_option( 'sharing-options', $sharing_options );
 			}

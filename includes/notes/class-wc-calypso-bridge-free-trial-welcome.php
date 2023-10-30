@@ -54,4 +54,29 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 
 		return $note;
 	}
+
+	/**
+	 * Checks if the note can and should be added.
+	 *
+	 * @return bool
+	 * @throws NotesUnavailableException Throws exception when notes are unavailable.
+	 */
+	public static function can_be_added() {
+		$note = self::get_note();
+
+		if ( ! $note instanceof Note && ! $note instanceof WC_Admin_Note ) {
+			return;
+		}
+
+		if ( self::note_exists() ) {
+			return false;
+		}
+
+		// Free trial plan.
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return false;
+		}
+
+		return true;
+	}
 }
