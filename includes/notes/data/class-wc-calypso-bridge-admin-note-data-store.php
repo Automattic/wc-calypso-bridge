@@ -208,10 +208,10 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 */
 	protected function args_to_where_clauses( $args = array() ) {
 		$allowed_types    = Note::get_allowed_types();
-		$where_type_array = $this->get_escaped_arguments_array_by_key( $args, 'type', $allowed_types );
+		$where_type_array = $this->get_escaped_arguments_array_by( $args, 'type', $allowed_types );
 
 		$allowed_statuses   = Note::get_allowed_statuses();
-		$where_status_array = $this->get_escaped_arguments_array_by_key( $args, 'status', $allowed_statuses );
+		$where_status_array = $this->get_escaped_arguments_array_by( $args, 'status', $allowed_statuses );
 
 		$escaped_is_deleted = '';
 		if ( isset( $args['is_deleted'] ) ) {
@@ -228,9 +228,9 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 			$args_for_excluded_name[ 'excluded_name' ] = isset( $args[ 'excluded_name' ] ) ? array_unique( array_merge( $args[ 'excluded_name' ], $this->get_suppress_list() ) ) : $this->get_suppress_list();
 		}
 
-		$where_name_array          = $this->get_escaped_arguments_array_by_key( $args_for_name, 'name' );
-		$where_excluded_name_array = $this->get_escaped_arguments_array_by_key( $args_for_excluded_name, 'excluded_name' );
-		$where_source_array        = $this->get_escaped_arguments_array_by_key( $args, 'source' );
+		$where_name_array          = $this->get_escaped_arguments_array_by( $args_for_name, 'name' );
+		$where_excluded_name_array = $this->get_escaped_arguments_array_by( $args_for_excluded_name, 'excluded_name' );
+		$where_source_array        = $this->get_escaped_arguments_array_by( $args, 'source' );
 
 		$escaped_where_types          = implode( ',', $where_type_array );
 		$escaped_where_status         = implode( ',', $where_status_array );
@@ -266,5 +266,28 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 		$where_clauses .= $escaped_is_deleted ? ' AND is_deleted = 1' : ' AND is_deleted = 0';
 
 		return $where_clauses;
+	}
+
+	/**
+	 * Parses the query arguments passed in as arrays and escapes the values.
+	 * Re-declared to be usable from this class.
+	 *
+	 * @param array      $args the query arguments.
+	 * @param string     $key the key of the specific argument.
+	 * @param array|null $allowed_types optional allowed_types if only a specific set is allowed.
+	 * @return array the escaped array of argument values.
+	 */
+	private function get_escaped_arguments_array_by( $args = array(), $key = '', $allowed_types = null ) {
+		$arg_array = array();
+		if ( isset( $args[ $key ] ) ) {
+			foreach ( $args[ $key ] as $args_type ) {
+				$args_type = trim( $args_type );
+				$allowed   = is_null( $allowed_types ) || in_array( $args_type, $allowed_types, true );
+				if ( $allowed ) {
+					$arg_array[] = sprintf( "'%s'", esc_sql( $args_type ) );
+				}
+			}
+		}
+		return $arg_array;
 	}
 }
