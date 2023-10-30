@@ -1,7 +1,7 @@
 <?php
 /**
  * WooCommerce Calypso Bridge
- * Free Trial Choose Domain Note
+ * Choose Domain Note
  *
  * @package WC_Calypso_Bridge/Notes
  * @since   x.x.x
@@ -90,7 +90,7 @@ class WC_Calypso_Bridge_Choose_Domain_Note {
 		$note->set_name( self::NOTE_NAME );
 		$note->set_source( 'wc-calypso-bridge' );
 		$note->add_action(
-			'free-trial-free-domain-upgrade',
+			'woo-express-domain-upgrade',
 			__( 'Choose a domain', 'wc-calypso-bridge' ),
 			self::get_action_url()
 		);
