@@ -15,9 +15,9 @@ use Automattic\WooCommerce\Admin\WCAdminHelper;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * WC_Calypso_Bridge_Free_Trial_Choose_Domain_Note
+ * WC_Calypso_Bridge_Choose_Domain_Note
  */
-class WC_Calypso_Bridge_Free_Trial_Choose_Domain_Note {
+class WC_Calypso_Bridge_Choose_Domain_Note {
 	/**
 	 * Note traits.
 	 */
@@ -26,7 +26,7 @@ class WC_Calypso_Bridge_Free_Trial_Choose_Domain_Note {
 	/**
 	 * Name of the note for use in the database.
 	 */
-	const NOTE_NAME = 'wc-calypso-bridge-free-trial-choose-domain';
+	const NOTE_NAME = 'wc-calypso-bridge-choose-domain';
 
 	/**
 	 * Checks if the note can be added.
@@ -42,11 +42,6 @@ class WC_Calypso_Bridge_Free_Trial_Choose_Domain_Note {
 		}
 
 		if ( self::note_exists() ) {
-			return false;
-		}
-
-		// Free trial plan.
-		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return false;
 		}
 
