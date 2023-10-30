@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.4
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -161,10 +161,10 @@ class WC_Calypso_Bridge_Plugins {
 	public function prevent_woocommerce_deactivation_route() {
 		$screen = get_current_screen();
 		if ( 'plugins' === $screen->base
-			&& isset( $_GET['action'] ) // WPCS: CSRF ok.
-			&& isset( $_GET['plugin'] ) // WPCS: CSRF ok.
-			&& 'deactivate' === $_GET['action'] // WPCS: CSRF ok.
-			&& 'woocommerce/woocommerce.php' === $_GET['plugin'] // WPCS: CSRF ok.
+			 && isset( $_GET['action'] ) // WPCS: CSRF ok.
+			 && isset( $_GET['plugin'] ) // WPCS: CSRF ok.
+			 && 'deactivate' === $_GET['action'] // WPCS: CSRF ok.
+			 && 'woocommerce/woocommerce.php' === $_GET['plugin'] // WPCS: CSRF ok.
 		) {
 			wp_safe_redirect( admin_url( 'plugins.php?prevent_wc_deactivation=1' ) );
 			exit;
@@ -220,7 +220,7 @@ class WC_Calypso_Bridge_Plugins {
 	 *
 	 * @since  1.9.5
 	 *
-	 * @param  array $cols Array of product columns.
+	 * @param array $cols Array of product columns.
 	 * @return array
 	 */
 	public function remove_jetpack_stats_column( $cols ) {

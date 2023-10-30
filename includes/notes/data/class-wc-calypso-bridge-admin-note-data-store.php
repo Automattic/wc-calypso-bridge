@@ -86,14 +86,15 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	/**
 	 * Indicates whether a note is allowed.
 	 *
-	 * @param  Note  $note
+	 * @param  Note $note
 	 * @return boolean
 	 */
 	protected function is_allow_listed( $note ) {
 		if ( ! $this->has_allow_list() ) {
 			return true;
 		}
-		return in_array( $note->get_name(), $this->get_allow_list() );
+
+		return in_array( $note->get_name(), $this->get_allow_list(), true );
 	}
 
 	/**
@@ -169,14 +170,15 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	/**
 	 * Indicates whether a note must be suppressed.
 	 *
-	 * @param  Note  $note
+	 * @param Note $note
 	 * @return boolean
 	 */
 	protected function is_suppress_listed( $note ) {
 		if ( ! $this->has_suppress_list() ) {
 			return false;
 		}
-		return in_array( $note->get_name(), $this->get_suppress_list() );
+
+		return in_array( $note->get_name(), $this->get_suppress_list(), true );
 	}
 
 	/**
@@ -220,12 +222,12 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 
 		$args_for_name = $args;
 		if ( $this->has_allow_list() ) {
-			$args_for_name['name'] = isset( $args[ 'name' ] ) ? array_intersect( $args[ 'name' ], $this->get_allow_list() ) : $this->get_allow_list();
+			$args_for_name['name'] = isset( $args['name'] ) ? array_intersect( $args['name'], $this->get_allow_list() ) : $this->get_allow_list();
 		}
 
 		$args_for_excluded_name = $args;
 		if ( $this->has_suppress_list() ) {
-			$args_for_excluded_name[ 'excluded_name' ] = isset( $args[ 'excluded_name' ] ) ? array_unique( array_merge( $args[ 'excluded_name' ], $this->get_suppress_list() ) ) : $this->get_suppress_list();
+			$args_for_excluded_name['excluded_name'] = isset( $args['excluded_name'] ) ? array_unique( array_merge( $args['excluded_name'], $this->get_suppress_list() ) ) : $this->get_suppress_list();
 		}
 
 		$where_name_array          = $this->get_escaped_arguments_array_by( $args_for_name, 'name' );
@@ -272,9 +274,10 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 * Parses the query arguments passed in as arrays and escapes the values.
 	 * Re-declared to be usable from this class.
 	 *
-	 * @param array      $args the query arguments.
-	 * @param string     $key the key of the specific argument.
+	 * @param array      $args          the query arguments.
+	 * @param string     $key           the key of the specific argument.
 	 * @param array|null $allowed_types optional allowed_types if only a specific set is allowed.
+	 *
 	 * @return array the escaped array of argument values.
 	 */
 	private function get_escaped_arguments_array_by( $args = array(), $key = '', $allowed_types = null ) {
@@ -288,6 +291,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 				}
 			}
 		}
+
 		return $arg_array;
 	}
 }

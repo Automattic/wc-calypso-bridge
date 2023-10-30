@@ -31,8 +31,8 @@ class WC_Calypso_Bridge_Choose_Domain_Note {
 	/**
 	 * Checks if the note can be added.
 	 *
-	 * @return bool
 	 * @throws NotesUnavailableException Throws exception when notes are unavailable.
+	 * @return bool
 	 */
 	public static function can_be_added() {
 		$note = self::get_note();

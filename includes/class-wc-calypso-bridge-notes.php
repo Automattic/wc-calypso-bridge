@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -29,6 +29,7 @@ class WC_Calypso_Bridge_Notes {
 		if ( null === static::$instance ) {
 			static::$instance = new static();
 		}
+
 		return static::$instance;
 	}
 
@@ -63,7 +64,8 @@ class WC_Calypso_Bridge_Notes {
 	/**
 	 * Delete qualifying notes.
 	 */
-	public function delete_notes() {}
+	public function delete_notes() {
+	}
 }
 
 WC_Calypso_Bridge_Notes::get_instance();

@@ -106,7 +106,7 @@ class WC_Calypso_Bridge_Setup {
 			 *
 			 * @return string
 			 */
-			add_filter( 'pre_option_woocommerce_homescreen_enabled', static function() {
+			add_filter( 'pre_option_woocommerce_homescreen_enabled', static function () {
 				return 'yes';
 			} );
 
@@ -138,17 +138,17 @@ class WC_Calypso_Bridge_Setup {
 	public function modify_one_time_operations() {
 
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
-			unset( $this->one_time_operations[ 'set_jetpack_defaults' ] );
-			unset( $this->one_time_operations[ 'woocommerce_create_pages' ] );
-			unset( $this->one_time_operations[ 'set_wc_tracker_twice_daily' ] );
-			unset( $this->one_time_operations[ 'set_wc_tracker_default' ] );
-			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl' ] );
-			unset( $this->one_time_operations[ 'set_wc_subscriptions_siteurl_add_domain' ] );
-			unset( $this->one_time_operations[ 'set_wc_measurement_units' ] );
+			unset( $this->one_time_operations['set_jetpack_defaults'] );
+			unset( $this->one_time_operations['woocommerce_create_pages'] );
+			unset( $this->one_time_operations['set_wc_tracker_twice_daily'] );
+			unset( $this->one_time_operations['set_wc_tracker_default'] );
+			unset( $this->one_time_operations['set_wc_subscriptions_siteurl'] );
+			unset( $this->one_time_operations['set_wc_subscriptions_siteurl_add_domain'] );
+			unset( $this->one_time_operations['set_wc_measurement_units'] );
 		}
 
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
-			unset( $this->one_time_operations[ 'add_free_trial_welcome_note' ] );
+			unset( $this->one_time_operations['add_free_trial_welcome_note'] );
 		}
 	}
 
@@ -205,6 +205,7 @@ class WC_Calypso_Bridge_Setup {
 			// Set the operation as completed if the store is active for more than 60 minutes.
 			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+
 				return;
 			}
 
@@ -237,6 +238,7 @@ class WC_Calypso_Bridge_Setup {
 			$note = Automattic\WooCommerce\Admin\Notes\Notes::get_note_by_name( 'wc-admin-coupon-page-moved' );
 			if ( false === $note ) {
 				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+
 				return;
 			}
 
@@ -311,7 +313,7 @@ class WC_Calypso_Bridge_Setup {
 				 *
 				 * @see WC_Install::create_pages()
 				 */
-				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGES ');
+				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGES ' );
 
 				$woocommerce_pages = array(
 					'shop'           => _x( 'shop', 'Page slug', 'woocommerce' ),
@@ -335,7 +337,7 @@ class WC_Calypso_Bridge_Setup {
 				 *
 				 * @see WC_Install::create_pages()
 				 */
-				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGE OPTIONS ');
+				$this->write_to_log( $operation, 'DELETING WOOCOMMERCE PAGE OPTIONS ' );
 
 				foreach ( $woocommerce_pages as $key => $page_slug ) {
 					$value  = get_option( "woocommerce_{$key}_page_id" );
@@ -359,7 +361,7 @@ class WC_Calypso_Bridge_Setup {
 				 *
 				 * @see https://github.com/Automattic/theme-tsubaki/blob/trunk/inc/headstart/en.json
 				 */
-				$this->write_to_log( $operation, 'DELETING HEADSTART PAGES ');
+				$this->write_to_log( $operation, 'DELETING HEADSTART PAGES ' );
 
 				$headstart_slugs = array( 'shop', 'cart', 'checkout', 'my-account', 'refund_returns' );
 				foreach ( $headstart_slugs as $page_slug ) {
@@ -369,12 +371,12 @@ class WC_Calypso_Bridge_Setup {
 					}
 				}
 
-				$this->write_to_log( $operation, 'FLUSH CACHE AND SLEEP ');
+				$this->write_to_log( $operation, 'FLUSH CACHE AND SLEEP ' );
 				// sleep for 0.5 second to give enough time to memcache to flush and revalidate.
 				wp_cache_flush();
 				usleep( 500000 );
 
-				$this->write_to_log( $operation, 'GETTING WOOCOMMERCE PAGE OPTIONS AFTER DELETION');
+				$this->write_to_log( $operation, 'GETTING WOOCOMMERCE PAGE OPTIONS AFTER DELETION' );
 				foreach ( $woocommerce_pages as $key => $page_slug ) {
 					$value = get_option( "woocommerce_{$key}_page_id" );
 					$this->write_to_log( $operation, 'getting option woocommerce_' . $key . '_page_id : ' . $value );
@@ -385,7 +387,7 @@ class WC_Calypso_Bridge_Setup {
 					Automattic\WooCommerce\Admin\Notes\Notes::delete_notes_with_name( 'wc-refund-returns-page' );
 				}
 
-				$this->write_to_log( $operation, 'CREATING PAGES ');
+				$this->write_to_log( $operation, 'CREATING PAGES ' );
 				WC_Install::create_pages();
 				$this->write_to_log( $operation, 'finished WC_Install::create_pages' );
 
@@ -497,6 +499,7 @@ class WC_Calypso_Bridge_Setup {
 		add_filter( 'woocommerce_create_page_id', function ( $valid_page_found, $slug, $page_content ) {
 			$operation = 'woocommerce_create_pages';
 			$this->write_to_log( $operation, 'woocommerce_create_page_id force create slug: ' . $slug );
+
 			return false;
 		}, PHP_INT_MAX, 3 );
 
@@ -779,11 +782,11 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * error_log wrapper
 	 *
-	 * @param string       $operation Operation.
-	 * @param string|array $message   Message.
-	 *
 	 * @since 2.2.8
 	 *
+	 * @param string|array $message   Message.
+	 *
+	 * @param string       $operation Operation.
 	 * @return void
 	 */
 	private function write_to_log( $operation, $message ) {
@@ -798,7 +801,7 @@ class WC_Calypso_Bridge_Setup {
 	 *
 	 * @param string $operation Operation.
 	 *
-	 * @param string $slug Slug.
+	 * @param string $slug      Slug.
 	 * @return void
 	 */
 	private function maybe_delete_page_by_slug( $slug, $operation ) {

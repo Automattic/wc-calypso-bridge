@@ -80,7 +80,8 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * @return array
 	 */
 	public static function filter_notes_data_store( $data_stores ) {
-		$data_stores[ 'admin-note' ] = 'WC_Calypso_Bridge_Admin_Note_Data_Store';
+		$data_stores['admin-note'] = 'WC_Calypso_Bridge_Admin_Note_Data_Store';
+
 		return $data_stores;
 	}
 
