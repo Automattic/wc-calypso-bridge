@@ -142,6 +142,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 			'wc-admin-online-clothing-store', // suppress for now, to be revisited.
 			'wc-admin-selling-online-courses', // suppress for now, to be revisited.
 			// Extensions.
+			'woocommerce-services',
 			'gla-invalid-php-version',
 			'gla-64-bit',
 			'gla-wc-admin',
