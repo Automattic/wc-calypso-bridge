@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.0.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -33,7 +33,7 @@ class WC_Calypso_Bridge_Events {
 			return;
 		}
 
-		add_action( 'plugins_loaded', array( $this, 'on_plugin_loaded' ), 0 );
+		add_action( 'plugins_loaded', array( $this, 'on_plugin_loaded' ), PHP_INT_MAX );
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
 	}
 
@@ -61,7 +61,7 @@ class WC_Calypso_Bridge_Events {
 	 */
 	public function on_plugin_loaded() {
 		if ( ! wp_next_scheduled( 'wc_calypso_bridge_daily' ) ) {
-			wp_schedule_event( time(), 'daily', 'wc_calypso_bridge_daily' );
+			wp_schedule_event( time() + 10, 'daily', 'wc_calypso_bridge_daily' );
 		}
 	}
 
