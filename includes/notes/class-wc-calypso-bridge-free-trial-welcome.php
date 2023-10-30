@@ -47,7 +47,7 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 		$note->set_name( self::NOTE_NAME );
 		$note->set_source( 'wc-calypso-bridge' );
 		$note->add_action(
-			'add-product',
+			'woo-express-add-product',
 			__( 'Create your first product', 'wc-calypso-bridge' ),
 			admin_url( 'admin.php?page=wc-admin&task=products' )
 		);
