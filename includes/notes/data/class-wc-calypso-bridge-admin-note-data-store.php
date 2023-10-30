@@ -200,35 +200,71 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	}
 
 	/**
-	 * Parses the query arguments passed in as arrays and escapes the values after modifying results to implement allow/suppress-listing.
+	 * Return where clauses for notes queries without applying woocommerce_note_where_clauses filter.
+	 * INTERNAL: This method is not intended to be used by external code, and may change without notice.
 	 *
-	 * @param array      $args the query arguments.
-	 * @param string     $key the key of the specific argument.
-	 * @param array|null $allowed_types optional allowed_types if only a specific set is allowed.
-	 * @return array the escaped array of argument values.
+	 * @param array $args Array of arguments for query conditionals.
+	 * @return string Where clauses.
 	 */
-	private function get_escaped_arguments_array_by_key( $args = array(), $key = '', $allowed_types = null ) {
+	protected function args_to_where_clauses( $args = array() ) {
+		$allowed_types    = Note::get_allowed_types();
+		$where_type_array = $this->get_escaped_arguments_array_by_key( $args, 'type', $allowed_types );
 
-		$arg_array = array();
+		$allowed_statuses   = Note::get_allowed_statuses();
+		$where_status_array = $this->get_escaped_arguments_array_by_key( $args, 'status', $allowed_statuses );
 
-		if ( 'name' === $key && $this->has_allow_list() ) {
-			$args[ 'name' ] = isset( $args[ 'name' ] ) ? array_intersect( $args[ 'name' ], $this->get_allow_list() ) : $this->get_allow_list();
+		$escaped_is_deleted = '';
+		if ( isset( $args['is_deleted'] ) ) {
+			$escaped_is_deleted = esc_sql( $args['is_deleted'] );
 		}
 
-		if ( 'excluded_name' === $key && $this->has_suppress_list() ) {
-			$args[ 'excluded_name' ] = isset( $args[ 'excluded_name' ] ) ? array_unique( array_merge( $args[ 'excluded_name' ], $this->get_suppress_list() ) ) : $this->get_suppress_list();
+		$args_for_name = $args;
+		if ( $this->has_allow_list() ) {
+			$args_for_name['name'] = isset( $args[ 'name' ] ) ? array_intersect( $args[ 'name' ], $this->get_allow_list() ) : $this->get_allow_list();
 		}
 
-		if ( isset( $args[ $key ] ) ) {
-			foreach ( $args[ $key ] as $args_type ) {
-				$args_type = trim( $args_type );
-				$allowed   = is_null( $allowed_types ) || in_array( $args_type, $allowed_types, true );
-				if ( $allowed ) {
-					$arg_array[] = sprintf( "'%s'", esc_sql( $args_type ) );
-				}
-			}
+		$args_for_excluded_name = $args;
+		if ( $this->has_suppress_list() ) {
+			$args_for_excluded_name[ 'excluded_name' ] = isset( $args[ 'excluded_name' ] ) ? array_unique( array_merge( $args[ 'excluded_name' ], $this->get_suppress_list() ) ) : $this->get_suppress_list();
 		}
 
-		return $arg_array;
+		$where_name_array          = $this->get_escaped_arguments_array_by_key( $args_for_name, 'name' );
+		$where_excluded_name_array = $this->get_escaped_arguments_array_by_key( $args_for_excluded_name, 'excluded_name' );
+		$where_source_array        = $this->get_escaped_arguments_array_by_key( $args, 'source' );
+
+		$escaped_where_types          = implode( ',', $where_type_array );
+		$escaped_where_status         = implode( ',', $where_status_array );
+		$escaped_where_names          = implode( ',', $where_name_array );
+		$escaped_where_excluded_names = implode( ',', $where_excluded_name_array );
+		$escaped_where_source         = implode( ',', $where_source_array );
+		$where_clauses                = '';
+
+		if ( ! empty( $escaped_where_types ) ) {
+			$where_clauses .= " AND type IN ($escaped_where_types)";
+		}
+
+		if ( ! empty( $escaped_where_status ) ) {
+			$where_clauses .= " AND status IN ($escaped_where_status)";
+		}
+
+		if ( ! empty( $escaped_where_names ) ) {
+			$where_clauses .= " AND name IN ($escaped_where_names)";
+		}
+
+		if ( ! empty( $escaped_where_excluded_names ) ) {
+			$where_clauses .= " AND name NOT IN ($escaped_where_excluded_names)";
+		}
+
+		if ( ! empty( $escaped_where_source ) ) {
+			$where_clauses .= " AND source IN ($escaped_where_source)";
+		}
+
+		if ( isset( $args['is_read'] ) ) {
+			$where_clauses .= $args['is_read'] ? ' AND is_read = 1' : ' AND is_read = 0';
+		}
+
+		$where_clauses .= $escaped_is_deleted ? ' AND is_deleted = 1' : ' AND is_deleted = 0';
+
+		return $where_clauses;
 	}
 }
