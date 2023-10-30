@@ -59,9 +59,9 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 			'wc-admin-payments-remind-me-later',
 			'wc-admin-onboarding-payments-reminder',
 			'wc-admin-orders-milestone',
-			// Woo Express lifeycle messages.
+			// Woo Express lifecycle messages.
 			'wc-calypso-bridge-free-trial-welcome',
-			'wc-calypso-bridge-free-trial-choose-domain',
+			'wc-calypso-bridge-choose-domain',
 			// Extensions.
 			'stripe-apple-pay-domain-verification-needed',
 		);
