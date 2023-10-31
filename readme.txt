@@ -22,6 +22,13 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleashed =
+* Introduced an Inbox allow-list for Free Trial plan users #1268
+* Updated the existing messages/notes block-list based on the findings of our recent Inbox audit #1268
+* Added a welcome message consistent with the welcome email sent as part of the lifecycle series #1268
+* Added a domain purchase message/prompt #1268
+* Removed the block-based Cart/Checkout Inbox note #1268
+
 = 2.2.19 =
 * Fix CYS conflict with wpcom.editor #1336
 
@@ -29,11 +36,6 @@ This section describes how to install the plugin and get it working.
 * Fix the "Orders" menu position when using HPOS #1330
 * Preconfigure product measurement units #1309
 * Add filter for recommended WPCOM themes #1324
-* Introduced an Inbox allow-list for Free Trial plan users #1268
-* Updated the existing messages/notes block-list based on the findings of our recent Inbox audit #1268
-* Added a welcome message consistent with the welcome email sent as part of the lifecycle series #1268
-* Added a domain purchase message/prompt #1268
-* Removed the block-based Cart/Checkout Inbox note #1268
 
 = 2.2.17 =
 * Enable the reactified WC Admin Marketplace under the "Extensions > Discover" menu item #1318
