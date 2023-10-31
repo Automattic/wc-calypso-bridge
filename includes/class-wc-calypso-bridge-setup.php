@@ -189,7 +189,7 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Add a welcome note for Woo Express Free Trial users.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.20
 	 * @return void
 	 */
 	public function add_free_trial_welcome_note_callback() {
