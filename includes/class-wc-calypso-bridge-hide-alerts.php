@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.2.20
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -74,7 +74,7 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	/**
 	 * Overrides Notes data store.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.20
 	 *
 	 * @param array $data_stores List of data stores.
 	 * @return array

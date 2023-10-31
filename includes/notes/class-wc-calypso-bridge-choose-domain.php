@@ -4,8 +4,8 @@
  * Choose Domain Note
  *
  * @package WC_Calypso_Bridge/Notes
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.2.20
+ * @version 2.2.20
  */
 
 use Automattic\WooCommerce\Admin\Notes\Note;

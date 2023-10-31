@@ -11,6 +11,10 @@ msgstr ""
 "Language: he_IL\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
+#: build/index.js:2506
+msgid "Accept Payments and manage your business."
+msgstr ""
+
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New Order"
 msgstr ""
@@ -45,337 +49,334 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "עמוד הבית של הבלוג"
 
-#: build/plugins.js:1
+#: build/plugins.js:147 build/plugins.js:211
 msgid "Hire an expert"
 msgstr "לשכור מומחה"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:195
 msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
 msgstr "לא הצלחת למצוא את מה שחיפשת? אפשר לשכור אחד מסוכנויות המומחים שלנו! החל בהרחבות חדשות וכלה בבניה של חנות שלמה, המומחים של WooCommerce יכולים לעזור לך ליצור את החנות עליה תמיד חלמת."
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:158
 msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
 msgstr "רוצה להרחיב את הפונקציונליות של המסחר האלקטרוני בחנות שלך? ב-Woo Marketplace יש מאות הרחבות מהימנות שנועדו במיוחד עבור החנות שלך."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:116
 msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
 msgstr "החל מכלים ל-SEO וכלה בפונקציונליות למגוון שפות, התוספים של WordPress יעזרו לך להתאים אישית את האתר שלך כדי לבצע בו כל מה שצריך."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:113
 msgid "Customize your website"
 msgstr "התאמה אישית של האתר שלך"
 
-#: build/plugins.js:1
+#: build/plugins.js:39 build/plugins.js:33
 msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
 msgstr "להוסיף פונקציונליות ואפשרויות לאתר שלך בלחיצת כפתור. משדרגים לתוכנית בתשלום ומקבלים גישה לאלפי תוספים של WordPress – חינמיים ובתשלום. רוצה לדעת מה אפשרי?"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:193
 msgid "Do it your way"
 msgstr "לעבוד בדרך שלך"
 
-#: build/plugins.js:1
+#: build/plugins.js:124 build/plugins.js:174
 msgid "Discover Extensions"
 msgstr "לגלות הרחבות"
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:156
 msgid "Extend your store"
 msgstr "להרחיב את החנות שלך"
 
-#: build/plugins.js:1
+#: build/plugins.js:61 build/plugins.js:96 build/plugins.js:67
+#: build/plugins.js:132
 msgid "Browse plugins"
 msgstr "לעיין בתוספים"
 
-#: build/plugins.js:1
+#: build/plugins.js:37 build/plugins.js:26
 msgid "Make anything happen, with plugins"
 msgstr "אפשר לעשות כל דבר בעזרת תוספים"
 
-#: build/payment-gateway-suggestions.js:3
-msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
-msgstr "לקבל כלים משופרים ותיקונים מהירים יותר בעזרת שיתוף של נתונים לא רגישים באמצעות {{link}}מעקב שימוש{{/link}}, פונקציה המציגה את אופן השימוש שלך ב-WooCommerce. אין מעקב אחר נתונים אישיים או אחסון של נתונים כאלה."
-
-#: build/marketing.js:1
+#: build/marketing.js:1209
 msgid "Create digital gift cards"
 msgstr "ליצור כרטיסי שי דיגיטליים"
 
-#: build/marketing.js:1
+#: build/marketing.js:1200
 msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
 msgstr "באפשרותך להתחיל למכור ולקבל כרטיסי שי דיגיטליים כדי להגביר את נאמנות הלקוחות, להפיק יותר הכנסות ולמשוך לקוחות חדשים לחנות שלך."
 
-#: build/marketing.js:1
+#: build/marketing.js:1199
 msgid "Increase customer loyalty with gift cards"
 msgstr "להגביר את נאמנות הלקוחות בעזרת כרטיסי שי"
 
-#: build/marketing.js:1
+#: build/marketing.js:1195
 msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
 msgstr "לחשוף את המוצרים שלך למיליוני קונים פעילים שמסיירים בפלטפורמות כמו TikTok‏, Pinterest ו-Meta באמצעות פרסום ברשתות חברתיות."
 
-#: build/marketing.js:1
+#: build/marketing.js:1194
 msgid "Reach more customers across social media"
 msgstr "להגיע ליותר לקוחות ברשתות החברתיות השונות"
 
-#: build/marketing.js:1
+#: build/marketing.js:1190
 msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
 msgstr "להגיע למיליוני קונים פעילים ברחבי Google עם מודעות ופרסומות על מוצרים שבאפשרותך ליצור ולנהל היישר מלוח הבקרה שלך."
 
-#: build/marketing.js:1
+#: build/marketing.js:1189
 msgid "Advertise your products on Google"
 msgstr "לפרסם את המוצרים שלך ב-Google"
 
-#: build/marketing.js:1
+#: build/marketing.js:1186
 msgid "Try AutomateWoo"
 msgstr "לנסות את AutomateWoo"
 
-#: build/marketing.js:1
+#: build/marketing.js:1177
 msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
 msgstr "לקדם מכירות ולתגבר נאמנות באמצעות הודעות שיווק אוטומטיות בתגובה לנתוני רכישות של לקוחות."
 
-#: build/marketing.js:1
+#: build/marketing.js:1176
 msgid "Automate your marketing"
 msgstr "ליצור תהליכי שיווק אוטומטיים"
 
-#: build/marketing.js:1
+#: build/marketing.js:1174
 msgid "Discover our built-in marketing tools to reach more customers and boost sales"
 msgstr "לאתר את כלי השיווק המובנים שלנו כדי להגיע ליותר לקוחות ולהגביר מכירות"
 
-#: build/marketing.js:1
+#: build/marketing.js:1168
 msgid "Grow your business with hundreds of extensions"
 msgstr "להרחיב את העסק שלך בעזרת מאות הרחבות"
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
 msgstr "להגיע ליותר לקוחות ולהרחיב את העסק שלך בעזרת כלי השיווק והפרסום המובנים שלנו. מומלץ לשדרג לתוכנית בתשלום כדי ליהנות מכלי השיווק העוצמתיים שלנו ולהתחיל בהרחבת העסק כבר היום!"
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Get ready to grow your business"
 msgstr "להתכונן להרחבת העסק שלך"
 
-#: build/index.js:3 src/task-headers/appearance.js:29
+#: build/index.js:7945 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
 msgstr "מראה לדוגמה"
 
-#: build/index.js:3 src/task-headers/products.js:26
+#: build/index.js:8033 src/task-headers/products.js:26
 msgid "Products illustration"
 msgstr "מוצרים לדוגמה"
 
-#: build/index.js:3
+#: build/index.js:5975
 msgid "Everything is looking great, keep it up!"
 msgstr "הכול נראה נהדר, כדאי להמשיך ככה!"
 
-#: build/index.js:3
+#: build/index.js:5973
 msgid "Woo! We’ve made it to the last step! Great job"
 msgstr "הידד! הגענו לשלב האחרון! כל הכבוד"
 
-#: build/index.js:3
+#: build/index.js:5969
 msgid "Only a few more tasks to tick off!"
 msgstr "רק עוד מספר משימות שצריך לבצע!"
 
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to your Woo Express store"
 msgstr "ברוך בואך אל חנות Woo Express שלך"
 
 #. translators: %s = site title
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to %s"
 msgstr "ברוך בואר אל %s"
 
 #. translators: 1: completed tasks, 2: total tasks
-#: build/index.js:2
+#: build/index.js:5895
 msgid "%1$d out of %2$d complete."
 msgstr "הושלמו ⁦%1$d⁩ מתוך ⁦%2$d⁩."
 
-#: build/index.js:1
+#: build/index.js:5894
 msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
 msgstr "עוד מעט אפשר להתחיל למכור! להגדרת החנות הניסיונית שלך עליך לבצע את הפעולות הבאות."
 
-#: build/index.js:1
+#: build/index.js:5891
 msgid "Hide setup list"
 msgstr "להסתיר רשימה הגדרות התקנה"
 
-#: build/index.js:1
+#: build/index.js:7750
 msgid "The store setup process meets my needs."
 msgstr "תהליך הגדרת החנות עונה על צרכיי."
 
-#: build/index.js:1
+#: build/index.js:7749
 msgid "The store setup is easy to complete."
 msgstr "קל לבצע את תהליך הגדרת החנות."
 
-#: build/index.js:1
+#: build/index.js:7747
 msgid "We appreciate your feedback!"
 msgstr "אנו מודים לך על המשוב!"
 
-#: build/index.js:1
+#: build/index.js:7738 build/index.js:7748
 msgid "How was your experience?"
 msgstr "מה דעתך לגבי החוויה?"
 
-#: build/index.js:1
+#: build/index.js:6038 build/index.js:7736
 msgid "Hide this"
 msgstr "להסתיר את המידע"
 
-#: build/index.js:1
+#: build/index.js:7734
 msgid "Show setup task list"
 msgstr "להציג את רשימת משימות ההגדרה"
 
-#: build/index.js:1
+#: build/index.js:6033 build/index.js:7729
 msgid "Task List Options"
 msgstr "אפשרויות רשימת המשימות"
 
-#: build/index.js:1
+#: build/index.js:7723
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
 msgstr "איחולינו! מומלץ להקדיש מספר דקות כדי לחגוג. ברגע שהחנות שלך תהיה מוכנה להשקה, כל שעליך לעשות הוא לשדרג לתוכנית בתשלום. פעולה זו גם תציג לפניך את שתי המשימות הבאות ברשימת המשימות."
 
-#: build/index.js:1
+#: build/index.js:7717
 msgid "Woohoo! Your trial store has been set up!"
 msgstr "איזה כיף! החנות הניסיונית שלך הוגדרה והותקנה!"
 
-#: build/index.js:1
+#: build/index.js:5064
 msgid "You're awesome! One less item on your to-do list ✅"
 msgstr "אדיר! פריט אחד ירד מרשימת המשימות שלך ✅"
 
-#: build/index.js:1
+#: build/index.js:5061
 msgid "There was a problem setting up automated taxes. Please try again."
 msgstr "בעיה בהגדרת מיסים אוטומטיים. נא לנסות שוב."
 
-#: build/index.js:1
+#: build/index.js:4980
 msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
 msgstr "בתקופת ההתנסות חינם ניתן לשנות את הגדרת מס הקנייה אך לא לגבות את המס. {{br/}}כדי להתחיל למכור מוצרים עליך {{link}}לשדרג עכשיו{{/link}}."
 
-#: build/index.js:1
+#: build/index.js:4501
 msgid "I don't charge sales tax"
 msgstr "אני לא גובה מס מכירות"
 
-#: build/index.js:1
+#: build/index.js:4494
 msgid "Set up taxes manually"
 msgstr "להגדיר את המיסים באופן ידני"
 
-#: build/index.js:1
+#: build/index.js:4483
 msgid "Choose a tax partner"
 msgstr "לבחור שותף לנושא מיסים"
 
-#: build/index.js:1
+#: build/index.js:5682
 msgid "WooCommerce Tax can automate your sales tax calculations for you."
 msgstr "באפשרותך לחשב מס מכירה באופן אוטומטי באמצעות שירות WooCommerce Tax."
 
-#: build/index.js:1
+#: build/index.js:5681
 msgid "Automate Taxes"
 msgstr "חישוב מיסים אוטומטי"
 
-#: build/index.js:1
+#: build/index.js:5421
 msgid "Automate taxes"
 msgstr "חישוב מיסים אוטומטי"
 
-#: build/index.js:1
+#: build/index.js:5293
 msgid "Head over to the tax rate settings screen to configure your tax rates"
 msgstr "יש לגשת אל מסך של הגדרות שיעורי המס כדי להגדיר את שיעורי המס הרצויים"
 
-#: build/index.js:1
+#: build/index.js:5292
 msgid "Configure tax rates"
 msgstr "להגדיר שיעורי מס"
 
-#: build/index.js:1
+#: build/index.js:5288 build/index.js:5677
 msgid "The address from which your business operates"
 msgstr "הכתובת שממנה פועל העסק שלך"
 
-#: build/index.js:1
+#: build/index.js:5287 build/index.js:5676
 msgid "Set store location"
 msgstr "לקבוע את מיקום החנות"
 
-#: build/index.js:1
+#: build/index.js:4570
 msgid "Please select a country / region"
 msgstr "נא לבחור מדינה / אזור"
 
-#: build/index.js:1
+#: build/index.js:4798
 msgid "Post code"
 msgstr "מיקוד"
 
-#: build/index.js:1
+#: build/index.js:4795
 msgid "Address"
 msgstr "כתובת"
 
-#: build/index.js:1
+#: build/index.js:4781
 msgid "Country / Region"
 msgstr "מדינה / אזור"
 
-#: build/index.js:1
+#: build/index.js:5221
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
 msgstr "לחיצה על 'להגדיר תצורה' תגרום להפעלת שיעורי מס וחישובים. מידע נוסף זמין {{link}}כאן{{/link}}."
 
-#: build/index.js:1
+#: build/index.js:5220
 msgid "Configure"
 msgstr "תצורה"
 
-#: build/index.js:1
+#: build/index.js:5497
 msgid "Continue setup"
 msgstr "המשך ההתקנה"
 
-#: build/index.js:1
+#: build/index.js:5488
 msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
 msgstr "התקנת WooCommerce Tax ו-Jetpack מהווה הסכמה מצדך לאמור ב{{link}}תנאי השירות{{/link}}."
 
-#: build/index.js:1
+#: build/index.js:5486
 msgid "100% free"
 msgstr "לגמרי בחינם"
 
-#: build/index.js:1
+#: build/index.js:5476
 msgid "Powered by {{link}}Jetpack{{/link}}"
 msgstr "מופעל על ידי {{link}}Jetpack{{/link}}"
 
-#: build/index.js:1
+#: build/index.js:5471
 msgid "{{strong}}Single{{/strong}} economic nexus compliance"
 msgstr "התאמה לתנאים של רשת כלכלית {{strong}}יחידה{{/strong}}"
 
-#: build/index.js:1
+#: build/index.js:5470
 msgid "Real-time sales tax calculation"
 msgstr "חישוב מס מכירות בזמן אמת"
 
-#: build/index.js:1
+#: build/index.js:5469
 msgid "Best for new stores"
 msgstr "מומלץ לחנויות חדשות"
 
-#: build/index.js:1
+#: build/index.js:5467
 msgid "WooCommerce Tax"
 msgstr "WooCommerce Tax"
 
-#: build/index.js:1
+#: build/index.js:4135
 msgid "Get more sales"
 msgstr "להרחיב את היקף המכירות"
 
-#: build/index.js:1
+#: build/index.js:4114
 msgid "Upgrade to a paid plan to unlock more features and start selling"
 msgstr "לשדרג לתוכנית בתשלום כדי ליהנות מיותר אפשרויות חדשות ולהתחיל למכור"
 
-#: build/index.js:1
+#: build/index.js:4113
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
 msgstr "המינוי שלך כרגע הוא לתקופת ניסיון חינם! לקבלת גישה לכל האפשרויות, יש לשדרג לתוכנית בתשלום."
 
-#: build/index.js:1 src/welcome-modal/index.js:94
+#: build/index.js:8402 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
 msgstr "ניווט בחלון קופץ 'ברוך בואך', דוגמה 1"
 
-#: build/index.js:1 src/welcome-modal/index.js:64
+#: build/index.js:8390 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
 msgstr "ניווט בחלון קופץ 'ברוך בואך', דוגמה 2"
 
-#: build/index.js:1
+#: build/index.js:1837
 msgid "Setup required"
 msgstr "נדרשת הגדרה"
 
-#: build/index.js:1
+#: build/index.js:2727
 msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
 msgstr "להרוויח הכנסה חוזרת ולנהל אותה, ולקבל הפקדות אוטומטיות לחשבון הבנק שבחרת."
 
-#: build/index.js:1
+#: build/index.js:2724
 msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
 msgstr "למכור לשווקים בינלאומיים ולקבל יותר מ-135 מטבעות בשיטות תשלום מקומיות."
 
-#: build/index.js:1
+#: build/index.js:2721
 msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
 msgstr "באפשרותך להציע ללקוחות שלך את אמצעי התשלום המועדף עליהם, כולל כרטיסי אשראי או חיוב, Apple Pay,‏ Sofort,‏ SEPA,‏ iDeal ואפשרויות רבות נוספות."
 
-#: build/index.js:1
+#: build/index.js:2502
 msgid "Accepted payment methods include:"
 msgstr "בין אמצעי התשלום שאנחנו מקבלים:"
 
-#: build/index.js:1
+#: build/index.js:2454
 msgid "& more."
 msgstr "ועוד."
 
@@ -421,7 +422,7 @@ msgstr "לבחור את ערכת העיצוב שלך"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:3 src/index.js:199
+#: build/index.js:6248 src/index.js:199
 msgid "Plugins"
 msgstr "תוספים"
 
@@ -457,27 +458,27 @@ msgstr "הצטרפות"
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "חוויית ניווט בהתאמה אישית, כולל מיטוב למכירות."
 
-#: build/index.js:1 src/welcome-modal/index.js:114
+#: build/index.js:8411 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "עכשיו אפשר לבצע פעולות עם WooCommerce מהר יותר. אפשר לעיין <a>במידע נוסף</a> לגבי הניווט החדש שלנו – או להמשיך ולבדוק אותו בעצמך."
 
-#: build/index.js:1 src/welcome-modal/index.js:107
+#: build/index.js:8409 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "לנוע מהר יותר עם הניווט החדש שלנו"
 
-#: build/index.js:1 src/welcome-modal/index.js:83
+#: build/index.js:8399 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "לקבל טיפים ותובנות לגבי ביצועי החנות שלך בכל ביקור בלוח הבקרה של WordPress.com."
 
-#: build/index.js:1 src/welcome-modal/index.js:77
+#: build/index.js:8397 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "היכרות עם דף הבית החדש שלך"
 
-#: build/index.js:3 src/task-headers/add-domain.js:34
+#: build/index.js:7873 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "יש לבחור כתובת חדשה של אתר אינטרנט לחנות שלך או להעביר כתובת שכבר בבעלותך."
 
-#: build/index.js:3 src/task-headers/add-domain.js:22
+#: build/index.js:7868 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "הוספת אילוסטרציה של דומיין"
 
@@ -525,260 +526,313 @@ msgstr "הפרטים לביצוע העברה בנקאית ישירה נוספו 
 msgid "Please enter an account number or IBAN"
 msgstr "יש להזין מספר חשבון או מספר IBAN"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1491
 #: src/payment-gateway-suggestions/index.js:285
+#: build/payment-gateway-suggestions.js:1498
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
 msgstr "מנהלי המערכות ומנהלי החנויות שלנו יכולים לבצע הזמנות במהלך תקופת הניסיון. אם הכול מוכן לקבל תשלומים מלקוחות, אפשר {{link}}לשדרג לתוכנית בתשלום{{/link}}."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1476
 #: src/payment-gateway-suggestions/index.js:266
+#: build/payment-gateway-suggestions.js:1479
 msgid "Offline payment methods"
 msgstr "אמצעי תשלום לא מקוונים"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1471
 #: src/payment-gateway-suggestions/index.js:257
+#: build/payment-gateway-suggestions.js:1470
 msgid "See more"
 msgstr "עוד"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1457
 #: src/payment-gateway-suggestions/index.js:236
+#: build/payment-gateway-suggestions.js:1449
 msgid "Try one of the alternative payment providers."
 msgstr "רוצה לנסות את אחד מספקי התשלום החלופיים?"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1456
+#: build/payment-gateway-suggestions.js:1505
 #: src/payment-gateway-suggestions/index.js:232
 #: src/payment-gateway-suggestions/index.js:311
+#: build/payment-gateway-suggestions.js:1445
+#: build/payment-gateway-suggestions.js:1524
 msgid "Other payment providers"
 msgstr "ספקי תשלום אחרים"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1454
 #: src/payment-gateway-suggestions/index.js:227
+#: build/payment-gateway-suggestions.js:1440
 msgid "Give your customers additional choices in ways to pay."
 msgstr "רוצה לתת ללקוחות אפשרויות נוספות לביצוע התשלום?"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1453
 #: src/payment-gateway-suggestions/index.js:223
+#: build/payment-gateway-suggestions.js:1436
 msgid "Additional payment options"
 msgstr "אפשרויות תשלום נוספות"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1450
 #: src/payment-gateway-suggestions/index.js:217
+#: build/payment-gateway-suggestions.js:1430
 msgid "To get ready to accept online payments"
 msgstr "להתכונן לקבל תשלומים מקוונים"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1449
 #: src/payment-gateway-suggestions/index.js:213
+#: build/payment-gateway-suggestions.js:1426
 msgid "Choose a payment provider"
 msgstr "לבחור ספק תשלום"
 
-#: build/index.js:3
+#: build/index.js:7040
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "אירעה שגיאה במהלך ההתחברות אל WooCommerce Payments. ניתן לנסות שוב או להתחבר מאוחר יותר בהגדרות החנות."
 
+#: build/payment-gateway-suggestions.js:1249
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
+#: build/payment-gateway-suggestions.js:1200
 msgid "I agree"
 msgstr "אישור"
 
+#: build/payment-gateway-suggestions.js:1236
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
+#: build/payment-gateway-suggestions.js:1180
 msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
 msgstr "על ידי הסכמה לשיתוף של {{link}}נתוני שימוש{{/link}} לא רגישים, תהיה לך אפשרות לעזור לנו לשפר את האפשרויות ולמטב את חוויית השימוש ב-WooCommerce Payments. באפשרותך לבטל את הסכמתך בכל עת."
 
+#: build/payment-gateway-suggestions.js:1234
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
+#: build/payment-gateway-suggestions.js:1175
 msgid "Help us build a better WooCommerce Payments experience"
 msgstr "יש לך הזדמנות לעזור לנו ליצור חוויית שימוש טובה יותר ב-WooCommerce Payments"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:2508 build/payment-gateway-suggestions.js:1108
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
+#: build/payment-gateway-suggestions.js:1043
 msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
 msgstr "השימוש ב-WooCommerce Payments מהווה את הסכמתך לפעול בכפוף {{tosLink}}לתנאי השימוש{{/tosLink}}, ומאשר שקראת את {{privacyLink}}מדיניות הפרטיות{{/privacyLink}} שלנו "
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1101
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
+#: build/payment-gateway-suggestions.js:1033
 msgid "Get ready to accept payments"
 msgstr "להתכונן לקבל תשלומים"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:969
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
+#: build/payment-gateway-suggestions.js:919
 msgid "Yes, count me in!"
 msgstr "כן, אני רוצה להצטרף!"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:957
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
+#: build/payment-gateway-suggestions.js:901
 msgid "Build a better WooCommerce"
 msgstr "לבנות אתר WooCommerce טוב יותר"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:896
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
+#: build/payment-gateway-suggestions.js:842
 msgid "There was a problem updating your preferences"
 msgstr "אירעה בעיה בעדכון ההעדפות שלך"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:719
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:120
+#: build/payment-gateway-suggestions.js:697
 msgid "Configure your %(title)s account"
 msgstr "הגדרת החשבון שלך ב-%(title)s"
 
 #. translators: %s = title of the payment gateway to install
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:702
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:88
+#: build/payment-gateway-suggestions.js:665
 msgid "Install %s"
 msgstr "התקן %s"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:540
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
+#: build/payment-gateway-suggestions.js:529
 msgid "You can manage this payment gateway's settings by clicking the button below"
 msgstr "ניתן לנהל את ההגדרות של אמצעי תשלום זה על ידי לחיצה על הלחצן שלהלן"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:535
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:133
+#: build/payment-gateway-suggestions.js:510
 msgid "Connect"
 msgstr "להתחבר"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:513
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:100
+#: build/payment-gateway-suggestions.js:477
 msgid "Proceed"
 msgstr "המשך"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:503
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:84
 #: src/payment-gateway-suggestions/plugins/Bacs.js:63
+#: build/payment-gateway-suggestions.js:461
 msgid "There was a problem saving your payment settings"
 msgstr "אירעה בעיה בשמירת הגדרות התשלומים"
 
 #. translators: %s = title of the payment gateway
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:500
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:75
+#: build/payment-gateway-suggestions.js:452
 msgid "%s configured successfully"
 msgstr "%s הוגדר בהצלחה"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1784 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:81
+#: build/payment-gateway-suggestions.js:226
 msgid "Recommended"
 msgstr "מומלץ"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1783 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:80
+#: build/payment-gateway-suggestions.js:225
 msgid "Local Partner"
 msgstr "שותף מקומי"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:132
 #: src/payment-gateway-suggestions/components/Action.js:138
+#: build/payment-gateway-suggestions.js:138
 msgid "Finish setup"
 msgstr "להשלים את ההגדרה"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:103
 #: src/payment-gateway-suggestions/components/Action.js:99
+#: build/payment-gateway-suggestions.js:99
 msgid "Enable"
 msgstr "אפשר"
 
-#: build/index.js:1 src/launch-store/index.js:392
+#: build/index.js:6915 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "להשיק בכל זאת"
 
-#: build/index.js:1 src/launch-store/index.js:382
+#: build/index.js:6912 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "מספר דברים שעליך לבדוק לפני השקת החנות שלך"
 
-#: build/index.js:1 src/launch-store/index.js:379
+#: build/index.js:6910 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "לפני ההשקה"
 
-#: build/index.js:1 src/launch-store/index.js:318
+#: build/index.js:6874 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "עליך לבחור כתובת לאתר האינטרנט החדש או להעביר דומיין שכבר בבעלותך."
 
-#: build/index.js:1 src/launch-store/index.js:314
+#: build/index.js:6870 src/launch-store/index.js:314
 msgid "List products"
 msgstr "לציין מוצרים"
 
-#: build/index.js:1 src/launch-store/index.js:310
+#: build/index.js:6869 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "להתחיל למכור על ידי הוספת מוצרים ושירותים לחנות שלך. ניתן ליצור את המוצרים באופן ידני או לייבא אותם מחנות קיימת."
 
-#: build/index.js:1 src/launch-store/index.js:309
+#: build/index.js:6868 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "לציין את המוצרים שלך"
 
-#: build/index.js:1 src/launch-store/index.js:301
+#: build/index.js:6863 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "כדאי לאפשר ללקוחות שלך דרך נוספת לשלם בבטחה ובנוחות! להגדיר אחד (או יותר!) מאמצעי התשלום המהירים והמאובטחים שלנו באינטרנט או באופן אישי."
 
-#: build/index.js:1 src/launch-store/index.js:300 src/launch-store/index.js:305
+#: build/index.js:6862 build/index.js:6864 src/launch-store/index.js:300
+#: src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "לקבל תשלום"
 
-#: build/index.js:1 src/launch-store/index.js:262 src/launch-store/index.js:398
+#: build/index.js:6831 build/index.js:6919 src/launch-store/index.js:262
+#: src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "אפשר תמיד לחזור למצב הקודם במקטע <a>הגדרות</a>."
 
-#: build/index.js:1 src/launch-store/index.js:250
+#: build/index.js:6825 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "זה הזמן לחגוג – הכול מוכן להשקת החנות שלך! WooCommerce!"
 
-#: build/index.js:1 src/launch-store/index.js:247
+#: build/index.js:6823 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "רוצה להשיק חנות משלך?"
 
-#: build/index.js:1 src/launch-store/index.js:212
+#: build/index.js:6804 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "שינית את דעתך? אפשר להגדיר שוב את החנות שלך כפרטית על ידי עדכון של הגדרות <a>הפרטיות</a> שלך."
 
-#: build/index.js:1 src/launch-store/index.js:206
+#: build/index.js:6800 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "הצגת החנות שלך"
 
-#: build/index.js:1 src/launch-store/index.js:186
+#: build/index.js:6787 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "ברכותינו על השקת החנות שלך של WooCommerce. כדאי לעצור לרגע כדי לחגוג ולשתף את החדשות!"
 
-#: build/index.js:1 src/launch-store/index.js:182
+#: build/index.js:6785 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "WooCommerce! הצלחת!"
 
-#: build/index.js:1 src/launch-store/index.js:142
+#: build/index.js:6758 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "השקת החנות שלך"
 
-#: build/index.js:1 src/launch-store/index.js:71
+#: build/index.js:6708 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "הועתק"
 
-#: build/index.js:3 src/homescreen-banner/index.js:61
+#: build/index.js:5770 src/homescreen-banner/index.js:61
 msgid "Dismiss this free trial informational banner."
 msgstr "לבטל את הבאנר עם המידע לגבי תקופת הניסיון."
 
-#: build/index.js:3 src/homescreen-banner/index.js:45
+#: build/index.js:5762 src/homescreen-banner/index.js:45
 msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
 msgstr "זוהי חנות הבדיקה שלך לתקופת הניסיון שבה באפשרותך להתחיל לגלות אילו אפשרויות זמינות! כדי לגלות עוד על תקופת הניסיון, ניתן ללחוץ על 'מידע נוסף'."
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:56
+#: build/index.js:4314 src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr "אירעה בעיה בשמירת המיקום של החנות שלך"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:149
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:134
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "בלחיצה על 'בדיקת תשלומים', אנחנו מקבלים את הסכמתך {{tosLink}}לתנאי השירות שלנו{{/tosLink}}"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:148
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:126
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "לחזק את התשלומים שלך עם אפשרות פשוטה ומקיפה. עליך לאמת את פרטי העסק כדי להתחיל לבדוק עסקאות עם WooCommerce Payments."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
+#: build/src_free-trial_fills_index_ts.js:75
+#: build/src_free-trial_fills_index_ts.js:161
+#: src/free-trial/fills/task-headers/payments.js:50
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:84
+#: build/src_free-trial_fills_index_ts.js:54
+#: build/src_free-trial_fills_index_ts.js:156
 msgid "Test payments"
 msgstr "בדיקת תשלומים"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:71
+#: src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:44
 msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
 msgstr "כדאי לאפשר ללקוחות שלך דרך נוספת לשלם בבטחה ובנוחות! להגדיר ולבדוק חלק מאמצעי התשלום המהירים והמאובטחים שלנו באינטרנט או באופן אישי."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
+#: build/src_free-trial_fills_index_ts.js:71
+#: build/src_free-trial_fills_index_ts.js:146
+#: src/free-trial/fills/task-headers/payments.js:34
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:41
+#: build/src_free-trial_fills_index_ts.js:38
+#: build/src_free-trial_fills_index_ts.js:113
 msgid "It’s time to test payments"
 msgstr "זה הזמן לבדוק את התשלומים"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
+#: build/src_free-trial_fills_index_ts.js:66
+#: build/src_free-trial_fills_index_ts.js:141
+#: src/free-trial/fills/task-headers/payments.js:22
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:29
+#: build/src_free-trial_fills_index_ts.js:26
+#: build/src_free-trial_fills_index_ts.js:101
 msgid "Payment illustration"
 msgstr "אילוסטרציית תשלום"
 
@@ -838,7 +892,8 @@ msgstr "כדאי להתאים אישית את החנות לעבודה מושלמ
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
+#: build/plugins.js:65 build/plugins.js:70 build/plugins.js:77
+#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "לשדרג את החנות שלך לרמה הבאה באמצעות הרחבות"
 
@@ -852,8 +907,8 @@ msgstr "הגיע הזמן לחגוג! רוצה להשיק חנות משלך?"
 
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
-#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:1
-#: src/launch-store/index.js:155
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:4137
+#: build/index.js:6768 src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "להשיק את החנות שלך"
 
@@ -862,7 +917,7 @@ msgid "You've already launched your store"
 msgstr "כבר השקת את החנות שלך"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
-#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:3
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8047
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "שתי דקות"
@@ -876,8 +931,8 @@ msgid "Domain"
 msgstr "דומיין"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:1
-#: build/index.js:3 src/launch-store/index.js:322
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:6875
+#: build/index.js:7873 build/index.js:7877 src/launch-store/index.js:322
 #: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "הוספת דומיין"
@@ -910,7 +965,8 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1 build/marketing.js:1 build/plugins.js:1
+#: build/index.js:4133 build/index.js:7726 build/marketing.js:1147
+#: build/plugins.js:50 build/plugins.js:53
 msgid "Upgrade now"
 msgstr "זה הזמן לשדרג"
 
@@ -982,8 +1038,9 @@ msgid "Discover"
 msgstr "היכרות"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:90
 #: src/payment-gateway-suggestions/components/Action.js:76
+#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "לנהל"
 
@@ -1025,23 +1082,32 @@ msgstr "הבית שלי"
 msgid "Feedback"
 msgstr "משוב"
 
+#: build/index.js:1890
+msgid "Accepted payment methods"
+msgstr "אמצעי תשלום מקובלים"
+
 #: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:70
 msgid "Save big with WooCommerce Payments"
 msgstr "לחסוך בגדול עם WooCommerce Payments"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:968
+#: build/payment-gateway-suggestions.js:1250
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
+#: build/payment-gateway-suggestions.js:918
+#: build/payment-gateway-suggestions.js:1201
 msgid "No thanks"
 msgstr "לא תודה"
 
-#: build/index.js:1 build/payment-gateway-suggestions.js:1
-#: build/payment-gateway-suggestions.js:2
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:8387 build/payment-gateway-suggestions.js:52
+#: build/payment-gateway-suggestions.js:543
+#: build/payment-gateway-suggestions.js:1178
 #: src/payment-gateway-suggestions/components/Action.js:27
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:159
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
+#: src/welcome-modal/index.js:59 build/payment-gateway-suggestions.js:27
+#: build/payment-gateway-suggestions.js:536
+#: build/payment-gateway-suggestions.js:1131
 msgid "Get started"
 msgstr "מתחילים כאן"
 
@@ -1230,17 +1296,17 @@ msgstr "חנות"
 msgid "Stats"
 msgstr "נתונים סטטיסטיים"
 
-#: build/index.js:1
+#: build/index.js:4801
 msgid "City"
 msgstr "עיר"
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:23
+#: build/index.js:4283 src/free-trial/tax/components/location.js:23
 msgid "Continue"
 msgstr "המשך"
 
 #: includes/notes/class-wc-calypso-bridge-cart-checkout-blocks-default-inbox-note.php:52
 #: includes/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php:76
-#: build/index.js:3 src/homescreen-banner/index.js:57
+#: build/index.js:2978 build/index.js:5768 src/homescreen-banner/index.js:57
 msgid "Learn more"
 msgstr "מידע נוסף."
 
