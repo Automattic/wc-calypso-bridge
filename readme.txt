@@ -22,6 +22,13 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.20 =
+* Introduced an Inbox allow-list for Free Trial plan users #1268
+* Updated the existing messages/notes block-list based on the findings of our recent Inbox audit #1268
+* Added a welcome message consistent with the welcome email sent as part of the lifecycle series #1268
+* Added a domain purchase message/prompt #1268
+* Removed the block-based Cart/Checkout Inbox note #1268
+
 = Unreleashed =
 * Introduced an Inbox allow-list for Free Trial plan users #1268
 * Updated the existing messages/notes block-list based on the findings of our recent Inbox audit #1268
