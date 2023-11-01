@@ -49,7 +49,7 @@ class WC_Calypso_Bridge_Customize_Store {
 			}
 		}, 9999);
 
-		add_action( 'wp_head', array( $this, 'possibly_hide_wp_admin_bar' ) );
+		add_action( 'wp_head', array( $this, 'possibly_remove_wpcom_ui_elements' ) );
 	}
 
 	/**
@@ -74,7 +74,7 @@ class WC_Calypso_Bridge_Customize_Store {
 	 *
 	 * @return void
 	 */
-	public function possibly_hide_wp_admin_bar() {
+	public function possibly_remove_wpcom_ui_elements() {
 		if ( isset( $_GET['cys-hide-admin-bar'] ) ) {
 			echo '
 			<style type="text/css">
