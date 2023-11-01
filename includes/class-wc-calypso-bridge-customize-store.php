@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.14
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -48,6 +48,8 @@ class WC_Calypso_Bridge_Customize_Store {
 				wp_dequeue_script( 'wpcom-block-editor-wpcom-editor-script' );
 			}
 		}, 9999);
+
+		add_action( 'wp_head', array( $this, 'possibly_remove_wpcom_ui_elements' ) );
 	}
 
 	/**
@@ -63,6 +65,40 @@ class WC_Calypso_Bridge_Customize_Store {
 			update_option( 'woocommerce_admin_customize_store_completed', 'yes' );
 		}
 	}
+
+	/**
+	 * Runs script and add styles to remove WPCOM elements such as admin bar, proxy banner, gift banner, store notice
+	 * and hide scrollbar when users are viewing with ?cys-hide-admin-bar=true.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return void
+	 */
+	public function possibly_remove_wpcom_ui_elements() {
+		if ( isset( $_GET['cys-hide-admin-bar'] ) ) {
+			echo '
+			<style type="text/css">
+				#wpadminbar,
+				#wpcom-gifting-banner,
+				#atomic-proxy-bar { display: none; }
+
+				.woocommerce-store-notice { display: none !important; }
+
+				html { margin-top: 0 !important; }
+
+				body { overflow: hidden; }
+			</style>';
+			echo '
+			<script type="text/javascript">
+			( function() {
+				document.addEventListener( "DOMContentLoaded", function() {
+					document.documentElement.style.setProperty( "margin-top", "0px", "important" );
+				} );
+			} )();
+			</script>';
+		}
+	}
+
 }
 
 WC_Calypso_Bridge_Customize_Store::get_instance();
