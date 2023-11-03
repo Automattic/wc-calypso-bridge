@@ -80,12 +80,10 @@ class WC_Calypso_Bridge_Customize_Store {
 			<style type="text/css">
 				#wpadminbar,
 				#wpcom-gifting-banner,
-				#atomic-proxy-bar { display: none; }
-
+				#wpcom-launch-banner-wrapper,
+				#atomic-proxy-bar { display: none !important; }
 				.woocommerce-store-notice { display: none !important; }
-
 				html { margin-top: 0 !important; }
-
 				body { overflow: hidden; }
 			</style>';
 			echo '
