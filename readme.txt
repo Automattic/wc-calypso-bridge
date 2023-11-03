@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Remove wpcom elements when viewing cys iframe from intro screen #1344
+* Hide launch banner when viewing iframe from the intro screen #1348
 
 = 2.2.20 =
 * Introduced an Inbox allow-list for Free Trial plan users #1268
