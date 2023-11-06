@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = unreleased =
-* Introduce is_woo_express_trial_plan function #xxx
+* Introduce is_woo_express_trial_plan function #1352
 
 = 2.2.21 =
 * Remove wpcom elements when viewing cys iframe from intro screen #1344
