@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.2.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -59,10 +59,24 @@ if ( ! function_exists( 'wc_calypso_bridge_is_wpcom_ecommerce_plan' ) ) {
 if ( ! function_exists( 'wc_calypso_bridge_is_ecommerce_trial_plan' ) ) {
 	/**
 	 * Returns if a site is an eCommerce trial plan site or not.
+	 * Internal use only; use wc_calypso_bridge_is_woo_express_trial_plan instead.
 	 *
 	 * @return bool True if the site is an ecommerce trial site.
 	 */
 	function wc_calypso_bridge_is_ecommerce_trial_plan() {
+		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_trial_plan();
+	}
+}
+
+if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_trial_plan' ) ) {
+	/**
+	 * Returns if a site is a Woo Express trial plan site or not.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return bool True if the site is Woo Express trial plan.
+	 */
+	function wc_calypso_bridge_is_woo_express_trial_plan() {
 		return WC_Calypso_Bridge_DotCom_Features::is_ecommerce_trial_plan();
 	}
 }
