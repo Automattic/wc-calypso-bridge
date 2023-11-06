@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= unreleased =
+= 2.2.22 =
 * Introduce is_woo_express_trial_plan function #1352
 
 = 2.2.21 =
