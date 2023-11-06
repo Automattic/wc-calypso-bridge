@@ -43,6 +43,10 @@ msgstr ""
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr ""
 
+#: build/index.js:2506
+msgid "Accept Payments and manage your business."
+msgstr "결제를 수락하고 비즈니스를 관리하세요."
+
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New Order"
 msgstr "새 주문 추가"
@@ -77,337 +81,334 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "블로그 홈"
 
-#: build/plugins.js:1
+#: build/plugins.js:147 build/plugins.js:211
 msgid "Hire an expert"
 msgstr "전문가를 고용하세요"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:195
 msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
 msgstr "원하는 것을 찾을 수 없으신가요? 전문가 에이전시를 고용하세요! 새 확장 프로그램부터 전체 스토어 빌드까지, 꿈꾸던 스토어 생성을 Woo Experts가 지원합니다."
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:158
 msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
 msgstr "스토어의 전자상거래 기능을 확장할 계획이신가요? Woo Marketplace에는 스토어를 위해 특별히 설계된 수백 개의 신뢰할 수 있는 확장 프로그램이 있습니다."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:116
 msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
 msgstr "SEO 도구부터 다중 언어 기능까지, 워드프레스 플러그인을 활용하면 웹사이트를 원하는 대로 사용자 정의할 수 있습니다."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:113
 msgid "Customize your website"
 msgstr "웹사이트 사용자 정의"
 
-#: build/plugins.js:1
+#: build/plugins.js:39 build/plugins.js:33
 msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
 msgstr "버튼 하나만 클릭하면 웹사이트에 기능을 더 추가할 수 있습니다. 유료 요금제로 업그레이드하여 수천 개의 무료 및 유료 워드프레스 플러그인에 액세스하세요. 무엇이 가능한지 궁금하신가요?"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:193
 msgid "Do it your way"
 msgstr "원하는 방식으로 지원"
 
-#: build/plugins.js:1
+#: build/plugins.js:124 build/plugins.js:174
 msgid "Discover Extensions"
 msgstr "확장 기능 살펴보기"
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:156
 msgid "Extend your store"
 msgstr "스토어 확장"
 
-#: build/plugins.js:1
+#: build/plugins.js:61 build/plugins.js:96 build/plugins.js:67
+#: build/plugins.js:132
 msgid "Browse plugins"
 msgstr "플러그인 찾아보기"
 
-#: build/plugins.js:1
+#: build/plugins.js:37 build/plugins.js:26
 msgid "Make anything happen, with plugins"
 msgstr "무엇이든 지원하는 플러그인"
 
-#: build/payment-gateway-suggestions.js:3
-msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
-msgstr "우커머스가 어떻게 사용되는지 보여주는 {{link}}사용 추적{{/link}}을 통해 중요하지 않은 데이터를 공유하여 개선된 기능 및 더 빨라진 수정 사항을 확인하세요. 개인 데이터는 추적 또는 저장되지 않습니다."
-
-#: build/marketing.js:1
+#: build/marketing.js:1209
 msgid "Create digital gift cards"
 msgstr "디지털 기프트 카드 생성"
 
-#: build/marketing.js:1
+#: build/marketing.js:1200
 msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
 msgstr "고객 충성도를 높이고 매출을 늘리고 신규 고객을 스토어로 유치하기 위해 디지털 기프트 카드를 판매하고 결제 수단으로 수락하세요."
 
-#: build/marketing.js:1
+#: build/marketing.js:1199
 msgid "Increase customer loyalty with gift cards"
 msgstr "기프트 카드로 고객 충성도 제고"
 
-#: build/marketing.js:1
+#: build/marketing.js:1195
 msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
 msgstr "소셜 광고를 통해 TikTok, Pinterest, Meta 플랫폼을 둘러보는 수백만 명의 참여 쇼핑객에게 제품을 선보이세요."
 
-#: build/marketing.js:1
+#: build/marketing.js:1194
 msgid "Reach more customers across social media"
 msgstr "소셜 미디어에서 더 많은 고객에게 도달"
 
-#: build/marketing.js:1
+#: build/marketing.js:1190
 msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
 msgstr "대시보드에서 바로 생성 및 관리할 수 있는 제품 목록 및 광고로 활성 쇼핑객에게 도달하세요."
 
-#: build/marketing.js:1
+#: build/marketing.js:1189
 msgid "Advertise your products on Google"
 msgstr "Google에서 제품 광고"
 
-#: build/marketing.js:1
+#: build/marketing.js:1186
 msgid "Try AutomateWoo"
 msgstr "AutomateWoo 사용해 보기"
 
-#: build/marketing.js:1
+#: build/marketing.js:1177
 msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
 msgstr "고객의 구매 데이터에 반응하는 자동화된 마케팅 메시지를 통해 매출을 늘리고 충성도를 높이세요."
 
-#: build/marketing.js:1
+#: build/marketing.js:1176
 msgid "Automate your marketing"
 msgstr "마케팅 자동화"
 
-#: build/marketing.js:1
+#: build/marketing.js:1174
 msgid "Discover our built-in marketing tools to reach more customers and boost sales"
 msgstr "더 많은 고객에게 도달하고 매출을 높이도록 지원하는 내장 마케팅 도구를 살펴보세요."
 
-#: build/marketing.js:1
+#: build/marketing.js:1168
 msgid "Grow your business with hundreds of extensions"
 msgstr "수백 가지 확장 기능으로 비즈니스 성장"
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
 msgstr "내장된 마케팅 및 광고 도구로 더 많은 고객에게 도달하고 비즈니스를 키우세요. 지금 바로 유료 요금제로 업그레이드하여 강력한 마케팅 도구를 활용하고 비즈니스 성장을 시작하세요!"
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Get ready to grow your business"
 msgstr "비즈니스 성장 준비"
 
-#: build/index.js:3 src/task-headers/appearance.js:29
+#: build/index.js:7945 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
 msgstr "디자인 일러스트레이션"
 
-#: build/index.js:3 src/task-headers/products.js:26
+#: build/index.js:8033 src/task-headers/products.js:26
 msgid "Products illustration"
 msgstr "상품 일러스트레이션"
 
-#: build/index.js:3
+#: build/index.js:5975
 msgid "Everything is looking great, keep it up!"
 msgstr "아주 좋습니다. 계속하세요!"
 
-#: build/index.js:3
+#: build/index.js:5973
 msgid "Woo! We’ve made it to the last step! Great job"
 msgstr "우와! 마지막 단계까지 해냈습니다! 잘했습니다."
 
-#: build/index.js:3
+#: build/index.js:5969
 msgid "Only a few more tasks to tick off!"
 msgstr "몇 가지 작업만 더 하면 됩니다!"
 
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to your Woo Express store"
 msgstr "Woo Express 스토어에 오신 것을 환영합니다."
 
 #. translators: %s = site title
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to %s"
 msgstr "%s에 오신 것을 환영합니다."
 
 #. translators: 1: completed tasks, 2: total tasks
-#: build/index.js:2
+#: build/index.js:5895
 msgid "%1$d out of %2$d complete."
 msgstr "%1$d/%2$d개 완료"
 
-#: build/index.js:1
+#: build/index.js:5894
 msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
 msgstr "상품 판매를 위한 준비가 거의 완료됐습니다! 다음 단계를 따라 테스트 스토어를 설정하세요."
 
-#: build/index.js:1
+#: build/index.js:5891
 msgid "Hide setup list"
 msgstr "설정 목록 숨기기"
 
-#: build/index.js:1
+#: build/index.js:7750
 msgid "The store setup process meets my needs."
 msgstr "내게 필요한 사항이 스토어 설정 프로세스에서 충족됩니다."
 
-#: build/index.js:1
+#: build/index.js:7749
 msgid "The store setup is easy to complete."
 msgstr "스토어 설정을 완료하기 쉽습니다."
 
-#: build/index.js:1
+#: build/index.js:7747
 msgid "We appreciate your feedback!"
 msgstr "피드백을 보내주셔서 감사합니다!"
 
-#: build/index.js:1
+#: build/index.js:7738 build/index.js:7748
 msgid "How was your experience?"
 msgstr "경험해보니 어떠셨나요?"
 
-#: build/index.js:1
+#: build/index.js:6038 build/index.js:7736
 msgid "Hide this"
 msgstr "숨기기"
 
-#: build/index.js:1
+#: build/index.js:7734
 msgid "Show setup task list"
 msgstr "설정 작업 목록 표시"
 
-#: build/index.js:1
+#: build/index.js:6033 build/index.js:7729
 msgid "Task List Options"
 msgstr "작업 목록 옵션"
 
-#: build/index.js:1
+#: build/index.js:7723
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
 msgstr "축하합니다! 잠시 자축하는 시간을 가져보세요. 스토어를 공개할 준비가 되었다면 유료 요금제로 업그레이드만 하면 됩니다. 그러면 작업 목록에 예정된 두 개의 작업도 이용할 수 있게 됩니다."
 
-#: build/index.js:1
+#: build/index.js:7717
 msgid "Woohoo! Your trial store has been set up!"
 msgstr "우와! 평가판 스토어가 설정됐습니다!"
 
-#: build/index.js:1
+#: build/index.js:5064
 msgid "You're awesome! One less item on your to-do list ✅"
 msgstr "굉장하군요! 해야 할 일이 한 가지 줄었어요 ✅"
 
-#: build/index.js:1
+#: build/index.js:5061
 msgid "There was a problem setting up automated taxes. Please try again."
 msgstr "자동화된 세금 설정 중 문제가 발생했습니다. 다시 시도하세요."
 
-#: build/index.js:1
+#: build/index.js:4980
 msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
 msgstr "무료 평가판을 사용하는 동안에는 판매세 설정을 구성할 수 있지만 징수되지는 않습니다. {{br/}}제품 판매를 시작하려면 {{link}}지금 업그레이드{{/link}}하세요."
 
-#: build/index.js:1
+#: build/index.js:4501
 msgid "I don't charge sales tax"
 msgstr "판매세 청구하지 않음"
 
-#: build/index.js:1
+#: build/index.js:4494
 msgid "Set up taxes manually"
 msgstr "수동으로 세금 설정"
 
-#: build/index.js:1
+#: build/index.js:4483
 msgid "Choose a tax partner"
 msgstr "세금 파트너 선택"
 
-#: build/index.js:1
+#: build/index.js:5682
 msgid "WooCommerce Tax can automate your sales tax calculations for you."
 msgstr "WooCommerce Tax에서는 판매세 계산을 자동화할 수 있습니다."
 
-#: build/index.js:1
+#: build/index.js:5681
 msgid "Automate Taxes"
 msgstr "세금 자동화"
 
-#: build/index.js:1
+#: build/index.js:5421
 msgid "Automate taxes"
 msgstr "세금 자동화"
 
-#: build/index.js:1
+#: build/index.js:5293
 msgid "Head over to the tax rate settings screen to configure your tax rates"
 msgstr "세율 설정 화면으로 이동하여 세율을 구성하세요."
 
-#: build/index.js:1
+#: build/index.js:5292
 msgid "Configure tax rates"
 msgstr "세율 구성"
 
-#: build/index.js:1
+#: build/index.js:5288 build/index.js:5677
 msgid "The address from which your business operates"
 msgstr "회원님의 비즈니스가 이루어지는 주소"
 
-#: build/index.js:1
+#: build/index.js:5287 build/index.js:5676
 msgid "Set store location"
 msgstr "스토어 위치 설정"
 
-#: build/index.js:1
+#: build/index.js:4570
 msgid "Please select a country / region"
 msgstr "국가 / 지역을 입력하세요"
 
-#: build/index.js:1
+#: build/index.js:4798
 msgid "Post code"
 msgstr "우편번호"
 
-#: build/index.js:1
+#: build/index.js:4795
 msgid "Address"
 msgstr "주소"
 
-#: build/index.js:1
+#: build/index.js:4781
 msgid "Country / Region"
 msgstr "국가 / 지역"
 
-#: build/index.js:1
+#: build/index.js:5221
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
 msgstr "\"구성\"을 클릭하면 세율 및 계산이 활성화됩니다. 자세한 내용은 {{link}}여기{{/link}}를 참조하세요."
 
-#: build/index.js:1
+#: build/index.js:5220
 msgid "Configure"
 msgstr "구성"
 
-#: build/index.js:1
+#: build/index.js:5497
 msgid "Continue setup"
 msgstr "설정 계속하기"
 
-#: build/index.js:1
+#: build/index.js:5488
 msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
 msgstr "WooCommerce Tax와 젯팩을 설치하면 {{link}}서비스 약관{{/link}}에 동의하는 것입니다."
 
-#: build/index.js:1
+#: build/index.js:5486
 msgid "100% free"
 msgstr "100% 무료"
 
-#: build/index.js:1
+#: build/index.js:5476
 msgid "Powered by {{link}}Jetpack{{/link}}"
 msgstr "{{link}}젯팩{{/link}} 제공"
 
-#: build/index.js:1
+#: build/index.js:5471
 msgid "{{strong}}Single{{/strong}} economic nexus compliance"
 msgstr "{{strong}}단일{{/strong}} 경제 결합 규정 준수"
 
-#: build/index.js:1
+#: build/index.js:5470
 msgid "Real-time sales tax calculation"
 msgstr "실시간 판매세 계산"
 
-#: build/index.js:1
+#: build/index.js:5469
 msgid "Best for new stores"
 msgstr "신규 스토어에 최적"
 
-#: build/index.js:1
+#: build/index.js:5467
 msgid "WooCommerce Tax"
 msgstr "WooCommerce Tax"
 
-#: build/index.js:1
+#: build/index.js:4135
 msgid "Get more sales"
 msgstr "매출 증대"
 
-#: build/index.js:1
+#: build/index.js:4114
 msgid "Upgrade to a paid plan to unlock more features and start selling"
 msgstr "유료 요금제로 업그레이드하여 더 많은 기능을 활용하고 판매를 시작하세요."
 
-#: build/index.js:1
+#: build/index.js:4113
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
 msgstr "현재 무료 평가판을 사용 중입니다! 전체 기능을 이용하려면 유료 요금제로 업그레이드하세요."
 
-#: build/index.js:1 src/welcome-modal/index.js:94
+#: build/index.js:8402 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
 msgstr "환영 모달 탐색 일러스트 1"
 
-#: build/index.js:1 src/welcome-modal/index.js:64
+#: build/index.js:8390 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
 msgstr "환영 모달 탐색 일러스트 2"
 
-#: build/index.js:1
+#: build/index.js:1837
 msgid "Setup required"
 msgstr "필요한 설정"
 
-#: build/index.js:1
+#: build/index.js:2727
 msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
 msgstr "반복 수익을 창출 및 관리하고 지정된 은행 계좌에 자동으로 예치하세요."
 
-#: build/index.js:1
+#: build/index.js:2724
 msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
 msgstr "해외 시장에 판매하고 로컬 결제 수단으로 135가지 이상의 통화를 수락하세요."
 
-#: build/index.js:1
+#: build/index.js:2721
 msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
 msgstr "체크카드와 신용카드 결제, Apple Pay, Sofort, SEPA, iDeal 등을 포함하여 고객이 선호하는 결제 방법을 제공하세요."
 
-#: build/index.js:1
+#: build/index.js:2502
 msgid "Accepted payment methods include:"
 msgstr "수락한 결제 수단:"
 
-#: build/index.js:1
+#: build/index.js:2454
 msgid "& more."
 msgstr "그 외 다수."
 
@@ -453,7 +454,7 @@ msgstr "테마 선택"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:3 src/index.js:199
+#: build/index.js:6248 src/index.js:199
 msgid "Plugins"
 msgstr "플러그인"
 
@@ -489,27 +490,27 @@ msgstr "온보딩"
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "판매에 최적화된 사용자 정의 탐색 환경입니다."
 
-#: build/index.js:1 src/welcome-modal/index.js:114
+#: build/index.js:8411 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "우커머스에서는 일을 진행하는 속도가 빨라졌습니다. 새로운 탐색에 대해 <a>자세히 알아보거나</a> 직접 탐색해 보세요."
 
-#: build/index.js:1 src/welcome-modal/index.js:107
+#: build/index.js:8409 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "탐색을 통해 더 빠르게 이동"
 
-#: build/index.js:1 src/welcome-modal/index.js:83
+#: build/index.js:8399 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "워드프레스닷컴 알림판으로 다시 이동할 때마다 스토어의 성과에 대한 팁과 인사이트를 얻으세요."
 
-#: build/index.js:1 src/welcome-modal/index.js:77
+#: build/index.js:8397 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "새로운 홈 만나보기"
 
-#: build/index.js:3 src/task-headers/add-domain.js:34
+#: build/index.js:7873 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "스토어의 새 웹사이트 주소를 선택하거나 이미 소유하고 있는 주소를 이전하세요."
 
-#: build/index.js:3 src/task-headers/add-domain.js:22
+#: build/index.js:7868 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "도메인 일러스트레이션 추가"
 
@@ -557,260 +558,313 @@ msgstr "은행 이체 상세 정보 추가됨"
 msgid "Please enter an account number or IBAN"
 msgstr "계좌 번호 또는 IBAN을 입력하세요."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1491
 #: src/payment-gateway-suggestions/index.js:285
+#: build/payment-gateway-suggestions.js:1498
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
 msgstr "관리자와 스토어 관리자만 무료 평가판을 사용하는 동안에 주문할 수 있습니다. 고객의 결제를 수락할 준비가 되었으면 {{link}}유료 요금제로 업그레이드{{/link}}하세요."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1476
 #: src/payment-gateway-suggestions/index.js:266
+#: build/payment-gateway-suggestions.js:1479
 msgid "Offline payment methods"
 msgstr "오프라인 결제 수단"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1471
 #: src/payment-gateway-suggestions/index.js:257
+#: build/payment-gateway-suggestions.js:1470
 msgid "See more"
 msgstr "더 보기"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1457
 #: src/payment-gateway-suggestions/index.js:236
+#: build/payment-gateway-suggestions.js:1449
 msgid "Try one of the alternative payment providers."
 msgstr "대체 결제 제공업체 중 하나를 이용해 보세요."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1456
+#: build/payment-gateway-suggestions.js:1505
 #: src/payment-gateway-suggestions/index.js:232
 #: src/payment-gateway-suggestions/index.js:311
+#: build/payment-gateway-suggestions.js:1445
+#: build/payment-gateway-suggestions.js:1524
 msgid "Other payment providers"
 msgstr "다른 결제 제공업체"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1454
 #: src/payment-gateway-suggestions/index.js:227
+#: build/payment-gateway-suggestions.js:1440
 msgid "Give your customers additional choices in ways to pay."
 msgstr "고객에게 결제 방법을 선택할 기회를 추가로 제공하세요."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1453
 #: src/payment-gateway-suggestions/index.js:223
+#: build/payment-gateway-suggestions.js:1436
 msgid "Additional payment options"
 msgstr "추가 결제 옵션"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1450
 #: src/payment-gateway-suggestions/index.js:217
+#: build/payment-gateway-suggestions.js:1430
 msgid "To get ready to accept online payments"
 msgstr "온라인 결제 수락을 준비하는 방법"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1449
 #: src/payment-gateway-suggestions/index.js:213
+#: build/payment-gateway-suggestions.js:1426
 msgid "Choose a payment provider"
 msgstr "결제 제공업체 선택"
 
-#: build/index.js:3
+#: build/index.js:7040
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "WooCommerce Payments에 연결하는 중 오류가 발생했습니다. 다시 시도하거나 나중에 스토어 설정에서 연결하세요."
 
+#: build/payment-gateway-suggestions.js:1249
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
+#: build/payment-gateway-suggestions.js:1200
 msgid "I agree"
 msgstr "동의함"
 
+#: build/payment-gateway-suggestions.js:1236
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
+#: build/payment-gateway-suggestions.js:1180
 msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
 msgstr "중요하지 않은 {{link}}사용 데이터{{/link}}를 제공하면 기능을 개선하고 WooCommerce Payments 환경을 최적화하는 데 도움이 됩니다. 언제든지 거부하실 수 있습니다."
 
+#: build/payment-gateway-suggestions.js:1234
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
+#: build/payment-gateway-suggestions.js:1175
 msgid "Help us build a better WooCommerce Payments experience"
 msgstr "더 나은 WooCommerce Payments 환경을 조성하도록 도와주세요"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:2508 build/payment-gateway-suggestions.js:1108
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
+#: build/payment-gateway-suggestions.js:1043
 msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
 msgstr "WooCommerce Payments를 사용하면 {{tosLink}}서비스 약관{{/tosLink}} 적용에 동의하고 {{privacyLink}}개인정보 취급방침{{/privacyLink}}을 읽었다는 것을 확인하는 것입니다. "
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1101
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
+#: build/payment-gateway-suggestions.js:1033
 msgid "Get ready to accept payments"
 msgstr "결제 수락 준비하기"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:969
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
+#: build/payment-gateway-suggestions.js:919
 msgid "Yes, count me in!"
 msgstr "네, 저도 끼워주세요!"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:957
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
+#: build/payment-gateway-suggestions.js:901
 msgid "Build a better WooCommerce"
 msgstr "더 나은 우커머스 구축"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:896
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
+#: build/payment-gateway-suggestions.js:842
 msgid "There was a problem updating your preferences"
 msgstr "기본 설정 업데이트 중 문제가 발생했음"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:719
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:120
+#: build/payment-gateway-suggestions.js:697
 msgid "Configure your %(title)s account"
 msgstr "%(title)s 계정 구성하기"
 
 #. translators: %s = title of the payment gateway to install
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:702
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:88
+#: build/payment-gateway-suggestions.js:665
 msgid "Install %s"
 msgstr "설치 %s"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:540
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
+#: build/payment-gateway-suggestions.js:529
 msgid "You can manage this payment gateway's settings by clicking the button below"
 msgstr "아래 버튼을 클릭하여 이 결제 게이트웨이의 설정을 관리할 수 있습니다."
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:535
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:133
+#: build/payment-gateway-suggestions.js:510
 msgid "Connect"
 msgstr "연결하기"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:513
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:100
+#: build/payment-gateway-suggestions.js:477
 msgid "Proceed"
 msgstr "진행합니다"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:503
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:84
 #: src/payment-gateway-suggestions/plugins/Bacs.js:63
+#: build/payment-gateway-suggestions.js:461
 msgid "There was a problem saving your payment settings"
 msgstr "결제 설정 저장 중 문제가 발생했습니다."
 
 #. translators: %s = title of the payment gateway
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:500
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:75
+#: build/payment-gateway-suggestions.js:452
 msgid "%s configured successfully"
 msgstr "%s 구성됨"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1784 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:81
+#: build/payment-gateway-suggestions.js:226
 msgid "Recommended"
 msgstr "추천"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1783 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:80
+#: build/payment-gateway-suggestions.js:225
 msgid "Local Partner"
 msgstr "현지 파트너"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:132
 #: src/payment-gateway-suggestions/components/Action.js:138
+#: build/payment-gateway-suggestions.js:138
 msgid "Finish setup"
 msgstr "설정 완료"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:103
 #: src/payment-gateway-suggestions/components/Action.js:99
+#: build/payment-gateway-suggestions.js:99
 msgid "Enable"
 msgstr "활성"
 
-#: build/index.js:1 src/launch-store/index.js:392
+#: build/index.js:6915 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "무시하고 시작"
 
-#: build/index.js:1 src/launch-store/index.js:382
+#: build/index.js:6912 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "스토어를 시작하기 전에 확인할 몇 가지 사항"
 
-#: build/index.js:1 src/launch-store/index.js:379
+#: build/index.js:6910 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "시작하기 전에"
 
-#: build/index.js:1 src/launch-store/index.js:318
+#: build/index.js:6874 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "새 웹사이트의 주소를 선택하거나 이미 소유하고 있는 도메인을 이전하세요."
 
-#: build/index.js:1 src/launch-store/index.js:314
+#: build/index.js:6870 src/launch-store/index.js:314
 msgid "List products"
 msgstr "상품 나열하기"
 
-#: build/index.js:1 src/launch-store/index.js:310
+#: build/index.js:6869 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "스토어에 상품 또는 서비스를 추가하여 판매를 시작하세요. 상품을 수동으로 생성하거나 기존 스토어에서 가져오세요."
 
-#: build/index.js:1 src/launch-store/index.js:309
+#: build/index.js:6868 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "내 상품 나열하기"
 
-#: build/index.js:1 src/launch-store/index.js:301
+#: build/index.js:6863 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "고객에게 쉽고 편리한 결제 방법을 제공하세요! 빠르고 안전한 온라인 또는 직접 결제 수단을 하나 이상 설정하세요."
 
-#: build/index.js:1 src/launch-store/index.js:300 src/launch-store/index.js:305
+#: build/index.js:6862 build/index.js:6864 src/launch-store/index.js:300
+#: src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "결제받기"
 
-#: build/index.js:1 src/launch-store/index.js:262 src/launch-store/index.js:398
+#: build/index.js:6831 build/index.js:6919 src/launch-store/index.js:262
+#: src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "언제든지 <a>설정</a>에서 되돌릴 수 있습니다."
 
-#: build/index.js:1 src/launch-store/index.js:250
+#: build/index.js:6825 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "이제 축하할 시간입니다. 스토어를 시작할 준비가 되었습니다! 좋아요!"
 
-#: build/index.js:1 src/launch-store/index.js:247
+#: build/index.js:6823 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "스토어를 시작할 준비가 되셨나요?"
 
-#: build/index.js:1 src/launch-store/index.js:212
+#: build/index.js:6804 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "마음이 바뀌셨나요? <a>개인정보</a> 설정을 업데이트하여 스토어를 다시 비공개로 전환할 수 있습니다."
 
-#: build/index.js:1 src/launch-store/index.js:206
+#: build/index.js:6800 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "내 스토어 보기"
 
-#: build/index.js:1 src/launch-store/index.js:186
+#: build/index.js:6787 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "우커머스 스토어 시작을 축하합니다. 잠시 시간을 내어 축하하고 소식을 공유하세요!"
 
-#: build/index.js:1 src/launch-store/index.js:182
+#: build/index.js:6785 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "좋아요! 훌륭합니다!"
 
-#: build/index.js:1 src/launch-store/index.js:142
+#: build/index.js:6758 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "스토어 시작하기"
 
-#: build/index.js:1 src/launch-store/index.js:71
+#: build/index.js:6708 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "복사됨"
 
-#: build/index.js:3 src/homescreen-banner/index.js:61
+#: build/index.js:5770 src/homescreen-banner/index.js:61
 msgid "Dismiss this free trial informational banner."
 msgstr "이 무료 평가판 정보 배너는 무시하세요."
 
-#: build/index.js:3 src/homescreen-banner/index.js:45
+#: build/index.js:5762 src/homescreen-banner/index.js:45
 msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
 msgstr "무엇을 이용할 수 있는지 둘러보기를 시작할 수 있는 무료 평가판 테스트 스토어입니다. 무료 평가판에 대해 자세히 알아보려면 \"더 알아보기\"를 클릭하세요."
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:56
+#: build/index.js:4314 src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr "스토어 위치 저장 중 문제가 발생했음"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:149
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:134
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "\"결제 테스트\"를 클릭하면 {{tosLink}}서비스 약관{{/tosLink}}에 동의하는 것입니다."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:148
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:126
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "간단한 일체형 옵션으로 결제를 강화하세요. WooCommerce Payments로 거래 테스트를 시작할 비즈니스 상세 정보를 확인하세요."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
+#: build/src_free-trial_fills_index_ts.js:75
+#: build/src_free-trial_fills_index_ts.js:161
+#: src/free-trial/fills/task-headers/payments.js:50
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:84
+#: build/src_free-trial_fills_index_ts.js:54
+#: build/src_free-trial_fills_index_ts.js:156
 msgid "Test payments"
 msgstr "결제 테스트"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:71
+#: src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:44
 msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
 msgstr "고객에게 쉽고 편리한 결제 방법을 제공하세요! 빠르고 안전한 온라인 또는 직접 결제 수단을 설정하고 테스트하세요."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
+#: build/src_free-trial_fills_index_ts.js:71
+#: build/src_free-trial_fills_index_ts.js:146
+#: src/free-trial/fills/task-headers/payments.js:34
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:41
+#: build/src_free-trial_fills_index_ts.js:38
+#: build/src_free-trial_fills_index_ts.js:113
 msgid "It’s time to test payments"
 msgstr "결제를 테스트할 시간입니다."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
+#: build/src_free-trial_fills_index_ts.js:66
+#: build/src_free-trial_fills_index_ts.js:141
+#: src/free-trial/fills/task-headers/payments.js:22
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:29
+#: build/src_free-trial_fills_index_ts.js:26
+#: build/src_free-trial_fills_index_ts.js:101
 msgid "Payment illustration"
 msgstr "결제 일러스트레이션"
 
@@ -870,7 +924,8 @@ msgstr "우커머스 확장 기능으로 스토어를 비즈니스에 맞춰 사
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
+#: build/plugins.js:65 build/plugins.js:70 build/plugins.js:77
+#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "확장 기능으로 스토어의 수준 높이기"
 
@@ -884,8 +939,8 @@ msgstr "축하할 시간입니다! 스토어를 시작할 준비가 되셨나요
 
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
-#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:1
-#: src/launch-store/index.js:155
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:4137
+#: build/index.js:6768 src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "스토어 시작"
 
@@ -894,7 +949,7 @@ msgid "You've already launched your store"
 msgstr "이미 스토어를 시작하셨습니다."
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
-#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:3
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8047
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2분"
@@ -908,8 +963,8 @@ msgid "Domain"
 msgstr "도메인"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:1
-#: build/index.js:3 src/launch-store/index.js:322
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:6875
+#: build/index.js:7873 build/index.js:7877 src/launch-store/index.js:322
 #: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "도메인 추가"
@@ -930,7 +985,8 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1 build/marketing.js:1 build/plugins.js:1
+#: build/index.js:4133 build/index.js:7726 build/marketing.js:1147
+#: build/plugins.js:50 build/plugins.js:53
 msgid "Upgrade now"
 msgstr "지금 업그레이드"
 
@@ -1002,8 +1058,9 @@ msgid "Discover"
 msgstr "둘러보기"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:90
 #: src/payment-gateway-suggestions/components/Action.js:76
+#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "관리"
 
@@ -1045,19 +1102,28 @@ msgstr "내 홈"
 msgid "Feedback"
 msgstr "피드백"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:1890
+msgid "Accepted payment methods"
+msgstr "허용된 결제 수단"
+
+#: build/payment-gateway-suggestions.js:968
+#: build/payment-gateway-suggestions.js:1250
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
+#: build/payment-gateway-suggestions.js:918
+#: build/payment-gateway-suggestions.js:1201
 msgid "No thanks"
 msgstr "괜찮습니다."
 
-#: build/index.js:1 build/payment-gateway-suggestions.js:1
-#: build/payment-gateway-suggestions.js:2
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:8387 build/payment-gateway-suggestions.js:52
+#: build/payment-gateway-suggestions.js:543
+#: build/payment-gateway-suggestions.js:1178
 #: src/payment-gateway-suggestions/components/Action.js:27
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:159
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
+#: src/welcome-modal/index.js:59 build/payment-gateway-suggestions.js:27
+#: build/payment-gateway-suggestions.js:536
+#: build/payment-gateway-suggestions.js:1131
 msgid "Get started"
 msgstr "시작하기"
 
@@ -1242,15 +1308,15 @@ msgstr "스토어"
 msgid "Stats"
 msgstr "통계"
 
-#: build/index.js:1
+#: build/index.js:4801
 msgid "City"
 msgstr "도시"
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:23
+#: build/index.js:4283 src/free-trial/tax/components/location.js:23
 msgid "Continue"
 msgstr "계속"
 
-#: build/index.js:3 src/homescreen-banner/index.js:57
+#: build/index.js:2978 build/index.js:5768 src/homescreen-banner/index.js:57
 msgid "Learn more"
 msgstr "자세히 알아보세요."
 

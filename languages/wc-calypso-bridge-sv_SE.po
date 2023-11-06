@@ -43,6 +43,10 @@ msgstr "Välj en domän för din nya butik"
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "WooCommerce kan inte inaktiveras på detta paket."
 
+#: build/index.js:2506
+msgid "Accept Payments and manage your business."
+msgstr "Ta emot betalningar och hantera ditt företag."
+
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New Order"
 msgstr "Lägg till ny beställning"
@@ -77,337 +81,334 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "Blogg hem"
 
-#: build/plugins.js:1
+#: build/plugins.js:147 build/plugins.js:211
 msgid "Hire an expert"
 msgstr "Anlita en expert"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:195
 msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
 msgstr "Kan du inte hitta det du letar efter? Anlita en av våra expertbyråer. Från nya utökningar till hela butiksbyggen, våra Woo-experter kan hjälpa dig att skapa din drömbutik."
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:158
 msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
 msgstr "Vill du utöka din butiks e-handelsfunktioner? Woo Marketplace har hundratals tillförlitliga utökningar utformade specifikt för din butik."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:116
 msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
 msgstr "Från SEO-verktyg till flerspråksfunktionalitet, med WordPress-tillägg kan du anpassa din webbplats för att göra allt du behöver."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:113
 msgid "Customize your website"
 msgstr "Anpassa din webbplats"
 
-#: build/plugins.js:1
+#: build/plugins.js:39 build/plugins.js:33
 msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
 msgstr "Lägg till ytterligare funktioner till din webbplats med en knapptryckning. Uppgradera till ett betalpaket och få tillgång till tusentals gratis- och betaltillägg för WordPress. Är du nyfiken på vad som är möjligt?"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:193
 msgid "Do it your way"
 msgstr "Gör det på ditt sätt"
 
-#: build/plugins.js:1
+#: build/plugins.js:124 build/plugins.js:174
 msgid "Discover Extensions"
 msgstr "Upptäck utökningar"
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:156
 msgid "Extend your store"
 msgstr "Utöka din butik"
 
-#: build/plugins.js:1
+#: build/plugins.js:61 build/plugins.js:96 build/plugins.js:67
+#: build/plugins.js:132
 msgid "Browse plugins"
 msgstr "Bläddra bland tillägg"
 
-#: build/plugins.js:1
+#: build/plugins.js:37 build/plugins.js:26
 msgid "Make anything happen, with plugins"
 msgstr "Få vad som helst att hända med tillägg"
 
-#: build/payment-gateway-suggestions.js:3
-msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
-msgstr "Få förbättrade funktioner och snabbare korrigeringar genom att dela icke-känsliga data via {{link}}användningsspårning{{/link}} som visar oss hur WooCommerce används. Inga personliga data spåras eller lagras."
-
-#: build/marketing.js:1
+#: build/marketing.js:1209
 msgid "Create digital gift cards"
 msgstr "Skapa digitala presentkort"
 
-#: build/marketing.js:1
+#: build/marketing.js:1200
 msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
 msgstr "Börja sälja och ta emot digitala presentkort för att öka kundlojaliteten, öka intäkterna och introducera nya kunder till din butik."
 
-#: build/marketing.js:1
+#: build/marketing.js:1199
 msgid "Increase customer loyalty with gift cards"
 msgstr "Öka kundlojalitet med presentkort"
 
-#: build/marketing.js:1
+#: build/marketing.js:1195
 msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
 msgstr "Få dina produkter att synas för miljontals engagerade köpare på plattformarna TikTok, Pinterest och Meta med hjälp av social annonsering."
 
-#: build/marketing.js:1
+#: build/marketing.js:1194
 msgid "Reach more customers across social media"
 msgstr "Nå fler kunder via sociala medier"
 
-#: build/marketing.js:1
+#: build/marketing.js:1190
 msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
 msgstr "Nå aktiva köpare i Google med produktlistor och annonser som du kan skapa och hantera direkt i din adminpanel."
 
-#: build/marketing.js:1
+#: build/marketing.js:1189
 msgid "Advertise your products on Google"
 msgstr "Annonsera dina produkter på Google"
 
-#: build/marketing.js:1
+#: build/marketing.js:1186
 msgid "Try AutomateWoo"
 msgstr "Prova AutomateWoo"
 
-#: build/marketing.js:1
+#: build/marketing.js:1177
 msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
 msgstr "Öka försäljningen och bygg upp lojalitet med automatiserade marknadsföringsmeddelanden som reagerar på uppgifter om kundernas inköp."
 
-#: build/marketing.js:1
+#: build/marketing.js:1176
 msgid "Automate your marketing"
 msgstr "Automatisera din marknadsföring"
 
-#: build/marketing.js:1
+#: build/marketing.js:1174
 msgid "Discover our built-in marketing tools to reach more customers and boost sales"
 msgstr "Upptäck våra inbyggda marknadsföringsverktyg för att nå fler kunder och öka försäljningen"
 
-#: build/marketing.js:1
+#: build/marketing.js:1168
 msgid "Grow your business with hundreds of extensions"
 msgstr "Öka ditt företag med hundratals utökningar"
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
 msgstr "Nå fler kunder och få ditt företag att växa med vår inbyggda marknadsförings- och annonseringsverktyg. Uppgradera till ett betalpaket för att låsa upp våra kraftfulla marknadsföringsverktyg och få ditt företag att börja växa idag."
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Get ready to grow your business"
 msgstr "Är du redo att få ditt företag att växa?"
 
-#: build/index.js:3 src/task-headers/appearance.js:29
+#: build/index.js:7945 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
 msgstr "Illustration av utseende"
 
-#: build/index.js:3 src/task-headers/products.js:26
+#: build/index.js:8033 src/task-headers/products.js:26
 msgid "Products illustration"
 msgstr "Produktillustration"
 
-#: build/index.js:3
+#: build/index.js:5975
 msgid "Everything is looking great, keep it up!"
 msgstr "Allt ser bra ut, fortsätt så!"
 
-#: build/index.js:3
+#: build/index.js:5973
 msgid "Woo! We’ve made it to the last step! Great job"
 msgstr "Woo! Vi har tagit oss till sista steget! Bra jobbat"
 
-#: build/index.js:3
+#: build/index.js:5969
 msgid "Only a few more tasks to tick off!"
 msgstr "Bara några få uppgifter kvar att bocka av!"
 
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to your Woo Express store"
 msgstr "Välkommen till din Woo Express-butik"
 
 #. translators: %s = site title
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to %s"
 msgstr "Välkommen till %s"
 
 #. translators: 1: completed tasks, 2: total tasks
-#: build/index.js:2
+#: build/index.js:5895
 msgid "%1$d out of %2$d complete."
 msgstr "%1$d av %2$d klara."
 
-#: build/index.js:1
+#: build/index.js:5894
 msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
 msgstr "Du är nästan redo att börja sälja! Följ dessa steg för att ställa in din testbutik."
 
-#: build/index.js:1
+#: build/index.js:5891
 msgid "Hide setup list"
 msgstr "Dölj listan med konfigurationsåtgärder"
 
-#: build/index.js:1
+#: build/index.js:7750
 msgid "The store setup process meets my needs."
 msgstr "Butikskonfigurationsprocessen uppfyller mina behov."
 
-#: build/index.js:1
+#: build/index.js:7749
 msgid "The store setup is easy to complete."
 msgstr "Butikskonfigurationen är enkel att slutföra."
 
-#: build/index.js:1
+#: build/index.js:7747
 msgid "We appreciate your feedback!"
 msgstr "Vi uppskattar din feedback!"
 
-#: build/index.js:1
+#: build/index.js:7738 build/index.js:7748
 msgid "How was your experience?"
 msgstr "Hur var din upplevelse?"
 
-#: build/index.js:1
+#: build/index.js:6038 build/index.js:7736
 msgid "Hide this"
 msgstr "Dölj detta"
 
-#: build/index.js:1
+#: build/index.js:7734
 msgid "Show setup task list"
 msgstr "Visa uppgiftslista för inställning"
 
-#: build/index.js:1
+#: build/index.js:6033 build/index.js:7729
 msgid "Task List Options"
 msgstr "Uppgiftslistealternativ"
 
-#: build/index.js:1
+#: build/index.js:7723
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
 msgstr "Grattis! Ta en stund och fira. Och när du är redo att lansera din butik är allt du behöver göra att uppgradera till ett betalpaket. Detta låser även upp de två kommande uppgifterna i uppgiftslistan."
 
-#: build/index.js:1
+#: build/index.js:7717
 msgid "Woohoo! Your trial store has been set up!"
 msgstr "Hurra! Din provperiodsbutik har konfigurerats."
 
-#: build/index.js:1
+#: build/index.js:5064
 msgid "You're awesome! One less item on your to-do list ✅"
 msgstr "Du är grym! En sak mindre på din att göra-lista ✅"
 
-#: build/index.js:1
+#: build/index.js:5061
 msgid "There was a problem setting up automated taxes. Please try again."
 msgstr "Det var ett problem med att ställa in automatiska momser. Försök igen."
 
-#: build/index.js:1
+#: build/index.js:4980
 msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
 msgstr "Under den kostnadsfria provperioden kan du konfigurera dina inställningar för försäljningsmoms, men inte samla in moms. {{br/}}För att börja sälja produkter, {{link}}uppgradera nu{{/link}}."
 
-#: build/index.js:1
+#: build/index.js:4501
 msgid "I don't charge sales tax"
 msgstr "Jag debiterar inte moms"
 
-#: build/index.js:1
+#: build/index.js:4494
 msgid "Set up taxes manually"
 msgstr "Ställ in moms manuellt"
 
-#: build/index.js:1
+#: build/index.js:4483
 msgid "Choose a tax partner"
 msgstr "Välj en momspartner"
 
-#: build/index.js:1
+#: build/index.js:5682
 msgid "WooCommerce Tax can automate your sales tax calculations for you."
 msgstr "WooCommerce Tax kan beräkna försäljningsmoms i realtid åt dig."
 
-#: build/index.js:1
+#: build/index.js:5681
 msgid "Automate Taxes"
 msgstr "Automatisera momser"
 
-#: build/index.js:1
+#: build/index.js:5421
 msgid "Automate taxes"
 msgstr "Automatisera momser"
 
-#: build/index.js:1
+#: build/index.js:5293
 msgid "Head over to the tax rate settings screen to configure your tax rates"
 msgstr "Gå till inställningsvyn för momssatser för att konfigurera dina momssatser"
 
-#: build/index.js:1
+#: build/index.js:5292
 msgid "Configure tax rates"
 msgstr "Konfigurera momssatser"
 
-#: build/index.js:1
+#: build/index.js:5288 build/index.js:5677
 msgid "The address from which your business operates"
 msgstr "Adressen från vilken ditt företag verkar"
 
-#: build/index.js:1
+#: build/index.js:5287 build/index.js:5676
 msgid "Set store location"
 msgstr "Ställ in butikens plats"
 
-#: build/index.js:1
+#: build/index.js:4570
 msgid "Please select a country / region"
 msgstr "Välj ett land/region"
 
-#: build/index.js:1
+#: build/index.js:4798
 msgid "Post code"
 msgstr "Postnummer"
 
-#: build/index.js:1
+#: build/index.js:4795
 msgid "Address"
 msgstr "Adress"
 
-#: build/index.js:1
+#: build/index.js:4781
 msgid "Country / Region"
 msgstr "Land/region"
 
-#: build/index.js:1
+#: build/index.js:5221
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
 msgstr "Genom att klicka på Konfigurera aktiverar du momssatser och beräkningar. Du hittar mer information {{link}}här{{/link}}."
 
-#: build/index.js:1
+#: build/index.js:5220
 msgid "Configure"
 msgstr "Konfigurera"
 
-#: build/index.js:1
+#: build/index.js:5497
 msgid "Continue setup"
 msgstr "Fortsätt installationen"
 
-#: build/index.js:1
+#: build/index.js:5488
 msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
 msgstr "Genom att installera WooCommerce Tax och Jetpack samtycker du till {{link}}användarvillkoren{{/link}}."
 
-#: build/index.js:1
+#: build/index.js:5486
 msgid "100% free"
 msgstr "100&nbsp; gratis"
 
-#: build/index.js:1
+#: build/index.js:5476
 msgid "Powered by {{link}}Jetpack{{/link}}"
 msgstr "Drivs med {{link}}Jetpack{{/link}}"
 
-#: build/index.js:1
+#: build/index.js:5471
 msgid "{{strong}}Single{{/strong}} economic nexus compliance"
 msgstr "{{strong}}Enkel{{/strong}} överensstämmelse med ekonomisk nexus"
 
-#: build/index.js:1
+#: build/index.js:5470
 msgid "Real-time sales tax calculation"
 msgstr "Beräkning av försäljningsmoms i realtid"
 
-#: build/index.js:1
+#: build/index.js:5469
 msgid "Best for new stores"
 msgstr "Bäst för nya butiker"
 
-#: build/index.js:1
+#: build/index.js:5467
 msgid "WooCommerce Tax"
 msgstr "WooCommerce-moms"
 
-#: build/index.js:1
+#: build/index.js:4135
 msgid "Get more sales"
 msgstr "Öka din försäljning"
 
-#: build/index.js:1
+#: build/index.js:4114
 msgid "Upgrade to a paid plan to unlock more features and start selling"
 msgstr "Uppgradera till ett betalt paket för att låsa upp fler funktioner och börja sälja"
 
-#: build/index.js:1
+#: build/index.js:4113
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
 msgstr "Du använder för närvarande en gratis provperiod! För att få åtkomst till alla funktioner, uppgradera till ett betalt paket."
 
-#: build/index.js:1 src/welcome-modal/index.js:94
+#: build/index.js:8402 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
 msgstr "Välkommen modal navigering illustration 1"
 
-#: build/index.js:1 src/welcome-modal/index.js:64
+#: build/index.js:8390 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
 msgstr "Välkommen modal navigering illustration 2"
 
-#: build/index.js:1
+#: build/index.js:1837
 msgid "Setup required"
 msgstr "Konfiguration krävs"
 
-#: build/index.js:1
+#: build/index.js:2727
 msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
 msgstr "Tjäna och hantera återkommande intäkter och få automatiska insättningar till ditt valda bankkonto."
 
-#: build/index.js:1
+#: build/index.js:2724
 msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
 msgstr "Sälj till internationella marknader och acceptera mer än 135 valutor med lokala betalningsmetoder."
 
-#: build/index.js:1
+#: build/index.js:2721
 msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
 msgstr "Erbjud dina kunder deras föredragna sätt att betala inklusive bank- och kreditkortsbetalningar, Apple Pay, Sofort, SEPA, iDeal och många fler."
 
-#: build/index.js:1
+#: build/index.js:2502
 msgid "Accepted payment methods include:"
 msgstr "Accepterade betalningsmetoder inkluderar:"
 
-#: build/index.js:1
+#: build/index.js:2454
 msgid "& more."
 msgstr "och mer."
 
@@ -453,7 +454,7 @@ msgstr "Välj ditt tema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:3 src/index.js:199
+#: build/index.js:6248 src/index.js:199
 msgid "Plugins"
 msgstr "Tillägg"
 
@@ -489,27 +490,27 @@ msgstr "Onboarding"
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "En anpassad navigeringsupplevelse som är optimerad för försäljning."
 
-#: build/index.js:1 src/welcome-modal/index.js:114
+#: build/index.js:8411 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "Att få saker gjorda med WooCommerce går nu ännu snabbare. <a>Läs mer</a> om vår nya navigering – eller gå vidare och utforska på egen hand."
 
-#: build/index.js:1 src/welcome-modal/index.js:107
+#: build/index.js:8409 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "Arbeta snabbare med vår nya navigering"
 
-#: build/index.js:1 src/welcome-modal/index.js:83
+#: build/index.js:8399 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "Få tips och insikter om din butiks prestanda varje gång du går tillbaka till din WordPress.com-adminpanel."
 
-#: build/index.js:1 src/welcome-modal/index.js:77
+#: build/index.js:8397 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "Det här är din nya startsida"
 
-#: build/index.js:3 src/task-headers/add-domain.js:34
+#: build/index.js:7873 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "Välj en ny webbplatsadress för din butik eller överför en du redan äger."
 
-#: build/index.js:3 src/task-headers/add-domain.js:22
+#: build/index.js:7868 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "Lägg till en domänillustration"
 
@@ -557,260 +558,313 @@ msgstr "Uppgifter för direkt banköverföring har lagts till"
 msgid "Please enter an account number or IBAN"
 msgstr "Ange ett kontonummer eller IBAN"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1491
 #: src/payment-gateway-suggestions/index.js:285
+#: build/payment-gateway-suggestions.js:1498
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
 msgstr "Endast administratörer och butikschefer kan lägga beställningar under den kostnadsfria provperioden. Om du är redo att ta emot betalningar från kunder, {{link}}uppgradera till ett betalpaket{{/link}}."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1476
 #: src/payment-gateway-suggestions/index.js:266
+#: build/payment-gateway-suggestions.js:1479
 msgid "Offline payment methods"
 msgstr "Offline-betalningsmetoder"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1471
 #: src/payment-gateway-suggestions/index.js:257
+#: build/payment-gateway-suggestions.js:1470
 msgid "See more"
 msgstr "Se mer"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1457
 #: src/payment-gateway-suggestions/index.js:236
+#: build/payment-gateway-suggestions.js:1449
 msgid "Try one of the alternative payment providers."
 msgstr "Prova någon av de alternativa betalningsleverantörerna."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1456
+#: build/payment-gateway-suggestions.js:1505
 #: src/payment-gateway-suggestions/index.js:232
 #: src/payment-gateway-suggestions/index.js:311
+#: build/payment-gateway-suggestions.js:1445
+#: build/payment-gateway-suggestions.js:1524
 msgid "Other payment providers"
 msgstr "Andra betalningsleverantörer"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1454
 #: src/payment-gateway-suggestions/index.js:227
+#: build/payment-gateway-suggestions.js:1440
 msgid "Give your customers additional choices in ways to pay."
 msgstr "Ge dina kunder ytterligare valmöjligheter rörande hur de kan betala."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1453
 #: src/payment-gateway-suggestions/index.js:223
+#: build/payment-gateway-suggestions.js:1436
 msgid "Additional payment options"
 msgstr "Ytterligare betalningsalternativ"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1450
 #: src/payment-gateway-suggestions/index.js:217
+#: build/payment-gateway-suggestions.js:1430
 msgid "To get ready to accept online payments"
 msgstr "För att göra dig redo att ta emot onlinebetalningar"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1449
 #: src/payment-gateway-suggestions/index.js:213
+#: build/payment-gateway-suggestions.js:1426
 msgid "Choose a payment provider"
 msgstr "Välj en betalningsleverantör"
 
-#: build/index.js:3
+#: build/index.js:7040
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "Det var ett fel att ansluta till WooCommerce Payments. Försök igen eller anslut senare i butiksinställningarna."
 
+#: build/payment-gateway-suggestions.js:1249
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
+#: build/payment-gateway-suggestions.js:1200
 msgid "I agree"
 msgstr "Jag samtycker"
 
+#: build/payment-gateway-suggestions.js:1236
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
+#: build/payment-gateway-suggestions.js:1180
 msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
 msgstr "Genom att samtycka till att dela icke-känsliga {{link}}användardata{{/link}} hjälper du oss att förbättra funktioner och optimera WooCommerce Payments-upplevelsen. Du kan tacka nej när som helst."
 
+#: build/payment-gateway-suggestions.js:1234
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
+#: build/payment-gateway-suggestions.js:1175
 msgid "Help us build a better WooCommerce Payments experience"
 msgstr "Hjälp oss att bygga en bättre WooCommerce Payments-upplevelse"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:2508 build/payment-gateway-suggestions.js:1108
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
+#: build/payment-gateway-suggestions.js:1043
 msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
 msgstr "Genom att använda WooCommerce Payments samtycker du till våra {{tosLink}}användarvillkor{{/tosLink}} och intygar att du har läst vår {{privacyLink}}integritetspolicy{{/privacyLink}} "
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1101
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
+#: build/payment-gateway-suggestions.js:1033
 msgid "Get ready to accept payments"
 msgstr "Gör dig redo att ta emot betalningar"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:969
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
+#: build/payment-gateway-suggestions.js:919
 msgid "Yes, count me in!"
 msgstr "Ja, räkna med mig!"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:957
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
+#: build/payment-gateway-suggestions.js:901
 msgid "Build a better WooCommerce"
 msgstr "Bygg ett bättre WooCommerce"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:896
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
+#: build/payment-gateway-suggestions.js:842
 msgid "There was a problem updating your preferences"
 msgstr "Det gick inte att uppdatera dina preferenser"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:719
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:120
+#: build/payment-gateway-suggestions.js:697
 msgid "Configure your %(title)s account"
 msgstr "Konfigurera ditt %(title)s-konto"
 
 #. translators: %s = title of the payment gateway to install
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:702
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:88
+#: build/payment-gateway-suggestions.js:665
 msgid "Install %s"
 msgstr "Installera %s"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:540
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
+#: build/payment-gateway-suggestions.js:529
 msgid "You can manage this payment gateway's settings by clicking the button below"
 msgstr "Du kan hantera inställningarna för denna betalmodul genom att klicka på knappen nedan"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:535
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:133
+#: build/payment-gateway-suggestions.js:510
 msgid "Connect"
 msgstr "Anslut"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:513
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:100
+#: build/payment-gateway-suggestions.js:477
 msgid "Proceed"
 msgstr "Fortsätt"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:503
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:84
 #: src/payment-gateway-suggestions/plugins/Bacs.js:63
+#: build/payment-gateway-suggestions.js:461
 msgid "There was a problem saving your payment settings"
 msgstr "Det var ett problem att spara dina betalningsinställningar"
 
 #. translators: %s = title of the payment gateway
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:500
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:75
+#: build/payment-gateway-suggestions.js:452
 msgid "%s configured successfully"
 msgstr "%s har konfigurerats"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1784 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:81
+#: build/payment-gateway-suggestions.js:226
 msgid "Recommended"
 msgstr "Rekommenderad"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1783 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:80
+#: build/payment-gateway-suggestions.js:225
 msgid "Local Partner"
 msgstr "Lokal partner"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:132
 #: src/payment-gateway-suggestions/components/Action.js:138
+#: build/payment-gateway-suggestions.js:138
 msgid "Finish setup"
 msgstr "Slutför inställning"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:103
 #: src/payment-gateway-suggestions/components/Action.js:99
+#: build/payment-gateway-suggestions.js:99
 msgid "Enable"
 msgstr "Aktivera"
 
-#: build/index.js:1 src/launch-store/index.js:392
+#: build/index.js:6915 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "Lansera ändå"
 
-#: build/index.js:1 src/launch-store/index.js:382
+#: build/index.js:6912 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "Några saker att kontrollera innan du lanserar din butik"
 
-#: build/index.js:1 src/launch-store/index.js:379
+#: build/index.js:6910 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "Innan du lanserar"
 
-#: build/index.js:1 src/launch-store/index.js:318
+#: build/index.js:6874 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "Välj en adress för din nya webbplats eller överför en domän som du redan äger."
 
-#: build/index.js:1 src/launch-store/index.js:314
+#: build/index.js:6870 src/launch-store/index.js:314
 msgid "List products"
 msgstr "Lista produkter"
 
-#: build/index.js:1 src/launch-store/index.js:310
+#: build/index.js:6869 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "Börja sälja genom att lägga till produkter eller tjänster i din butik. Skapa dina produkter manuellt eller importera dem från en befintlig butik."
 
-#: build/index.js:1 src/launch-store/index.js:309
+#: build/index.js:6868 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "Lista dina produkter"
 
-#: build/index.js:1 src/launch-store/index.js:301
+#: build/index.js:6863 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "Ge dina kunder ett enkelt och bekvämt sätt att betala. Konfigurera en (eller flera) av våra snabba och säkra betalningsmetoder för onlinebetalningar eller personliga betalningar."
 
-#: build/index.js:1 src/launch-store/index.js:300 src/launch-store/index.js:305
+#: build/index.js:6862 build/index.js:6864 src/launch-store/index.js:300
+#: src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "Få betalt"
 
-#: build/index.js:1 src/launch-store/index.js:262 src/launch-store/index.js:398
+#: build/index.js:6831 build/index.js:6919 src/launch-store/index.js:262
+#: src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "Du kan alltid återställa detta under <a>Inställningar</a>."
 
-#: build/index.js:1 src/launch-store/index.js:250
+#: build/index.js:6825 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "Det är dags att fira – du är redo att lansera din butik! Woo!"
 
-#: build/index.js:1 src/launch-store/index.js:247
+#: build/index.js:6823 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "Är du redo att lansera din butik?"
 
-#: build/index.js:1 src/launch-store/index.js:212
+#: build/index.js:6804 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "Har du ändrat dig? Du kan göra din butik privat igen genom att uppdatera dina <a>integritetsinställningar</a>."
 
-#: build/index.js:1 src/launch-store/index.js:206
+#: build/index.js:6800 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "Visa din butik"
 
-#: build/index.js:1 src/launch-store/index.js:186
+#: build/index.js:6787 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "Grattis till lanseringen av din WooCommerce-butik. Ta en stund att fira och dela nyheterna!"
 
-#: build/index.js:1 src/launch-store/index.js:182
+#: build/index.js:6785 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "Woo! Du gjorde det!"
 
-#: build/index.js:1 src/launch-store/index.js:142
+#: build/index.js:6758 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "Lanserar din butik"
 
-#: build/index.js:1 src/launch-store/index.js:71
+#: build/index.js:6708 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "Kopierad"
 
-#: build/index.js:3 src/homescreen-banner/index.js:61
+#: build/index.js:5770 src/homescreen-banner/index.js:61
 msgid "Dismiss this free trial informational banner."
 msgstr "Avvisa den här informationsbannern om en kostnadsfri provperiod."
 
-#: build/index.js:3 src/homescreen-banner/index.js:45
+#: build/index.js:5762 src/homescreen-banner/index.js:45
 msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
 msgstr "Det här är din kostnadsfria provperiodsbutik där du kan börja utforska vad som är tillgängligt. För mer information om den kostnadsfria provperioden, klicka på \"Läs mer\"."
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:56
+#: build/index.js:4314 src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr "Det var ett problem att spara din butiksplats"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:149
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:134
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "Genom att klicka på \"Testa betalningar\" samtycker du till {{tosLink}}användarvillkoren{{/tosLink}}"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:148
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:126
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "Hantera dina betalningar med ett enkelt allt-i-ett-alternativ. Verifiera dina företagsuppgifter för att börja testa transaktioner med WooCommerce Payments."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
+#: build/src_free-trial_fills_index_ts.js:75
+#: build/src_free-trial_fills_index_ts.js:161
+#: src/free-trial/fills/task-headers/payments.js:50
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:84
+#: build/src_free-trial_fills_index_ts.js:54
+#: build/src_free-trial_fills_index_ts.js:156
 msgid "Test payments"
 msgstr "Testa betalningar"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:71
+#: src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:44
 msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
 msgstr "Ge dina kunder ett enkelt och bekvämt sätt att betala. Konfigurera och testa några av våra snabba och säkra betalningsmetoder för onlinebetalningar eller personliga betalningar."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
+#: build/src_free-trial_fills_index_ts.js:71
+#: build/src_free-trial_fills_index_ts.js:146
+#: src/free-trial/fills/task-headers/payments.js:34
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:41
+#: build/src_free-trial_fills_index_ts.js:38
+#: build/src_free-trial_fills_index_ts.js:113
 msgid "It’s time to test payments"
 msgstr "Det är dags att testa betalningar."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
+#: build/src_free-trial_fills_index_ts.js:66
+#: build/src_free-trial_fills_index_ts.js:141
+#: src/free-trial/fills/task-headers/payments.js:22
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:29
+#: build/src_free-trial_fills_index_ts.js:26
+#: build/src_free-trial_fills_index_ts.js:101
 msgid "Payment illustration"
 msgstr "Betalningsillustration"
 
@@ -870,7 +924,8 @@ msgstr "Anpassa din butik för att fungera perfekt för ditt företag, med WooCo
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
+#: build/plugins.js:65 build/plugins.js:70 build/plugins.js:77
+#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "Ta din butik till nästa nivå, med utökningar"
 
@@ -884,8 +939,8 @@ msgstr "Det är dags att fira! Redo att lansera din butik?"
 
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
-#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:1
-#: src/launch-store/index.js:155
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:4137
+#: build/index.js:6768 src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "Lansera din butik"
 
@@ -894,7 +949,7 @@ msgid "You've already launched your store"
 msgstr "Du har redan lanserat din butik."
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
-#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:3
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8047
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2 minuter"
@@ -908,8 +963,8 @@ msgid "Domain"
 msgstr "Domän"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:1
-#: build/index.js:3 src/launch-store/index.js:322
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:6875
+#: build/index.js:7873 build/index.js:7877 src/launch-store/index.js:322
 #: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "Lägg till en domän"
@@ -930,7 +985,8 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1 build/marketing.js:1 build/plugins.js:1
+#: build/index.js:4133 build/index.js:7726 build/marketing.js:1147
+#: build/plugins.js:50 build/plugins.js:53
 msgid "Upgrade now"
 msgstr "Uppgradera nu"
 
@@ -1002,8 +1058,9 @@ msgid "Discover"
 msgstr "Upptäck"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:90
 #: src/payment-gateway-suggestions/components/Action.js:76
+#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "Hantera"
 
@@ -1045,19 +1102,28 @@ msgstr "Min startsida"
 msgid "Feedback"
 msgstr "Feedback"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:1890
+msgid "Accepted payment methods"
+msgstr "Accepterade betalningsmetoder"
+
+#: build/payment-gateway-suggestions.js:968
+#: build/payment-gateway-suggestions.js:1250
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
+#: build/payment-gateway-suggestions.js:918
+#: build/payment-gateway-suggestions.js:1201
 msgid "No thanks"
 msgstr "Nej tack"
 
-#: build/index.js:1 build/payment-gateway-suggestions.js:1
-#: build/payment-gateway-suggestions.js:2
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:8387 build/payment-gateway-suggestions.js:52
+#: build/payment-gateway-suggestions.js:543
+#: build/payment-gateway-suggestions.js:1178
 #: src/payment-gateway-suggestions/components/Action.js:27
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:159
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
+#: src/welcome-modal/index.js:59 build/payment-gateway-suggestions.js:27
+#: build/payment-gateway-suggestions.js:536
+#: build/payment-gateway-suggestions.js:1131
 msgid "Get started"
 msgstr "Kom igång"
 
@@ -1242,15 +1308,15 @@ msgstr "Butik"
 msgid "Stats"
 msgstr "Statistik"
 
-#: build/index.js:1
+#: build/index.js:4801
 msgid "City"
 msgstr "Ort"
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:23
+#: build/index.js:4283 src/free-trial/tax/components/location.js:23
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: build/index.js:3 src/homescreen-banner/index.js:57
+#: build/index.js:2978 build/index.js:5768 src/homescreen-banner/index.js:57
 msgid "Learn more"
 msgstr "Lär dig mer"
 
