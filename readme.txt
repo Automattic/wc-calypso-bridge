@@ -25,9 +25,6 @@ This section describes how to install the plugin and get it working.
 = 2.2.22 =
 * Introduce is_woo_express_trial_plan function #1352
 
-= unreleased =
-* Introduce is_woo_express_trial_plan function #1352
-
 = 2.2.21 =
 * Remove wpcom elements when viewing cys iframe from intro screen #1344
 * Hide launch banner when viewing iframe from the intro screen #1348
