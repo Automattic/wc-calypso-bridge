@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Add parameter to go back for theme links in cys intro screen #1351
+
 = 2.2.22 =
 * Introduce is_woo_express_trial_plan function #1352
 

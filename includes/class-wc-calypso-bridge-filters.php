@@ -150,7 +150,7 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'tsubaki',
 				'is_active'      => 'tsubaki' === $current_theme_slug,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/tsubaki/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/tsubaki/' . $site_slug,
+				'link_url'       => 'https://wordpress.com/theme/tsubaki/' . $site_slug . '?from=customize-store',
 			),
 			array(
 				'name'           => 'Tazza',
@@ -160,7 +160,7 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'tazza',
 				'is_active'      => 'tazza' === $current_theme_slug,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/tazza/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/tazza/' . $site_slug,
+				'link_url'       => 'https://wordpress.com/theme/tazza/' . $site_slug . '?from=customize-store',
 			),
 			array(
 				'name'           => 'Amulet',
@@ -191,7 +191,7 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'amulet',
 				'is_active'      => 'amulet' === $current_theme_slug,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/amulet/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/amulet/' . $site_slug,
+				'link_url'       => 'https://wordpress.com/theme/amulet/' . $site_slug . '?from=customize-store',
 			),
 			array(
 				'name'           => 'Zaino',
@@ -222,7 +222,7 @@ class WC_Calypso_Bridge_Filters {
 				'slug'           => 'zaino',
 				'is_active'      => 'zaino' === $current_theme_slug,
 				'thumbnail_url'  => 'https://i0.wp.com/s2.wp.com/wp-content/themes/premium/zaino/screenshot.png',
-				'link_url'       => 'https://wordpress.com/theme/zaino/' . $site_slug,
+				'link_url'       => 'https://wordpress.com/theme/zaino/' . $site_slug . '?from=customize-store',
 			),
 		);
 
