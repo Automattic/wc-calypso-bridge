@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Add smart shipping defaults to all countries for Woo Express sites #1276
+
 = 2.2.23 =
 * Add parameter to go back for theme links in cys intro screen #1351
 
