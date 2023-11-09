@@ -10,8 +10,8 @@
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Shipping as ShippingTask;
 
 /**
- * Set free shipping in the same country as the store default
- * Flag rate in all other countries when any of the following conditions are ture
+ * Set free shipping in the same country as the store's current country.
+ * Flag rate in all other countries when any of the following conditions are true:
  *
  * - Country is set.
  * - No orders exists.
@@ -53,8 +53,7 @@ function wc_calypso_bridge_maybe_set_default_shipping_options_on_home( $settings
 	}
 
 	$args         = array(
-		'limit'  => 4,
-		'offset' => 1,
+		'limit'  => 1,
 	);
 	$orders_count = count( wc_get_orders( $args ) );
 
