@@ -50,6 +50,8 @@ class WC_Calypso_Smart_Shipping {
 	 * Set free shipping in the same country as the store's current country.
 	 * Flag rate in all other countries when any of the following conditions are true:
 	 *
+	 * - is_store_country_set is true in the onboarding profile.
+	 * - No shipping zone is set.
 	 * - Country is set.
 	 * - No orders exists.
 	 *
@@ -95,9 +97,7 @@ class WC_Calypso_Smart_Shipping {
 			return $settings;
 		}
 
-		$args         = array(
-			'limit'  => 1,
-		);
+		$args         = array( 'limit'  => 1 );
 		$orders_count = count( wc_get_orders( $args ) );
 
 		// If there are orders, don't create the default shipping options.
