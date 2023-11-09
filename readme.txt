@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Hide "Choose your theme" task when customize-store feature flag is enabled #1356
+
 = 2.2.23 =
 * Add parameter to go back for theme links in cys intro screen #1351
 
