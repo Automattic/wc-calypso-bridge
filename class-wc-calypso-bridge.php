@@ -134,11 +134,10 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-skip-obw.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-footer-credits.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-customize-store.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-smart-shipping.php';
 
 		// Experiments.
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/experiments/class-wc-calypso-bridge-task-list-reminderbar-experiment.php';
-
-		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-smart-shipping.php';
 	}
 
 	/**

@@ -1,4 +1,11 @@
 <?php
+/**
+ * Smart shipping function.
+ *
+ * @package WC_Calypso_Bridge/Classes
+ * @since   x.x.x
+ * @version x.x.x
+ */
 
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\Shipping as ShippingTask;
 
@@ -45,7 +52,7 @@ function wc_calypso_bridge_maybe_set_default_shipping_options_on_home( $settings
 		return $settings;
 	}
 
-	$args        = array(
+	$args         = array(
 		'limit'  => 4,
 		'offset' => 1,
 	);

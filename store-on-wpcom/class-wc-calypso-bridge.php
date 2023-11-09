@@ -80,7 +80,6 @@ class WC_Calypso_Bridge_Deprecated {
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-method-supports.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-products.php';
-		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-smart-shipping.php';
 	}
 
 	/**
