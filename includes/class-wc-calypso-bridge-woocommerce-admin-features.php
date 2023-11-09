@@ -152,6 +152,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			$features['analytics'] = true;
 		}
 
+		// Enable customize store feature.
+		if ( isset( $features['customize-store'] ) ) {
+			$features['customize-store'] = true;
+		}
+
 		return $features;
 	}
 
