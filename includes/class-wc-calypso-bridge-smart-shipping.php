@@ -2,7 +2,7 @@
 /**
  * Smart shipping function.
  *
- * @package WC_Calypso_Bridge/Classes
+ * @package -
  * @since   x.x.x
  * @version x.x.x
  */
