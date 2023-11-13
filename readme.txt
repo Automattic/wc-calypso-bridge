@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Add smart shipping defaults to all countries for Woo Express sites #1276
 * Hide "Choose your theme" task when customize-store feature flag is enabled #1356
 
 = 2.2.23 =
