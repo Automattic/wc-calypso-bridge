@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.2.20
- * @version 2.2.20
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -71,7 +71,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 		foreach ( $data as $spec ) {
 			if ( isset( $spec->rules ) && is_array( $spec->rules ) ) {
 				foreach ( $spec->rules as $rule ) {
-					if ( isset( $rule->type ) && 'is_wooexpress' === $rule->type ) {
+					if ( isset( $rule->type ) && 'is_woo_express' === $rule->type ) {
 						$allow_list[] = $spec->slug;
 					}
 				}
