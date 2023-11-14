@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-31 21:05:19+0000\n"
+"PO-Revision-Date: 2023-11-08 13:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,11 +17,11 @@ msgstr "Skapa din första produkt"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:40
 msgid "Welcome to your 14-day free trial of Woo Express – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "Välkommen till din gratis Woo Express-provperiod på 14 dagar – allt du behöver för att starta en framgångsrik onlineverksamhet, på en och samma plats. Resan mot din första försäljning har precis börjat! Är du redo att utforska?"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:38
 msgid "Your Woo Express free trial has just started"
-msgstr ""
+msgstr "Din gratis Woo Express-provperiod har precis börjat"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:94
 msgid "Choose a domain"
@@ -29,11 +29,11 @@ msgstr "Välj en domän"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:86
 msgid "Ready to make that perfect domain yours?"
-msgstr ""
+msgstr "Är du redo att göra den perfekta domänen till din?"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:84
 msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
-msgstr ""
+msgstr "Ett kort domännamn som är lätt att komma ihåg är ett måste för din butik. Det gör det enklare för kunder att hitta dig online, förstärker din varumärkesidentitet och hjälper till att skapa förtroende."
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:82
 msgid "Pick a domain for your new store"

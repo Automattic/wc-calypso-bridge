@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-31 14:10:07+0000\n"
+"PO-Revision-Date: 2023-11-09 11:54:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,15 +13,15 @@ msgstr ""
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:51
 msgid "Create your first product"
-msgstr ""
+msgstr "建立第一個產品"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:40
 msgid "Welcome to your 14-day free trial of Woo Express – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "歡迎免費試用 14 天 Woo Express。建立及發展成功的網路事業，你所需的一切盡在這裡。 你邁向第一筆銷售的旅程才剛開始！ 準備好開始探索了嗎？"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:38
 msgid "Your Woo Express free trial has just started"
-msgstr ""
+msgstr "你的 Woo Express 免費試用正剛開始"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:94
 msgid "Choose a domain"
@@ -29,19 +29,19 @@ msgstr "選擇網域"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:86
 msgid "Ready to make that perfect domain yours?"
-msgstr ""
+msgstr "準備好擁有專屬你的完美網域了嗎？"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:84
 msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
-msgstr ""
+msgstr "簡短好記的網域名稱是貴店的必備元素， 能讓顧客更容易在網路上找到你、增強品牌識別度，並協助建立信任感。"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:82
 msgid "Pick a domain for your new store"
-msgstr ""
+msgstr "為新商店挑選網域。"
 
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
-msgstr ""
+msgstr "此方案無法停用 WooCommerce。"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New Order"

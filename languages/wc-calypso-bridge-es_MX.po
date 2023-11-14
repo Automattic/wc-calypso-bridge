@@ -13,15 +13,15 @@ msgstr ""
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:51
 msgid "Create your first product"
-msgstr ""
+msgstr "Crea tu primer producto"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:40
 msgid "Welcome to your 14-day free trial of Woo Express – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "Te damos la bienvenida a la prueba gratuita de 14 días de Woo Express, todo lo que necesitas para empezar un negocio online de éxito y hacerlo crecer, en un solo lugar. Ya estás en el proceso de conseguir tu primera venta. ¿Todo listo para descubrirlo?"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:38
 msgid "Your Woo Express free trial has just started"
-msgstr ""
+msgstr "Tu prueba gratuita de Woo Express acaba de empezar."
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:94
 msgid "Choose a domain"
@@ -29,19 +29,19 @@ msgstr "Elige un dominio"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:86
 msgid "Ready to make that perfect domain yours?"
-msgstr ""
+msgstr "¿Estás preparado para hacer tuyo ese dominio perfecto?"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:84
 msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
-msgstr ""
+msgstr "Es imprescindible que el nombre de dominio de tu tienda sea corto y fácil de recordar. Facilita que los clientes te encuentren en Internet, refuerza la identidad de tu marca y ayuda a generar confianza."
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:82
 msgid "Pick a domain for your new store"
-msgstr ""
+msgstr "Selecciona un dominio para tu nueva tienda"
 
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
-msgstr ""
+msgstr "No se puede desactivar WooCommerce en este plan."
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New Order"
