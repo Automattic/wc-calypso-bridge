@@ -27,11 +27,6 @@ This section describes how to install the plugin and get it working.
 * Hide "Choose your theme" task when customize-store feature flag is enabled #1356
 * Fix Woo Express identifier for free trials Remote Inbox Notifications #1363
 
-= Unreleased =
-* Add smart shipping defaults to all countries for Woo Express sites #1276
-* Hide "Choose your theme" task when customize-store feature flag is enabled #1356
-* Fix Woo Express identifier for free trials Remote Inbox Notifications #xxx
-
 = 2.2.23 =
 * Add parameter to go back for theme links in cys intro screen #1351
 

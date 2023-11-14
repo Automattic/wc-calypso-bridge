@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.2.24
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -70,7 +70,7 @@ class WC_Calypso_Bridge_Customize_Store {
 	 * Runs script and add styles to remove WPCOM elements such as admin bar, proxy banner, gift banner, store notice
 	 * and hide scrollbar when users are viewing with ?cys-hide-admin-bar=true.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.24
 	 *
 	 * @return void
 	 */
