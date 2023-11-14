@@ -3,8 +3,8 @@
  * Smart shipping function.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.2.24
+ * @version 2.2.24
  */
 
 defined( 'ABSPATH' ) || exit;
