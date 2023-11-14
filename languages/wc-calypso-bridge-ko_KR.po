@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-10-31 14:10:07+0000\n"
+"PO-Revision-Date: 2023-11-10 09:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,15 +13,15 @@ msgstr ""
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:51
 msgid "Create your first product"
-msgstr ""
+msgstr "첫 번째 제품 만들기"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:40
 msgid "Welcome to your 14-day free trial of Woo Express – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "Woo Express 14일 무료 평가판에 오신 것을 환영합니다. 성공적인 온라인 비즈니스의 시작과 성장에 필요한 모든 것이 한곳에 다 있습니다. 첫 번째 판매를 향한 여정이 이제 막 시작되었습니다! 둘러볼 준비가 되셨나요?"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:38
 msgid "Your Woo Express free trial has just started"
-msgstr ""
+msgstr "Woo Express 무료 평가판이 이제 막 시작되었습니다."
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:94
 msgid "Choose a domain"
@@ -29,19 +29,19 @@ msgstr "도메인을 선택하세요"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:86
 msgid "Ready to make that perfect domain yours?"
-msgstr ""
+msgstr "나만의 완벽한 도메인을 만들 준비가 되셨나요?"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:84
 msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
-msgstr ""
+msgstr "스토어에는 짧고 기억하기 쉬운 도메인 네임이 필수입니다. 고객이 온라인에서 회원님을 더 간편하게 찾게 되고, 브랜드 정체성이 강화되며, 신뢰를 쌓는 데 도움이 됩니다."
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:82
 msgid "Pick a domain for your new store"
-msgstr ""
+msgstr "새 스토어의 도메인 선택"
 
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
-msgstr ""
+msgstr "이 요금제에서는 WooCommerce를 비활성화할 수 없습니다."
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New Order"
