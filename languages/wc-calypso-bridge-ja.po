@@ -77,21 +77,339 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "ブログのホーム"
 
-#: src/task-headers/appearance.js:29
+#: build/plugins.js:1
+msgid "Hire an expert"
+msgstr "エキスパートに依頼する"
+
+#: build/plugins.js:1
+msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
+msgstr "お探しのものが見つかりませんか ? 当社のエキスパートエージェンシーにお任せください。 新しい拡張機能からストア全体の構築まで、理想のストアの作成を当社の Woo エキスパートがお手伝いします。"
+
+#: build/plugins.js:1
+msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
+msgstr "ストアの eコマース機能を拡張したいですか ? Woo のマーケットプレイスには、お客様のストアのために特別に設計された、数百もの信頼できる拡張機能があります。"
+
+#: build/plugins.js:1
+msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
+msgstr "SEO ツールから多言語機能まで、WordPress プラグインを使用すると、サイトをカスタマイズして必要なことをすべて実行できます。"
+
+#: build/plugins.js:1
+msgid "Customize your website"
+msgstr "サイトをカスタマイズする"
+
+#: build/plugins.js:1
+msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
+msgstr "ボタンをクリックするだけで、サイトに機能を追加できます。 有料プランにアップグレードすると、WordPress の何千もの無料プラグインと有料プラグインを利用できます。 何をできるか、興味が湧きましたか ?"
+
+#: build/plugins.js:1
+msgid "Do it your way"
+msgstr "自分のやり方で"
+
+#: build/plugins.js:1
+msgid "Discover Extensions"
+msgstr "拡張機能を見る"
+
+#: build/plugins.js:1
+msgid "Extend your store"
+msgstr "ストアを拡大する"
+
+#: build/plugins.js:1
+msgid "Browse plugins"
+msgstr "プラグインを表示"
+
+#: build/plugins.js:1
+msgid "Make anything happen, with plugins"
+msgstr "プラグインでどんなことも実現"
+
+#: build/payment-gateway-suggestions.js:3
+msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
+msgstr "WooCommerce がどのように使用されているかを示す{{link}}使用状況の追跡{{/link}}を介して非機密データを共有することで、機能を改善し、修正を迅速化しましょう。 パーソナルデータは追跡も保存もされません。"
+
+#: build/marketing.js:1
+msgid "Create digital gift cards"
+msgstr "デジタルギフトカードを作成"
+
+#: build/marketing.js:1
+msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
+msgstr "デジタルギフトカードの販売と受け取りを開始して、顧客ロイヤルティを高め、収益を増やし、新しいお客様にストアを紹介します。"
+
+#: build/marketing.js:1
+msgid "Increase customer loyalty with gift cards"
+msgstr "ギフトカードで顧客ロイヤルティを向上"
+
+#: build/marketing.js:1
+msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
+msgstr "ソーシャル広告を利用して、TikTok、Pinterest、Meta プラットフォームを閲覧して買い物に熱中している何百万人ものユーザーに商品を表示しましょう。"
+
+#: build/marketing.js:1
+msgid "Reach more customers across social media"
+msgstr "ソーシャルメディアを通じてより多くの顧客にリーチ"
+
+#: build/marketing.js:1
+msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
+msgstr "ダッシュボードから直接作成および管理できる商品リストや広告を利用して、Google 全体で活発な買い物客にアプローチします。"
+
+#: build/marketing.js:1
+msgid "Advertise your products on Google"
+msgstr "Google に商品の広告を掲載"
+
+#: build/marketing.js:1
+msgid "Try AutomateWoo"
+msgstr "AutomateWoo を試す"
+
+#: build/marketing.js:1
+msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
+msgstr "顧客の購入データに応答する自動化されたマーケティング メッセージを通じて、販売を促進し、ロイヤルティを構築します。"
+
+#: build/marketing.js:1
+msgid "Automate your marketing"
+msgstr "マーケティングを自動化する"
+
+#: build/marketing.js:1
+msgid "Discover our built-in marketing tools to reach more customers and boost sales"
+msgstr "より多くの顧客にリーチして売上を伸ばすための組み込み型マーケティングツールをご覧ください"
+
+#: build/marketing.js:1
+msgid "Grow your business with hundreds of extensions"
+msgstr "数百個の拡張機能を利用して、ビジネスを成長させることができます"
+
+#: build/marketing.js:1
+msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
+msgstr "組み込み型のマーケティングおよび広告ツールを使用して、より多くの顧客にリーチし、ビジネスを成長させましょう。 有料プランにアップグレードして強力なマーケティングツールを利用し、今すぐビジネスを成長させましょう。"
+
+#: build/marketing.js:1
+msgid "Get ready to grow your business"
+msgstr "ビジネスの成長のために準備を整える"
+
+#: build/index.js:3 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
 msgstr "外観のイラスト"
 
-#: src/task-headers/products.js:26
+#: build/index.js:3 src/task-headers/products.js:26
 msgid "Products illustration"
 msgstr "商品のイラスト"
 
-#: src/welcome-modal/index.js:94
+#: build/index.js:3
+msgid "Everything is looking great, keep it up!"
+msgstr "とてもすてきです。その調子です !"
+
+#: build/index.js:3
+msgid "Woo! We’ve made it to the last step! Great job"
+msgstr "お疲れ様でした ! ついに最後のステップです ! お疲れ様でした"
+
+#: build/index.js:3
+msgid "Only a few more tasks to tick off!"
+msgstr "タスクは残りわずかです !"
+
+#: build/index.js:3
+msgid "Welcome to your Woo Express store"
+msgstr "Woo Express ストアへようこそ"
+
+#. translators: %s = site title
+#: build/index.js:3
+msgid "Welcome to %s"
+msgstr "%s へようこそ"
+
+#. translators: 1: completed tasks, 2: total tasks
+#: build/index.js:2
+msgid "%1$d out of %2$d complete."
+msgstr "%2$d件中%1$d件が完了しました。"
+
+#: build/index.js:1
+msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
+msgstr "あと少しで販売を開始できます。 次の手順に従って、テスト用ストアをセットアップします。"
+
+#: build/index.js:1
+msgid "Hide setup list"
+msgstr "設定リストを非表示"
+
+#: build/index.js:1
+msgid "The store setup process meets my needs."
+msgstr "ストア設定が自分のニーズに合っている。"
+
+#: build/index.js:1
+msgid "The store setup is easy to complete."
+msgstr "ストア設定が簡単。"
+
+#: build/index.js:1
+msgid "We appreciate your feedback!"
+msgstr "フィードバックをぜひお寄せください。"
+
+#: build/index.js:1
+msgid "How was your experience?"
+msgstr "ご利用体験はいかがでしたか ?"
+
+#: build/index.js:1
+msgid "Hide this"
+msgstr "非表示"
+
+#: build/index.js:1
+msgid "Show setup task list"
+msgstr "設定タスクのリストを表示"
+
+#: build/index.js:1
+msgid "Task List Options"
+msgstr "タスクリストオプション"
+
+#: build/index.js:1
+msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
+msgstr "お疲れ様でした。 どうぞお祝いしてください。 ストアを立ち上げる準備ができたら、あとは有料プランにアップグレードするだけです。 そうすることで、タスクリストにある次の2つのタスクを実行できます。"
+
+#: build/index.js:1
+msgid "Woohoo! Your trial store has been set up!"
+msgstr "注目 ! トライアル用ストアの設定が完了しました !"
+
+#: build/index.js:1
+msgid "You're awesome! One less item on your to-do list ✅"
+msgstr "あと少しで完了です ! 残りのステップはあと1つです ✅"
+
+#: build/index.js:1
+msgid "There was a problem setting up automated taxes. Please try again."
+msgstr "税自動処理の設定中に問題が発生しました。 もう一度お試しください。"
+
+#: build/index.js:1
+msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
+msgstr "無料お試し期間中は、消費税の設定を行うことはできますが、徴収することはできません。 {{br/}}商品の販売を始めるには、{{link}}今すぐアップグレードしてください{{/link}}。"
+
+#: build/index.js:1
+msgid "I don't charge sales tax"
+msgstr "消費税は請求しません"
+
+#: build/index.js:1
+msgid "Set up taxes manually"
+msgstr "手動で税を設定"
+
+#: build/index.js:1
+msgid "Choose a tax partner"
+msgstr "タックスパートナーを選択"
+
+#: build/index.js:1
+msgid "WooCommerce Tax can automate your sales tax calculations for you."
+msgstr "WooCommerce Tax では、消費税の計算を自動化できます。"
+
+#: build/index.js:1
+msgid "Automate Taxes"
+msgstr "税金処理を自動化する"
+
+#: build/index.js:1
+msgid "Automate taxes"
+msgstr "税金処理を自動化する"
+
+#: build/index.js:1
+msgid "Head over to the tax rate settings screen to configure your tax rates"
+msgstr "税率設定画面に移動して税率を設定します"
+
+#: build/index.js:1
+msgid "Configure tax rates"
+msgstr "税率を設定"
+
+#: build/index.js:1
+msgid "The address from which your business operates"
+msgstr "ビジネスの所在地"
+
+#: build/index.js:1
+msgid "Set store location"
+msgstr "ストアの所在地を設定"
+
+#: build/index.js:1
+msgid "Please select a country / region"
+msgstr "国または地域を選択してください"
+
+#: build/index.js:1
+msgid "Post code"
+msgstr "郵便番号"
+
+#: build/index.js:1
+msgid "Address"
+msgstr "住所"
+
+#: build/index.js:1
+msgid "Country / Region"
+msgstr "国または地域"
+
+#: build/index.js:1
+msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
+msgstr "「設定」をクリックすると、税率と計算を有効にできます。 詳細は{{link}}こちら{{/link}}を参照してください。"
+
+#: build/index.js:1
+msgid "Configure"
+msgstr "設定"
+
+#: build/index.js:1
+msgid "Continue setup"
+msgstr "セットアップを続行"
+
+#: build/index.js:1
+msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
+msgstr "WooCommerce Tax と Jetpack をインストールすることで、{{link}}利用規約{{/link}}に同意したものとみなされます。"
+
+#: build/index.js:1
+msgid "100% free"
+msgstr "100% 無料"
+
+#: build/index.js:1
+msgid "Powered by {{link}}Jetpack{{/link}}"
+msgstr "{{link}}Jetpack{{/link}} 提供"
+
+#: build/index.js:1
+msgid "{{strong}}Single{{/strong}} economic nexus compliance"
+msgstr "{{strong}}単一の{{/strong}}経済的関連性コンプライアンス"
+
+#: build/index.js:1
+msgid "Real-time sales tax calculation"
+msgstr "リアルタイムの消費税計算"
+
+#: build/index.js:1
+msgid "Best for new stores"
+msgstr "新しいストアに最適"
+
+#: build/index.js:1
+msgid "WooCommerce Tax"
+msgstr "WooCommerce Tax"
+
+#: build/index.js:1
+msgid "Get more sales"
+msgstr "売上を伸ばす"
+
+#: build/index.js:1
+msgid "Upgrade to a paid plan to unlock more features and start selling"
+msgstr "有料プランをアップグレードしてより多くの機能を利用し、販売を開始しましょう。"
+
+#: build/index.js:1
+msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
+msgstr "現在、無料お試しに登録しています。 すべての機能にアクセスするには、有料プランにアップグレードしてください。"
+
+#: build/index.js:1 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
 msgstr "ウェルカムモーダルナビゲーションの図1"
 
-#: src/welcome-modal/index.js:64
+#: build/index.js:1 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
 msgstr "ウェルカムモーダルナビゲーションの図2"
+
+#: build/index.js:1
+msgid "Setup required"
+msgstr "セットアップが必要です"
+
+#: build/index.js:1
+msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
+msgstr "定期的に収益を得て管理し、指定した銀行口座にデポジットを入金できます。"
+
+#: build/index.js:1
+msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
+msgstr "海外市場に向けて販売し、現地の支払い方法で135種を超える通貨の支払いを受けることができます。"
+
+#: build/index.js:1
+msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
+msgstr "デビットカード決済やクレジットカード決済、Apple Pay、Sofort、SEPA、iDeal など、顧客が希望する決済方法に対応しましょう。"
+
+#: build/index.js:1
+msgid "Accepted payment methods include:"
+msgstr "次の支払い方法をご利用いただけます: "
+
+#: build/index.js:1
+msgid "& more."
+msgstr "その他。"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
@@ -135,7 +453,7 @@ msgstr "テーマを選択"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: src/index.js:199
+#: build/index.js:3 src/index.js:199
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -171,27 +489,27 @@ msgstr "オンボーディング"
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "販売向けに最適化されたカスタムナビゲーションを利用できます。"
 
-#: src/welcome-modal/index.js:114
+#: build/index.js:1 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "WooCommerce での作業がさらに高速化しました。 新しいナビゲーションの<a>詳細をご覧ください</a>。または、先に進んでご自身で確認してください。"
 
-#: src/welcome-modal/index.js:107
+#: build/index.js:1 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "新しいナビゲーションですばやく作業"
 
-#: src/welcome-modal/index.js:83
+#: build/index.js:1 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "WordPress.com ダッシュボードに戻るたびに、ストアのパフォーマンスに関するヒントや統計概要を確認できます。"
 
-#: src/welcome-modal/index.js:77
+#: build/index.js:1 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "新しいホームを利用"
 
-#: src/task-headers/add-domain.js:34
+#: build/index.js:3 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "ストアの新しいサイトアドレスを選択するか、すでに所有しているアドレスを転送します。"
 
-#: src/task-headers/add-domain.js:22
+#: build/index.js:3 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "ドメインのイラストレーションを追加"
 
@@ -239,43 +557,53 @@ msgstr "銀行振込 (ダイレクト) の詳細の追加が完了しました"
 msgid "Please enter an account number or IBAN"
 msgstr "口座番号か IBAN を入力してください"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:285
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
 msgstr "無料お試し期間中は、管理者とストア管理者のみが注文を行えます。 顧客からの支払いを受け取る準備ができている場合は、{{link}}有料プランにアップグレード{{/link}}してください。"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:266
 msgid "Offline payment methods"
 msgstr "オフラインの決済方法"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:257
 msgid "See more"
 msgstr "もっと見る"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:236
 msgid "Try one of the alternative payment providers."
 msgstr "他の決済サービス業者を試してみましょう。"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:232
 #: src/payment-gateway-suggestions/index.js:311
 msgid "Other payment providers"
 msgstr "その他の決済サービス業者"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:227
 msgid "Give your customers additional choices in ways to pay."
 msgstr "顧客が選べる決済手段を増やしましょう。"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:223
 msgid "Additional payment options"
 msgstr "追加の支払いオプション"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:217
 msgid "To get ready to accept online payments"
 msgstr "オンライン支払いを受け取る準備をするには"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/index.js:213
 msgid "Choose a payment provider"
 msgstr "決済サービス業者を選択"
 
+#: build/index.js:3
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "WooCommerce Payments への接続時にエラーが発生しました。 もう一度試すか、しばらくしてからストア設定に接続してください。"
@@ -292,180 +620,196 @@ msgstr "機密情報以外の{{link}}使用状況データ{{/link}}の共有に�
 msgid "Help us build a better WooCommerce Payments experience"
 msgstr "より良い WooCommerce Payments サービスの構築にご協力お願いいたします"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
 msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
 msgstr "WooCommerce Payments を使用することで、お客様は弊社の{{tosLink}}利用規約{{/tosLink}}に拘束されることに同意し、弊社{{privacyLink}}プライバシーポリシー{{/privacyLink}}を読んだものとみなされます "
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
 msgid "Get ready to accept payments"
 msgstr "支払いを受け取る準備をする"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
 msgid "Yes, count me in!"
 msgstr "はい、参加します。"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
 msgid "Build a better WooCommerce"
 msgstr "より良い WooCommerce を構築"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
 msgid "There was a problem updating your preferences"
 msgstr "設定を更新しているときに問題が発生しました"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:120
 msgid "Configure your %(title)s account"
 msgstr "%(title)s アカウントを設定"
 
 #. translators: %s = title of the payment gateway to install
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:88
 msgid "Install %s"
 msgstr "%s のインストール"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
 msgid "You can manage this payment gateway's settings by clicking the button below"
 msgstr "下のボタンをクリックすると、この決済方法の設定を管理できます"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:133
 msgid "Connect"
 msgstr "接続"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:100
 msgid "Proceed"
 msgstr "続行"
 
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:84
 #: src/payment-gateway-suggestions/plugins/Bacs.js:63
 msgid "There was a problem saving your payment settings"
 msgstr "支払い設定を保存する際に問題が発生しました"
 
 #. translators: %s = title of the payment gateway
+#: build/payment-gateway-suggestions.js:2
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:75
 msgid "%s configured successfully"
 msgstr "%s が正しく設定されました"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/List/Item.js:81
 msgid "Recommended"
 msgstr "おすすめ"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/List/Item.js:80
 msgid "Local Partner"
 msgstr "ローカルパートナー"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:138
 msgid "Finish setup"
 msgstr "設定完了"
 
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:99
 msgid "Enable"
 msgstr "有効化"
 
-#: src/launch-store/index.js:392
+#: build/index.js:1 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "このまま立ち上げる"
 
-#: src/launch-store/index.js:382
+#: build/index.js:1 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "ストアを立ち上げる前に確認すべき点"
 
-#: src/launch-store/index.js:379
+#: build/index.js:1 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "立ち上げ前"
 
-#: src/launch-store/index.js:318
+#: build/index.js:1 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "新しいサイトのアドレスを選択するか、すでに所有しているドメインを転送します。"
 
-#: src/launch-store/index.js:314
+#: build/index.js:1 src/launch-store/index.js:314
 msgid "List products"
 msgstr "商品をリスト化"
 
-#: src/launch-store/index.js:310
+#: build/index.js:1 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "ストアに商品やサービスを追加して販売を開始します。 商品を手動で作成するか、既存のストアからインポートします。"
 
-#: src/launch-store/index.js:309
+#: build/index.js:1 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "商品をリスト化"
 
-#: src/launch-store/index.js:301
+#: build/index.js:1 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "お客様に簡単で便利な決済方法を提供します。 迅速で安全なオンラインまたはオフラインでの支払い方法を1つ (または複数) 設定します。"
 
-#: src/launch-store/index.js:300 src/launch-store/index.js:305
+#: build/index.js:1 src/launch-store/index.js:300 src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "お支払いの受け取り"
 
-#: src/launch-store/index.js:262 src/launch-store/index.js:398
+#: build/index.js:1 src/launch-store/index.js:262 src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "これは<a>「設定」</a>でいつでも元に戻すことができます。"
 
-#: src/launch-store/index.js:250
+#: build/index.js:1 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "おめでとうございます – ストアを立ち上げる準備が整いました ! お疲れ様でした !"
 
-#: src/launch-store/index.js:247
+#: build/index.js:1 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "ストアの立ち上げ準備は整いましたか ?"
 
-#: src/launch-store/index.js:212
+#: build/index.js:1 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "気が変わりましたか ? <a>プライバシー</a>設定を更新することで、ストアを非公開に戻すことができます。"
 
-#: src/launch-store/index.js:206
+#: build/index.js:1 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "ストアを表示"
 
-#: src/launch-store/index.js:186
+#: build/index.js:1 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "おめでとうございます。WooCommerce ストアを立ち上げました。 お祝いしてニュースをシェアしましょう !"
 
-#: src/launch-store/index.js:182
+#: build/index.js:1 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "お疲れ様でした ! これで完了です !"
 
-#: src/launch-store/index.js:142
+#: build/index.js:1 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "ストアを立ち上げる"
 
-#: src/launch-store/index.js:71
+#: build/index.js:1 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "コピーしました"
 
-#: src/homescreen-banner/index.js:61
+#: build/index.js:3 src/homescreen-banner/index.js:61
 msgid "Dismiss this free trial informational banner."
 msgstr "無料お試し期間の情報バナーを閉じます。"
 
-#: src/homescreen-banner/index.js:45
+#: build/index.js:3 src/homescreen-banner/index.js:45
 msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
 msgstr "これは、利用できる機能の確認を始めることができる無料お試し期間のテストストアです。 無料お試し期間の詳細については、「さらに詳しく」をクリックしてください。"
 
-#: src/free-trial/tax/components/location.js:56
+#: build/index.js:1 src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr "ストアの所在地を保存しているときに問題が発生しました"
 
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "「支払いをテスト」をクリックすると、{{tosLink}}利用規約{{/tosLink}}に同意したものとみなされます。"
 
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "シンプルなオールインワンオプションで支払いを強化します。 ビジネスの詳細を確認すると、WooCommerce Payments でトランザクションのテストを開始できます。"
 
-#: src/free-trial/fills/task-headers/payments.js:50
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:84
 msgid "Test payments"
 msgstr "支払いをテスト"
 
-#: src/free-trial/fills/task-headers/payments.js:40
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:40
 msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
 msgstr "お客様に簡単で便利な決済方法を提供します。 迅速で安全なオンラインまたはオフラインでの支払い方法の一部を設定してテストします。"
 
-#: src/free-trial/fills/task-headers/payments.js:34
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:41
 msgid "It’s time to test payments"
 msgstr "支払いをテストします"
 
-#: src/free-trial/fills/task-headers/payments.js:22
+#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:29
 msgid "Payment illustration"
 msgstr "支払いのイラスト"
@@ -526,6 +870,7 @@ msgstr "WooCommerce 拡張機能を使用して、ストアがビジネスに最
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "拡張機能を使用してストアをレベルアップさせましょう"
 
@@ -539,7 +884,7 @@ msgstr "おめでとうございます ! ストアの立ち上げ準備は整い
 
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
-#: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:1
 #: src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "ストアを立ち上げる"
@@ -549,7 +894,7 @@ msgid "You've already launched your store"
 msgstr "すでにストアを立ち上げています"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
-#: includes/tasks/class-wc-calypso-task-appearance.php:50
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:3
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2分"
@@ -563,9 +908,9 @@ msgid "Domain"
 msgstr "ドメイン"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:322 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:1
+#: build/index.js:3 src/launch-store/index.js:322
+#: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "ドメインを追加"
 
@@ -585,6 +930,7 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:1 build/marketing.js:1 build/plugins.js:1
 msgid "Upgrade now"
 msgstr "今すぐアップグレード"
 
@@ -609,11 +955,11 @@ msgstr "お問い合わせ"
 msgid "Home"
 msgstr "ホーム"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:59
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
 msgid "This site has already been launched"
 msgstr "このサイトはすでに立ち上げ済みです"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:54
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
 msgid "You don't have permissions to launch this site"
 msgstr "このサイトを立ち上げる権限がありません"
 
@@ -656,6 +1002,7 @@ msgid "Discover"
 msgstr "Discover"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
+#: build/payment-gateway-suggestions.js:1
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "管理"
@@ -698,11 +1045,15 @@ msgstr "ホーム"
 msgid "Feedback"
 msgstr "フィードバック"
 
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
 msgid "No thanks"
 msgstr "結構です"
 
+#: build/index.js:1 build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:3
 #: src/payment-gateway-suggestions/components/Action.js:27
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:159
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
@@ -891,11 +1242,15 @@ msgstr "ストア"
 msgid "Stats"
 msgstr "統計"
 
-#: src/free-trial/tax/components/location.js:23
+#: build/index.js:1
+msgid "City"
+msgstr "市区町村"
+
+#: build/index.js:1 src/free-trial/tax/components/location.js:23
 msgid "Continue"
 msgstr "続ける"
 
-#: src/homescreen-banner/index.js:57
+#: build/index.js:3 src/homescreen-banner/index.js:57
 msgid "Learn more"
 msgstr "さらに詳しく。"
 

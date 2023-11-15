@@ -22,9 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
-* Mitigate object cache issue while creating Woo related pages #xxx
-* Remove code defaulting to cart/checkout blocks #xxx
+= 2.2.25 =
+* Mitigate object cache issue while creating Woo related pages #1368
+* Remove code defaulting to cart/checkout blocks #1368
 
 = 2.2.24 =
 * Add smart shipping defaults to all countries for Woo Express sites #1276
