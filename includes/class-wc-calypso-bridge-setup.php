@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.18
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -370,11 +370,6 @@ class WC_Calypso_Bridge_Setup {
 						$this->maybe_delete_page_by_slug( $slug, $operation );
 					}
 				}
-
-				$this->write_to_log( $operation, 'FLUSH CACHE AND SLEEP ' );
-				// sleep for 0.5 second to give enough time to memcache to flush and revalidate.
-				wp_cache_flush();
-				usleep( 500000 );
 
 				$this->write_to_log( $operation, 'GETTING WOOCOMMERCE PAGE OPTIONS AFTER DELETION' );
 				foreach ( $woocommerce_pages as $key => $page_slug ) {
