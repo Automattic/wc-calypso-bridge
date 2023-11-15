@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.2.25 =
+* Mitigate object cache issue while creating Woo related pages #1368
+* Remove code defaulting to cart/checkout blocks #1368
+
 = Unreleased =
 * Mitigate object cache issue while creating Woo related pages #xxx
 * Remove code defaulting to cart/checkout blocks #xxx
