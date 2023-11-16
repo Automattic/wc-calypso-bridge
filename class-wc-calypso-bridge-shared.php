@@ -107,10 +107,11 @@ class WC_Calypso_Bridge_Shared {
 		);
 
 		$site_suffix = WC_Calypso_Bridge_Instance()->get_site_slug();
+		$is_ecom_trial = (bool) wc_calypso_bridge_is_ecommerce_trial_plan();
 
 		$params      = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
-			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.
+			'isEcommercePlanTrial'         => $is_ecom_trial, // This is true for ecommerce trial only.
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && class_exists('\Jetpack') && \Jetpack::is_module_active( 'sso' ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
@@ -121,6 +122,13 @@ class WC_Calypso_Bridge_Shared {
 			'hasViewedPayments'            => get_option( 'wc_calypso_bridge_payments_view_welcome_timestamp', false ) !== false,
 			'version'                      => WC_CALYPSO_BRIDGE_CURRENT_VERSION,
 		);
+
+		if ( $is_ecom_trial ) {
+			$introductory_offers = WC_Calypso_Bridge_Introductory_offers::get_current_offers_from_current_blog();
+			if ( count( $introductory_offers ) ) {
+				$params['introductoryOffer'] = WC_Calypso_Bridge_Introductory_offers::extract_offer_data_for_js( current( $introductory_offers ) );
+			}
+		}
 
 		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$params['showEcommerceNavigationModal'] = ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_ECOMMERCE_NAVIGATION );

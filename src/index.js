@@ -26,6 +26,7 @@ import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 import { AppearanceFill } from './task-fills';
 import './task-headers';
 import './track-menu-item';
+import { CalypsoBridgeDollarOfferBanner } from './dollar-offer-banner';
 
 // Modify webpack to append the ?ver parameter to JS chunk
 // https://webpack.js.org/api/module-variables/#__webpack_get_script_filename__-webpack-specific
@@ -136,10 +137,17 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: WoocommercePaymentsTaskPage,
 	} );
 
-	registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
-		render: CalypsoBridgeHomescreenBanner,
-		scope: 'woocommerce-admin',
-	} );
+	if ( window.wcCalypsoBridge.introductoryOffer ) {
+		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+			render: CalypsoBridgeDollarOfferBanner,
+			scope: 'woocommerce-admin',
+		} );
+	} else {
+		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+			render: CalypsoBridgeHomescreenBanner,
+			scope: 'woocommerce-admin',
+		} );
+	}
 
 	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
 		render: ProgressHeaderFill,
@@ -175,7 +183,6 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 			}
 
 			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
-
 				// Remove the marketplace page from the list.
 				for ( let i = 0; i < pages.length; i++ ) {
 					if ( pages[ i ].path === '/extensions' ) {
