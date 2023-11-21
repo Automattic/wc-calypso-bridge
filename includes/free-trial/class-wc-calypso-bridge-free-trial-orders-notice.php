@@ -36,7 +36,7 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
 
 		add_action('admin_notices', function() {
 			$screen = get_current_screen();
-			if ( in_array( $screen->id, array( 'woocommerce_page_wc-orders' ), true ) ) {
+			if ( in_array( $screen->id, array( 'edit-shop_order', 'woocommerce_page_wc-orders' ), true ) ) {
 				?>
 				<div class="free-trial-orders-notice notice">
                     <div>
