@@ -4,7 +4,7 @@
  * Class WC_Calypso_Bridge_Free_Trial_Orders_Notice.
  *
  * @since   2.0.5
- * @version 2.0.16
+ * @version x.x.x
  *
  * Renders an admin notice on Orders page.
  */
