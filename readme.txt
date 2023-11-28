@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Fix missing free trial banner in orders page #1371
+
 = 2.2.25 =
 * Mitigate object cache issue while creating Woo related pages #1368
 * Remove code defaulting to cart/checkout blocks #1368
