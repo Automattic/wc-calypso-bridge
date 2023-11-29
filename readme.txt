@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Fix missing free trial banner in orders page #1371
+* Override task progress header and title for all Woo Express sites #1372
 
 = 2.2.25 =
 * Mitigate object cache issue while creating Woo related pages #1368
