@@ -86,6 +86,16 @@ registerPlugin( 'wc-calypso-bridge-task-appearance', {
 	render: AppearanceFill,
 } );
 
+registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
+	render: ProgressHeaderFill,
+	scope: 'woocommerce-admin',
+} );
+
+registerPlugin( 'wc-calypso-bridge-homescreen-progress-title', {
+	render: ProgressTitleFill,
+	scope: 'woocommerce-admin',
+} );
+
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	import( './free-trial/fills' );
 
@@ -140,16 +150,6 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: CalypsoBridgeHomescreenBanner,
 		scope: 'woocommerce-admin',
 	} );
-
-	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
-		render: ProgressHeaderFill,
-		scope: 'woocommerce-admin',
-	} );
-
-	registerPlugin( 'wc-calypso-bridge-homescreen-progress-title', {
-		render: ProgressTitleFill,
-		scope: 'woocommerce-admin',
-	} );
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
@@ -175,7 +175,6 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 			}
 
 			if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
-
 				// Remove the marketplace page from the list.
 				for ( let i = 0; i < pages.length; i++ ) {
 					if ( pages[ i ].path === '/extensions' ) {
