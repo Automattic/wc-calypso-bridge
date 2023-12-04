@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.1
- * @version 2.0.1
+ * @version x.x.x
  */
 
 class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
@@ -47,7 +47,7 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
 
 		$screen = get_current_screen();
 
-		if ( $screen->id === 'edit-shop_order' ) {
+		if ( in_array( $screen->id, array( 'edit-shop_order', 'woocommerce_page_wc-orders' ), true ) ) {
 			?>
 			<script>
 				const woocommerceBlankStateButton = document.querySelector('.woocommerce-BlankState-cta.button');
