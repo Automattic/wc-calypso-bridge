@@ -46,7 +46,7 @@ class WC_Calypso_Bridge_Free_Trial_Orders_Notice  {
                         </p>
                     </div>
 					<div class="upgrade-action">
-						<a href="<?php echo $this->get_action_url()?>" class="button is-primary" id="upgrade_now_button"><?php echo __('Upgrade now', 'wc-calypso-bridge'); ?></a>
+						<a href="<?php echo $this->get_action_url()?>" class="button button-primary" id="upgrade_now_button"><?php echo __('Upgrade now', 'wc-calypso-bridge'); ?></a>
 					</div>
 
 				</div>
