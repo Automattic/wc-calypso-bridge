@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version 2.2.18
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -65,6 +65,11 @@ class WC_Calypso_Bridge_Filters {
 		 * Filter recommended themes
 		 */
 		add_filter( '__experimental_woocommerce_rest_get_recommended_themes', array( $this, 'woocommerce_filter_get_recommended_themes'), 10, 3);
+
+		/**
+		 * Remove the empty Product Data > Get more options tab.
+		 */
+		add_filter( 'woocommerce_product_data_tabs', array( $this, 'remove_marketplace_suggestions_product_tab' ) );
 	}
 
 	/**
@@ -229,6 +234,23 @@ class WC_Calypso_Bridge_Filters {
 		$result['_links']['browse_all']['href'] = 'https://wordpress.com/themes/' . $site_slug;
 
 		return $result;
+	}
+
+	/**
+	 * Function to hook into the `woocommerce_product_data_tabs` filter
+	 * and remove the empty Product Data > Get more options tab.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param array $tabs
+	 * @return array
+	 */
+	public function remove_marketplace_suggestions_product_tab( $tabs ) {
+		if ( isset( $tabs['marketplace-suggestions'] ) ) {
+			unset( $tabs['marketplace-suggestions'] );
+		}
+
+		return $tabs;
 	}
 }
 
