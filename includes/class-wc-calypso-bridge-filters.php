@@ -240,6 +240,8 @@ class WC_Calypso_Bridge_Filters {
 	 * Function to hook into the `woocommerce_product_data_tabs` filter
 	 * and remove the empty Product Data > Get more options tab.
 	 *
+	 * @since x.x.x
+	 *
 	 * @param array $tabs
 	 * @return array
 	 */
