@@ -51,7 +51,9 @@ class WC_Calypso_Bridge_Notes {
 	 */
 	public function init() {
 		include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-choose-domain.php';
+		include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-purchase-mail.php';
 		new WC_Calypso_Bridge_Choose_Domain_Note();
+		new WC_Calypso_Bridge_Purchase_Mail_Note();
 	}
 
 	/**
@@ -59,6 +61,7 @@ class WC_Calypso_Bridge_Notes {
 	 */
 	public function add_notes() {
 		WC_Calypso_Bridge_Choose_Domain_Note::possibly_add_note();
+		WC_Calypso_Bridge_Purchase_Mail_Note::possibly_add_note();
 	}
 
 	/**
