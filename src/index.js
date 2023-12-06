@@ -86,15 +86,17 @@ registerPlugin( 'wc-calypso-bridge-task-appearance', {
 	render: AppearanceFill,
 } );
 
-registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
-	render: ProgressHeaderFill,
-	scope: 'woocommerce-admin',
-} );
+if ( !! window.wcCalypsoBridge.isWooExpress ) {
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
+		render: ProgressHeaderFill,
+		scope: 'woocommerce-admin',
+	} );
 
-registerPlugin( 'wc-calypso-bridge-homescreen-progress-title', {
-	render: ProgressTitleFill,
-	scope: 'woocommerce-admin',
-} );
+	registerPlugin( 'wc-calypso-bridge-homescreen-progress-title', {
+		render: ProgressTitleFill,
+		scope: 'woocommerce-admin',
+	} );
+}
 
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	import( './free-trial/fills' );
