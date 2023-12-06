@@ -28,6 +28,7 @@ This section describes how to install the plugin and get it working.
 * Remove the empty Product Data > Get more options tab #xxx
 * With HPOS enabled, the empty state CTA button should be secondary if a primary button exists #xxx
 * Fix free trial banner upgrade now button class #xxx
+* Add woocommerce_admin_customize_store_completed_theme_id option to Jepack sync #1384
 
 = 2.2.25 =
 * Mitigate object cache issue while creating Woo related pages #1368
