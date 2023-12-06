@@ -55,7 +55,7 @@ export const ProgressHeader: React.FC< ProgressHeaderProps > = ( {
 							{ completedCount === 0 && (
 								<span>
 									{ __(
-										'You’re almost ready to start selling! Follow these steps to set up your test store.',
+										'You’re almost ready to start selling! Follow these steps to set up your store.',
 										'woocommerce'
 									) }
 									<br />
