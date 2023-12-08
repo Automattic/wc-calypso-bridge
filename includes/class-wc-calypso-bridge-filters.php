@@ -78,7 +78,7 @@ class WC_Calypso_Bridge_Filters {
 	 * @return void
 	 */
 	public function on_plugins_loaded() {
-		add_filter( 'jetpack_sync_options_whitelist', array( $this, 'add_woocommerce_task_list_options_to_jetpack_sync' ) );
+		add_filter( 'jetpack_sync_options_whitelist', array( $this, 'add_woocommerce_options_to_jetpack_sync' ) );
 	}
 
 	/**
@@ -115,21 +115,22 @@ class WC_Calypso_Bridge_Filters {
 	 * @param array $allowed_options
 	 * @return array
 	 */
-	public function add_woocommerce_task_list_options_to_jetpack_sync( $allowed_options ) {
+	public function add_woocommerce_options_to_jetpack_sync( $allowed_options ) {
 		if ( ! is_array( $allowed_options ) ) {
 			return $allowed_options;
 		}
 
-		$woocommerce_task_list_options = array(
+		$woocommerce_options = array(
 			'woocommerce_task_list_complete',
 			'woocommerce_task_list_completed_lists',
 			'woocommerce_task_list_dismissed_tasks',
 			'woocommerce_task_list_hidden_lists',
 			'woocommerce_task_list_keep_completed',
 			'woocommerce_task_list_tracked_completed_tasks',
+			'woocommerce_admin_customize_store_completed_theme_id',
 		);
 
-		return array_merge( $allowed_options, $woocommerce_task_list_options );
+		return array_merge( $allowed_options, $woocommerce_options );
 	}
 
 	/**
