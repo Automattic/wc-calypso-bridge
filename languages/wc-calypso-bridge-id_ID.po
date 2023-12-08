@@ -942,16 +942,16 @@ msgstr "Selama periode percobaan, Anda hanya bisa membuat pesanan uji coba! Untu
 msgid "Start selling to everyone"
 msgstr "Mulai berjualan ke semua orang"
 
-#: includes/class-wc-calypso-bridge-setup.php:426
+#: includes/class-wc-calypso-bridge-setup.php:421
 msgid "My Account"
 msgstr "Akun Saya"
 
-#: includes/class-wc-calypso-bridge-setup.php:424
+#: includes/class-wc-calypso-bridge-setup.php:419
 msgid "Contact"
 msgstr "kontak"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:415
+#: includes/class-wc-calypso-bridge-setup.php:410
 msgid "Home"
 msgstr "Beranda"
 

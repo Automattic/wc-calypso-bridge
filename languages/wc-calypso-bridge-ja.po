@@ -942,16 +942,16 @@ msgstr "無料お試し期間中に行えるのはテスト注文のみです ! 
 msgid "Start selling to everyone"
 msgstr "すべての人に販売を開始"
 
-#: includes/class-wc-calypso-bridge-setup.php:426
+#: includes/class-wc-calypso-bridge-setup.php:421
 msgid "My Account"
 msgstr "マイアカウント"
 
-#: includes/class-wc-calypso-bridge-setup.php:424
+#: includes/class-wc-calypso-bridge-setup.php:419
 msgid "Contact"
 msgstr "お問い合わせ"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:415
+#: includes/class-wc-calypso-bridge-setup.php:410
 msgid "Home"
 msgstr "ホーム"
 

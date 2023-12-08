@@ -942,16 +942,16 @@ msgstr "평가판 기간에는 테스트 주문만 가능합니다. 고객의 �
 msgid "Start selling to everyone"
 msgstr "모든 사람에게 판매 시작"
 
-#: includes/class-wc-calypso-bridge-setup.php:426
+#: includes/class-wc-calypso-bridge-setup.php:421
 msgid "My Account"
 msgstr "내 계정"
 
-#: includes/class-wc-calypso-bridge-setup.php:424
+#: includes/class-wc-calypso-bridge-setup.php:419
 msgid "Contact"
 msgstr "연락처"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:415
+#: includes/class-wc-calypso-bridge-setup.php:410
 msgid "Home"
 msgstr "홈"
 

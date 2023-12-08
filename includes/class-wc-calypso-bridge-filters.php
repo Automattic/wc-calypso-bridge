@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.1.6
- * @version x.x.x
+ * @version 2.2.26
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -241,7 +241,7 @@ class WC_Calypso_Bridge_Filters {
 	 * Function to hook into the `woocommerce_product_data_tabs` filter
 	 * and remove the empty Product Data > Get more options tab.
 	 *
-	 * @since x.x.x
+	 * @since 2.2.26
 	 *
 	 * @param array $tabs
 	 * @return array
