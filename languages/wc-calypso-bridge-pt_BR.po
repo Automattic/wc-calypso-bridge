@@ -942,16 +942,16 @@ msgstr "Durante o período de teste gratuito, você só pode fazer pedidos de te
 msgid "Start selling to everyone"
 msgstr "Comece a vender para todo mundo"
 
-#: includes/class-wc-calypso-bridge-setup.php:426
+#: includes/class-wc-calypso-bridge-setup.php:421
 msgid "My Account"
 msgstr "Minha conta"
 
-#: includes/class-wc-calypso-bridge-setup.php:424
+#: includes/class-wc-calypso-bridge-setup.php:419
 msgid "Contact"
 msgstr "contato"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:415
+#: includes/class-wc-calypso-bridge-setup.php:410
 msgid "Home"
 msgstr "Inicial"
 

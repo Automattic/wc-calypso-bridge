@@ -942,16 +942,16 @@ msgstr "במהלך תקופת הניסיון אפשר לבצע הזמנות ני
 msgid "Start selling to everyone"
 msgstr "להתחיל למכור לכולם"
 
-#: includes/class-wc-calypso-bridge-setup.php:426
+#: includes/class-wc-calypso-bridge-setup.php:421
 msgid "My Account"
 msgstr "החשבון שלי"
 
-#: includes/class-wc-calypso-bridge-setup.php:424
+#: includes/class-wc-calypso-bridge-setup.php:419
 msgid "Contact"
 msgstr "טופס יצירת קשר"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:415
+#: includes/class-wc-calypso-bridge-setup.php:410
 msgid "Home"
 msgstr "דף הבית"
 
