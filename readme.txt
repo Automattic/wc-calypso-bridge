@@ -22,12 +22,12 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.2.26 =
 * Fix missing free trial banner in orders page #1371
 * Override task progress header and title for all Woo Express sites #1372
-* Remove the empty Product Data > Get more options tab #xxx
-* With HPOS enabled, the empty state CTA button should be secondary if a primary button exists #xxx
-* Fix free trial banner upgrade now button class #xxx
+* Remove the empty Product Data > Get more options tab #1377
+* With HPOS enabled, the empty state CTA button should be secondary if a primary button exists #1381
+* Fix free trial banner upgrade now button class #1379
 * Add woocommerce_admin_customize_store_completed_theme_id option to Jetpack sync #1384
 
 = 2.2.25 =

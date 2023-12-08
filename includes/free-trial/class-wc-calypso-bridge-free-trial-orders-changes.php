@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.1
- * @version x.x.x
+ * @version 2.2.26
  */
 
 class WC_Calypso_Bridge_Free_Trial_Orders_Changes {
