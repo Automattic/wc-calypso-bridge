@@ -3,8 +3,8 @@
  * Adds Customize Store task related functionalities
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   1.0.0
- * @version 2.2.24
+ * @since  1.0.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -50,6 +50,8 @@ class WC_Calypso_Bridge_Customize_Store {
 		}, 9999);
 
 		add_action( 'wp_head', array( $this, 'possibly_remove_wpcom_ui_elements' ) );
+
+		add_action( 'wp_head', array( $this, 'possibly_add_track_homepage_view' ) );
 	}
 
 	/**
@@ -97,6 +99,18 @@ class WC_Calypso_Bridge_Customize_Store {
 		}
 	}
 
+	public function possibly_add_track_homepage_view() {
+		if ( self::is_admin() ) {
+			if ( is_front_page() || is_home() ) {
+				// This is tracked via backend.
+				WC_Tracks::record_event( 'store_homepage_view' );
+			}
+		}
+	}
+
+	public static function is_admin() {
+		return wc_current_user_has_role( 'administrator' );
+	}
 }
 
 WC_Calypso_Bridge_Customize_Store::get_instance();
