@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Add tracks for homepage views for CYS #1390
+
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371
 * Override task progress header and title for all Woo Express sites #1372
