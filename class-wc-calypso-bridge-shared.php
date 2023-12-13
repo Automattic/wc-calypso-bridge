@@ -113,6 +113,7 @@ class WC_Calypso_Bridge_Shared {
 			'isEcommercePlanTrial'         => (bool) wc_calypso_bridge_is_ecommerce_trial_plan(), // This is true for ecommerce trial only.
 			'isWooExpress'                 => (bool) wc_calypso_bridge_is_woo_express_plan(),
 			'isWooNavigationEnabled'       => (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && class_exists('\Jetpack') && \Jetpack::is_module_active( 'sso' ),
+			'isCustomizeStoreEnabled'      => (bool) \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'customize-store' ),
 			'isWooPage'                    => $is_woo_page,
 			'homeUrl'                      => esc_url( get_home_url() ),
 			'siteSlug'                     => $site_suffix,
