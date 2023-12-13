@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Add tracks for homepage views for CYS #1390
+* Revert #1377 and fix init priority, to avoid the empty tab being added to the product data tabs #xxx
 
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371
