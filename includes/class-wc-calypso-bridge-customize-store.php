@@ -35,8 +35,10 @@ class WC_Calypso_Bridge_Customize_Store {
 	 * Constructor.
 	 */
 	private function __construct() {
+		add_filter( 'woocommerce_admin_features', array( 'WC_Calypso_Bridge_Customize_Store', 'possibly_enable_cys' ) );
+
 		add_action( 'plugins_loaded', function() {
-			if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'customize-store' ) ) {
+			if ( self::is_enabled() ) {
 				add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
 			}
 		});
@@ -99,6 +101,9 @@ class WC_Calypso_Bridge_Customize_Store {
 		}
 	}
 
+	/**
+	 * Add track homepage view event when admin user is viewing homepage.
+	 */
 	public function possibly_add_track_homepage_view() {
 		if ( self::is_admin() ) {
 			if ( is_front_page() || is_home() ) {
@@ -108,6 +113,47 @@ class WC_Calypso_Bridge_Customize_Store {
 		}
 	}
 
+	/**
+	 * Possibly enable Customize Store feature when feature flag is not already enabled
+	 * and experiment is treatment.
+	 * Criteria:
+	 *  1. Admin user
+	 *  2. Install date >= 2023-12-21 00:00:00 UTC
+	 */
+	public static function possibly_enable_cys( $features ) {
+		// When the feature is already enabled, return early since it's likely to be internal testing.
+		if ( isset( $features['customize-store'] ) ) {
+			return $features;
+		}
+
+		$timestamp = get_option( 'woocommerce_admin_install_timestamp', false );
+
+		// Eligiblity checks.
+		if ( self::is_admin() && $timestamp && $timestamp >= 1703116800 ) {
+			if ( class_exists( '\WooCommerce\Admin\Experimental_Abtest' ) && \WooCommerce\Admin\Experimental_Abtest::in_treatment( 'woocommerce_wooexpress_cys_launch_v1', true ) ) {
+				if ( ! in_array( 'customize-store', $features, true ) ) {
+					$features[] = 'customize-store';
+				}
+			}
+		}
+
+		return $features;
+	}
+
+	/**
+	 * Check if Customize Store feature is enabled.
+	 *
+	 * @return bool
+	 */
+	public static function is_enabled() {
+		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'customize-store' );
+	}
+
+	/**
+	 * Check if current user is admin.
+	 *
+	 * @return bool
+	 */
 	public static function is_admin() {
 		return wc_current_user_has_role( 'administrator' );
 	}
