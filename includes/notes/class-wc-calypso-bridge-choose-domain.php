@@ -5,10 +5,11 @@
  *
  * @package WC_Calypso_Bridge/Notes
  * @since   2.2.20
- * @version 2.2.20
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\Notes\Note;
+use Automattic\WooCommerce\Admin\Notes\Notes;
 use Automattic\WooCommerce\Admin\Notes\NoteTraits;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
 
@@ -45,10 +46,20 @@ class WC_Calypso_Bridge_Choose_Domain_Note {
 			return false;
 		}
 
-		// At least 1 day elapsed.
-		if ( ! WCAdminHelper::is_wc_admin_active_for( DAY_IN_SECONDS ) ) {
+		// At least 1 hour elapsed.
+		if ( ! WCAdminHelper::is_wc_admin_active_for( HOUR_IN_SECONDS ) ) {
 			return false;
 		}
+
+		return self::is_applicable();
+	}
+
+	/**
+	 * Should this note exist? This note should show up only for users who haven't yet purchased or transferred a domain.
+	 *
+	 * @return bool
+	 */
+	public static function is_applicable() {
 
 		// Domain has not been purchased?
 		if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
@@ -68,6 +79,48 @@ class WC_Calypso_Bridge_Choose_Domain_Note {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Mark the note as unread for users who just upgraded to a paid plan.
+	 *
+	 * @return void
+	 */
+	public static function update_note() {
+		$note = Notes::get_note_by_name( self::NOTE_NAME );
+
+		if ( ! $note instanceof Note && ! $note instanceof WC_Admin_Note ) {
+			return;
+		}
+
+		if ( ! self::note_exists() ) {
+			return;
+		}
+
+		// Check if an upgrade to a paid plan has been purchased.
+		$all_site_purchases = wpcom_get_site_purchases();
+		$plan_purchases     = array_filter(
+			$all_site_purchases,
+			function ( $purchase ) {
+				return 'bundle' === $purchase->product_type;
+			}
+		);
+
+		if ( empty( $plan_purchases ) ) {
+			return;
+		}
+
+		// Calculate how many hours have passed since the paid plan purchase.
+		$subscribed_date = new DateTime( $plan_purchases[0]->subscribed_date );
+		$current_date    = new DateTime();
+		$time_diff       = $current_date->diff( $subscribed_date );
+		$hours_passed    = $time_diff->h + ( $time_diff->days * 24 );
+
+		// If less than 2 hours have passed, marked the domain purchase note as unread to increase conversion.
+		if ( $hours_passed < 2 ) {
+			$note->set_is_read( false );
+			$note->save();
+		}
 	}
 
 	/**
@@ -92,7 +145,8 @@ class WC_Calypso_Bridge_Choose_Domain_Note {
 		$note->add_action(
 			'woo-express-domain-upgrade',
 			__( 'Choose a domain', 'wc-calypso-bridge' ),
-			self::get_action_url()
+			self::get_action_url(),
+			Note::E_WC_ADMIN_NOTE_UNACTIONED
 		);
 
 		return $note;

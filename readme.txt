@@ -22,6 +22,11 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Made the domain purchase note unactioned. #xxx
+* Made the domain purchase note show up within 1 hour after store creation. #xxx
+* Made the domain purchase unread for users who just upgraded to a paid plan. #xxx
+
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371
 * Override task progress header and title for all Woo Express sites #1372

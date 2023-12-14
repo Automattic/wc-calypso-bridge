@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.20
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -50,27 +50,28 @@ class WC_Calypso_Bridge_Events {
 	}
 
 	/**
-	 * Initialize daily events.
+	 * Initialize hourly events.
 	 */
 	public function init() {
-		add_action( 'wc_calypso_bridge_daily', array( $this, 'do_wc_calypso_bridge_daily' ) );
+		add_action( 'wc_calypso_bridge_hourly', array( $this, 'do_wc_calypso_bridge_hourly' ) );
 	}
 
 	/**
-	 * Registers the daily cron event.
+	 * Registers the hourly cron event.
 	 */
 	public function on_plugin_loaded() {
-		if ( ! wp_next_scheduled( 'wc_calypso_bridge_daily' ) ) {
-			wp_schedule_event( time() + 10, 'daily', 'wc_calypso_bridge_daily' );
+		if ( ! wp_next_scheduled( 'wc_calypso_bridge_hourly' ) ) {
+			wp_schedule_event( time() + 10, 'hourly', 'wc_calypso_bridge_hourly' );
 		}
 	}
 
 	/**
-	 * Daily events to run.
+	 * Hourly events to run.
 	 */
-	public function do_wc_calypso_bridge_daily() {
+	public function do_wc_calypso_bridge_hourly() {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-notes.php';
 		WC_Calypso_Bridge_Notes::get_instance()->add_notes();
+		WC_Calypso_Bridge_Notes::get_instance()->update_notes();
 		WC_Calypso_Bridge_Notes::get_instance()->delete_notes();
 	}
 }
