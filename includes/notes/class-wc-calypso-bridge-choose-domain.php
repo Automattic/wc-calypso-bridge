@@ -116,7 +116,7 @@ class WC_Calypso_Bridge_Choose_Domain_Note {
 		$time_diff       = $current_date->diff( $subscribed_date );
 		$hours_passed    = $time_diff->h + ( $time_diff->days * 24 );
 
-		// If less than 2 hours have passed, marked the domain purchase note as unread to increase conversion.
+		// If less than 2 hours have passed, mark the domain purchase note as unread to increase conversion.
 		if ( $hours_passed < 2 ) {
 			$note->set_is_read( false );
 			$note->save();
