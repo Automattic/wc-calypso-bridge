@@ -26,6 +26,7 @@ This section describes how to install the plugin and get it working.
 * Made the domain purchase note unactioned. #xxx
 * Made the domain purchase note show up within 1 hour after store creation. #xxx
 * Made the domain purchase unread for users who just upgraded to a paid plan. #xxx
+* Add tracks for homepage views for CYS #1390
 
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371
