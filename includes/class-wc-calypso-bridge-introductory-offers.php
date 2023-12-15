@@ -15,6 +15,8 @@ use Automattic\Jetpack\Connection\Manager;
  */
 class WC_Calypso_Bridge_Introductory_offers {
 
+	CONST TRANSIENT_PREFIX = 'wc-calypso-bridge-introductory-plans-';
+
 	/**
 	 * return introductory offers for the current blog.
 	 *
@@ -53,6 +55,11 @@ class WC_Calypso_Bridge_Introductory_offers {
 			return [];
 		}
 
+		$cached_offers = get_transient( static::TRANSIENT_PREFIX . $blog_id );
+		if ( $cached_offers ) {
+			return $cached_offers;
+		}
+
 		$response = Client::wpcom_json_api_request_as_blog(
 			'/sites/'.$blog_id.'/introductory-offers',
 			'1.3',
@@ -61,13 +68,17 @@ class WC_Calypso_Bridge_Introductory_offers {
 			'rest'
 		);
 
+		$offers = [];
+
 		if ( ! is_wp_error( $response ) && isset( $response[ 'http_response' ] ) && $response[ 'http_response' ] instanceof WP_HTTP_Requests_Response && 200 === $response[ 'http_response' ]->get_status() ) {
-			$offers = json_decode( $response['http_response']->get_data(), true );
-			if ( is_array( $offers ) && count( $offers ) ) {
-				return $offers;
+			$data = json_decode( $response['http_response']->get_data(), true );
+			if ( is_array( $data ) && count( $data ) ) {
+				 $offers = $data;
 			}
 		}
 
-		return [];
+		set_transient( static::TRANSIENT_PREFIX . $blog_id, $offers, 120 );
+
+		return $offers;
 	}
 }
