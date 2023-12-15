@@ -54,6 +54,11 @@ class WC_Calypso_Bridge_Events {
 	 */
 	public function init() {
 		add_action( 'wc_calypso_bridge_hourly', array( $this, 'do_wc_calypso_bridge_hourly' ) );
+
+		// Clear unused CRON.
+		if ( wp_next_scheduled( 'wc_calypso_bridge_daily' ) ) {
+			wp_clear_scheduled_hook( 'wc_calypso_bridge_daily' );
+		}
 	}
 
 	/**
