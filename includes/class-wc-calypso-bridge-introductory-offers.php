@@ -3,8 +3,8 @@
  * Contains the logic for querying plans with introductory offers.
  *
  * @package WC_Calypso_Bridge/Classes
- * @since   1.0.6
- * @version 2.0.8
+ * @since   x.x.x
+ * @version x.x.x
  */
 
 use Automattic\Jetpack\Connection\Client;
