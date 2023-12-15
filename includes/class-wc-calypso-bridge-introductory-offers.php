@@ -18,7 +18,7 @@ class WC_Calypso_Bridge_Introductory_offers {
 	CONST TRANSIENT_PREFIX = 'wc-calypso-bridge-introductory-plans-';
 
 	/**
-	 * return introductory offers for the current blog.
+	 * Return introductory offers for the current blog.
 	 *
 	 * @return array|mixed
 	 */
