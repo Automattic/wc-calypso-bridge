@@ -125,7 +125,7 @@ class WC_Calypso_Bridge_Shared {
 		);
 
 		if ( $is_ecom_trial ) {
-			$introductory_offers = WC_Calypso_Bridge_Introductory_offers::get_current_offers_from_current_blog();
+			$introductory_offers = WC_Calypso_Bridge_Introductory_offers::get_introductory_offers_for_current_blog();
 			if ( count( $introductory_offers ) ) {
 				$params['introductoryOffer'] = WC_Calypso_Bridge_Introductory_offers::extract_offer_data_for_js( current( $introductory_offers ) );
 			}

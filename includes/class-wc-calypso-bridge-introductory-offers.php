@@ -22,7 +22,7 @@ class WC_Calypso_Bridge_Introductory_offers {
 	 *
 	 * @return array|mixed
 	 */
-	public static function get_current_offers_from_current_blog() {
+	public static function get_introductory_offers_for_current_blog() {
 		return static::get_introductory_offers( Jetpack_Options::get_option( 'id' ) );
 	}
 
