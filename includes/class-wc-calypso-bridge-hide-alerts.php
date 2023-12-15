@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.20
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -45,8 +45,8 @@ class WC_Calypso_Bridge_Hide_Alerts {
 		// Includes.
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/data/class-wc-calypso-bridge-admin-note-data-store.php';
 
-		// Hooks.
-		add_action( 'init', array( $this, 'init' ) );
+		// Hooks. Init is called on priority 1 to ensure it runs before other init hooks.
+		add_action( 'init', array( $this, 'init' ), 1 );
 	}
 
 	/**
