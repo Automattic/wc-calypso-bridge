@@ -15,7 +15,7 @@ use Automattic\Jetpack\Connection\Manager;
  */
 class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 
-	const WOO_EXPRESS_PRODUCT_SLUGS = array( 
+	const WOO_EXPRESS_PRODUCT_SLUGS = array(
 		'wooexpress-small-bundle-yearly',
 		'wooexpress-small-bundle-monthly',
 		'wooexpress-medium-bundle-yearly',
@@ -58,7 +58,10 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 	 * @return array|mixed
 	 */
 	public static function get_offers_by_blog_id( $blog_id ) {
-		if ( ! ( new Manager() )->is_user_connected() ) {
+		$manager = new Manager();
+		$current_user_is_connection_owner = $manager->get_connection_owner_id() === get_current_user_id();
+
+		if ( ! $manager->is_user_connected() || ! $current_user_is_connection_owner ) {
 			return [];
 		}
 
