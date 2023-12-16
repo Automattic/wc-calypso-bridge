@@ -109,6 +109,7 @@ class WC_Calypso_Bridge_Shared {
 		$site_suffix = WC_Calypso_Bridge_Instance()->get_site_slug();
 		$is_ecom_trial = (bool) wc_calypso_bridge_is_ecommerce_trial_plan();
 
+
 		$params      = array(
 			'isEcommercePlan'              => (bool) wc_calypso_bridge_has_ecommerce_features(),
 			'isEcommercePlanTrial'         => $is_ecom_trial, // This is true for ecommerce trial only.
@@ -125,9 +126,12 @@ class WC_Calypso_Bridge_Shared {
 		);
 
 		if ( $is_ecom_trial ) {
-			$introductory_offers = WC_Calypso_Bridge_Introductory_offers::get_introductory_offers_for_current_blog();
-			if ( count( $introductory_offers ) ) {
-				$params['introductoryOffer'] = WC_Calypso_Bridge_Introductory_offers::extract_offer_data_for_js( current( $introductory_offers ) );
+			$woo_express_introductory_offers = WC_Calypso_Bridge_Woo_Express_Introductory_offers::get_offers_for_current_blog();
+			if ( count( $woo_express_introductory_offers ) ) {
+				$woo_express_introductory_offers = array_filter( $woo_express_introductory_offers, function( $offer ) {
+					return in_array( $offer['product_slug'], WC_Calypso_Bridge_Woo_Express_Introductory_offers::WOO_EXPRESS_PRODUCT_SLUGS );
+				} );
+				$params['wooExpressIntroductoryOffer'] = WC_Calypso_Bridge_Woo_Express_Introductory_offers::extract_offer_data_for_js( current( $woo_express_introductory_offers ) );
 			}
 		}
 

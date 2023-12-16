@@ -56,11 +56,14 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 										'Upgrade your plan for %s for your first %s %s',
 										'wc-calypso-bridge'
 									),
-									window.wcCalypsoBridge.introductoryOffer
+									window.wcCalypsoBridge
+										.wooExpressIntroductoryOffer
 										.formattedPrice,
-									window.wcCalypsoBridge.introductoryOffer
+									window.wcCalypsoBridge
+										.wooExpressIntroductoryOffer
 										.intervalCount,
-									window.wcCalypsoBridge.introductoryOffer
+									window.wcCalypsoBridge
+										.wooExpressIntroductoryOffer
 										.formattedIntervalUnit
 								) }
 							</p>

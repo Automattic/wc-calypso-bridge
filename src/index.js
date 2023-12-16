@@ -149,7 +149,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: WoocommercePaymentsTaskPage,
 	} );
 
-	if ( window.wcCalypsoBridge.introductoryOffer ) {
+	if ( window.wcCalypsoBridge.wooExpressIntroductoryOffer ) {
 		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
 			render: CalypsoBridgeIntroductoryOfferBanner,
 			scope: 'woocommerce-admin',
