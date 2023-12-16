@@ -5,6 +5,7 @@ import { Fill, Card, Button } from '@wordpress/components';
 import { __, sprintf } from '@wordpress/i18n';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
 import { useSelect, useDispatch } from '@wordpress/data';
+import { recordEvent } from '@woocommerce/tracks';
 
 /**
  * Internal dependencies
@@ -35,6 +36,8 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 		updateOptions( {
 			[ WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_HIDDEN ]: 'yes',
 		} );
+
+		recordEvent( 'free_trial_homescreen_offer_banner_dismiss' );
 	};
 
 	return (
@@ -77,9 +80,7 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 							</a>
 							<Button
 								className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__dismiss-button"
-								label={ __(
-									'Dismiss this banner.'
-								) }
+								label={ __( 'Dismiss this banner.' ) }
 								icon={
 									<span className="dashicons dashicons-no-alt"></span>
 								}
