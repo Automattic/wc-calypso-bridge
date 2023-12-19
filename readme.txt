@@ -26,7 +26,7 @@ This section describes how to install the plugin and get it working.
 * Add tracks for homepage views for CYS #1390
 * Revert #1377 and fix init priority, to avoid the empty tab being added to the product data tabs #1395
 * Hide Jetpack JITM in CYS screen #1393
-* Page creation job - Improve page deletion by slug #xxx
+* Page creation job - Sanitize slugs before deleting #1401
 
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371
