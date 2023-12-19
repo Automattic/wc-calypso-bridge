@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { Fill, Card, Button } from '@wordpress/components';
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { recordEvent } from '@woocommerce/tracks';
@@ -11,6 +11,7 @@ import { recordEvent } from '@woocommerce/tracks';
  * Internal dependencies
  */
 import './style.scss';
+import { getOfferMessage } from './get-offer-message';
 
 export const WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_HIDDEN =
 	'wc_calypso_bridge_introductory_offer_banner_hidden';
@@ -40,6 +41,8 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 		recordEvent( 'free_trial_homescreen_offer_banner_dismiss' );
 	};
 
+	const offer = window.wcCalypsoBridge.wooExpressIntroductoryOffer;
+
 	return (
 		! isModalHidden && (
 			<Fill name="woocommerce_homescreen_experimental_header_banner_item">
@@ -53,22 +56,11 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 								) }
 							</p>
 							<p>
-								{ sprintf(
-									/* translators: First two %s do not need to be translated. Possible values for the last %s is day, days, month, and months */
-									__(
-										'Upgrade your plan for %s for your first %s %s',
-										'wc-calypso-bridge'
-									),
-									window.wcCalypsoBridge
-										.wooExpressIntroductoryOffer
-										.formattedPrice,
-									window.wcCalypsoBridge
-										.wooExpressIntroductoryOffer
-										.intervalCount,
-									window.wcCalypsoBridge
-										.wooExpressIntroductoryOffer
-										.formattedIntervalUnit
-								) }
+								{ getOfferMessage( {
+									formattedPrice: offer.formattedPrice,
+									intervalUnit: offer.intervalUnit,
+									intervalCount: offer.intervalCount,
+								} ) }
 							</p>
 						</div>
 						<div className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__actions">
