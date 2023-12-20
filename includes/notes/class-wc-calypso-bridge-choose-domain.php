@@ -113,7 +113,7 @@ class WC_Calypso_Bridge_Choose_Domain_Note {
 		// Calculate how many hours have passed since the paid plan purchase.
 		$subscribed_date = strtotime( get_date_from_gmt( $plan_purchases[0]->subscribed_date ) );
 		$current_date    = current_time( 'timestamp', true );
-		$hours_passed    = ( $current_date - $subscribed_date ) / 3600;
+		$hours_passed    = ( $current_date - $subscribed_date ) / HOUR_IN_SECONDS;
 
 		// If less than 2 hours have passed, mark the domain purchase note as unread to increase conversion.
 		if ( $hours_passed < 2 ) {
