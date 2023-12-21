@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.2.18
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -27,6 +27,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 */
 	public function __construct() {
 		parent::__construct();
+		add_action( 'admin_menu', array( $this, 'maybe_hide_payments_menu' ), 10 );
 		add_action( 'admin_menu', array( $this, 'add_woocommerce_menu' ), 99999 );
 		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
@@ -384,6 +385,18 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		$this->reorder_woocommerce_menu();
 		$this->reorder_settings_menu();
 		$this->reorder_analytics_menu();
+	}
+
+	/**
+	 * Hide the Payments menu item for unsupported countries.
+	 *
+	 * @since x.x.x
+	 */
+	public function maybe_hide_payments_menu() {
+		if ( ! Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WooCommercePayments::is_supported() ) {
+			remove_menu_page( 'wc-admin&path=/payments/connect' );
+			remove_menu_page( 'wc-admin&path=/payments/overview' );
+		}
 	}
 
 	/**
