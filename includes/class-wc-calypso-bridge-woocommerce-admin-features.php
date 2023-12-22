@@ -154,7 +154,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		$timestamp = get_option( 'woocommerce_admin_install_timestamp', false );
 
-		// Enable customize store feature if the install timestamp is set and is after Jan 2, 8pm PT.
+		// Enable customize store feature if the install timestamp is set and is after 2024-01-02 8:00pm PT.
 		if ( isset( $features['customize-store'] ) && $timestamp && $timestamp >= 1704254400 ) {
 			$features['customize-store'] = true;
 		}
