@@ -31,7 +31,7 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 	 */
 	public static function get_offers_for_current_blog(callable $filter = null) {
 		$offers = static::get_offers_by_blog_id( Jetpack_Options::get_option( 'id' ) );
-		if ($filter) {
+		if ( $filter ) {
 			return array_filter( $offers, $filter );
 		}
 
