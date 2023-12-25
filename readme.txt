@@ -27,6 +27,7 @@ This section describes how to install the plugin and get it working.
 * Revert #1377 and fix init priority, to avoid the empty tab being added to the product data tabs #1395
 * Hide Jetpack JITM in CYS screen #1393
 * Enable customize-store feature flag. #1357
+* Hide free trial plan picker banner when viewing iframe #1404
 
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371
