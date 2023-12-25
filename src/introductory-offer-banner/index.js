@@ -72,7 +72,7 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 							</a>
 							<Button
 								className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__dismiss-button"
-								label={ __( 'Dismiss this banner.' ) }
+								label={ __( 'Dismiss this banner.', 'wc-calypso-bridge' )  }
 								icon={
 									<span className="dashicons dashicons-no-alt"></span>
 								}
