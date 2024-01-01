@@ -43,6 +43,10 @@ msgstr "Yeni mağazanız için bir alan adı seçin"
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "WooCommerce, bu pakette devre dışı bırakılamaz."
 
+#: build/index.js:2506
+msgid "Accept Payments and manage your business."
+msgstr "Ödemeleri kabul edin ve işinizi yönetin."
+
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
 msgid "Add New Order"
 msgstr "Yeni Sipariş Ekle"
@@ -77,337 +81,334 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "Blog Ana Sayfası"
 
-#: build/plugins.js:1
+#: build/plugins.js:147 build/plugins.js:211
 msgid "Hire an expert"
 msgstr "Bir uzmanla çalışın"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:195
 msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
 msgstr "Aradığınız şeyi bulamıyor musunuz? Uzman ajanslarımızdan birini işe alın! Yeni uzantılardan tam mağaza kurulumlarına kadar çeşitli alanlarda destek veren Woo Uzmanlarımız hayallerinizdeki mağazayı oluşturmanıza yardımcı olabilir."
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:158
 msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
 msgstr "Mağazanızın e-ticaret işlevini genişletmek mi istiyorsunuz? Woo Pazar Yeri mağazanız için özel olarak tasarlanmış yüzlerce güvenilir uzantıya sahiptir."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:116
 msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
 msgstr "SEO araçlarından birden fazla dil işlevine kadar WordPress eklentileriyle web sitenizi dilediğiniz her şeyi yapacak şekilde özelleştirebilirsiniz."
 
-#: build/plugins.js:1
+#: build/plugins.js:86 build/plugins.js:113
 msgid "Customize your website"
 msgstr "Web sitenizi özelleştirin"
 
-#: build/plugins.js:1
+#: build/plugins.js:39 build/plugins.js:33
 msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
 msgstr "Bir düğmeye tıklayarak web sitenize ekstra işlev ve özellikler ekleyin. Ücretli bir pakete yükseltip binlerce ücretsiz ve ücretli WordPress eklentisine erişim edinin. Nelerin mümkün olduğunu mu merak ediyorsunuz?"
 
-#: build/plugins.js:1
+#: build/plugins.js:137 build/plugins.js:193
 msgid "Do it your way"
 msgstr "İstediğiniz gibi yapın"
 
-#: build/plugins.js:1
+#: build/plugins.js:124 build/plugins.js:174
 msgid "Discover Extensions"
 msgstr "Uzantıları Keşfedin"
 
-#: build/plugins.js:1
+#: build/plugins.js:114 build/plugins.js:156
 msgid "Extend your store"
 msgstr "Mağazanızı genişletin"
 
-#: build/plugins.js:1
+#: build/plugins.js:61 build/plugins.js:96 build/plugins.js:67
+#: build/plugins.js:132
 msgid "Browse plugins"
 msgstr "Eklentilere göz atın"
 
-#: build/plugins.js:1
+#: build/plugins.js:37 build/plugins.js:26
 msgid "Make anything happen, with plugins"
 msgstr "Eklentilerle her şeyi gerçekleştirin"
 
-#: build/payment-gateway-suggestions.js:3
-msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
-msgstr "Bize WooCommerce'in nasıl kullanıldığını gösteren {{link}}kullanım izleme{{/link}} özelliği aracılığıyla hassas olmayan verileri paylaşarak iyileştirilmiş özellikler ve daha hızlı düzeltmeler alın. Kişisel veriler izlenmez veya saklanmaz."
-
-#: build/marketing.js:1
+#: build/marketing.js:1209
 msgid "Create digital gift cards"
 msgstr "Dijital hediye kartları oluşturun"
 
-#: build/marketing.js:1
+#: build/marketing.js:1200
 msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
 msgstr "Müşteri sadakatini artırmak, daha fazla gelir kazanmak ve mağazanızı yeni müşterilere tanıtmak için dijital hediye kartları satmaya ve kabul etmeye başlayın."
 
-#: build/marketing.js:1
+#: build/marketing.js:1199
 msgid "Increase customer loyalty with gift cards"
 msgstr "Hediye kartlarıyla müşteri sadakatini artırın"
 
-#: build/marketing.js:1
+#: build/marketing.js:1195
 msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
 msgstr "Sosyal reklam ile ürünlerinizi TikTok, Pinterest ve Meta platformlarına göz atan milyonlarca ilgili müşterinin önüne çıkarın."
 
-#: build/marketing.js:1
+#: build/marketing.js:1194
 msgid "Reach more customers across social media"
 msgstr "Sosyal medyada daha fazla müşteriye ulaşın"
 
-#: build/marketing.js:1
+#: build/marketing.js:1190
 msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
 msgstr "Doğrudan panonuzdan oluşturup yönetebileceğiniz ürün listelemeleri ve reklamlarıyla Google'daki etkin müşterilere ulaşın."
 
-#: build/marketing.js:1
+#: build/marketing.js:1189
 msgid "Advertise your products on Google"
 msgstr "Ürünlerinizi Google'da tanıtın"
 
-#: build/marketing.js:1
+#: build/marketing.js:1186
 msgid "Try AutomateWoo"
 msgstr "AutomateWoo'yu deneyin"
 
-#: build/marketing.js:1
+#: build/marketing.js:1177
 msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
 msgstr "Müşterinizin satın alma verilerine yanıt veren otomatik pazarlama mesajlarıyla satışları artırın ve sadakat oluşturun."
 
-#: build/marketing.js:1
+#: build/marketing.js:1176
 msgid "Automate your marketing"
 msgstr "Pazarlamanızı otomatikleştirin"
 
-#: build/marketing.js:1
+#: build/marketing.js:1174
 msgid "Discover our built-in marketing tools to reach more customers and boost sales"
 msgstr "Daha fazla müşteriye ulaşmak ve satışlarınızı artırmak için yerleşik pazarlama araçlarımızı keşfedin"
 
-#: build/marketing.js:1
+#: build/marketing.js:1168
 msgid "Grow your business with hundreds of extensions"
 msgstr "Yüzlerce uzantıyla işletmenizi büyütün"
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
 msgstr "Yerleşik pazarlama ve reklam araçlarımızla daha fazla müşteriye ulaşın ve işletmenizi büyütün. Hemen güçlü pazarlama araçlarımızın gücünü ortaya çıkarmak ve işletmenizi büyütmeye başlamak için ücretli bir pakete yükseltin!"
 
-#: build/marketing.js:1
+#: build/marketing.js:1161
 msgid "Get ready to grow your business"
 msgstr "İşletmenizi büyütmeye hazırlanın"
 
-#: build/index.js:3 src/task-headers/appearance.js:29
+#: build/index.js:7945 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
 msgstr "Görünüm illüstrasyonu"
 
-#: build/index.js:3 src/task-headers/products.js:26
+#: build/index.js:8033 src/task-headers/products.js:26
 msgid "Products illustration"
 msgstr "Ürünlerin illüstrasyonu"
 
-#: build/index.js:3
+#: build/index.js:5975
 msgid "Everything is looking great, keep it up!"
 msgstr "Her şey harika görünüyor, böyle devam edin!"
 
-#: build/index.js:3
+#: build/index.js:5973
 msgid "Woo! We’ve made it to the last step! Great job"
 msgstr "Woo! Son adıma geldik! Harikasınız"
 
-#: build/index.js:3
+#: build/index.js:5969
 msgid "Only a few more tasks to tick off!"
 msgstr "Tamamlanacak yalnızca birkaç görev daha kaldı!"
 
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to your Woo Express store"
 msgstr "Woo Express mağazanıza hoş geldiniz"
 
 #. translators: %s = site title
-#: build/index.js:3
+#: build/index.js:5964
 msgid "Welcome to %s"
 msgstr "%s sitesine hoş geldiniz"
 
 #. translators: 1: completed tasks, 2: total tasks
-#: build/index.js:2
+#: build/index.js:5895
 msgid "%1$d out of %2$d complete."
 msgstr "%1$d/%2$d tamamlandı."
 
-#: build/index.js:1
+#: build/index.js:5894
 msgid "You’re almost ready to start selling! Follow these steps to set up your test store."
 msgstr "Satış yapmaya neredeyse hazırsınız! Test mağazanızı kurmak için bu adımları takip edin."
 
-#: build/index.js:1
+#: build/index.js:5891
 msgid "Hide setup list"
 msgstr "Kurulum listesini gizle"
 
-#: build/index.js:1
+#: build/index.js:7750
 msgid "The store setup process meets my needs."
 msgstr "Mağaza kurulum süreci ihtiyaçlarımı karşılıyor."
 
-#: build/index.js:1
+#: build/index.js:7749
 msgid "The store setup is easy to complete."
 msgstr "Mağaza kurulumunun tamamlanması kolay."
 
-#: build/index.js:1
+#: build/index.js:7747
 msgid "We appreciate your feedback!"
 msgstr "Geri bildirim için teşekkürler!"
 
-#: build/index.js:1
+#: build/index.js:7738 build/index.js:7748
 msgid "How was your experience?"
 msgstr "Deneyiminiz nasıldı?"
 
-#: build/index.js:1
+#: build/index.js:6038 build/index.js:7736
 msgid "Hide this"
 msgstr "Bunu gizle"
 
-#: build/index.js:1
+#: build/index.js:7734
 msgid "Show setup task list"
 msgstr "Kurulum görev listesini göster"
 
-#: build/index.js:1
+#: build/index.js:6033 build/index.js:7729
 msgid "Task List Options"
 msgstr "Görev Listesi Seçenekleri"
 
-#: build/index.js:1
+#: build/index.js:7723
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
 msgstr "Tebrikler! Kutlamak için bir dakikanızı ayırın. Mağazanızı yayınlamaya hazır olduğunuzda yapmanız gereken tek şey ücretli bir pakete yükseltmektir. Bu işlem ayrıca görev listesinde iki yaklaşan görevin kilidini de açar."
 
-#: build/index.js:1
+#: build/index.js:7717
 msgid "Woohoo! Your trial store has been set up!"
 msgstr "Harika! Deneme mağazanız kuruldu!"
 
-#: build/index.js:1
+#: build/index.js:5064
 msgid "You're awesome! One less item on your to-do list ✅"
 msgstr "Harika gidiyorsunuz! Yapılacaklar listenizden bir madde daha silindi ✅"
 
-#: build/index.js:1
+#: build/index.js:5061
 msgid "There was a problem setting up automated taxes. Please try again."
 msgstr "Otomatik vergiler ayarlanırken bir sorun oluştu. Lütfen tekrar deneyin."
 
-#: build/index.js:1
+#: build/index.js:4980
 msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
 msgstr "Ücretsiz deneme sürümü süresinde satış vergisi ayarlarınızı yapılandırabilirsiniz, ancak satış vergilerinizi toplayamazsınız. {{br/}}Ürün satmaya başlamak için {{link}}hemen yükseltin{{/link}}."
 
-#: build/index.js:1
+#: build/index.js:4501
 msgid "I don't charge sales tax"
 msgstr "Satış vergisi almıyorum"
 
-#: build/index.js:1
+#: build/index.js:4494
 msgid "Set up taxes manually"
 msgstr "Vergileri manuel olarak ayarlayın"
 
-#: build/index.js:1
+#: build/index.js:4483
 msgid "Choose a tax partner"
 msgstr "Bir vergi ortağı seçin"
 
-#: build/index.js:1
+#: build/index.js:5682
 msgid "WooCommerce Tax can automate your sales tax calculations for you."
 msgstr "WooCommerce Tax, satış vergisi hesaplamalarınızı sizin için otomatikleştirebilir."
 
-#: build/index.js:1
+#: build/index.js:5681
 msgid "Automate Taxes"
 msgstr "Vergileri Otomatikleştir"
 
-#: build/index.js:1
+#: build/index.js:5421
 msgid "Automate taxes"
 msgstr "Vergileri otomatikleştirin"
 
-#: build/index.js:1
+#: build/index.js:5293
 msgid "Head over to the tax rate settings screen to configure your tax rates"
 msgstr "Vergi oranlarınızı yapılandırmak için vergi oranı ayarları ekranına gidin."
 
-#: build/index.js:1
+#: build/index.js:5292
 msgid "Configure tax rates"
 msgstr "Vergi oranlarını yapılandırın"
 
-#: build/index.js:1
+#: build/index.js:5288 build/index.js:5677
 msgid "The address from which your business operates"
 msgstr "İşletmenizin faaliyet adresi"
 
-#: build/index.js:1
+#: build/index.js:5287 build/index.js:5676
 msgid "Set store location"
 msgstr "Mağaza konumunu ayarlayın"
 
-#: build/index.js:1
+#: build/index.js:4570
 msgid "Please select a country / region"
 msgstr "Lütfen bir ülke / bölge seçin"
 
-#: build/index.js:1
+#: build/index.js:4798
 msgid "Post code"
 msgstr "Posta kodu"
 
-#: build/index.js:1
+#: build/index.js:4795
 msgid "Address"
 msgstr "Adres"
 
-#: build/index.js:1
+#: build/index.js:4781
 msgid "Country / Region"
 msgstr "Ülke"
 
-#: build/index.js:1
+#: build/index.js:5221
 msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
 msgstr "\"Yapılandır\" seçeneğine tıklayarak vergi oranlarını ve hesaplamaları etkinleştirirsiniz. Daha fazla bilgi için {{link}}bu bölüme{{/link}} bakın."
 
-#: build/index.js:1
+#: build/index.js:5220
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: build/index.js:1
+#: build/index.js:5497
 msgid "Continue setup"
 msgstr "Kuruluma devam et"
 
-#: build/index.js:1
+#: build/index.js:5488
 msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
 msgstr "WooCommerce Tax ve Jetpack'i kurarak {{link}}Hizmet Koşullarını{{/link}} kabul etmiş olursunuz."
 
-#: build/index.js:1
+#: build/index.js:5486
 msgid "100% free"
 msgstr "%100 ücretsiz"
 
-#: build/index.js:1
+#: build/index.js:5476
 msgid "Powered by {{link}}Jetpack{{/link}}"
 msgstr "{{link}}Jetpack{{/link}} tarafından desteklenir"
 
-#: build/index.js:1
+#: build/index.js:5471
 msgid "{{strong}}Single{{/strong}} economic nexus compliance"
 msgstr "{{strong}}Tek{{/strong}} ekonomik bağlantı uyumluluğu"
 
-#: build/index.js:1
+#: build/index.js:5470
 msgid "Real-time sales tax calculation"
 msgstr "Gerçek zamanlı satış vergisi hesaplama"
 
-#: build/index.js:1
+#: build/index.js:5469
 msgid "Best for new stores"
 msgstr "Yeni mağazalar için en iyisi"
 
-#: build/index.js:1
+#: build/index.js:5467
 msgid "WooCommerce Tax"
 msgstr "WooCommerce Tax"
 
-#: build/index.js:1
+#: build/index.js:4135
 msgid "Get more sales"
 msgstr "Daha fazla satış yapın"
 
-#: build/index.js:1
+#: build/index.js:4114
 msgid "Upgrade to a paid plan to unlock more features and start selling"
 msgstr "Yeni özelliklerin kilidini açmak ve satış yapmaya başlamak için ücretli bir pakete yükseltin."
 
-#: build/index.js:1
+#: build/index.js:4113
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
 msgstr "Şu anda ücretsiz deneme sürümünü kullanıyorsunuz! Tüm özelliklere erişmek için lütfen ücretli bir pakete yükseltin."
 
-#: build/index.js:1 src/welcome-modal/index.js:94
+#: build/index.js:8402 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
 msgstr "Hoş geldiniz penceresi gezinme illüstrasyonu 1"
 
-#: build/index.js:1 src/welcome-modal/index.js:64
+#: build/index.js:8390 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
 msgstr "Hoş geldiniz penceresi gezinme illüstrasyonu 2"
 
-#: build/index.js:1
+#: build/index.js:1837
 msgid "Setup required"
 msgstr "Kurulum gerekir"
 
-#: build/index.js:1
+#: build/index.js:2727
 msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
 msgstr "Sürekli bir gelir akışı sağlayın, yinelenen ödemeleri yönetin ve ödemelerin belirlediğiniz banka hesabınıza otomatik olarak yatırılmasını sağlayın."
 
-#: build/index.js:1
+#: build/index.js:2724
 msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
 msgstr "Uluslararası pazarlara satış yapın ve yerel ödeme yöntemleriyle 135'ten fazla para biriminde ödeme kabul edin. "
 
-#: build/index.js:1
+#: build/index.js:2721
 msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
 msgstr "Banka ve kredi kartı ödemeleri, Apple Pay, Sofort, SEPA, iDeal ve çok daha fazlası dahil olmak üzere müşterilerinize tercih ettikleri ödeme yöntemini sunun."
 
-#: build/index.js:1
+#: build/index.js:2502
 msgid "Accepted payment methods include:"
 msgstr "Kabul edilen ödeme yöntemleri şunlardır:"
 
-#: build/index.js:1
+#: build/index.js:2454
 msgid "& more."
 msgstr "ve daha fazlası."
 
@@ -453,7 +454,7 @@ msgstr "Temanızı seçin"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:3 src/index.js:199
+#: build/index.js:6248 src/index.js:200
 msgid "Plugins"
 msgstr "Eklentiler"
 
@@ -489,27 +490,27 @@ msgstr "İlk Katılım"
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "Satış için uygun hale getirilmiş özel bir gezinme deneyimi."
 
-#: build/index.js:1 src/welcome-modal/index.js:114
+#: build/index.js:8411 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "WooCommerce ile işleri halletmek artık daha hızlı. Yeni gezinmemiz hakkında <a>daha fazla bilgi edinin</a> veya gidip kendiniz keşfedin."
 
-#: build/index.js:1 src/welcome-modal/index.js:107
+#: build/index.js:8409 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "Yeni gezinmemizle daha hızlı hareket edin"
 
-#: build/index.js:1 src/welcome-modal/index.js:83
+#: build/index.js:8399 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "WordPress.com panonuza her geri döndüğünüzde mağazanızın performansı hakkında ipuçları ve istatistikler alın."
 
-#: build/index.js:1 src/welcome-modal/index.js:77
+#: build/index.js:8397 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "Yeni Ana Sayfanızla tanışın"
 
-#: build/index.js:3 src/task-headers/add-domain.js:34
+#: build/index.js:7873 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "Mağazanız için yeni bir web sitesi adresi seçin veya zaten sahip olduğunuz bir adresi aktarın."
 
-#: build/index.js:3 src/task-headers/add-domain.js:22
+#: build/index.js:7868 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "Alan adı illüstrasyonu ekleyin"
 
@@ -557,260 +558,313 @@ msgstr "Doğrudan banka havale detayları başarıyla eklendi"
 msgid "Please enter an account number or IBAN"
 msgstr "Lütfen bir hesap numarası veya IBAN girin"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1491
 #: src/payment-gateway-suggestions/index.js:285
+#: build/payment-gateway-suggestions.js:1498
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
 msgstr "Ücretsiz deneme süresi boyunca yalnızca Yöneticiler ve Mağaza Yöneticileri sipariş verebilir. Müşterilerden ödeme almaya hazırsanız {{link}}ücretli bir pakete yükseltin{{/link}}."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1476
 #: src/payment-gateway-suggestions/index.js:266
+#: build/payment-gateway-suggestions.js:1479
 msgid "Offline payment methods"
 msgstr "Çevrimdışı ödeme yöntemleri"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1471
 #: src/payment-gateway-suggestions/index.js:257
+#: build/payment-gateway-suggestions.js:1470
 msgid "See more"
 msgstr "Daha fazla gör"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1457
 #: src/payment-gateway-suggestions/index.js:236
+#: build/payment-gateway-suggestions.js:1449
 msgid "Try one of the alternative payment providers."
 msgstr "Alternatif ödeme sağlayıcılarından birini deneyin."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1456
+#: build/payment-gateway-suggestions.js:1505
 #: src/payment-gateway-suggestions/index.js:232
 #: src/payment-gateway-suggestions/index.js:311
+#: build/payment-gateway-suggestions.js:1445
+#: build/payment-gateway-suggestions.js:1524
 msgid "Other payment providers"
 msgstr "Diğer ödeme sağlayıcıları"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1454
 #: src/payment-gateway-suggestions/index.js:227
+#: build/payment-gateway-suggestions.js:1440
 msgid "Give your customers additional choices in ways to pay."
 msgstr "Müşterilerinize ödeme yöntemleriyle ilgili ek seçenekler sunun."
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1453
 #: src/payment-gateway-suggestions/index.js:223
+#: build/payment-gateway-suggestions.js:1436
 msgid "Additional payment options"
 msgstr "Ek ödeme seçenekleri"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1450
 #: src/payment-gateway-suggestions/index.js:217
+#: build/payment-gateway-suggestions.js:1430
 msgid "To get ready to accept online payments"
 msgstr "Çevrimiçi ödeme almaya hazır olmak için"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1449
 #: src/payment-gateway-suggestions/index.js:213
+#: build/payment-gateway-suggestions.js:1426
 msgid "Choose a payment provider"
 msgstr "Bir ödeme sağlayıcısı seç"
 
-#: build/index.js:3
+#: build/index.js:7040
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "WooCommerce Payments bağlantısı kurulurken bir hata oluştu. Lütfen tekrar deneyin veya mağaza ayarlarında daha sonra bağlanın."
 
+#: build/payment-gateway-suggestions.js:1249
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
+#: build/payment-gateway-suggestions.js:1200
 msgid "I agree"
 msgstr "Kabul ediyorum"
 
+#: build/payment-gateway-suggestions.js:1236
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
+#: build/payment-gateway-suggestions.js:1180
 msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
 msgstr "Hassas olmayan {{link}}kullanım verilerini{{/link}} paylaşmayı kabul ederek, özellikleri iyileştirmemize ve WooCommerce Payments deneyimini optimize etmemize yardımcı olacaksınız. Veri paylaşımını dilediğiniz zaman durdurabilirsiniz."
 
+#: build/payment-gateway-suggestions.js:1234
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
+#: build/payment-gateway-suggestions.js:1175
 msgid "Help us build a better WooCommerce Payments experience"
 msgstr "Daha iyi bir WooCommerce Payments deneyimi oluşturmamıza yardımcı olun"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:2508 build/payment-gateway-suggestions.js:1108
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
+#: build/payment-gateway-suggestions.js:1043
 msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
 msgstr "WooCommerce Payments'ı kullanarak {{tosLink}}Hizmet Şartlarımıza{{/tosLink}} bağlı kalmayı ve {{privacyLink}}Gizlilik Politikamızı{{/privacyLink}} okuduğunuzu kabul etmiş olursunuz. "
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:1101
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
+#: build/payment-gateway-suggestions.js:1033
 msgid "Get ready to accept payments"
 msgstr "Ödeme almaya hazır olun"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:969
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
+#: build/payment-gateway-suggestions.js:919
 msgid "Yes, count me in!"
 msgstr "Evet, ben de varım!"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:957
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
+#: build/payment-gateway-suggestions.js:901
 msgid "Build a better WooCommerce"
 msgstr "Daha iyi bir WooCommerce oluşturun"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:896
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
+#: build/payment-gateway-suggestions.js:842
 msgid "There was a problem updating your preferences"
 msgstr "Tercihleriniz güncellenirken bir sorun oluştu"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:719
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:120
+#: build/payment-gateway-suggestions.js:697
 msgid "Configure your %(title)s account"
 msgstr "%(title)s hesabınızı yapılandırın"
 
 #. translators: %s = title of the payment gateway to install
-#: build/payment-gateway-suggestions.js:3
+#: build/payment-gateway-suggestions.js:702
 #: src/payment-gateway-suggestions/components/Setup/Setup.js:88
+#: build/payment-gateway-suggestions.js:665
 msgid "Install %s"
 msgstr "Yükle %s"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:540
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:152
+#: build/payment-gateway-suggestions.js:529
 msgid "You can manage this payment gateway's settings by clicking the button below"
 msgstr "Aşağıdaki düğmeyi tıklayarak bu ödeme ağ geçidinin ayarlarını yönetebilirsiniz"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:535
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:133
+#: build/payment-gateway-suggestions.js:510
 msgid "Connect"
 msgstr "Bağlan"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:513
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:100
+#: build/payment-gateway-suggestions.js:477
 msgid "Proceed"
 msgstr "İlerle"
 
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:503
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:84
 #: src/payment-gateway-suggestions/plugins/Bacs.js:63
+#: build/payment-gateway-suggestions.js:461
 msgid "There was a problem saving your payment settings"
 msgstr "Ödeme ayarlarınız kaydedilirken bir sorun oluştu"
 
 #. translators: %s = title of the payment gateway
-#: build/payment-gateway-suggestions.js:2
+#: build/payment-gateway-suggestions.js:500
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:75
+#: build/payment-gateway-suggestions.js:452
 msgid "%s configured successfully"
 msgstr "%s başarıyla yapılandırıldı"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1784 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:81
+#: build/payment-gateway-suggestions.js:226
 msgid "Recommended"
 msgstr "Önerilen"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/index.js:1783 build/payment-gateway-suggestions.js:231
 #: src/payment-gateway-suggestions/components/List/Item.js:80
+#: build/payment-gateway-suggestions.js:225
 msgid "Local Partner"
 msgstr "Yerel iş ortağı"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:132
 #: src/payment-gateway-suggestions/components/Action.js:138
+#: build/payment-gateway-suggestions.js:138
 msgid "Finish setup"
 msgstr "Kurulumu Tamamla"
 
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:103
 #: src/payment-gateway-suggestions/components/Action.js:99
+#: build/payment-gateway-suggestions.js:99
 msgid "Enable"
 msgstr "Etkinleştir"
 
-#: build/index.js:1 src/launch-store/index.js:392
+#: build/index.js:6915 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "Yine de başlat"
 
-#: build/index.js:1 src/launch-store/index.js:382
+#: build/index.js:6912 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "Mağazanızı başlatmadan önce kontrol etmeniz gereken birkaç şey"
 
-#: build/index.js:1 src/launch-store/index.js:379
+#: build/index.js:6910 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "Başlatmadan önce"
 
-#: build/index.js:1 src/launch-store/index.js:318
+#: build/index.js:6874 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "Yeni web siteniz için bir adres seçin veya zaten sahip olduğunuz bir alan adını aktarın."
 
-#: build/index.js:1 src/launch-store/index.js:314
+#: build/index.js:6870 src/launch-store/index.js:314
 msgid "List products"
 msgstr "Ürün listeleme"
 
-#: build/index.js:1 src/launch-store/index.js:310
+#: build/index.js:6869 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "Mağazanıza ürün veya hizmet ekleyerek satış yapmaya başlayın. Ürünlerinizi manuel olarak oluşturun veya mevcut bir mağazadan içe aktarın."
 
-#: build/index.js:1 src/launch-store/index.js:309
+#: build/index.js:6868 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "Ürünlerinizi listeleme"
 
-#: build/index.js:1 src/launch-store/index.js:301
+#: build/index.js:6863 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "Müşterilerinize kolay ve rahat bir ödeme yöntemi sağlayın! Hızlı ve güvenli internetten veya şahsen ödeme yöntemlerimizden birini (veya daha fazlasını!) ayarlayın."
 
-#: build/index.js:1 src/launch-store/index.js:300 src/launch-store/index.js:305
+#: build/index.js:6862 build/index.js:6864 src/launch-store/index.js:300
+#: src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "Ödeme alın"
 
-#: build/index.js:1 src/launch-store/index.js:262 src/launch-store/index.js:398
+#: build/index.js:6831 build/index.js:6919 src/launch-store/index.js:262
+#: src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "Bunu her zaman <a>Ayarlar</a>'ın altından geri alabilirsiniz."
 
-#: build/index.js:1 src/launch-store/index.js:250
+#: build/index.js:6825 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "Kutlama zamanı, mağazanızı başlatmaya hazırsınız! Woo!"
 
-#: build/index.js:1 src/launch-store/index.js:247
+#: build/index.js:6823 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "Mağazanızı yayınlamaya hazır mısınız?"
 
-#: build/index.js:1 src/launch-store/index.js:212
+#: build/index.js:6804 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "Fikrinizi mi değiştirdiniz? <a>Gizlilik</a> ayarlarınızı güncelleyerek mağazanızı tekrar gizli hale getirebilirsiniz."
 
-#: build/index.js:1 src/launch-store/index.js:206
+#: build/index.js:6800 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "Mağazanızı görüntüleme"
 
-#: build/index.js:1 src/launch-store/index.js:186
+#: build/index.js:6787 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "WooCommerce mağazanızı başlattığınız için tebrik ederiz. Kutlamak ve haberleri paylaşmak için bir dakikanızı ayırın!"
 
-#: build/index.js:1 src/launch-store/index.js:182
+#: build/index.js:6785 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "Woo! Başardınız!"
 
-#: build/index.js:1 src/launch-store/index.js:142
+#: build/index.js:6758 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "Mağazanızı başlatma"
 
-#: build/index.js:1 src/launch-store/index.js:71
+#: build/index.js:6708 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "Kopyalandı"
 
-#: build/index.js:3 src/homescreen-banner/index.js:61
+#: build/index.js:5770 src/homescreen-banner/index.js:61
 msgid "Dismiss this free trial informational banner."
 msgstr "Bu ücretsiz deneme süresi bilgilendirici bandını kapatın."
 
-#: build/index.js:3 src/homescreen-banner/index.js:45
+#: build/index.js:5762 src/homescreen-banner/index.js:45
 msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
 msgstr "Bu, neler bulunduğunu keşfetmeye başlayabileceğiniz ücretsiz deneme süresi test mağazanız! Ücretsiz deneme süresi hakkında daha fazla bilgi edinmek için \"Daha fazla bilgi\"ye tıklayın."
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:56
+#: build/index.js:4314 src/free-trial/tax/components/location.js:56
 msgid "There was a problem saving your store location"
 msgstr "Mağaza konumunuz kaydedilirken bir sorun oluştu"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:149
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
+#: build/src_free-trial_fills_index_ts.js:134
 msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
 msgstr "\"Ödemeleri test et\"e tıklayarak {{tosLink}}Hizmet Koşulları{{/tosLink}}'nı kabul etmiş olursunuz."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:148
+#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
+#: build/src_free-trial_fills_index_ts.js:126
 msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
 msgstr "Ödemelerinizi basit, hepsi bir arada bir seçenekle güçlendirin. WooCommerce Ödemeler ile işlemleri test etmeye başlamak için işletmenizle ilgili ayrıntıları doğrulayın."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:50
+#: build/src_free-trial_fills_index_ts.js:75
+#: build/src_free-trial_fills_index_ts.js:161
+#: src/free-trial/fills/task-headers/payments.js:50
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:84
+#: build/src_free-trial_fills_index_ts.js:54
+#: build/src_free-trial_fills_index_ts.js:156
 msgid "Test payments"
 msgstr "Ödemeleri test etme"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:71
+#: src/free-trial/fills/task-headers/payments.js:40
+#: build/src_free-trial_fills_index_ts.js:44
 msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
 msgstr "Müşterilerinize kolay ve rahat bir ödeme yöntemi sağlayın! Hızlı ve güvenli internetten veya şahsen ödeme yöntemlerimizden bazılarını ayarlayın ve test edin."
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:34
+#: build/src_free-trial_fills_index_ts.js:71
+#: build/src_free-trial_fills_index_ts.js:146
+#: src/free-trial/fills/task-headers/payments.js:34
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:41
+#: build/src_free-trial_fills_index_ts.js:38
+#: build/src_free-trial_fills_index_ts.js:113
 msgid "It’s time to test payments"
 msgstr "Ödemeleri test etme zamanı"
 
-#: build/53.js:1 src/free-trial/fills/task-headers/payments.js:22
+#: build/src_free-trial_fills_index_ts.js:66
+#: build/src_free-trial_fills_index_ts.js:141
+#: src/free-trial/fills/task-headers/payments.js:22
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:29
+#: build/src_free-trial_fills_index_ts.js:26
+#: build/src_free-trial_fills_index_ts.js:101
 msgid "Payment illustration"
 msgstr "Ödeme resmi"
 
@@ -870,7 +924,8 @@ msgstr "WooCommerce Uzantılarıyla mağazanızı işletmeniz için mükemmel ç
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
+#: build/plugins.js:65 build/plugins.js:70 build/plugins.js:77
+#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "Uzantılarla mağazanızı bir sonraki seviyeye taşıyın"
 
@@ -884,8 +939,8 @@ msgstr "Kutlama zamanı! Mağazanızı yayınlamaya hazır mısınız?"
 
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
-#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:1
-#: src/launch-store/index.js:155
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:4137
+#: build/index.js:6768 src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "Mağazanızı yayınlayın"
 
@@ -894,7 +949,7 @@ msgid "You've already launched your store"
 msgstr "Mağazanızı zaten yayınladınız"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
-#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:3
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8047
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2 dakika"
@@ -908,8 +963,8 @@ msgid "Domain"
 msgstr "Alan Adı"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:1
-#: build/index.js:3 src/launch-store/index.js:322
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:6875
+#: build/index.js:7873 build/index.js:7877 src/launch-store/index.js:322
 #: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "Alan adı ekle"
@@ -930,7 +985,8 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1 build/marketing.js:1 build/plugins.js:1
+#: build/index.js:4133 build/index.js:7726 build/marketing.js:1147
+#: build/plugins.js:50 build/plugins.js:53
 msgid "Upgrade now"
 msgstr "Şimdi yükselt"
 
@@ -1002,8 +1058,9 @@ msgid "Discover"
 msgstr "Keşfet"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:90
 #: src/payment-gateway-suggestions/components/Action.js:76
+#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "Yönetin"
 
@@ -1045,19 +1102,28 @@ msgstr "Evim"
 msgid "Feedback"
 msgstr "Geri Bildirim"
 
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:1890
+msgid "Accepted payment methods"
+msgstr "Kabul edilen ödeme yöntemleri"
+
+#: build/payment-gateway-suggestions.js:968
+#: build/payment-gateway-suggestions.js:1250
 #: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
 #: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
+#: build/payment-gateway-suggestions.js:918
+#: build/payment-gateway-suggestions.js:1201
 msgid "No thanks"
 msgstr "Hayır, teşekkürler"
 
-#: build/index.js:1 build/payment-gateway-suggestions.js:1
-#: build/payment-gateway-suggestions.js:2
-#: build/payment-gateway-suggestions.js:3
+#: build/index.js:8387 build/payment-gateway-suggestions.js:52
+#: build/payment-gateway-suggestions.js:543
+#: build/payment-gateway-suggestions.js:1178
 #: src/payment-gateway-suggestions/components/Action.js:27
 #: src/payment-gateway-suggestions/components/Setup/Configure.js:159
 #: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
+#: src/welcome-modal/index.js:59 build/payment-gateway-suggestions.js:27
+#: build/payment-gateway-suggestions.js:536
+#: build/payment-gateway-suggestions.js:1131
 msgid "Get started"
 msgstr "Başla"
 
@@ -1242,15 +1308,15 @@ msgstr "Mağaza"
 msgid "Stats"
 msgstr "İstatistikler"
 
-#: build/index.js:1
+#: build/index.js:4801
 msgid "City"
 msgstr "Şehir"
 
-#: build/index.js:1 src/free-trial/tax/components/location.js:23
+#: build/index.js:4283 src/free-trial/tax/components/location.js:23
 msgid "Continue"
 msgstr "Devam"
 
-#: build/index.js:3 src/homescreen-banner/index.js:57
+#: build/index.js:2978 build/index.js:5768 src/homescreen-banner/index.js:57
 msgid "Learn more"
 msgstr "Daha fazla bilgi edinin."
 
