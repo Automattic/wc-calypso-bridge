@@ -39,7 +39,7 @@
 
 	const getNotice = ( copySelector ) => {
 		const defaultCopy = __(
-			"Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>.",
+			"Only Administrators and Store Managers can place orders during the free trial. <a href='%s' id='upgrade_now_button'>Upgrade to a paid plan</a> to accept payments from customers and explore more payment options.",
 			'wc-calypso-bridge'
 		);
 

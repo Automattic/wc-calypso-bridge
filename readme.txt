@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Update payment gateways info notice for free trial users #xxx
+
 = 2.3.0 =
 * Add tracks for homepage views for CYS #1390
 * Revert #1377 and fix init priority, to avoid the empty tab being added to the product data tabs #1395
