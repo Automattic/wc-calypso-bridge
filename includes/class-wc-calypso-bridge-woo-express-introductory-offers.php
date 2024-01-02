@@ -51,7 +51,6 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 			'formattedPrice' => $offer['introductory_offer_formatted_price'],
 			'intervalUnit' => $offer['introductory_offer_interval_unit'],
 			'intervalCount' => $offer['introductory_offer_interval_count'],
-			'formattedIntervalUnit' => $offer['introductory_offer_interval_count'] === 1 ? $offer['introductory_offer_interval_unit'] : $offer['introductory_offer_interval_unit'].'s',
 		);
 	}
 
