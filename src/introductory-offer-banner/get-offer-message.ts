@@ -14,30 +14,108 @@ export const getOfferMessage = ( {
 } ): string => {
 	let message = '';
 	if ( intervalCount === '1' ) {
-		message = sprintf(
-			/* translators:  placeholders do not need to be translated */
-			__(
-				'Upgrade your plan for %(formattedPrice)s for your first %(intervalUnit)s',
-				'wc-calypso-bridge'
-			),
-			{
-				formattedPrice,
-				intervalUnit,
-			}
-		);
+		switch ( intervalUnit ) {
+			case 'day':
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s for your first day',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+					}
+				);
+				break;
+			case 'month':
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s for your first month',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+					}
+				);
+				break;
+			case 'year':
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s for your first year',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+					}
+				);
+				break;
+			default:
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+					}
+				);
+		}
 	} else {
-		message = sprintf(
-			/* translators:  %(intervalUnit)s: one of day, month, and year, formattedPrice and intervalCount do not need to be translated. */
-			__(
-				'Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s %(intervalUnit)ss',
-				'wc-calypso-bridge'
-			),
-			{
-				formattedPrice,
-				intervalCount,
-				intervalUnit,
-			}
-		);
+		switch ( intervalUnit ) {
+			case 'day':
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s days',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+						intervalCount,
+					}
+				);
+				break;
+			case 'month':
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s months',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+						intervalCount,
+					}
+				);
+				break;
+			case 'year':
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s years',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+						intervalCount,
+					}
+				);
+				break;
+			default:
+				message = sprintf(
+					/* translators:  placeholders do not need to be translated */
+					__(
+						'Upgrade your plan for %(formattedPrice)s',
+						'wc-calypso-bridge'
+					),
+					{
+						formattedPrice,
+					}
+				);
+		}
 	}
 
 	return message;
