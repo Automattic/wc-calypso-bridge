@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Update payment gateways info notice for free trial users #xxx
+* Update payment gateways info notice for free trial users in countries that do not support Woo Payments #xxx
 
 = 2.3.0 =
 * Add tracks for homepage views for CYS #1390
