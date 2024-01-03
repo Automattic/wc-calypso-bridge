@@ -84,7 +84,8 @@ class WC_Calypso_Bridge_Customize_Store {
 				#wpadminbar,
 				#wpcom-gifting-banner,
 				#wpcom-launch-banner-wrapper,
-				#atomic-proxy-bar { display: none !important; }
+				#atomic-proxy-bar,
+				#free-trial-plan-picker-banner { display: none !important; }
 				.woocommerce-store-notice { display: none !important; }
 				html { margin-top: 0 !important; }
 				body { overflow: hidden; }
