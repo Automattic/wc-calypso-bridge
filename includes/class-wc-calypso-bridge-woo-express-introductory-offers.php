@@ -47,10 +47,10 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 	 */
 	public static function extract_offer_data_for_js( $offer ) {
 		return array(
-			'rawPrice' => $offer['introductory_offer_raw_price'],
-			'formattedPrice' => $offer['introductory_offer_formatted_price'],
-			'intervalUnit' => $offer['introductory_offer_interval_unit'],
-			'intervalCount' => $offer['introductory_offer_interval_count'],
+			'rawPrice' => $offer['raw_price'],
+			'formattedPrice' => $offer['formatted_price'],
+			'intervalUnit' => $offer['interval_unit'],
+			'intervalCount' => $offer['interval_count'],
 		);
 	}
 
@@ -74,12 +74,18 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 			return $cached_offers;
 		}
 
-		$response = Client::wpcom_json_api_request_as_blog(
-			'/sites/'.$blog_id.'/introductory-offers',
-			'1.3',
-			array(),
-			null,
-			'rest'
+		$headers = array();
+		if ( class_exists( '\Automattic\Jetpack\Status\Visitor' ) ) {
+			$headers['X-Forwarded-For'] = ( new \Automattic\Jetpack\Status\Visitor() )->get_ip( true );
+		}
+
+		$response = Client::wpcom_json_api_request_as_user(
+			'/introductory-offers?site=' . $blog_id,
+			'2',
+			array(
+				'method'  => 'GET',
+				'headers' => $headers,
+			),
 		);
 
 		$offers = [];
@@ -87,7 +93,7 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 		if ( ! is_wp_error( $response ) && isset( $response[ 'http_response' ] ) && $response[ 'http_response' ] instanceof WP_HTTP_Requests_Response && 200 === $response[ 'http_response' ]->get_status() ) {
 			$data = json_decode( $response['http_response']->get_data(), true );
 			if ( is_array( $data ) && count( $data ) ) {
-				 $offers = $data;
+				$offers = $data;
 			}
 		}
 
