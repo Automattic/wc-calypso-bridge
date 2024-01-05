@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.3.1 =
-* Hide free trial plan picker banner when viewing iframe #1404
+* Render introductory offer banner on Woo Home #1397
 * Force remove "Need help?" spotlight in tasklist #1417
 
 = 2.3.0 =
