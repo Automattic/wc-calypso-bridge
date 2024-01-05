@@ -22,6 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.1 =
+
 = Unreleased
 * Hide free trial plan picker banner when viewing iframe #1404
 * Force remove "Need help?" spotlight in tasklist #1417
