@@ -55,6 +55,6 @@ const trackMyHomeClickWithIntroOffer = () => {
 };
 
 document.addEventListener( 'DOMContentLoaded', () => {
-	trackUpgraePlansClick();
+	trackUpgradePlansClick();
 	trackMyHomeClickWithIntroOffer();
 } );
