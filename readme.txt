@@ -25,6 +25,10 @@ This section describes how to install the plugin and get it working.
 = Unreleased = 
 * Hide Payments tab for countries that do not support Woo Payments #xxx
 
+= 2.3.1 =
+* Render introductory offer banner on Woo Home #1397
+* Force remove "Need help?" spotlight in tasklist #1417
+
 = 2.3.0 =
 * Add tracks for homepage views for CYS #1390
 * Revert #1377 and fix init priority, to avoid the empty tab being added to the product data tabs #1395
