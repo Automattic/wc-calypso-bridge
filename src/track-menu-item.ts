@@ -3,7 +3,7 @@
  */
 import { recordTracksEvent } from '@automattic/calypso-analytics';
 
-const trackUpgraePlansClick = () => {
+const trackUpgradePlansClick = () => {
 	// Track clicks on the "Upgrades > Plans" menu item in the sidebar
 	// Find all links under Upgrades that point to /plans/* paths
 	const possiblePlansLinks = document.querySelectorAll(
