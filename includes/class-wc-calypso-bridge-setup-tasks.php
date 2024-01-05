@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version x.x.x
+ * @version 2.3.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -183,7 +183,7 @@ class WC_Calypso_Bridge_Setup_Tasks {
 	/**
 	 * Modify user data fields.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.1
 	 *
 	 * @param mixed  $meta_value Meta value to return.
 	 * @param int    $object_id  Object ID.
