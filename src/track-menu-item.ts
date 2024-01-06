@@ -35,26 +35,6 @@ const trackUpgradePlansClick = () => {
 	} );
 };
 
-// Tracks when a user clicks on the "My Home" menu item in the sidebar
-// And the user has an active intro offer.
-const trackMyHomeClickWithIntroOffer = () => {
-	const myHomeLink = document.querySelectorAll(
-		'#adminmenu li#menu-dashboard a[href^="admin.php?page=wc-admin"]'
-	);
-
-	if (
-		myHomeLink.length &&
-		window.wcCalypsoBridge.wooExpressIntroductoryOffer
-	) {
-		myHomeLink[ 0 ].addEventListener( 'click', function () {
-			recordTracksEvent( 'calypso_wooexpress_one_dollar_offer', {
-				location: 'homescreen',
-			} );
-		} );
-	}
-};
-
 document.addEventListener( 'DOMContentLoaded', () => {
 	trackUpgradePlansClick();
-	trackMyHomeClickWithIntroOffer();
 } );
