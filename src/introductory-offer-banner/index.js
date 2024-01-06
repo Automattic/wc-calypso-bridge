@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { recordEvent } from '@woocommerce/tracks';
-
+import { useEffect } from '@wordpress/element';
 /**
  * Internal dependencies
  */
@@ -16,9 +16,16 @@ import { getOfferMessage } from './get-offer-message';
 export const WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_HIDDEN =
 	'wc_calypso_bridge_introductory_offer_banner_hidden';
 
+export const WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE =
+	'wc_calypso_bridge_introductory_offer_banner_shown_once';
+
 export const CalypsoBridgeIntroductoryOfferBanner = () => {
 	const { updateOptions } = useDispatch( OPTIONS_STORE_NAME );
-	const { isModalHidden } = useSelect( ( select ) => {
+	const {
+		isModalHidden,
+		offerBannerShownOnce,
+		isOfferBannerShownOnceLoading,
+	} = useSelect( ( select ) => {
 		const { getOption, hasFinishedResolution } =
 			select( OPTIONS_STORE_NAME );
 
@@ -30,6 +37,14 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 				! hasFinishedResolution( 'getOption', [
 					WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_HIDDEN,
 				] ),
+			offerBannerShownOnce:
+				getOption(
+					WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE
+				) === 'yes',
+			isOfferBannerShownOnceLoading: ! hasFinishedResolution(
+				'getOption',
+				[ WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE ]
+			),
 		};
 	} );
 
@@ -40,6 +55,18 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 
 		recordEvent( 'free_trial_homescreen_offer_banner_dismiss' );
 	};
+
+	useEffect( () => {
+		if ( ! isOfferBannerShownOnceLoading && ! offerBannerShownOnce ) {
+			recordEvent( 'calypso_wooexpress_one_dollar_offer', {
+				location: 'homescreen',
+			} );
+			updateOptions( {
+				[ WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE ]:
+					'yes',
+			} );
+		}
+	}, [ offerBannerShownOnce, isOfferBannerShownOnceLoading ] );
 
 	const offer = window.wcCalypsoBridge.wooExpressIntroductoryOffer;
 
@@ -72,7 +99,10 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 							</a>
 							<Button
 								className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__dismiss-button"
-								label={ __( 'Dismiss this banner.', 'wc-calypso-bridge' )  }
+								label={ __(
+									'Dismiss this banner.',
+									'wc-calypso-bridge'
+								) }
 								icon={
 									<span className="dashicons dashicons-no-alt"></span>
 								}
