@@ -16,16 +16,9 @@ import { getOfferMessage } from './get-offer-message';
 export const WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_HIDDEN =
 	'wc_calypso_bridge_introductory_offer_banner_hidden';
 
-export const WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE =
-	'wc_calypso_bridge_introductory_offer_banner_shown_once';
-
 export const CalypsoBridgeIntroductoryOfferBanner = () => {
 	const { updateOptions } = useDispatch( OPTIONS_STORE_NAME );
-	const {
-		isModalHidden,
-		offerBannerShownOnce,
-		isOfferBannerShownOnceLoading,
-	} = useSelect( ( select ) => {
+	const { isModalHidden } = useSelect( ( select ) => {
 		const { getOption, hasFinishedResolution } =
 			select( OPTIONS_STORE_NAME );
 
@@ -37,14 +30,6 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 				! hasFinishedResolution( 'getOption', [
 					WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_HIDDEN,
 				] ),
-			offerBannerShownOnce:
-				getOption(
-					WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE
-				) === 'yes',
-			isOfferBannerShownOnceLoading: ! hasFinishedResolution(
-				'getOption',
-				[ WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE ]
-			),
 		};
 	} );
 
@@ -57,16 +42,10 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 	};
 
 	useEffect( () => {
-		if ( ! isOfferBannerShownOnceLoading && ! offerBannerShownOnce ) {
-			recordEvent( 'calypso_wooexpress_one_dollar_offer', {
-				location: 'homescreen',
-			} );
-			updateOptions( {
-				[ WC_CALYPSO_BRIDGE_INTRODUCTORY_OFFER_BANNER_SHOWN_ONCE ]:
-					'yes',
-			} );
-		}
-	}, [ offerBannerShownOnce, isOfferBannerShownOnceLoading ] );
+		recordEvent( 'calypso_wooexpress_one_dollar_offer', {
+			location: 'homescreen',
+		} );
+	}, [] );
 
 	const offer = window.wcCalypsoBridge.wooExpressIntroductoryOffer;
 
