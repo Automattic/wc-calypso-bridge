@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Fix free trial banner missing border #1421
+* Remove appearance task and handle unregister plugin JS #1399
 
 = 2.3.1 =
 * Render introductory offer banner on Woo Home #1397
