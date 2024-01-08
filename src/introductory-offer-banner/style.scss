@@ -49,8 +49,6 @@ button.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__dismiss-bu
 	}
 }
 
-.woocommerce-homescreen__header {
-	div:first-child {
-		box-shadow: none;
-	}
+.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__container.components-card {
+	box-shadow: none;
 }
