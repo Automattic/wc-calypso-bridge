@@ -22,11 +22,16 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.3.1 =
+* Render introductory offer banner on Woo Home #1397
+* Force remove "Need help?" spotlight in tasklist #1417
+
+= 2.3.0 =
 * Add tracks for homepage views for CYS #1390
 * Revert #1377 and fix init priority, to avoid the empty tab being added to the product data tabs #1395
 * Hide Jetpack JITM in CYS screen #1393
-* Remove appearance task and handle unregister plugin JS #1399
+* Enable customize-store feature flag #1357
+* Hide free trial plan picker banner when viewing iframe #1404
 
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371
