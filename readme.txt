@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Fix free trial banner missing border #1421
+
 = 2.3.1 =
 * Render introductory offer banner on Woo Home #1397
 * Force remove "Need help?" spotlight in tasklist #1417
