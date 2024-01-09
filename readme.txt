@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Remove "Notify me of new posts by email" checkbox in reviews section #1420
+
 = 2.3.1 =
 * Render introductory offer banner on Woo Home #1397
 * Force remove "Need help?" spotlight in tasklist #1417
