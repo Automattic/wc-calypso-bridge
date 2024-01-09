@@ -52,7 +52,7 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 	return (
 		! isModalHidden && (
 			<Fill name="woocommerce_homescreen_experimental_header_banner_item">
-				<Card>
+				<Card className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__container">
 					<div className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner">
 						<div className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__text">
 							<p>
