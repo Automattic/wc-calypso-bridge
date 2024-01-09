@@ -5,7 +5,7 @@
  *
  * @package WC_Calypso_Bridge/Notes
  * @since   2.2.20
- * @version x.x.x
+ * @version 2.3.2
  */
 
 use Automattic\WooCommerce\Admin\Notes\Note;
