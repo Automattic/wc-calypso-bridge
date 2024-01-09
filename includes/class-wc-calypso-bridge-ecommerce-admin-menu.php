@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version x.x.x
+ * @version 2.3.2
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -390,7 +390,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	/**
 	 * Hide the Payments menu item for unsupported countries.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.2
 	 */
 	public function maybe_hide_payments_menu() {
 		if ( ! Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WooCommercePayments::is_supported() ) {

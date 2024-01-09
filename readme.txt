@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.3.2 =
 * Fix free trial banner missing border #1421
 * Remove appearance task and handle unregister plugin JS #1399
 * Update payment gateways info notice for free trial users in countries that do not support Woo Payments #1415

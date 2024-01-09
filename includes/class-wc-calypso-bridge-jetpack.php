@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.9.8
- * @version x.x.x
+ * @version 2.3.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -108,8 +108,8 @@ class WC_Calypso_Bridge_Jetpack {
 		 * Removes the "Notify me of new posts by email" checkbox from the product review form.
 		 *
 		 * Hint: Remove when https://github.com/Automattic/jetpack/issues/34859 is fixed.
-		 * 
-		 * @since x.x.x
+		 *
+		 * @since 2.3.2
 		 *
 		 * @param  string $html The checkbox HTML value.
 		 * @return string
