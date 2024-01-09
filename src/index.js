@@ -146,16 +146,18 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: WoocommercePaymentsTaskPage,
 	} );
 
-	if ( window.wcCalypsoBridge.wooExpressIntroductoryOffer ) {
-		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
-			render: CalypsoBridgeIntroductoryOfferBanner,
-			scope: 'woocommerce-admin',
-		} );
-	} else {
-		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
-			render: CalypsoBridgeHomescreenBanner,
-			scope: 'woocommerce-admin',
-		} );
+	if ( window.location.search === '?page=wc-admin' ) {
+		if ( window.wcCalypsoBridge.wooExpressIntroductoryOffer ) {
+			registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+				render: CalypsoBridgeIntroductoryOfferBanner,
+				scope: 'woocommerce-admin',
+			} );
+		} else {
+			registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+				render: CalypsoBridgeHomescreenBanner,
+				scope: 'woocommerce-admin',
+			} );
+		}
 	}
 }
 
