@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.12
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -150,6 +150,13 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		// Keep Woo Analytics enabled.
 		if ( ! isset( $features['analytics'] ) ) {
 			$features['analytics'] = true;
+		}
+
+		$timestamp = get_option( 'woocommerce_admin_install_timestamp', false );
+
+		// Enable customize store feature if the install timestamp is set and is after 2024-01-02 8:00pm PT.
+		if ( isset( $features['customize-store'] ) && $timestamp && $timestamp >= 1704254400 ) {
+			$features['customize-store'] = true;
 		}
 
 		return $features;

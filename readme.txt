@@ -23,10 +23,23 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Fix free trial banner missing border #1421
+* Remove appearance task and handle unregister plugin JS #1399
+* Update payment gateways info notice for free trial users in countries that do not support Woo Payments #1415
+* Remove "Notify me of new posts by email" checkbox in reviews section #1420
+* Hide Payments tab for countries that do not support Woo Payments #1403
+* Page creation job - Sanitize slugs before deleting #1401
+
+= 2.3.1 =
+* Render introductory offer banner on Woo Home #1397
+* Force remove "Need help?" spotlight in tasklist #1417
+
+= 2.3.0 =
 * Add tracks for homepage views for CYS #1390
 * Revert #1377 and fix init priority, to avoid the empty tab being added to the product data tabs #1395
 * Hide Jetpack JITM in CYS screen #1393
-* Page creation job - Sanitize slugs before deleting #1401
+* Enable customize-store feature flag #1357
+* Hide free trial plan picker banner when viewing iframe #1404
 
 = 2.2.26 =
 * Fix missing free trial banner in orders page #1371

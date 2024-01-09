@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.2.24
+ * @version 2.3.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -44,6 +44,7 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		add_action( 'wp_ajax_launch_store', array( $this, 'handle_ajax_launch_endpoint' ) );
 		add_action( 'init', array( $this, 'add_tasks' ) );
 		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', [ $this, 'replace_tasks' ] );
+		add_filter( 'get_user_metadata', array( $this, 'override_user_meta_field' ), 10, 4 );
 	}
 
 	/**
@@ -142,13 +143,6 @@ class WC_Calypso_Bridge_Setup_Tasks {
 						break;
 				}
 			}
-
-			if ( ! Features::is_enabled( 'customize-store' ) ) {
-				// Insert appearance task after products task if customize-store feature is not enabled.
-				require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
-				$appearance_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] ) );
-				array_splice( $lists['setup']->tasks, $product_task_index, 0, $appearance_task );
-			}
 		}
 		return $lists;
 	}
@@ -177,6 +171,24 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		if ( ! empty( $store_address ) && ! empty( $store_city ) && ! empty( $store_postcode ) ) {
 			wp_safe_redirect( admin_url( 'admin.php?page=wc-admin' ) );
 		}
+	}
+
+	/**
+	 * Modify user data fields.
+	 *
+	 * @since 2.3.1
+	 *
+	 * @param mixed  $meta_value Meta value to return.
+	 * @param int    $object_id  Object ID.
+	 * @param string $meta_key   Meta key.
+	 */
+	public function override_user_meta_field( $meta_value, $object_id, $meta_key ) {
+		// Force disable setup task help panel as a hotfix.
+		// Can remove when https://github.com/woocommerce/woocommerce/issues/43300 is fixed and released.
+		if ( 'woocommerce_admin_help_panel_highlight_shown' === $meta_key ) {
+			return array( '"yes"' );
+		}
+		return $meta_value;
 	}
 }
 
