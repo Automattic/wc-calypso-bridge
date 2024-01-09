@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleasedc = 
+* Fire calypso_wooexpress_one_dollar_offer on Woo Home when there is $1 dollar offer
+
 = 2.3.1 =
 * Render introductory offer banner on Woo Home #1397
 * Force remove "Need help?" spotlight in tasklist #1417
