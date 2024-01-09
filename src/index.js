@@ -3,7 +3,11 @@
  */
 import { addFilter, addAction } from '@wordpress/hooks';
 import { WooOnboardingTask } from '@woocommerce/onboarding';
-import { registerPlugin, unregisterPlugin } from '@wordpress/plugins';
+import {
+	registerPlugin,
+	unregisterPlugin,
+	getPlugins,
+} from '@wordpress/plugins';
 import { render, lazy } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -23,9 +27,9 @@ import {
 } from './homescreen-progress-header';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
-import { AppearanceFill } from './task-fills';
 import './task-headers';
 import './track-menu-item';
+import { CalypsoBridgeIntroductoryOfferBanner } from './introductory-offer-banner';
 
 // Modify webpack to append the ?ver parameter to JS chunk
 // https://webpack.js.org/api/module-variables/#__webpack_get_script_filename__-webpack-specific
@@ -78,13 +82,7 @@ registerPlugin( 'wc-calypso-bridge', {
 
 // Unregister task fills from WooCommerce Core
 // Otherwise we'll have both the original and new fills rendered.
-const oldTaskNames = [ 'wc-admin-onboarding-task-appearance' ];
-
-// Appearance task fill.
-registerPlugin( 'wc-calypso-bridge-task-appearance', {
-	scope: 'woocommerce-tasks',
-	render: AppearanceFill,
-} );
+const pluginsToRemove = [ 'wc-admin-onboarding-task-appearance' ];
 
 if ( !! window.wcCalypsoBridge.isWooExpress ) {
 	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {
@@ -106,7 +104,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		scope: 'woocommerce-admin',
 	} );
 
-	oldTaskNames.push(
+	pluginsToRemove.push(
 		'wc-admin-onboarding-task-payments',
 		'woocommerce-admin-task-wcpay', // WCPay task item which handles direct click on the task. (Not needed in free trial)
 		'woocommerce-admin-task-wcpay-page', // WCPay task page which handles URL navigation to the task.
@@ -148,10 +146,17 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: WoocommercePaymentsTaskPage,
 	} );
 
-	registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
-		render: CalypsoBridgeHomescreenBanner,
-		scope: 'woocommerce-admin',
-	} );
+	if ( window.wcCalypsoBridge.wooExpressIntroductoryOffer ) {
+		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+			render: CalypsoBridgeIntroductoryOfferBanner,
+			scope: 'woocommerce-admin',
+		} );
+	} else {
+		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+			render: CalypsoBridgeHomescreenBanner,
+			scope: 'woocommerce-admin',
+		} );
+	}
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
@@ -229,11 +234,19 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 	}
 }
 
+// Remove plugins that had already been added.
+const taskPlugins = getPlugins( 'woocommerce-tasks' );
+taskPlugins.forEach( ( plugin ) => {
+	if ( pluginsToRemove.includes( plugin.name ) ) {
+		unregisterPlugin( plugin.name );
+	}
+} );
+
 addAction(
 	'plugins.pluginRegistered',
 	'wc-calypso-bridge',
 	function ( _settings, name ) {
-		if ( oldTaskNames.includes( name ) ) {
+		if ( pluginsToRemove.includes( name ) ) {
 			unregisterPlugin( name );
 		}
 	}
