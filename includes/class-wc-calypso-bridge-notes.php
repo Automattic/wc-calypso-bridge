@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.20
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -62,9 +62,17 @@ class WC_Calypso_Bridge_Notes {
 	}
 
 	/**
+	 * Update notes.
+	 */
+	public function update_notes() {
+		WC_Calypso_Bridge_Choose_Domain_Note::update_note();
+	}
+
+	/**
 	 * Delete qualifying notes.
 	 */
 	public function delete_notes() {
+		WC_Calypso_Bridge_Choose_Domain_Note::delete_if_not_applicable();
 	}
 }
 

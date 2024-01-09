@@ -30,6 +30,9 @@ This section describes how to install the plugin and get it working.
 * Hide Payments tab for countries that do not support Woo Payments #1403
 * Page creation job - Sanitize slugs before deleting #1401
 * Rename "Blog" frontend navigation item to "News" #1400
+* Made the domain purchase note unactioned #1396
+* Made the domain purchase note show up within 1 hour after store creation #1396
+* Made the domain purchase unread for users who just upgraded to a paid plan #1396
 
 = 2.3.1 =
 * Render introductory offer banner on Woo Home #1397
