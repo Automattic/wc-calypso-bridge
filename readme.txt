@@ -22,6 +22,18 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.2 =
+* Fix free trial banner missing border #1421
+* Remove appearance task and handle unregister plugin JS #1399
+* Update payment gateways info notice for free trial users in countries that do not support Woo Payments #1415
+* Remove "Notify me of new posts by email" checkbox in reviews section #1420
+* Hide Payments tab for countries that do not support Woo Payments #1403
+* Page creation job - Sanitize slugs before deleting #1401
+* Rename "Blog" frontend navigation item to "News" #1400
+* Made the domain purchase note unactioned #1396
+* Made the domain purchase note show up within 1 hour after store creation #1396
+* Made the domain purchase unread for users who just upgraded to a paid plan #1396
+
 = Unreleased =
 * Fix free trial banner missing border #1421
 * Remove appearance task and handle unregister plugin JS #1399
