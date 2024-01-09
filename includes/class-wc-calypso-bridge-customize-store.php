@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since  1.0.0
- * @version x.x.x
+ * @version 2.3.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -38,6 +38,7 @@ class WC_Calypso_Bridge_Customize_Store {
 		add_action( 'plugins_loaded', function() {
 			if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'customize-store' ) ) {
 				add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
+				add_action( 'admin_enqueue_scripts', array( $this, 'add_customize_store_styles' ) );
 			}
 		});
 
@@ -83,7 +84,8 @@ class WC_Calypso_Bridge_Customize_Store {
 				#wpadminbar,
 				#wpcom-gifting-banner,
 				#wpcom-launch-banner-wrapper,
-				#atomic-proxy-bar { display: none !important; }
+				#atomic-proxy-bar,
+				#free-trial-plan-picker-banner { display: none !important; }
 				.woocommerce-store-notice { display: none !important; }
 				html { margin-top: 0 !important; }
 				body { overflow: hidden; }
@@ -106,6 +108,13 @@ class WC_Calypso_Bridge_Customize_Store {
 				WC_Tracks::record_event( 'store_homepage_view' );
 			}
 		}
+	}
+
+	/**
+	 * Enqueue Customize Store specific css file.
+	 */
+	public function add_customize_store_styles() {
+		wp_enqueue_style( 'wp-calypso-bridge-customize-store', WC_Calypso_Bridge_Instance()->get_asset_path() . '/assets/css/customize-store.css', array(), WC_CALYPSO_BRIDGE_CURRENT_VERSION );
 	}
 
 	public static function is_admin() {
