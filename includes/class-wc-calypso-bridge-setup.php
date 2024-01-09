@@ -793,8 +793,10 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	private function maybe_delete_page_by_slug( $slug, $operation ) {
 
-		$page = get_page_by_path( $slug, ARRAY_A );
+		// Sanitize slug, as it might contain invalid characters when translated and get_page_by_path will fail.
+		$slug = sanitize_title( $slug );
 
+		$page = get_page_by_path( $slug, ARRAY_A );
 		if ( ! is_array( $page ) || ! isset( $page['ID'] ) ) {
 			return;
 		}

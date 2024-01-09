@@ -283,7 +283,7 @@ export const PaymentGatewaySuggestions = ( { onComplete, query } ) => {
 			<Notice
 				text={ interpolateComponents( {
 					mixedString: __(
-						'Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}.',
+						'Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options.',
 						'wc-calypso-bridge'
 					),
 					components: {

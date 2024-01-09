@@ -1,0 +1,54 @@
+.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 65px;
+	background: var(--wp-admin-theme-color);
+	border-radius: 3px;
+	border-color: transparent;
+}
+
+.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__text {
+    margin-left: 20px;
+    margin-right: 64px;
+	color: #fff;
+	p {
+		margin: 0;
+		font-size: 13px;
+		line-height: 20px;
+		font-weight: 300;
+	}
+	p:first-child {
+		font-weight: 600;
+	}
+}
+
+.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__upgrade-button {
+	border: 1px solid #fff !important;
+	color: #fff !important;
+	font-weight: 400;
+}
+
+.woocommerce-homescreen__header.woocommerce-homescreen:not(.woocommerce-homescreen-column) {
+    margin-bottom: 32px;
+}
+
+.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__actions {
+	margin-left: auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+button.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__dismiss-button {
+    margin: 16px;
+	color: #fff;
+	opacity: 0.5;
+	&:hover {
+		color: #fff;
+	}
+}
+
+.wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__container.components-card {
+	box-shadow: none;
+}
