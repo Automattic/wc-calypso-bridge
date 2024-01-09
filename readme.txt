@@ -29,6 +29,7 @@ This section describes how to install the plugin and get it working.
 * Remove "Notify me of new posts by email" checkbox in reviews section #1420
 * Hide Payments tab for countries that do not support Woo Payments #1403
 * Page creation job - Sanitize slugs before deleting #1401
+* Rename "Blog" frontend navigation item to "News" #1400
 
 = 2.3.1 =
 * Render introductory offer banner on Woo Home #1397
