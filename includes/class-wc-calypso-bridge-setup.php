@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.25
+ * @version 2.3.2
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -419,6 +419,16 @@ class WC_Calypso_Bridge_Setup {
 							$title = __( 'Contact', 'wc-calypso-bridge' );
 						} elseif ( 'my-account' === $key && 'My account' === $title ) {
 							$title = __( 'My Account', 'wc-calypso-bridge' );
+						} elseif ( 'blog' === $key ) {
+							$title = __( 'News' ); // Leaving it to WordPress to translate this, as News exists in the translation files.
+
+							// Update the page title and slug to news.
+							wp_update_post( array(
+								'ID'         => $page->ID,
+								'post_title' => $title,
+								'post_name'  => 'news',
+							) );
+
 						}
 
 						$menu_content .= '<!-- wp:navigation-link {"label":"' . esc_attr( wp_strip_all_tags( $title ) ) . '","type":"page","id":' . $page->ID . ',"url":"' . get_permalink( $page->ID ) . '","kind":"post-type","isTopLevelLink":true} /-->';
@@ -783,8 +793,10 @@ class WC_Calypso_Bridge_Setup {
 	 */
 	private function maybe_delete_page_by_slug( $slug, $operation ) {
 
-		$page = get_page_by_path( $slug, ARRAY_A );
+		// Sanitize slug, as it might contain invalid characters when translated and get_page_by_path will fail.
+		$slug = sanitize_title( $slug );
 
+		$page = get_page_by_path( $slug, ARRAY_A );
 		if ( ! is_array( $page ) || ! isset( $page['ID'] ) ) {
 			return;
 		}
