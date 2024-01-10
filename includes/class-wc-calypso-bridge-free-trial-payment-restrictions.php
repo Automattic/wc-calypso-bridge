@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.4
- * @version 2.0.8
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -256,9 +256,9 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 	public function frontend() {
 
 		// Bail out early if the current user is allowed to create orders on free trial.
-		// if ( current_user_can( 'manage_woocommerce' ) ) {
-		// 	return;
-		// }
+		if ( current_user_can( 'manage_woocommerce' ) ) {
+			return;
+		}
 
 		// Unset all payment gateways.
 		add_filter( 'woocommerce_available_payment_gateways', function ( $gateways ) {
