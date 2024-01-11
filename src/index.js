@@ -10,7 +10,6 @@ import {
 } from '@wordpress/plugins';
 import { render, lazy } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { getScreenFromPath, parseAdminUrl } from '@woocommerce/navigation';
 
 /**
  * Internal dependencies
@@ -147,22 +146,16 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		render: WoocommercePaymentsTaskPage,
 	} );
 
-	if (
-		getScreenFromPath() === 'homescreen' &&
-		parseAdminUrl( window.location.href ).searchParams.get( 'task' ) ===
-			null
-	) {
-		if ( window.wcCalypsoBridge.wooExpressIntroductoryOffer ) {
-			registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
-				render: CalypsoBridgeIntroductoryOfferBanner,
-				scope: 'woocommerce-admin',
-			} );
-		} else {
-			registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
-				render: CalypsoBridgeHomescreenBanner,
-				scope: 'woocommerce-admin',
-			} );
-		}
+	if ( window.wcCalypsoBridge.wooExpressIntroductoryOffer ) {
+		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+			render: CalypsoBridgeIntroductoryOfferBanner,
+			scope: 'woocommerce-admin',
+		} );
+	} else {
+		registerPlugin( 'wc-calypso-bridge-homescreen-slotfill-banner', {
+			render: CalypsoBridgeHomescreenBanner,
+			scope: 'woocommerce-admin',
+		} );
 	}
 }
 

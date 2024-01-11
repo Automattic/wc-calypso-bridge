@@ -7,6 +7,8 @@ import { OPTIONS_STORE_NAME } from '@woocommerce/data';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { recordEvent } from '@woocommerce/tracks';
 import { useEffect } from '@wordpress/element';
+import { getScreenFromPath, parseAdminUrl } from '@woocommerce/navigation';
+
 /**
  * Internal dependencies
  */
@@ -41,11 +43,18 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 		recordEvent( 'free_trial_homescreen_offer_banner_dismiss' );
 	};
 
+	const screenPath = getScreenFromPath();
+	const taskIsNull =
+		parseAdminUrl( window.location.href ).searchParams.get( 'task' ) ===
+		null;
+
 	useEffect( () => {
-		recordEvent( 'calypso_wooexpress_one_dollar_offer', {
-			location: 'homescreen',
-		} );
-	}, [] );
+		if ( screenPath === 'homescreen' && taskIsNull ) {
+			recordEvent( 'calypso_wooexpress_one_dollar_offer', {
+				location: 'homescreen',
+			} );
+		}
+	}, [ screenPath, taskIsNull ] );
 
 	const offer = window.wcCalypsoBridge.wooExpressIntroductoryOffer;
 
