@@ -22,8 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased = 
-
+= Unreleased =
+* Replace hardcoded HTML with the wc_print_notice helper in the free trial's checkout notice #1424
 * Fire calypso_wooexpress_one_dollar_offer on Woo Home when there is $1 dollar offer
 
 = 2.3.2 =
