@@ -43,15 +43,11 @@ class WC_Calypso_Bridge_Partner_Site {
 	public function __construct() {
 		$onboarding_profile = get_option( 'woocommerce_onboarding_profile' );
 		if ( ! isset( $onboarding_profile['partner'] ) ) {
-//			return;
+			return;
 		}
 
-		$this->remove_woo_payments_inbox_notifications();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
 		$this->remove_woo_payments_from_core_profiler_plugin_suggestions();
-	}
-
-	private function remove_woo_payments_inbox_notifications() {
 	}
 
 	private function remove_woo_payments_from_payments_suggestions_feed() {
