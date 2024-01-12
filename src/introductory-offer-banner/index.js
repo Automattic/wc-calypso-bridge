@@ -6,6 +6,8 @@ import { __ } from '@wordpress/i18n';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { recordEvent } from '@woocommerce/tracks';
+import { useEffect } from '@wordpress/element';
+import { getScreenFromPath, parseAdminUrl } from '@woocommerce/navigation';
 
 /**
  * Internal dependencies
@@ -41,6 +43,19 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 		recordEvent( 'free_trial_homescreen_offer_banner_dismiss' );
 	};
 
+	const screenPath = getScreenFromPath();
+	const taskIsNull =
+		parseAdminUrl( window.location.href ).searchParams.get( 'task' ) ===
+		null;
+
+	useEffect( () => {
+		if ( screenPath === 'homescreen' && taskIsNull ) {
+			recordEvent( 'calypso_wooexpress_one_dollar_offer', {
+				location: 'homescreen',
+			} );
+		}
+	}, [ screenPath, taskIsNull ] );
+
 	const offer = window.wcCalypsoBridge.wooExpressIntroductoryOffer;
 
 	return (
@@ -72,7 +87,10 @@ export const CalypsoBridgeIntroductoryOfferBanner = () => {
 							</a>
 							<Button
 								className="wc-calypso-bridge-woocommerce-admin-introductory-offer-banner__dismiss-button"
-								label={ __( 'Dismiss this banner.', 'wc-calypso-bridge' )  }
+								label={ __(
+									'Dismiss this banner.',
+									'wc-calypso-bridge'
+								) }
 								icon={
 									<span className="dashicons dashicons-no-alt"></span>
 								}

@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Replace hardcoded HTML with the wc_print_notice helper in the free trial's checkout notice #1424
+* Fire calypso_wooexpress_one_dollar_offer on Woo Home when there is $1 dollar offer
 
 = 2.3.2 =
 * Fix free trial banner missing border #1421
@@ -36,6 +37,7 @@ This section describes how to install the plugin and get it working.
 * Made the domain purchase note unactioned #1396
 * Made the domain purchase note show up within 1 hour after store creation #1396
 * Made the domain purchase unread for users who just upgraded to a paid plan #1396
+
 
 = 2.3.1 =
 * Render introductory offer banner on Woo Home #1397
