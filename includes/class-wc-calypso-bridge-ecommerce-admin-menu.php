@@ -4,7 +4,7 @@
  * Class Ecommerce_Atomic_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.3.2
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -28,6 +28,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	public function __construct() {
 		parent::__construct();
 		add_action( 'admin_menu', array( $this, 'maybe_hide_payments_menu' ), 10 );
+		add_action( 'admin_menu', array( $this, 'maybe_hide_customizer_menu' ), PHP_INT_MAX );
 		add_action( 'admin_menu', array( $this, 'add_woocommerce_menu' ), 99999 );
 		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
@@ -50,7 +51,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			} );
 		}
 
-		// Ensure the $submenu['woocommerce] will be available at prio 10.
+		// Ensure the $submenu['woocommerce] will be available at priority 10.
 		add_action( 'admin_menu', function() {
 			add_submenu_page(
 				'woocommerce',
@@ -61,7 +62,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			);
 		}, 9);
 
-		// Remote it after a certain timeframe. See \WC_Admin_Menus::settings_menu which runs at priority 50.
+		// Remove it after a certain timeframe. See \WC_Admin_Menus::settings_menu which runs at priority 50.
 		add_action( 'admin_menu', function() {
 			remove_submenu_page(
 				'woocommerce',
@@ -85,7 +86,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 			$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
 			remove_menu_page( 'feedback' );
 			add_submenu_page( 'jetpack', __( 'Feedback', 'wc-calypso-bridge' ), __( 'Feedback', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=feedback', '', 10 );
-
 
 			// Hide Tools > Marketing and Tools > Earn submenus.
 			$site_suffix  = WC_Calypso_Bridge_Instance()->get_site_slug();
@@ -317,7 +317,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	public function add_woocommerce_menu() {
 		global $submenu, $menu;
 
-		// Seperator1 gets removed on Atomic_Admin_Menu class.
+		// Separator1 gets removed on Atomic_Admin_Menu class.
 		// We add one more here to be used on top of the WC group.
 		$separator_top = array(
 			'',                   // Menu title (ignored).
@@ -396,6 +396,32 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		if ( ! Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WooCommercePayments::is_supported() ) {
 			remove_menu_page( 'wc-admin&path=/payments/connect' );
 			remove_menu_page( 'wc-admin&path=/payments/overview' );
+		}
+	}
+
+	/**
+	 * Hide the Customizer menu item when
+	 * - a block theme is used
+	 *
+	 * Keep in mind that if there is custom css, a new menu item will appear `Additional CSS`
+	 * so there is no need to handle this case.
+	 *
+	 * @since x.x.x
+	 */
+	public function maybe_hide_customizer_menu() {
+
+		global $submenu;
+
+		if ( ! wp_is_block_theme() ) {
+			return;
+		}
+
+		if ( isset( $submenu['themes.php'] ) ) {
+			foreach ( $submenu['themes.php'] as $item ) {
+				if ( isset( $item[2] ) && strpos( $item[2], 'customize.php' ) !== false ) {
+					remove_submenu_page( 'themes.php', $item[2] );
+				}
+			}
 		}
 	}
 
