@@ -3,7 +3,11 @@
  */
 import { addFilter, addAction } from '@wordpress/hooks';
 import { WooOnboardingTask } from '@woocommerce/onboarding';
-import { registerPlugin, unregisterPlugin } from '@wordpress/plugins';
+import {
+	registerPlugin,
+	unregisterPlugin,
+	getPlugins,
+} from '@wordpress/plugins';
 import { render, lazy } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -79,7 +83,7 @@ registerPlugin( 'wc-calypso-bridge', {
 
 // Unregister task fills from WooCommerce Core
 // Otherwise we'll have both the original and new fills rendered.
-const oldTaskNames = [ 'wc-admin-onboarding-task-appearance' ];
+const pluginsToRemove = [ 'wc-admin-onboarding-task-appearance' ];
 
 // Appearance task fill.
 registerPlugin( 'wc-calypso-bridge-task-appearance', {
@@ -107,7 +111,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		scope: 'woocommerce-admin',
 	} );
 
-	oldTaskNames.push(
+	pluginsToRemove.push(
 		'wc-admin-onboarding-task-payments',
 		'woocommerce-admin-task-wcpay', // WCPay task item which handles direct click on the task. (Not needed in free trial)
 		'woocommerce-admin-task-wcpay-page', // WCPay task page which handles URL navigation to the task.
@@ -237,11 +241,19 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 	}
 }
 
+// Remove plugins that had already been added.
+const taskPlugins = getPlugins( 'woocommerce-tasks' );
+taskPlugins.forEach( ( plugin ) => {
+	if ( pluginsToRemove.includes( plugin.name ) ) {
+		unregisterPlugin( plugin.name );
+	}
+} );
+
 addAction(
 	'plugins.pluginRegistered',
 	'wc-calypso-bridge',
 	function ( _settings, name ) {
-		if ( oldTaskNames.includes( name ) ) {
+		if ( pluginsToRemove.includes( name ) ) {
 			unregisterPlugin( name );
 		}
 	}
