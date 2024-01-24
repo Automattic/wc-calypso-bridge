@@ -400,8 +400,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
-	 * Hide the Customizer menu item when
-	 * - a block theme is used
+	 * Hide the Customizer menu item when a block theme is used.
 	 *
 	 * Keep in mind that if there is custom css, a new menu item will appear `Additional CSS`
 	 * so there is no need to handle this case.

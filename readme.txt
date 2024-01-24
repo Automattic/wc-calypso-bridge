@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Remove the Customizer from the menu, if a block theme is used #xxx
+* Delete woocommerce_demo_store option to hide the demo store notice #xxx
 
 = 2.3.3 =
 * Replace hardcoded HTML with the wc_print_notice helper in the free trial's checkout notice #1424
