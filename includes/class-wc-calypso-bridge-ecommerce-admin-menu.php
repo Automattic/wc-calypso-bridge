@@ -28,7 +28,8 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	public function __construct() {
 		parent::__construct();
 		add_action( 'admin_menu', array( $this, 'maybe_hide_payments_menu' ), 10 );
-		add_action( 'admin_menu', array( $this, 'maybe_hide_customizer_menu' ), PHP_INT_MAX );
+		add_action( 'admin_menu', array( $this, 'maybe_remove_customizer_menu' ), PHP_INT_MAX );
+		add_action( 'admin_bar_menu', array( $this, 'maybe_remove_customizer_admin_bar_menu' ), PHP_INT_MAX );
 		add_action( 'admin_menu', array( $this, 'add_woocommerce_menu' ), 99999 );
 		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
@@ -407,7 +408,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 *
 	 * @since x.x.x
 	 */
-	public function maybe_hide_customizer_menu() {
+	public function maybe_remove_customizer_menu() {
 
 		global $submenu;
 
@@ -422,6 +423,23 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				}
 			}
 		}
+
+	}
+
+	/**
+	 * Remove the Customizer node from the admin bar when a block theme is used.
+	 *
+	 * @since x.x.x
+	 * @param WP_Admin_Bar $wp_admin_bar
+	 */
+	public function maybe_remove_customizer_admin_bar_menu( $wp_admin_bar ) {
+
+		if ( ! wp_is_block_theme() ) {
+			return;
+		}
+
+		$wp_admin_bar->remove_node( 'customize' );
+
 	}
 
 	/**

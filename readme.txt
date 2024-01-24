@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Remove the Customizer from the menu, if a block theme is used #xxx
+* Remove the Customizer from the admin menu and the admin bar, if a block theme is used #xxx
 * Delete woocommerce_demo_store option to hide the demo store notice #xxx
 
 = 2.3.3 =
