@@ -1,28 +1,17 @@
 <?php
-/**
- * Adds the functionality needed to bridge the WooCommerce onboarding wizard.
- *
- * @package WC_Calypso_Bridge/Classes
- * @since   1.0.0
- * @version 2.3.2
- */
-
-use Automattic\WooCommerce\Admin\WCAdminHelper;
-
-defined( 'ABSPATH' ) || exit;
 
 /**
- * WC Calypso Bridge Partner Site
+ * WC Calypso Bridge Partner Square
  *
  * This file includes customizations for the sites that were created throguh partner aware onboarding flow.
  * A partner site has woocommerce_onboarding_profile.partner value.
  */
-class WC_Calypso_Bridge_Partner_Site {
+class WC_Calypso_Bridge_Partner_Square {
 
 	/**
 	 * Class instance.
 	 *
-	 * @var WC_Calypso_Bridge_Partner_Site instance
+	 * @var WC_Calypso_Bridge_Partner_Square instance
 	 */
 	protected static $instance = false;
 
@@ -41,8 +30,12 @@ class WC_Calypso_Bridge_Partner_Site {
 	 * Constructor.
 	 */
 	public function __construct() {
-		$onboarding_profile = get_option( 'woocommerce_onboarding_profile' );
+		$onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
 		if ( ! isset( $onboarding_profile['partner'] ) ) {
+			return;
+		}
+
+		if ( $onboarding_profile['partner'] !== 'square' ) {
 			return;
 		}
 
@@ -65,7 +58,7 @@ class WC_Calypso_Bridge_Partner_Site {
 	}
 
 	private function remove_woo_payments_from_core_profiler_plugin_suggestions() {
-		add_filter('rest_request_after_callbacks', function( $response, $handler, $request ) {
+		add_filter( 'rest_request_after_callbacks', function( $response, $handler, $request ) {
 			if ( $request->get_route() === '/wc-admin/onboarding/free-extensions' ) {
 				$data = $response->get_data();
 				foreach ( $data as &$list ) {
@@ -86,4 +79,4 @@ class WC_Calypso_Bridge_Partner_Site {
 	}
 }
 
-WC_Calypso_Bridge_Partner_Site::get_instance();
+WC_Calypso_Bridge_Partner_Square::get_instance();
