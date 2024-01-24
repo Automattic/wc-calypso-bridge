@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.3.1
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -142,6 +142,13 @@ class WC_Calypso_Bridge_Setup_Tasks {
 						unset( $lists['setup']->tasks[$index] );
 						break;
 				}
+			}
+
+			if ( ! Features::is_enabled( 'customize-store' ) ) {
+				// Insert appearance task after products task if customize-store feature is not enabled.
+				require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
+				$appearance_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] ) );
+				array_splice( $lists['setup']->tasks, $product_task_index, 0, $appearance_task );
 			}
 		}
 		return $lists;
