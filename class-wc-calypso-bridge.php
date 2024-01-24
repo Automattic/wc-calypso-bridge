@@ -86,7 +86,7 @@ class WC_Calypso_Bridge {
 	 *
 	 */
 	public function deactivate_duplicate_tiktok() {
-		$active_plugins  = get_option( 'active_plugins' );
+		$active_plugins  = (array) get_option( 'active_plugins', array() );
 		$business_key    = array_keys( $active_plugins, 'tiktok-for-business/tiktok-for-woocommerce.php' );
 		$woocommerce_key = array_keys( $active_plugins, 'tiktok-for-woocommerce/tiktok-for-woocommerce.php' );
 
