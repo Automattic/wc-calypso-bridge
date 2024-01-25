@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-*
+* Deactivate TikTok for WooCommerce if both TikTok for WooCommerce and Business are active #1430
 
 = 2.3.3 =
 * Replace hardcoded HTML with the wc_print_notice helper in the free trial's checkout notice #1424
