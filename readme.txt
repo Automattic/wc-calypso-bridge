@@ -23,9 +23,12 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Deactivate TikTok for WooCommerce if both TikTok for WooCommerce and Business are active #1430
+
+= 2.3.3 =
 * Replace hardcoded HTML with the wc_print_notice helper in the free trial's checkout notice #1424
-* Fire calypso_wooexpress_one_dollar_offer on Woo Home when there is $1 dollar offer
-* Deactivate TikTok for WooCommerce if both TikTok for WooCommerce and Business are active #xxx
+* Fire calypso_wooexpress_one_dollar_offer on Woo Home when there is $1 dollar offer #1398
+* Bring back choose your theme for stores ineligible for CYS #1431
 
 = 2.3.2 =
 * Fix free trial banner missing border #1421
