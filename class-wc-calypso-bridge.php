@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.3.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -82,7 +82,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Deactivate TikTok for WooCommerce if both TikTok for WooCommerce and Business are active (they are the same).
 	 *
-	 * @since x.x.x
+	 * @since 2.3.4
 	 *
 	 */
 	public function deactivate_duplicate_tiktok() {
