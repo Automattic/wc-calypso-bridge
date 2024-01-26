@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Deactivate TikTok for WooCommerce if both TikTok for WooCommerce and Business are active #1430
+* Change tracks calypso_wooexpress_one_dollar_offer to use calypso analytics #1434
 
 = 2.3.3 =
 * Replace hardcoded HTML with the wc_print_notice helper in the free trial's checkout notice #1424
