@@ -28,8 +28,8 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	public function __construct() {
 		parent::__construct();
 		add_action( 'admin_menu', array( $this, 'maybe_hide_payments_menu' ), 10 );
-		add_action( 'admin_menu', array( $this, 'maybe_remove_customizer_menu' ), PHP_INT_MAX );
-		add_action( 'admin_bar_menu', array( $this, 'maybe_remove_customizer_admin_bar_menu' ), PHP_INT_MAX );
+		add_action( 'admin_menu', array( $this, 'maybe_remove_customizer_menu' ), 99999 );
+		add_action( 'admin_bar_menu', array( $this, 'maybe_remove_customizer_admin_bar_menu' ), 99999 );
 		add_action( 'admin_menu', array( $this, 'add_woocommerce_menu' ), 99999 );
 		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
@@ -412,14 +412,15 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		global $submenu;
 
-		if ( ! wp_is_block_theme() ) {
+		if ( ! wc_current_theme_is_fse_theme() ) {
 			return;
 		}
 
 		if ( isset( $submenu['themes.php'] ) ) {
 			foreach ( $submenu['themes.php'] as $item ) {
 				if ( isset( $item[2] ) && strpos( $item[2], 'customize.php' ) !== false ) {
-					remove_submenu_page( 'themes.php', $item[2] );
+					$this->hide_submenu_page( 'themes.php', $item[2] );
+					break;
 				}
 			}
 		}
@@ -434,7 +435,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 */
 	public function maybe_remove_customizer_admin_bar_menu( $wp_admin_bar ) {
 
-		if ( ! wp_is_block_theme() ) {
+		if ( ! wc_current_theme_is_fse_theme() ) {
 			return;
 		}
 
