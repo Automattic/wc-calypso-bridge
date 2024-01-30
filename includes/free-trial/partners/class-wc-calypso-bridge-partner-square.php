@@ -49,8 +49,6 @@ class WC_Calypso_Bridge_Partner_Square {
 
 	private function remove_woo_payments_from_payments_suggestions_feed() {
 		add_filter( 'woocommerce_admin_payment_gateway_suggestion_specs', function( $specs ) {
-			cl('hi');
-
 			if ( isset( $specs['woocommerce_payments'] ) ) {
 				unset( $specs['woocommerce_payments'] );
 			}
