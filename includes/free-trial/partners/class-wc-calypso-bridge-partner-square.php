@@ -30,6 +30,10 @@ class WC_Calypso_Bridge_Partner_Square {
 	 * Constructor.
 	 */
 	public function __construct() {
+		// Only for free trials.
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
 		$onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
 		if ( ! isset( $onboarding_profile['partner'] ) ) {
 			return;
