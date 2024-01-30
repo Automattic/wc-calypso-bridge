@@ -43,10 +43,16 @@ class WC_Calypso_Bridge_Partner_Square {
 			return;
 		}
 
+		$this->add_square_setup_task();
+		$this->add_square_connect_url_to_js();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
 		$this->remove_woo_payments_from_core_profiler_plugin_suggestions();
 	}
 
+	/**
+	 * Remove woo payments from the payments suggestions feed.
+	 * @return void
+	 */
 	private function remove_woo_payments_from_payments_suggestions_feed() {
 		add_filter( 'woocommerce_admin_payment_gateway_suggestion_specs', function( $specs ) {
 			if ( isset( $specs['woocommerce_payments'] ) ) {
@@ -61,6 +67,11 @@ class WC_Calypso_Bridge_Partner_Square {
 		});
 	}
 
+	/**
+	 * Remove woo payments from the core profiler plugin suggestions.
+	 *
+	 * @return void
+	 */
 	private function remove_woo_payments_from_core_profiler_plugin_suggestions() {
 		add_filter( 'rest_request_after_callbacks', function( $response, $handler, $request ) {
 			if ( $request->get_route() === '/wc-admin/onboarding/free-extensions' ) {
@@ -81,6 +92,41 @@ class WC_Calypso_Bridge_Partner_Square {
 			}
 			return $response;
 		}, 10, 3);
+	}
+
+	/**
+	 * Add Square setup task to the setup tasklist.
+	 */
+	private function add_square_setup_task() {
+		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', function( $lists ) {
+			if ( isset( $lists['setup'] ) ) {
+				require_once __DIR__ . '/../../tasks/class-wc-calypso-task-setup-woocommerce-square.php';
+				array_unshift( $lists['setup']->tasks, new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeSetupWooCommerceSquare( $lists['setup'] ) );
+			}
+			return $lists;
+		} );
+	}
+
+	/**
+	 * Add Square connect URL to the JS.
+	 *
+	 * @return void
+	 */
+	private function add_square_connect_url_to_js() {
+		add_filter( 'wc_calypso_bridge_shared_params', function( $params ) {
+			if ( class_exists( 'WooCommerce\Square\Plugin' ) ) {
+				try {
+					$params['square_connect_url'] = \WooCommerce\Square\Plugin::instance()->get_connection_handler()->get_connect_url();
+				} catch (Exception $e) {
+					// Fallback to the settings page
+					$params['square_connect_url'] = add_query_arg( array(
+						'page' => 'wc-settings',
+						'tab' => 'square',
+					), admin_url( 'admin.php' ) );
+				}
+			}
+			return $params;
+		});
 	}
 }
 

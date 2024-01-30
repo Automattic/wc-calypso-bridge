@@ -5,19 +5,19 @@ namespace Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks;
 use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 
 /**
- * WCBridgeAppearance Task
+ * WCBridgeSetupWooCommerceSquare Task
  *
  * @since   2.0.11
  * @version 2.1.10
  */
-class WCBridgeAppearance extends Task {
+class WCBridgeSetupWooCommerceSquare extends Task {
 	/**
 	 * ID.
 	 *
 	 * @return string
 	 */
 	public function get_id() {
-		return 'appearance';
+		return 'setup-woocommerce-square';
 	}
 
 	/**
@@ -26,7 +26,7 @@ class WCBridgeAppearance extends Task {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Choose your theme', 'woocommerce' );
+		return __( 'Setup WooCommerce Square', 'woocommerce' );
 	}
 
 	/**
@@ -36,7 +36,7 @@ class WCBridgeAppearance extends Task {
 	 */
 	public function get_content() {
 		return __(
-			"Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages.",
+			"Setup WooCommerce Square payments to accept credit card payments in your store. You'll need a Square account to get started",
 			'woocommerce'
 		);
 	}
@@ -56,6 +56,6 @@ class WCBridgeAppearance extends Task {
 	 * @return string
 	 */
 	public function get_action_label() {
-		return __( 'Choose theme', 'woocommerce' );
+		return __( 'Setup WooCommerce Square', 'woocommerce' );
 	}
 }
