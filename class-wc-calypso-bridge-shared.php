@@ -125,6 +125,8 @@ class WC_Calypso_Bridge_Shared {
 			'version'                      => WC_CALYPSO_BRIDGE_CURRENT_VERSION,
 		);
 
+		$params = apply_filters( 'wc_calypso_bridge_shared_params', $params );
+
 		if ( $is_ecom_trial ) {
 			$woo_express_introductory_offers = WC_Calypso_Bridge_Woo_Express_Introductory_offers::get_offers_for_current_blog( function( $offer ) {
 				return in_array( $offer['product_slug'], WC_Calypso_Bridge_Woo_Express_Introductory_offers::WOO_EXPRESS_PRODUCT_SLUGS );
@@ -133,7 +135,7 @@ class WC_Calypso_Bridge_Shared {
 				$params['wooExpressIntroductoryOffer'] = WC_Calypso_Bridge_Woo_Express_Introductory_offers::extract_offer_data_for_js( current( $woo_express_introductory_offers ) );
 			}
 		}
-		
+
 
 		if ( wc_calypso_bridge_has_ecommerce_features() ) {
 			$params['showEcommerceNavigationModal'] = ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_installed_gte( WC_Calypso_Bridge::RELEASE_DATE_ECOMMERCE_NAVIGATION );
