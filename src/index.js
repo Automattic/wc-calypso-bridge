@@ -27,6 +27,7 @@ import {
 } from './homescreen-progress-header';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
+import { AppearanceFill } from './task-fills';
 import './task-headers';
 import './track-menu-item';
 import { CalypsoBridgeIntroductoryOfferBanner } from './introductory-offer-banner';
@@ -83,6 +84,12 @@ registerPlugin( 'wc-calypso-bridge', {
 // Unregister task fills from WooCommerce Core
 // Otherwise we'll have both the original and new fills rendered.
 const pluginsToRemove = [ 'wc-admin-onboarding-task-appearance' ];
+
+// Appearance task fill.
+registerPlugin( 'wc-calypso-bridge-task-appearance', {
+	scope: 'woocommerce-tasks',
+	render: AppearanceFill,
+} );
 
 if ( !! window.wcCalypsoBridge.isWooExpress ) {
 	registerPlugin( 'wc-calypso-bridge-homescreen-progress-header', {

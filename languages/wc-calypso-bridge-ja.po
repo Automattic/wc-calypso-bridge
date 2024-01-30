@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-01 14:10:08+0000\n"
+"PO-Revision-Date: 2024-01-17 09:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,48 +11,58 @@ msgstr ""
 "Language: ja_JP\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: build/index.js:6451 src/introductory-offer-banner/index.js:75
+#: build/payment-gateway-suggestions.js:1491
+#: src/payment-gateway-suggestions/index.js:285
+#: build/payment-gateway-suggestions.js:1498
+msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
+msgstr "無料お試し期間中は、管理者とストア管理者のみが注文を行えます。 {{link}}有料プランにアップグレード{{/link}}すると、顧客からの支払いを受け取ったり、他の支払いオプションを確認したりできます。"
+
+#: includes/class-wc-calypso-bridge-setup.php:423
+msgid "News"
+msgstr "ニュース"
+
+#: build/index.js:6474 src/introductory-offer-banner/index.js:90
 msgid "Dismiss this banner."
-msgstr ""
+msgstr "このバナーを非表示にします。"
 
-#: build/index.js:6440 src/introductory-offer-banner/index.js:53
+#: build/index.js:6463 src/introductory-offer-banner/index.js:68
 msgid "Start selling — for less!"
-msgstr ""
+msgstr "より低コストで販売をスタートしましょう !"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6353
+#: build/index.js:6361
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s years"
-msgstr ""
+msgstr "最初の%(intervalCount)s年間は%(formattedPrice)sでプランをアップグレード"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6346
+#: build/index.js:6354
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s months"
-msgstr ""
+msgstr "最初の%(intervalCount)sか月間は%(formattedPrice)sでプランをアップグレード"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6339
+#: build/index.js:6347
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s days"
-msgstr ""
+msgstr "最初の%(intervalCount)s日間は%(formattedPrice)sでプランをアップグレード"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6331 build/index.js:6360
+#: build/index.js:6339 build/index.js:6368
 msgid "Upgrade your plan for %(formattedPrice)s"
-msgstr ""
+msgstr "%(formattedPrice)sでプランをアップグレード"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6325
+#: build/index.js:6333
 msgid "Upgrade your plan for %(formattedPrice)s for your first year"
-msgstr ""
+msgstr "最初の1年は%(formattedPrice)sでプランをアップグレード"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6319
+#: build/index.js:6327
 msgid "Upgrade your plan for %(formattedPrice)s for your first month"
-msgstr ""
+msgstr "最初の1か月は%(formattedPrice)sでプランをアップグレード"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6313
+#: build/index.js:6321
 msgid "Upgrade your plan for %(formattedPrice)s for your first day"
-msgstr ""
+msgstr "最初の1日は%(formattedPrice)sでプランをアップグレード"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:51
 msgid "Create your first product"
@@ -66,19 +76,19 @@ msgstr "Woo Express の14日間のお試し期間にようこそ。Woo Express �
 msgid "Your Woo Express free trial has just started"
 msgstr "Woo Express のお試し期間が開始されました"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:94
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
 msgstr "ドメインを選択"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:86
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:138
 msgid "Ready to make that perfect domain yours?"
 msgstr "自分のストアにぴったりのドメイン名を作成しますか ? "
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:84
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:136
 msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
 msgstr "短くて覚えやすいドメイン名はストアに欠かせません。 インターネットで見つけやすいだけでなく、ブランドのアイデンティティを強化し、信頼度を高められます。"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:82
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:134
 msgid "Pick a domain for your new store"
 msgstr "新しいストアのドメインを選択"
 
@@ -90,7 +100,7 @@ msgstr "このプランでは WooCommerce を無効にできません。"
 msgid "Accept Payments and manage your business."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:114
 msgid "Add New Order"
 msgstr "新規注文を追加"
 
@@ -225,11 +235,11 @@ msgstr "組み込み型のマーケティングおよび広告ツールを使用
 msgid "Get ready to grow your business"
 msgstr "ビジネスの成長のために準備を整える"
 
-#: build/index.js:8132 src/task-headers/appearance.js:29
+#: build/index.js:8155 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
 msgstr "外観のイラスト"
 
-#: build/index.js:8220 src/task-headers/products.js:26
+#: build/index.js:8243 src/task-headers/products.js:26
 msgid "Products illustration"
 msgstr "商品のイラスト"
 
@@ -261,45 +271,45 @@ msgstr "%2$d件中%1$d件が完了しました。"
 
 #: build/index.js:5894
 msgid "You’re almost ready to start selling! Follow these steps to set up your store."
-msgstr ""
+msgstr "あと少しで販売を開始できます。 次の手順に従って、ストアをセットアップします。"
 
 #: build/index.js:5891
 msgid "Hide setup list"
 msgstr "設定リストを非表示"
 
-#: build/index.js:7937
+#: build/index.js:7960
 msgid "The store setup process meets my needs."
 msgstr "ストア設定が自分のニーズに合っている。"
 
-#: build/index.js:7936
+#: build/index.js:7959
 msgid "The store setup is easy to complete."
 msgstr "ストア設定が簡単。"
 
-#: build/index.js:7934
+#: build/index.js:7957
 msgid "We appreciate your feedback!"
 msgstr "フィードバックをぜひお寄せください。"
 
-#: build/index.js:7925 build/index.js:7935
+#: build/index.js:7948 build/index.js:7958
 msgid "How was your experience?"
 msgstr "ご利用体験はいかがでしたか ?"
 
-#: build/index.js:6038 build/index.js:7923
+#: build/index.js:6038 build/index.js:7946
 msgid "Hide this"
 msgstr "非表示"
 
-#: build/index.js:7921
+#: build/index.js:7944
 msgid "Show setup task list"
 msgstr "設定タスクのリストを表示"
 
-#: build/index.js:6033 build/index.js:7916
+#: build/index.js:6033 build/index.js:7939
 msgid "Task List Options"
 msgstr "タスクリストオプション"
 
-#: build/index.js:7910
+#: build/index.js:7933
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
 msgstr "お疲れ様でした。 どうぞお祝いしてください。 ストアを立ち上げる準備ができたら、あとは有料プランにアップグレードするだけです。 そうすることで、タスクリストにある次の2つのタスクを実行できます。"
 
-#: build/index.js:7904
+#: build/index.js:7927
 msgid "Woohoo! Your trial store has been set up!"
 msgstr "注目 ! トライアル用ストアの設定が完了しました !"
 
@@ -423,11 +433,11 @@ msgstr "有料プランをアップグレードしてより多くの機能を利
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
 msgstr "現在、無料お試しに登録しています。 すべての機能にアクセスするには、有料プランにアップグレードしてください。"
 
-#: build/index.js:8589 src/welcome-modal/index.js:94
+#: build/index.js:8615 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
 msgstr "ウェルカムモーダルナビゲーションの図1"
 
-#: build/index.js:8577 src/welcome-modal/index.js:64
+#: build/index.js:8603 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
 msgstr "ウェルカムモーダルナビゲーションの図2"
 
@@ -497,7 +507,7 @@ msgstr "テーマを選択"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:6259 src/index.js:208
+#: build/index.js:6259 src/index.js:212
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -533,27 +543,27 @@ msgstr "オンボーディング"
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "販売向けに最適化されたカスタムナビゲーションを利用できます。"
 
-#: build/index.js:8598 src/welcome-modal/index.js:114
+#: build/index.js:8624 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "WooCommerce での作業がさらに高速化しました。 新しいナビゲーションの<a>詳細をご覧ください</a>。または、先に進んでご自身で確認してください。"
 
-#: build/index.js:8596 src/welcome-modal/index.js:107
+#: build/index.js:8622 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "新しいナビゲーションですばやく作業"
 
-#: build/index.js:8586 src/welcome-modal/index.js:83
+#: build/index.js:8612 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "WordPress.com ダッシュボードに戻るたびに、ストアのパフォーマンスに関するヒントや統計概要を確認できます。"
 
-#: build/index.js:8584 src/welcome-modal/index.js:77
+#: build/index.js:8610 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "新しいホームを利用"
 
-#: build/index.js:8060 src/task-headers/add-domain.js:34
+#: build/index.js:8083 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "ストアの新しいサイトアドレスを選択するか、すでに所有しているアドレスを転送します。"
 
-#: build/index.js:8055 src/task-headers/add-domain.js:22
+#: build/index.js:8078 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "ドメインのイラストレーションを追加"
 
@@ -600,12 +610,6 @@ msgstr "銀行振込 (ダイレクト) の詳細の追加が完了しました"
 #: src/payment-gateway-suggestions/plugins/Bacs.js:32
 msgid "Please enter an account number or IBAN"
 msgstr "口座番号か IBAN を入力してください"
-
-#: build/payment-gateway-suggestions.js:1491
-#: src/payment-gateway-suggestions/index.js:285
-#: build/payment-gateway-suggestions.js:1498
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
-msgstr "無料お試し期間中は、管理者とストア管理者のみが注文を行えます。 顧客からの支払いを受け取る準備ができている場合は、{{link}}有料プランにアップグレード{{/link}}してください。"
 
 #: build/payment-gateway-suggestions.js:1476
 #: src/payment-gateway-suggestions/index.js:266
@@ -658,7 +662,7 @@ msgstr "オンライン支払いを受け取る準備をするには"
 msgid "Choose a payment provider"
 msgstr "決済サービス業者を選択"
 
-#: build/index.js:7227
+#: build/index.js:7250
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "WooCommerce Payments への接続時にエラーが発生しました。 もう一度試すか、しばらくしてからストア設定に接続してください。"
@@ -780,77 +784,77 @@ msgstr "設定完了"
 msgid "Enable"
 msgstr "有効化"
 
-#: build/index.js:7102 src/launch-store/index.js:392
+#: build/index.js:7125 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "このまま立ち上げる"
 
-#: build/index.js:7099 src/launch-store/index.js:382
+#: build/index.js:7122 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "ストアを立ち上げる前に確認すべき点"
 
-#: build/index.js:7097 src/launch-store/index.js:379
+#: build/index.js:7120 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "立ち上げ前"
 
-#: build/index.js:7061 src/launch-store/index.js:318
+#: build/index.js:7084 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "新しいサイトのアドレスを選択するか、すでに所有しているドメインを転送します。"
 
-#: build/index.js:7057 src/launch-store/index.js:314
+#: build/index.js:7080 src/launch-store/index.js:314
 msgid "List products"
 msgstr "商品をリスト化"
 
-#: build/index.js:7056 src/launch-store/index.js:310
+#: build/index.js:7079 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "ストアに商品やサービスを追加して販売を開始します。 商品を手動で作成するか、既存のストアからインポートします。"
 
-#: build/index.js:7055 src/launch-store/index.js:309
+#: build/index.js:7078 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "商品をリスト化"
 
-#: build/index.js:7050 src/launch-store/index.js:301
+#: build/index.js:7073 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "お客様に簡単で便利な決済方法を提供します。 迅速で安全なオンラインまたはオフラインでの支払い方法を1つ (または複数) 設定します。"
 
-#: build/index.js:7049 build/index.js:7051 src/launch-store/index.js:300
+#: build/index.js:7072 build/index.js:7074 src/launch-store/index.js:300
 #: src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "お支払いの受け取り"
 
-#: build/index.js:7018 build/index.js:7106 src/launch-store/index.js:262
+#: build/index.js:7041 build/index.js:7129 src/launch-store/index.js:262
 #: src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "これは<a>「設定」</a>でいつでも元に戻すことができます。"
 
-#: build/index.js:7012 src/launch-store/index.js:250
+#: build/index.js:7035 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "おめでとうございます – ストアを立ち上げる準備が整いました ! お疲れ様でした !"
 
-#: build/index.js:7010 src/launch-store/index.js:247
+#: build/index.js:7033 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "ストアの立ち上げ準備は整いましたか ?"
 
-#: build/index.js:6991 src/launch-store/index.js:212
+#: build/index.js:7014 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "気が変わりましたか ? <a>プライバシー</a>設定を更新することで、ストアを非公開に戻すことができます。"
 
-#: build/index.js:6987 src/launch-store/index.js:206
+#: build/index.js:7010 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "ストアを表示"
 
-#: build/index.js:6974 src/launch-store/index.js:186
+#: build/index.js:6997 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "おめでとうございます。WooCommerce ストアを立ち上げました。 お祝いしてニュースをシェアしましょう !"
 
-#: build/index.js:6972 src/launch-store/index.js:182
+#: build/index.js:6995 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "お疲れ様でした ! これで完了です !"
 
-#: build/index.js:6945 src/launch-store/index.js:142
+#: build/index.js:6968 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "ストアを立ち上げる"
 
-#: build/index.js:6895 src/launch-store/index.js:71
+#: build/index.js:6918 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "コピーしました"
 
@@ -983,7 +987,7 @@ msgstr "おめでとうございます ! ストアの立ち上げ準備は整い
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:4137
-#: build/index.js:6955 src/launch-store/index.js:155
+#: build/index.js:6978 src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "ストアを立ち上げる"
 
@@ -992,7 +996,7 @@ msgid "You've already launched your store"
 msgstr "すでにストアを立ち上げています"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
-#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8234
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8257
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2分"
@@ -1006,8 +1010,8 @@ msgid "Domain"
 msgstr "ドメイン"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:7062
-#: build/index.js:8060 build/index.js:8064 src/launch-store/index.js:322
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:7085
+#: build/index.js:8083 build/index.js:8087 src/launch-store/index.js:322
 #: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "ドメインを追加"
@@ -1028,9 +1032,9 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:4133 build/index.js:6449 build/index.js:7913
+#: build/index.js:4133 build/index.js:6472 build/index.js:7936
 #: build/marketing.js:1147 build/plugins.js:50
-#: src/introductory-offer-banner/index.js:71 build/plugins.js:53
+#: src/introductory-offer-banner/index.js:86 build/plugins.js:53
 msgid "Upgrade now"
 msgstr "今すぐアップグレード"
 
@@ -1064,7 +1068,7 @@ msgid "You don't have permissions to launch this site"
 msgstr "このサイトを立ち上げる権限がありません"
 
 #. translators: %s is the plans URL
-#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:369
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:371
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr "無料お試し期間中は、管理者とストア管理者のみが注文を行えます。 顧客からの支払いを受け取る準備ができている場合は、<a href=\"%s\">有料プランにアップグレード</a>してください。"
 
@@ -1085,64 +1089,64 @@ msgstr "注文できませんでした。 現在、購入手続き機能はプ�
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "このストアで注文を受け付ける準備ができていません。 現在、購入手続き機能はプレビュー目的でのみ有効になっています。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:551
 msgid "Jetpack Stats"
 msgstr "Jetpack 統計"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:536
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:549
 msgid "Jetpack Status"
 msgstr "Jetpack ステータス"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:515
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:528
 msgid "Anti-Spam"
 msgstr "スパム対策"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:375
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:376
 msgid "Discover"
 msgstr "Discover"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:368
 #: build/payment-gateway-suggestions.js:90
 #: src/payment-gateway-suggestions/components/Action.js:76
 #: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "管理"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:368
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:364
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:365
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:360
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:361
 msgid "Customers"
 msgstr "顧客"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:350
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:351
 msgid "Legacy Reports"
 msgstr "レガシーレポート"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:343
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:344
 msgid "WooCommerce Status"
 msgstr "WooCommerce ステータス"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:340
 msgid "WooCommerce Settings"
 msgstr "WooCommerce 設定"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:111
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:112
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:117
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:118
 msgid "Orders"
 msgstr "注文"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:232
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:233
 msgid "My Home"
 msgstr "ホーム"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:86
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:87
 msgid "Feedback"
 msgstr "フィードバック"
 
@@ -1159,7 +1163,7 @@ msgstr "利用可能な支払い方法"
 msgid "No thanks"
 msgstr "結構です"
 
-#: build/index.js:8574 build/payment-gateway-suggestions.js:52
+#: build/index.js:8600 build/payment-gateway-suggestions.js:52
 #: build/payment-gateway-suggestions.js:543
 #: build/payment-gateway-suggestions.js:1178
 #: src/payment-gateway-suggestions/components/Action.js:27
@@ -1216,7 +1220,7 @@ msgstr "注文の詳細が手動でお客様に送信されました。"
 msgid "Invalid order ID."
 msgstr "無効な注文番号です。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:340
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -1339,8 +1343,8 @@ msgstr "このホームページが、初めてショップを訪れた訪問者
 msgid "Welcome"
 msgstr "ようこそ"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:46
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:114
 msgid "Add New"
 msgstr "新規追加"
 
@@ -1348,7 +1352,7 @@ msgstr "新規追加"
 msgid "Store"
 msgstr "ストア"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:551
 msgid "Stats"
 msgstr "統計"
 

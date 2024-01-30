@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WooCommerce Calypso Bridge plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Calypso Bridge 2.3.2\n"
+"Project-Id-Version: WooCommerce Calypso Bridge 2.3.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-calypso-bridge\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-09T10:56:52+00:00\n"
+"POT-Creation-Date: 2024-01-26T11:25:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 
@@ -140,7 +140,7 @@ msgid "There are no payment methods available. This may be an error on our side.
 msgstr ""
 
 #. translators: %s is the plans URL
-#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:369
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:371
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr ""
 
@@ -273,7 +273,7 @@ msgstr ""
 #: build/index.js:11
 #: build/marketing.js:1
 #: build/plugins.js:1
-#: src/introductory-offer-banner/index.js:71
+#: src/introductory-offer-banner/index.js:87
 msgid "Upgrade now"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgstr ""
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
 #: build/index.js:11
-#: src/index.js:205
+#: src/index.js:212
 msgid "Plugins"
 msgstr ""
 
@@ -342,9 +342,22 @@ msgid "Add your domain name and make your store unique."
 msgstr ""
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
+#: includes/tasks/class-wc-calypso-task-appearance.php:50
 #: build/index.js:3
 #: src/task-headers/products.js:46
 msgid "2 minutes"
+msgstr ""
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:29
+msgid "Choose your theme"
+msgstr ""
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:38
+msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
+msgstr ""
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:59
+msgid "Choose theme"
 msgstr ""
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:63
@@ -1004,7 +1017,7 @@ msgid "Appearance illustration"
 msgstr ""
 
 #: build/index.js:3
-#: src/introductory-offer-banner/index.js:53
+#: src/introductory-offer-banner/index.js:69
 msgid "Start selling — for less!"
 msgstr ""
 
@@ -1045,7 +1058,7 @@ msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s
 msgstr ""
 
 #: build/index.js:11
-#: src/introductory-offer-banner/index.js:75
+#: src/introductory-offer-banner/index.js:91
 msgid "Dismiss this banner."
 msgstr ""
 

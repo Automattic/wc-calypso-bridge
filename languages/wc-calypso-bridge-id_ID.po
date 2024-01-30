@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-01-01 14:10:08+0000\n"
+"PO-Revision-Date: 2024-01-16 09:54:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,48 +11,58 @@ msgstr ""
 "Language: id\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
-#: build/index.js:6451 src/introductory-offer-banner/index.js:75
+#: build/payment-gateway-suggestions.js:1491
+#: src/payment-gateway-suggestions/index.js:285
+#: build/payment-gateway-suggestions.js:1498
+msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
+msgstr "Hanya Administrator dan Pengelola Toko yang bisa membuat pesanan selama percobaan gratis. {{link}}Upgrade ke paket berbayar{{/link}} untuk menerima pembayaran dari pelanggan dan menjelajahi pilihan pembayaran lain."
+
+#: includes/class-wc-calypso-bridge-setup.php:423
+msgid "News"
+msgstr "Berita"
+
+#: build/index.js:6474 src/introductory-offer-banner/index.js:90
 msgid "Dismiss this banner."
-msgstr ""
+msgstr "Tutup banner ini."
 
-#: build/index.js:6440 src/introductory-offer-banner/index.js:53
+#: build/index.js:6463 src/introductory-offer-banner/index.js:68
 msgid "Start selling — for less!"
-msgstr ""
+msgstr "Mulai berbisnis — dengan investasi lebih ringan!"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6353
+#: build/index.js:6361
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s years"
-msgstr ""
+msgstr "Upgrade paket Anda hanya dengan %(formattedPrice)s untuk %(intervalCount)s tahun pertama"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6346
+#: build/index.js:6354
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s months"
-msgstr ""
+msgstr "Upgrade paket Anda hanya dengan %(formattedPrice)s untuk %(intervalCount)s bulan pertama"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6339
+#: build/index.js:6347
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s days"
-msgstr ""
+msgstr "Upgrade paket Anda hanya dengan %(formattedPrice)s untuk %(intervalCount)s hari pertama"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6331 build/index.js:6360
+#: build/index.js:6339 build/index.js:6368
 msgid "Upgrade your plan for %(formattedPrice)s"
-msgstr ""
+msgstr "Upgrade paket Anda hanya dengan %(formattedPrice)s"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6325
+#: build/index.js:6333
 msgid "Upgrade your plan for %(formattedPrice)s for your first year"
-msgstr ""
+msgstr "Upgrade paket Anda hanya dengan %(formattedPrice)s untuk tahun pertama"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6319
+#: build/index.js:6327
 msgid "Upgrade your plan for %(formattedPrice)s for your first month"
-msgstr ""
+msgstr "Upgrade paket Anda hanya dengan %(formattedPrice)s untuk bulan pertama"
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6313
+#: build/index.js:6321
 msgid "Upgrade your plan for %(formattedPrice)s for your first day"
-msgstr ""
+msgstr "Upgrade paket Anda hanya dengan %(formattedPrice)s untuk hari pertama"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:51
 msgid "Create your first product"
@@ -66,19 +76,19 @@ msgstr "Selamat datang di periode percobaan gratis 14 hari Woo Express – segal
 msgid "Your Woo Express free trial has just started"
 msgstr "Percobaan gratis Woo Express Anda baru saja dimulai"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:94
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
 msgstr "Pilih domain"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:86
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:138
 msgid "Ready to make that perfect domain yours?"
 msgstr "Siap membuat domain ideal Anda?"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:84
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:136
 msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
 msgstr "Nama domain yang ringkas dan mudah diingat adalah kebutuhan primer toko. Nama domain ini memudahkan pelanggan untuk menemukan Anda secara online, memperkuat identitas merek, dan menumbuhkan kepercayaan."
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:82
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:134
 msgid "Pick a domain for your new store"
 msgstr "Pilih domain untuk toko baru Anda"
 
@@ -90,7 +100,7 @@ msgstr "WooCommerce tidak dapat dinonaktifkan pada paket ini."
 msgid "Accept Payments and manage your business."
 msgstr "Terima Pembayaran dan kelola bisnis Anda."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:114
 msgid "Add New Order"
 msgstr "Tambahkan Pesanan Baru"
 
@@ -225,11 +235,11 @@ msgstr "Jangkau lebih banyak pelanggan dan kembangkan bisnis Anda dengan alat pe
 msgid "Get ready to grow your business"
 msgstr "Bersiaplah untuk mengembangkan bisnis Anda"
 
-#: build/index.js:8132 src/task-headers/appearance.js:29
+#: build/index.js:8155 src/task-headers/appearance.js:29
 msgid "Appearance illustration"
 msgstr "Ilustrasi tampilan"
 
-#: build/index.js:8220 src/task-headers/products.js:26
+#: build/index.js:8243 src/task-headers/products.js:26
 msgid "Products illustration"
 msgstr "Ilustrasi produk"
 
@@ -261,45 +271,45 @@ msgstr "%1$d dari %2$d selesai."
 
 #: build/index.js:5894
 msgid "You’re almost ready to start selling! Follow these steps to set up your store."
-msgstr ""
+msgstr "Sedikit lagi Anda siap berjualan! Ikuti langkah ini untuk menyiapkan toko Anda."
 
 #: build/index.js:5891
 msgid "Hide setup list"
 msgstr "Sembunyikan daftar penyiapan"
 
-#: build/index.js:7937
+#: build/index.js:7960
 msgid "The store setup process meets my needs."
 msgstr "Proses penyiapan toko sesuai kebutuhan saya."
 
-#: build/index.js:7936
+#: build/index.js:7959
 msgid "The store setup is easy to complete."
 msgstr "Anda dapat menyiapkan toko dengan mudah."
 
-#: build/index.js:7934
+#: build/index.js:7957
 msgid "We appreciate your feedback!"
 msgstr "Terima kasih atas feedback Anda."
 
-#: build/index.js:7925 build/index.js:7935
+#: build/index.js:7948 build/index.js:7958
 msgid "How was your experience?"
 msgstr "Bagaimana pengalaman Anda?"
 
-#: build/index.js:6038 build/index.js:7923
+#: build/index.js:6038 build/index.js:7946
 msgid "Hide this"
 msgstr "Sembunyikan"
 
-#: build/index.js:7921
+#: build/index.js:7944
 msgid "Show setup task list"
 msgstr "Tampilkan daftar tugas penyiapan"
 
-#: build/index.js:6033 build/index.js:7916
+#: build/index.js:6033 build/index.js:7939
 msgid "Task List Options"
 msgstr "Pilihan Daftar Tugas"
 
-#: build/index.js:7910
+#: build/index.js:7933
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
 msgstr "Selamat! Rayakan pencapaian Anda. Setelah siap meluncurkan toko, upgrade ke paket berbayar. Setelahnya, dua tugas selanjutnya akan muncul di daftar tugas."
 
-#: build/index.js:7904
+#: build/index.js:7927
 msgid "Woohoo! Your trial store has been set up!"
 msgstr "Wow! Toko percobaan Anda sudah siap!"
 
@@ -423,11 +433,11 @@ msgstr "Upgrade ke paket berbayar untuk mendapatkan fitur yang lebih banyak dan 
 msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
 msgstr "Anda sedang menggunakan percobaan gratis. Untuk mendapatkan akses ke seluruh fitur, upgrade ke paket berbayar."
 
-#: build/index.js:8589 src/welcome-modal/index.js:94
+#: build/index.js:8615 src/welcome-modal/index.js:94
 msgid "Welcome modal navigation illustration 1"
 msgstr "Ilustrasi navigasi modal selamat datang 1"
 
-#: build/index.js:8577 src/welcome-modal/index.js:64
+#: build/index.js:8603 src/welcome-modal/index.js:64
 msgid "Welcome modal navigation illustration 2"
 msgstr "Ilustrasi navigasi modal selamat datang 2"
 
@@ -497,7 +507,7 @@ msgstr "Pilih tema Anda"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:6259 src/index.js:208
+#: build/index.js:6259 src/index.js:212
 msgid "Plugins"
 msgstr "Plugin"
 
@@ -533,27 +543,27 @@ msgstr "Penyiapan"
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "Pengalaman navigasi kustom yang dioptimalkan untuk penjualan."
 
-#: build/index.js:8598 src/welcome-modal/index.js:114
+#: build/index.js:8624 src/welcome-modal/index.js:114
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr "Menyelesaikan pekerjaan dengan WooCommerce jadi lebih cepat. <a>Pelajari selengkapnya</a> tentang navigasi baru kami—atau jelajahi secara mandiri."
 
-#: build/index.js:8596 src/welcome-modal/index.js:107
+#: build/index.js:8622 src/welcome-modal/index.js:107
 msgid "Move faster with our new navigation"
 msgstr "Gerak lebih cepat dengan navigasi baru kami"
 
-#: build/index.js:8586 src/welcome-modal/index.js:83
+#: build/index.js:8612 src/welcome-modal/index.js:83
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr "Dapatkan tips dan wawasan mengenai performa toko Anda setiap kali Anda masuk ke dasbor WordPress.com."
 
-#: build/index.js:8584 src/welcome-modal/index.js:77
+#: build/index.js:8610 src/welcome-modal/index.js:77
 msgid "Meet your new Home"
 msgstr "Selamat datang di Beranda baru Anda"
 
-#: build/index.js:8060 src/task-headers/add-domain.js:34
+#: build/index.js:8083 src/task-headers/add-domain.js:34
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr "Tentukan alamat situs baru untuk toko Anda atau alihkan yang sudah Anda punya."
 
-#: build/index.js:8055 src/task-headers/add-domain.js:22
+#: build/index.js:8078 src/task-headers/add-domain.js:22
 msgid "Add a domain illustration"
 msgstr "Tambahkan ilustrasi domain"
 
@@ -600,12 +610,6 @@ msgstr "Detail transfer bank langsung berhasil ditambahkan"
 #: src/payment-gateway-suggestions/plugins/Bacs.js:32
 msgid "Please enter an account number or IBAN"
 msgstr "Harap masukkan nomor akun atau IBAN"
-
-#: build/payment-gateway-suggestions.js:1491
-#: src/payment-gateway-suggestions/index.js:285
-#: build/payment-gateway-suggestions.js:1498
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
-msgstr "Hanya Administrator dan Pengelola Toko yang bisa membuat pesanan selama percobaan gratis. Jika Anda siap menerima pembayaran dari pelanggan, {{link}}lakukan upgrade ke paket berbayar{{/link}}."
 
 #: build/payment-gateway-suggestions.js:1476
 #: src/payment-gateway-suggestions/index.js:266
@@ -658,7 +662,7 @@ msgstr "Siap menerima pembayaran secara online"
 msgid "Choose a payment provider"
 msgstr "Pilih penyedia pembayaran"
 
-#: build/index.js:7227
+#: build/index.js:7250
 #: src/payment-gateway-suggestions/components/WCPay/utils.js:15
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr "Ada error saat menyambunkan ke WooCommerce Payments. Silakan coba lagi atau hubungkan nanti di pengaturan toko."
@@ -780,77 +784,77 @@ msgstr "Selesaikan Penyiapan"
 msgid "Enable"
 msgstr "Aktifkan"
 
-#: build/index.js:7102 src/launch-store/index.js:392
+#: build/index.js:7125 src/launch-store/index.js:392
 msgid "Launch anyway"
 msgstr "Tetap luncurkan"
 
-#: build/index.js:7099 src/launch-store/index.js:382
+#: build/index.js:7122 src/launch-store/index.js:382
 msgid "A few things to check before launching your store"
 msgstr "Beberapa hal yang perlu diperiksa sebelum meluncurkan toko Anda"
 
-#: build/index.js:7097 src/launch-store/index.js:379
+#: build/index.js:7120 src/launch-store/index.js:379
 msgid "Before you launch"
 msgstr "Sebelum Anda meluncurkan"
 
-#: build/index.js:7061 src/launch-store/index.js:318
+#: build/index.js:7084 src/launch-store/index.js:318
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr "Tentukan alamat untuk situs baru Anda atau alihkan domain yang sudah Anda punya."
 
-#: build/index.js:7057 src/launch-store/index.js:314
+#: build/index.js:7080 src/launch-store/index.js:314
 msgid "List products"
 msgstr "Buat daftar produk"
 
-#: build/index.js:7056 src/launch-store/index.js:310
+#: build/index.js:7079 src/launch-store/index.js:310
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr "Mulai berjualan dengan menambahkan produk atau layanan ke toko Anda. Buat produk-produk Anda secara manual, atau impor dari toko yang sudah ada."
 
-#: build/index.js:7055 src/launch-store/index.js:309
+#: build/index.js:7078 src/launch-store/index.js:309
 msgid "List your products"
 msgstr "Buat daftar produk Anda"
 
-#: build/index.js:7050 src/launch-store/index.js:301
+#: build/index.js:7073 src/launch-store/index.js:301
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr "Hadirkan metode pembayaran yang praktis dan mudah untuk pelanggan! Siapkan satu (atau lebih!) metode pembayaran langsung atau online yang cepat dan aman."
 
-#: build/index.js:7049 build/index.js:7051 src/launch-store/index.js:300
+#: build/index.js:7072 build/index.js:7074 src/launch-store/index.js:300
 #: src/launch-store/index.js:305
 msgid "Get paid"
 msgstr "Terima pembayaran"
 
-#: build/index.js:7018 build/index.js:7106 src/launch-store/index.js:262
+#: build/index.js:7041 build/index.js:7129 src/launch-store/index.js:262
 #: src/launch-store/index.js:398
 msgid "You can always revert this under <a>Settings</a>."
 msgstr "Anda selalu bisa mengembalikan perubahan ini di <a>Pengaturan</a>."
 
-#: build/index.js:7012 src/launch-store/index.js:250
+#: build/index.js:7035 src/launch-store/index.js:250
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr "Sudah tiba waktunya – toko Anda siap diluncurkan! Yey!"
 
-#: build/index.js:7010 src/launch-store/index.js:247
+#: build/index.js:7033 src/launch-store/index.js:247
 msgid "Ready to launch your store?"
 msgstr "Siap meluncurkan toko Anda?"
 
-#: build/index.js:6991 src/launch-store/index.js:212
+#: build/index.js:7014 src/launch-store/index.js:212
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr "Berubah pikiran? Anda bisa mengatur agar toko kembali berstatus privat dengan memperbarui pengaturan <a>Privasi</a>."
 
-#: build/index.js:6987 src/launch-store/index.js:206
+#: build/index.js:7010 src/launch-store/index.js:206
 msgid "View your store"
 msgstr "Lihat toko Anda"
 
-#: build/index.js:6974 src/launch-store/index.js:186
+#: build/index.js:6997 src/launch-store/index.js:186
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr "Selamat! Anda berhasil meluncurkan toko WooCommerce. Luangkan waktu untuk merayakan dan memberitakannya!"
 
-#: build/index.js:6972 src/launch-store/index.js:182
+#: build/index.js:6995 src/launch-store/index.js:182
 msgid "Woo! You did it!"
 msgstr "Yey! Anda berhasil!"
 
-#: build/index.js:6945 src/launch-store/index.js:142
+#: build/index.js:6968 src/launch-store/index.js:142
 msgid "Launching your store"
 msgstr "Meluncurkan toko Anda"
 
-#: build/index.js:6895 src/launch-store/index.js:71
+#: build/index.js:6918 src/launch-store/index.js:71
 msgid "Copied"
 msgstr "Disalin"
 
@@ -983,7 +987,7 @@ msgstr "Saatnya merayakan! Siap meluncurkan toko Anda?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68 build/index.js:4137
-#: build/index.js:6955 src/launch-store/index.js:155
+#: build/index.js:6978 src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "Luncurkan toko Anda"
 
@@ -992,7 +996,7 @@ msgid "You've already launched your store"
 msgstr "Anda sudah meluncurkan toko"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
-#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8234
+#: includes/tasks/class-wc-calypso-task-appearance.php:50 build/index.js:8257
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2 menit"
@@ -1006,8 +1010,8 @@ msgid "Domain"
 msgstr "Domain"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
-#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:7062
-#: build/index.js:8060 build/index.js:8064 src/launch-store/index.js:322
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94 build/index.js:7085
+#: build/index.js:8083 build/index.js:8087 src/launch-store/index.js:322
 #: src/task-headers/add-domain.js:31 src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "Tambah domain"
@@ -1028,9 +1032,9 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:4133 build/index.js:6449 build/index.js:7913
+#: build/index.js:4133 build/index.js:6472 build/index.js:7936
 #: build/marketing.js:1147 build/plugins.js:50
-#: src/introductory-offer-banner/index.js:71 build/plugins.js:53
+#: src/introductory-offer-banner/index.js:86 build/plugins.js:53
 msgid "Upgrade now"
 msgstr "Upgrade sekarang"
 
@@ -1064,7 +1068,7 @@ msgid "You don't have permissions to launch this site"
 msgstr "Anda tidak memiliki izin untuk meluncurkan situs ini"
 
 #. translators: %s is the plans URL
-#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:369
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:371
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr "Hanya Administrator dan Pengelola Toko yang bisa membuat pesanan selama percobaan gratis. Jika Anda siap menerima pembayaran dari pelanggan, <a href=\"%s\">lakukan upgrade ke paket berbayar</a>."
 
@@ -1085,64 +1089,64 @@ msgstr "Pesanan Anda tidak dapat dibuat. Saat ini fungsi checkout diaktifkan han
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Toko ini belum siap menerima pesanan. Saat ini fungsi checkout diaktifkan hanya untuk tujuan pratinjau."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:551
 msgid "Jetpack Stats"
 msgstr "Statistik Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:536
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:549
 msgid "Jetpack Status"
 msgstr "Status Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:515
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:528
 msgid "Anti-Spam"
 msgstr "Anti-Spam"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:375
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:376
 msgid "Discover"
 msgstr "Temukan"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:368
 #: build/payment-gateway-suggestions.js:90
 #: src/payment-gateway-suggestions/components/Action.js:76
 #: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "Atur"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:368
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:364
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:365
 msgid "Extensions"
 msgstr "Ekstensi"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:360
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:361
 msgid "Customers"
 msgstr "Pelanggan"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:350
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:351
 msgid "Legacy Reports"
 msgstr "Laporan Lawas"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:343
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:344
 msgid "WooCommerce Status"
 msgstr "Status WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:340
 msgid "WooCommerce Settings"
 msgstr "Pengaturan WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:111
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:112
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:117
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:118
 msgid "Orders"
 msgstr "Pesanan"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:232
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:233
 msgid "My Home"
 msgstr "Beranda Saya"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:86
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:87
 msgid "Feedback"
 msgstr "Umpan Balik"
 
@@ -1159,7 +1163,7 @@ msgstr "Metode pembayaran yang diterima"
 msgid "No thanks"
 msgstr "Tidak, terima kasih"
 
-#: build/index.js:8574 build/payment-gateway-suggestions.js:52
+#: build/index.js:8600 build/payment-gateway-suggestions.js:52
 #: build/payment-gateway-suggestions.js:543
 #: build/payment-gateway-suggestions.js:1178
 #: src/payment-gateway-suggestions/components/Action.js:27
@@ -1216,7 +1220,7 @@ msgstr "Detail pesanan dikirim secara manual kepada pelanggan."
 msgid "Invalid order ID."
 msgstr "ID pesanan tidak valid."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:340
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -1339,8 +1343,8 @@ msgstr "Ini adalah beranda Anda, yaitu halaman yang akan dilihat sebagian besar 
 msgid "Welcome"
 msgstr "Selamat Datang"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:46
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:114
 msgid "Add New"
 msgstr "Tambahkan Baru"
 
@@ -1348,7 +1352,7 @@ msgstr "Tambahkan Baru"
 msgid "Store"
 msgstr "Toko"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:551
 msgid "Stats"
 msgstr "Statistik"
 

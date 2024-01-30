@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.4
- * @version 2.0.8
+ * @version 2.3.3
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -333,14 +333,16 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Restrictions {
 
 		// Display an info message on the checkout page.
 		add_filter( 'the_content', function ( $content ) {
-			if ( ! is_checkout() ) {
+			if ( ! function_exists( 'is_checkout' ) || ! is_checkout() ) {
 				return $content;
 			}
 
 			$message = esc_html__( 'This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only.', 'wc-calypso-bridge' );
-			$markup  = '<div class="woocommerce"><div class="woocommerce-notices-wrapper"><ul class="woocommerce-info role="alert"><li> ' . $message . '</li></ul></div></div>';
+			ob_start();
+			wc_print_notice( $message, 'notice' );
+			$notice = ob_get_clean();
 
-			return $markup . $content;
+			return $notice . $content;
 		}, PHP_INT_MAX );
 
 	}
