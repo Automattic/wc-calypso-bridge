@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.3.2
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -52,6 +52,7 @@ class WC_Calypso_Bridge_Setup {
 		'set_wc_subscriptions_siteurl'            => 'set_wc_subscriptions_siteurl_callback',
 		'set_wc_subscriptions_siteurl_add_domain' => 'set_wc_subscriptions_siteurl_add_domain_callback',
 		'set_wc_measurement_units'                => 'set_wc_measurement_units_callback',
+		'woocommerce_set_default_options'         => 'woocommerce_set_default_options_callback',
 	);
 
 	/**
@@ -727,6 +728,33 @@ class WC_Calypso_Bridge_Setup {
 
 			update_option( $this->option_prefix . $operation, 'completed', 'no' );
 			$this->write_to_log( $operation, 'done for country ' . $country );
+		}, PHP_INT_MAX );
+
+	}
+
+	/**
+	 * Update default WooCommerce options
+	 *
+	 * @since x.x.x
+	 */
+	public function woocommerce_set_default_options_callback() {
+
+		add_action( 'plugins_loaded', function () {
+
+			$operation = 'woocommerce_set_default_options';
+
+			// Set the operation as completed if the store is active for more than 60 minutes.
+			if ( WCAdminHelper::is_wc_admin_active_for( 60 * MINUTE_IN_SECONDS ) ) {
+				update_option( $this->option_prefix . $operation, 'completed', 'no' );
+				$this->write_to_log( $operation, 'completed (60 minutes)' );
+
+				return;
+			}
+
+			// Delete woocommerce_demo_store, to avoid displaying the demo store notice.
+			delete_option( 'woocommerce_demo_store' );
+
+			update_option( $this->option_prefix . $operation, 'completed', 'no' );
 		}, PHP_INT_MAX );
 
 	}

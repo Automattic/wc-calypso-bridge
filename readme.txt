@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Remove the Customizer from the admin menu and the admin bar, if a block theme is used #xxx
+* Delete woocommerce_demo_store option to hide the demo store notice #xxx
+
 = 2.3.4 =
 * Deactivate TikTok for WooCommerce if both TikTok for WooCommerce and Business are active #1430
 * Change tracks calypso_wooexpress_one_dollar_offer to use calypso analytics #1434
