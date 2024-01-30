@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.2.15
+ * @version 2.3.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -74,8 +74,26 @@ class WC_Calypso_Bridge {
 	 * Constructor.
 	 */
 	public function __construct() {
+		add_action( 'muplugins_loaded', array( $this, 'deactivate_duplicate_tiktok' ), PHP_INT_MAX );
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
+	}
+
+	/**
+	 * Deactivate TikTok for WooCommerce if both TikTok for WooCommerce and Business are active (they are the same).
+	 *
+	 * @since 2.3.4
+	 *
+	 */
+	public function deactivate_duplicate_tiktok() {
+		$active_plugins  = (array) get_option( 'active_plugins', array() );
+		$business_key    = array_keys( $active_plugins, 'tiktok-for-business/tiktok-for-woocommerce.php' );
+		$woocommerce_key = array_keys( $active_plugins, 'tiktok-for-woocommerce/tiktok-for-woocommerce.php' );
+
+		if ( ! empty( $business_key ) && ! empty( $woocommerce_key ) ) {
+			unset( $active_plugins[ $woocommerce_key[0] ] );
+			update_option( 'active_plugins', $active_plugins );
+		}
 	}
 
 	public function initialize() {
