@@ -58,12 +58,15 @@ class WC_Calypso_Bridge_Partner_Square {
 	 */
 	private function remove_woo_payments_from_payments_suggestions_feed() {
 		add_filter( 'woocommerce_admin_payment_gateway_suggestion_specs', function( $specs ) {
-			if ( isset( $specs['woocommerce_payments'] ) ) {
-				unset( $specs['woocommerce_payments'] );
-			}
-
-			if ( isset( $specs['woocommerce_payments:with-in-person-payments'] ) ) {
-				unset( $specs['woocommerce_payments:with-in-person-payments'] );
+			$keys = array(
+				'woocommerce_payments',
+				'woocommerce_payments:with-in-person-payments',
+				'woocommerce_payments:without-in-person-payments',
+			);
+			foreach ( $keys as $key ) {
+				if ( isset( $specs[ $key ] ) ) {
+					unset( $specs[ $key ] );
+				}
 			}
 
 			return $specs;
