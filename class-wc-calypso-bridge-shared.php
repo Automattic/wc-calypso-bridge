@@ -125,6 +125,16 @@ class WC_Calypso_Bridge_Shared {
 			'version'                      => WC_CALYPSO_BRIDGE_CURRENT_VERSION,
 		);
 
+		/**
+		 * `wc_calypso_bridge_shared_params` filter.
+		 *
+		 * This filter is used to add additional shared params to the bridge.
+		 *
+		 * @since 2.3.4
+		 *
+		 * @param  array $params
+		 * @return array
+		 */
 		$params = apply_filters( 'wc_calypso_bridge_shared_params', $params );
 
 		if ( $is_ecom_trial ) {
