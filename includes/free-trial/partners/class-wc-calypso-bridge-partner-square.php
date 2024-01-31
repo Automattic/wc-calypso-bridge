@@ -3,8 +3,8 @@
 /**
  * WC Calypso Bridge Partner Square
  *
- * This file includes customizations for the sites that were created throguh /start/square on woo.com.
- * woocommerce_onboarding_profile.partner must ge 'square'
+ * This file includes customizations for the sites that were created through /start/square on woo.com.
+ * woocommerce_onboarding_profile.partner must get 'square'
  */
 class WC_Calypso_Bridge_Partner_Square {
 
