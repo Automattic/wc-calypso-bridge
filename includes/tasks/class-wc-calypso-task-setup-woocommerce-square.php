@@ -26,7 +26,7 @@ class WCBridgeSetupWooCommerceSquare extends Task {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Set up Square payments', 'woocommerce' );
+		return __( 'Get paid with Square', 'woocommerce' );
 	}
 
 	/**
@@ -56,6 +56,6 @@ class WCBridgeSetupWooCommerceSquare extends Task {
 	 * @return string
 	 */
 	public function get_action_label() {
-		return __( 'Set up Square payments', 'woocommerce' );
+		return __( 'Get paid with Square', 'woocommerce' );
 	}
 }
