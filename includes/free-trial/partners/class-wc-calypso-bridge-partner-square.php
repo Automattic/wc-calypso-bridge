@@ -49,7 +49,6 @@ class WC_Calypso_Bridge_Partner_Square {
 		$this->add_square_setup_task();
 		$this->add_square_connect_url_to_js();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
-		$this->remove_woo_payments_from_core_profiler_plugin_suggestions();
 	}
 
 	/**
@@ -69,33 +68,6 @@ class WC_Calypso_Bridge_Partner_Square {
 
 			return $specs;
 		});
-	}
-
-	/**
-	 * Remove woo payments from the core profiler plugin suggestions.
-	 *
-	 * @return void
-	 */
-	private function remove_woo_payments_from_core_profiler_plugin_suggestions() {
-		add_filter( 'rest_request_after_callbacks', function( $response, $handler, $request ) {
-			if ( $request->get_route() === '/wc-admin/onboarding/free-extensions' ) {
-				$data = $response->get_data();
-				foreach ( $data as &$list ) {
-					if ( $list['key'] === 'obw/core-profiler' ) {
-						foreach ( $list['plugins'] as $index => $plugin ) {
-							if ( $plugin->key === 'woocommerce-payments' ) {
-								unset( $list['plugins'][$index] );
-								$list['plugins'] = array_values( $list['plugins'] );
-								break;
-							}
-						}
-						break;
-					}
-				}
-				$response->set_data( $data );
-			}
-			return $response;
-		}, 10, 3);
 	}
 
 	private function has_square_plugin_class() {
