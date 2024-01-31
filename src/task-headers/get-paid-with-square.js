@@ -64,7 +64,7 @@ const GetPaidWithSquareHeader = () => {
 	);
 };
 
-registerPlugin( 'wc-calypso-bridge-appearance-task-header', {
+registerPlugin( 'wc-calypso-bridge-get-paid-with-square-task-header', {
 	render: GetPaidWithSquareHeader,
 	scope: 'woocommerce-tasks',
 } );
