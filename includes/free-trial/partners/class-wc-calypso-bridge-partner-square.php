@@ -82,10 +82,11 @@ class WC_Calypso_Bridge_Partner_Square {
 			if ( !$this->has_square_plugin_class() ){
 				return $lists;
 			}
-			
+
 			if ( isset( $lists['setup'] ) ) {
 				require_once __DIR__ . '/../../tasks/class-wc-calypso-task-setup-woocommerce-square.php';
-				array_unshift( $lists['setup']->tasks, new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeSetupWooCommerceSquare( $lists['setup'] ) );
+				// Place it at the third position.
+				array_splice( $lists['setup']->tasks, 2, 0, array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeSetupWooCommerceSquare( $lists['setup'] ) ) );
 			}
 			return $lists;
 		} );
