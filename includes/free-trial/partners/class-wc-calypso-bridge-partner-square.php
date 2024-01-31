@@ -51,6 +51,7 @@ class WC_Calypso_Bridge_Partner_Square {
 
 	/**
 	 * Remove woo payments from the payments suggestions feed.
+
 	 * @return void
 	 */
 	private function remove_woo_payments_from_payments_suggestions_feed() {
