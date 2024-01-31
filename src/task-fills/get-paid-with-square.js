@@ -4,9 +4,9 @@
 import React from 'react';
 import { WooOnboardingTaskListItem } from '@woocommerce/onboarding';
 
-export const SetupWooCommerceSquareFill = () => {
+export const GetPaidWithSquareFill = () => {
 	return (
-		<WooOnboardingTaskListItem id="setup-woocommerce-square">
+		<WooOnboardingTaskListItem id="get-paid-with-square">
 			{ ( { defaultTaskItem: DefaultTaskItem } ) => (
 				<DefaultTaskItem
 					onClick={ () => {
