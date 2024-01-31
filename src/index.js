@@ -165,11 +165,13 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		} );
 	}
 
-	// Setup Square task fill (Partner Aware Onboarding).
-	registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-square', {
-		scope: 'woocommerce-tasks',
-		render: SetupWooCommerceSquareFill,
-	} );
+	if ( window?.wcCalypsoBridge?.square_connect_url ) {
+		// Setup Square task fill (Partner Aware Onboarding).
+		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-square', {
+			scope: 'woocommerce-tasks',
+			render: SetupWooCommerceSquareFill,
+		} );
+	}
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
