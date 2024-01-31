@@ -129,7 +129,7 @@ class WC_Calypso_Bridge_Partner_Square {
 
 			try {
 				$params['square_connect_url'] = \WooCommerce\Square\Plugin::instance()->get_connection_handler()->get_connect_url();
-			} catch (Exception $e) {
+			} catch (\Throwable $e) {
 				// Fallback to the settings page
 				$params['square_connect_url'] = add_query_arg( array(
 					'page' => 'wc-settings',
