@@ -94,11 +94,19 @@ class WC_Calypso_Bridge_Partner_Square {
 		}, 10, 3);
 	}
 
+	private function has_square_plugin_class() {
+		return class_exists( 'WooCommerce\Square\Plugin' );
+	}
+
 	/**
 	 * Add Square setup task to the setup tasklist.
 	 */
 	private function add_square_setup_task() {
 		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', function( $lists ) {
+			if ( !$this->has_square_plugin_class() ){
+				return $lists;
+			}
+			
 			if ( isset( $lists['setup'] ) ) {
 				require_once __DIR__ . '/../../tasks/class-wc-calypso-task-setup-woocommerce-square.php';
 				array_unshift( $lists['setup']->tasks, new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeSetupWooCommerceSquare( $lists['setup'] ) );
@@ -114,17 +122,20 @@ class WC_Calypso_Bridge_Partner_Square {
 	 */
 	private function add_square_connect_url_to_js() {
 		add_filter( 'wc_calypso_bridge_shared_params', function( $params ) {
-			if ( class_exists( 'WooCommerce\Square\Plugin' ) ) {
-				try {
-					$params['square_connect_url'] = \WooCommerce\Square\Plugin::instance()->get_connection_handler()->get_connect_url();
-				} catch (Exception $e) {
-					// Fallback to the settings page
-					$params['square_connect_url'] = add_query_arg( array(
-						'page' => 'wc-settings',
-						'tab' => 'square',
-					), admin_url( 'admin.php' ) );
-				}
+			if ( !$this->has_square_plugin_class() ){
+				return $params;
 			}
+
+			try {
+				$params['square_connect_url'] = \WooCommerce\Square\Plugin::instance()->get_connection_handler()->get_connect_url();
+			} catch (Exception $e) {
+				// Fallback to the settings page
+				$params['square_connect_url'] = add_query_arg( array(
+					'page' => 'wc-settings',
+					'tab' => 'square',
+				), admin_url( 'admin.php' ) );
+			}
+
 			return $params;
 		});
 	}
