@@ -96,7 +96,7 @@ class WC_Calypso_Bridge_Partner_Square {
 	}
 
 	private function has_square_plugin_class() {
-		return class_exists( 'WooCommerce\Square\Plugin' );
+		return class_exists( '\WooCommerce\Square\Plugin' );
 	}
 
 	/**
