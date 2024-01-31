@@ -10,14 +10,14 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
  * @since   x.x.x
  * @version x.x.x
  */
-class WCBridgeSetupWooCommerceSquare extends Task {
+class WCBridgeGetPaidWithSquare extends Task {
 	/**
 	 * ID.
 	 *
 	 * @return string
 	 */
 	public function get_id() {
-		return 'setup-woocommerce-square';
+		return 'get-paid-with-square';
 	}
 
 	/**

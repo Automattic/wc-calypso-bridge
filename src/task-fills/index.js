@@ -1,2 +1,2 @@
 export * from './appearance.js';
-export * from './setup-woocommerce-square.js';
+export * from './get-paid-with-square.js';

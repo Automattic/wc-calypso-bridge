@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 /**
  * WC Calypso Bridge Partner Square
@@ -84,9 +84,9 @@ class WC_Calypso_Bridge_Partner_Square {
 			}
 
 			if ( isset( $lists['setup'] ) ) {
-				require_once __DIR__ . '/../../tasks/class-wc-calypso-task-setup-woocommerce-square.php';
+				require_once __DIR__ . '/../../tasks/class-wc-calypso-task-get-paid-with-square.php';
 				// Place it at the third position.
-				array_splice( $lists['setup']->tasks, 2, 0, array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeSetupWooCommerceSquare( $lists['setup'] ) ) );
+				array_splice( $lists['setup']->tasks, 2, 0, array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeGetPaidWithSquare( $lists['setup'] ) ) );
 			}
 			return $lists;
 		} );
