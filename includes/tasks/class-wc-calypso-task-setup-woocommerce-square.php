@@ -26,7 +26,7 @@ class WCBridgeSetupWooCommerceSquare extends Task {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Get paid with Square', 'woocommerce' );
+		return __( 'Get paid with Square', 'wc-calypso-bridge' );
 	}
 
 	/**
