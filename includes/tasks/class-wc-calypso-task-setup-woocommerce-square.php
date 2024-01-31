@@ -26,7 +26,7 @@ class WCBridgeSetupWooCommerceSquare extends Task {
 	 * @return string
 	 */
 	public function get_title() {
-		return __( 'Setup WooCommerce Square', 'woocommerce' );
+		return __( 'Set up Square payments', 'woocommerce' );
 	}
 
 	/**
@@ -36,7 +36,7 @@ class WCBridgeSetupWooCommerceSquare extends Task {
 	 */
 	public function get_content() {
 		return __(
-			"Setup WooCommerce Square payments to accept credit card payments in your store. You'll need a Square account to get started",
+			"Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started",
 			'woocommerce'
 		);
 	}
@@ -56,6 +56,6 @@ class WCBridgeSetupWooCommerceSquare extends Task {
 	 * @return string
 	 */
 	public function get_action_label() {
-		return __( 'Setup WooCommerce Square', 'woocommerce' );
+		return __( 'Set up Square payments', 'woocommerce' );
 	}
 }
