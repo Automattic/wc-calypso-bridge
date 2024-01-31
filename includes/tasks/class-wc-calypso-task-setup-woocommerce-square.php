@@ -7,8 +7,8 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * WCBridgeSetupWooCommerceSquare Task
  *
- * @since   2.0.11
- * @version 2.1.10
+ * @since   x.x.x
+ * @version x.x.x
  */
 class WCBridgeSetupWooCommerceSquare extends Task {
 	/**
