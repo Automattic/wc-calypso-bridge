@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.3.5
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -735,7 +735,7 @@ class WC_Calypso_Bridge_Setup {
 	/**
 	 * Update default WooCommerce options
 	 *
-	 * @since x.x.x
+	 * @since 2.3.5
 	 */
 	public function woocommerce_set_default_options_callback() {
 
