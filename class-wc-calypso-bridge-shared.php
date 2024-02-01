@@ -130,7 +130,7 @@ class WC_Calypso_Bridge_Shared {
 		 *
 		 * This filter is used to add additional shared params to the bridge.
 		 *
-		 * @since 2.3.4
+		 * @since x.x.x
 		 *
 		 * @param  array $params
 		 * @return array
