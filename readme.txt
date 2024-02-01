@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.5 =
+* Bump version to 2.3.5
+
 = Unreleased =
 * Add a new class to customize for Square from Partner Aware Onboarding #1426
 * Remove the Customizer from the admin menu and the admin bar, if a block theme is used #xxx
