@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.6 =
+* This PR removes unintended space before the php tag, which was adding a space to the JSON endpoint and resulting in invalid JSON #1439
+
 = Unreleased =
 * Remove uninteded space before the php tag #xxx
 
