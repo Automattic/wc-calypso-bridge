@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /**
  * WC Calypso Bridge Partner Square
