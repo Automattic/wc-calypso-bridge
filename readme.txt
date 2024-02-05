@@ -25,9 +25,6 @@ This section describes how to install the plugin and get it working.
 = 2.3.6 =
 * This PR removes unintended space before the php tag, which was adding a space to the JSON endpoint and resulting in invalid JSON #1439
 
-= Unreleased =
-* Remove uninteded space before the php tag #xxx
-
 = 2.3.5 =
 * Add a new class to customize for Square from Partner Aware Onboarding #1426
 * Remove the Customizer from the admin menu and the admin bar, if a block theme is used #1433
