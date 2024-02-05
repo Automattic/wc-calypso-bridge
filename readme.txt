@@ -22,8 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
-* Remove uninteded space before the php tag #xxx
+= 2.3.6 =
+* This PR removes unintended space before the php tag, which was adding a space to the JSON endpoint and resulting in invalid JSON #1439
 
 = 2.3.5 =
 * Add a new class to customize for Square from Partner Aware Onboarding #1426
