@@ -82,10 +82,6 @@ class WC_Calypso_Bridge_Partner_Square {
 	 */
 	private function add_square_setup_task() {
 		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', function( $lists ) {
-			if ( !$this->has_square_plugin_class() ){
-				return $lists;
-			}
-
 			if ( isset( $lists['setup'] ) ) {
 				require_once __DIR__ . '/../../tasks/class-wc-calypso-task-get-paid-with-square.php';
 				// Place it at the third position.
@@ -96,6 +92,58 @@ class WC_Calypso_Bridge_Partner_Square {
 	}
 
 	/**
+	 * Gets the connection URL.
+	 *
+	 * Copied from WooCommerce Square plugin. This is used in case Square plugin class isn't available for some reason.
+	 *
+	 * @param bool $is_sandbox whether to point to production or sandbox
+	 * @return string
+	 */
+	public function get_connect_url( $is_sandbox = false ) {
+		if ( $is_sandbox ) {
+			$raw_url = 'https://connect.woocommerce.com/login/squaresandbox';
+		} else {
+			$raw_url = 'https://connect.woocommerce.com/login/square';
+		}
+
+		/**
+		 * Filters the connection URL.
+		 *
+		 * @since 2.0.0
+		 *
+		 * @param string $raw_url API URL
+		 */
+		$url = (string) apply_filters( 'wc_square_api_url', $raw_url );
+
+		$action       = 'wc_square_connected';
+		$redirect_url = wp_nonce_url( add_query_arg( 'action', $action, admin_url() ), $action );
+
+		$args = array(
+			'redirect' => urlencode( urlencode( $redirect_url ) ),
+			'scopes'   => implode( ',', array(
+				'MERCHANT_PROFILE_READ',
+				'PAYMENTS_READ',
+				'PAYMENTS_WRITE',
+				'ORDERS_READ',
+				'ORDERS_WRITE',
+				'CUSTOMERS_READ',
+				'CUSTOMERS_WRITE',
+				'SETTLEMENTS_READ',
+				'ITEMS_READ',
+				'ITEMS_WRITE',
+				'INVENTORY_READ',
+				'INVENTORY_WRITE',
+				'GIFTCARDS_READ',
+				'GIFTCARDS_WRITE',
+				'PAYMENTS_WRITE',
+				'ORDERS_WRITE',
+			) ),
+		);
+
+		return add_query_arg( $args, $url ); // nosemgrep:audit.php.wp.security.xss.query-arg -- This URL is escaped on output in get_connect_button_html().
+	}
+
+	/**
 	 * Add Square connect URL to the JS.
 	 *
 	 * @return void
@@ -103,6 +151,7 @@ class WC_Calypso_Bridge_Partner_Square {
 	private function add_square_connect_url_to_js() {
 		add_filter( 'wc_calypso_bridge_shared_params', function( $params ) {
 			if ( !$this->has_square_plugin_class() ){
+				$params['square_connect_url'] = $this->get_connect_url();
 				return $params;
 			}
 
