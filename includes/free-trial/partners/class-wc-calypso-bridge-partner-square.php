@@ -49,6 +49,7 @@ class WC_Calypso_Bridge_Partner_Square {
 		$this->add_square_setup_task();
 		$this->add_square_connect_url_to_js();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
+		$this->remove_payments_note();
 	}
 
 	/**
@@ -181,6 +182,26 @@ class WC_Calypso_Bridge_Partner_Square {
 
 			return $params;
 		});
+	}
+
+	/**
+	 * Remove wc-admin-onboarding-payments-reminder note from the notes api endpoint.
+	 *
+	 * @return void
+	 */
+	private function remove_payments_note() {
+		add_filter( 'rest_request_after_callbacks', function( $response, $handler, $request ) {
+			if ( $request->get_route() === '/wc-analytics/admin/notes' ) {
+				$data = $response->get_data();
+				foreach( $data as $key=>$note ) {
+					if ( isset( $note['name'] ) && $note['name'] === 'wc-admin-onboarding-payments-reminder' ) {
+						unset( $data[$key] );
+					}
+				}
+				$response->set_data( array_values( $data ) );
+			}
+			return $response;
+		}, 10, 3);
 	}
 }
 
