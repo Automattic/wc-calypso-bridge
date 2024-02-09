@@ -4,7 +4,7 @@
  * WC Calypso Bridge Partner Square
  *
  *	@since   2.3.5
- *	@version 2.3.6
+ *	@version 2.3.x
  *
  * This file includes customizations for the sites that were created through /start/square on woo.com.
  * woocommerce_onboarding_profile.partner must get 'square'
@@ -49,6 +49,7 @@ class WC_Calypso_Bridge_Partner_Square {
 		$this->add_square_setup_task();
 		$this->add_square_connect_url_to_js();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
+		$this->remove_payments_note();
 	}
 
 	/**
@@ -82,17 +83,79 @@ class WC_Calypso_Bridge_Partner_Square {
 	 */
 	private function add_square_setup_task() {
 		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', function( $lists ) {
-			if ( !$this->has_square_plugin_class() ){
-				return $lists;
-			}
-
 			if ( isset( $lists['setup'] ) ) {
 				require_once __DIR__ . '/../../tasks/class-wc-calypso-task-get-paid-with-square.php';
+
+				$removeTasks = [
+					'Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\TrialPayments',
+					'Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WooCommercePayments'
+				];
+
+				$lists['setup']->tasks = array_filter( $lists['setup']->tasks,  function( $task ) use ($removeTasks) {
+					if ( in_array( get_class( $task ), $removeTasks ) ) {
+						return false;
+					}
+
+					return true;
+				});
+
 				// Place it at the third position.
 				array_splice( $lists['setup']->tasks, 2, 0, array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeGetPaidWithSquare( $lists['setup'] ) ) );
 			}
 			return $lists;
 		} );
+	}
+
+	/**
+	 * Gets the connection URL.
+	 *
+	 * Copied from WooCommerce Square plugin. This is used in case Square plugin class isn't available for some reason.
+	 *
+	 * @param bool $is_sandbox whether to point to production or sandbox
+	 * @return string
+	 */
+	public function get_connect_url( $is_sandbox = false ) {
+		if ( $is_sandbox ) {
+			$raw_url = 'https://connect.woocommerce.com/login/squaresandbox';
+		} else {
+			$raw_url = 'https://connect.woocommerce.com/login/square';
+		}
+
+		/**
+		 * Filters the connection URL.
+		 *
+		 * @since 2.0.0
+		 *
+		 * @param string $raw_url API URL
+		 */
+		$url = (string) apply_filters( 'wc_square_api_url', $raw_url );
+
+		$action       = 'wc_square_connected';
+		$redirect_url = wp_nonce_url( add_query_arg( 'action', $action, admin_url() ), $action );
+
+		$args = array(
+			'redirect' => urlencode( urlencode( $redirect_url ) ),
+			'scopes'   => implode( ',', array(
+				'MERCHANT_PROFILE_READ',
+				'PAYMENTS_READ',
+				'PAYMENTS_WRITE',
+				'ORDERS_READ',
+				'ORDERS_WRITE',
+				'CUSTOMERS_READ',
+				'CUSTOMERS_WRITE',
+				'SETTLEMENTS_READ',
+				'ITEMS_READ',
+				'ITEMS_WRITE',
+				'INVENTORY_READ',
+				'INVENTORY_WRITE',
+				'GIFTCARDS_READ',
+				'GIFTCARDS_WRITE',
+				'PAYMENTS_WRITE',
+				'ORDERS_WRITE',
+			) ),
+		);
+
+		return add_query_arg( $args, $url ); // nosemgrep:audit.php.wp.security.xss.query-arg -- This URL is escaped on output in get_connect_button_html().
 	}
 
 	/**
@@ -103,6 +166,7 @@ class WC_Calypso_Bridge_Partner_Square {
 	private function add_square_connect_url_to_js() {
 		add_filter( 'wc_calypso_bridge_shared_params', function( $params ) {
 			if ( !$this->has_square_plugin_class() ){
+				$params['square_connect_url'] = $this->get_connect_url();
 				return $params;
 			}
 
@@ -118,6 +182,32 @@ class WC_Calypso_Bridge_Partner_Square {
 
 			return $params;
 		});
+	}
+
+	/**
+	 * Remove wc-admin-onboarding-payments-reminder note from the notes api endpoint.
+	 *
+	 * @return void
+	 */
+	private function remove_payments_note() {
+		add_filter( 'rest_request_after_callbacks', function( $response, $handler, $request ) {
+			if ( $request->get_route() === '/wc-analytics/admin/notes' ) {
+				$data = $response->get_data();
+				foreach( $data as $key=>$note ) {
+					if ( isset( $note['name'] ) && $note['name'] === 'wc-admin-onboarding-payments-reminder' ) {
+						unset( $data[$key] );
+						$headers = $response->get_headers();
+						if ( isset( $headers['X-WP-Total'] ) ) {
+							$headers['X-WP-Total'] = (int) $headers['X-WP-Total'] - 1;
+							$response->set_headers( $headers );
+						}
+						break;
+					}
+				}
+				$response->set_data( array_values( $data ) );
+			}
+			return $response;
+		}, 10, 3);
 	}
 }
 
