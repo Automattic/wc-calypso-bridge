@@ -196,6 +196,12 @@ class WC_Calypso_Bridge_Partner_Square {
 				foreach( $data as $key=>$note ) {
 					if ( isset( $note['name'] ) && $note['name'] === 'wc-admin-onboarding-payments-reminder' ) {
 						unset( $data[$key] );
+						$headers = $response->get_headers();
+						if ( isset( $headers['X-WP-Total'] ) ) {
+							$headers['X-WP-Total'] = (int) $headers['X-WP-Total'] - 1;
+							$response->set_headers( $headers );
+						}
+						break;
 					}
 				}
 				$response->set_data( array_values( $data ) );
