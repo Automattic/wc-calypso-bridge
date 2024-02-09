@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-11-10 13:54:03+0000\n"
+"PO-Revision-Date: 2024-02-08 16:54:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,43 @@ msgstr ""
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: nl\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
+
+#: src/task-headers/get-paid-with-square.js:53
+msgid "View options"
+msgstr "Bekijk opties"
+
+#: src/task-headers/get-paid-with-square.js:40
+msgid "Choose from fast & secure online and offline payment methods to make it easy for your customers to pay in your store."
+msgstr "Kies uit snelle en veilige online en offline betaalmethodes om het je klanten eenvoudig te maken in je winkel te betalen."
+
+#: src/task-headers/get-paid-with-square.js:34
+msgid "It's time to get paid"
+msgstr "Laat die betalingen maar komen"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
+msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
+msgstr "Stel Square-betalingen in om creditcardbetalingen aan je winkel te accepteren. Je moet een Square-account hebben om aan de slag te kunnen"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+msgid "Get paid with Square"
+msgstr "Krijg betaald met Square"
+
+#: src/payment-gateway-suggestions/index.js:285
+msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
+msgstr "Alleen beheerders en winkelmanagers kunnen bestellingen plaatsen tijdens de gratis proefversie. {{link}}Upgrade naar een betaald abonnement{{/link}} om betalingen te kunnen accepteren van klanten en meer betaalopties tot je beschikking te hebben."
+
+#: includes/class-wc-calypso-bridge-setup.php:424
+msgid "News"
+msgstr "Nieuws"
+
+#: src/introductory-offer-banner/index.js:91
+msgid "Dismiss this banner."
+msgstr "Negeer deze banner."
+
+#: src/introductory-offer-banner/index.js:69
+msgid "Start selling — for less!"
+msgstr "Begin met verkopen — voor minder!"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:51
 msgid "Create your first product"
@@ -23,19 +60,19 @@ msgstr "Welkom bij je 14-daagse proefabonnement van Woo Express. Op deze central
 msgid "Your Woo Express free trial has just started"
 msgstr "Je proefabonnement van Woo Express is net van start gegaan"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:94
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
 msgstr "Kies een domein"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:86
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:138
 msgid "Ready to make that perfect domain yours?"
 msgstr "Klaar om je perfecte domein op te zetten?"
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:84
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:136
 msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
 msgstr "Een korte, eenvoudig te onthouden domeinnaam is essentieel voor je onderneming. Deze zorgt ervoor dat klanten je online makkelijker kunnen vinden, de naam versterkt je merkidentiteit en helpt vertrouwen op te bouwen."
 
-#: includes/notes/class-wc-calypso-bridge-choose-domain.php:82
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:134
 msgid "Pick a domain for your new store"
 msgstr "Kies een domein voor je nieuwe winkel"
 
@@ -43,31 +80,31 @@ msgstr "Kies een domein voor je nieuwe winkel"
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "WooCommerce kan niet gedeactiveerd worden in dit abonnement."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:115
 msgid "Add New Order"
 msgstr "Nieuwe bestelling toevoegen"
 
-#: includes/class-wc-calypso-bridge-setup.php:323
+#: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
 msgid "refund_returns"
 msgstr "terugbetalen_retournering"
 
-#: includes/class-wc-calypso-bridge-setup.php:322
+#: includes/class-wc-calypso-bridge-setup.php:323
 msgctxt "Page slug"
 msgid "my-account"
 msgstr "mijn-account"
 
-#: includes/class-wc-calypso-bridge-setup.php:321
+#: includes/class-wc-calypso-bridge-setup.php:322
 msgctxt "Page slug"
 msgid "checkout"
 msgstr "afrekenen"
 
-#: includes/class-wc-calypso-bridge-setup.php:320
+#: includes/class-wc-calypso-bridge-setup.php:321
 msgctxt "Page slug"
 msgid "cart"
 msgstr "winkelmand"
 
-#: includes/class-wc-calypso-bridge-setup.php:319
+#: includes/class-wc-calypso-bridge-setup.php:320
 msgctxt "Page slug"
 msgid "shop"
 msgstr "winkel"
@@ -135,39 +172,39 @@ msgstr "Kies je thema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: src/index.js:199
+#: src/index.js:220
 msgid "Plugins"
 msgstr "Plugins"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:388
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "Restore"
 msgstr "Herstellen"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:387
 msgid "\"Things to do next\""
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:380
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:387
 msgid "Setup task list"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:386
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:379
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:386
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:310
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:317
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:308
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:315
 msgid "Onboarding"
 msgstr "Onboarding"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:187
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:194
 msgid "A custom navigation experience that is optimized for selling."
 msgstr ""
 
@@ -238,10 +275,6 @@ msgstr "Gegevens voor directe bankoverschrijving toegevoegd"
 #: src/payment-gateway-suggestions/plugins/Bacs.js:32
 msgid "Please enter an account number or IBAN"
 msgstr "Voer een rekeningnummer of IBAN in"
-
-#: src/payment-gateway-suggestions/index.js:285
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, {{link}}upgrade to a paid plan{{/link}}."
-msgstr "Alleen beheerders en winkelmanagers kunnen bestellingen plaatsen tijdens de gratis proefversie. Als je klaar bent om betalingen te accepteren van klanten, {{link}}werk je je abonnement bij naar een betaald abonnement{{/link}}."
 
 #: src/payment-gateway-suggestions/index.js:266
 msgid "Offline payment methods"
@@ -467,6 +500,7 @@ msgstr "Het is tijd om de betalingen te testen"
 
 #: src/free-trial/fills/task-headers/payments.js:22
 #: src/free-trial/fills/task-headers/woocommerce-payments.js:29
+#: src/task-headers/get-paid-with-square.js:22
 msgid "Payment illustration"
 msgstr "Afbeelding betaling"
 
@@ -550,6 +584,7 @@ msgstr "Je hebt je winkel al gelanceerd"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
 #: src/task-headers/products.js:46
 msgid "2 minutes"
 msgstr "2 minuten"
@@ -582,6 +617,7 @@ msgstr "\n"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
+#: src/introductory-offer-banner/index.js:87
 msgid "Upgrade now"
 msgstr "Upgrade nu"
 
@@ -593,29 +629,29 @@ msgstr "Tijdens de proefperiode kun je alleen testbestellingen plaatsen! Om best
 msgid "Start selling to everyone"
 msgstr "Begin met verkopen aan iedereen"
 
-#: includes/class-wc-calypso-bridge-setup.php:426
+#: includes/class-wc-calypso-bridge-setup.php:422
 msgid "My Account"
 msgstr "Mijn account"
 
-#: includes/class-wc-calypso-bridge-setup.php:424
+#: includes/class-wc-calypso-bridge-setup.php:420
 msgid "Contact"
 msgstr "contact"
 
 #: includes/class-wc-calypso-bridge-fse.php:53
-#: includes/class-wc-calypso-bridge-setup.php:415
+#: includes/class-wc-calypso-bridge-setup.php:411
 msgid "Home"
 msgstr "Home"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:59
+#: includes/class-wc-calypso-bridge-setup-tasks.php:61
 msgid "This site has already been launched"
 msgstr "Deze website is al gelanceerd"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:54
+#: includes/class-wc-calypso-bridge-setup-tasks.php:56
 msgid "You don't have permissions to launch this site"
 msgstr "Je hebt geen rechten om deze website te lanceren."
 
 #. translators: %s is the plans URL
-#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:369
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:371
 msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr "Alleen beheerders en winkelmanagers kunnen bestellingen plaatsen tijdens de gratis proefversie. Als je klaar bent om betalingen te accepteren van klanten, <a href=\"%s\">werk je je abonnement bij naar een betaald abonnement</a>."
 
@@ -636,62 +672,62 @@ msgstr "Je bestelling kon niet geplaatst worden. Afrekenfuncties zijn momenteel 
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Deze winkel is niet klaar om bestellingen te ontvangen. Afrekenfuncties zijn momenteel alleen ingeschakeld voor voorbeeldweergaven."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:595
 msgid "Jetpack Stats"
 msgstr "Jetpack Statistieken"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:536
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:593
 msgid "Jetpack Status"
 msgstr "Jetpack-status"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:515
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:572
 msgid "Anti-Spam"
 msgstr "Anti-spam"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:375
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:377
 msgid "Discover"
 msgstr "Ontdek"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:369
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "Beheren"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:367
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:369
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:364
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
 msgid "Extensions"
 msgstr "Uitbreidingen"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:360
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 msgid "Customers"
 msgstr "Klanten"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:350
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:352
 msgid "Legacy Reports"
 msgstr "Legacy verslagen"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:343
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:345
 msgid "WooCommerce Status"
 msgstr "WooCommerce-status"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:341
 msgid "WooCommerce Settings"
 msgstr "WooCommerce-instellingen"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:111
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:112
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:117
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:114
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:119
 msgid "Orders"
 msgstr "Bestellingen"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:232
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:234
 msgid "My Home"
 msgstr "Mijn startpagina"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:86
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:89
 msgid "Feedback"
 msgstr "Feedback"
 
@@ -707,7 +743,7 @@ msgstr "Nee, liever niet"
 msgid "Get started"
 msgstr "Aan de slag"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:186
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:193
 msgid "Navigation"
 msgstr "Navigatie"
 
@@ -752,7 +788,7 @@ msgstr "Bestelgegevens handmatig naar klant verzonden."
 msgid "Invalid order ID."
 msgstr "Ongeldige bestellings-ID."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:339
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:341
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -875,8 +911,8 @@ msgstr "Dit is je homepage en is voor veel van de bezoekers aan je winkel het ee
 msgid "Welcome"
 msgstr "Welkom"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:113
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:48
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:115
 msgid "Add New"
 msgstr "Nieuwe toevoegen"
 
@@ -884,7 +920,7 @@ msgstr "Nieuwe toevoegen"
 msgid "Store"
 msgstr "Winkel"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:538
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:595
 msgid "Stats"
 msgstr "Statistieken"
 
