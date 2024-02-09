@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.7 =
+* _Enter your changes here_
+
 = Unreleased =
 * Improve Partner Aware Onboarding customiations #xxx
 
