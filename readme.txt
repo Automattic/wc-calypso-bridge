@@ -22,8 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
-* Improve Partner Aware Onboarding customiations #xxx
+= 2.3.7 =
+* Improve Partner Aware Onboarding customiations #1441
 
 = 2.3.6 =
 * This PR removes unintended space before the php tag, which was adding a space to the JSON endpoint and resulting in invalid JSON #1439
