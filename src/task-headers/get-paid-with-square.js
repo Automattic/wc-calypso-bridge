@@ -38,7 +38,7 @@ const GetPaidWithSquareHeader = () => {
 							</h1>
 							<p>
 								{ __(
-									'Choose from fast & secure online and offline payment methods to make it easy for your customers to pay in your store.',
+									'Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory.',
 									'wc-calypso-bridge'
 								) }
 							</p>
@@ -50,7 +50,7 @@ const GetPaidWithSquareHeader = () => {
 										window.wcCalypsoBridge.square_connect_url;
 								} }
 							>
-								{ __( 'View options', 'wc-calypso-bridge' ) }
+								{ __( 'Set up Square', 'wc-calypso-bridge' ) }
 							</Button>
 							<p className="woocommerce-task-header__timer">
 								<img src={ TimerImage } alt="Timer" />{ ' ' }
