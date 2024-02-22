@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Update Square task copy changes #1443
+
 = 2.3.7 =
 * Improve Partner Aware Onboarding customiations #1441
 
