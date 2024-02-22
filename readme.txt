@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.3.8 =
 * Update Square task copy changes #1443
 
 = 2.3.7 =
