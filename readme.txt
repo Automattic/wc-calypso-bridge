@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.8 =
+* _Enter your changes here_
+
 = Unreleased =
 * Update Square task copy changes #1443
 
