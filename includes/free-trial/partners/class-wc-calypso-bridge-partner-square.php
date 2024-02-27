@@ -37,14 +37,14 @@ class WC_Calypso_Bridge_Partner_Square {
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
 		}
-//		$onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
-//		if ( ! isset( $onboarding_profile['partner'] ) ) {
-//			return;
-//		}
-//
-//		if ( $onboarding_profile['partner'] !== 'square' ) {
-//			return;
-//		}
+		$onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
+		if ( ! isset( $onboarding_profile['partner'] ) ) {
+			return;
+		}
+
+		if ( $onboarding_profile['partner'] !== 'square' ) {
+			return;
+		}
 
 		$this->force_square_payment_methods_order();
 		$this->add_square_setup_task();
