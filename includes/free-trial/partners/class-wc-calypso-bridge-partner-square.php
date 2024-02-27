@@ -37,15 +37,16 @@ class WC_Calypso_Bridge_Partner_Square {
 		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
 			return;
 		}
-		$onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
-		if ( ! isset( $onboarding_profile['partner'] ) ) {
-			return;
-		}
+//		$onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
+//		if ( ! isset( $onboarding_profile['partner'] ) ) {
+//			return;
+//		}
+//
+//		if ( $onboarding_profile['partner'] !== 'square' ) {
+//			return;
+//		}
 
-		if ( $onboarding_profile['partner'] !== 'square' ) {
-			return;
-		}
-
+		$this->force_square_payment_methods_order();
 		$this->add_square_setup_task();
 		$this->add_square_connect_url_to_js();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
@@ -208,6 +209,22 @@ class WC_Calypso_Bridge_Partner_Square {
 			}
 			return $response;
 		}, 10, 3);
+	}
+
+	/**
+	 * Force square_cash_app_pay and square_credit_card order
+	 * IF user hans't customized the payment methods order yet.
+	 *
+	 * @return void
+	 */
+	private function force_square_payment_methods_order() {
+		$order_option = get_option( 'woocommerce_gateway_order', false );
+		if ( ! $order_option ) {
+			update_option( 'woocommerce_gateway_order', array(
+				'square_cash_app_pay' => 0,
+				'square_credit_card' => 1
+			) );
+		}
 	}
 }
 
