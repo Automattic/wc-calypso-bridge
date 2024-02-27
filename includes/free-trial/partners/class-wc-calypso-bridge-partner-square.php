@@ -4,7 +4,7 @@
  * WC Calypso Bridge Partner Square
  *
  *	@since   2.3.5
- *	@version 2.3.7
+ *	@version 2.3.x
  *
  * This file includes customizations for the sites that were created through /start/square on woo.com.
  * woocommerce_onboarding_profile.partner must get 'square'
