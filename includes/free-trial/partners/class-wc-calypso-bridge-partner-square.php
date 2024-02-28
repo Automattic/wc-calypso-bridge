@@ -4,7 +4,7 @@
  * WC Calypso Bridge Partner Square
  *
  *	@since   2.3.5
- *	@version 2.3.7
+ *	@version 2.3.x
  *
  * This file includes customizations for the sites that were created through /start/square on woo.com.
  * woocommerce_onboarding_profile.partner must get 'square'
@@ -46,6 +46,7 @@ class WC_Calypso_Bridge_Partner_Square {
 			return;
 		}
 
+		$this->force_square_payment_methods_order();
 		$this->add_square_setup_task();
 		$this->add_square_connect_url_to_js();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
@@ -208,6 +209,22 @@ class WC_Calypso_Bridge_Partner_Square {
 			}
 			return $response;
 		}, 10, 3);
+	}
+
+	/**
+	 * Force square_cash_app_pay and square_credit_card order
+	 * IF user hans't customized the payment methods order yet.
+	 *
+	 * @return void
+	 */
+	private function force_square_payment_methods_order() {
+		$order_option = get_option( 'woocommerce_gateway_order', false );
+		if ( ! $order_option ) {
+			update_option( 'woocommerce_gateway_order', array(
+				'square_cash_app_pay' => 0,
+				'square_credit_card' => 1
+			) );
+		}
 	}
 }
 
