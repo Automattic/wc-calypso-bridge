@@ -221,8 +221,8 @@ class WC_Calypso_Bridge_Partner_Square {
 		$order_option = get_option( 'woocommerce_gateway_order', false );
 		if ( ! $order_option ) {
 			update_option( 'woocommerce_gateway_order', array(
-				'square_cash_app_pay' => 0,
-				'square_credit_card' => 1
+				'square_credit_card' => 0,
+				'square_cash_app_pay' => 1,
 			) );
 		}
 	}
