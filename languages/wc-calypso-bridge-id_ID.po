@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-07 13:54:04+0000\n"
+"PO-Revision-Date: 2024-02-27 09:54:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,12 +12,12 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/index.js:8285 src/task-headers/get-paid-with-square.js:53
-msgid "View options"
-msgstr "Lihat opsi"
+msgid "Set up Square"
+msgstr "Siapkan Square"
 
 #: build/index.js:8279 src/task-headers/get-paid-with-square.js:40
-msgid "Choose from fast & secure online and offline payment methods to make it easy for your customers to pay in your store."
-msgstr "Pilih satu di antara beragam metode pembayaran online dan offline yang cepat & aman untuk mempermudah pelanggan melakukan pembayaran di toko Anda."
+msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
+msgstr "Square memudahkan penerimaan pembayaran. Jual secara langsung dan online, serta sinkronisasi semua pembayaran, pelanggan, item, dan inventaris."
 
 #: build/index.js:8279 src/task-headers/get-paid-with-square.js:34
 msgid "It's time to get paid"

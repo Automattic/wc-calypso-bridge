@@ -12,12 +12,12 @@ msgstr ""
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #: build/index.js:8285 src/task-headers/get-paid-with-square.js:53
-msgid "View options"
-msgstr "Seçenekleri görüntüle"
+msgid "Set up Square"
+msgstr ""
 
 #: build/index.js:8279 src/task-headers/get-paid-with-square.js:40
-msgid "Choose from fast & secure online and offline payment methods to make it easy for your customers to pay in your store."
-msgstr "Müşterilerinizin mağazanızda ödeme yapmasını kolaylaştırmak için hızlı ve güvenli çevrimiçi ve çevrimdışı ödeme yöntemlerinden birini seçin."
+msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
+msgstr ""
 
 #: build/index.js:8279 src/task-headers/get-paid-with-square.js:34
 msgid "It's time to get paid"

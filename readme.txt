@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.9 =
+* Force square_cash_app_pay and square_credit_card order on the payment settings page #1445
+
 = Unreleased =
 * Force square_cash_app_pay and square_credit_card order on the payment settings page #xxx
 
