@@ -13,11 +13,11 @@ msgstr ""
 
 #: build/index.js:8285 src/task-headers/get-paid-with-square.js:53
 msgid "Set up Square"
-msgstr ""
+msgstr "Configurer Square"
 
 #: build/index.js:8279 src/task-headers/get-paid-with-square.js:40
 msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
-msgstr ""
+msgstr "Accepter les paiements est facile avec Square. Vendez en ligne et en personne, et synchronisez tous les paiements, clients, articles et stocks."
 
 #: build/index.js:8279 src/task-headers/get-paid-with-square.js:34
 msgid "It's time to get paid"
