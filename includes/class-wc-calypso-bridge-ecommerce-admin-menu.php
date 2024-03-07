@@ -608,10 +608,13 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 		// Move Akismet under Settings
 		$this->hide_submenu_page( 'jetpack', 'akismet-key-config' );
 
-		// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
-		add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
+		if ( function_exists( 'wpcom_is_nav_redesign_enabled' ) && wpcom_is_nav_redesign_enabled() ) {
+			// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
+			add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
 
-		add_submenu_page( 'jetpack', esc_attr__( 'Jetpack Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 100 );
+			// Add Jetpack Stats to 'Jetpack > Stats'.
+			add_submenu_page( 'jetpack', esc_attr__( 'Jetpack Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 100 );
+		}
 
 		// Order Jetpack submenu to have Dashboard first followed by Stats.
 		if ( ! empty( $submenu['jetpack'] ) && is_array( $submenu['jetpack'] ) ) {
