@@ -87,7 +87,6 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 	 * Create the desired menu output.
 	 */
 	public function reregister_menu_items() {
-		$this->add_plugins_menu();
 		$this->add_options_menu();
 		$this->add_jetpack_menu();
 		$this->add_my_home_menu();
@@ -114,9 +113,15 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 		add_submenu_page( 'jetpack', __( 'Feedback', 'wc-calypso-bridge' ), __( 'Feedback', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=feedback', '', 10 );
 
 		// Hide Tools > Marketing and Tools > Earn submenus.
-		$site_suffix  = WC_Calypso_Bridge_Instance()->get_site_slug();
-		$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $site_suffix ) );
-		$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $site_suffix ) );
+		$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $this->domain ) );
+		$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $this->domain ) );
+
+		// Hide Plugins
+		if ( function_exists( 'wpcom_is_nav_redesign_enabled' ) && wpcom_is_nav_redesign_enabled() ) {
+			remove_menu_page( 'plugins.php' );
+		} else {
+			remove_menu_page( 'https://wordpress.com/plugins/' . $this->domain );
+		}
 	}
 
 	/**
@@ -164,22 +169,6 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 				}
 			}
 		}
-	}
-
-	/**
-	 * Override the base implementation of add_plugins_menu() to avoid
-	 * adding the Plugins menu for eCommerce trials.
-	 *
-	 * @since   2.0.8
-	 *
-	 * @return void
-	 */
-	public function add_plugins_menu() {
-		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
-			return;
-		}
-
-		remove_menu_page( 'https://wordpress.com/plugins/' . $this->domain );
 	}
 
 	/**
@@ -608,7 +597,7 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 		// Move Akismet under Settings
 		$this->hide_submenu_page( 'jetpack', 'akismet-key-config' );
 
-		if ( function_exists( 'wpcom_is_nav_redesign_enabled' ) && wpcom_is_nav_redesign_enabled() ) {
+		if ( ! function_exists( 'wpcom_is_nav_redesign_enabled' ) || ! wpcom_is_nav_redesign_enabled() ) {
 			// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
 			add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
 

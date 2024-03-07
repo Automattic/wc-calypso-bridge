@@ -44,7 +44,7 @@ abstract class WC_Calypso_Bridge_Base_Admin_Menu {
 	 */
 	protected function __construct() {
 		$this->is_api_request = defined( 'REST_REQUEST' ) && REST_REQUEST || isset( $_SERVER['REQUEST_URI'] ) && str_starts_with( filter_var( wp_unslash( $_SERVER['REQUEST_URI'] ) ), '/?rest_route=%2Fwpcom%2Fv2%2Fadmin-menu' );
-		$this->domain         = ( new Status() )->get_site_suffix();
+		$this->domain         = WC_Calypso_Bridge_Instance()->get_site_slug();
 
 		add_action( 'admin_menu', array( $this, 'reregister_menu_items' ), 99999 );
 	}
