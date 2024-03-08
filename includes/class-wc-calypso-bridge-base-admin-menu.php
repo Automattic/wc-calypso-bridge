@@ -1,7 +1,5 @@
 <?php
 
-use Automattic\Jetpack\Status;
-
 /**
  * Base Admin Menu file.
  *
@@ -9,6 +7,7 @@ use Automattic\Jetpack\Status;
  * @version x.x.x
  *
  * The base admin menu controller for Ecommerce WoA sites.
+ * Copied from https://github.com/Automattic/jetpack/blob/45c299dc82c265f627328899697cfab154d2fa04/projects/plugins/jetpack/modules/masterbar/admin-menu/class-base-admin-menu.php#L15
  */
 abstract class WC_Calypso_Bridge_Base_Admin_Menu {
 	/**

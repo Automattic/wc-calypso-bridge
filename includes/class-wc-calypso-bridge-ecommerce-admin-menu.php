@@ -29,8 +29,9 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 	 * Override constructor and add custom actions.
 	 */
 	public function __construct() {
+		parent::__construct();
+
 		add_action( 'admin_menu', array( $this, 'maybe_hide_payments_menu' ), 10 );
-		add_action( 'admin_menu', array( $this, 'reregister_menu_items' ), 99999 );
 		add_action( 'admin_bar_menu', array( $this, 'maybe_remove_customizer_admin_bar_menu' ), 99999 );
 		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
@@ -66,21 +67,6 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 				'woocommerce-express-dummy-menu-item'
 			);
 		}, 49);
-	}
-
-	/**
-	 * Returns class instance.
-	 *
-	 * @return Ecommerce_Atomic_Admin_Menu
-	 */
-	public static function get_instance() {
-		$class = static::class;
-
-		if ( empty( static::$instances[ $class ] ) ) {
-			static::$instances[ $class ] = new $class();
-		}
-
-		return static::$instances[ $class ];
 	}
 
 	/**
