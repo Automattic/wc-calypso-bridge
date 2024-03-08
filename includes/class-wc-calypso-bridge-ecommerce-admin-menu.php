@@ -587,7 +587,8 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 			// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
 			add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
 
-			// Add Jetpack Stats to 'Jetpack > Stats'.
+			// Move Jetpack Stats to 'Jetpack > Stats'.
+			remove_menu_page( 'https://wordpress.com/stats/day/' . $this->domain );
 			add_submenu_page( 'jetpack', esc_attr__( 'Jetpack Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 100 );
 		}
 
