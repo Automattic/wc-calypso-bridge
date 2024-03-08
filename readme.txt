@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #xxx
+
 = 2.3.10 =
 * Force square_cash_app_pay and square_credit_card order on the payment settings page -- follow up issue #1447 
 
