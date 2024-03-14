@@ -103,11 +103,7 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 		$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $this->domain ) );
 
 		// Hide Plugins
-		if ( function_exists( 'wpcom_is_nav_redesign_enabled' ) && wpcom_is_nav_redesign_enabled() ) {
-			remove_menu_page( 'plugins.php' );
-		} else {
-			remove_menu_page( 'https://wordpress.com/plugins/' . $this->domain );
-		}
+		remove_menu_page( 'plugins.php' );
 	}
 
 	/**
@@ -124,6 +120,7 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 
 			// Create the toplevel menu from scratch.
 			$this->hide_submenu_page( 'woocommerce', 'wc-orders' );
+			$this->hide_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );
 			add_menu_page( __( 'Orders', 'woocommerce' ), __( 'Orders', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders', null, 'dashicons-cart', 40 );
 			add_submenu_page( 'admin.php?page=wc-orders', __( 'Orders', 'woocommerce' ), __( 'Orders', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders', null, 1 );
 			add_submenu_page( 'admin.php?page=wc-orders', __( 'Add New Order', 'woocommerce' ), __( 'Add New', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders&action=new', null, 2 );
@@ -239,6 +236,9 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 		}
 
 		$this->update_menu( 'index.php', 'admin.php?page=wc-admin', $label, 'edit_posts', 'dashicons-admin-home' );
+		if ( ! function_exists( 'wpcom_is_nav_redesign_enabled' ) || ! wpcom_is_nav_redesign_enabled() ) {
+			remove_submenu_page( 'index.php', 'https://wordpress.com/home/' . $this->domain );
+		}
 	}
 
 	/**
