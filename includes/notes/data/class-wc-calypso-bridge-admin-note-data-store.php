@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.2.20
- * @version 2.2.24
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
 use Automattic\WooCommerce\Admin\Notes\Note;
 use Automattic\WooCommerce\Admin\Notes\DataStore;
-use Automattic\WooCommerce\Admin\RemoteInboxNotifications\DataSourcePoller;
+use Automattic\WooCommerce\Admin\RemoteSpecs\DataSourcePoller;
 
 /**
  * WC Calypso Bridge Admin Notes Data Store
