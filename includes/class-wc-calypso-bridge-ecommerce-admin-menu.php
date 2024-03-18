@@ -239,6 +239,28 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 		if ( ! function_exists( 'wpcom_is_nav_redesign_enabled' ) || ! wpcom_is_nav_redesign_enabled() ) {
 			remove_submenu_page( 'index.php', 'https://wordpress.com/home/' . $this->domain );
 		}
+
+		// Replace "Hosting" (/home) link with "Hosting" (/plans).
+		$this->update_menu(
+			'wpcom-hosting-menu',
+			esc_url( "https://wordpress.com/plans/{$this->domain}" ),
+			esc_attr__( 'Hosting', 'wc-calypso-bridge' ),
+			'manage_options',
+			'dashicons-cloud',
+			3
+		);
+
+		// Remove "Hosting" submenu item created by the above.
+		remove_submenu_page(
+			'wpcom-hosting-menu',
+			esc_url( "https://wordpress.com/plans/{$this->domain}" )
+		);
+
+		// Remove "My Home" submenu item.
+		remove_submenu_page(
+			'wpcom-hosting-menu',
+			esc_url( "https://wordpress.com/home/{$this->domain}" )
+		);
 	}
 
 	/**
