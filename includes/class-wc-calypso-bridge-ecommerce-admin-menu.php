@@ -1,16 +1,19 @@
 <?php
 
 /**
- * Class Ecommerce_Atomic_Admin_Menu.
+ * Class WC_Calypso_Bridge_Ecommerce_Admin_Menu.
  *
  * @since   1.9.8
- * @version 2.3.5
+ * @version x.x.x
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
+require_once __DIR__ . '/class-wc-calypso-bridge-base-admin-menu.php';
 
-class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu {
-
+/**
+ * WC_Calypso_Bridge_Ecommerce_Admin_Menu Class.
+ */
+class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admin_Menu {
 	const WPCOM_ECOMMERCE_MANAGED_PAGES = array(
 		'wc-admin',
 		'wc-admin&path=/customers',
@@ -27,16 +30,10 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 */
 	public function __construct() {
 		parent::__construct();
-		add_action( 'admin_menu', array( $this, 'maybe_hide_payments_menu' ), 10 );
-		add_action( 'admin_menu', array( $this, 'maybe_remove_customizer_menu' ), 99999 );
-		add_action( 'admin_bar_menu', array( $this, 'maybe_remove_customizer_admin_bar_menu' ), 99999 );
-		add_action( 'admin_menu', array( $this, 'add_woocommerce_menu' ), 99999 );
-		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
-		// Handle menu for ecommerce free trial.
-		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
-			$this->handle_free_trial_menu();
-		}
+		add_action( 'admin_menu', array( $this, 'maybe_hide_payments_menu' ), 10 );
+		add_action( 'admin_bar_menu', array( $this, 'maybe_remove_customizer_admin_bar_menu' ), 99999 );
+		add_filter( 'menu_order', array( $this, 'menu_order' ), 100 );
 
 		if ( ! $this->is_api_request ) {
 			add_filter( 'submenu_file', array( $this, 'modify_woocommerce_menu_highlighting' ), 99999 );
@@ -73,27 +70,40 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	}
 
 	/**
+	 * Create the desired menu output.
+	 */
+	public function reregister_menu_items() {
+		$this->add_options_menu();
+		$this->add_jetpack_menu();
+		$this->add_my_home_menu();
+		$this->maybe_remove_customizer_menu();
+		$this->add_woocommerce_menu();
+
+		// Handle menu for ecommerce free trial.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			$this->handle_free_trial_menu();
+		}
+	}
+
+	/**
 	 * Modify admin menu for the Ecommerce Free Trial plan.
 	 */
 	protected function handle_free_trial_menu() {
+		// Hide Extensions > Manage and the new Extensions page.
+		$this->hide_submenu_page( 'woocommerce', 'admin.php?page=wc-addons&section=helper' );
+		$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/extensions' );
 
-		add_action( 'admin_menu', function() {
+		// Move Feedback under Jetpack > Feedback.
+		$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
+		remove_menu_page( 'feedback' );
+		add_submenu_page( 'jetpack', __( 'Feedback', 'wc-calypso-bridge' ), __( 'Feedback', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=feedback', '', 10 );
 
-			// Hide Extensions > Manage and the new Extensions page.
-			$this->hide_submenu_page( 'woocommerce', 'admin.php?page=wc-addons&section=helper' );
-			$this->hide_submenu_page( 'woocommerce', 'wc-admin&path=/extensions' );
+		// Hide Tools > Marketing and Tools > Earn submenus.
+		$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $this->domain ) );
+		$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $this->domain ) );
 
-			// Move Feedback under Jetpack > Feedback.
-			$this->hide_submenu_page( 'feedback', 'edit.php?post_type=feedback' );
-			remove_menu_page( 'feedback' );
-			add_submenu_page( 'jetpack', __( 'Feedback', 'wc-calypso-bridge' ), __( 'Feedback', 'wc-calypso-bridge' ), 'manage_woocommerce', 'edit.php?post_type=feedback', '', 10 );
-
-			// Hide Tools > Marketing and Tools > Earn submenus.
-			$site_suffix  = WC_Calypso_Bridge_Instance()->get_site_slug();
-			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/marketing/tools/%s', $site_suffix ) );
-			$this->hide_submenu_page( 'tools.php', sprintf( 'https://wordpress.com/earn/%s', $site_suffix ) );
-
-		}, 99999 );
+		// Hide Plugins
+		remove_menu_page( 'plugins.php' );
 	}
 
 	/**
@@ -110,6 +120,7 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 			// Create the toplevel menu from scratch.
 			$this->hide_submenu_page( 'woocommerce', 'wc-orders' );
+			$this->hide_submenu_page( 'woocommerce', 'edit.php?post_type=shop_order' );
 			add_menu_page( __( 'Orders', 'woocommerce' ), __( 'Orders', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders', null, 'dashicons-cart', 40 );
 			add_submenu_page( 'admin.php?page=wc-orders', __( 'Orders', 'woocommerce' ), __( 'Orders', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders', null, 1 );
 			add_submenu_page( 'admin.php?page=wc-orders', __( 'Add New Order', 'woocommerce' ), __( 'Add New', 'woocommerce' ), 'edit_shop_orders', 'admin.php?page=wc-orders&action=new', null, 2 );
@@ -141,22 +152,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				}
 			}
 		}
-	}
-
-	/**
-	 * Override the base implementation of add_plugins_menu() to avoid
-	 * adding the Plugins menu for eCommerce trials.
-	 *
-	 * @since   2.0.8
-	 *
-	 * @return void
-	 */
-	public function add_plugins_menu() {
-		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
-			return;
-		}
-
-		return parent::add_plugins_menu();
 	}
 
 	/**
@@ -241,6 +236,31 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 		}
 
 		$this->update_menu( 'index.php', 'admin.php?page=wc-admin', $label, 'edit_posts', 'dashicons-admin-home' );
+		if ( ! function_exists( 'wpcom_is_nav_redesign_enabled' ) || ! wpcom_is_nav_redesign_enabled() ) {
+			remove_submenu_page( 'index.php', 'https://wordpress.com/home/' . $this->domain );
+		}
+
+		// Replace "Hosting" (/home) link with "Hosting" (/plans).
+		$this->update_menu(
+			'wpcom-hosting-menu',
+			esc_url( "https://wordpress.com/plans/{$this->domain}" ),
+			esc_attr__( 'Hosting', 'wc-calypso-bridge' ),
+			'manage_options',
+			'dashicons-cloud',
+			3
+		);
+
+		// Remove "Hosting" submenu item created by the above.
+		remove_submenu_page(
+			'wpcom-hosting-menu',
+			esc_url( "https://wordpress.com/plans/{$this->domain}" )
+		);
+
+		// Remove "My Home" submenu item.
+		remove_submenu_page(
+			'wpcom-hosting-menu',
+			esc_url( "https://wordpress.com/home/{$this->domain}" )
+		);
 	}
 
 	/**
@@ -566,8 +586,6 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 	 * Introduce 'Settings > Anti-Spam' and remove 'Settings > Jetpack' from Settings.
 	 */
 	public function add_options_menu() {
-		parent::add_options_menu();
-
 		// Introduce 'Settings > Anti-Spam'.
 		add_submenu_page( 'options-general.php', __( 'Anti-Spam', 'wc-calypso-bridge' ), __( 'Anti-Spam', 'wc-calypso-bridge' ), 'manage_options', 'akismet-key-config', array( 'Akismet_Admin', 'display_page' ), 12 );
 		// Remove 'Settings > Jetpack' from Settings.
@@ -581,18 +599,20 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 
 		global $submenu;
 
-		parent::add_jetpack_menu();
-
 		// Remove Jetpack Search menu item. Already exposed in the Jetpack Dashboard.
 		$this->hide_submenu_page( 'jetpack', 'jetpack-search' );
 
 		// Move Akismet under Settings
 		$this->hide_submenu_page( 'jetpack', 'akismet-key-config' );
 
-		// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
-		add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
+		if ( ! function_exists( 'wpcom_is_nav_redesign_enabled' ) || ! wpcom_is_nav_redesign_enabled() ) {
+			// Move Jetpack status screen from 'Settings > Jetpack' to 'Tools > Jetpack Status'.
+			add_submenu_page( 'tools.php', esc_attr__( 'Jetpack Status', 'wc-calypso-bridge' ), __( 'Jetpack Status', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/settings/jetpack/' . $this->domain, null, 100 );
 
-		add_submenu_page( 'jetpack', esc_attr__( 'Jetpack Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 100 );
+			// Move Jetpack Stats to 'Jetpack > Stats'.
+			remove_menu_page( 'https://wordpress.com/stats/day/' . $this->domain );
+			add_submenu_page( 'jetpack', esc_attr__( 'Jetpack Stats', 'wc-calypso-bridge' ), __( 'Stats', 'wc-calypso-bridge' ), 'manage_options', 'https://wordpress.com/stats/day/' . $this->domain, null, 100 );
+		}
 
 		// Order Jetpack submenu to have Dashboard first followed by Stats.
 		if ( ! empty( $submenu['jetpack'] ) && is_array( $submenu['jetpack'] ) ) {
@@ -622,11 +642,5 @@ class Ecommerce_Atomic_Admin_Menu extends \Automattic\Jetpack\Dashboard_Customiz
 				return ( $A < $B ) ? -1 : 1;
 			} );
 		}
-	}
-
-	/**
-	 * Remove Stats menu.
-	 */
-	public function add_stats_menu() {
 	}
 }

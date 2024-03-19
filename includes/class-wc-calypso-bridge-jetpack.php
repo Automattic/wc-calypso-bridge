@@ -50,35 +50,27 @@ class WC_Calypso_Bridge_Jetpack {
 	 * Initialize hooks.
 	 */
 	public function init() {
-
 		/**
-		 * Inject the Ecommerce admin menu controller into Jetpack.
+		 * `ecommerce_new_woo_atomic_navigation_enabled` filter.
 		 *
-		 * @since 1.9.8
+		 * This filter is used to revert the ecommerce menu back to the atomic one. It's also useful for debugging purposes.
 		 *
-		 * @param  string $menu_controller_class The name of the menu controller class.
-		 * @return string
+		 * @since 1.9.12
+		 *
+		 * @param  bool $enabled
+		 * @return bool
 		 */
-		add_filter( 'jetpack_admin_menu_class', function ( $menu_controller_class ) {
+		$is_wooexpress_navigation_enabled = (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) );
+		if ( $is_wooexpress_navigation_enabled && class_exists( '\Jetpack' ) && \Jetpack::is_module_active( 'sso' ) ) {
+			require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-ecommerce-admin-menu.php';
 
 			/**
-			 * `ecommerce_new_woo_atomic_navigation_enabled` filter.
+			 * Apply the Ecommerce admin menu.
 			 *
-			 * This filter is used to revert the ecommerce menu back to the atomic one. It's also useful for debugging purposes.
-			 *
-			 * @since 1.9.12
-			 *
-			 * @param  bool $enabled
-			 * @return bool
+			 * @since 1.9.8
 			 */
-
-			if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) ) && class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) && class_exists('\Jetpack') && \Jetpack::is_module_active( 'sso' ) ) {
-				require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-ecommerce-admin-menu.php';
-				return Ecommerce_Atomic_Admin_Menu::class;
-			}
-
-			return $menu_controller_class;
-		} );
+			WC_Calypso_Bridge_Ecommerce_Admin_Menu::get_instance();
+		}
 
 		/**
 		 * Limits Jetpack Modules to those relevant to Ecommerce Plan users.
