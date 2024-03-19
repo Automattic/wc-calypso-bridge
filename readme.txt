@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.3.11 =
 * Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #xxx
 
 = 2.3.10 =
