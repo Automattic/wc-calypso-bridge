@@ -147,6 +147,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			$features['navigation'] = false;
 		}
 
+		// Disable launch-your-store to prevent clashes with similar functionality already provided.
+		if ( isset( $features['launch-your-store'] ) ) {
+			$features['launch-your-store'] = false;
+		}
+
 		// Keep Woo Analytics enabled.
 		if ( ! isset( $features['analytics'] ) ) {
 			$features['analytics'] = true;
