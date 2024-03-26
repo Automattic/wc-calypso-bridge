@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Force launch-your-store feature flag to false #1450
+
 = 2.3.11 =
 * Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #xxx
 
