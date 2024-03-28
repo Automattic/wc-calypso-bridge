@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.3.2
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -145,6 +145,11 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		// Disable and revert the navigation experiment.
 		if ( isset( $features['navigation'] ) ) {
 			$features['navigation'] = false;
+		}
+
+		// Disable launch-your-store to prevent clashes with similar functionality already provided.
+		if ( isset( $features['launch-your-store'] ) ) {
+			$features['launch-your-store'] = false;
 		}
 
 		// Keep Woo Analytics enabled.
