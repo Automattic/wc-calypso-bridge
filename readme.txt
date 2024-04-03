@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active #xxx
 * Force launch-your-store feature flag to false #1450
 
 = 2.3.11 =
