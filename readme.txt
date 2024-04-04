@@ -24,6 +24,10 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Update DataSourcePoller import since after refactor in core #1450
+* Force launch-your-store feature flag to false #1450
+
+= 2.3.11 =
+* Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #xxx
 
 = 2.3.10 =
 * Force square_cash_app_pay and square_credit_card order on the payment settings page -- follow up issue #1447 
