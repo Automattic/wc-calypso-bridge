@@ -52,7 +52,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 			}
 		}
 
-		return [];
+		return array();
 	}
 
 	/**
