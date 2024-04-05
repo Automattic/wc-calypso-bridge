@@ -41,8 +41,8 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 */
 	public function fetch_specs() {
 		$possible_paths = [
-			'Automattic\WooCommerce\Admin\RemoteInboxNotifications\DataSourcePoller',
 			'Automattic\WooCommerce\Admin\RemoteInboxNotifications\RemoteInboxNotificationsDataSourcePoller',
+			'Automattic\WooCommerce\Admin\RemoteInboxNotifications\DataSourcePoller',
 		];
 
 		foreach ( $possible_paths as $class_path ) {
