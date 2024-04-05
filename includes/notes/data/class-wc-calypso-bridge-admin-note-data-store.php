@@ -48,7 +48,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 		foreach ( $possible_paths as $class_path ) {
 			if ( class_exists( $class_path ) ) {
 				// Directly call the static method from the fully qualified class name.
-				return $class_path::get_instance()->get_specs_from_data_source();
+				return $class_path::get_instance()->get_specs_from_data_sources();
 			}
 		}
 
