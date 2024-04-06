@@ -22,10 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 2.3.12 =
-* _Enter your changes here_
-
 = Unreleased =
+
+= 2.3.12 =
 * Update DataSourcePoller import since after refactor in core #1450
 * Force launch-your-store feature flag to false #1450
 
