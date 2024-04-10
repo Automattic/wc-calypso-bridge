@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active #xxx
+* Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active #1458
 
 = 2.3.12 =
 * Update DataSourcePoller import since after refactor in core #1450
