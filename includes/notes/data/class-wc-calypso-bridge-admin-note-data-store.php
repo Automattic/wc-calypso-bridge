@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.2.20
- * @version 2.2.24
+ * @version 2.3.12
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -12,7 +12,6 @@ defined( 'ABSPATH' ) || exit;
 use Automattic\WooCommerce\Admin\WCAdminHelper;
 use Automattic\WooCommerce\Admin\Notes\Note;
 use Automattic\WooCommerce\Admin\Notes\DataStore;
-use Automattic\WooCommerce\Admin\RemoteInboxNotifications\DataSourcePoller;
 
 /**
  * WC Calypso Bridge Admin Notes Data Store
@@ -33,6 +32,27 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 	 */
 	protected function has_allow_list() {
 		return wc_calypso_bridge_is_ecommerce_trial_plan();
+	}
+
+	/**
+	 * Attempts to fetch specs from the first available DataSourcePoller class.
+	 *
+	 * @return array The specs data or null if not retrievable.
+	 */
+	public function fetch_specs() {
+		$possible_paths = [
+			'Automattic\WooCommerce\Admin\RemoteInboxNotifications\RemoteInboxNotificationsDataSourcePoller',
+			'Automattic\WooCommerce\Admin\RemoteInboxNotifications\DataSourcePoller',
+		];
+
+		foreach ( $possible_paths as $class_path ) {
+			if ( class_exists( $class_path ) ) {
+				// Directly call the static method from the fully qualified class name.
+				return $class_path::get_instance()->get_specs_from_data_sources();
+			}
+		}
+
+		return array();
 	}
 
 	/**
@@ -67,7 +87,7 @@ class WC_Calypso_Bridge_Admin_Note_Data_Store extends DataStore {
 		);
 
 		// Allow Remote Inbox Notifications targeting Woo Express sites to be saved.
-		$data = DataSourcePoller::get_instance()->get_specs_from_data_sources();
+		$data = $this->fetch_specs();
 		foreach ( $data as $spec ) {
 			if ( isset( $spec->rules ) && is_array( $spec->rules ) ) {
 				foreach ( $spec->rules as $rule ) {
