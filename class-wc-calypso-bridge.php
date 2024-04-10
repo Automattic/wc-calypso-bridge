@@ -100,10 +100,14 @@ class WC_Calypso_Bridge {
 	/**
 	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active.
 	 *
-	 * @since 2.3.4
+	 * @since 2.3.12
 	 *
 	 */
 	public function deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active() {
+		if ( ! wc_calypso_bridge_is_woo_express_plan() ) {
+			return;
+		}
+
 		$active_plugins = (array) get_option( 'active_plugins', array() );
 		$shipping_key   = array_keys( $active_plugins, 'woocommerce-shipping/woocommerce-shipping.php' );
 		$tax_key        = array_keys( $active_plugins, 'woocommerce-tax/woocommerce-tax.php' );
