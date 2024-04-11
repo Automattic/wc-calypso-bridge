@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.13 =
+* Fix the duplicate My Home menu in Ecommerce Admin Menu
+
 = Unreleased =
 
 = 2.3.12 =
