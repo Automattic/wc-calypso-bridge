@@ -238,6 +238,7 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 		$this->update_menu( 'index.php', 'admin.php?page=wc-admin', $label, 'edit_posts', 'dashicons-admin-home' );
 		if ( ! function_exists( 'wpcom_is_nav_redesign_enabled' ) || ! wpcom_is_nav_redesign_enabled() ) {
 			remove_submenu_page( 'index.php', 'https://wordpress.com/home/' . $this->domain );
+			remove_menu_page( 'https://wordpress.com/home/' . $this->domain );
 		}
 
 		// Replace "Hosting" (/home) link with "Hosting" (/plans).
