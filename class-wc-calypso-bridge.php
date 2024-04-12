@@ -100,7 +100,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active.
 	 *
-	 * @since 2.3.12
+	 * @since x.x.x
 	 *
 	 */
 	public function deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active() {
