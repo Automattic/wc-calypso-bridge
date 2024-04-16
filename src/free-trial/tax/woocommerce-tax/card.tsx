@@ -17,7 +17,7 @@ import { TaxChildProps } from '../utils';
 export const Card: React.FC< TaxChildProps > = () => {
 	return (
 		<PartnerCard
-			name={ __( 'WooC Tax', 'woocommerce' ) }
+			name={ __( 'Woo Tax', 'woocommerce' ) }
 			logo={ logo }
 			description={ __( 'Best for new stores', 'woocommerce' ) }
 			benefits={ [
