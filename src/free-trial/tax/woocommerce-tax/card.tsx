@@ -17,7 +17,7 @@ import { TaxChildProps } from '../utils';
 export const Card: React.FC< TaxChildProps > = () => {
 	return (
 		<PartnerCard
-			name={ __( 'WooCommerce Tax', 'woocommerce' ) }
+			name={ __( 'WooC Tax', 'woocommerce' ) }
 			logo={ logo }
 			description={ __( 'Best for new stores', 'woocommerce' ) }
 			benefits={ [
@@ -31,29 +31,12 @@ export const Card: React.FC< TaxChildProps > = () => {
 						strong: <strong />,
 					},
 				} ),
-				interpolateComponents( {
-					mixedString: __(
-						'Powered by {{link}}Jetpack{{/link}}',
-						'woocommerce'
-					),
-					components: {
-						link: (
-							<Link
-								type="external"
-								href="https://woocommerce.com/products/jetpack/?utm_medium=product"
-								target="_blank"
-							>
-								<></>
-							</Link>
-						),
-					},
-				} ),
 				// eslint-disable-next-line @wordpress/i18n-translator-comments
 				__( '100% free', 'woocommerce' ),
 			] }
 			terms={ interpolateComponents( {
 				mixedString: __(
-					'By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}.',
+					'By installing Woo Tax you agree to the {{link}}Terms of Service{{/link}}.',
 					'woocommerce'
 				),
 				components: {
