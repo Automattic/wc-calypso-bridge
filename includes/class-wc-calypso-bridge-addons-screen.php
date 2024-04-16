@@ -68,8 +68,12 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 			return;
 		}
 
-		if ( isset( $_GET['install-addon'] ) && 'woocommerce-services' === $_GET['install-addon'] ) { // WPCS: CSRF ok.
-			self::install_woocommerce_services_addon();
+		if ( isset( $_GET['install-addon'] ) && 'woocommerce-tax' === $_GET['install-addon'] ) { // WPCS: CSRF ok.
+			self::install_woo_tax_addon();
+		}
+
+		if ( isset( $_GET['install-addon'] ) && 'woocommerce-shipping' === $_GET['install-addon'] ) { // WPCS: CSRF ok.
+			self::install_woo_shipping_addon();
 		}
 
 		$sections        = self::get_sections();
@@ -102,5 +106,41 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 		 * @uses $current_section
 		 */
 		include_once WC_ABSPATH . 'includes/admin/views/html-admin-page-addons.php';
+	}
+
+	/**
+	 * Install Woo Tax from Extensions screens.
+	 */
+	public static function install_woo_tax_addon() {
+		check_admin_referer( 'install-addon_woocommerce-tax' );
+
+		$services_plugin_id = 'woocommerce-tax';
+		$services_plugin    = array(
+			'name'      => __( 'Woo Tax', 'woocommerce' ),
+			'repo-slug' => 'woocommerce-tax',
+		);
+
+		WC_Install::background_installer( $services_plugin_id, $services_plugin );
+
+		wp_safe_redirect( remove_query_arg( array( 'install-addon', '_wpnonce' ) ) );
+		exit;
+	}
+
+	/**
+	 * Install Woo Shipping from Extensions screens.
+	 */
+	public static function install_woo_shipping_addon() {
+		check_admin_referer( 'install-addon_woocommerce-shipping' );
+
+		$services_plugin_id = 'woocommerce-shipping';
+		$services_plugin    = array(
+			'name'      => __( 'Woo Shipping', 'woocommerce' ),
+			'repo-slug' => 'woocommerce-shipping',
+		);
+
+		WC_Install::background_installer( $services_plugin_id, $services_plugin );
+
+		wp_safe_redirect( remove_query_arg( array( 'install-addon', '_wpnonce' ) ) );
+		exit;
 	}
 }
