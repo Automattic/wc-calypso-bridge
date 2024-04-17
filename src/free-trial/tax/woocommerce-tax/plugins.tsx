@@ -57,9 +57,9 @@ export const Plugins: React.FC< SetupStepProps > = ( {
 		nextStep();
 	}, [ isResolving ] );
 
-	const agreementText = pluginsToActivate.includes( 'woocommerce-services' )
+	const agreementText = pluginsToActivate.includes( 'woocommerce-tax' )
 		? __(
-				'By installing Jetpack and WooCommerce Tax you agree to the {{link}}Terms of Service{{/link}}.',
+				'By installing Woo Tax you agree to the {{link}}Terms of Service{{/link}}.',
 				'woocommerce'
 		  )
 		: __(
