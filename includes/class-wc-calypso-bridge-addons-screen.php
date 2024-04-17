@@ -110,6 +110,8 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 
 	/**
 	 * Install Woo Tax from Extensions screens.
+	 *
+	 * @since x.x.x
 	 */
 	public static function install_woo_tax_addon() {
 		check_admin_referer( 'install-addon_woocommerce-tax' );
@@ -128,6 +130,8 @@ class WC_Calypso_Bridge_Addons_Screen extends WC_Admin_Addons {
 
 	/**
 	 * Install Woo Shipping from Extensions screens.
+	 *
+	 * @since x.x.x
 	 */
 	public static function install_woo_shipping_addon() {
 		check_admin_referer( 'install-addon_woocommerce-shipping' );
