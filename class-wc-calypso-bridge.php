@@ -98,10 +98,12 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
-	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan
-	 * (on WPCOM and Woo Express, including trial plans).
+	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan.
+	 *
+	 * This applies to WPCOM and Woo Express, including trial plans.
 	 *
 	 * @since x.x.x
+	 * @link https://github.com/Automattic/wc-calypso-bridge/pull/1458
 	 *
 	 * @return void
 	 */
