@@ -28,9 +28,6 @@ This section describes how to install the plugin and get it working.
 = 2.3.13 =
 * Fix the duplicate My Home menu in Ecommerce Admin Menu
 
-= Unreleased =
-* Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan (on WPCOM and Woo Express, including trial plans) #1458
-
 = 2.3.12 =
 * Update DataSourcePoller import since after refactor in core #1450
 * Force launch-your-store feature flag to false #1450
