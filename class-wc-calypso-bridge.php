@@ -103,6 +103,7 @@ class WC_Calypso_Bridge {
 	 *
 	 * @since x.x.x
 	 *
+	 * @return void
 	 */
 	public function deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active_on_ecomm_plans() {
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
