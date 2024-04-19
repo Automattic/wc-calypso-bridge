@@ -75,6 +75,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'muplugins_loaded', array( $this, 'deactivate_duplicate_tiktok' ), PHP_INT_MAX );
+		add_action( 'muplugins_loaded', array( $this, 'deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active_on_ecomm_plans'), PHP_INT_MAX );
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
 	}
@@ -92,6 +93,32 @@ class WC_Calypso_Bridge {
 
 		if ( ! empty( $business_key ) && ! empty( $woocommerce_key ) ) {
 			unset( $active_plugins[ $woocommerce_key[0] ] );
+			update_option( 'active_plugins', $active_plugins );
+		}
+	}
+
+	/**
+	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan.
+	 *
+	 * This applies to WPCOM and Woo Express, including trial plans.
+	 *
+	 * @since x.x.x
+	 * @link https://github.com/Automattic/wc-calypso-bridge/pull/1458
+	 *
+	 * @return void
+	 */
+	public function deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active_on_ecomm_plans() {
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
+		$active_plugins = (array) get_option( 'active_plugins', array() );
+		$shipping_key   = array_keys( $active_plugins, 'woocommerce-shipping/woocommerce-shipping.php' );
+		$tax_key        = array_keys( $active_plugins, 'woocommerce-tax/woocommerce-tax.php' );
+		$services_key   = array_keys( $active_plugins, 'woocommerce-services/woocommerce-services.php' );
+
+		if ( ( ! empty( $shipping_key ) || ! empty( $tax_key ) ) && ! empty( $services_key ) ) {
+			unset( $active_plugins[ $services_key[0] ] );
 			update_option( 'active_plugins', $active_plugins );
 		}
 	}
