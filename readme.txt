@@ -22,6 +22,8 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+
 = 2.3.14 =
 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan (on WPCOM and Woo Express, including trial plans) #1458
 
