@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.14 =
+* Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan (on WPCOM and Woo Express, including trial plans) #1458
+
 = 2.3.13 =
 * Fix the duplicate My Home menu in Ecommerce Admin Menu
 
