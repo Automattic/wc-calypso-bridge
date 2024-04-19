@@ -75,7 +75,7 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'muplugins_loaded', array( $this, 'deactivate_duplicate_tiktok' ), PHP_INT_MAX );
-		add_action( 'muplugins_loaded', array( $this, 'deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active'), PHP_INT_MAX );
+		add_action( 'muplugins_loaded', array( $this, 'deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active_on_ecomm_plans'), PHP_INT_MAX );
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
 	}
@@ -98,13 +98,14 @@ class WC_Calypso_Bridge {
 	}
 
 	/**
-	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active.
+	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan
+	 * (on WPCOM and Woo Express, including trial plans).
 	 *
 	 * @since x.x.x
 	 *
 	 */
-	public function deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active() {
-		if ( ! wc_calypso_bridge_is_woo_express_plan() ) {
+	public function deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active_on_ecomm_plans() {
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
 
