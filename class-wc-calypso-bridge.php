@@ -102,7 +102,7 @@ class WC_Calypso_Bridge {
 	 *
 	 * This applies to WPCOM and Woo Express, including trial plans.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.14
 	 * @link https://github.com/Automattic/wc-calypso-bridge/pull/1458
 	 *
 	 * @return void
