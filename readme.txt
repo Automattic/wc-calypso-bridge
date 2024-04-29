@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.3.15 =
+* Open AI Woo store builder to all sites on WPCOM Entrepreneur plan
+
 = Unreleased =
 
 = 2.3.14 =
