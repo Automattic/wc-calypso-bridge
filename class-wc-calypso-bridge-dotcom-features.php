@@ -116,7 +116,7 @@ if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_plan' ) ) {
 	 * @return bool True if the site is on the Woo Express plan.
 	 */
 	function wc_calypso_bridge_is_woo_express_plan() {
-		return wc_calypso_bridge_is_ecommerce_trial_plan() || wc_calypso_bridge_is_woo_express_essential_plan() || wc_calypso_bridge_is_woo_express_performance_plan();
+		return wc_calypso_bridge_is_ecommerce_plan() || wc_calypso_bridge_is_ecommerce_trial_plan() || wc_calypso_bridge_is_woo_express_essential_plan() || wc_calypso_bridge_is_woo_express_performance_plan();
 	}
 }
 
