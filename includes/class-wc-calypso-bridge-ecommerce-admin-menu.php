@@ -262,6 +262,18 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 			'wpcom-hosting-menu',
 			esc_url( "https://wordpress.com/home/{$this->domain}" )
 		);
+
+		// If we have entrepreneur plan, we change the url of home
+		if ( $this->has_entrepreneur_plan() ) {
+			$this->update_menu(
+				'index.php',
+				'https://wordpress.com/home/' . $this->domain . '?flags=entrepreneur-my-home',
+				$label,
+				'edit_posts',
+				'dashicons-admin-home'
+			);
+			remove_submenu_page( 'index.php', 'admin.php?page=wc-admin' );
+		}
 	}
 
 	/**
@@ -643,5 +655,15 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 				return ( $A < $B ) ? -1 : 1;
 			} );
 		}
+	}
+
+	/**
+	 * Check if the site has Entrepreneur plan
+	 *
+	 * @return bool
+	 */
+	protected function has_entrepreneur_plan() {
+		$current_plan = get_option( 'jetpack_active_plan',  array() );
+		return ! empty( $current_plan ) && 'ecommerce-bundle' === $current_plan['product_slug'];
 	}
 }
