@@ -1,7 +1,0 @@
-.git
-node_modules/
-tests/
-vendor/
-.cache/
-.idea
-.config
