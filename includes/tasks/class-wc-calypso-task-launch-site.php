@@ -93,13 +93,4 @@ class LaunchSite extends Task {
 		);
 		return in_array( $launch_status, $launched_values, true );
 	}
-
-	/**
-	 * The task should not be displayed if the site is on the eCommerce trial.
-	 *
-	 * @return bool
-	 */
-	public function can_view() {
-		return ! wc_calypso_bridge_is_ecommerce_trial_plan();
-	}
 }
