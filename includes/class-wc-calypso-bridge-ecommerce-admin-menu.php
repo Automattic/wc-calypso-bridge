@@ -664,6 +664,18 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 	 */
 	protected function has_entrepreneur_plan() {
 		$current_plan = get_option( 'jetpack_active_plan',  array() );
-		return ! empty( $current_plan ) && 'ecommerce-bundle' === $current_plan['product_slug'];
+		if ( empty( $current_plan ) ) {
+			return false;
+		}
+
+		$entrepreneur_plans = [
+			'ecommerce-bundle-monthly',
+			'ecommerce-bundle',
+			'ecommerce-bundle-2y',
+			'ecommerce-bundle-3y',
+			'ecommerce-trial-bundle-monthly',
+		];
+
+		return in_array( $current_plan['product_slug'], $entrepreneur_plans, true );
 	}
 }
