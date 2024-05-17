@@ -106,7 +106,7 @@ class WC_Calypso_Bridge_Shared {
 			return $relative;
 		});
 
-		wp_set_script_translations( 'wc-calypso-bridge', 'wc-calypso-bridge'  );
+		wp_set_script_translations( 'wc-calypso-bridge', 'wc-calypso-bridge', WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/languages' );
 
 		$style_path     = 'build/style-index.css';
 		$style_path_url = plugins_url( $style_path, __FILE__ );
