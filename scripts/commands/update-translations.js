@@ -145,6 +145,11 @@ export default async function updateTranslations() {
 						'.mo'
 					) }`
 				);
+
+				await execPromise(
+					`${ wpPath } i18n make-json ${ LANG_FILENAME }`
+				);
+
 				success( `${ LANG_FILENAME } compiled successfully.` );
 			} catch ( err ) {
 				error(
