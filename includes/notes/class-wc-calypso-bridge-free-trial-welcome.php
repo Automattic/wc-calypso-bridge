@@ -70,13 +70,15 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 	 */
 	public static function can_be_added() {
 		// Temporarily disable Welcome note; context: p1715940056147799/1715859215.173039-slack-C06RQ4EQ7V2.
-		return false;
+		return true;
 
 		$note = self::get_note();
 
 		if ( ! $note instanceof Note && ! $note instanceof WC_Admin_Note ) {
 			return;
 		}
+
+		self::possibly_delete_note();
 
 		if ( self::note_exists() ) {
 			return false;
