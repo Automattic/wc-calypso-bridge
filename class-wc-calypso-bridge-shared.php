@@ -97,6 +97,17 @@ class WC_Calypso_Bridge_Shared {
 			true
 		);
 
+		// Rewrite script relative path when used as dependency to calculate the right filename.
+		add_filter( 'load_script_textdomain_relative_path', function( $relative ) {
+			if ( $relative === 'vendor/automattic/wc-calypso-bridge/build/index.js' ) {
+				return 'build/index.js';
+			}
+
+			return $relative;
+		});
+
+		wp_set_script_translations( 'wc-calypso-bridge', 'wc-calypso-bridge'  );
+
 		$style_path     = 'build/style-index.css';
 		$style_path_url = plugins_url( $style_path, __FILE__ );
 		$res            = wp_register_style(
