@@ -78,8 +78,6 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 			return;
 		}
 
-		self::possibly_delete_note();
-
 		if ( self::note_exists() ) {
 			return false;
 		}
