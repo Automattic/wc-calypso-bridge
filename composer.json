@@ -1,6 +1,7 @@
 {
   "name": "automattic/wc-calypso-bridge",
   "version": "v2.4.0",
+	"license": "GPL-2.0-or-later",
   "autoload": {
     "files": [
       "wc-calypso-bridge.php"
