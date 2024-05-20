@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.4.1 =
+* eCommerce Signup Flow: Update eCommerce plan Welcome note
+
 = 2.4.0 =
 * Make Entrepreneur and Entrepreneur trial plans navigate to Calypso's home when "My Home" sidebar menu item is selected
 
