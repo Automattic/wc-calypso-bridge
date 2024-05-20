@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-03-19 08:10:07+0000\n"
+"PO-Revision-Date: 2024-05-14 09:38:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -156,7 +156,7 @@ msgstr "Producten importeren"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:66
 msgid "Add your products"
-msgstr ""
+msgstr "Voeg je producten toe"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:63
 msgid "Import your products"
@@ -676,48 +676,48 @@ msgstr "Je bestelling kon niet geplaatst worden. Afrekenfuncties zijn momenteel 
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Deze winkel is niet klaar om bestellingen te ontvangen. Afrekenfuncties zijn momenteel alleen ingeschakeld voor voorbeeldweergaven."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
 msgid "Jetpack Stats"
 msgstr "Jetpack Statistieken"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:623
 msgid "Jetpack Status"
 msgstr "Jetpack-status"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:603
 msgid "Anti-Spam"
 msgstr "Anti-spam"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:410
 msgid "Discover"
 msgstr "Ontdek"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
 #: src/payment-gateway-suggestions/components/Action.js:76
 msgid "Manage"
 msgstr "Beheren"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:399
 msgid "Extensions"
 msgstr "Uitbreidingen"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:395
 msgid "Customers"
 msgstr "Klanten"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:385
 msgid "Legacy Reports"
 msgstr "Legacy verslagen"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:378
 msgid "WooCommerce Status"
 msgstr "WooCommerce-status"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
 msgid "WooCommerce Settings"
 msgstr "WooCommerce-instellingen"
 
@@ -796,7 +796,7 @@ msgstr "Bestelgegevens handmatig naar klant verzonden."
 msgid "Invalid order ID."
 msgstr "Ongeldige bestellings-ID."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -928,7 +928,7 @@ msgstr "Nieuwe toevoegen"
 msgid "Store"
 msgstr "Winkel"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
 msgid "Stats"
 msgstr "Statistieken"
 
