@@ -34,14 +34,21 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 	 */
 	public static function get_note() {
 
-		$note = new Note();
-		$note->set_title( __( 'Your Woo Express free trial has just started', 'wc-calypso-bridge' ) );
-		$note->set_content(
-			__(
-				'Welcome to your 14-day free trial of Woo Express – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?',
-				'wc-calypso-bridge'
-			)
+		$current_plan       = get_option( 'jetpack_active_plan',  array() );
+		$product_name_short = $current_plan[ 'product_name_short' ];
+
+		/* translators: %s: trial plan name, e.g. Entrepreneur */
+		$note_title = sprintf( __( 'Your %s free trial has just started', 'wc-calypso-bridge' ), $product_name_short );
+
+		/* translators: %s: trial plan name, e.g. Entrepreneur */
+		$note_content = sprintf(
+			__( 'Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?', 'wc-calypso-bridge' ),
+			$product_name_short
 		);
+
+		$note = new Note();
+		$note->set_title( $note_title );
+		$note->set_content( $note_content );
 		$note->set_content_data( (object) array() );
 		$note->set_type( Note::E_WC_ADMIN_NOTE_INFORMATIONAL );
 		$note->set_name( self::NOTE_NAME );
@@ -62,6 +69,9 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 	 * @return bool
 	 */
 	public static function can_be_added() {
+		// Temporarily disable Welcome note; context: p1715940056147799/1715859215.173039-slack-C06RQ4EQ7V2.
+		return false;
+
 		$note = self::get_note();
 
 		if ( ! $note instanceof Note && ! $note instanceof WC_Admin_Note ) {
