@@ -11,6 +11,11 @@ msgstr ""
 "Language: it\n"
 "Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
+#. translators: %s: trial plan name, e.g. Entrepreneur
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
+msgid "Your %s free trial has just started"
+msgstr ""
+
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
 msgid "Hosting"
 msgstr "Hosting"
@@ -52,17 +57,13 @@ msgstr "Ignora questo banner."
 msgid "Start selling — for less!"
 msgstr "Inizia a vendere, a meno!"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:51
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
 msgid "Create your first product"
 msgstr "Crea il tuo primo prodotto"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:40
-msgid "Welcome to your 14-day free trial of Woo Express – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr "Ti diamo il benvenuto nella prova gratuita di 14 giorni di Woo Express: tutto ciò di cui hai bisogno per avviare e far crescere un'attività di successo online, tutto in un unico posto. Il viaggio verso la tua prima vendita è appena iniziato. Tutto pronto per iniziare a esplorare?"
-
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:38
-msgid "Your Woo Express free trial has just started"
-msgstr "La prova gratuita di Woo Express è appena iniziata"
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
+msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
+msgstr ""
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
