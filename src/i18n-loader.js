@@ -10,7 +10,7 @@ import {
 	_nx,
 	_x,
 } from '@wordpress/i18n';
-import { addFilter, applyFilters } from '@wordpress/hooks';
+import { addFilter } from '@wordpress/hooks';
 
 const defaultLocale = 'en_US';
 
