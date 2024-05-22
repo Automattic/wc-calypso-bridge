@@ -1,5 +1,6 @@
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const WooCommerceDependencyExtractionWebpackPlugin = require( '@woocommerce/dependency-extraction-webpack-plugin' );
+const I18nLoaderWebpackPlugin = require( '@automattic/i18n-loader-webpack-plugin' );
 const path = require( 'path' );
 
 // Import variables and mixins from the stylesheets directory so they can be used in all scss files.
@@ -35,5 +36,10 @@ module.exports = {
 				plugin.constructor.name !== 'DependencyExtractionWebpackPlugin'
 		),
 		new WooCommerceDependencyExtractionWebpackPlugin(),
+		new I18nLoaderWebpackPlugin( {
+			textdomain: 'wc-calypso-bridge',
+			loaderModule: './src/i18n-loader',
+			loaderMethod: 'loadTranslations',
+		} ),
 	],
 };
