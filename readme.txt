@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.4.2 =
+* Redirect to Woo My Home for Enterpreneur sites.
+
 = 2.4.1 =
 * eCommerce Signup Flow: Update eCommerce plan Welcome note
 
