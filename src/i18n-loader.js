@@ -17,7 +17,7 @@ const defaultLocale = 'en_US';
 /**
  * Some gettext calls in this package use the `woocommerce` text domain
  * and expect that the translation data is already loaded from WooCommerce.
- * If a translation is missing, these filters will attempt to transate the string
+ * If a translation is missing, these filters will attempt to translate the string
  * using the `wc-calypso-bridge` text domain as a fallback.
  */
 addFilter(
