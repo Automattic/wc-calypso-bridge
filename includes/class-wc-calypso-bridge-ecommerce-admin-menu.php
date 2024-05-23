@@ -642,6 +642,9 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 
 				return ( $A < $B ) ? -1 : 1;
 			} );
+
+			// After sorting, reindex the array to ensure keys are sequential.
+			$submenu['jetpack'] = array_values( $submenu['jetpack'] );
 		}
 	}
 }
