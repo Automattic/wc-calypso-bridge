@@ -1,15 +1,17 @@
-# Translation of WooCommerce - Calypso Bridge in Spanish (Mexico)
-# This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-02-19 11:45:49+0000\n"
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-05-23T10:27:58+00:00\n"
+"PO-Revision-Date: 2024-02-19 11:45:49+0000\n"
+"Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: es_MX\n"
-"Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
@@ -20,18 +22,6 @@ msgstr ""
 msgid "Hosting"
 msgstr "Alojamiento"
 
-#: src/task-headers/get-paid-with-square.js:53
-msgid "Set up Square"
-msgstr "Configuración de Square"
-
-#: src/task-headers/get-paid-with-square.js:40
-msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
-msgstr "Con Square, aceptar pagos es muy fácil. Vende tanto en Internet como en una tienda física, y sincroniza todos los pagos, clientes, artículos e inventario."
-
-#: src/task-headers/get-paid-with-square.js:34
-msgid "It's time to get paid"
-msgstr "Es el momento de recibir los pagos."
-
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
 msgstr "Configura pagos Square para aceptar pagos con tarjeta de crédito en tu tienda. Para empezar, necesitarás una cuenta de Square"
@@ -41,21 +31,9 @@ msgstr "Configura pagos Square para aceptar pagos con tarjeta de crédito en tu 
 msgid "Get paid with Square"
 msgstr "Recauda tus pagos con Square"
 
-#: src/payment-gateway-suggestions/index.js:285
-msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
-msgstr "Solo los administradores y los gerentes de tienda pueden hacer pedidos durante la prueba gratuita. {{link}}Mejora a un plan de pago{{/link}} para aceptar pagos de clientes y explorar más opciones de pago."
-
 #: includes/class-wc-calypso-bridge-setup.php:424
 msgid "News"
 msgstr "Noticias"
-
-#: src/introductory-offer-banner/index.js:91
-msgid "Dismiss this banner."
-msgstr "Descartar este banner."
-
-#: src/introductory-offer-banner/index.js:69
-msgid "Start selling — for less!"
-msgstr "Empieza a vender, ¡por menos!"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
 msgid "Create your first product"
@@ -119,22 +97,6 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "Inicio del blog"
 
-#: src/task-headers/appearance.js:29
-msgid "Appearance illustration"
-msgstr "Ejemplo de apariencia"
-
-#: src/task-headers/products.js:26
-msgid "Products illustration"
-msgstr "Ejemplo de productos"
-
-#: src/welcome-modal/index.js:94
-msgid "Welcome modal navigation illustration 1"
-msgstr "Ilustración de navegación modal de bienvenida 1"
-
-#: src/welcome-modal/index.js:64
-msgid "Welcome modal navigation illustration 2"
-msgstr "Ilustración de navegación modal de bienvenida 2"
-
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
 msgstr "Navegar por las extensiones"
@@ -177,7 +139,7 @@ msgstr "Elige un tema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: src/index.js:220
+#: build/index.js:11
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -212,318 +174,6 @@ msgstr "Inducción"
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "Una experiencia de navegación personalizada y optimizada para la venta."
-
-#: src/welcome-modal/index.js:114
-msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
-msgstr "Ahora es más rápido hacer operaciones con WooCommerce. <a>Obtén más información</a> sobre nuestra nueva navegación o anímate a descubrirla por tu cuenta."
-
-#: src/welcome-modal/index.js:107
-msgid "Move faster with our new navigation"
-msgstr "Desplázate más rápido con nuestra nueva navegación"
-
-#: src/welcome-modal/index.js:83
-msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
-msgstr "Obtén consejos e información detallada sobre el rendimiento de tu tienda cada vez que accedas a tu escritorio de WordPress.com."
-
-#: src/welcome-modal/index.js:77
-msgid "Meet your new Home"
-msgstr "Conoce tu nueva página de inicio"
-
-#: src/task-headers/add-domain.js:34
-msgid "Choose a new website address for your store or transfer one you already own."
-msgstr "Elige una nueva dirección de sitio web para tu tienda o transfiere una que ya tengas."
-
-#: src/task-headers/add-domain.js:22
-msgid "Add a domain illustration"
-msgstr "Ejemplo de añadir un dominio"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:160
-msgid "Save"
-msgstr "Guardar"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:147
-msgid "BIC / Swift"
-msgstr "BIC / Swift"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:139
-msgid "IBAN"
-msgstr "IBAN"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:129
-msgid "Sort code"
-msgstr "Código de clasificación"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:119
-msgid "Bank name"
-msgstr "Nombre del banco"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:109
-msgid "Account number"
-msgstr "Número de cuenta"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:99
-msgid "Account name"
-msgstr "Nombre de la cuenta"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:92
-msgid "These details are required to receive payments via bank transfer"
-msgstr "Estos datos son obligatorios para recibir pagos mediante transferencia bancaria"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:86
-msgid "Add your bank details"
-msgstr "Añade los datos de tu banco"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:53
-msgid "Direct bank transfer details added successfully"
-msgstr "Datos para transferencia bancaria directa añadidos correctamente"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:32
-msgid "Please enter an account number or IBAN"
-msgstr "Introduce un número de cuenta o IBAN"
-
-#: src/payment-gateway-suggestions/index.js:266
-msgid "Offline payment methods"
-msgstr "Métodos de pago sin conexión"
-
-#: src/payment-gateway-suggestions/index.js:257
-msgid "See more"
-msgstr "Ver más"
-
-#: src/payment-gateway-suggestions/index.js:236
-msgid "Try one of the alternative payment providers."
-msgstr "Prueba uno de los proveedores de pago alternativos."
-
-#: src/payment-gateway-suggestions/index.js:232
-#: src/payment-gateway-suggestions/index.js:311
-msgid "Other payment providers"
-msgstr "Otros proveedores de pago"
-
-#: src/payment-gateway-suggestions/index.js:227
-msgid "Give your customers additional choices in ways to pay."
-msgstr "Ofrece a tus clientes opciones adicionales para pagar."
-
-#: src/payment-gateway-suggestions/index.js:223
-msgid "Additional payment options"
-msgstr "Opciones de pago adicionales"
-
-#: src/payment-gateway-suggestions/index.js:217
-msgid "To get ready to accept online payments"
-msgstr "Prepararse para aceptar pagos en línea"
-
-#: src/payment-gateway-suggestions/index.js:213
-msgid "Choose a payment provider"
-msgstr "Elige un proveedor de pago"
-
-#: src/payment-gateway-suggestions/components/WCPay/utils.js:15
-msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
-msgstr "Se ha producido un error al conectar con WooCommerce Payments. Inténtalo de nuevo o conéctate más tarde desde los ajustes de la tienda."
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
-msgid "I agree"
-msgstr "Acepto"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
-msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
-msgstr "Si aceptas compartir {{link}}datos sobre el uso{{/link}} no confidenciales, nos ayudarás a mejorar las funciones y a optimizar la experiencia de WooCommerce Payments. Puedes desactivar esta opción en cualquier momento."
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
-msgid "Help us build a better WooCommerce Payments experience"
-msgstr "Ayúdanos a mejorar la experiencia en WooCommerce Payments"
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
-msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
-msgstr "Si utilizas WooCommerce Payments, aceptas regirte por nuestras {{tosLink}}Condiciones del servicio{{/tosLink}} y confirmas que has leído nuestra {{privacyLink}}Política de privacidad{{/privacyLink}}. "
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
-msgid "Get ready to accept payments"
-msgstr "Prepárate para aceptar pagos"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
-msgid "Yes, count me in!"
-msgstr "¡Sí, cuenta conmigo!"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
-msgid "Build a better WooCommerce"
-msgstr "Ayúdanos a mejorar WooCommerce"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
-msgid "There was a problem updating your preferences"
-msgstr "Ha habido un problema al actualizar tus preferencias"
-
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:120
-msgid "Configure your %(title)s account"
-msgstr "Configura tu cuenta de %(title)s"
-
-#. translators: %s = title of the payment gateway to install
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:88
-msgid "Install %s"
-msgstr "Instalar %s"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:152
-msgid "You can manage this payment gateway's settings by clicking the button below"
-msgstr "Puedes gestionar los ajustes de esta pasarela de pago haciendo clic en el siguiente botón."
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:133
-msgid "Connect"
-msgstr "Conectar"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:100
-msgid "Proceed"
-msgstr "Ejecutar"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:84
-#: src/payment-gateway-suggestions/plugins/Bacs.js:63
-msgid "There was a problem saving your payment settings"
-msgstr "Ha habido un problema al guardar tus ajustes de pago"
-
-#. translators: %s = title of the payment gateway
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:75
-msgid "%s configured successfully"
-msgstr "%s se ha configurado correctamente"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:81
-msgid "Recommended"
-msgstr "Recomendado(s)"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:80
-msgid "Local Partner"
-msgstr "Colaborador local"
-
-#: src/payment-gateway-suggestions/components/Action.js:138
-msgid "Finish setup"
-msgstr "Finalizar configuración"
-
-#: src/payment-gateway-suggestions/components/Action.js:99
-msgid "Enable"
-msgstr "Activar"
-
-#: src/launch-store/index.js:392
-msgid "Launch anyway"
-msgstr "Publicar de todas maneras"
-
-#: src/launch-store/index.js:382
-msgid "A few things to check before launching your store"
-msgstr "Hay que comprobar unas cuantas cosas antes de publicar tu tienda"
-
-#: src/launch-store/index.js:379
-msgid "Before you launch"
-msgstr "Antes de publicarla"
-
-#: src/launch-store/index.js:318
-msgid "Choose an address for your new website or transfer a domain you already own."
-msgstr "Elige una dirección para tu nuevo sitio web o transfiere un dominio que ya tengas."
-
-#: src/launch-store/index.js:314
-msgid "List products"
-msgstr "Crea una lista de productos"
-
-#: src/launch-store/index.js:310
-msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
-msgstr "Para empezar a vender, añade productos o servicios a tu tienda. Crea tus productos manualmente o impórtalos desde una tienda."
-
-#: src/launch-store/index.js:309
-msgid "List your products"
-msgstr "Crea tu lista de productos"
-
-#: src/launch-store/index.js:301
-msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
-msgstr "Ofrece a tus clientes una manera de pagar fácil y cómoda. Configura uno (¡o más!) de nuestros métodos de pago en línea o en persona rápidos y seguros."
-
-#: src/launch-store/index.js:300 src/launch-store/index.js:305
-msgid "Get paid"
-msgstr "Recibe los pagos"
-
-#: src/launch-store/index.js:262 src/launch-store/index.js:398
-msgid "You can always revert this under <a>Settings</a>."
-msgstr "Puedes revertir esta opción en cualquier momento en <a>Ajustes</a>."
-
-#: src/launch-store/index.js:250
-msgid "It's time to celebrate – you're ready to launch your store! Woo!"
-msgstr "Es hora de celebrarlo: ¡ya estás a punto para publicar tu tienda! ¡Bravo!"
-
-#: src/launch-store/index.js:247
-msgid "Ready to launch your store?"
-msgstr "¿Estás preparado para lanzar tu tienda?"
-
-#: src/launch-store/index.js:212
-msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
-msgstr "¿Has cambiado de idea? Puedes volver a hacer que tu tienda sea privada si actualizas lo ajustes de <a>Privacidad</a>."
-
-#: src/launch-store/index.js:206
-msgid "View your store"
-msgstr "Visualiza tu tienda"
-
-#: src/launch-store/index.js:186
-msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
-msgstr "Enhorabuena por publicar tu sitio de WooCommerce. ¡Dedica un momento a celebrarlo y compartir la noticia!"
-
-#: src/launch-store/index.js:182
-msgid "Woo! You did it!"
-msgstr "¡Bravo! Lo has conseguido."
-
-#: src/launch-store/index.js:142
-msgid "Launching your store"
-msgstr "Publicación de tu tienda"
-
-#: src/launch-store/index.js:71
-msgid "Copied"
-msgstr "Copiado"
-
-#: src/homescreen-banner/index.js:61
-msgid "Dismiss this free trial informational banner."
-msgstr "Descarta este banner informativo de prueba gratuita."
-
-#: src/homescreen-banner/index.js:45
-msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
-msgstr "Esta es tu tienda de prueba gratuita en la que puedes empezar a explorar las funciones disponibles. Para obtener más detalles sobre la prueba gratuita, haz clic en \"Más información\"."
-
-#: src/free-trial/tax/components/location.js:56
-msgid "There was a problem saving your store location"
-msgstr "Ha habido un problema al guardar la ubicación de tu tienda"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
-msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
-msgstr "Al hacer clic en \"Pagos de prueba\", aceptas las {{tosLink}}Condiciones del servicio{{/tosLink}}"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
-msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
-msgstr "Mejora los pagos con una opción sencilla e integral. Verifica los detalles de tu negocio para empezar a probar transacciones con WooCommerce Payments."
-
-#: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
-msgid "Test payments"
-msgstr "Pagos de prueba"
-
-#: src/free-trial/fills/task-headers/payments.js:40
-msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
-msgstr "Ofrece a tus clientes una manera de pagar fácil y cómoda. Configura y prueba algunos de nuestros métodos de pago en línea o en persona rápidos y seguros."
-
-#: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
-msgid "It’s time to test payments"
-msgstr "Es hora de probar los pagos"
-
-#: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
-#: src/task-headers/get-paid-with-square.js:22
-msgid "Payment illustration"
-msgstr "Ejemplo de pago"
-
-#: assets/scripts/free-trial-wc-payments.js:93
-msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
-msgstr "Todo listo para empezar a probar las funciones y las ventajas de WooCommerce Payments."
-
-#: assets/scripts/free-trial-wc-payments.js:79
-msgid "You’re only steps away from getting ready to be paid"
-msgstr "Solo unos pasos más y estarás a punto para aceptar pagos"
-
-#: assets/scripts/free-trial-wc-payments.js:49
-msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "Los depósitos no están disponibles durante el período de prueba. Para empezar a procesar transacciones reales y recibir pagos, <a href='%s' id='upgrade_now_button'>mejora tu plan a uno de pago</a>."
-
-#: assets/scripts/free-trial-wc-payments.js:41
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "Solo los administradores y los gerentes de tienda pueden hacer pedidos durante la prueba gratuita. Si ya lo tienes todo listo para aceptar pagos de clientes, <a href='%s' id='upgrade_now_button'>mejora tu plan a uno de pago</a>."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
@@ -565,6 +215,7 @@ msgstr "Personaliza tu tienda con extensiones de WooCommerce para que funcione a
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Mejora el nivel de tu tienda con extensiones"
 
@@ -579,7 +230,7 @@ msgstr "¡Es hora de celebrarlo! ¿Todo listo para publicar tu tienda?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: src/launch-store/index.js:155
+#: build/index.js:1
 msgid "Launch your store"
 msgstr "Pon en marcha tu tienda"
 
@@ -590,7 +241,7 @@ msgstr "Ya has publicado tu tienda"
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: src/task-headers/products.js:46
+#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 minutos"
 
@@ -604,8 +255,8 @@ msgstr "dominio"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:322 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
+#: build/index.js:1
+#: build/index.js:3
 msgid "Add a domain"
 msgstr "Añadir un dominio"
 
@@ -625,7 +276,10 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: src/introductory-offer-banner/index.js:87
+#: build/index.js:1
+#: build/index.js:11
+#: build/marketing.js:1
+#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Mejora tu plan ahora"
 
@@ -680,48 +334,48 @@ msgstr "No se ha podido hacer el pedido. La funcionalidad de pago está activada
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Está tienda no está lista para aceptar pedidos. La funcionalidad de pago está activada actualmente solo con fines de vista previa."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
 msgid "Jetpack Stats"
 msgstr "Jetpack Stats"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:623
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
 msgid "Jetpack Status"
 msgstr "Estado de Jetpack"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:603
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
 msgid "Anti-Spam"
 msgstr "Anti-Spam"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:410
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
 msgid "Discover"
 msgstr "Discover"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-#: src/payment-gateway-suggestions/components/Action.js:76
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "Gestionar"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:399
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:395
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
 msgid "Customers"
 msgstr "Clientes"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:385
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
 msgid "Legacy Reports"
 msgstr "Informes heredados"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:378
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
 msgid "WooCommerce Status"
 msgstr "Estado de WooCommerce"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 msgid "WooCommerce Settings"
 msgstr "Ajustes de WooCommerce"
 
@@ -738,18 +392,6 @@ msgstr "Mi página de inicio"
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
 msgid "Feedback"
 msgstr "Sugerencias"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
-msgid "No thanks"
-msgstr "No, gracias"
-
-#: src/payment-gateway-suggestions/components/Action.js:27
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:159
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
-msgid "Get started"
-msgstr "Comienza"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
 msgid "Navigation"
@@ -800,7 +442,7 @@ msgstr "Detalles del pedido enviados manualmente al cliente."
 msgid "Invalid order ID."
 msgstr "ID del pedido no válida."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -932,17 +574,9 @@ msgstr "Añadir nuevo"
 msgid "Store"
 msgstr "Tienda"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
 msgid "Stats"
 msgstr "Estadísticas"
-
-#: src/free-trial/tax/components/location.js:23
-msgid "Continue"
-msgstr "Continuar"
-
-#: src/homescreen-banner/index.js:57
-msgid "Learn more"
-msgstr "Aprende más"
 
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "WooCommerce extensions"

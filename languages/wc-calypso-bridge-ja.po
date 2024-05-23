@@ -1,15 +1,17 @@
-# Translation of WooCommerce - Calypso Bridge in Japanese
-# This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-03-19 08:10:07+0000\n"
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-05-23T10:27:55+00:00\n"
+"PO-Revision-Date: 2024-03-19 08:10:07+0000\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: ja_JP\n"
-"Project-Id-Version: WooCommerce - Calypso Bridge\n"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
@@ -20,18 +22,6 @@ msgstr ""
 msgid "Hosting"
 msgstr "ホスティング"
 
-#: src/task-headers/get-paid-with-square.js:53
-msgid "Set up Square"
-msgstr "Square をセットアップ"
-
-#: src/task-headers/get-paid-with-square.js:40
-msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
-msgstr "Square を使うと支払いの受け取りが簡単です。 オンライン販売と実店舗での販売に対応し、すべての支払い、顧客、商品、在庫を同期できます。"
-
-#: src/task-headers/get-paid-with-square.js:34
-msgid "It's time to get paid"
-msgstr "支払いを受け取りましょう"
-
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
 msgstr "Square の支払いを設定してストアでのクレジットカード払いに対応しましょう。 利用を開始するには Square アカウントが必要です"
@@ -41,21 +31,9 @@ msgstr "Square の支払いを設定してストアでのクレジットカー�
 msgid "Get paid with Square"
 msgstr "Square で支払いを受け取る"
 
-#: src/payment-gateway-suggestions/index.js:285
-msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
-msgstr "無料お試し期間中は、管理者とストア管理者のみが注文を行えます。 {{link}}有料プランにアップグレード{{/link}}すると、顧客からの支払いを受け取ったり、他の支払いオプションを確認したりできます。"
-
 #: includes/class-wc-calypso-bridge-setup.php:424
 msgid "News"
 msgstr "ニュース"
-
-#: src/introductory-offer-banner/index.js:91
-msgid "Dismiss this banner."
-msgstr "このバナーを非表示にします。"
-
-#: src/introductory-offer-banner/index.js:69
-msgid "Start selling — for less!"
-msgstr "より低コストで販売をスタートしましょう !"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
 msgid "Create your first product"
@@ -119,22 +97,6 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "ブログのホーム"
 
-#: src/task-headers/appearance.js:29
-msgid "Appearance illustration"
-msgstr "外観のイラスト"
-
-#: src/task-headers/products.js:26
-msgid "Products illustration"
-msgstr "商品のイラスト"
-
-#: src/welcome-modal/index.js:94
-msgid "Welcome modal navigation illustration 1"
-msgstr "ウェルカムモーダルナビゲーションの図1"
-
-#: src/welcome-modal/index.js:64
-msgid "Welcome modal navigation illustration 2"
-msgstr "ウェルカムモーダルナビゲーションの図2"
-
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
 msgstr "機能拡張を表示"
@@ -177,7 +139,7 @@ msgstr "テーマを選択"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: src/index.js:220
+#: build/index.js:11
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -212,318 +174,6 @@ msgstr "オンボーディング"
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "販売向けに最適化されたカスタムナビゲーションを利用できます。"
-
-#: src/welcome-modal/index.js:114
-msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
-msgstr "WooCommerce での作業がさらに高速化しました。 新しいナビゲーションの<a>詳細をご覧ください</a>。または、先に進んでご自身で確認してください。"
-
-#: src/welcome-modal/index.js:107
-msgid "Move faster with our new navigation"
-msgstr "新しいナビゲーションですばやく作業"
-
-#: src/welcome-modal/index.js:83
-msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
-msgstr "WordPress.com ダッシュボードに戻るたびに、ストアのパフォーマンスに関するヒントや統計概要を確認できます。"
-
-#: src/welcome-modal/index.js:77
-msgid "Meet your new Home"
-msgstr "新しいホームを利用"
-
-#: src/task-headers/add-domain.js:34
-msgid "Choose a new website address for your store or transfer one you already own."
-msgstr "ストアの新しいサイトアドレスを選択するか、すでに所有しているアドレスを転送します。"
-
-#: src/task-headers/add-domain.js:22
-msgid "Add a domain illustration"
-msgstr "ドメインのイラストレーションを追加"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:160
-msgid "Save"
-msgstr "保存"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:147
-msgid "BIC / Swift"
-msgstr "BIC / Swift"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:139
-msgid "IBAN"
-msgstr "IBAN"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:129
-msgid "Sort code"
-msgstr "ソートコード"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:119
-msgid "Bank name"
-msgstr "銀行名"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:109
-msgid "Account number"
-msgstr "口座番号"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:99
-msgid "Account name"
-msgstr "口座名義"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:92
-msgid "These details are required to receive payments via bank transfer"
-msgstr "これらの情報は、銀行振込によるお支払いに必要です"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:86
-msgid "Add your bank details"
-msgstr "銀行の詳細を追加"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:53
-msgid "Direct bank transfer details added successfully"
-msgstr "銀行振込 (ダイレクト) の詳細の追加が完了しました"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:32
-msgid "Please enter an account number or IBAN"
-msgstr "口座番号か IBAN を入力してください"
-
-#: src/payment-gateway-suggestions/index.js:266
-msgid "Offline payment methods"
-msgstr "オフラインの決済方法"
-
-#: src/payment-gateway-suggestions/index.js:257
-msgid "See more"
-msgstr "もっと見る"
-
-#: src/payment-gateway-suggestions/index.js:236
-msgid "Try one of the alternative payment providers."
-msgstr "他の決済サービス業者を試してみましょう。"
-
-#: src/payment-gateway-suggestions/index.js:232
-#: src/payment-gateway-suggestions/index.js:311
-msgid "Other payment providers"
-msgstr "その他の決済サービス業者"
-
-#: src/payment-gateway-suggestions/index.js:227
-msgid "Give your customers additional choices in ways to pay."
-msgstr "顧客が選べる決済手段を増やしましょう。"
-
-#: src/payment-gateway-suggestions/index.js:223
-msgid "Additional payment options"
-msgstr "追加の支払いオプション"
-
-#: src/payment-gateway-suggestions/index.js:217
-msgid "To get ready to accept online payments"
-msgstr "オンライン支払いを受け取る準備をするには"
-
-#: src/payment-gateway-suggestions/index.js:213
-msgid "Choose a payment provider"
-msgstr "決済サービス業者を選択"
-
-#: src/payment-gateway-suggestions/components/WCPay/utils.js:15
-msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
-msgstr "WooCommerce Payments への接続時にエラーが発生しました。 もう一度試すか、しばらくしてからストア設定に接続してください。"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
-msgid "I agree"
-msgstr "同意する"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
-msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
-msgstr "機密情報以外の{{link}}使用状況データ{{/link}}の共有に同意していただくと、機能改善や WooCommerce Payments サービスの最適化に役立ちます。 いつでもオプトアウトできます。"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
-msgid "Help us build a better WooCommerce Payments experience"
-msgstr "より良い WooCommerce Payments サービスの構築にご協力お願いいたします"
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
-msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
-msgstr "WooCommerce Payments を使用することで、お客様は弊社の{{tosLink}}利用規約{{/tosLink}}に拘束されることに同意し、弊社{{privacyLink}}プライバシーポリシー{{/privacyLink}}を読んだものとみなされます "
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
-msgid "Get ready to accept payments"
-msgstr "支払いを受け取る準備をする"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
-msgid "Yes, count me in!"
-msgstr "はい、参加します。"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
-msgid "Build a better WooCommerce"
-msgstr "より良い WooCommerce を構築"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
-msgid "There was a problem updating your preferences"
-msgstr "設定を更新しているときに問題が発生しました"
-
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:120
-msgid "Configure your %(title)s account"
-msgstr "%(title)s アカウントを設定"
-
-#. translators: %s = title of the payment gateway to install
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:88
-msgid "Install %s"
-msgstr "%s のインストール"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:152
-msgid "You can manage this payment gateway's settings by clicking the button below"
-msgstr "下のボタンをクリックすると、この決済方法の設定を管理できます"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:133
-msgid "Connect"
-msgstr "接続"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:100
-msgid "Proceed"
-msgstr "続行"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:84
-#: src/payment-gateway-suggestions/plugins/Bacs.js:63
-msgid "There was a problem saving your payment settings"
-msgstr "支払い設定を保存する際に問題が発生しました"
-
-#. translators: %s = title of the payment gateway
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:75
-msgid "%s configured successfully"
-msgstr "%s が正しく設定されました"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:81
-msgid "Recommended"
-msgstr "おすすめ"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:80
-msgid "Local Partner"
-msgstr "ローカルパートナー"
-
-#: src/payment-gateway-suggestions/components/Action.js:138
-msgid "Finish setup"
-msgstr "設定完了"
-
-#: src/payment-gateway-suggestions/components/Action.js:99
-msgid "Enable"
-msgstr "有効化"
-
-#: src/launch-store/index.js:392
-msgid "Launch anyway"
-msgstr "このまま立ち上げる"
-
-#: src/launch-store/index.js:382
-msgid "A few things to check before launching your store"
-msgstr "ストアを立ち上げる前に確認すべき点"
-
-#: src/launch-store/index.js:379
-msgid "Before you launch"
-msgstr "立ち上げ前"
-
-#: src/launch-store/index.js:318
-msgid "Choose an address for your new website or transfer a domain you already own."
-msgstr "新しいサイトのアドレスを選択するか、すでに所有しているドメインを転送します。"
-
-#: src/launch-store/index.js:314
-msgid "List products"
-msgstr "商品をリスト化"
-
-#: src/launch-store/index.js:310
-msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
-msgstr "ストアに商品やサービスを追加して販売を開始します。 商品を手動で作成するか、既存のストアからインポートします。"
-
-#: src/launch-store/index.js:309
-msgid "List your products"
-msgstr "商品をリスト化"
-
-#: src/launch-store/index.js:301
-msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
-msgstr "お客様に簡単で便利な決済方法を提供します。 迅速で安全なオンラインまたはオフラインでの支払い方法を1つ (または複数) 設定します。"
-
-#: src/launch-store/index.js:300 src/launch-store/index.js:305
-msgid "Get paid"
-msgstr "お支払いの受け取り"
-
-#: src/launch-store/index.js:262 src/launch-store/index.js:398
-msgid "You can always revert this under <a>Settings</a>."
-msgstr "これは<a>「設定」</a>でいつでも元に戻すことができます。"
-
-#: src/launch-store/index.js:250
-msgid "It's time to celebrate – you're ready to launch your store! Woo!"
-msgstr "おめでとうございます – ストアを立ち上げる準備が整いました ! お疲れ様でした !"
-
-#: src/launch-store/index.js:247
-msgid "Ready to launch your store?"
-msgstr "ストアの立ち上げ準備は整いましたか ?"
-
-#: src/launch-store/index.js:212
-msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
-msgstr "気が変わりましたか ? <a>プライバシー</a>設定を更新することで、ストアを非公開に戻すことができます。"
-
-#: src/launch-store/index.js:206
-msgid "View your store"
-msgstr "ストアを表示"
-
-#: src/launch-store/index.js:186
-msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
-msgstr "おめでとうございます。WooCommerce ストアを立ち上げました。 お祝いしてニュースをシェアしましょう !"
-
-#: src/launch-store/index.js:182
-msgid "Woo! You did it!"
-msgstr "お疲れ様でした ! これで完了です !"
-
-#: src/launch-store/index.js:142
-msgid "Launching your store"
-msgstr "ストアを立ち上げる"
-
-#: src/launch-store/index.js:71
-msgid "Copied"
-msgstr "コピーしました"
-
-#: src/homescreen-banner/index.js:61
-msgid "Dismiss this free trial informational banner."
-msgstr "無料お試し期間の情報バナーを閉じます。"
-
-#: src/homescreen-banner/index.js:45
-msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
-msgstr "これは、利用できる機能の確認を始めることができる無料お試し期間のテストストアです。 無料お試し期間の詳細については、「さらに詳しく」をクリックしてください。"
-
-#: src/free-trial/tax/components/location.js:56
-msgid "There was a problem saving your store location"
-msgstr "ストアの所在地を保存しているときに問題が発生しました"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
-msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
-msgstr "「支払いをテスト」をクリックすると、{{tosLink}}利用規約{{/tosLink}}に同意したものとみなされます。"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
-msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
-msgstr "シンプルなオールインワンオプションで支払いを強化します。 ビジネスの詳細を確認すると、WooCommerce Payments でトランザクションのテストを開始できます。"
-
-#: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
-msgid "Test payments"
-msgstr "支払いをテスト"
-
-#: src/free-trial/fills/task-headers/payments.js:40
-msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
-msgstr "お客様に簡単で便利な決済方法を提供します。 迅速で安全なオンラインまたはオフラインでの支払い方法の一部を設定してテストします。"
-
-#: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
-msgid "It’s time to test payments"
-msgstr "支払いをテストします"
-
-#: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
-#: src/task-headers/get-paid-with-square.js:22
-msgid "Payment illustration"
-msgstr "支払いのイラスト"
-
-#: assets/scripts/free-trial-wc-payments.js:93
-msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
-msgstr "WooCommerce Payments の機能とメリットのテストを開始する準備ができました"
-
-#: assets/scripts/free-trial-wc-payments.js:79
-msgid "You’re only steps away from getting ready to be paid"
-msgstr "あと少しで支払いを受け取る準備が整います"
-
-#: assets/scripts/free-trial-wc-payments.js:49
-msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "無料お試し期間中はデポジットを利用できません。 実際のトランザクションの処理を開始して支払いを受け取るには、<a href='%s' id='upgrade_now_button'>有料プランにアップグレード</a>してください。"
-
-#: assets/scripts/free-trial-wc-payments.js:41
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "無料お試し期間中は、管理者とストア管理者のみが注文を行えます。 顧客からの支払いを受け取る準備ができている場合は、<a href='%s' id='upgrade_now_button'>有料プランにアップグレード</a>してください。"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
@@ -565,6 +215,7 @@ msgstr "WooCommerce 拡張機能を使用して、ストアがビジネスに最
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "拡張機能を使用してストアをレベルアップさせましょう"
 
@@ -579,7 +230,7 @@ msgstr "おめでとうございます ! ストアの立ち上げ準備は整い
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: src/launch-store/index.js:155
+#: build/index.js:1
 msgid "Launch your store"
 msgstr "ストアを立ち上げる"
 
@@ -590,7 +241,7 @@ msgstr "すでにストアを立ち上げています"
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: src/task-headers/products.js:46
+#: build/index.js:3
 msgid "2 minutes"
 msgstr "2分"
 
@@ -604,8 +255,8 @@ msgstr "ドメイン"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:322 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
+#: build/index.js:1
+#: build/index.js:3
 msgid "Add a domain"
 msgstr "ドメインを追加"
 
@@ -625,7 +276,10 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: src/introductory-offer-banner/index.js:87
+#: build/index.js:1
+#: build/index.js:11
+#: build/marketing.js:1
+#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "今すぐアップグレード"
 
@@ -680,48 +334,48 @@ msgstr "注文できませんでした。 現在、購入手続き機能はプ�
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "このストアで注文を受け付ける準備ができていません。 現在、購入手続き機能はプレビュー目的でのみ有効になっています。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
 msgid "Jetpack Stats"
 msgstr "Jetpack 統計"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:623
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
 msgid "Jetpack Status"
 msgstr "Jetpack ステータス"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:603
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
 msgid "Anti-Spam"
 msgstr "スパム対策"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:410
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
 msgid "Discover"
 msgstr "Discover"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-#: src/payment-gateway-suggestions/components/Action.js:76
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "管理"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
 msgid "WooCommerce Subscriptions"
 msgstr "WooCommerce Subscriptions"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:399
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:395
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
 msgid "Customers"
 msgstr "顧客"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:385
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
 msgid "Legacy Reports"
 msgstr "レガシーレポート"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:378
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
 msgid "WooCommerce Status"
 msgstr "WooCommerce ステータス"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 msgid "WooCommerce Settings"
 msgstr "WooCommerce 設定"
 
@@ -738,18 +392,6 @@ msgstr "ホーム"
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
 msgid "Feedback"
 msgstr "フィードバック"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
-msgid "No thanks"
-msgstr "結構です"
-
-#: src/payment-gateway-suggestions/components/Action.js:27
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:159
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
-msgid "Get started"
-msgstr "始めてみよう"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
 msgid "Navigation"
@@ -800,7 +442,7 @@ msgstr "注文の詳細が手動でお客様に送信されました。"
 msgid "Invalid order ID."
 msgstr "無効な注文番号です。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -932,17 +574,9 @@ msgstr "新規追加"
 msgid "Store"
 msgstr "ストア"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
 msgid "Stats"
 msgstr "統計"
-
-#: src/free-trial/tax/components/location.js:23
-msgid "Continue"
-msgstr "続ける"
-
-#: src/homescreen-banner/index.js:57
-msgid "Learn more"
-msgstr "さらに詳しく。"
 
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "WooCommerce extensions"
