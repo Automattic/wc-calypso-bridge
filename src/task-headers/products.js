@@ -26,7 +26,7 @@ const ProductsHeader = () => {
 							alt={ __( 'Products illustration', 'woocommerce' ) }
 							src={
 								WC_ASSET_URL +
-								'images/task_list/sales-section-illustration.png'
+								'images/task_list/sales-section-illustration.svg'
 							}
 							className="svg-background"
 						/>

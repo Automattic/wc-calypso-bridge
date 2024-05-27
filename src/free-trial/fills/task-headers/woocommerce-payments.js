@@ -32,7 +32,7 @@ const WoocommercePaymentsHeader = () => {
 							) }
 							src={
 								WC_ASSET_URL +
-								'images/task_list/payment-illustration.png'
+								'images/task_list/payment-illustration.svg'
 							}
 							className="svg-background"
 						/>
