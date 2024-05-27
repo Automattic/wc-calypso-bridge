@@ -28,7 +28,8 @@ defaultConfig.module.rules.push( {
 	],
 } );
 
-// Disable exports mangling to ensure the exported loader method name `loadTranslations` is preserved.
+// Disable exports mangling to ensure the exported i18n loader method name `loadTranslations` is preserved,
+// as it's being referred by name in the I18nLoaderWebpackPlugin's runtime template.
 defaultConfig.optimization.mangleExports = false;
 
 module.exports = {
