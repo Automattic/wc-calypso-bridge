@@ -28,6 +28,9 @@ defaultConfig.module.rules.push( {
 	],
 } );
 
+// Disable exports mangling to ensure the exported loader method name `loadTranslations` is preserved.
+defaultConfig.optimization.mangleExports = false;
+
 module.exports = {
 	...defaultConfig,
 	plugins: [

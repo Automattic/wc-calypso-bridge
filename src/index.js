@@ -31,7 +31,10 @@ import { AppearanceFill, GetPaidWithSquareFill } from './task-fills';
 import './task-headers';
 import './track-menu-item';
 import { CalypsoBridgeIntroductoryOfferBanner } from './introductory-offer-banner';
-import './i18n-loader';
+import { loadTranslations } from './i18n-loader';
+
+// A workaround for Webpack's tree-shaking to ensure `loadTranslations` is included in the production bundle.
+( function () {} )( loadTranslations );
 
 // Modify webpack to append the ?ver parameter to JS chunk
 // https://webpack.js.org/api/module-variables/#__webpack_get_script_filename__-webpack-specific
