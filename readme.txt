@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.5.1 =
+* Fix broken image on Woo launchpad header #1481
+* Ensure i18n loader is preserved in the production build #1480
+
 = 2.5.0 =
 * i18n: Load script translations
 * Admin Menu: Fix order of Jetpack submenu pages
