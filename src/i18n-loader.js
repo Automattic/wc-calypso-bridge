@@ -117,3 +117,5 @@ export async function loadTranslations( path, domain ) {
 
 	setLocaleData( localeData, 'wc-calypso-bridge' );
 }
+
+export default { loadTranslations };
