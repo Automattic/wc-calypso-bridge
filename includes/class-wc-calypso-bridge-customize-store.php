@@ -103,7 +103,7 @@ class WC_Calypso_Bridge_Customize_Store {
 
 	public function possibly_add_track_homepage_view() {
 		if ( self::is_admin() ) {
-			if ( is_front_page() || is_home() ) {
+			if ( class_exists( 'WC_Tracks' ) && ( is_front_page() || is_home() ) ) {
 				// This is tracked via backend.
 				WC_Tracks::record_event( 'store_homepage_view' );
 			}
