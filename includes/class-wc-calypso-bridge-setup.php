@@ -127,11 +127,6 @@ class WC_Calypso_Bridge_Setup {
 
 				$wp_admin_bar->remove_menu( 'ab-new-post' );
 			}, PHP_INT_MAX );
-
-			add_action( 'wp_before_admin_bar_render', function () {
-				include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-free-trial-welcome.php';
-				WC_Calypso_Bridge_Free_Trial_Welcome_Note::possibly_add_note();
-			}, PHP_INT_MAX );
 		}
 	}
 
