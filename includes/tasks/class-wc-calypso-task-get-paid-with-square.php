@@ -42,6 +42,18 @@ class WCBridgeGetPaidWithSquare extends Task {
 	}
 
 	/**
+	 * Check if the task is complete.
+	 * 
+	 * When Square is connected, it sets an access token in the options table.
+	 * Count the access token and consider the task complete if it is not empty.
+	 * 
+	 */
+	public function is_complete() {
+		$access_token = get_option( 'wc_square_access_tokens', array() );
+		return ! empty( $access_token );
+	}
+
+	/**
 	 * Time.
 	 *
 	 * @return string
