@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.5.2 =
+* eCommerce Signup Flow: Add the "Welcome" note back
+
 = Unreleased =
 * Fix homepage crashing with WooCommerce 9.0.0 #1483
 * Moved logic to ensure launch-your-store feature is disabled in all plans #1485
