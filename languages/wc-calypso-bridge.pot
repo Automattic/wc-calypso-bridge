@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WooCommerce Calypso Bridge plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Calypso Bridge 2.5.1\n"
+"Project-Id-Version: WooCommerce Calypso Bridge 2.5.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-calypso-bridge\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-29T08:15:28+00:00\n"
+"POT-Creation-Date: 2024-06-14T14:30:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 
@@ -100,7 +100,6 @@ msgid "WooCommerce Subscriptions"
 msgstr ""
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr ""
 
@@ -230,39 +229,39 @@ msgstr ""
 msgid "Built with Storefront &amp; WordPress.com"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:201
 msgid "Navigation"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
 msgid "A custom navigation experience that is optimized for selling."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
 msgid "Onboarding"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "Setup task list"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "\"Things to do next\""
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:400
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:403
 msgid "Restore"
 msgstr ""
 
@@ -276,10 +275,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr ""
 
@@ -292,7 +287,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr ""
 
@@ -331,8 +325,6 @@ msgstr ""
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr ""
 
@@ -346,8 +338,7 @@ msgstr ""
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: build/index.js:3
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 msgid "2 minutes"
 msgstr ""
 
@@ -364,7 +355,7 @@ msgid "Choose theme"
 msgstr ""
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
 msgid "Get paid with Square"
 msgstr ""
 
@@ -403,7 +394,6 @@ msgstr ""
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr ""
 
@@ -418,7 +408,6 @@ msgstr ""
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr ""
 
@@ -611,656 +600,4 @@ msgstr ""
 
 #: assets/scripts/free-trial-wc-payments.js:93
 msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
-msgstr ""
-
-#: build/53.js:1
-#: build/index.js:3
-msgid "Payment illustration"
-msgstr ""
-
-#: build/53.js:1
-msgid "It’s time to test payments"
-msgstr ""
-
-#: build/53.js:1
-msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
-msgstr ""
-
-#: build/53.js:1
-msgid "Test payments"
-msgstr ""
-
-#: build/53.js:1
-msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
-msgstr ""
-
-#: build/53.js:1
-msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
-msgstr ""
-
-#: build/index.js:1
-msgid "& more."
-msgstr ""
-
-#: build/index.js:1
-msgid "Accepted payment methods include:"
-msgstr ""
-
-#: build/index.js:1
-msgid "Offer your customers their preferred way to pay including debit and credit card payments, Apple Pay, Sofort, SEPA, iDeal and many more."
-msgstr ""
-
-#: build/index.js:1
-msgid "Sell to international markets and accept more than 135 currencies with local payment methods."
-msgstr ""
-
-#: build/index.js:1
-msgid "Earn and manage recurring revenue and get automatic deposits into your nominated bank account."
-msgstr ""
-
-#: build/index.js:1
-msgid "Setup required"
-msgstr ""
-
-#: build/index.js:1
-msgid "Copied"
-msgstr ""
-
-#: build/index.js:1
-msgid "Launching your store"
-msgstr ""
-
-#: build/index.js:1
-msgid "Woo! You did it!"
-msgstr ""
-
-#: build/index.js:1
-msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
-msgstr ""
-
-#: build/index.js:1
-msgid "View your store"
-msgstr ""
-
-#: build/index.js:1
-msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
-msgstr ""
-
-#: build/index.js:1
-msgid "Ready to launch your store?"
-msgstr ""
-
-#: build/index.js:1
-msgid "It's time to celebrate – you're ready to launch your store! Woo!"
-msgstr ""
-
-#: build/index.js:1
-msgid "You can always revert this under <a>Settings</a>."
-msgstr ""
-
-#: build/index.js:1
-msgid "Get paid"
-msgstr ""
-
-#: build/index.js:1
-msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
-msgstr ""
-
-#: build/index.js:1
-msgid "List your products"
-msgstr ""
-
-#: build/index.js:1
-msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
-msgstr ""
-
-#: build/index.js:1
-msgid "List products"
-msgstr ""
-
-#: build/index.js:1
-msgid "Choose an address for your new website or transfer a domain you already own."
-msgstr ""
-
-#: build/index.js:1
-msgid "Before you launch"
-msgstr ""
-
-#: build/index.js:1
-msgid "A few things to check before launching your store"
-msgstr ""
-
-#: build/index.js:1
-msgid "Launch anyway"
-msgstr ""
-
-#: build/index.js:1
-#: build/payment-gateway-suggestions.js:1
-#: build/payment-gateway-suggestions.js:2
-#: build/payment-gateway-suggestions.js:3
-msgid "Get started"
-msgstr ""
-
-#: build/index.js:1
-msgid "Welcome modal navigation illustration 2"
-msgstr ""
-
-#: build/index.js:1
-msgid "Meet your new Home"
-msgstr ""
-
-#: build/index.js:1
-msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
-msgstr ""
-
-#: build/index.js:1
-msgid "Welcome modal navigation illustration 1"
-msgstr ""
-
-#: build/index.js:1
-msgid "Move faster with our new navigation"
-msgstr ""
-
-#: build/index.js:1
-msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
-msgstr ""
-
-#: build/index.js:1
-msgid "You're currently using a free trial! To get access to the full range of features, please upgrade to a paid plan."
-msgstr ""
-
-#: build/index.js:1
-msgid "Upgrade to a paid plan to unlock more features and start selling"
-msgstr ""
-
-#: build/index.js:1
-msgid "Get more sales"
-msgstr ""
-
-#: build/index.js:1
-msgid "WooCommerce Tax"
-msgstr ""
-
-#: build/index.js:1
-msgid "Best for new stores"
-msgstr ""
-
-#: build/index.js:1
-msgid "Real-time sales tax calculation"
-msgstr ""
-
-#: build/index.js:1
-msgid "{{strong}}Single{{/strong}} economic nexus compliance"
-msgstr ""
-
-#: build/index.js:1
-msgid "Powered by {{link}}Jetpack{{/link}}"
-msgstr ""
-
-#: build/index.js:1
-msgid "100% free"
-msgstr ""
-
-#: build/index.js:1
-msgid "By installing WooCommerce Tax and Jetpack you agree to the {{link}}Terms of Service{{/link}}."
-msgstr ""
-
-#: build/index.js:1
-msgid "Continue setup"
-msgstr ""
-
-#: build/index.js:1
-msgid "Configure"
-msgstr ""
-
-#: build/index.js:1
-msgid "By clicking \"Configure\" you're enabling tax rates and calculations. More info {{link}}here{{/link}}."
-msgstr ""
-
-#: build/index.js:1
-msgid "Country / Region"
-msgstr ""
-
-#: build/index.js:1
-msgid "Address"
-msgstr ""
-
-#: build/index.js:1
-msgid "Post code"
-msgstr ""
-
-#: build/index.js:1
-msgid "City"
-msgstr ""
-
-#: build/index.js:1
-msgid "Continue"
-msgstr ""
-
-#: build/index.js:1
-msgid "There was a problem saving your store location"
-msgstr ""
-
-#: build/index.js:1
-msgid "Please select a country / region"
-msgstr ""
-
-#: build/index.js:1
-msgid "Set store location"
-msgstr ""
-
-#: build/index.js:1
-msgid "The address from which your business operates"
-msgstr ""
-
-#: build/index.js:1
-msgid "Configure tax rates"
-msgstr ""
-
-#: build/index.js:1
-msgid "Head over to the tax rate settings screen to configure your tax rates"
-msgstr ""
-
-#: build/index.js:1
-msgid "Automate taxes"
-msgstr ""
-
-#: build/index.js:1
-msgid "Automate Taxes"
-msgstr ""
-
-#: build/index.js:1
-msgid "WooCommerce Tax can automate your sales tax calculations for you."
-msgstr ""
-
-#: build/index.js:1
-msgid "Choose a tax partner"
-msgstr ""
-
-#: build/index.js:1
-msgid "Set up taxes manually"
-msgstr ""
-
-#: build/index.js:1
-msgid "I don't charge sales tax"
-msgstr ""
-
-#: build/index.js:1
-msgid "During the free trial period you can configure your sales tax settings, but not collect it. {{br/}}To start selling products, {{link}}upgrade now{{/link}}."
-msgstr ""
-
-#: build/index.js:1
-msgid "There was a problem setting up automated taxes. Please try again."
-msgstr ""
-
-#: build/index.js:1
-msgid "You're awesome! One less item on your to-do list ✅"
-msgstr ""
-
-#: build/index.js:1
-msgid "Woohoo! Your trial store has been set up!"
-msgstr ""
-
-#: build/index.js:1
-msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
-msgstr ""
-
-#: build/index.js:1
-msgid "Task List Options"
-msgstr ""
-
-#: build/index.js:1
-msgid "Show setup task list"
-msgstr ""
-
-#: build/index.js:1
-msgid "Hide this"
-msgstr ""
-
-#: build/index.js:1
-msgid "How was your experience?"
-msgstr ""
-
-#: build/index.js:1
-msgid "We appreciate your feedback!"
-msgstr ""
-
-#: build/index.js:1
-msgid "The store setup is easy to complete."
-msgstr ""
-
-#: build/index.js:1
-msgid "The store setup process meets my needs."
-msgstr ""
-
-#: build/index.js:1
-msgid "Hide setup list"
-msgstr ""
-
-#: build/index.js:1
-msgid "You’re almost ready to start selling! Follow these steps to set up your store."
-msgstr ""
-
-#. translators: 1: completed tasks, 2: total tasks
-#: build/index.js:2
-msgid "%1$d out of %2$d complete."
-msgstr ""
-
-#. translators: %s = site title
-#: build/index.js:3
-msgid "Welcome to %s"
-msgstr ""
-
-#: build/index.js:3
-msgid "Welcome to your Woo Express store"
-msgstr ""
-
-#: build/index.js:3
-msgid "Only a few more tasks to tick off!"
-msgstr ""
-
-#: build/index.js:3
-msgid "Woo! We’ve made it to the last step! Great job"
-msgstr ""
-
-#: build/index.js:3
-msgid "Everything is looking great, keep it up!"
-msgstr ""
-
-#: build/index.js:3
-msgid "Add a domain illustration"
-msgstr ""
-
-#: build/index.js:3
-msgid "Choose a new website address for your store or transfer one you already own."
-msgstr ""
-
-#: build/index.js:3
-msgid "Products illustration"
-msgstr ""
-
-#: build/index.js:3
-msgid "Appearance illustration"
-msgstr ""
-
-#: build/index.js:3
-msgid "It's time to get paid"
-msgstr ""
-
-#: build/index.js:3
-msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
-msgstr ""
-
-#: build/index.js:3
-msgid "Set up Square"
-msgstr ""
-
-#: build/index.js:3
-msgid "Start selling — for less!"
-msgstr ""
-
-#. translators:  placeholders do not need to be translated
-#: build/index.js:4
-msgid "Upgrade your plan for %(formattedPrice)s for your first day"
-msgstr ""
-
-#. translators:  placeholders do not need to be translated
-#: build/index.js:5
-msgid "Upgrade your plan for %(formattedPrice)s for your first month"
-msgstr ""
-
-#. translators:  placeholders do not need to be translated
-#: build/index.js:6
-msgid "Upgrade your plan for %(formattedPrice)s for your first year"
-msgstr ""
-
-#. translators:  placeholders do not need to be translated
-#: build/index.js:7
-#: build/index.js:11
-msgid "Upgrade your plan for %(formattedPrice)s"
-msgstr ""
-
-#. translators:  placeholders do not need to be translated
-#: build/index.js:8
-msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s days"
-msgstr ""
-
-#. translators:  placeholders do not need to be translated
-#: build/index.js:9
-msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s months"
-msgstr ""
-
-#. translators:  placeholders do not need to be translated
-#: build/index.js:10
-msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s years"
-msgstr ""
-
-#: build/index.js:11
-msgid "Dismiss this banner."
-msgstr ""
-
-#: build/index.js:11
-msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
-msgstr ""
-
-#: build/index.js:11
-msgid "Learn more"
-msgstr ""
-
-#: build/index.js:11
-msgid "Dismiss this free trial informational banner."
-msgstr ""
-
-#: build/index.js:11
-msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Get ready to grow your business"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Reach more customers and grow your business with our built-in marketing and advertising tools. Upgrade to a paid plan to unlock our powerful marketing tools, and start growing your business today!"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Grow your business with hundreds of extensions"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Discover our built-in marketing tools to reach more customers and boost sales"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Automate your marketing"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Drive sales and build loyalty through automated marketing messages that respond to your customer’s purchase data."
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Try AutomateWoo"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Advertise your products on Google"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Reach active shoppers across Google with product listings and ads that you can create and manage straight from your dashboard."
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Reach more customers across social media"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Get your products in front of millions of engaged shoppers browsing TikTok, Pinterest, and Meta platforms with social advertising."
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Increase customer loyalty with gift cards"
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Start selling and accepting digital gift cards to increase customer loyalty, drive more revenue, and introduce new customers to your store."
-msgstr ""
-
-#: build/marketing.js:1
-msgid "Create digital gift cards"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:1
-msgid "Enable"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:1
-msgid "Finish setup"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:1
-msgid "Local Partner"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:1
-msgid "Recommended"
-msgstr ""
-
-#. translators: %s = title of the payment gateway
-#: build/payment-gateway-suggestions.js:2
-msgid "%s configured successfully"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:2
-msgid "There was a problem saving your payment settings"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:2
-msgid "Proceed"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:2
-msgid "Connect"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:2
-msgid "You can manage this payment gateway's settings by clicking the button below"
-msgstr ""
-
-#. translators: %s = title of the payment gateway to install
-#: build/payment-gateway-suggestions.js:3
-msgid "Install %s"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Configure your %(title)s account"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Get ready to accept payments"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "There was a problem updating your preferences"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Build a better WooCommerce"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Get improved features and faster fixes by sharing non-sensitive data via {{link}}usage tracking{{/link}} that shows us how WooCommerce is used. No personal data is tracked or stored."
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "No thanks"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Yes, count me in!"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Choose a payment provider"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "To get ready to accept online payments"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Additional payment options"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Give your customers additional choices in ways to pay."
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Other payment providers"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Try one of the alternative payment providers."
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "See more"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Offline payment methods"
-msgstr ""
-
-#: build/payment-gateway-suggestions.js:3
-msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Make anything happen, with plugins"
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Add extra functionality and features to your website at a click of a button. Upgrade to a paid plan and gain access to thousands of free and paid WordPress plugins. Curious to find out what’s possible?"
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Browse plugins"
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Customize your website"
-msgstr ""
-
-#: build/plugins.js:1
-msgid "From SEO tools to multi-language functionality, with WordPress plugins, you can customize your website to do anything you need."
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Extend your store"
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Looking to expand on the ecommerce functionality of your store? The Woo Marketplace has hundreds of trusted extensions designed specifically for your store."
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Discover Extensions"
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Do it your way"
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Can’t find what you’re looking for? Hire one of our expert agencies! From new extensions to full-store builds, our Woo Expertsthey can help you create the store of your dreams."
-msgstr ""
-
-#: build/plugins.js:1
-msgid "Hire an expert"
 msgstr ""

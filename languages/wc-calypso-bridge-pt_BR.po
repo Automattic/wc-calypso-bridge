@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-29T08:15:41+00:00\n"
-"PO-Revision-Date: 2024-03-19 08:10:07+0000\n"
+"POT-Creation-Date: 2024-06-14T14:30:15+00:00\n"
+"PO-Revision-Date: 2024-05-30 23:54:02+0000\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
@@ -16,7 +16,7 @@ msgstr ""
 #. translators: %s: trial plan name, e.g. Entrepreneur
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
 msgid "Your %s free trial has just started"
-msgstr ""
+msgstr "Seu teste gratuito do %s acabou de começar"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
 msgid "Hosting"
@@ -41,7 +41,7 @@ msgstr "Crie seu primeiro produto"
 
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
 msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "Boas-vindas ao período de teste gratuito de 14 dias do plano %s: tudo o que precisa para iniciar e expandir um negócio online de sucesso em um só lugar. A jornada rumo à sua primeira venda acabou de começar! Vamos mais a fundo?"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
