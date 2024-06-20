@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.1.4
+Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,11 +23,10 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = 2.5.2 =
-* eCommerce Signup Flow: Add the "Welcome" note back
-
-= Unreleased =
+* eCommerce Signup Flow: Add the "Welcome" note back #1484
 * Fix homepage crashing with WooCommerce 9.0.0 #1483
 * Moved logic to ensure launch-your-store feature is disabled in all plans #1485
+* Implement is_complete for the square task #1486
 
 = 2.5.1 =
 * Fix broken image on Woo launchpad header #1481
@@ -49,8 +48,6 @@ This section describes how to install the plugin and get it working.
 = 2.3.15 =
 * Open AI Woo store builder to all sites on WPCOM Entrepreneur plan
 
-= Unreleased =
-
 = 2.3.14 =
 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan (on WPCOM and Woo Express, including trial plans) #1458
 
@@ -62,10 +59,10 @@ This section describes how to install the plugin and get it working.
 * Force launch-your-store feature flag to false #1450
 
 = 2.3.11 =
-* Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #xxx
+* Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #1449
 
 = 2.3.10 =
-* Force square_cash_app_pay and square_credit_card order on the payment settings page -- follow up issue #1447 
+* Force square_cash_app_pay and square_credit_card order on the payment settings page -- follow up issue #1447
 
 = 2.3.9 =
 * Force square_cash_app_pay and square_credit_card order on the payment settings page #1445

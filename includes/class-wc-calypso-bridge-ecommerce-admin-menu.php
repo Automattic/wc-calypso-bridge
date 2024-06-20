@@ -4,7 +4,7 @@
  * Class WC_Calypso_Bridge_Ecommerce_Admin_Menu.
  *
  * @since   1.9.8
- * @version x.x.x
+ * @version 2.3.11
  *
  * The admin menu controller for Ecommerce WoA sites.
  */
@@ -427,7 +427,7 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 	 * Keep in mind that if there is custom css, a new menu item will appear `Additional CSS`
 	 * so there is no need to handle this case.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.5
 	 */
 	public function maybe_remove_customizer_menu() {
 
@@ -451,7 +451,7 @@ class WC_Calypso_Bridge_Ecommerce_Admin_Menu extends WC_Calypso_Bridge_Base_Admi
 	/**
 	 * Remove the Customizer node from the admin bar when a block theme is used.
 	 *
-	 * @since x.x.x
+	 * @since 2.3.5
 	 * @param WP_Admin_Bar $wp_admin_bar
 	 */
 	public function maybe_remove_customizer_admin_bar_menu( $wp_admin_bar ) {
