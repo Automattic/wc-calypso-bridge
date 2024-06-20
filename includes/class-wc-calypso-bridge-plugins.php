@@ -22,7 +22,8 @@ class WC_Calypso_Bridge_Plugins {
 	const WPCOM_ECOMMERCE_PLUGINS = array(
 		'woocommerce/woocommerce.php',
 		'facebook-for-woocommerce/facebook-for-woocommerce.php',
-		'woocommerce-services/woocommerce-services.php',
+		'woocommerce-tax/woocommerce-tax.php',
+		'woocommerce-shipping/woocommerce-shipping.php',
 		'woocommerce-product-addons/woocommerce-product-addons.php',
 		'woocommerce-product-bundles/woocommerce-product-bundles.php',
 		'woocommerce-gift-cards/woocommerce-gift-cards.php',
