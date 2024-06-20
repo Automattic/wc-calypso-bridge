@@ -3,8 +3,8 @@
 /**
  * Base Admin Menu file.
  *
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.3.11
+ * @version 2.3.11
  *
  * The base admin menu controller for Ecommerce WoA sites.
  * Copied from https://github.com/Automattic/jetpack/blob/45c299dc82c265f627328899697cfab154d2fa04/projects/plugins/jetpack/modules/masterbar/admin-menu/class-base-admin-menu.php#L15
