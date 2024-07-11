@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-14T14:30:20+00:00\n"
+"POT-Creation-Date: 2024-07-11T14:43:04+00:00\n"
 "PO-Revision-Date: 2024-05-31 09:54:04+0000\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -27,7 +27,7 @@ msgid "Set up Square payments to accept credit card payments in your store. You'
 msgstr "Настройте платежи Square, чтобы получать оплату банковской картой в вашем магазине. Чтобы начать, требуется учётная запись Square"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
 msgid "Get paid with Square"
 msgstr "Получайте оплату с помощью Square"
 
@@ -139,39 +139,38 @@ msgstr "Выберите тему"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr "Плагины"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:400
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:403
 msgid "Restore"
 msgstr "Восстановление"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "\"Things to do next\""
 msgstr "«Что дальше»"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "Setup task list"
 msgstr "Список задач по настройке"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "Показывать список задач по настройке «Что дальше»."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "Показывать список задач по первичной адаптации."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "С помощью этих опций можно сделать видимыми списки задач по первичной адаптации на сайте WooCommerce."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
 msgid "Onboarding"
 msgstr "Адаптация"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "Пользовательская навигация, приспособленная для продаж."
 
@@ -215,7 +214,6 @@ msgstr "Используйте расширения WooCommerce, чтобы на
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Выведите свой магазин на новый уровень с помощью расширений"
 
@@ -230,7 +228,6 @@ msgstr "Пришло время отпраздновать! Готовы зап�
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "Запустите ваш магазин"
 
@@ -240,8 +237,7 @@ msgstr "Вы уже запустили свой магазин"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: build/index.js:3
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 msgid "2 minutes"
 msgstr "2 минуты"
 
@@ -255,8 +251,6 @@ msgstr "Домен"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "Добавить домен"
 
@@ -276,10 +270,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Перейти на платную подписку"
 
@@ -351,7 +341,6 @@ msgid "Discover"
 msgstr "Открыть"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "Управление"
 
@@ -393,7 +382,7 @@ msgstr "Главная"
 msgid "Feedback"
 msgstr "Обратная связь"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:201
 msgid "Navigation"
 msgstr "Навигация"
 

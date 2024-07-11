@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-14T14:30:16+00:00\n"
+"POT-Creation-Date: 2024-07-11T14:43:01+00:00\n"
 "PO-Revision-Date: 2024-05-31 09:54:03+0000\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -27,7 +27,7 @@ msgid "Set up Square payments to accept credit card payments in your store. You'
 msgstr "設定 Square 付款，讓商店接受信用卡付款。 你需要 Square 帳號才可開始使用"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
 msgid "Get paid with Square"
 msgstr "用 Square 收款"
 
@@ -139,39 +139,38 @@ msgstr "選擇佈景主題"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr "外掛程式"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:400
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:403
 msgid "Restore"
 msgstr "還原"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "\"Things to do next\""
 msgstr "「後續步驟」"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "Setup task list"
 msgstr "設定任務清單"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "恢復顯示「後續步驟」任務清單。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "恢復顯示主要的新手入門任務清單。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "可使用這些選項來恢復顯示 WooCommerce 首頁的新手入門任務清單。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
 msgid "Onboarding"
 msgstr "申請"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "針對銷售最佳化的自訂導覽體驗。"
 
@@ -215,7 +214,6 @@ msgstr "使用 WooCommerce 擴充功能自訂商店，以完美滿足你的業�
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "透過擴充功能讓你的商店更上一層樓"
 
@@ -230,7 +228,6 @@ msgstr "是時候慶祝一下了！ 準備好推出你的商店了嗎？"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "推出你的商店"
 
@@ -240,8 +237,7 @@ msgstr "你已經推出商店了"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: build/index.js:3
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 msgid "2 minutes"
 msgstr "2 分鐘"
 
@@ -255,8 +251,6 @@ msgstr "網域"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "新增網域"
 
@@ -276,10 +270,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "立即升級"
 
@@ -351,7 +341,6 @@ msgid "Discover"
 msgstr "探索"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "管理"
 
@@ -393,7 +382,7 @@ msgstr "我的首頁"
 msgid "Feedback"
 msgstr "意見反應"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:201
 msgid "Navigation"
 msgstr "導覽"
 

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-14T14:30:23+00:00\n"
+"POT-Creation-Date: 2024-07-11T14:43:06+00:00\n"
 "PO-Revision-Date: 2024-02-19 11:45:49+0000\n"
 "Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -27,7 +27,7 @@ msgid "Set up Square payments to accept credit card payments in your store. You'
 msgstr "Configura pagos Square para aceptar pagos con tarjeta de crédito en tu tienda. Para empezar, necesitarás una cuenta de Square"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
 msgid "Get paid with Square"
 msgstr "Recauda tus pagos con Square"
 
@@ -103,7 +103,7 @@ msgstr "Navegar por las extensiones"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:95
 msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
-msgstr "Añade tus productos. Muestra tus productos o servicios y prepárate para empezar a vender: añade información, imágenes y descripciones de tus productos."
+msgstr "Añade tus productos. Muestra tus productos o servicios y prepárate para empezar a vender: añade información, imágenes y descripciones."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:89
 msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
@@ -139,39 +139,38 @@ msgstr "Elige un tema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr "Plugins"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:400
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:403
 msgid "Restore"
 msgstr "Restablecer"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "\"Things to do next\""
 msgstr "«Qué hacer a continuación»"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "Setup task list"
 msgstr "Lista de tareas de configuración"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "Restablece la visibilidad de la lista de tareas «Cosas que hacer a continuación»."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "Restablece la visibilidad de la lista de tareas de incorporación principal."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "Utiliza estas opciones para restablecer la visibilidad de las listas de tareas de incorporación en la página de inicio de WooCommerce."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
 msgid "Onboarding"
 msgstr "Inducción"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "Una experiencia de navegación personalizada y optimizada para la venta."
 
@@ -215,7 +214,6 @@ msgstr "Personaliza tu tienda con extensiones de WooCommerce para que funcione a
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Mejora el nivel de tu tienda con extensiones"
 
@@ -230,7 +228,6 @@ msgstr "¡Es hora de celebrarlo! ¿Todo listo para publicar tu tienda?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "Pon en marcha tu tienda"
 
@@ -240,8 +237,7 @@ msgstr "Ya has publicado tu tienda"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: build/index.js:3
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 msgid "2 minutes"
 msgstr "2 minutos"
 
@@ -255,8 +251,6 @@ msgstr "dominio"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "Añadir un dominio"
 
@@ -276,10 +270,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Mejora tu plan ahora"
 
@@ -351,7 +341,6 @@ msgid "Discover"
 msgstr "Discover"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "Gestionar"
 
@@ -393,7 +382,7 @@ msgstr "Mi página de inicio"
 msgid "Feedback"
 msgstr "Sugerencias"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:201
 msgid "Navigation"
 msgstr "Navegación"
 
