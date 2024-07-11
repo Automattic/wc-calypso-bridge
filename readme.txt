@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.5.3 =
+* Entrepreneur Trial: Fix Entrepreneur trial plan Welcome note
+
 = 2.5.2 =
 * eCommerce Signup Flow: Add the "Welcome" note back #1484
 * Fix homepage crashing with WooCommerce 9.0.0 #1483
