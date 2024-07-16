@@ -30,8 +30,7 @@ export const WooCommerceTax: React.FC< TaxChildProps > = ( {
 				! select( SETTINGS_STORE_NAME ).hasFinishedResolution(
 					'getSettings',
 					[ 'general' ]
-				) ||
-				! hasFinishedResolution( 'getActivePlugins' ),
+				) || ! hasFinishedResolution( 'getActivePlugins' ),
 		};
 	} );
 

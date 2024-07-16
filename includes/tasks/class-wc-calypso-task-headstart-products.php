@@ -63,7 +63,7 @@ class HeadstartProducts extends Products {
 			return __( 'Import your products', 'woocommerce' );
 		}
 
-		return __( 'Add your products', 'woocommerce' );
+		return __( 'Add your products, pleaze', 'woocommerce' );
 	}
 
 	/**
