@@ -34,10 +34,9 @@ class WC_Calypso_Bridge_Partner_PayPal {
      */
     public function __construct() {
         // Only for free trials.
-        // TODO: Uncomment this line when the free trial plan is available.
-        // if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
-        //     return;
-        // }
+        if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+            return;
+        }
         $onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
         if ( ! isset( $onboarding_profile['partner'] ) ) {
             return;
