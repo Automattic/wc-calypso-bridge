@@ -101,11 +101,7 @@ const StoreLocation = ( {
 						getInputProps={ getInputProps }
 						setValue={ setValue }
 					/>
-					<Button
-						isPrimary
-						onClick={ handleSubmit }
-						isBusy={ isSubmitting }
-					>
+					<Button isPrimary onClick={ handleSubmit } isBusy={ isSubmitting }>
 						{ buttonText }
 					</Button>
 				</Fragment>

@@ -110,7 +110,7 @@ const PluginsPage = () => {
 						</svg>
 					</div>
 					<h3>
-						{ __( 'Customize your website', 'wc-calypso-bridge' ) }
+						{__( 'Customize your website', 'wc-calypso-bridge' ) }
 					</h3>
 					<p>
 						{ __(
@@ -141,11 +141,11 @@ const PluginsPage = () => {
 							viewBox="0 0 29 29"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
-							style={ {
+							style={{
 								position: 'relative',
 								top: '-1px',
 								left: '3px',
-							} }
+							}}
 						>
 							<path
 								fill="var(--wp-admin-theme-color)"

@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 import { OPTIONS_STORE_NAME } from '@woocommerce/data';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { recordEvent } from '@woocommerce/tracks';
-import { recordTracksEvent as calypsoRecordTracksEvent } from '@automattic/calypso-analytics';
+import { recordTracksEvent as calypsoRecordTracksEvent } from '@automattic/calypso-analytics'
 import { useEffect } from '@wordpress/element';
 import { getScreenFromPath, parseAdminUrl } from '@woocommerce/navigation';
 
