@@ -108,9 +108,8 @@ class WC_Calypso_Bridge_Partner_PayPal {
             }
 
             try {
-                // TODO: Find a way to avoid hardcoding the URL.
-                // $params['paypal_connect_url'] = \WooCommerce\PayPal\Plugin::instance()->get_connection_handler()->get_connect_url();
-                $params['paypal_connect_url'] = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway&ppcp-tab=ppcp-connection' );
+                $connection_tab_id = \WooCommerce\PayPalCommerce\WcGateway\Settings\Settings::CONNECTION_TAB_ID;
+                $params['paypal_connect_url'] = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway&ppcp-tab=' . $connection_tab_id );
             } catch (\Throwable $e) {
                 // Fallback to the settings page
                 $params['paypal_connect_url'] = add_query_arg( array(
