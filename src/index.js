@@ -110,10 +110,6 @@ if ( !! window.wcCalypsoBridge.isWooExpress ) {
 		scope: 'woocommerce-admin',
 	} );
 }
-console.log(
-	'is it ecommerce plan trial??',
-	window.wcCalypsoBridge.isEcommercePlanTrial
-);
 
 if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 	import( './free-trial/fills' );
@@ -184,9 +180,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 			render: GetPaidWithSquareFill,
 		} );
 	}
-	console.log( 'in the main index but outside paypal connect url??' );
 	if ( window?.wcCalypsoBridge?.paypal_connect_url ) {
-		console.log( 'in the main index??' );
 		// Setup PayPal task fill (Partner Aware Onboarding).
 		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-paypal', {
 			scope: 'woocommerce-tasks',

@@ -13,10 +13,6 @@ import TimerImage from './assets/images/timer.svg';
 import { WC_ASSET_URL } from '../utils/admin-settings';
 
 const GetPaidWithPayPalHeader = () => {
-	console.log(
-		'hola en el getpaid',
-		window.wcCalypsoBridge.paypal_connect_url
-	);
 	return (
 		<WooOnboardingTaskListHeader id="get-paid-with-paypal">
 			{ ( { task, goToTask } ) => {
