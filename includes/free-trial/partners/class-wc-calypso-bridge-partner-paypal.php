@@ -49,6 +49,7 @@ class WC_Calypso_Bridge_Partner_PayPal {
         $this->add_paypal_setup_task();
         $this->add_paypal_connect_url_to_js();
         $this->remove_woo_payments_from_payments_suggestions_feed();
+        $this->remove_payments_note();
     }
 
     /**
@@ -113,6 +114,7 @@ class WC_Calypso_Bridge_Partner_PayPal {
     private function add_paypal_connect_url_to_js() {
         add_filter( 'wc_calypso_bridge_shared_params', function( $params ) {
             if ( !$this->has_paypal_plugin_class() ){
+                $params['paypal_connect_url'] = admin_url( 'admin.php?page=wc-settings&tab=checkout&section=ppcp-gateway&ppcp-tab=connection_tab_id' );
                 return $params;
             }
 
@@ -130,6 +132,32 @@ class WC_Calypso_Bridge_Partner_PayPal {
             return $params;
         });
     }
+
+	/**
+	 * Remove wc-admin-onboarding-payments-reminder note from the notes api endpoint.
+	 *
+	 * @return void
+	 */
+	private function remove_payments_note() {
+		add_filter( 'rest_request_after_callbacks', function( $response, $handler, $request ) {
+			if ( $request->get_route() === '/wc-analytics/admin/notes' ) {
+				$data = $response->get_data();
+				foreach( $data as $key=>$note ) {
+					if ( isset( $note['name'] ) && $note['name'] === 'wc-admin-onboarding-payments-reminder' ) {
+						unset( $data[$key] );
+						$headers = $response->get_headers();
+						if ( isset( $headers['X-WP-Total'] ) ) {
+							$headers['X-WP-Total'] = (int) $headers['X-WP-Total'] - 1;
+							$response->set_headers( $headers );
+						}
+						break;
+					}
+				}
+				$response->set_data( array_values( $data ) );
+			}
+			return $response;
+		}, 10, 3);
+	}
 }
 
 WC_Calypso_Bridge_Partner_PayPal::get_instance();

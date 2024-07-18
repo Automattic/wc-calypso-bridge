@@ -49,12 +49,13 @@ class WCBridgeGetPaidWithPayPal extends Task {
 	 *
 	 */
 	public function is_complete() {
+		if(class_exists( '\WooCommerce\PayPalCommerce\PPCP' )) {
+			$paypal_container = \WooCommerce\PayPalCommerce\PPCP::container();
+			$onboarding_state = $paypal_container->get('onboarding.state');
+			return ( $onboarding_state->current_state() >= \WooCommerce\PayPalCommerce\Onboarding\State::STATE_ONBOARDED );
+		}
 
-		$paypal_container = \WooCommerce\PayPalCommerce\PPCP::container();
-		$onboarding_state = $paypal_container->get('onboarding.state');
-		$is_onboarded = ( $onboarding_state->current_state() >= \WooCommerce\PayPalCommerce\Onboarding\State::STATE_ONBOARDED );
-
-		return $is_onboarded;
+		return false;
 	}
 
 	/**
