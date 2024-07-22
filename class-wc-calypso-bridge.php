@@ -182,6 +182,7 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-smart-shipping.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-woo-express-introductory-offers.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-square.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-stripe.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-paypal.php';
 
 		// Experiments.
