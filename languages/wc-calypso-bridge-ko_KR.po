@@ -7,14 +7,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-11T14:43:03+00:00\n"
+"POT-Creation-Date: 2024-07-19T09:13:07+00:00\n"
 "PO-Revision-Date: 2024-05-28 09:54:03+0000\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
 msgstr "%s 무료 평가판이 이제 막 시작되었습니다."
 
@@ -35,11 +35,11 @@ msgstr "Square로 결제 대금 받기"
 msgid "News"
 msgstr "뉴스"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
 msgid "Create your first product"
 msgstr "첫 번째 제품 만들기"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
 msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
 msgstr "%s 요금제 14일 무료 평가판에 오신 것을 환영합니다. 성공적인 온라인 비즈니스의 시작과 성장에 필요한 모든 것이 한곳에 다 있습니다. 첫 번째 판매를 향한 여정이 이제 막 시작되었습니다! 둘러볼 준비가 되셨나요?"
 

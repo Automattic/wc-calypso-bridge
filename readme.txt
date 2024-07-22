@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.5.4 =
+Add a new class to customize for PayPal from Partner Aware Onboarding #1491
+
 = 2.5.3 =
 * Entrepreneur Trial: Fix Entrepreneur trial plan Welcome note
 
