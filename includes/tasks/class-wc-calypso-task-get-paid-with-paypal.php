@@ -7,8 +7,8 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * WCBridgeSetupWooCommercePayPal Task
  *
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.5.4
+ * @version 2.5.4
  */
 class WCBridgeGetPaidWithPayPal extends Task {
 	/**
