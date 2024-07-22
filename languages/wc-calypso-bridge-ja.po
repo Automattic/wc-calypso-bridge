@@ -7,14 +7,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-11T14:43:03+00:00\n"
+"POT-Creation-Date: 2024-07-19T09:13:06+00:00\n"
 "PO-Revision-Date: 2024-05-29 09:54:02+0000\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
 msgstr "%s のお試し期間が開始されました"
 
@@ -35,11 +35,11 @@ msgstr "Square で支払いを受け取る"
 msgid "News"
 msgstr "ニュース"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
 msgid "Create your first product"
 msgstr "最初の商品を作成"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
 msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
 msgstr "%s プランの14日間お試し期間へようこそ。このプランには成功するオンラインビジネスの立ち上げと成長に必要なものすべてが1か所にそろっています。 初めての売り上げをめざしてストアづくりが始まりました !  体験する準備はできていますか ?"
 

@@ -7,14 +7,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-11T14:43:07+00:00\n"
+"POT-Creation-Date: 2024-07-19T09:13:12+00:00\n"
 "PO-Revision-Date: 2024-05-31 14:54:02+0000\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
 msgstr "Je proefabonnement van %s is net van start gegaan"
 
@@ -35,11 +35,11 @@ msgstr "Krijg betaald met Square"
 msgid "News"
 msgstr "Nieuws"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
 msgid "Create your first product"
 msgstr "Je eerste product toevoegen"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
 msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
 msgstr "Welkom bij je 14-daagse proefperiode van het %s-abonnement. Op deze centrale plek vind je alles wat je nodig hebt om een succesvolle online onderneming te starten en uit te laten groeien. Je bent op weg naar je eerste verkoop! Klaar om op ontdekkingsreis te gaan?"
 

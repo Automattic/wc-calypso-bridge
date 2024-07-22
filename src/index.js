@@ -27,7 +27,7 @@ import {
 } from './homescreen-progress-header';
 import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
-import { AppearanceFill, GetPaidWithSquareFill, GetPaidWithStripeFill } from './task-fills';
+import { AppearanceFill, GetPaidWithSquareFill, GetPaidWithStripeFill, GetPaidWithPayPalFill } from './task-fills';
 import './task-headers';
 import './track-menu-item';
 import { CalypsoBridgeIntroductoryOfferBanner } from './introductory-offer-banner';
@@ -182,6 +182,14 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-stripe', {
 			scope: 'woocommerce-tasks',
 			render: GetPaidWithStripeFill,
+		} );
+  }
+
+	if ( window?.wcCalypsoBridge?.paypal_connect_url ) {
+		// Setup PayPal task fill (Partner Aware Onboarding).
+		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-paypal', {
+			scope: 'woocommerce-tasks',
+			render: GetPaidWithPayPalFill,
 		} );
 	}
 }
