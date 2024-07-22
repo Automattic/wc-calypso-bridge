@@ -7,11 +7,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-19T09:13:06+00:00\n"
+"POT-Creation-Date: 2024-07-22T23:51:10+00:00\n"
 "PO-Revision-Date: 2024-05-31 16:21:31+0000\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr ""
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr ""
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
@@ -139,6 +148,7 @@ msgstr "Scegli il tuo tema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
+#: build/index.js:11
 msgid "Plugins"
 msgstr "Plugin"
 
@@ -214,6 +224,7 @@ msgstr "Personalizza il tuo negozio in modo che funzioni perfettamente per la tu
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Porta il tuo negozio al livello successivo grazie alle estensioni"
 
@@ -228,6 +239,7 @@ msgstr "È tempo di festeggiare. Tutto pronto per lanciare il tuo negozio?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: build/index.js:1
 msgid "Launch your store"
 msgstr "Lancia il tuo negozio"
 
@@ -237,7 +249,9 @@ msgstr "Hai già lanciato il tuo negozio"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 minuti"
 
@@ -251,6 +265,8 @@ msgstr "Dominio"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
+#: build/index.js:1
+#: build/index.js:3
 msgid "Add a domain"
 msgstr "Aggiungi un dominio"
 
@@ -270,6 +286,10 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:1
+#: build/index.js:11
+#: build/marketing.js:1
+#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Migliora il tuo sito"
 
@@ -341,6 +361,7 @@ msgid "Discover"
 msgstr "Discover"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "Gestisci"
 
