@@ -7,8 +7,8 @@ use Automattic\WooCommerce\Admin\Features\OnboardingTasks\Task;
 /**
  * WCBridgeSetupWooCommerceStripe Task
  *
- * @since   2.5.4
- * @version 2.5.4
+ * @since   2.5.5
+ * @version 2.5.5
  */
 class WCBridgeGetPaidWithStripe extends Task {
 	/**

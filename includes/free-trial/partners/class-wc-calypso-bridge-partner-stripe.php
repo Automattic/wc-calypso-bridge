@@ -3,8 +3,8 @@
 /**
  * WC Calypso Bridge Partner Stripe
  *
- *	@since   2.5.4
- *	@version 2.5.4
+ * @since   2.5.5
+ * @version 2.5.5
  *
  * This file includes customizations for the sites that were created through /start-with/stripe on wordpress.com.
  * woocommerce_onboarding_profile.partner must get 'stripe'
