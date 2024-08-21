@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * Handle Coming Soon mode.
  */
-class  WC_Calypso_Bridge_Coming_Soon {
+class WC_Calypso_Bridge_Coming_Soon {
 	/**
 	 * The single instance of the class.
 	 *
@@ -33,10 +33,19 @@ class  WC_Calypso_Bridge_Coming_Soon {
 		return self::$instance;
 	}
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 		add_filter( 'a8c_show_coming_soon_page', array( $this, 'should_show_a8c_coming_soon_page' ), 99999, 1 );
 	}
 
+	/**
+	 * Show the coming soon page if the Launch Your Store feature is enabled.
+	 *
+	 * @param bool $should_show
+	 * @return bool
+	 */
 	public function should_show_a8c_coming_soon_page( $should_show ) {
 		if ( ! Features::is_enabled( 'launch-your-store' ) ) {
 			// Bail out early if the Launch Your Store feature is not enabled.
@@ -45,8 +54,6 @@ class  WC_Calypso_Bridge_Coming_Soon {
 
 		return false;
 	}
-
-
 }
 
 WC_Calypso_Bridge_Coming_Soon::get_instance();
