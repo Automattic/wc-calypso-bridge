@@ -56,6 +56,12 @@ class WC_Calypso_Bridge_Coming_Soon {
 		return $should_show;
 	}
 
+	/**
+	 * Exclude the coming soon page if the user is accessing the site via a valid share link.
+	 *
+	 * @param bool $exclude
+	 * @return bool
+	 */
 	public function should_exclude_lys_coming_soon( $exclude ) {
 		if ( ! function_exists( '\A8C\FSE\Coming_soon\get_share_code' ) ) {
 			return $exclude;
