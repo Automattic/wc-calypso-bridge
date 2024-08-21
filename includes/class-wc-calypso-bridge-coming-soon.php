@@ -37,7 +37,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	public function __construct() {
 		add_filter( 'a8c_show_coming_soon_page', array( $this, 'should_show_a8c_coming_soon_page' ), PHP_INT_MAX, 1 );
 		add_filter( 'woocommerce_coming_soon_exclude', array( $this, 'should_exclude_lys_coming_soon' ) );
-
+		add_action( 'update_option_wpcom_public_coming_soon', array( $this, 'sync_coming_soon_option' ), 10, 3 );
 	}
 
 	/**
@@ -73,6 +73,22 @@ class WC_Calypso_Bridge_Coming_Soon {
 		}
 
 		return $exclude;
+	}
+
+	/**
+	 * Sync the coming soon option from wpcom_public_coming_soon to woocommerce_coming_soon.
+	 *
+	 * @param int $old_value
+	 * @param int $new_value
+	 * @param string $option
+	 * @return void
+	 */
+	public function sync_coming_soon_option( $old_value, $new_value, $option ) {
+		if ( 1 ===  (int) $new_value ) {
+			update_option( 'woocommerce_coming_soon', 'yes' );
+		} else {
+			update_option( 'woocommerce_coming_soon', 'no' );
+		}
 	}
 }
 
