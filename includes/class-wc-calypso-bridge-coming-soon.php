@@ -84,6 +84,10 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return void
 	 */
 	public function sync_coming_soon_option( $old_value, $new_value, $option ) {
+		if ( ! Features::is_enabled( 'launch-your-store' ) ) {
+			return;
+		}
+
 		if ( 1 ===  (int) $new_value ) {
 			update_option( 'woocommerce_coming_soon', 'yes' );
 		} else {
