@@ -23,7 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled
+* Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled #1500
 
 = 2.5.5 =
 * Add a new class to customize for Stripe from Partner Aware Onboarding #1492
