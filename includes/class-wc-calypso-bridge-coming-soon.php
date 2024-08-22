@@ -41,18 +41,19 @@ class WC_Calypso_Bridge_Coming_Soon {
 	}
 
 	/**
-	 * Show the coming soon page if the Launch Your Store feature is enabled.
+	 * Hide the a8c coming soon page if the Launch Your Store feature is enabled.
 	 *
 	 * @param bool $should_show
 	 * @return bool
 	 */
 	public function should_show_a8c_coming_soon_page( $should_show ) {
-		if ( ! Features::is_enabled( 'launch-your-store' ) ) {
-			// Bail out early if the Launch Your Store feature is not enabled.
-			return $should_show;
+		if (
+			class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'launch-your-store' )
+		) {
+			return false;
 		}
 
-		return false;
+		return $should_show;
 	}
 }
 
