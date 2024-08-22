@@ -84,7 +84,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return void
 	 */
 	public function sync_coming_soon_option( $old_value, $new_value, $option ) {
-		if ( ! Features::is_enabled( 'launch-your-store' ) ) {
+		if ( ! class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) || ! \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'launch-your-store' ) ) {
 			return;
 		}
 
