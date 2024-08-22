@@ -37,7 +37,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_filter( 'a8c_show_coming_soon_page', array( $this, 'should_show_a8c_coming_soon_page' ), 99999, 1 );
+		add_filter( 'a8c_show_coming_soon_page', array( $this, 'should_show_a8c_coming_soon_page' ), PHP_INT_MAX, 1 );
 	}
 
 	/**
