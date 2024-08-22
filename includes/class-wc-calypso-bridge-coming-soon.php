@@ -36,6 +36,8 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 */
 	public function __construct() {
 		add_filter( 'a8c_show_coming_soon_page', array( $this, 'should_show_a8c_coming_soon_page' ), PHP_INT_MAX, 1 );
+		add_filter( 'woocommerce_coming_soon_exclude', array( $this, 'should_exclude_lys_coming_soon' ) );
+
 	}
 
 	/**
@@ -52,6 +54,25 @@ class WC_Calypso_Bridge_Coming_Soon {
 		}
 
 		return $should_show;
+	}
+
+	/**
+	 * Exclude the coming soon page if the user is accessing the site via a valid share link.
+	 *
+	 * @param bool $exclude
+	 * @return bool
+	 */
+	public function should_exclude_lys_coming_soon( $exclude ) {
+		if ( ! function_exists( '\A8C\FSE\Coming_soon\get_share_code' ) ) {
+			return $exclude;
+		}
+
+		$share_code = \A8C\FSE\Coming_soon\get_share_code();
+		if ( \A8C\FSE\Coming_soon\is_accessed_by_valid_share_link( $share_code ) ) {
+			return true;
+		}
+
+		return $exclude;
 	}
 }
 
