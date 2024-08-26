@@ -114,7 +114,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 		// Unhook listener to prevent a loop of updating option between WPCOM <-> LYS.
 		$this->unhook_update_option_woocommerce_coming_soon();
 
-		if ( 1 ===  (int) $new_value ) {
+		if ( $is_coming_soon_wpcom ) {
 			update_option( 'woocommerce_coming_soon', 'yes' );
 		} else {
 			update_option( 'woocommerce_coming_soon', 'no' );
