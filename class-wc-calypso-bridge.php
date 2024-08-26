@@ -143,6 +143,8 @@ class WC_Calypso_Bridge {
 	 * Include files and controllers.
 	 */
 	public function includes() {
+		// Helpers.
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/atomic-api/class-wc-calypso-bridge-atomic-launch-api.php';
 
 		/**
 		 * Hint:
