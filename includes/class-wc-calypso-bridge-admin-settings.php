@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * @since   x.x.x
  * @version x.x.x
  *
- * Handle Coming Soon mode.
+ * Handle Admin Settings.
  */
 class WC_Calypso_Bridge_Admin_Settings {
 	/**
