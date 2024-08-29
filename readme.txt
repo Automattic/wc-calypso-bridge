@@ -27,6 +27,7 @@ This section describes how to install the plugin and get it working.
 * Exclude LYS coming soon page for WPCOM share link #1501
 * Sync WPCOM coming soon status to LYS #1502
 * Add sync coming soon status from LYS to WPCOM #1503
+* Refactor LYS to use unidirectional data flow #1506
 
 = 2.5.5 =
 * Add a new class to customize for Stripe from Partner Aware Onboarding #1492
