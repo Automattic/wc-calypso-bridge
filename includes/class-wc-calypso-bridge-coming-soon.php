@@ -46,17 +46,6 @@ class WC_Calypso_Bridge_Coming_Soon {
 	}
 
 	/**
-	 * Check if Private_Site class and functions are available.
-	 *
-	 * @return bool
-	 */
-	private function is_private_site_available() {
-		return function_exists( '\Private_Site\site_is_private' ) &&
-			function_exists( '\Private_Site\site_is_public_coming_soon' ) &&
-			function_exists( '\Private_Site\site_launch_status' );
-	}
-
-	/**
 	 * Hide the a8c coming soon page if the Launch Your Store feature is enabled.
 	 *
 	 * @param bool $should_show Whether to show the coming soon page.
@@ -202,6 +191,17 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 */
 	private function is_feature_enabled() {
 		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'launch-your-store' );
+	}
+
+	/**
+	 * Check if Private_Site class and functions are available.
+	 *
+	 * @return bool
+	 */
+	private function is_private_site_available() {
+		return function_exists( '\Private_Site\site_is_private' ) &&
+			function_exists( '\Private_Site\site_is_public_coming_soon' ) &&
+			function_exists( '\Private_Site\site_launch_status' );
 	}
 }
 
