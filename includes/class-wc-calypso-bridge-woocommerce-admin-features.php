@@ -140,10 +140,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * @return array
 	 */
 	public function filter_woocommerce_admin_features( $features ) {
-		// Disable launch-your-store to prevent clashes with similar functionality already provided.
-		if ( isset( $features['launch-your-store'] ) ) {
-			$features['launch-your-store'] = false;
-		}
+
 
 		// The rest applies only to Entrepreneur and Woo Express plans.
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
