@@ -63,7 +63,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return bool
 	 */
 	public function should_show_a8c_coming_soon_page( $should_show ) {
-		if ( ! $this->is_feature_enabled() ) {
+		if ( $this->is_feature_enabled() ) {
 			return false;
 		}
 
