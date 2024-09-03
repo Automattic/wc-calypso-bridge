@@ -110,15 +110,18 @@ class WC_Calypso_Bridge_Setup_Tasks {
 
 		$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-add-domain.php';
-		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
 
 		$list = $tl::get_lists_by_ids( array( 'setup' ) );
 		$list = array_pop( $list );
 
 		$add_domain_task  = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
-		$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
 		$tl::add_task( 'setup', $add_domain_task );
-		$tl::add_task( 'setup', $launch_site_task );
+
+		if ( ! class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) || ! \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'launch-your-store' ) ) {
+			require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
+			$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
+			$tl::add_task( 'setup', $launch_site_task );
+		}
 	}
 
 	/**
