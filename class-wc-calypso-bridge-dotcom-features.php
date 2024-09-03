@@ -120,6 +120,19 @@ if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_plan' ) ) {
 	}
 }
 
+if ( ! function_exists( 'wc_calypso_bridge_is_trial_plan' ) ) {
+	/**
+	 * Returns if a site is a trial plan site or not.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return bool True if the site is a trial plan.
+	 */
+	function wc_calypso_bridge_is_trial_plan() {
+		return WC_Calypso_Bridge_DotCom_Features::is_trial_plan();
+	}
+}
+
 /**
  * WC Calypso Bridge DotCom Features class.
  */
@@ -181,6 +194,13 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 * @var bool
 	 */
 	protected static $is_business_plan = null;
+
+	/**
+	 * Is Trial plan.
+	 *
+	 * @var bool
+	 */
+	protected static $is_trial_plan = null;
 
 	/**
 	 * Determine if site has a WordPress.com eCommerce plan and cache the result.
@@ -340,4 +360,49 @@ class WC_Calypso_Bridge_DotCom_Features {
 
 		return self::$is_business_plan;
 	}
+
+	public static function is_trial_plan() {
+		if ( is_null( self::$is_trial_plan ) ) {
+			self::$is_trial_plan = self::is_ecommerce_trial_plan()
+				// Business trial plans
+				|| self::has_plan( 'wp-bundle-hosting-trial', true )
+				|| self::has_plan( 'wp-bundle-migration-trial', true );
+		}
+
+		return self::$is_trial_plan;
+	}
+
+	/**
+	 * Check if the site has a specific plan.
+	 *
+	 * @param string $plan The plan to check for.
+	 * @param bool $exact_one_plan If true, the site must have exactly one plan.
+	 *
+	 * @return bool True if the site has the plan, false otherwise.
+	 */
+	private static function has_plan( $plan, $exact_one_plan = false ) {
+		if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
+			return false;
+		}
+
+		$all_site_purchases = wpcom_get_site_purchases();
+		if ( ! is_array( $all_site_purchases ) ) {
+			return false;
+		}
+
+		$bundles = wp_list_filter( $all_site_purchases, array( 'product_type' => 'bundle' ) );
+
+		if ( $exact_one_plan && count( $bundles ) !== 1 ) {
+			return false;
+		}
+
+		foreach ( $bundles as $bundle ) {
+			if ( isset( $bundle->billing_product_slug ) && $bundle->billing_product_slug === $plan ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 }

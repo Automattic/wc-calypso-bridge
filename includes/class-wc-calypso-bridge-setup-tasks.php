@@ -142,8 +142,8 @@ class WC_Calypso_Bridge_Setup_Tasks {
 						unset( $lists['setup']->tasks[$index] );
 						break;
 					case 'launch-your-store':
-						if ( wc_calypso_bridge_is_ecommerce_trial_plan() ){
-							// Remove launch your store task.
+						if ( wc_calypso_bridge_is_trial_plan() ) {
+							// Don't show launch your store task for trial sites.
 							unset( $lists['setup']->tasks[$index] );
 						}
 						break;

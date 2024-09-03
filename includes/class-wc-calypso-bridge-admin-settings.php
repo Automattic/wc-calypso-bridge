@@ -35,6 +35,10 @@ class WC_Calypso_Bridge_Admin_Settings {
 	 * Constructor.
 	 */
 	public function __construct() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		add_filter( 'woocommerce_settings_tabs_array', array( $this, 'replace_settings_tab' ), PHP_INT_MAX );
 	}
 
@@ -47,7 +51,7 @@ class WC_Calypso_Bridge_Admin_Settings {
 	public function replace_settings_tab( $tabs ) {
 		global $current_tab;
 
-		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+		if ( wc_calypso_bridge_is_trial_plan() ) {
 			// Remove Site Visibility setting for the free trial plan.
 			unset( $tabs['site-visibility'] );
 

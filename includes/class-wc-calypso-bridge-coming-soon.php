@@ -86,7 +86,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 */
 	public function override_option_woocommerce_coming_soon( $current_value ) {
 		// Turn off coming soon mode for trial plan.
-		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+		if ( wc_calypso_bridge_is_trial_plan() ) {
 			return 'no';
 		}
 
