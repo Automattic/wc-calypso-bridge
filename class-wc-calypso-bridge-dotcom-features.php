@@ -380,6 +380,17 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 *
 	 * @return bool True if the site has the plan, false otherwise.
 	 */
+	/**
+	 * Check if the site has a specific plan.
+	 *
+	 * This method checks if the current site has a particular plan based on its purchases.
+	 * It can optionally check if the site has exactly one plan.
+	 *
+	 * @param string $plan           The plan slug to check for.
+	 * @param bool   $exact_one_plan If true, the site must have exactly one plan.
+	 *
+	 * @return bool True if the site has the specified plan, false otherwise.
+	 */
 	private static function has_plan( $plan, $exact_one_plan = false ) {
 		if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
 			return false;
@@ -390,8 +401,10 @@ class WC_Calypso_Bridge_DotCom_Features {
 			return false;
 		}
 
+		// Filter purchases to get only bundles.
 		$bundles = wp_list_filter( $all_site_purchases, array( 'product_type' => 'bundle' ) );
 
+		// If exact_one_plan is true, ensure there's exactly one bundle
 		if ( $exact_one_plan && count( $bundles ) !== 1 ) {
 			return false;
 		}
