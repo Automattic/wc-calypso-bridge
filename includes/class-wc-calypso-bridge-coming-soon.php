@@ -85,6 +85,11 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return string
 	 */
 	public function override_option_woocommerce_coming_soon( $current_value ) {
+		// Turn off coming soon mode for trial plan.
+		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return 'no';
+		}
+
 		if ( ! $this->is_feature_enabled() || ! $this->is_private_site_available() ) {
 			return $current_value;
 		}
@@ -202,20 +207,6 @@ class WC_Calypso_Bridge_Coming_Soon {
 		return function_exists( '\Private_Site\site_is_private' ) &&
 			function_exists( '\Private_Site\site_is_public_coming_soon' ) &&
 			function_exists( '\Private_Site\site_launch_status' );
-	}
-
-	/**
-	 * Disable the coming soon page if the user is on the free trial plan.
-	 *
-	 * @param string $value
-	 * @return string
-	 */
-	public function possibly_disable_lys_coming_soon( $value ) {
-		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
-			return 'no';
-		}
-
-		return $value;
 	}
 }
 
