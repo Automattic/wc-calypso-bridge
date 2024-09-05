@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.3.3
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -140,6 +140,12 @@ class WC_Calypso_Bridge_Setup_Tasks {
 					case 'purchase':
 						// Remove appearance and purchase task.
 						unset( $lists['setup']->tasks[$index] );
+						break;
+					case 'launch-your-store':
+						if ( wc_calypso_bridge_is_trial_plan() ) {
+							// Don't show launch your store task for trial sites.
+							unset( $lists['setup']->tasks[$index] );
+						}
 						break;
 				}
 			}

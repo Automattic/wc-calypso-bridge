@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.2.22
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -120,6 +120,19 @@ if ( ! function_exists( 'wc_calypso_bridge_is_woo_express_plan' ) ) {
 	}
 }
 
+if ( ! function_exists( 'wc_calypso_bridge_is_trial_plan' ) ) {
+	/**
+	 * Returns if a site is a trial plan site or not.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return bool True if the site is a trial plan.
+	 */
+	function wc_calypso_bridge_is_trial_plan() {
+		return WC_Calypso_Bridge_DotCom_Features::is_trial_plan();
+	}
+}
+
 /**
  * WC Calypso Bridge DotCom Features class.
  */
@@ -181,6 +194,13 @@ class WC_Calypso_Bridge_DotCom_Features {
 	 * @var bool
 	 */
 	protected static $is_business_plan = null;
+
+	/**
+	 * Is Trial plan.
+	 *
+	 * @var bool
+	 */
+	protected static $is_trial_plan = null;
 
 	/**
 	 * Determine if site has a WordPress.com eCommerce plan and cache the result.
@@ -340,4 +360,57 @@ class WC_Calypso_Bridge_DotCom_Features {
 
 		return self::$is_business_plan;
 	}
+
+	/**
+	 * Determine if the site is on a trial plan.
+	 *
+	 * @return bool True if the site is on a trial plan, false otherwise.
+	 */
+	public static function is_trial_plan() {
+		if ( is_null( self::$is_trial_plan ) ) {
+			self::$is_trial_plan = self::is_ecommerce_trial_plan()
+				// Business trial plans
+				|| self::has_any_of_plans( array( 'wp-bundle-hosting-trial',  'wp-bundle-migration-trial' ), true );
+
+		}
+
+		return self::$is_trial_plan;
+	}
+
+
+	/**
+	 * Check if the site has any of the specified plans.
+	 *
+	 * @param array $plans           The plans to check for. An array of plan slugs.
+	 * @param bool  $exact_one_plan If true, the site must have exactly one plan purchase.
+	 *
+	 * @return bool True if the site has any of the specified plans (or exactly one plan if $exact_one_plan is true). False otherwise.
+	 */
+	private static function has_any_of_plans( $plans, $exact_one_plan = true ) {
+		if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
+			return false;
+		}
+
+		$all_site_purchases = wpcom_get_site_purchases();
+		if ( ! is_array( $all_site_purchases ) ) {
+			return false;
+		}
+
+		// Filter purchases to get only bundles.
+		$bundles = wp_list_filter( $all_site_purchases, array( 'product_type' => 'bundle' ) );
+
+		// If exact_one_plan is true, ensure there's exactly one bundle
+		if ( $exact_one_plan && count( $bundles ) !== 1 ) {
+			return false;
+		}
+
+		foreach ( $bundles as $bundle ) {
+			if ( isset( $bundle->billing_product_slug ) && in_array(  $bundle->billing_product_slug, $plans, true ) ) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 }
