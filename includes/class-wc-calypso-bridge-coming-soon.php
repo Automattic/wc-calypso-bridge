@@ -39,6 +39,8 @@ class WC_Calypso_Bridge_Coming_Soon {
 		add_filter( 'woocommerce_coming_soon_exclude', array( $this, 'should_exclude_lys_coming_soon' ) );
 		add_filter( 'pre_option_woocommerce_coming_soon', array( $this, 'override_option_woocommerce_coming_soon' ) );
 		add_filter( 'pre_update_option_woocommerce_coming_soon', array( $this, 'override_update_woocommerce_coming_soon' ), 10, 2 );
+		// Admin bar menu is not only shown in the admin area but also in the front end when the admin user is logged in.
+		add_action( 'admin_bar_menu', array( $this, 'possibly_remove_site_visibility_badge' ), 32 );
 
 		if ( is_admin() ) {
 			add_filter( 'plugins_loaded', array( $this, 'maybe_add_admin_notice_pre_launch' ) );
@@ -52,7 +54,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return bool
 	 */
 	public function should_show_a8c_coming_soon_page( $should_show ) {
-		if ( $this->is_feature_enabled() ) {
+		if ( $this->is_feature_enabled() && ! wc_calypso_bridge_is_trial_plan() ) {
 			return false;
 		}
 
@@ -85,6 +87,11 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return string
 	 */
 	public function override_option_woocommerce_coming_soon( $current_value ) {
+		// Turn off coming soon mode for trial plan.
+		if ( wc_calypso_bridge_is_trial_plan() ) {
+			return 'no';
+		}
+
 		if ( ! $this->is_feature_enabled() || ! $this->is_private_site_available() ) {
 			return $current_value;
 		}
@@ -182,6 +189,19 @@ class WC_Calypso_Bridge_Coming_Soon {
 				<?php
 			}
 		);
+	}
+
+	/**
+	 * Possibly remove the site visibility badge from the admin bar.
+	 *
+	 * @param WP_Admin_Bar $wp_admin_bar The admin bar instance.
+	 * @return void
+	 */
+	public function possibly_remove_site_visibility_badge( $wp_admin_bar  ) {
+		// TODO: Remove feature check once the site visibility badge is behind feature flag in core.
+		if ( wc_calypso_bridge_is_trial_plan() || ! $this->is_feature_enabled() ) {
+			$wp_admin_bar->remove_node( 'woocommerce-site-visibility-badge' );
+		}
 	}
 
 	/**

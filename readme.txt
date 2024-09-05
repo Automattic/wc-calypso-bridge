@@ -28,6 +28,7 @@ This section describes how to install the plugin and get it working.
 * Sync WPCOM coming soon status to LYS #1502
 * Add sync coming soon status from LYS to WPCOM #1503
 * Refactor LYS to use unidirectional data flow #1506
+* Disable launch your store on trial sites #1507
 * Add conditional check to replace launch-site task with LYS task #1509
 
 = 2.5.5 =

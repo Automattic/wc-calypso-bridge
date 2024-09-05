@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.3.3
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -123,11 +123,14 @@ class WC_Calypso_Bridge_Setup_Tasks {
 							array_splice( $lists['setup']->tasks, $index, 0, $add_domain_task );
 
 							// Replace launch your store task with launch site task.
-							if ( ! Features::is_enabled( 'launch-your-store' ) ) {
+							if ( ! Features::is_enabled( 'launch-your-store' ) && ! wc_calypso_bridge_is_trial_plan() ) {
 								require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
 								$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $lists['setup'] );
 								$lists['setup']->tasks[$index + 1] = $launch_site_task;
 							}
+						} else if ( wc_calypso_bridge_is_trial_plan() ) {
+							// Don't show launch your store task for trial sites.
+							unset( $lists['setup']->tasks[$index] );
 						}
 						break;
 				}
