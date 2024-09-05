@@ -198,8 +198,8 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return void
 	 */
 	public function possibly_remove_site_visibility_badge( $wp_admin_bar  ) {
-		// TODO: Check if feature is enabled when the site visibility badge is behind the feature flag.
-		if ( wc_calypso_bridge_is_trial_plan() ) {
+		// TODO: Remove feature check once the site visibility badge is behind feature flag in core.
+		if ( wc_calypso_bridge_is_trial_plan() || ! $this->is_feature_enabled() ) {
 			$wp_admin_bar->remove_node( 'woocommerce-site-visibility-badge' );
 		}
 	}
