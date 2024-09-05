@@ -361,37 +361,32 @@ class WC_Calypso_Bridge_DotCom_Features {
 		return self::$is_business_plan;
 	}
 
+	/**
+	 * Determine if the site is on a trial plan.
+	 *
+	 * @return bool True if the site is on a trial plan, false otherwise.
+	 */
 	public static function is_trial_plan() {
 		if ( is_null( self::$is_trial_plan ) ) {
 			self::$is_trial_plan = self::is_ecommerce_trial_plan()
 				// Business trial plans
-				|| self::has_plan( 'wp-bundle-hosting-trial', true )
-				|| self::has_plan( 'wp-bundle-migration-trial', true );
+				|| self::has_any_of_plans( array('wp-bundle-hosting-trial',  'wp-bundle-migration-trial'), true );
+
 		}
 
 		return self::$is_trial_plan;
 	}
 
+
 	/**
-	 * Check if the site has a specific plan.
+	 * Check if the site has any of the specified plans.
 	 *
-	 * @param string $plan The plan to check for.
-	 * @param bool $exact_one_plan If true, the site must have exactly one plan.
+	 * @param array $plans           The plans to check for. An array of plan slugs.
+	 * @param bool  $exact_one_plan If true, the site must have exactly one plan purchase.
 	 *
-	 * @return bool True if the site has the plan, false otherwise.
+	 * @return bool True if the site has any of the specified plans (or exactly one plan if $exact_one_plan is true). False otherwise.
 	 */
-	/**
-	 * Check if the site has a specific plan.
-	 *
-	 * This method checks if the current site has a particular plan based on its purchases.
-	 * It can optionally check if the site has exactly one plan.
-	 *
-	 * @param string $plan           The plan slug to check for.
-	 * @param bool   $exact_one_plan If true, the site must have exactly one plan.
-	 *
-	 * @return bool True if the site has the specified plan, false otherwise.
-	 */
-	private static function has_plan( $plan, $exact_one_plan = false ) {
+	private static function has_any_of_plans( $plans, $exact_one_plan = true ) {
 		if ( ! function_exists( 'wpcom_get_site_purchases' ) ) {
 			return false;
 		}
@@ -410,7 +405,7 @@ class WC_Calypso_Bridge_DotCom_Features {
 		}
 
 		foreach ( $bundles as $bundle ) {
-			if ( isset( $bundle->billing_product_slug ) && $bundle->billing_product_slug === $plan ) {
+			if ( isset( $bundle->billing_product_slug ) && in_array(  $bundle->billing_product_slug, $plans, true ) ) {
 				return true;
 			}
 		}
