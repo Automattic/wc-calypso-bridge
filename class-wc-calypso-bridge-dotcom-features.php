@@ -370,7 +370,7 @@ class WC_Calypso_Bridge_DotCom_Features {
 		if ( is_null( self::$is_trial_plan ) ) {
 			self::$is_trial_plan = self::is_ecommerce_trial_plan()
 				// Business trial plans
-				|| self::has_any_of_plans( array('wp-bundle-hosting-trial',  'wp-bundle-migration-trial'), true );
+				|| self::has_any_of_plans( array( 'wp-bundle-hosting-trial',  'wp-bundle-migration-trial' ), true );
 
 		}
 
