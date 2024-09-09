@@ -7,11 +7,29 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-19T09:13:12+00:00\n"
-"PO-Revision-Date: 2024-05-31 14:54:02+0000\n"
+"POT-Creation-Date: 2024-09-09T11:36:57+00:00\n"
+"PO-Revision-Date: 2024-08-16 16:54:03+0000\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "Stel Stripe-betalingen in om creditcardbetalingen aan je winkel te accepteren. Je moet een Stripe-account hebben om aan de slag te kunnen gaan"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "Krijg betaald met Stripe"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr "Stel PayPal-betalingen in om creditcardbetalingen aan je winkel te accepteren. Je moet een PayPal-account hebben om aan de slag te kunnen gaan"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr "Krijg betaald met PayPal"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
@@ -103,11 +121,11 @@ msgstr "Door extensies bladeren"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:95
 msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
-msgstr ""
+msgstr "Producten toevoegen. Laat je producten of diensten zien en maak je klaar om te beginnen met verkopen – voeg je productinformatie, afbeeldingen en beschrijvingen toe."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:89
 msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
-msgstr ""
+msgstr "Importeer je producten. Laat je producten of diensten zien en maak je klaar om te beginnen met verkopen – importeer je bestaande productinformatie, afbeeldingen en beschrijvingen."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:79
 msgid "Add products"
@@ -123,15 +141,15 @@ msgstr "Voeg je producten toe"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:63
 msgid "Import your products"
-msgstr ""
+msgstr "Importeer je producten"
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:59
 msgid "Choose theme"
-msgstr ""
+msgstr "Kies een thema"
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:38
 msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
-msgstr ""
+msgstr "Kies een thema dat het beste bij het uiterlijk en gevoel van je merk past, daarna kun je het personaliseren. Verander de kleuren, voeg je logo toe en creëer pagina’s."
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:29
 msgid "Choose your theme"
@@ -139,6 +157,7 @@ msgstr "Kies je thema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
+#: build/index.js:11
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -148,23 +167,23 @@ msgstr "Herstellen"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "\"Things to do next\""
-msgstr ""
+msgstr "\"Dingen die je vervolgens moet doen\""
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
 msgid "Setup task list"
-msgstr ""
+msgstr "Takenlijst instellen"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the \"Things to do next\" Task List."
-msgstr ""
+msgstr "Herstel de zichtbaarheid van de \"Dingen die je vervolgens moet doen\"-takenlijst."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Restore the visibility of the primary onboarding Task List."
-msgstr ""
+msgstr "Herstel de zichtbaarheid van de primaire takenlijst voor onboarden."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
-msgstr ""
+msgstr "Gebruik deze opties om de zichtbaarheid van de takenlijst voor onboarden in de WooCommerce Home te herstellen."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
 msgid "Onboarding"
@@ -172,7 +191,7 @@ msgstr "Onboarding"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
 msgid "A custom navigation experience that is optimized for selling."
-msgstr ""
+msgstr "Een aangepaste navigatie-ervaring die geoptimaliseerd is voor verkoop."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
@@ -209,11 +228,12 @@ msgstr "Door extensies bladeren"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:19
 msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
-msgstr ""
+msgstr "Personaliseer je winkel met WooCommerce-extensies zodat die perfect werkt voor jouw bedrijf. Upgrade naar een betaald abonnement om toegang te krijgen tot honderden tools en functies die je kunnen helpen bij het behalen van je doelen. Nieuwsgierig naar wat er allemaal beschikbaar is? Blader door onze extensie-marktplaats."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Til je winkel naar een hoger niveau met extensies"
 
@@ -228,6 +248,7 @@ msgstr "Tijd voor een feestje! Klaar om je winkel te lanceren?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: build/index.js:1
 msgid "Launch your store"
 msgstr "Lanceer je winkel"
 
@@ -237,7 +258,10 @@ msgstr "Je hebt je winkel al gelanceerd"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
+#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 minuten"
 
@@ -251,6 +275,8 @@ msgstr "Domein"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
+#: build/index.js:1
+#: build/index.js:3
 msgid "Add a domain"
 msgstr "Een domein toevoegen"
 
@@ -270,6 +296,10 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:1
+#: build/index.js:11
+#: build/marketing.js:1
+#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Upgrade nu"
 
@@ -341,6 +371,7 @@ msgid "Discover"
 msgstr "Ontdek"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "Beheren"
 

@@ -7,20 +7,29 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-22T23:51:13+00:00\n"
-"PO-Revision-Date: 2024-06-18 09:49:44+0000\n"
+"POT-Creation-Date: 2024-09-09T11:37:03+00:00\n"
+"PO-Revision-Date: 2024-08-09 15:54:03+0000\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "Configura pagos Stripe para aceptar pagos con tarjeta de crédito en tu tienda. Para empezar, necesitarás una cuenta de Stripe"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "Recibe pagos con Stripe"
+
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
 msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
-msgstr ""
+msgstr "Configura pagos PayPal para aceptar pagos con tarjeta de crédito en tu tienda. Para empezar, necesitarás una cuenta de PayPal"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
 msgid "Get paid with PayPal"
-msgstr ""
+msgstr "Recibe pagos con PayPal"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
@@ -251,6 +260,7 @@ msgstr "Ya has publicado tu tienda"
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
 #: build/index.js:3
 msgid "2 minutes"
 msgstr "2 minutos"

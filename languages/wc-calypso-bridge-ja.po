@@ -7,20 +7,29 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-22T23:51:11+00:00\n"
-"PO-Revision-Date: 2024-05-29 09:54:02+0000\n"
+"POT-Creation-Date: 2024-09-09T11:37:01+00:00\n"
+"PO-Revision-Date: 2024-08-07 23:54:02+0000\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "Stripe の支払いを設定してストアでのクレジットカード払いに対応しましょう。 利用を開始するには Stripe アカウントが必要です"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "Stripeで支払いを受ける"
+
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
 msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
-msgstr ""
+msgstr "PayPal の支払いを設定してストアでのクレジットカード払いに対応しましょう。 利用を開始するには PayPal アカウントが必要です"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
 msgid "Get paid with PayPal"
-msgstr ""
+msgstr "PayPal で支払いを受ける"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
@@ -251,6 +260,7 @@ msgstr "すでにストアを立ち上げています"
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
 #: build/index.js:3
 msgid "2 minutes"
 msgstr "2分"
