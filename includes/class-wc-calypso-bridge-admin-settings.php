@@ -5,8 +5,8 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Class WC_Calypso_Bridge_Admin_Settings
  *
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.6.0
+ * @version 2.6.0
  *
  * Handle Admin Settings.
  */

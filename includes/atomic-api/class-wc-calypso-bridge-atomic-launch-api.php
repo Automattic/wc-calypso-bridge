@@ -5,8 +5,8 @@ use Automattic\Jetpack\Connection\Client;
 /**
  * Class WC_Calypso_Bridge_Atomic_Launch_API.
  *
- * @since   x.x.x
- * @version x.x.x
+ * @since   2.6.0
+ * @version 2.6.0
  *
  * API for launch on Atomic.
  */

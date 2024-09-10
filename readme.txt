@@ -22,7 +22,7 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= Unreleased =
+= 2.6.0 =
 * Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled #1500
 * Exclude LYS coming soon page for WPCOM share link #1501
 * Sync WPCOM coming soon status to LYS #1502
