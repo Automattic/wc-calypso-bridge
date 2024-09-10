@@ -30,6 +30,7 @@ This section describes how to install the plugin and get it working.
 * Refactor LYS to use unidirectional data flow #1506
 * Disable launch your store on trial sites #1507
 * Add conditional check to replace launch-site task with LYS task #1509
+* Fix logic for disabling lys task on trial sites #1511
 
 = 2.5.5 =
 * Add a new class to customize for Stripe from Partner Aware Onboarding #1492
