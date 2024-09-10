@@ -116,6 +116,10 @@ class WC_Calypso_Bridge_Setup_Tasks {
 						unset( $lists['setup']->tasks[$index] );
 						break;
 					case 'launch-your-store':
+						if ( wc_calypso_bridge_is_trial_plan() ) {
+							// Don't show launch your store task for trial sites.
+							unset( $lists['setup']->tasks[$index] );
+						}
 						if ( $ecommerce_custom_setup_tasks_enabled ) {
 							// Append add domain task before launch your store task.
 							require_once __DIR__ . '/tasks/class-wc-calypso-task-add-domain.php';
@@ -128,9 +132,6 @@ class WC_Calypso_Bridge_Setup_Tasks {
 								$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $lists['setup'] );
 								$lists['setup']->tasks[$index + 1] = $launch_site_task;
 							}
-						} else if ( wc_calypso_bridge_is_trial_plan() ) {
-							// Don't show launch your store task for trial sites.
-							unset( $lists['setup']->tasks[$index] );
 						}
 						break;
 				}
