@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+* Re-enable Site visibility settings tab for free trial plans #1512
+
 = 2.6.0 =
 * Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled #1500
 * Exclude LYS coming soon page for WPCOM share link #1501
