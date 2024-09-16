@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.6.0
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -187,7 +187,6 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-stripe.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-paypal.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-coming-soon.php';
-		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-admin-settings.php';
 
 		// Experiments.
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/experiments/class-wc-calypso-bridge-task-list-reminderbar-experiment.php';
