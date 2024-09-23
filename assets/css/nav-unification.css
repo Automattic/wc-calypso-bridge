@@ -40,3 +40,13 @@
 		width: calc( 100% - 36px );
 	}
 }
+
+/* Monkey patch for fresh theme color overriding LYS badge on admin bar. */
+.admin-color-fresh #wpadminbar:not(.mobile) .ab-top-menu>li#wp-admin-bar-woocommerce-site-visibility-badge:hover>.ab-item {
+	background-color: #DCDCDE !important;
+}
+
+.admin-color-fresh #wpadminbar:not(.mobile) .ab-top-menu>li#wp-admin-bar-woocommerce-site-visibility-badge.woocommerce-site-status-badge-live:hover>.ab-item {
+	background-color: #B8E6BF !important;
+}
+/* End monkey patch */
