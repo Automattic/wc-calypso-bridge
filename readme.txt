@@ -24,7 +24,6 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Re-enable Site visibility settings tab for free trial plans #1512
-* Fix LYS badge override #1517
 
 = 2.6.0 =
 * Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled #1500
