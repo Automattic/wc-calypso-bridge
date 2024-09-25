@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Re-enable Site visibility settings tab for free trial plans #1512
+* Remove setting demo store option on ecommerce sites by default #1518
 
 = 2.6.0 =
 * Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled #1500
