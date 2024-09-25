@@ -24,7 +24,6 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Re-enable Site visibility settings tab for free trial plans #1512
-* Fix LYS badge override #1517
 * Remove LYS badge from WPCOM sites #1519
 
 = 2.6.0 =
