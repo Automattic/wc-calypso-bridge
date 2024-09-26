@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.7.0 =
+* _Enter your changes here_
+
 = Unreleased =
 * Re-enable Site visibility settings tab for free trial plans #1512
 * Remove launch-your-store feature flag override #1521
