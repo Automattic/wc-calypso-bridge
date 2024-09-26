@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Re-enable Site visibility settings tab for free trial plans #1512
+* Remove launch-your-store feature flag override #1521
 * Remove LYS badge from WPCOM sites #1519
 * Remove setting demo store option on ecommerce sites by default #1518
 
