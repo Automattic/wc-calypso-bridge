@@ -209,7 +209,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return void
 	 */
 	public function remove_site_visibility_badge( $wp_admin_bar ) {
-		if ( $wp_admin_bar && $this->is_feature_enabled() ) {
+		if ( $wp_admin_bar ) {
 			$wp_admin_bar->remove_node( 'woocommerce-site-visibility-badge' );
 		}
 	}
