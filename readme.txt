@@ -22,10 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= Unreleased =
+
 = 2.7.1 =
 * Remove LYS badge even when feature flag is disabled #1523
-
-= Unreleased =
 
 = 2.7.0 =
 * Re-enable Site visibility settings tab for free trial plans #1512
