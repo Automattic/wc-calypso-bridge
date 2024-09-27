@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.7.1 =
+* Remove LYS badge even when feature flag is disabled #1523
+
 = Unreleased =
 
 = 2.7.0 =
