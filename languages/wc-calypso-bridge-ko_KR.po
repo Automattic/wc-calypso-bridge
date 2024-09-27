@@ -7,11 +7,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-09T11:37:02+00:00\n"
-"PO-Revision-Date: 2024-08-09 09:54:02+0000\n"
+"POT-Creation-Date: 2024-09-26T05:45:34+00:00\n"
+"PO-Revision-Date: 2024-09-20 09:54:14+0000\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:159
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "사이트를 시작하려고 하시나요? <a href=\"%s\">이 링크</a>를 방문하여 시작해 보세요."
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:136
+msgid "There was a problem trying to update site visibility."
+msgstr "사이트 공개 범위를 업데이트하는 중 문제가 발생했습니다."
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
 msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
@@ -157,7 +165,7 @@ msgstr "테마 선택"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
+#: build/index.js:6377
 msgid "Plugins"
 msgstr "플러그인"
 
@@ -233,7 +241,10 @@ msgstr "우커머스 확장 기능으로 스토어를 비즈니스에 맞춰 사
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
+#: build/plugins.js:65
+#: build/plugins.js:70
+#: build/plugins.js:77
+#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "확장 기능으로 스토어의 수준 높이기"
 
@@ -248,7 +259,8 @@ msgstr "축하할 시간입니다! 스토어를 시작할 준비가 되셨나요
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
+#: build/index.js:4137
+#: build/index.js:7099
 msgid "Launch your store"
 msgstr "스토어 시작"
 
@@ -261,7 +273,7 @@ msgstr "이미 스토어를 시작하셨습니다."
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
+#: build/index.js:8723
 msgid "2 minutes"
 msgstr "2분"
 
@@ -275,8 +287,9 @@ msgstr "도메인"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
+#: build/index.js:7206
+#: build/index.js:8330
+#: build/index.js:8334
 msgid "Add a domain"
 msgstr "도메인 추가"
 
@@ -296,10 +309,12 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
+#: build/index.js:4133
+#: build/index.js:6593
+#: build/index.js:8057
+#: build/marketing.js:1147
+#: build/plugins.js:50
+#: build/plugins.js:53
 msgid "Upgrade now"
 msgstr "지금 업그레이드"
 
@@ -324,11 +339,11 @@ msgstr "연락처"
 msgid "Home"
 msgstr "홈"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:61
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
 msgid "This site has already been launched"
 msgstr "이 사이트는 이미 시작되었음"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:56
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
 msgid "You don't have permissions to launch this site"
 msgstr "이 사이트를 시작할 권한이 없습니다."
 
@@ -371,7 +386,8 @@ msgid "Discover"
 msgstr "둘러보기"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:90
+#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "관리"
 

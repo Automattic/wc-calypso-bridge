@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WooCommerce Calypso Bridge plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Calypso Bridge 2.6.0\n"
+"Project-Id-Version: WooCommerce Calypso Bridge 2.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-calypso-bridge\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-09T11:36:47+00:00\n"
+"POT-Creation-Date: 2024-09-26T05:45:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 
@@ -43,11 +43,15 @@ msgstr ""
 msgid "WooCommerce extensions"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:136
+#: includes/class-wc-calypso-bridge-coming-soon.php:137
 msgid "There was a problem trying to update site visibility."
 msgstr ""
 
 #: includes/class-wc-calypso-bridge-coming-soon.php:159
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr ""
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:170
 msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
 msgstr ""
 
@@ -231,47 +235,47 @@ msgstr ""
 msgid "You can change this text by editing the \"Parallax Hero\" Section via the \"Powerpack\" settings in the Customizer on the left hand side of your screen."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "WordPress.com - The Best eCommerce Platform for WordPress"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "Built with Storefront &amp; WordPress.com"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:201
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
 msgid "A custom navigation experience that is optimized for selling."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
 msgid "Onboarding"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "Setup task list"
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "\"Things to do next\""
 msgstr ""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:403
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
 msgid "Restore"
 msgstr ""
 
@@ -286,8 +290,8 @@ msgstr ""
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
 #: build/index.js:4133
-#: build/index.js:6593
-#: build/index.js:8057
+#: build/index.js:6591
+#: build/index.js:8055
 #: build/marketing.js:1147
 #: build/plugins.js:50
 #: build/plugins.js:53
@@ -303,7 +307,7 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:6377
+#: build/index.js:6376
 msgid "Plugins"
 msgstr ""
 
@@ -342,9 +346,9 @@ msgstr ""
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:7206
-#: build/index.js:8330
-#: build/index.js:8334
+#: build/index.js:7204
+#: build/index.js:8328
+#: build/index.js:8332
 msgid "Add a domain"
 msgstr ""
 
@@ -361,7 +365,7 @@ msgstr ""
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:8723
+#: build/index.js:8721
 msgid "2 minutes"
 msgstr ""
 
@@ -436,7 +440,7 @@ msgstr ""
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
 #: build/index.js:4137
-#: build/index.js:7099
+#: build/index.js:7097
 msgid "Launch your store"
 msgstr ""
 
@@ -881,181 +885,181 @@ msgid "Everything is looking great, keep it up!"
 msgstr ""
 
 #: build/index.js:6033
-#: build/index.js:8060
+#: build/index.js:8058
 msgid "Task List Options"
 msgstr ""
 
 #: build/index.js:6038
-#: build/index.js:8067
+#: build/index.js:8065
 msgid "Hide this"
 msgstr ""
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6440
+#: build/index.js:6438
 msgid "Upgrade your plan for %(formattedPrice)s for your first day"
 msgstr ""
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6446
+#: build/index.js:6444
 msgid "Upgrade your plan for %(formattedPrice)s for your first month"
 msgstr ""
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6452
+#: build/index.js:6450
 msgid "Upgrade your plan for %(formattedPrice)s for your first year"
 msgstr ""
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6458
-#: build/index.js:6487
+#: build/index.js:6456
+#: build/index.js:6485
 msgid "Upgrade your plan for %(formattedPrice)s"
 msgstr ""
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6466
+#: build/index.js:6464
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s days"
 msgstr ""
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6473
+#: build/index.js:6471
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s months"
 msgstr ""
 
 #. translators:  placeholders do not need to be translated
-#: build/index.js:6480
+#: build/index.js:6478
 msgid "Upgrade your plan for %(formattedPrice)s for your first %(intervalCount)s years"
 msgstr ""
 
-#: build/index.js:6584
+#: build/index.js:6582
 msgid "Start selling — for less!"
 msgstr ""
 
-#: build/index.js:6595
+#: build/index.js:6593
 msgid "Dismiss this banner."
 msgstr ""
 
-#: build/index.js:7039
+#: build/index.js:7037
 msgid "Copied"
 msgstr ""
 
-#: build/index.js:7089
+#: build/index.js:7087
 msgid "Launching your store"
 msgstr ""
 
-#: build/index.js:7116
+#: build/index.js:7114
 msgid "Woo! You did it!"
 msgstr ""
 
-#: build/index.js:7118
+#: build/index.js:7116
 msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
 msgstr ""
 
-#: build/index.js:7131
+#: build/index.js:7129
 msgid "View your store"
 msgstr ""
 
-#: build/index.js:7135
+#: build/index.js:7133
 msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
 msgstr ""
 
-#: build/index.js:7154
+#: build/index.js:7152
 msgid "Ready to launch your store?"
 msgstr ""
 
-#: build/index.js:7156
+#: build/index.js:7154
 msgid "It's time to celebrate – you're ready to launch your store! Woo!"
 msgstr ""
 
-#: build/index.js:7162
-#: build/index.js:7250
+#: build/index.js:7160
+#: build/index.js:7248
 msgid "You can always revert this under <a>Settings</a>."
 msgstr ""
 
+#: build/index.js:7191
 #: build/index.js:7193
-#: build/index.js:7195
 msgid "Get paid"
 msgstr ""
 
-#: build/index.js:7194
+#: build/index.js:7192
 msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
 msgstr ""
 
-#: build/index.js:7199
+#: build/index.js:7197
 msgid "List your products"
 msgstr ""
 
-#: build/index.js:7200
+#: build/index.js:7198
 msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
 msgstr ""
 
-#: build/index.js:7201
+#: build/index.js:7199
 msgid "List products"
 msgstr ""
 
-#: build/index.js:7205
+#: build/index.js:7203
 msgid "Choose an address for your new website or transfer a domain you already own."
 msgstr ""
 
-#: build/index.js:7241
+#: build/index.js:7239
 msgid "Before you launch"
 msgstr ""
 
-#: build/index.js:7243
+#: build/index.js:7241
 msgid "A few things to check before launching your store"
 msgstr ""
 
-#: build/index.js:7246
+#: build/index.js:7244
 msgid "Launch anyway"
 msgstr ""
 
-#: build/index.js:7371
+#: build/index.js:7369
 msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
 msgstr ""
 
-#: build/index.js:8048
+#: build/index.js:8046
 msgid "Woohoo! Your trial store has been set up!"
 msgstr ""
 
-#: build/index.js:8054
+#: build/index.js:8052
 msgid "Congratulations! Take a moment to celebrate. And once you're ready to launch your store, all you have to do is upgrade to a paid plan. This will also unlock the two upcoming tasks in the task list."
 msgstr ""
 
-#: build/index.js:8065
+#: build/index.js:8063
 msgid "Show setup task list"
 msgstr ""
 
-#: build/index.js:8069
-#: build/index.js:8079
+#: build/index.js:8067
+#: build/index.js:8077
 msgid "How was your experience?"
 msgstr ""
 
-#: build/index.js:8078
+#: build/index.js:8076
 msgid "We appreciate your feedback!"
 msgstr ""
 
-#: build/index.js:8080
+#: build/index.js:8078
 msgid "The store setup is easy to complete."
 msgstr ""
 
-#: build/index.js:8081
+#: build/index.js:8079
 msgid "The store setup process meets my needs."
 msgstr ""
 
-#: build/index.js:8325
+#: build/index.js:8323
 msgid "Add a domain illustration"
 msgstr ""
 
-#: build/index.js:8330
+#: build/index.js:8328
 msgid "Choose a new website address for your store or transfer one you already own."
 msgstr ""
 
-#: build/index.js:8402
+#: build/index.js:8400
 msgid "Appearance illustration"
 msgstr ""
 
-#: build/index.js:8470
-#: build/index.js:8541
-#: build/index.js:8612
+#: build/index.js:8468
+#: build/index.js:8539
+#: build/index.js:8610
 #: build/src_free-trial_fills_index_ts.js:66
 #: build/src_free-trial_fills_index_ts.js:141
 #: build/src_free-trial_fills_index_ts.js:26
@@ -1063,41 +1067,41 @@ msgstr ""
 msgid "Payment illustration"
 msgstr ""
 
-#: build/index.js:8475
-#: build/index.js:8546
-#: build/index.js:8617
+#: build/index.js:8473
+#: build/index.js:8544
+#: build/index.js:8615
 msgid "It's time to get paid"
 msgstr ""
 
-#: build/index.js:8475
+#: build/index.js:8473
 msgid "Choose from fast & secure online and offline payment methods to make it easy for your customers to pay in your store."
 msgstr ""
 
-#: build/index.js:8481
+#: build/index.js:8479
 msgid "View options"
 msgstr ""
 
-#: build/index.js:8546
+#: build/index.js:8544
 msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
 msgstr ""
 
-#: build/index.js:8552
+#: build/index.js:8550
 msgid "Set up Square"
 msgstr ""
 
-#: build/index.js:8617
+#: build/index.js:8615
 msgid "Accepting payments is easy with Stripe. Sell online and in person, and sync all payments, customers, items, and inventory."
 msgstr ""
 
-#: build/index.js:8623
+#: build/index.js:8621
 msgid "Set up Stripe"
 msgstr ""
 
-#: build/index.js:8709
+#: build/index.js:8707
 msgid "Products illustration"
 msgstr ""
 
-#: build/index.js:9066
+#: build/index.js:9064
 #: build/payment-gateway-suggestions.js:52
 #: build/payment-gateway-suggestions.js:543
 #: build/payment-gateway-suggestions.js:1178
@@ -1107,27 +1111,27 @@ msgstr ""
 msgid "Get started"
 msgstr ""
 
-#: build/index.js:9069
+#: build/index.js:9067
 msgid "Welcome modal navigation illustration 2"
 msgstr ""
 
-#: build/index.js:9076
+#: build/index.js:9074
 msgid "Meet your new Home"
 msgstr ""
 
-#: build/index.js:9078
+#: build/index.js:9076
 msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
 msgstr ""
 
-#: build/index.js:9081
+#: build/index.js:9079
 msgid "Welcome modal navigation illustration 1"
 msgstr ""
 
-#: build/index.js:9088
+#: build/index.js:9086
 msgid "Move faster with our new navigation"
 msgstr ""
 
-#: build/index.js:9090
+#: build/index.js:9088
 msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
 msgstr ""
 
