@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Move "composer/installers" package to require-dev. #1513
 
 = 2.7.1 =
 * Remove LYS badge even when feature flag is disabled #1523
