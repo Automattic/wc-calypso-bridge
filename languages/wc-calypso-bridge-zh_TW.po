@@ -7,17 +7,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-27T01:26:55+00:00\n"
+"POT-Creation-Date: 2024-09-30T14:30:45+00:00\n"
 "PO-Revision-Date: 2024-09-19 11:54:04+0000\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:159
+#: includes/class-wc-calypso-bridge-coming-soon.php:170
 msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
 msgstr "準備好推出你的網站了嗎？ 若要開始，請前往<a href=\"%s\">此連結</a>。"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:136
+#: includes/class-wc-calypso-bridge-coming-soon.php:137
 msgid "There was a problem trying to update site visibility."
 msgstr "嘗試更新網站可見度時遇到問題。"
 
@@ -123,6 +123,10 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "網誌首頁"
 
+#: includes/class-wc-calypso-bridge-coming-soon.php:159
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr ""
+
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
 msgstr "瀏覽擴充功能"
@@ -165,39 +169,38 @@ msgstr "選擇佈景主題"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:6377
 msgid "Plugins"
 msgstr "外掛程式"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:403
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
 msgid "Restore"
 msgstr "還原"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "\"Things to do next\""
 msgstr "「後續步驟」"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "Setup task list"
 msgstr "設定任務清單"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "恢復顯示「後續步驟」任務清單。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "恢復顯示主要的新手入門任務清單。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "可使用這些選項來恢復顯示 WooCommerce 首頁的新手入門任務清單。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
 msgid "Onboarding"
 msgstr "申請"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "針對銷售最佳化的自訂導覽體驗。"
 
@@ -241,10 +244,6 @@ msgstr "使用 WooCommerce 擴充功能自訂商店，以完美滿足你的業�
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:65
-#: build/plugins.js:70
-#: build/plugins.js:77
-#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "透過擴充功能讓你的商店更上一層樓"
 
@@ -259,8 +258,6 @@ msgstr "是時候慶祝一下了！ 準備好推出你的商店了嗎？"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:4137
-#: build/index.js:7099
 msgid "Launch your store"
 msgstr "推出你的商店"
 
@@ -273,7 +270,6 @@ msgstr "你已經推出商店了"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:8723
 msgid "2 minutes"
 msgstr "2 分鐘"
 
@@ -287,9 +283,6 @@ msgstr "網域"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:7206
-#: build/index.js:8330
-#: build/index.js:8334
 msgid "Add a domain"
 msgstr "新增網域"
 
@@ -309,12 +302,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:4133
-#: build/index.js:6593
-#: build/index.js:8057
-#: build/marketing.js:1147
-#: build/plugins.js:50
-#: build/plugins.js:53
 msgid "Upgrade now"
 msgstr "立即升級"
 
@@ -386,8 +373,6 @@ msgid "Discover"
 msgstr "探索"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:90
-#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "管理"
 
@@ -429,7 +414,7 @@ msgstr "我的首頁"
 msgid "Feedback"
 msgstr "意見反應"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:201
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "導覽"
 
@@ -628,10 +613,10 @@ msgstr "擴充功能數量：%s"
 msgid "Powered by %1$s"
 msgstr "技術支援：%1$s"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "Built with Storefront &amp; WordPress.com"
 msgstr "架設工具：Storefront 和 WordPress.com"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "WordPress.com - The Best eCommerce Platform for WordPress"
 msgstr "WordPress.com - WordPress 最佳電子商務平台"
