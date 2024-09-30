@@ -22,10 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
-= 2.8.0 =
-* Move "composer/installers" package to require-dev. #1513
-
 = Unreleased =
+
+= 2.8.0 =
 * Move "composer/installers" package to require-dev. #1513
 
 = 2.7.1 =
