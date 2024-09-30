@@ -23,8 +23,16 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
-* Re-enable Site visibility settings tab for free trial plans #1512
 * Move "composer/installers" package to require-dev. #1513
+
+= 2.7.1 =
+* Remove LYS badge even when feature flag is disabled #1523
+
+= 2.7.0 =
+* Re-enable Site visibility settings tab for free trial plans #1512
+* Remove launch-your-store feature flag override #1521
+* Remove LYS badge from WPCOM sites #1519
+* Remove setting demo store option on ecommerce sites by default #1518
 
 = 2.6.0 =
 * Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled #1500

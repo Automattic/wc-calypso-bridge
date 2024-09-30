@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
  * Class WC_Calypso_Bridge_Coming_Soon
  *
  * @since   2.6.0
- * @version 2.6.0
+ * @version 2.7.1
  *
  * Handle Coming Soon mode.
  */
@@ -40,7 +40,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 		add_filter( 'pre_option_woocommerce_coming_soon', array( $this, 'override_option_woocommerce_coming_soon' ) );
 		add_filter( 'pre_update_option_woocommerce_coming_soon', array( $this, 'override_update_woocommerce_coming_soon' ), 10, 2 );
 		// Admin bar menu is not only shown in the admin area but also in the front end when the admin user is logged in.
-		add_action( 'admin_bar_menu', array( $this, 'possibly_remove_site_visibility_badge' ), 32 );
+		add_action( 'admin_bar_menu', array( $this, 'remove_site_visibility_badge' ), 32 );
 
 		if ( is_admin() ) {
 			add_filter( 'plugins_loaded', array( $this, 'maybe_add_admin_notice' ) );
@@ -208,9 +208,8 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @param WP_Admin_Bar $wp_admin_bar The admin bar instance.
 	 * @return void
 	 */
-	public function possibly_remove_site_visibility_badge( $wp_admin_bar  ) {
-		// TODO: Remove feature check once the site visibility badge is behind feature flag in core.
-		if ( wc_calypso_bridge_is_trial_plan() || ! $this->is_feature_enabled() ) {
+	public function remove_site_visibility_badge( $wp_admin_bar ) {
+		if ( $wp_admin_bar ) {
 			$wp_admin_bar->remove_node( 'woocommerce-site-visibility-badge' );
 		}
 	}

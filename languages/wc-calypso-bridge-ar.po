@@ -7,11 +7,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-09T11:36:54+00:00\n"
-"PO-Revision-Date: 2024-08-09 15:54:03+0000\n"
+"POT-Creation-Date: 2024-09-27T01:26:53+00:00\n"
+"PO-Revision-Date: 2024-09-19 11:54:03+0000\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:159
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "هل تتطلع إلى تشغيل موقعك؟ يرجى زيارة <a href=\"%s\">هذا الرابط</a> للبدء."
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:136
+msgid "There was a problem trying to update site visibility."
+msgstr "كانت هناك مشكلة في أثناء محاولة تحديث رؤية الموقع."
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
 msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
@@ -157,7 +165,7 @@ msgstr "اختر قالبك"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
+#: build/index.js:6377
 msgid "Plugins"
 msgstr "إضافات"
 
@@ -233,7 +241,10 @@ msgstr "خصص متجرك لكي يعمل بشكل مثالي مع عملك من
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
+#: build/plugins.js:65
+#: build/plugins.js:70
+#: build/plugins.js:77
+#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "انقل متجرك إلى المستوى التالي إلى جانب الامتدادات."
 
@@ -248,7 +259,8 @@ msgstr "وقت الاحتفال! هل أنت مستعد لبدء متجرك؟"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
+#: build/index.js:4137
+#: build/index.js:7099
 msgid "Launch your store"
 msgstr "أطلق متجرك"
 
@@ -261,7 +273,7 @@ msgstr "هل بدأت بالفعل متجرك"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
+#: build/index.js:8723
 msgid "2 minutes"
 msgstr "دقيقتان"
 
@@ -275,8 +287,9 @@ msgstr "نطاق"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
+#: build/index.js:7206
+#: build/index.js:8330
+#: build/index.js:8334
 msgid "Add a domain"
 msgstr "إضافة نطاق"
 
@@ -296,10 +309,12 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
+#: build/index.js:4133
+#: build/index.js:6593
+#: build/index.js:8057
+#: build/marketing.js:1147
+#: build/plugins.js:50
+#: build/plugins.js:53
 msgid "Upgrade now"
 msgstr "بادر بالترقية الآن"
 
@@ -324,11 +339,11 @@ msgstr "جهة الاتصال"
 msgid "Home"
 msgstr "الصفحة الرئيسية"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:61
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
 msgid "This site has already been launched"
 msgstr "تم بدء هذا الموقع بالفعل"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:56
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
 msgid "You don't have permissions to launch this site"
 msgstr "ليست لديك الصلاحيات اللازمة لبدء هذا الموقع"
 
@@ -371,7 +386,8 @@ msgid "Discover"
 msgstr "اكتشاف"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:90
+#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "إدارة"
 

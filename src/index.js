@@ -25,7 +25,6 @@ import {
 	ProgressHeaderFill,
 	ProgressTitleFill,
 } from './homescreen-progress-header';
-import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
 import { AppearanceFill, GetPaidWithSquareFill, GetPaidWithStripeFill, GetPaidWithPayPalFill } from './task-fills';
 import './task-headers';
