@@ -7,17 +7,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-27T01:26:59+00:00\n"
+"POT-Creation-Date: 2024-09-30T14:30:47+00:00\n"
 "PO-Revision-Date: 2024-09-18 17:54:03+0000\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:159
+#: includes/class-wc-calypso-bridge-coming-soon.php:170
 msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
 msgstr "Vuoi lanciare il tuo sito? Visita <a href=\"%s\">questo link</a> per iniziare."
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:136
+#: includes/class-wc-calypso-bridge-coming-soon.php:137
 msgid "There was a problem trying to update site visibility."
 msgstr "Si è verificato un problema nell'aggiornamento della visibilità del sito."
 
@@ -123,6 +123,10 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "Home del blog"
 
+#: includes/class-wc-calypso-bridge-coming-soon.php:159
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr ""
+
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
 msgstr "Sfoglia le estensioni"
@@ -165,39 +169,38 @@ msgstr "Scegli il tuo tema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:6377
 msgid "Plugins"
 msgstr "Plugin"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:403
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
 msgid "Restore"
 msgstr "Ripristino"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "\"Things to do next\""
 msgstr "\"Prossimi passaggi\""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:395
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "Setup task list"
 msgstr "Configura elenco delle attività"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "Ripristina la visibilità dell'elenco delle attività \"Prossimi passaggi\"."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "Ripristina la visibilità dell'elenco delle attività di avviamento principali."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:325
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "Usa queste opzioni per ripristinare la visibilità dell'elenco delle attività di avviamento nella home di WooCommerce."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:323
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
 msgid "Onboarding"
 msgstr "Avviamento"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:202
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "Un'esperienza di navigazione personalizzata ottimizzata per la vendita."
 
@@ -241,10 +244,6 @@ msgstr "Personalizza il tuo negozio in modo che funzioni perfettamente per la tu
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:65
-#: build/plugins.js:70
-#: build/plugins.js:77
-#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "Porta il tuo negozio al livello successivo grazie alle estensioni"
 
@@ -259,8 +258,6 @@ msgstr "È tempo di festeggiare. Tutto pronto per lanciare il tuo negozio?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:4137
-#: build/index.js:7099
 msgid "Launch your store"
 msgstr "Lancia il tuo negozio"
 
@@ -273,7 +270,6 @@ msgstr "Hai già lanciato il tuo negozio"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:8723
 msgid "2 minutes"
 msgstr "2 minuti"
 
@@ -287,9 +283,6 @@ msgstr "Dominio"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:7206
-#: build/index.js:8330
-#: build/index.js:8334
 msgid "Add a domain"
 msgstr "Aggiungi un dominio"
 
@@ -309,12 +302,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:4133
-#: build/index.js:6593
-#: build/index.js:8057
-#: build/marketing.js:1147
-#: build/plugins.js:50
-#: build/plugins.js:53
 msgid "Upgrade now"
 msgstr "Migliora il tuo sito"
 
@@ -386,8 +373,6 @@ msgid "Discover"
 msgstr "Discover"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:90
-#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "Gestisci"
 
@@ -429,7 +414,7 @@ msgstr "Home"
 msgid "Feedback"
 msgstr "Feedback"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:201
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "Navigazione"
 
@@ -628,10 +613,10 @@ msgstr "Estensioni %s"
 msgid "Powered by %1$s"
 msgstr "Con tecnologia %1$s"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "Built with Storefront &amp; WordPress.com"
 msgstr "Realizzazione effettuata con Storefront e WordPress.com"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "WordPress.com - The Best eCommerce Platform for WordPress"
 msgstr "WordPress.com - La migliore piattaforma di eCommerce per WordPress"
