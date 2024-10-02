@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Add optional check and fix button deprecated parameters #1527
 
 = 2.8.0 =
 * Move "composer/installers" package to require-dev. #1513
