@@ -112,7 +112,7 @@ export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 			updateAndPersistSettingsForGroup( 'tax', {
 				tax: {
 					...taxSettings,
-					wc_connect_taxes_enabled: 'no',
+					woo_tax_taxes_enabled: 'no',
 				},
 			} );
 			updateAndPersistSettingsForGroup( 'general', {
@@ -138,7 +138,7 @@ export const Tax: React.FC< TaxProps > = ( { onComplete, query, task } ) => {
 				updateAndPersistSettingsForGroup( 'tax', {
 					tax: {
 						...taxSettings,
-						wc_connect_taxes_enabled: 'yes',
+						woo_tax_taxes_enabled: 'yes',
 					},
 				} ),
 				updateAndPersistSettingsForGroup( 'general', {

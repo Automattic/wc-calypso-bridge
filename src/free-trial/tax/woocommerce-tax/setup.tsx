@@ -106,7 +106,7 @@ export const Setup: React.FC< SetupProps > = ( {
 			key: 'connect',
 			label: __( 'Automate Taxes', 'woocommerce' ),
 			description: __(
-				'WooCommerce Tax can automate your sales tax calculations for you.',
+				'Woo Tax can automate your sales tax calculations for you.',
 				'woocommerce'
 			),
 			content: <AutomatedTaxes { ...stepProps } />,
