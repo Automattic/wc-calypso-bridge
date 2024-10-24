@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
  * Class WC_Calypso_Bridge_Coming_Soon
  *
  * @since   2.6.0
- * @version 2.7.1
+ * @version x.x.x
  *
  * Handle Coming Soon mode.
  */
@@ -41,6 +41,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 		add_filter( 'pre_update_option_woocommerce_coming_soon', array( $this, 'override_update_woocommerce_coming_soon' ), 10, 2 );
 		// Admin bar menu is not only shown in the admin area but also in the front end when the admin user is logged in.
 		add_action( 'admin_bar_menu', array( $this, 'remove_site_visibility_badge' ), 32 );
+		add_filter( 'rest_pre_dispatch', array( $this, 'handle_initial_coming_soon_endpoint' ), 10, 3 );
 
 		if ( is_admin() ) {
 			add_filter( 'plugins_loaded', array( $this, 'maybe_add_admin_notice' ) );
@@ -225,6 +226,37 @@ class WC_Calypso_Bridge_Coming_Soon {
 			return array();
 		}
 		return $settings;
+	}
+
+
+	/**
+	 * Handle the initial coming soon endpoint when coming soon mode is already enabled.
+	 *
+	 * This is to prevent the API request from being made when coming soon mode is already enabled
+	 * so that store pages only option won't be enabled when WPCOM site is in coming soon mode.
+	 *
+	 * @param mixed $result The dispatch result.
+	 * @param WP_REST_Server $server The REST server instance.
+	 * @param WP_REST_Request $request The request object.
+	 * @return mixed
+	 */
+	public function handle_initial_coming_soon_endpoint( $result, $server, $request ) {
+		if ( '/wc-admin/launch-your-store/initialize-coming-soon' !== $request->get_route() ) {
+			// Abort if the request is not for the coming soon endpoint. This should be faster than checking if the feature is enabled.
+			return $result;
+		}
+
+		if ( ! $this->is_feature_enabled() ) {
+			return $result;
+		}
+
+		if ( 'yes' === get_option( 'woocommerce_coming_soon' ) ) {
+			return new WP_REST_Response( true, 200 );
+		}
+
+		// Site is live, set default option for store pages only to true and proceed with the request.
+		add_option( 'woocommerce_store_pages_only', 'yes' );
+		return $result;
 	}
 
 	/**
