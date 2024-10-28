@@ -24,6 +24,7 @@ This section describes how to install the plugin and get it working.
 
 = Unreleased =
 * Add optional check and fix button deprecated parameters #1527
+* Allow WooCommerce Services to co-exist with WooCommerce Shipping to provide tax functionality only
 * Fix coming soon unintentionally expose the rest of the site #1529
 
 = 2.8.0 =
