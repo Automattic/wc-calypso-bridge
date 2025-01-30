@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.8.2 =
+* _Enter your changes here_
+
 = Unreleased =
 
 = 2.8.1 =
