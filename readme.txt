@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.8.3 =
+* _Enter your changes here_
+
 = Unreleased =
 * Fix specific width to apply only on folded navigation bar #1535
 
