@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.8.1
+ * @version 2.8.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -75,8 +75,31 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'muplugins_loaded', array( $this, 'deactivate_duplicate_tiktok' ), PHP_INT_MAX );
+		add_action( 'muplugins_loaded', array( $this, 'initialize_coming_soon' ), PHP_INT_MAX );
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
+	}
+
+	/**
+	 * Override the coming soon option value.
+	 * This needs to be done early since the optimization in the following PR calls the option even before plugin is loaded and feature flag is set.
+	 * https://github.com/woocommerce/woocommerce/pull/54906/files#diff-4036d5a5c66edc139f05d996eec952ce716b944160128e7cfb149b426343c42aR40
+	 */
+	public function initialize_coming_soon() {
+		add_action( 'pre_option_woocommerce_coming_soon', function( $option ) {
+			if ( wc_calypso_bridge_is_trial_plan() ) {
+				var_dump('wc_calypso_bridge_is_trial_plan');
+				return 'no';
+			}
+
+			if ( function_exists( '\Private_Site\site_is_private' ) &&
+				function_exists( '\Private_Site\site_is_public_coming_soon' ) &&
+				function_exists( '\Private_Site\site_launch_status' ) ) {
+
+				return \Private_Site\site_is_private() || \Private_Site\site_is_public_coming_soon() ? 'yes' : 'no';
+			}
+			return $option;
+		}, 10, 1 );
 	}
 
 	/**

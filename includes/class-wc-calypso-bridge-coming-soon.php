@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
  * Class WC_Calypso_Bridge_Coming_Soon
  *
  * @since   2.6.0
- * @version 2.8.1
+ * @version 2.8.4
  *
  * Handle Coming Soon mode.
  */
@@ -37,7 +37,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	public function __construct() {
 		add_filter( 'a8c_show_coming_soon_page', array( $this, 'should_show_a8c_coming_soon_page' ), PHP_INT_MAX, 1 );
 		add_filter( 'woocommerce_coming_soon_exclude', array( $this, 'should_exclude_lys_coming_soon' ) );
-		add_filter( 'pre_option_woocommerce_coming_soon', array( $this, 'override_option_woocommerce_coming_soon' ) );
+		// Note: Coming soon option override is done early in class-wc-calypso-bridge.php
 		add_filter( 'pre_update_option_woocommerce_coming_soon', array( $this, 'override_update_woocommerce_coming_soon' ), 10, 2 );
 		// Admin bar menu is not only shown in the admin area but also in the front end when the admin user is logged in.
 		add_action( 'admin_bar_menu', array( $this, 'remove_site_visibility_badge' ), 32 );
@@ -80,25 +80,6 @@ class WC_Calypso_Bridge_Coming_Soon {
 		}
 
 		return $exclude;
-	}
-
-	/**
-	 * Override the coming soon option value.
-	 *
-	 * @param string $current_value The current option value.
-	 * @return string
-	 */
-	public function override_option_woocommerce_coming_soon( $current_value ) {
-		// Turn off coming soon mode for trial plan.
-		if ( wc_calypso_bridge_is_trial_plan() ) {
-			return 'no';
-		}
-
-		if ( ! $this->is_feature_enabled() || ! $this->is_private_site_available() ) {
-			return $current_value;
-		}
-		// Either private or coming soon is considered as coming soon.
-		return \Private_Site\site_is_private() || \Private_Site\site_is_public_coming_soon() ? 'yes' : 'no';
 	}
 
 	/**
