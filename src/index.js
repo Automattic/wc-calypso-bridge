@@ -26,11 +26,32 @@ import {
 	ProgressTitleFill,
 } from './homescreen-progress-header';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
-import { AppearanceFill, GetPaidWithSquareFill, GetPaidWithStripeFill, GetPaidWithPayPalFill } from './task-fills';
+import {
+	AppearanceFill,
+	GetPaidWithSquareFill,
+	GetPaidWithStripeFill,
+	GetPaidWithPayPalFill,
+} from './task-fills';
 import './task-headers';
 import './track-menu-item';
 import { CalypsoBridgeIntroductoryOfferBanner } from './introductory-offer-banner';
 import { loadTranslations } from './i18n-loader';
+
+// Register the remote logging filter early to ensure it's applied before any logging occurs.
+if ( !! window.wcCalypsoBridge?.isAtomic ) {
+	// Add `siteIsAtomic` property to remote logging error data so we can filter logs for Atomic sites.
+	addFilter(
+		'woocommerce_remote_logging_error_data',
+		'wc-calypso-bridge',
+		( errorData ) => ( {
+			...errorData,
+			properties: {
+				...errorData.properties,
+				siteIsAtomic: true,
+			},
+		} )
+	);
+}
 
 // A workaround for Webpack's tree-shaking to ensure `loadTranslations` is included in the production bundle.
 ( function () {} )( loadTranslations );
@@ -182,7 +203,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 			scope: 'woocommerce-tasks',
 			render: GetPaidWithStripeFill,
 		} );
-  }
+	}
 
 	if ( window?.wcCalypsoBridge?.paypal_connect_url ) {
 		// Setup PayPal task fill (Partner Aware Onboarding).
