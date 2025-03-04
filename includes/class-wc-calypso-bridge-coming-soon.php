@@ -51,7 +51,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	}
 
 	/**
-	 * Remove WPCOM UI elements when the user is viewing the site with ?site-preview=true.
+	 * Remove WPCOM UI elements when the user is viewing the site with ?site-preview=1.
 	 *
 	 * @return void
 	 */
