@@ -3,6 +3,10 @@
  */
 import React from 'react';
 import { WooOnboardingTaskListItem } from '@woocommerce/onboarding';
+
+/**
+ * Internal dependencies
+ */
 import { useAppearanceClick } from '../utils/hooks/use-appearance-click';
 
 export const AppearanceFill = () => {

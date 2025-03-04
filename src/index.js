@@ -26,7 +26,12 @@ import {
 	ProgressTitleFill,
 } from './homescreen-progress-header';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
-import { AppearanceFill, GetPaidWithSquareFill, GetPaidWithStripeFill, GetPaidWithPayPalFill } from './task-fills';
+import {
+	AppearanceFill,
+	GetPaidWithSquareFill,
+	GetPaidWithStripeFill,
+	GetPaidWithPayPalFill,
+} from './task-fills';
 import './task-headers';
 import './track-menu-item';
 import { CalypsoBridgeIntroductoryOfferBanner } from './introductory-offer-banner';
@@ -182,7 +187,7 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 			scope: 'woocommerce-tasks',
 			render: GetPaidWithStripeFill,
 		} );
-  }
+	}
 
 	if ( window?.wcCalypsoBridge?.paypal_connect_url ) {
 		// Setup PayPal task fill (Partner Aware Onboarding).
@@ -236,7 +241,10 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 				pages.push( {
 					container: Plugins,
 					path: '/plugins-upgrade',
-					breadcrumbs: [ __( 'Plugins' ), __( 'Plugins' ) ],
+					breadcrumbs: [
+						__( 'Plugins', 'wc-calypso-bridge' ),
+						__( 'Plugins', 'wc-calypso-bridge' ),
+					],
 					navArgs: {
 						id: 'plugins-upgrade',
 					},

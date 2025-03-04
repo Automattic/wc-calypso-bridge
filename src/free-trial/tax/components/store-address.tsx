@@ -2,9 +2,9 @@
  * External dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { COUNTRIES_STORE_NAME, Country, Locale } from '@woocommerce/data';
+import { COUNTRIES_STORE_NAME, Country } from '@woocommerce/data';
 import { decodeEntities } from '@wordpress/html-entities';
-import { escapeRegExp, has } from 'lodash';
+import { escapeRegExp } from 'lodash';
 import { useEffect, useMemo, useState, useRef } from '@wordpress/element';
 import { SelectControl, TextControl } from '@woocommerce/components';
 import { Spinner } from '@wordpress/components';
@@ -34,10 +34,9 @@ type Option = { key: string; label: string };
 /**
  * Form validation.
  *
- * @param {Object} locale The store locale.
  * @return {Function} Validator function.
  */
-export function getStoreAddressValidator( locale: Locale = {} ) {
+export function getStoreAddressValidator() {
 	/**
 	 * Form validator.
 	 *
@@ -294,10 +293,10 @@ type StoreAddressProps = {
 /**
  * Store address fields.
  *
- * @param {Object}   props               Props for input components.
- * @param {Function} props.getInputProps Get input props.
- * @param {Function} props.setValue      Set value of the countryState input.
- * @return {Object} -
+ * @param {Object}   props               - Props for input components.
+ * @param {Function} props.getInputProps - Get input props.
+ * @param {Function} props.setValue      - Set value of the countryState input.
+ * @return {JSX.Element} The store address fields component.
  */
 export function StoreAddress( {
 	getInputProps,

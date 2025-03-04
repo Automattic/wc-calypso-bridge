@@ -159,10 +159,13 @@ export default {
 			'wc-calypso-bridge'
 		),
 
-		question4Answer1: __(
-			'Stores accepted into the promotional program will receive a 100% discount on transaction fees (excluding currency conversion fees) for the first $25,000 in payments, or 3 months, whichever comes first. Simply install the extension and if eligible you’ll be entered into the promotional offer.',
-			'wc-calypso-bridge'
-		),
+		question4Answer1:
+			// False positive: this doesn't require a translator comment.
+			// eslint-disable-next-line @wordpress/i18n-translator-comments
+			__(
+				'Stores accepted into the promotional program will receive a 100% discount on transaction fees (excluding currency conversion fees) for the first $25,000 in payments, or 3 months, whichever comes first. Simply install the extension and if eligible you’ll be entered into the promotional offer.',
+				'wc-calypso-bridge'
+			),
 
 		question4Answer2: __(
 			'To be eligible for this promotional offer, your store must: (1) meet the WooCommerce Payments usage requirements; (2) be a U.S.-based business; (3) not have processed payments through WooCommerce Payments before; and (4) be accepted into the promotional program.',
@@ -194,6 +197,7 @@ export default {
 		),
 
 		question5Answer7: createInterpolateElement(
+			/* translators: %s is a placeholder for the instant deposits link */
 			__(
 				'1.5% fee on the payout amount for <a>instant deposits</a>',
 				'wc-calypso-bridge'
