@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
  * Class WC_Calypso_Bridge_Coming_Soon
  *
  * @since   2.6.0
- * @version 2.8.1
+ * @version x.x.x
  *
  * Handle Coming Soon mode.
  */
@@ -42,10 +42,22 @@ class WC_Calypso_Bridge_Coming_Soon {
 		// Admin bar menu is not only shown in the admin area but also in the front end when the admin user is logged in.
 		add_action( 'admin_bar_menu', array( $this, 'remove_site_visibility_badge' ), 32 );
 		add_filter( 'rest_pre_dispatch', array( $this, 'handle_initial_coming_soon_endpoint' ), 10, 3 );
+		add_action( 'wp_head', array( $this, 'possibly_remove_wpcom_ui_elements' ) );
 
 		if ( is_admin() ) {
 			add_filter( 'plugins_loaded', array( $this, 'maybe_add_admin_notice' ) );
 			add_filter( 'woocommerce_get_settings_site-visibility', array( $this, 'possibly_hide_site_visibility_form' ) );
+		}
+	}
+
+	/**
+	 * Remove WPCOM UI elements when the user is viewing the site with ?site-preview=true.
+	 *
+	 * @return void
+	 */
+	public function possibly_remove_wpcom_ui_elements() {
+		if ( isset( $_GET['site-preview'] ) && $_GET['site-preview'] === '1' ) {
+			WC_Calypso_Bridge_Helper_Functions::echo_admin_bar_hide();
 		}
 	}
 
