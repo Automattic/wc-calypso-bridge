@@ -56,7 +56,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return void
 	 */
 	public function possibly_remove_wpcom_ui_elements() {
-		if ( isset( $_GET['site-preview'] ) && $_GET['site-preview'] === '1' ) {
+		if ( isset( $_GET['site-preview'] ) && '1' === $_GET['site-preview'] ) {
 			WC_Calypso_Bridge_Helper_Functions::echo_admin_bar_hide();
 		}
 	}
