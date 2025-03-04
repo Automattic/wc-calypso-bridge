@@ -16,6 +16,10 @@
 		"esModuleInterop": true,
 		"skipLibCheck": false,
 		"module": "esnext",
+		"baseUrl": "./",
+		"paths": {
+			"~/*": [ "src/*" ]
+		},
 		"typeRoots": [ "./typings", "./node_modules/@types" ],
 	},
 	"exclude": [
