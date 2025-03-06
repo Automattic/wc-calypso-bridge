@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.8.1
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -77,6 +77,10 @@ class WC_Calypso_Bridge {
 		add_action( 'muplugins_loaded', array( $this, 'deactivate_duplicate_tiktok' ), PHP_INT_MAX );
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
+
+		if ( defined( 'IS_ATOMIC' ) && IS_ATOMIC ) {
+			add_filter( 'woocommerce_remote_logger_formatted_log_data', array( $this, 'add_site_atomic_property_to_logs' ) );
+		}
 	}
 
 	/**
@@ -317,6 +321,28 @@ class WC_Calypso_Bridge {
 
 		$logger = wc_get_logger();
 		$logger->log( $level, $message, array( 'source' => $context ) );
+	}
+
+	/**
+	 * Add siteIsAtomic property to remote logging data.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param array $log_data The log data being sent to the remote logging service.
+	 * @return array Modified log data with Atomic site information.
+	 */
+	public function add_site_atomic_property_to_logs( $log_data ) {
+		if ( ! is_array( $log_data ) ) {
+			$log_data = array();
+		}
+
+		if ( ! isset( $log_data['properties'] ) ) {
+			$log_data['properties'] = array();
+		}
+
+		$log_data['properties']['siteIsAtomic'] = true;
+
+		return $log_data;
 	}
 }
 

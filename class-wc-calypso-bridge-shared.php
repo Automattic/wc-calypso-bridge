@@ -138,6 +138,7 @@ class WC_Calypso_Bridge_Shared {
 				'baseUrl' => plugins_url( '/languages', __FILE__ ),
 				'locale' => get_user_locale(),
 			),
+			'isAtomic'                     => defined( 'IS_ATOMIC' ) && IS_ATOMIC,
 		);
 
 		/**
