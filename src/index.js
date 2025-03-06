@@ -257,7 +257,10 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 				pages.push( {
 					container: Plugins,
 					path: '/plugins-upgrade',
-					breadcrumbs: [ __( 'Plugins' ), __( 'Plugins' ) ],
+					breadcrumbs: [
+						__( 'Plugins', 'wc-calypso-bridge' ),
+						__( 'Plugins', 'wc-calypso-bridge' ),
+					],
 					navArgs: {
 						id: 'plugins-upgrade',
 					},

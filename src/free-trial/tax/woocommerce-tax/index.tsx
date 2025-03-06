@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { Spinner } from '@woocommerce/components';
 import { PLUGINS_STORE_NAME, SETTINGS_STORE_NAME } from '@woocommerce/data';
@@ -30,8 +29,7 @@ export const WooCommerceTax: React.FC< TaxChildProps > = ( {
 				! select( SETTINGS_STORE_NAME ).hasFinishedResolution(
 					'getSettings',
 					[ 'general' ]
-				) ||
-				! hasFinishedResolution( 'getActivePlugins' ),
+				) || ! hasFinishedResolution( 'getActivePlugins' ),
 		};
 	} );
 

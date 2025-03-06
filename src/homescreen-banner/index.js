@@ -59,7 +59,8 @@ export const CalypsoBridgeHomescreenBanner = () => {
 						<Button
 							className="wc-calypso-bridge-woocommerce-admin-homescreen-banner__dismiss-button"
 							label={ __(
-								'Dismiss this free trial informational banner.'
+								'Dismiss this free trial informational banner.',
+								'wc-calypso-bridge'
 							) }
 							icon={
 								<span className="dashicons dashicons-no-alt"></span>

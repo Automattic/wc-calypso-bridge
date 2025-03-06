@@ -15,7 +15,7 @@ import { WC_ASSET_URL } from '../utils/admin-settings';
 const GetPaidWithStripeHeader = () => {
 	return (
 		<WooOnboardingTaskListHeader id="get-paid-with-stripe">
-			{ ( { task, goToTask } ) => {
+			{ ( { task } ) => {
 				return (
 					<div className="woocommerce-task-header__contents-container">
 						<img

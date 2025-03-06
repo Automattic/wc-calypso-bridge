@@ -16,14 +16,19 @@
 		"esModuleInterop": true,
 		"skipLibCheck": false,
 		"module": "esnext",
-		"typeRoots": [
-			"./typings",
-			"./node_modules/@types",
-			"packages/**/node_modules/@types"
-		],
 		"baseUrl": "./",
 		"paths": {
 			"~/*": [ "src/*" ]
-		}
-	}
+		},
+		"typeRoots": [ "./typings", "./node_modules/@types" ],
+	},
+	"exclude": [
+		"node_modules",
+		"**/build",
+		"**/jest.config.js",
+		"**/jest-preset.js",
+		"**/webpack.*.js",
+		"**/babel.config.js"
+	],
+	"include": [ "typings/**/*", "src/**/*" ]
 }

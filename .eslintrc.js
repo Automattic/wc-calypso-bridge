@@ -1,37 +1,46 @@
 module.exports = {
 	extends: [ 'plugin:@woocommerce/eslint-plugin/recommended' ],
-	rules: {
-		// temporary conversion to warnings until the below are all handled.
-		'@wordpress/i18n-translator-comments': 'warn',
-		'@wordpress/valid-sprintf': 'warn',
-		'jsdoc/check-tag-names': [
-			'error',
-			{ definedTags: [ 'jest-environment' ] },
-		],
-		'react/react-in-jsx-scope': 'off',
-	},
 	overrides: [
 		{
-			files: [ '*.ts', '*.tsx' ],
-			parser: '@typescript-eslint/parser',
-			extends: [
-				'plugin:@woocommerce/eslint-plugin/recommended',
-				'plugin:@typescript-eslint/recommended',
-			],
+			files: [ '**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx' ],
 			rules: {
-				camelcase: 'off',
-				'import/no-unresolved': 'warn',
-				'import/no-extraneous-dependencies': 'warn',
-				'@typescript-eslint/no-explicit-any': 'error',
-				'no-use-before-define': 'off',
-				'@typescript-eslint/no-use-before-define': [ 'error' ],
-				'jsdoc/require-param': 'off',
-				// Making use of typescript no-shadow instead, fixes issues with enum.
-				'no-shadow': 'off',
-				'@typescript-eslint/no-shadow': [ 'error' ],
-				'@typescript-eslint/no-empty-function': 'off',
 				'react/react-in-jsx-scope': 'off',
+				'@wordpress/i18n-text-domain': [
+					'error',
+					{
+						allowedTextDomain: [
+							'wc-calypso-bridge',
+							'woocommerce',
+						],
+					},
+				],
 			},
 		},
 	],
+	settings: {
+		'import/core-modules': [
+			'@woocommerce/admin-layout',
+			'@woocommerce/block-templates',
+			'@woocommerce/components',
+			'@woocommerce/customer-effort-score',
+			'@woocommerce/currency',
+			'@woocommerce/data',
+			'@woocommerce/experimental',
+			'@woocommerce/expression-evaluation',
+			'@woocommerce/navigation',
+			'@woocommerce/number',
+			'@woocommerce/settings',
+			'@woocommerce/tracks',
+			'@testing-library/react',
+			'react',
+			'react-router-dom',
+			'prop-types',
+			'lodash',
+		],
+		'import/resolver': {
+			node: {
+				extensions: [ '.js', '.jsx', '.ts', '.tsx' ],
+			},
+		},
+	},
 };

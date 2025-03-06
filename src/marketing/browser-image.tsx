@@ -1,9 +1,14 @@
+/**
+ * External dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
 const SvgComponent = ( {
 	text,
 	image,
 }: {
-	text: ReactNode;
-	image: ReactNode;
+	text: React.ReactNode;
+	image: React.ReactNode;
 } ) => (
 	<svg
 		width="100%"
@@ -135,7 +140,11 @@ const SvgComponent = ( {
 			height="366px"
 			transform="translate(109, 42)"
 		>
-			<img src={ image } style={ { borderBottomLeftRadius: '10px' } } />
+			<img
+				src={ image }
+				style={ { borderBottomLeftRadius: '10px' } }
+				alt={ __( 'Browser image', 'wc-calypso-bridge' ) }
+			/>
 		</foreignObject>
 		<g filter="url(#b)" transform="translate(558 170)">
 			<rect

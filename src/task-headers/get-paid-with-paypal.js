@@ -15,7 +15,7 @@ import { WC_ASSET_URL } from '../utils/admin-settings';
 const GetPaidWithPayPalHeader = () => {
 	return (
 		<WooOnboardingTaskListHeader id="get-paid-with-paypal">
-			{ ( { task, goToTask } ) => {
+			{ ( { task } ) => {
 				return (
 					<div className="woocommerce-task-header__contents-container">
 						<img

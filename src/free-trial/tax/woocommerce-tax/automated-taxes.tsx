@@ -3,8 +3,6 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Button } from '@wordpress/components';
-import interpolateComponents from '@automattic/interpolate-components';
-import { H } from '@woocommerce/components';
 import { recordEvent } from '@woocommerce/tracks';
 
 /**
@@ -17,7 +15,7 @@ export const AutomatedTaxes: React.FC<
 		SetupStepProps,
 		'isPending' | 'onAutomate' | 'onManual' | 'onDisable'
 	>
-> = ( { isPending, onAutomate, onManual, onDisable } ) => {
+> = ( { isPending, onAutomate } ) => {
 	return (
 		<div className="woocommerce-task-tax__success">
 			<Button
