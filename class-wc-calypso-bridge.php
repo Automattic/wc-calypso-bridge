@@ -332,9 +332,14 @@ class WC_Calypso_Bridge {
 	 * @return array Modified log data with Atomic site information.
 	 */
 	public function add_site_atomic_property_to_logs( $log_data ) {
-		if ( ! is_array( $log_data ) || ! isset( $log_data['properties'] ) ) {
+		if ( ! is_array( $log_data ) ) {
+			$log_data = array();
+		}
+
+		if ( ! isset( $log_data['properties'] ) ) {
 			$log_data['properties'] = array();
 		}
+
 		$log_data['properties']['siteIsAtomic'] = true;
 
 		return $log_data;
