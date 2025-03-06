@@ -19,28 +19,6 @@ import { recordEvent } from '@woocommerce/tracks';
 import escape from '../utils/escape';
 import './style.scss';
 
-const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
-	const [ isOpen, setIsOpen ] = useState( true );
-
-	if ( isDismissed || isResolving ) {
-		return null;
-	}
-
-	if ( ! isOpen ) {
-		return null;
-	}
-
-	const closeHandler = () => {
-		setIsOpen( false );
-		updateOptions( {
-			woocommerce_ecommerce_welcome_modal_dismissed: 'yes',
-		} );
-		recordEvent( 'ecommerce_welcome_modal_close' );
-	};
-
-	return <Modal closeHandler={ closeHandler } />;
-};
-
 const Modal = ( { closeHandler } ) => {
 	useEffect( () => {
 		recordEvent( 'ecommerce_welcome_modal_open' );
@@ -133,6 +111,28 @@ const Modal = ( { closeHandler } ) => {
 			] }
 		/>
 	);
+};
+
+const WelcomeModal = ( { isDismissed, isResolving, updateOptions } ) => {
+	const [ isOpen, setIsOpen ] = useState( true );
+
+	if ( isDismissed || isResolving ) {
+		return null;
+	}
+
+	if ( ! isOpen ) {
+		return null;
+	}
+
+	const closeHandler = () => {
+		setIsOpen( false );
+		updateOptions( {
+			woocommerce_ecommerce_welcome_modal_dismissed: 'yes',
+		} );
+		recordEvent( 'ecommerce_welcome_modal_close' );
+	};
+
+	return <Modal closeHandler={ closeHandler } />;
 };
 
 export default compose(

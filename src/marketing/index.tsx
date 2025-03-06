@@ -23,15 +23,18 @@ const FeaturedItem = ( {
 	description,
 	actionButton,
 }: {
-	bannerImage: ReactNode;
-	title: ReactNode;
-	description: ReactNode;
-	actionButton: ReactNode;
+	bannerImage: React.ReactNode;
+	title: React.ReactNode;
+	description: React.ReactNode;
+	actionButton: React.ReactNode;
 } ) => {
 	return (
 		<div className="woocommerce-marketing-free-trial-featured-item">
 			<div>
-				<img src={ bannerImage } />
+				<img
+					src={ bannerImage }
+					alt={ __( 'Banner image', 'wc-calypso-bridge' ) }
+				/>
 			</div>
 			<div className="woocommerce-marketing-free-trial-featured-item-content">
 				<h3>{ title }</h3>

@@ -2,7 +2,7 @@
  * External dependencies
  */
 import { dispatch } from '@wordpress/data';
-import { sanitize } from 'dompurify';
+import DOMPurify from 'dompurify';
 
 const getPluginSlug = ( id ) => {
 	return ( id || '' ).split( ':', 1 )[ 0 ];
@@ -189,7 +189,7 @@ export function sanitizeHTML( html ) {
 	const ALLOWED_TAGS = [ 'a', 'b', 'em', 'i', 'strong', 'p', 'br' ];
 	const ALLOWED_ATTR = [ 'target', 'href', 'rel', 'name', 'download' ];
 	return {
-		__html: sanitize( html, { ALLOWED_TAGS, ALLOWED_ATTR } ),
+		__html: DOMPurify.sanitize( html, { ALLOWED_TAGS, ALLOWED_ATTR } ),
 	};
 }
 

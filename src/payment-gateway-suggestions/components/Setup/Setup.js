@@ -117,6 +117,7 @@ export const Setup = ( { markConfigured, paymentGateway } ) => {
 		() => ( {
 			key: 'configure',
 			label: sprintf(
+				/* translators: %s = title of the payment gateway to configure */
 				__( 'Configure your %(title)s account', 'woocommerce' ),
 				{
 					title,

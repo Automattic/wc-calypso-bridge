@@ -1,11 +1,11 @@
 /**
- * External dependencies.
+ * External dependencies
  */
 import { Icon, help } from '@wordpress/icons';
 import { Panel, PanelBody as PanelBodyBase } from '@wordpress/components';
 
 /**
- * Internal dependencies.
+ * Internal dependencies
  */
 import strings from './strings';
 

@@ -86,7 +86,7 @@ addFilter(
  *
  * @param {string} path
  * @param {string} domain
- * @return {Promise}
+ * @return {Promise<void>}
  */
 export async function loadTranslations( path, domain ) {
 	const locale = window?.wcCalypsoBridge?.i18n?.locale ?? defaultLocale;

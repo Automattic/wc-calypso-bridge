@@ -31,14 +31,6 @@ import FrequentlyAskedQuestions from './faq';
 import wcpayTracks from './tracks';
 import ExitSurveyModal from './exit-survey-modal';
 
-declare global {
-	interface Window {
-		wp: any;
-		wcCalypsoBridge: any;
-		location: Location;
-	}
-}
-
 const LearnMore = () => {
 	const handleClick = () => {
 		wcpayTracks.recordEvent(
@@ -100,8 +92,10 @@ const ConnectPageOnboarding = ( {
 	connectUrl,
 }: {
 	isJetpackConnected: string;
-	installAndActivatePlugins: Function;
-	setErrorMessage: Function;
+	installAndActivatePlugins: (
+		plugins: string[]
+	) => Promise< { success: boolean; message: string } >;
+	setErrorMessage: ( message: string ) => void;
 	connectUrl: string;
 } ) => {
 	const [ isSubmitted, setSubmitted ] = useState( false );
@@ -119,13 +113,13 @@ const ConnectPageOnboarding = ( {
 			const activatePromoResponse = ( await apiFetch( {
 				path: '/wc-calypso-bridge/v1/payments/activate-promo',
 				method: 'POST',
-			} ) ) as any;
+			} ) ) as { success: boolean };
 
 			if ( activatePromoResponse?.success ) {
 				window.location.href = connectUrl;
 			}
-		} catch ( e: any ) {
-			renderErrorMessage( e.message );
+		} catch ( e ) {
+			renderErrorMessage( ( e as Error ).message );
 		}
 	};
 
@@ -146,8 +140,8 @@ const ConnectPageOnboarding = ( {
 			} else {
 				renderErrorMessage( installAndActivateResponse.message );
 			}
-		} catch ( e: any ) {
-			renderErrorMessage( e.message );
+		} catch ( e: unknown ) {
+			renderErrorMessage( ( e as Error ).message );
 		}
 	};
 
@@ -224,7 +218,7 @@ const storeViewWelcome = async () => {
 			path: '/wc-calypso-bridge/v1/payments/view-welcome',
 			method: 'POST',
 		} );
-	} catch ( e: any ) {}
+	} catch ( e ) {}
 };
 
 const ConnectAccountPage = () => {

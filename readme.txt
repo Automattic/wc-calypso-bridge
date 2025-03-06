@@ -23,6 +23,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 
 = Unreleased =
+* Update ESLint, TypeScript configuration and add missing dependencies #1540
 * Hide WPCOM UI elements on LYS launch task preview #1539
 
 = 2.8.3 =

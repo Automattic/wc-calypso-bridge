@@ -3,15 +3,6 @@
  */
 import domReady from '@wordpress/dom-ready';
 
-declare global {
-	interface Window {
-		wcTracks: {
-			isEnabled: boolean;
-		};
-		wc: any;
-	}
-}
-
 /**
  * Checks if site tracking is enabled.
  *

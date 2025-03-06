@@ -16,8 +16,6 @@ import { useSelect } from '@wordpress/data';
  * Internal dependencies
  */
 import { AUTOMATION_PLUGINS } from '../utils';
-import { Connect } from './connect';
-import { Plugins } from './plugins';
 import { StoreLocation } from '../components/store-location';
 import './setup.scss';
 import { AutomatedTaxes } from './automated-taxes';

@@ -17,7 +17,7 @@ const AppearanceHeader = () => {
 	const { onClick } = useAppearanceClick();
 	return (
 		<WooOnboardingTaskListHeader id="appearance">
-			{ ( { task, goToTask } ) => {
+			{ ( { task } ) => {
 				const taskTitle = task.title;
 				const taskDescription = task.content;
 				const taskCta = task.actionLabel;
