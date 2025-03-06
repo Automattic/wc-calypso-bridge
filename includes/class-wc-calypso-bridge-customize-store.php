@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since  1.0.0
- * @version 2.5.2
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -79,25 +79,7 @@ class WC_Calypso_Bridge_Customize_Store {
 	 */
 	public function possibly_remove_wpcom_ui_elements() {
 		if ( isset( $_GET['cys-hide-admin-bar'] ) ) {
-			echo '
-			<style type="text/css">
-				#wpadminbar,
-				#wpcom-gifting-banner,
-				#wpcom-launch-banner-wrapper,
-				#atomic-proxy-bar,
-				#free-trial-plan-picker-banner { display: none !important; }
-				.woocommerce-store-notice { display: none !important; }
-				html { margin-top: 0 !important; }
-				body { overflow: hidden; }
-			</style>';
-			echo '
-			<script type="text/javascript">
-			( function() {
-				document.addEventListener( "DOMContentLoaded", function() {
-					document.documentElement.style.setProperty( "margin-top", "0px", "important" );
-				} );
-			} )();
-			</script>';
+			WC_Calypso_Bridge_Helper_Functions::echo_admin_bar_hide();
 		}
 	}
 
