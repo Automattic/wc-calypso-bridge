@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.8.4 =
+Prepare for release 2.8.4
+
 = Unreleased =
 * Add siteIsAtomic property to remote logging error data #1538
 * Update ESLint, TypeScript configuration and add missing dependencies #1540
