@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version x.x.x
+ * @version 2.8.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -326,7 +326,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Add siteIsAtomic property to remote logging data.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.4
 	 *
 	 * @param array $log_data The log data being sent to the remote logging service.
 	 * @return array Modified log data with Atomic site information.

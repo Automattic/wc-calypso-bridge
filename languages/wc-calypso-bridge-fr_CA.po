@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-05T04:28:34+00:00\n"
+"POT-Creation-Date: 2025-03-10T06:02:28+00:00\n"
 "PO-Revision-Date: 2024-09-02 11:55:47+0000\n"
 "Language: fr_CA\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -438,19 +438,23 @@ msgid "Navigation"
 msgstr "Navigation"
 
 #. Author of the plugin
+#: wc-calypso-bridge.php
 msgid "Automattic"
 msgstr "Automatique"
 
 #. Description of the plugin
+#: wc-calypso-bridge.php
 msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
 msgstr "Une extension de fonctionnalités destinée à améliorer l’expérience des utilisateurs de boutiques sur WordPress.com."
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: wc-calypso-bridge.php
 msgid "https://wordpress.com/"
 msgstr "http://fr-ca.wordpress.com/"
 
 #. Plugin Name of the plugin
+#: wc-calypso-bridge.php
 msgid "WooCommerce Calypso Bridge"
 msgstr "WooCommerce Calypso Bridge"
 
