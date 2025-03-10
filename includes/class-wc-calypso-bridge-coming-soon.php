@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) || exit;
  * Class WC_Calypso_Bridge_Coming_Soon
  *
  * @since   2.6.0
- * @version x.x.x
+ * @version 2.8.4
  *
  * Handle Coming Soon mode.
  */
