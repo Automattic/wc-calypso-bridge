@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version x.x.x
+ * @version 2.8.4
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -232,7 +232,7 @@ class WC_Calypso_Bridge_Helper_Functions {
 	/**
 	 * Outputs CSS and JS to hide WPCOM UI elements.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.4
 	 *
 	 * @return void
 	 */

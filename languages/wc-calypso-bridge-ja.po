@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-05T04:28:39+00:00\n"
-"PO-Revision-Date: 2024-10-09 09:54:02+0000\n"
+"POT-Creation-Date: 2025-03-10T06:02:24+00:00\n"
+"PO-Revision-Date: 2025-02-05 09:54:02+0000\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
@@ -438,19 +438,23 @@ msgid "Navigation"
 msgstr "ナビゲーション"
 
 #. Author of the plugin
+#: wc-calypso-bridge.php
 msgid "Automattic"
 msgstr "Automattic"
 
 #. Description of the plugin
+#: wc-calypso-bridge.php
 msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
 msgstr "WordPress.com でストアを利用するユーザーのための機能拡張プラグインです。"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: wc-calypso-bridge.php
 msgid "https://wordpress.com/"
 msgstr "http://ja.wordpress.com/"
 
 #. Plugin Name of the plugin
+#: wc-calypso-bridge.php
 msgid "WooCommerce Calypso Bridge"
 msgstr "WooCommerce Calypso Bridge"
 
