@@ -189,14 +189,6 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		} );
 	}
 
-	if ( window?.wcCalypsoBridge?.square_connect_url ) {
-		// Setup Square task fill (Partner Aware Onboarding).
-		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-square', {
-			scope: 'woocommerce-tasks',
-			render: GetPaidWithSquareFill,
-		} );
-	}
-
 	if ( window?.wcCalypsoBridge?.stripe_connect_url ) {
 		// Setup Stripe task fill (Partner Aware Onboarding).
 		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-stripe', {
@@ -212,6 +204,14 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 			render: GetPaidWithPayPalFill,
 		} );
 	}
+}
+
+if ( window?.wcCalypsoBridge?.square_connect_url ) {
+	// Setup Square task fill (Partner Aware Onboarding).
+	registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-square', {
+		scope: 'woocommerce-tasks',
+		render: GetPaidWithSquareFill,
+	} );
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
