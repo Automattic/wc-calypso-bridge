@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.9.0 =
+* Remove trial condition for Square so it only depends on the specific option value #1544
+
 = Unreleased =
 
 = 2.8.4 =
