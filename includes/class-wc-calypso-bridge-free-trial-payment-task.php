@@ -18,6 +18,13 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Task
 	protected static $instance = null;
 
 	/**
+	 * List of valid payment partners
+	 *
+	 * @var array
+	 */
+	const VALID_PARTNERS = ['square', 'paypal', 'stripe'];
+
+	/**
 	 * Get class instance.
 	 *
 	 * @return object Instance.
@@ -31,7 +38,12 @@ class WC_Calypso_Bridge_Free_Trial_Payment_Task
 	}
 
 	public function __construct() {
-		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+		$onboarding_profile = get_option( 'woocommerce_onboarding_profile', array() );
+		if ( ! isset( $onboarding_profile['partner'] ) ) {
+			return;
+		}
+
+		if ( ! in_array( $onboarding_profile['partner'], self::VALID_PARTNERS ) ) {
 			return;
 		}
 
