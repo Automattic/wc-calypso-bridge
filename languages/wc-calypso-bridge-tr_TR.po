@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-18T10:03:57+00:00\n"
-"PO-Revision-Date: 2024-10-10 13:54:03+0000\n"
+"POT-Creation-Date: 2025-03-20T09:59:42+00:00\n"
+"PO-Revision-Date: 2025-03-19 11:54:03+0000\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
@@ -430,19 +430,23 @@ msgid "Navigation"
 msgstr "Dolaşım"
 
 #. Author of the plugin
+#: wc-calypso-bridge.php
 msgid "Automattic"
 msgstr "Otomatik"
 
 #. Description of the plugin
+#: wc-calypso-bridge.php
 msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
 msgstr "WordPress.com'da Mağaza kullanıcıları için kullanıcı deneyimi geliştirmeleri sağlayan bir özellik eklentisi."
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: wc-calypso-bridge.php
 msgid "https://wordpress.com/"
 msgstr "https://wordpress.com/"
 
 #. Plugin Name of the plugin
+#: wc-calypso-bridge.php
 msgid "WooCommerce Calypso Bridge"
 msgstr "WooCommerce Calypso Bridge"
 
