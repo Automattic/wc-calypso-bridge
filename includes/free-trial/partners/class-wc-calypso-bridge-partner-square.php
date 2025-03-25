@@ -226,28 +226,19 @@ class WC_Calypso_Bridge_Partner_Square {
 	}
 
 	/**
-	 * Hooks into the WooPayments incentives API HTTP response to remove the WooPayments action incentives.
+	 * Hooks into the WooPayments incentives API HTTP response to remove all the WooPayments incentives.
 	 *
 	 * @return void
 	 */
 	private function remove_woopayments_action_incentives() {
-		// Filter the Transact incentives response to remove the WooPayments action incentives, if any.
+		// Filter the Transact Platform incentives response to remove all the WooPayments incentives.
 		add_filter( 'http_response', function( $response, $args, $url ) {
 			if ( is_wp_error( $response ) || false === strpos( $url, 'wpcom/v2/wcpay/incentives' ) ) {
 				return $response;
 			}
 
-			$data = json_decode( wp_remote_retrieve_body( $response ), true ) ?? array();
-			if ( empty( $data ) || ! is_array( $data ) || ! array_is_list( $data ) ) {
-				return $response;
-			}
-
-			// Remove any incentives that are action incentives.
-			$data = array_filter( $data, function( $incentive ) {
-				return empty( $incentive['id'] ) || false === strpos( $incentive['id'], '-action-' );
-			} );
-
-			$response['body'] = wp_json_encode( array_values( $data ) );
+			// Just return an empty array.
+			$response['body'] = wp_json_encode( array() );
 
 			return $response;
 		}, 10, 3 );
