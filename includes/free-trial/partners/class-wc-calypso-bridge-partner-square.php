@@ -47,6 +47,8 @@ class WC_Calypso_Bridge_Partner_Square {
 		$this->add_square_connect_url_to_js();
 		$this->remove_woo_payments_from_payments_suggestions_feed();
 		$this->remove_payments_note();
+		$this->remove_woopayments_action_incentives();
+		$this->nox_hide_suggestions_from_providers_list();
 	}
 
 	/**
@@ -221,6 +223,76 @@ class WC_Calypso_Bridge_Partner_Square {
 				'square_cash_app_pay' => 1,
 			) );
 		}
+	}
+
+	/**
+	 * Hooks into the WooPayments incentives API HTTP response to remove the WooPayments action incentives.
+	 *
+	 * @return void
+	 */
+	private function remove_woopayments_action_incentives() {
+		// Filter the Transact incentives response to remove the WooPayments action incentives, if any.
+		add_filter( 'http_response', function( $response, $args, $url ) {
+			if ( is_wp_error( $response ) || false === strpos( $url, 'wpcom/v2/wcpay/incentives' ) ) {
+				return $response;
+			}
+
+			$data = json_decode( wp_remote_retrieve_body( $response ), true ) ?? array();
+			if ( empty( $data ) || ! is_array( $data ) || ! array_is_list( $data ) ) {
+				return $response;
+			}
+
+			// Remove any incentives that are action incentives.
+			$data = array_filter( $data, function( $incentive ) {
+				return empty( $incentive['id'] ) || false === strpos( $incentive['id'], '-action-' );
+			} );
+
+			$response['body'] = wp_json_encode( array_values( $data ) );
+
+			return $response;
+		}, 10, 3 );
+	}
+
+	/**
+	 * Auto-hides the main payment provider suggestions for the current user.
+	 *
+	 * This only happens if the user didn't interact with the NOX suggestions and hid them.
+	 *
+	 * @return void
+	 */
+	private function nox_hide_suggestions_from_providers_list() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		$user_nox_profile = get_user_meta( get_current_user_id(), 'woocommerce_payments_nox_profile', true );
+		// If the user has already hidden the suggestions, we don't need to do anything.
+		if ( ! empty( $user_nox_profile['hidden_suggestions'] ) ) {
+			return;
+		}
+
+		// Auto-hide the main providers list suggestions.
+		// For now, we will hide the suggestions for WooPayments, PayPal Full Stack, and Stripe.
+		// These are the only PSPs that will appear in the main providers list in countries where Square is available.
+		if ( ! is_array( $user_nox_profile ) ) {
+			$user_nox_profile = array();
+		}
+		$user_nox_profile['hidden_suggestions'] = array(
+			array(
+				'id'        => 'woopayments',
+				'timestamp' => time(),
+			),
+			array(
+				'id'        => 'paypal_full_stack',
+				'timestamp' => time(),
+			),
+			array(
+				'id'        => 'stripe',
+				'timestamp' => time(),
+			),
+		);
+
+		update_user_meta( get_current_user_id(), 'woocommerce_payments_nox_profile', $user_nox_profile );
 	}
 }
 WC_Calypso_Bridge_Partner_Square::get_instance();
