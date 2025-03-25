@@ -210,8 +210,8 @@ class WC_Calypso_Bridge_Partner_Square {
 	}
 
 	/**
-	 * Force square_cash_app_pay and square_credit_card order
-	 * IF user hans't customized the payment methods order yet.
+	 * Force square_cash_app_pay, square_credit_card, and gift_cards_pay order
+	 * IF user hasn't customized the payment methods order yet.
 	 *
 	 * @return void
 	 */
@@ -219,8 +219,9 @@ class WC_Calypso_Bridge_Partner_Square {
 		$order_option = get_option( 'woocommerce_gateway_order', false );
 		if ( ! $order_option ) {
 			update_option( 'woocommerce_gateway_order', array(
-				'square_credit_card' => 0,
+				'square_credit_card'  => 0,
 				'square_cash_app_pay' => 1,
+				'gift_cards_pay'      => 2,
 			) );
 		}
 	}
