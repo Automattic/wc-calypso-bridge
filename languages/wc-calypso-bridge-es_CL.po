@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-20T09:59:44+00:00\n"
+"POT-Creation-Date: 2025-03-26T12:07:46+00:00\n"
 "PO-Revision-Date: 2025-01-20 11:59:01+0000\n"
 "Language: es_CL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -169,7 +169,7 @@ msgstr "Elige tu tema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
+#: build/index.js:8418
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -245,7 +245,10 @@ msgstr "Personaliza tu tienda con extensiones de WooCommerce para que funcione a
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
+#: build/plugins.js:66
+#: build/plugins.js:71
+#: build/plugins.js:77
+#: build/plugins.js:89
 msgid "Take your store to the next level, with extensions"
 msgstr "Mejora el nivel de tu tienda con extensiones"
 
@@ -260,7 +263,8 @@ msgstr "¡Es hora de celebrarlo! ¿Todo listo para publicar tu tienda?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
+#: build/index.js:6171
+#: build/index.js:9162
 msgid "Launch your store"
 msgstr "Publica tu tienda"
 
@@ -273,7 +277,7 @@ msgstr "Ya has publicado tu tienda"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
+#: build/index.js:10769
 msgid "2 minutes"
 msgstr "2 minutos"
 
@@ -287,8 +291,9 @@ msgstr "dominio"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
+#: build/index.js:9267
+#: build/index.js:10376
+#: build/index.js:10380
 msgid "Add a domain"
 msgstr "Añadir un dominio"
 
@@ -308,10 +313,12 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
+#: build/index.js:6167
+#: build/index.js:8634
+#: build/index.js:10120
+#: build/marketing.js:1156
+#: build/plugins.js:51
+#: build/plugins.js:53
 msgid "Upgrade now"
 msgstr "Mejora tu plan ahora"
 
@@ -383,7 +390,8 @@ msgid "Discover"
 msgstr "Discover"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
+#: build/payment-gateway-suggestions.js:91
+#: build/payment-gateway-suggestions.js:76
 msgid "Manage"
 msgstr "Gestionar"
 
