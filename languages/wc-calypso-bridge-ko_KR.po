@@ -1,0 +1,641 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-03-26T12:07:43+00:00\n"
+"PO-Revision-Date: 2025-03-19 09:54:03+0000\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:183
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "사이트를 시작하려고 하시나요? <a href=\"%s\">이 링크</a>를 방문하여 시작해 보세요."
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:150
+msgid "There was a problem trying to update site visibility."
+msgstr "사이트 공개 범위를 업데이트하는 중 문제가 발생했습니다."
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "Stripe 결제를 설정하여 스토어에서 신용카드 결제를 수락하세요. 시작하려면 Stripe 계정이 필요합니다."
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "Stripe로 결제받기"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr "PayPal 결제를 설정하여 스토어에서 신용카드 결제를 수락하세요. 시작하려면 PayPal 계정이 필요합니다."
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr "PayPal로 결제받기"
+
+#. translators: %s: trial plan name, e.g. Entrepreneur
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
+msgid "Your %s free trial has just started"
+msgstr "%s 무료 평가판이 이제 막 시작되었습니다."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
+msgid "Hosting"
+msgstr "호스팅"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
+msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
+msgstr "Square 결제를 설정하여 스토어에서 신용카드 결제를 수락하세요. 시작하려면 Square 계정이 필요합니다."
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
+msgid "Get paid with Square"
+msgstr "Square로 결제 대금 받기"
+
+#: includes/class-wc-calypso-bridge-setup.php:424
+msgid "News"
+msgstr "뉴스"
+
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
+msgid "Create your first product"
+msgstr "첫 번째 제품 만들기"
+
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
+msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
+msgstr "%s 요금제 14일 무료 평가판에 오신 것을 환영합니다. 성공적인 온라인 비즈니스의 시작과 성장에 필요한 모든 것이 한곳에 다 있습니다. 첫 번째 판매를 향한 여정이 이제 막 시작되었습니다! 둘러볼 준비가 되셨나요?"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
+msgid "Choose a domain"
+msgstr "도메인을 선택하세요"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:138
+msgid "Ready to make that perfect domain yours?"
+msgstr "나만의 완벽한 도메인을 만들 준비가 되셨나요?"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:136
+msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
+msgstr "스토어에는 짧고 기억하기 쉬운 도메인 네임이 필수입니다. 고객이 온라인에서 회원님을 더 간편하게 찾게 되고, 브랜드 정체성이 강화되며, 신뢰를 쌓는 데 도움이 됩니다."
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:134
+msgid "Pick a domain for your new store"
+msgstr "새 스토어의 도메인 선택"
+
+#: includes/class-wc-calypso-bridge-plugins.php:181
+msgid "WooCommerce cannot be deactivated on this plan."
+msgstr "이 요금제에서는 WooCommerce를 비활성화할 수 없습니다."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
+msgid "Add New Order"
+msgstr "새 주문 추가"
+
+#: includes/class-wc-calypso-bridge-setup.php:324
+msgctxt "Page slug"
+msgid "refund_returns"
+msgstr "refund_returns"
+
+#: includes/class-wc-calypso-bridge-setup.php:323
+msgctxt "Page slug"
+msgid "my-account"
+msgstr "my-account"
+
+#: includes/class-wc-calypso-bridge-setup.php:322
+msgctxt "Page slug"
+msgid "checkout"
+msgstr "checkout"
+
+#: includes/class-wc-calypso-bridge-setup.php:321
+msgctxt "Page slug"
+msgid "cart"
+msgstr "cart"
+
+#: includes/class-wc-calypso-bridge-setup.php:320
+msgctxt "Page slug"
+msgid "shop"
+msgstr "shop"
+
+#: includes/class-wc-calypso-bridge-fse.php:52
+msgctxt "Template name"
+msgid "Blog Home"
+msgstr "블로그 홈"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:172
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "현재 무료 평가판을 사용 중입니다! 전체 기능을 이용하려면 <a href=\"%s\">유료 요금제로 업그레이드</a>하세요."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:27
+msgid "Browse Extensions"
+msgstr "확장 기능 둘러보기"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:95
+msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
+msgstr "상품을 추가하세요. 제품 및 서비스를 선보이고 판매를 시작할 준비를 하세요. 제품 정보, 이미지, 설명을 추가하세요."
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:89
+msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
+msgstr "상품을 가져오세요. 제품 및 서비스를 선보이고 판매를 시작할 준비를 하세요. 기존 제품 정보, 이미지, 설명을 가져오세요."
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:79
+msgid "Add products"
+msgstr "상품 추가"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:76
+msgid "Import products"
+msgstr "상품 불러오기"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:66
+msgid "Add your products"
+msgstr "상품 추가"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:63
+msgid "Import your products"
+msgstr "상품 가져오기"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:59
+msgid "Choose theme"
+msgstr "테마 선택"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:38
+msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
+msgstr "브랜드의 외형과 분위기에 가장 잘 맞는 테마를 선택하여 맞춤 설정하세요. 색상을 바꾸고 로고를 추가하고 페이지를 만드세요."
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:29
+msgid "Choose your theme"
+msgstr "테마 선택"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
+#: build/index.js:8418
+msgid "Plugins"
+msgstr "플러그인"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
+msgid "Restore"
+msgstr "복원"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+msgid "\"Things to do next\""
+msgstr "\"다음 할 일\""
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+msgid "Setup task list"
+msgstr "설정 작업 목록"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+msgid "Restore the visibility of the \"Things to do next\" Task List."
+msgstr "\"다음 할 일\" 작업 목록의 가시성을 복원하세요."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+msgid "Restore the visibility of the primary onboarding Task List."
+msgstr "기본 온보딩 작업 목록의 가시성을 복원하세요."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
+msgstr "이 옵션을 사용하여 우커머스 홈에서 온보딩 작업 목록의 가시성을 복원하세요."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
+msgid "Onboarding"
+msgstr "온보딩"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
+msgid "A custom navigation experience that is optimized for selling."
+msgstr "판매에 최적화된 사용자 정의 탐색 환경입니다."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:77
+msgid "Tips, tricks, and ecommerce inspiration from our blog."
+msgstr "블로그에 팁, 요령 및 전자상거래 영감이 정리되어 있습니다."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:75
+#: includes/templates/html-admin-page-addons-landing-page.php:79
+msgid "Get inspired"
+msgstr "영감받기"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:65
+msgid "Discover collections"
+msgstr "컬렉션 둘러보기"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:63
+msgid "Quickly get started with our curated extension collections."
+msgstr "엄선한 확장 기능 컬렉션으로 빠르게 시작하세요."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:61
+msgid "Curated collections"
+msgstr "엄선한 컬렉션"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:49
+msgid "Add extra features and functionality, or integrate with other platforms and tools."
+msgstr "추가 특성과 기능을 추가하거나 다른 플랫폼 및 도구와 통합하세요."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:47
+msgid "Customize and extend"
+msgstr "사용자 정의 및 확장"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:51
+msgid "Browse extensions"
+msgstr "확장 기능 둘러보기"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:19
+msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
+msgstr "우커머스 확장 기능으로 스토어를 비즈니스에 맞춰 사용자 정의하세요. 유료 요금제로 업그레이드하여 목표를 달성하는 데 도움이 될 수 있는 수백 가지 도구와 기능을 사용하세요. 무엇을 사용할 수 있는지 궁금하신가요? 확장 기능 마켓플레이스를 둘러보세요."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:15
+#: includes/templates/html-admin-page-addons-landing-page.php:32
+#: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:66
+#: build/plugins.js:71
+#: build/plugins.js:77
+#: build/plugins.js:89
+msgid "Take your store to the next level, with extensions"
+msgstr "확장 기능으로 스토어의 수준 높이기"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:59
+msgid "1 minute"
+msgstr "1분"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:47
+msgid "It's time to celebrate! Ready to launch your store?"
+msgstr "축하할 시간입니다! 스토어를 시작할 준비가 되셨나요?"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:35
+#: includes/tasks/class-wc-calypso-task-launch-site.php:38
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: build/index.js:6171
+#: build/index.js:9162
+msgid "Launch your store"
+msgstr "스토어 시작"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:32
+msgid "You've already launched your store"
+msgstr "이미 스토어를 시작하셨습니다."
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:59
+#: includes/tasks/class-wc-calypso-task-appearance.php:50
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
+#: build/index.js:10769
+msgid "2 minutes"
+msgstr "2분"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:47
+msgid "Add your domain name and make your store unique."
+msgstr "도메인 네임을 추가하고 스토어를 고유하게 만드세요."
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:38
+msgid "Domain"
+msgstr "도메인"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:35
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94
+#: build/index.js:9267
+#: build/index.js:10376
+#: build/index.js:10380
+msgid "Add a domain"
+msgstr "도메인 추가"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:32
+msgid "You added your domain"
+msgstr "도메인을 추가했습니다."
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:77
+msgid ""
+"\n"
+"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.\n"
+"\t\t"
+msgstr ""
+"\n"
+"\t\t\t현재 회원님에게만 스토어가 표시됩니다. 모든 사람이 스토어를 이용할 수 있도록 <a href='%s' id='banner_button'>유료 요금제로 업그레이드</a>하세요.\n"
+"\t\t"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
+#: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:6167
+#: build/index.js:8634
+#: build/index.js:10120
+#: build/marketing.js:1156
+#: build/plugins.js:51
+#: build/plugins.js:53
+msgid "Upgrade now"
+msgstr "지금 업그레이드"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:45
+msgid "During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling."
+msgstr "평가판 기간에는 테스트 주문만 가능합니다. 고객의 주문을 받으려면 유료 요금제로 업그레이드하세요. 판매를 시작할 준비가 완료됩니다."
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:43
+msgid "Start selling to everyone"
+msgstr "모든 사람에게 판매 시작"
+
+#: includes/class-wc-calypso-bridge-setup.php:422
+msgid "My Account"
+msgstr "내 계정"
+
+#: includes/class-wc-calypso-bridge-setup.php:420
+msgid "Contact"
+msgstr "연락처"
+
+#: includes/class-wc-calypso-bridge-fse.php:53
+#: includes/class-wc-calypso-bridge-setup.php:411
+msgid "Home"
+msgstr "홈"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
+msgid "This site has already been launched"
+msgstr "이 사이트는 이미 시작되었음"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
+msgid "You don't have permissions to launch this site"
+msgstr "이 사이트를 시작할 권한이 없습니다."
+
+#. translators: %s is the plans URL
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:371
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "관리자와 스토어 관리자만 무료 평가판을 사용하는 동안에 주문할 수 있습니다. 고객의 결제를 수락할 준비가 되었으면 <a href=\"%s\">유료 요금제로 업그레이드</a>하세요."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:297
+msgid "There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order."
+msgstr "사용할 수 있는 결제 수단이 없습니다. 시스템 오류일 수 있습니다. 주문 관련 도움말이 필요하면 문의해 주세요."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:283
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:315
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:322
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:330
+msgid "Your order could not be placed. Checkout functionality is currently enabled for preview purposes only."
+msgstr "주문할 수 없습니다. 계산 기능이 현재 미리보기 용도로만 활성화되어 있습니다."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:271
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:298
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:340
+msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
+msgstr "이 스토어는 주문을 수락할 준비가 되지 않았습니다. 계산 기능이 현재 미리보기 용도로만 활성화되어 있습니다."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
+msgid "Jetpack Stats"
+msgstr "Jetpack 통계"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
+msgid "Jetpack Status"
+msgstr "젯팩 상태"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
+msgid "Anti-Spam"
+msgstr "스팸 방지"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
+msgid "Discover"
+msgstr "둘러보기"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+#: build/payment-gateway-suggestions.js:91
+#: build/payment-gateway-suggestions.js:76
+msgid "Manage"
+msgstr "관리"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
+msgid "WooCommerce Subscriptions"
+msgstr "WooCommerce 구독"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
+msgid "Extensions"
+msgstr "확장"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
+msgid "Customers"
+msgstr "고객"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
+msgid "Legacy Reports"
+msgstr "레거시 보고서"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
+msgid "WooCommerce Status"
+msgstr "WooCommerce 상태"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
+msgid "WooCommerce Settings"
+msgstr "우커머스 설정"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
+msgid "Orders"
+msgstr "주문"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
+msgid "My Home"
+msgstr "내 홈"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
+msgid "Feedback"
+msgstr "피드백"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
+msgid "Navigation"
+msgstr "내비게이션"
+
+#. Author of the plugin
+#: wc-calypso-bridge.php
+msgid "Automattic"
+msgstr "오토매틱스"
+
+#. Description of the plugin
+#: wc-calypso-bridge.php
+msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
+msgstr "워드프레스닷컴에서 스토어 사용자의 UX가 향상되는 기능 플러그인입니다."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: wc-calypso-bridge.php
+msgid "https://wordpress.com/"
+msgstr "https://wordpress.com/"
+
+#. Plugin Name of the plugin
+#: wc-calypso-bridge.php
+msgid "WooCommerce Calypso Bridge"
+msgstr "WooCommerce Calypso Bridge"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:16
+msgid "Make your check payable to..."
+msgstr "...에게 수표 발행"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:15
+msgid "Pay for this order by check."
+msgstr "수표로 이 주문을 결제합니다."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-add-bacs-accounts.php:92
+msgid "An invalid setting value was passed."
+msgstr "잘못된 설정값이 전달되었습니다."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:118
+msgid "Cannot create order note, please try again."
+msgstr "주문 메모를 생성할 수 없습니다. 다시 시도해 주세요."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:116
+msgid "Order details manually sent to customer."
+msgstr "주문 정보가 수동으로 고객에게 전송되었습니다."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:107
+msgid "Invalid order ID."
+msgstr "잘못된 주문 ID."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
+msgid "WooCommerce"
+msgstr "우커머스"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:70
+msgid "Sorry, you cannot view this resource."
+msgstr "죄송합니다. 이 리소스를 볼 수 없습니다."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:374
+msgid "Featured image for the product."
+msgstr "제품 특성 이미지."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:368
+msgid "Name of the product."
+msgstr "제품 이름."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:362
+msgid "ID of the product."
+msgstr "제품 ID."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:356
+msgid "Basic information on the product that the review is for."
+msgstr "상품평이 있는 제품에 대한 기본 정보."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:349
+msgid "Status of the review"
+msgstr "검토 상태"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:343
+msgid "Shows if the reviewer bought the product or not."
+msgstr "상품평 작성자가 상품을 구입했는지 여부 표시."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:338
+msgid "URLs for the reviewer's avatar."
+msgstr "상품평 작성자의 아바타에 대한 URL입니다."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:333
+msgid "Reviewer email."
+msgstr "상품평 작성자 이메일."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:328
+msgid "Reviewer name."
+msgstr "상품평 작성자명."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:323
+msgid "Review rating (0 to 5)."
+msgstr "평점(0에서 5까지)."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:318
+msgid "The date the review was created, as GMT."
+msgstr "검토가 생성된 날짜(GMT)입니다."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:313
+msgid "The date the review was created, in the site's timezone."
+msgstr "상품평이 생성된 날짜(사이트 시간대 기준)."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:308
+msgid "The content of the review."
+msgstr "검토 콘텐츠입니다."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:302
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:49
+msgid "Unique identifier for the resource."
+msgstr "리소스에 대한 고유 식별자."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:281
+msgid "Limit results to those matching a string."
+msgstr "결과를 스트링에 일치하는 것에 제한."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:274
+msgid "Limit result set to reviews assigned a specific product."
+msgstr "결과를 특정 제품의 검토로 제한."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:266
+msgid "Order sort attribute ascending or descending."
+msgstr "오름차순 또는 내림차순으로 분류 속성 정렬."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:256
+msgid "Maximum number of items to be returned in result set."
+msgstr "결과 세트에 리턴되는 최대 아이템 수."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:247
+msgid "Current page of the collection."
+msgstr "콜렉션의 현재 페이지."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:240
+msgid "Limit result set to reviews with a specific status."
+msgstr "결과를 특정 상태의 검토로 제한."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-mailchimp-settings-controller.php:111
+msgid "Sorry, you cannot edit this resource."
+msgstr "죄송합니다. 이 리소스를 편집할 수 없습니다."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+msgid "Collection of review totals by comment status."
+msgstr "댓글 상태별 상품평 합계의 수집."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+msgid "Collection of product totals by stock status."
+msgstr "재고 상태별 제품 합계의 수집."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+msgid "Collection of order totals by order status."
+msgstr "주문 상태별 주문 합계의 수집."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:60
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:63
+msgid "Sorry, you cannot list resources."
+msgstr "죄송합니다. 리소스 목록을 볼 권한이 없습니다."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "You can change this text by editing the \"Parallax Hero\" Section via the \"Powerpack\" settings in the Customizer on the left hand side of your screen."
+msgstr "이 텍스트는 화면 왼쪽에 있는 사용자 정의 프로그램에서 \"Powerpack” 설정을 통해 \"Parallax Hero” 섹션을 편집하여 변경할 수 있습니다."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "This is your homepage which is what most visitors will see when they first visit your shop."
+msgstr "이것은 대부분의 방문자가 회원님의 상점을 처음 방문했을 때 보게 되는 홈페이지입니다."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:96
+msgid "Welcome"
+msgstr "환영합니다."
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
+msgid "Add New"
+msgstr "새로 추가"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
+msgid "Store"
+msgstr "스토어"
+
+#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
+msgid "Stats"
+msgstr "통계"
+
+#: includes/class-wc-calypso-bridge-addons.php:88
+msgid "WooCommerce extensions"
+msgstr "우커머스 확장기능"
+
+#. translators: %s: extensions count
+#: includes/class-wc-calypso-bridge-addons.php:87
+msgid "Extensions %s"
+msgstr "확장 기능 %s"
+
+#. translators: %1$s is replaced with a link to WooCommerce.com
+#: includes/class-wc-calypso-bridge-footer-credits.php:66
+msgid "Powered by %1$s"
+msgstr "%1$s 제공"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
+msgid "Built with Storefront &amp; WordPress.com"
+msgstr "Storefront 및 워드프레스닷컴에서 빌드됨"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
+msgid "WordPress.com - The Best eCommerce Platform for WordPress"
+msgstr "워드프레스닷컴 - 최고의 워드프레스용 전자상거래 플랫폼"
