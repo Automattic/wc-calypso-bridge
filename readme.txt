@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.9.2 =
+* Silence WooPayments Action incentive and NOX main providers suggestions for PTO partners #1551
+
 = 2.9.1 =
 * Replace the Payment task in Launchpad for partners for all plans based on the woocommerce_onboarding_profile option #1549
 
