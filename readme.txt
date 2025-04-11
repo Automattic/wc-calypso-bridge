@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.10.0 =
+* Removed the admin menu customizations that were applied on eCommerce plans
+
 = 2.9.2 =
 * Silence WooPayments Action incentive and NOX main providers suggestions for PTO partners #1551
 

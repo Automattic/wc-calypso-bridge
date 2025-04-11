@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-26T12:07:48+00:00\n"
+"POT-Creation-Date: 2025-04-11T10:08:15+00:00\n"
 "PO-Revision-Date: 2025-03-19 13:54:03+0000\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -169,7 +169,7 @@ msgstr "Kies je thema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:8418
+#: build/index.js:11
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -245,10 +245,7 @@ msgstr "Personaliseer je winkel met WooCommerce-extensies zodat die perfect werk
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:66
-#: build/plugins.js:71
-#: build/plugins.js:77
-#: build/plugins.js:89
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Til je winkel naar een hoger niveau met extensies"
 
@@ -263,8 +260,7 @@ msgstr "Tijd voor een feestje! Klaar om je winkel te lanceren?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:6171
-#: build/index.js:9162
+#: build/index.js:1
 msgid "Launch your store"
 msgstr "Lanceer je winkel"
 
@@ -277,7 +273,7 @@ msgstr "Je hebt je winkel al gelanceerd"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:10769
+#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 minuten"
 
@@ -291,9 +287,8 @@ msgstr "Domein"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:9267
-#: build/index.js:10376
-#: build/index.js:10380
+#: build/index.js:1
+#: build/index.js:3
 msgid "Add a domain"
 msgstr "Een domein toevoegen"
 
@@ -313,12 +308,10 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:6167
-#: build/index.js:8634
-#: build/index.js:10120
-#: build/marketing.js:1156
-#: build/plugins.js:51
-#: build/plugins.js:53
+#: build/index.js:1
+#: build/index.js:11
+#: build/marketing.js:1
+#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Upgrade nu"
 
@@ -390,8 +383,7 @@ msgid "Discover"
 msgstr "Ontdek"
 
 #: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:91
-#: build/payment-gateway-suggestions.js:76
+#: build/payment-gateway-suggestions.js:1
 msgid "Manage"
 msgstr "Beheren"
 
