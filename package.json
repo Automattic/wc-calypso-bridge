@@ -20,7 +20,7 @@
 		"start": "wp-scripts start",
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js",
-		"prepare-release": "node ./scripts/prep-release.js",
+		"prepare-release": "npm run build && node ./scripts/prep-release.js",
 		"create-release": "node ./scripts/release.js",
 		"prepare": "husky install"
 	},
