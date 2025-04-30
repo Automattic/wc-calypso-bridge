@@ -77,6 +77,11 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 	public function remove_marketplace_menu() {
 		$plugins_slug = 'https://wordpress.com/plugins/' . WC_Calypso_Bridge_Instance()->get_site_slug();
 		remove_menu_page( $plugins_slug );
+
+		/**
+		 * Remove the Marketplace submenu when the site is using the classic interface.
+		 */
+		remove_menu_page( 'plugins.php' );
 	}
 }
 
