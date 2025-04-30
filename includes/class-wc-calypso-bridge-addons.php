@@ -58,7 +58,7 @@ class WC_Calypso_Bridge_Addons {
 		// Hide the default marketplace.
 		add_filter( 'woocommerce_show_addons_page', '__return_false' );
 		// Handle the addons legacy page.
-		add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
+		add_action( 'admin_menu', array( $this, 'addons_menu' ), PHP_INT_MAX );
 
 		// Add admin body class for the free trial landing page.
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
@@ -85,7 +85,24 @@ class WC_Calypso_Bridge_Addons {
 		$count_html = WC_Helper_Updater::get_updates_count_html();
 		/* translators: %s: extensions count */
 		$menu_title = sprintf( __( 'Extensions %s', 'wc-calypso-bridge' ), $count_html );
-		add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'wc-calypso-bridge' ), $menu_title, 'manage_woocommerce', 'wc-addons', array( $this, 'addons_page' ) );
+
+		// Check if we already have a non legacy extensions submenu added.
+		global $submenu;
+		foreach ( $submenu['woocommerce'] ?? [] as $submenu_item ) {
+			if ( 'wc-admin' === $submenu_item[2] ?? '' ) {
+				// Submenu already added, exit early
+				return;
+			}
+		}
+
+		add_submenu_page(
+			'woocommerce',
+			__( 'WooCommerce extensions', 'wc-calypso-bridge' ),
+			$menu_title,
+			'manage_woocommerce',
+			'wc-addons',
+			array( $this, 'addons_page' )
+		);
 	}
 
 	/**
