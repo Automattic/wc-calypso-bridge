@@ -46,7 +46,8 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 	 * Initialize hooks.
 	 */
 	protected function init() {
-		add_action( 'admin_menu', array($this, 'add_menu_page'));
+		add_action( 'admin_menu', array( $this, 'add_menu_page' ) );
+		add_action( 'admin_menu', array( $this, 'remove_marketplace_menu' ), 100000 );
 	}
 
 	/**
@@ -66,6 +67,16 @@ class WC_Calypso_Bridge_Free_Trial_Plugins_Screen {
 				'capability' => 'manage_options',
 			)
 		);
+	}
+
+	/**
+	 * Remove the default Marketplace admin menu. Ecommerce trials have their own landing page for it.
+	 *
+	 * @return void
+	 */
+	public function remove_marketplace_menu() {
+		$plugins_slug = 'https://wordpress.com/plugins/' . WC_Calypso_Bridge_Instance()->get_site_slug();
+		remove_menu_page( $plugins_slug );
 	}
 }
 
