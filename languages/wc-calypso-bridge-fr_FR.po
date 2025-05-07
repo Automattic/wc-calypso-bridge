@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-11T10:08:07+00:00\n"
+"POT-Creation-Date: 2025-05-07T13:33:57+00:00\n"
 "PO-Revision-Date: 2025-03-19 09:54:03+0000\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
@@ -43,10 +43,6 @@ msgstr "Recevoir des paiements avec PayPal"
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
 msgstr "Votre essai gratuit du plan %s vient de débuter"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
-msgid "Hosting"
-msgstr "Hébergement"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
@@ -88,10 +84,6 @@ msgstr "Choisissez un domaine pour votre nouvelle boutique"
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "Impossible de désactiver WooCommerce dans ce plan."
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New Order"
-msgstr "Ajouter une nouvelle commande"
 
 #: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
@@ -169,7 +161,6 @@ msgstr "Choisir votre thème"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr "Extensions"
 
@@ -245,7 +236,6 @@ msgstr "Personnalisez votre boutique pour qu’elle fonctionne parfaitement pour
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Passer votre boutique au niveau supérieur, avec des extensions"
 
@@ -260,7 +250,6 @@ msgstr "L’heure de la fête est venue ! Prêt à lancer votre boutique ?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "Lancez votre boutique"
 
@@ -273,7 +262,6 @@ msgstr "Vous avez déjà lancé votre boutique"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 minutes"
 
@@ -287,8 +275,6 @@ msgstr "Domaine"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "Ajouter un domaine"
 
@@ -308,10 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Mettre à niveau maintenant"
 
@@ -366,65 +348,6 @@ msgstr "Votre commande n’a pas pu être passée. Actuellement, la fonctionnali
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Cette boutique n’est pas prête à accepter des commandes. Actuellement, la fonctionnalité de validation de commande est activée à des fins d’aperçu uniquement."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Jetpack Stats"
-msgstr "Statistiques Jetpack"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
-msgid "Jetpack Status"
-msgstr "État de Jetpack"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
-msgid "Anti-Spam"
-msgstr "Anti-spam"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
-msgid "Discover"
-msgstr "Découvrir"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
-msgid "Manage"
-msgstr "Gérer"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-msgid "WooCommerce Subscriptions"
-msgstr "WooCommerce Subscriptions"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
-msgid "Extensions"
-msgstr "Extensions"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
-msgid "Customers"
-msgstr "Clients"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
-msgid "Legacy Reports"
-msgstr "Anciens rapports"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
-msgid "WooCommerce Status"
-msgstr "État de WooCommerce"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
-msgid "WooCommerce Settings"
-msgstr "Réglages WooCommerce"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
-msgid "Orders"
-msgstr "Commandes"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
-msgid "My Home"
-msgstr "Mon accueil"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
-msgid "Feedback"
-msgstr "Remarque"
-
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "Navigation"
@@ -474,7 +397,6 @@ msgstr "Détails de la commande envoyés manuellement au client."
 msgid "Invalid order ID."
 msgstr "ID de commande non valide."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "Woocommerce"
@@ -597,18 +519,9 @@ msgstr "Il s’agit de votre page d’accueil et de la page que la plupart des v
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New"
-msgstr "Ajouter"
-
 #: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
 msgid "Store"
 msgstr "Boutique"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Stats"
-msgstr "Statistiques"
 
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "WooCommerce extensions"

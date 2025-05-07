@@ -59,6 +59,7 @@
 		"classnames": "^2.3.2",
 		"dompurify": "^2.4.5",
 		"gridicons": "^3.4.2",
-		"react-transition-group": "^4.4.5"
+		"react-transition-group": "^4.4.5",
+		"which": "^5.0.0"
 	}
 }
