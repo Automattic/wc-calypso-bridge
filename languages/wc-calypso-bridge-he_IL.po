@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-11T10:08:08+00:00\n"
+"POT-Creation-Date: 2025-05-07T13:33:58+00:00\n"
 "PO-Revision-Date: 2025-03-19 15:54:02+0000\n"
 "Language: he_IL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -43,10 +43,6 @@ msgstr "לקבל תשלום באמצעות PayPal"
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
 msgstr "תקופת הניסיון שלך ב-%s החלה עכשיו"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
-msgid "Hosting"
-msgstr "שירותי אחסון"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
@@ -88,10 +84,6 @@ msgstr "בחירת דומיין עבור החנות שלך"
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "לא ניתן להשבית את WooCommerce במסגרת תוכנית זו."
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New Order"
-msgstr "להוסיף הזמנה חדשה"
 
 #: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
@@ -169,7 +161,6 @@ msgstr "לבחור את ערכת העיצוב שלך"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr "תוספים"
 
@@ -245,7 +236,6 @@ msgstr "כדאי להתאים אישית את החנות לעבודה מושלמ
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "לשדרג את החנות שלך לרמה הבאה באמצעות הרחבות"
 
@@ -260,7 +250,6 @@ msgstr "הגיע הזמן לחגוג! רוצה להשיק חנות משלך?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "להשיק את החנות שלך"
 
@@ -273,7 +262,6 @@ msgstr "כבר השקת את החנות שלך"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
 msgid "2 minutes"
 msgstr "שתי דקות"
 
@@ -287,8 +275,6 @@ msgstr "דומיין"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "הוספת דומיין"
 
@@ -308,10 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "זה הזמן לשדרג"
 
@@ -366,65 +348,6 @@ msgstr "לא ניתן היה לבצע את ההזמנה שלך. נכון לעכ�
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "החנות הזו לא מוכנה לקבלת הזמנות. נכון לעכשיו, פונקציונליות התשלום בקופה מופעלת לצורכי תצוגה מקדימה בלבד."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Jetpack Stats"
-msgstr "נתונים סטטיסטיים של Jetpack"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
-msgid "Jetpack Status"
-msgstr "סטטוס Jetpack"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
-msgid "Anti-Spam"
-msgstr "מניעת תגובות זבל"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
-msgid "Discover"
-msgstr "היכרות"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
-msgid "Manage"
-msgstr "לנהל"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-msgid "WooCommerce Subscriptions"
-msgstr "WooCommerce Subscriptions"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
-msgid "Extensions"
-msgstr "הרחבות"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
-msgid "Customers"
-msgstr "לקוחות"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
-msgid "Legacy Reports"
-msgstr "דוחות מדור קודם"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
-msgid "WooCommerce Status"
-msgstr "מצב WooCommerce"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
-msgid "WooCommerce Settings"
-msgstr "הגדרות WooCommerce"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
-msgid "Orders"
-msgstr "הזמנות"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
-msgid "My Home"
-msgstr "הבית שלי"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
-msgid "Feedback"
-msgstr "משוב"
-
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "ניווט"
@@ -474,7 +397,6 @@ msgstr "פרטי ההזמנה נשלחו ידנית ללקוח."
 msgid "Invalid order ID."
 msgstr "המזהה של ההזמנה לא חוקי."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -597,18 +519,9 @@ msgstr "זהו עמוד הבית שלך והוא העמוד שיוצג לרוב 
 msgid "Welcome"
 msgstr "ברוכים הבאים"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New"
-msgstr "הוסף חדש"
-
 #: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
 msgid "Store"
 msgstr "חנות"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Stats"
-msgstr "נתונים סטטיסטיים"
 
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "WooCommerce extensions"

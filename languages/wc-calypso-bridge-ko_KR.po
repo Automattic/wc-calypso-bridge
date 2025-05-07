@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-11T10:08:11+00:00\n"
+"POT-Creation-Date: 2025-05-07T13:34:00+00:00\n"
 "PO-Revision-Date: 2025-03-19 09:54:03+0000\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -43,10 +43,6 @@ msgstr "PayPal로 결제받기"
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
 msgstr "%s 무료 평가판이 이제 막 시작되었습니다."
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
-msgid "Hosting"
-msgstr "호스팅"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
@@ -88,10 +84,6 @@ msgstr "새 스토어의 도메인 선택"
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "이 요금제에서는 WooCommerce를 비활성화할 수 없습니다."
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New Order"
-msgstr "새 주문 추가"
 
 #: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
@@ -169,7 +161,6 @@ msgstr "테마 선택"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr "플러그인"
 
@@ -245,7 +236,6 @@ msgstr "우커머스 확장 기능으로 스토어를 비즈니스에 맞춰 사
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "확장 기능으로 스토어의 수준 높이기"
 
@@ -260,7 +250,6 @@ msgstr "축하할 시간입니다! 스토어를 시작할 준비가 되셨나요
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "스토어 시작"
 
@@ -273,7 +262,6 @@ msgstr "이미 스토어를 시작하셨습니다."
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
 msgid "2 minutes"
 msgstr "2분"
 
@@ -287,8 +275,6 @@ msgstr "도메인"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "도메인 추가"
 
@@ -308,10 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "지금 업그레이드"
 
@@ -366,65 +348,6 @@ msgstr "주문할 수 없습니다. 계산 기능이 현재 미리보기 용도�
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "이 스토어는 주문을 수락할 준비가 되지 않았습니다. 계산 기능이 현재 미리보기 용도로만 활성화되어 있습니다."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Jetpack Stats"
-msgstr "Jetpack 통계"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
-msgid "Jetpack Status"
-msgstr "젯팩 상태"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
-msgid "Anti-Spam"
-msgstr "스팸 방지"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
-msgid "Discover"
-msgstr "둘러보기"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
-msgid "Manage"
-msgstr "관리"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-msgid "WooCommerce Subscriptions"
-msgstr "WooCommerce 구독"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
-msgid "Extensions"
-msgstr "확장"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
-msgid "Customers"
-msgstr "고객"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
-msgid "Legacy Reports"
-msgstr "레거시 보고서"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
-msgid "WooCommerce Status"
-msgstr "WooCommerce 상태"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
-msgid "WooCommerce Settings"
-msgstr "우커머스 설정"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
-msgid "Orders"
-msgstr "주문"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
-msgid "My Home"
-msgstr "내 홈"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
-msgid "Feedback"
-msgstr "피드백"
-
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "내비게이션"
@@ -474,7 +397,6 @@ msgstr "주문 정보가 수동으로 고객에게 전송되었습니다."
 msgid "Invalid order ID."
 msgstr "잘못된 주문 ID."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "우커머스"
@@ -597,18 +519,9 @@ msgstr "이것은 대부분의 방문자가 회원님의 상점을 처음 방문
 msgid "Welcome"
 msgstr "환영합니다."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New"
-msgstr "새로 추가"
-
 #: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
 msgid "Store"
 msgstr "스토어"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Stats"
-msgstr "통계"
 
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "WooCommerce extensions"

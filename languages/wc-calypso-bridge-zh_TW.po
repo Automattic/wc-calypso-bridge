@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-04-11T10:08:07+00:00\n"
+"POT-Creation-Date: 2025-05-07T13:33:56+00:00\n"
 "PO-Revision-Date: 2025-03-26 09:54:03+0000\n"
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -43,10 +43,6 @@ msgstr "用 PayPal 收款"
 #: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
 msgstr "你剛開始免費試用 %s"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
-msgid "Hosting"
-msgstr "主機服務"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
@@ -88,10 +84,6 @@ msgstr "為新商店挑選網域。"
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "此方案無法停用 WooCommerce。"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New Order"
-msgstr "新增訂單"
 
 #: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
@@ -169,7 +161,6 @@ msgstr "選擇佈景主題"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: build/index.js:11
 msgid "Plugins"
 msgstr "外掛程式"
 
@@ -245,7 +236,6 @@ msgstr "使用 WooCommerce 擴充功能自訂商店，以完美滿足你的業�
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "透過擴充功能讓你的商店更上一層樓"
 
@@ -260,7 +250,6 @@ msgstr "是時候慶祝一下了！ 準備好推出你的商店了嗎？"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "推出你的商店"
 
@@ -273,7 +262,6 @@ msgstr "你已經推出商店了"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 分鐘"
 
@@ -287,8 +275,6 @@ msgstr "網域"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "新增網域"
 
@@ -308,10 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "立即升級"
 
@@ -366,65 +348,6 @@ msgstr "無法送出你的訂單。 結帳功能目前僅供預覽。"
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "這家商店還沒有準備好接受訂單。 結帳功能目前僅供預覽。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Jetpack Stats"
-msgstr "Jetpack Stats"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:611
-msgid "Jetpack Status"
-msgstr "Jetpack 狀態"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:591
-msgid "Anti-Spam"
-msgstr "反垃圾內容"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:398
-msgid "Discover"
-msgstr "探索"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-#: build/payment-gateway-suggestions.js:1
-msgid "Manage"
-msgstr "管理"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:390
-msgid "WooCommerce Subscriptions"
-msgstr "WooCommerce Subscriptions"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:387
-msgid "Extensions"
-msgstr "擴充功能"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:383
-msgid "Customers"
-msgstr "顧客"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:373
-msgid "Legacy Reports"
-msgstr "舊版報告"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:366
-msgid "WooCommerce Status"
-msgstr "WooCommerce 狀態"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
-msgid "WooCommerce Settings"
-msgstr "WooCommerce 設定"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
-msgid "Orders"
-msgstr "訂單"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
-msgid "My Home"
-msgstr "我的首頁"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
-msgid "Feedback"
-msgstr "意見反應"
-
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "導覽"
@@ -474,7 +397,6 @@ msgstr "訂單詳細資料已手動傳送給客戶。"
 msgid "Invalid order ID."
 msgstr "無效的訂單編號。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:362
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -597,18 +519,9 @@ msgstr "這是你的首頁，也是大部分訪客第一次造訪商店時所看
 msgid "Welcome"
 msgstr "歡迎"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New"
-msgstr "新增鏈結"
-
 #: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
 msgid "Store"
 msgstr "商店"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:615
-msgid "Stats"
-msgstr "統計資料"
 
 #: includes/class-wc-calypso-bridge-addons.php:88
 msgid "WooCommerce extensions"
