@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.10.3 =
+* Remove duplicate Plugins admin menu for eCommerce Trials
+
 = 2.10.2 =
 Fixed an error that caused the extensions menu to be shown twice.
 
