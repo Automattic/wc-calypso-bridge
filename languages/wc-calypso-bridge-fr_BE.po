@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-07T13:34:03+00:00\n"
+"POT-Creation-Date: 2025-05-13T14:12:43+00:00\n"
 "PO-Revision-Date: 2024-02-05 11:59:40+0000\n"
 "Language: fr_BE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -295,7 +295,7 @@ msgstr ""
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
 msgid "Upgrade now"
-msgstr "Mettre à niveau maintenant"
+msgstr "Mettre à niveau"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:45
 msgid "During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling."
@@ -523,12 +523,12 @@ msgstr "Bienvenue"
 msgid "Store"
 msgstr "Boutique"
 
-#: includes/class-wc-calypso-bridge-addons.php:88
+#: includes/class-wc-calypso-bridge-addons.php:99
 msgid "WooCommerce extensions"
 msgstr "Extensions de WooCommerce"
 
 #. translators: %s: extensions count
-#: includes/class-wc-calypso-bridge-addons.php:87
+#: includes/class-wc-calypso-bridge-addons.php:91
 msgid "Extensions %s"
 msgstr "Extensions %s"
 
