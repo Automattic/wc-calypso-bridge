@@ -541,6 +541,9 @@ class WC_Calypso_Bridge_Setup {
 				'publicize',
 				'verification-tools',
 				'sitemaps',
+				'blocks',
+				'blaze',
+				'account-protection',
 			);
 
 			$sharing_options = array(
