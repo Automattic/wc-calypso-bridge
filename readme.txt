@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.10.4 =
+Updated the default WooCommerce jetpack active module list
+
 = 2.10.3 =
 * Remove duplicate Plugins admin menu for eCommerce Trials
 
