@@ -29,10 +29,13 @@ We now have a series of scripts that will help with automating the release proce
 
 1. Make sure you're running NodeJS v16. If you use [nvm](https://github.com/nvm-sh/nvm), you can simply type `nvm use`. If you prefer [fnm](https://github.com/Schniz/fnm), you can run `fnm use` instead.
 2. Run `npm install` in the project root to make sure all dependencies are installed at the project level and in the `./scripts` folder.
-3. Run `npm run prepare-release` in the project root. This will guide you through incrementing the version, updating the changelog, and creating a PR.
-4. Once that PR is approved and merged, run `npm run create-release`. Follow the prompts to do a build, create a new release tag, and deploy the release tag.
+3. Run `composer install` in the project root to make sure you have the binaries for prepare the release and prevent errors like `vendor/bin/phpcs-changed: No such file or directory`.
+4. Run `npm run prepare-release` in the project root. This will guide you through incrementing the version, updating the changelog, and creating a PR.
+5. Once that PR is approved and merged, run `npm run create-release`. Follow the prompts to do a build, create a new release tag, and deploy the release tag.
 
 _NOTE: Creating a new release doesn't automatically deploy the new version. A corresponding update PR will need to be opened to update the wc-calypso-bridge dependency in wpcomsh._
+
+[Here's an example](https://github.com/Automattic/jetpack/pull/43575) of wpcomsh PR to create after finishing the release. Tip: once you're inside the [wpcomsh folder](https://github.com/Automattic/jetpack/tree/trunk/projects/plugins/wpcomsh), use `composer require automattic/wc-calypso-bridge:x.yy.z` to update both `composer.json` and `composer.lock` files to the new version.
 
 ### Manual Deployment
 
