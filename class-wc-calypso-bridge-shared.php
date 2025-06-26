@@ -154,9 +154,7 @@ class WC_Calypso_Bridge_Shared {
 		$params = apply_filters( 'wc_calypso_bridge_shared_params', $params );
 
 		if ( $is_ecom_trial ) {
-			$woo_express_introductory_offers = WC_Calypso_Bridge_Woo_Express_Introductory_offers::get_offers_for_current_blog( function( $offer ) {
-				return in_array( $offer['product_slug'], WC_Calypso_Bridge_Woo_Express_Introductory_offers::WOO_EXPRESS_PRODUCT_SLUGS );
-			} );
+			$woo_express_introductory_offers = WC_Calypso_Bridge_Woo_Express_Introductory_offers::get_offers_for_current_blog();
 			if ( count( $woo_express_introductory_offers ) ) {
 				$params['wooExpressIntroductoryOffer'] = WC_Calypso_Bridge_Woo_Express_Introductory_offers::extract_offer_data_for_js( current( $woo_express_introductory_offers ) );
 			}
