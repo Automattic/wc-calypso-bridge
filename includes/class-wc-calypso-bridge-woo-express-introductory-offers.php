@@ -25,16 +25,14 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 	CONST TRANSIENT_PREFIX = 'wc-calypso-bridge-introductory-plans-';
 
 	/**
-	 * Return introductory offers for the current blog.
+	 * Return introductory offers for the current blog - for WOO_EXPRESS_PRODUCT_SLUGS only.
 	 *
 	 * @return array|mixed
 	 */
-	public static function get_offers_for_current_blog(callable $filter = null) {
-		$offers = static::get_offers_by_blog_id( Jetpack_Options::get_option( 'id' ) );
-		if ( $filter ) {
-			return array_filter( $offers, $filter );
-		}
-
+	public static function get_offers_for_current_blog() {
+		$slugs   = static::WOO_EXPRESS_PRODUCT_SLUGS;
+		$blog_id = Jetpack_Options::get_option( 'id' );
+		$offers  = static::get_offers_by_blog_id( $blog_id, $slugs );
 		return $offers;
 	}
 
@@ -55,13 +53,14 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 	}
 
 	/**
-	 * Return introductory offers by blog I.D
+	 * Return introductory offers by blog I.D, optionally limited to the given product slugs.
 	 *
 	 * @param $blog_id
+	 * @param array<string> $product_slugs
 	 *
 	 * @return array|mixed
 	 */
-	public static function get_offers_by_blog_id( $blog_id ) {
+	public static function get_offers_by_blog_id( $blog_id, array $product_slugs = [] ) {
 		$manager = new Manager();
 		$current_user_is_connection_owner = $manager->get_connection_owner_id() === get_current_user_id();
 
@@ -69,10 +68,19 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 			return [];
 		}
 
-		$cached_offers = get_transient( static::TRANSIENT_PREFIX . $blog_id );
+		// Build a cache key for this specific set of slugs.
+		$slug_segment   = $product_slugs ? ':' . md5( implode( ',', $product_slugs ) ) : '';
+		$cache_key      = static::TRANSIENT_PREFIX . $blog_id . $slug_segment;
+		$cached_offers  = get_transient( $cache_key );
+
 		if ( $cached_offers ) {
 			return $cached_offers;
 		}
+
+		// Build query string: site=123&product_slugs=foo,bar
+		$slug_query = ! empty( $product_slugs )
+		   ? '&product_slugs=' . rawurlencode( implode( ',', $product_slugs ) )
+		   : '';
 
 		$headers = array();
 		if ( class_exists( '\Automattic\Jetpack\Status\Visitor' ) ) {
@@ -80,7 +88,7 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 		}
 
 		$response = Client::wpcom_json_api_request_as_user(
-			'/introductory-offers?site=' . $blog_id,
+			'/introductory-offers?site=' . $blog_id . $slug_query,
 			'2',
 			array(
 				'method'  => 'GET',
@@ -97,7 +105,7 @@ class WC_Calypso_Bridge_Woo_Express_Introductory_offers {
 			}
 		}
 
-		set_transient( static::TRANSIENT_PREFIX . $blog_id, $offers, 120 );
+		set_transient( $cache_key, $offers, 60 * 60 * 3 ); // 3 Hours
 
 		return $offers;
 	}
