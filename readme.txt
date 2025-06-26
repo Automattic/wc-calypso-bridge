@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.0 =
+* Introductory offers API calls: Optimize by filtering at endpoint level #1562
+
 = 2.10.4 =
 Updated the default WooCommerce jetpack active module list
 
