@@ -3,7 +3,7 @@ Contributors: automattic, woothemes
 Tags: woocommerce
 Requires at least: 4.6
 Tested up to: 4.9
-Stable tag: 2.1.4
+Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,96 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.1 =
+Allow WooCommerce settings to fix issue with guided setup being broken.
+
+= 2.11.0 =
+* Introductory offers API calls: Optimize by filtering at endpoint level #1562
+
+= 2.10.4 =
+Updated the default WooCommerce jetpack active module list
+
+= 2.10.3 =
+* Remove duplicate Plugins admin menu for eCommerce Trials
+
+= 2.10.2 =
+Fixed an error that caused the extensions menu to be shown twice.
+
+= 2.10.0 =
+* Removed the admin menu customizations that were applied on eCommerce plans
+
+= 2.9.2 =
+* Silence WooPayments Action incentive and NOX main providers suggestions for PTO partners #1551
+
+= 2.9.1 =
+* Replace the Payment task in Launchpad for partners for all plans based on the woocommerce_onboarding_profile option #1549
+
+= 2.9.0 =
+* Remove trial condition for Square so it only depends on the specific option value #1544
+
+= Unreleased =
+
+= 2.8.4 =
+* Add siteIsAtomic property to remote logging error data #1538
+* Update ESLint, TypeScript configuration and add missing dependencies #1540
+* Hide WPCOM UI elements on LYS launch task preview #1539
+
+= 2.8.3 =
+* Fix specific width to apply only on folded navigation bar #1535
+
+= 2.8.2 =
+* Fix header width bug with RTL languages #1533
+
+= 2.8.1 =
+* Add optional check and fix button deprecated parameters #1527
+* Allow WooCommerce Services to co-exist with WooCommerce Shipping to provide tax functionality only
+* Fix coming soon unintentionally expose the rest of the site #1529
+
+= 2.8.0 =
+* Move "composer/installers" package to require-dev. #1513
+
+= 2.7.1 =
+* Remove LYS badge even when feature flag is disabled #1523
+
+= 2.7.0 =
+* Re-enable Site visibility settings tab for free trial plans #1512
+* Remove launch-your-store feature flag override #1521
+* Remove LYS badge from WPCOM sites #1519
+* Remove setting demo store option on ecommerce sites by default #1518
+
+= 2.6.0 =
+* Hide WPCOM's coming soon page when the launch-your-store feature flag is enabled #1500
+* Exclude LYS coming soon page for WPCOM share link #1501
+* Sync WPCOM coming soon status to LYS #1502
+* Add sync coming soon status from LYS to WPCOM #1503
+* Refactor LYS to use unidirectional data flow #1506
+* Disable launch your store on trial sites #1507
+* Add conditional check to replace launch-site task with LYS task #1509
+* Fix logic for disabling lys task on trial sites #1511
+
+= 2.5.5 =
+* Add a new class to customize for Stripe from Partner Aware Onboarding #1492
+
+= 2.5.4 =
+Add a new class to customize for PayPal from Partner Aware Onboarding #1491
+
+= 2.5.3 =
+* Entrepreneur Trial: Fix Entrepreneur trial plan Welcome note
+
+= 2.5.2 =
+* eCommerce Signup Flow: Add the "Welcome" note back #1484
+* Fix homepage crashing with WooCommerce 9.0.0 #1483
+* Moved logic to ensure launch-your-store feature is disabled in all plans #1485
+* Implement is_complete for the square task #1486
+
+= 2.5.1 =
+* Fix broken image on Woo launchpad header #1481
+* Ensure i18n loader is preserved in the production build #1480
+
+= 2.5.0 =
+* i18n: Load script translations
+* Admin Menu: Fix order of Jetpack submenu pages
+
 = 2.4.2 =
 * Redirect to Woo My Home for Enterpreneur sites.
 
@@ -34,8 +124,6 @@ This section describes how to install the plugin and get it working.
 = 2.3.15 =
 * Open AI Woo store builder to all sites on WPCOM Entrepreneur plan
 
-= Unreleased =
-
 = 2.3.14 =
 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan (on WPCOM and Woo Express, including trial plans) #1458
 
@@ -47,10 +135,10 @@ This section describes how to install the plugin and get it working.
 * Force launch-your-store feature flag to false #1450
 
 = 2.3.11 =
-* Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #xxx
+* Fix the Woo Express navigation is missing when the wpcom_is_nav_redesign_enabled is enabled #1449
 
 = 2.3.10 =
-* Force square_cash_app_pay and square_credit_card order on the payment settings page -- follow up issue #1447 
+* Force square_cash_app_pay and square_credit_card order on the payment settings page -- follow up issue #1447
 
 = 2.3.9 =
 * Force square_cash_app_pay and square_credit_card order on the payment settings page #1445

@@ -33,17 +33,15 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 	 * @return void|Note
 	 */
 	public static function get_note() {
-
-		$current_plan       = get_option( 'jetpack_active_plan',  array() );
-		$product_name_short = $current_plan[ 'product_name_short' ];
+		$plan_name = 'Entrepreneur';
 
 		/* translators: %s: trial plan name, e.g. Entrepreneur */
-		$note_title = sprintf( __( 'Your %s free trial has just started', 'wc-calypso-bridge' ), $product_name_short );
+		$note_title = sprintf( __( 'Your %s free trial has just started', 'wc-calypso-bridge' ), $plan_name );
 
 		/* translators: %s: trial plan name, e.g. Entrepreneur */
 		$note_content = sprintf(
 			__( 'Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?', 'wc-calypso-bridge' ),
-			$product_name_short
+			$plan_name
 		);
 
 		$note = new Note();
@@ -69,9 +67,6 @@ class WC_Calypso_Bridge_Free_Trial_Welcome_Note {
 	 * @return bool
 	 */
 	public static function can_be_added() {
-		// Temporarily disable Welcome note; context: p1715940056147799/1715859215.173039-slack-C06RQ4EQ7V2.
-		return false;
-
 		$note = self::get_note();
 
 		if ( ! $note instanceof Note && ! $note instanceof WC_Admin_Note ) {

@@ -15,7 +15,7 @@ import { WC_ASSET_URL } from '../utils/admin-settings';
 const GetPaidWithSquareHeader = () => {
 	return (
 		<WooOnboardingTaskListHeader id="get-paid-with-square">
-			{ ( { task, goToTask } ) => {
+			{ ( { task } ) => {
 				return (
 					<div className="woocommerce-task-header__contents-container">
 						<img
@@ -25,7 +25,7 @@ const GetPaidWithSquareHeader = () => {
 							) }
 							src={
 								WC_ASSET_URL +
-								'images/task_list/payment-illustration.png'
+								'images/task_list/payment-illustration.svg'
 							}
 							className="svg-background"
 						/>

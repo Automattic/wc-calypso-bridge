@@ -51,28 +51,6 @@ class WC_Calypso_Bridge_Jetpack {
 	 */
 	public function init() {
 		/**
-		 * `ecommerce_new_woo_atomic_navigation_enabled` filter.
-		 *
-		 * This filter is used to revert the ecommerce menu back to the atomic one. It's also useful for debugging purposes.
-		 *
-		 * @since 1.9.12
-		 *
-		 * @param  bool $enabled
-		 * @return bool
-		 */
-		$is_wooexpress_navigation_enabled = (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', 'yes' === get_option( 'wooexpress_navigation_enabled', 'yes' ) );
-		if ( $is_wooexpress_navigation_enabled && class_exists( '\Jetpack' ) && \Jetpack::is_module_active( 'sso' ) ) {
-			require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-ecommerce-admin-menu.php';
-
-			/**
-			 * Apply the Ecommerce admin menu.
-			 *
-			 * @since 1.9.8
-			 */
-			WC_Calypso_Bridge_Ecommerce_Admin_Menu::get_instance();
-		}
-
-		/**
 		 * Limits Jetpack Modules to those relevant to Ecommerce Plan users.
 		 *
 		 * @since 1.9.8

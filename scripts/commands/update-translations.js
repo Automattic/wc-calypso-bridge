@@ -56,7 +56,7 @@ export default async function updateTranslations() {
 
 		// If the `wp i18n make-pot` command generates an error, an exception is thrown
 		await execPromise(
-			`${ wpPath } i18n make-pot . ${ POT_FILE_PATH } --ignore-domain`
+			`${ wpPath } i18n make-pot . ${ POT_FILE_PATH } --ignore-domain --exclude=src`
 		);
 		success( 'wp i18n make-pot command executed successfully.' );
 
@@ -145,6 +145,11 @@ export default async function updateTranslations() {
 						'.mo'
 					) }`
 				);
+
+				await execPromise(
+					`${ wpPath } i18n make-json ${ LANG_FILENAME }`
+				);
+
 				success( `${ LANG_FILENAME } compiled successfully.` );
 			} catch ( err ) {
 				error(

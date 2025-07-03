@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.3.4
+ * @version 2.8.4
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -75,9 +75,12 @@ class WC_Calypso_Bridge {
 	 */
 	public function __construct() {
 		add_action( 'muplugins_loaded', array( $this, 'deactivate_duplicate_tiktok' ), PHP_INT_MAX );
-		add_action( 'muplugins_loaded', array( $this, 'deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active_on_ecomm_plans'), PHP_INT_MAX );
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 0 );
 		add_action( 'plugins_loaded', array( $this, 'load_translation' ) );
+
+		if ( defined( 'IS_ATOMIC' ) && IS_ATOMIC ) {
+			add_filter( 'woocommerce_remote_logger_formatted_log_data', array( $this, 'add_site_atomic_property_to_logs' ) );
+		}
 	}
 
 	/**
@@ -93,32 +96,6 @@ class WC_Calypso_Bridge {
 
 		if ( ! empty( $business_key ) && ! empty( $woocommerce_key ) ) {
 			unset( $active_plugins[ $woocommerce_key[0] ] );
-			update_option( 'active_plugins', $active_plugins );
-		}
-	}
-
-	/**
-	 * Deactivate WooCommerce Services if either Woo Shipping or Woo Tax is active on an ecommerce-related plan.
-	 *
-	 * This applies to WPCOM and Woo Express, including trial plans.
-	 *
-	 * @since 2.3.14
-	 * @link https://github.com/Automattic/wc-calypso-bridge/pull/1458
-	 *
-	 * @return void
-	 */
-	public function deactivate_wc_services_if_woo_shipping_or_woo_tax_is_active_on_ecomm_plans() {
-		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
-			return;
-		}
-
-		$active_plugins = (array) get_option( 'active_plugins', array() );
-		$shipping_key   = array_keys( $active_plugins, 'woocommerce-shipping/woocommerce-shipping.php' );
-		$tax_key        = array_keys( $active_plugins, 'woocommerce-tax/woocommerce-tax.php' );
-		$services_key   = array_keys( $active_plugins, 'woocommerce-services/woocommerce-services.php' );
-
-		if ( ( ! empty( $shipping_key ) || ! empty( $tax_key ) ) && ! empty( $services_key ) ) {
-			unset( $active_plugins[ $services_key[0] ] );
 			update_option( 'active_plugins', $active_plugins );
 		}
 	}
@@ -143,6 +120,8 @@ class WC_Calypso_Bridge {
 	 * Include files and controllers.
 	 */
 	public function includes() {
+		// Helpers.
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/atomic-api/class-wc-calypso-bridge-atomic-launch-api.php';
 
 		/**
 		 * Hint:
@@ -182,6 +161,9 @@ class WC_Calypso_Bridge {
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-smart-shipping.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-woo-express-introductory-offers.php';
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-square.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-stripe.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/free-trial/partners/class-wc-calypso-bridge-partner-paypal.php';
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/class-wc-calypso-bridge-coming-soon.php';
 
 		// Experiments.
 		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/experiments/class-wc-calypso-bridge-task-list-reminderbar-experiment.php';
@@ -339,6 +321,28 @@ class WC_Calypso_Bridge {
 
 		$logger = wc_get_logger();
 		$logger->log( $level, $message, array( 'source' => $context ) );
+	}
+
+	/**
+	 * Add siteIsAtomic property to remote logging data.
+	 *
+	 * @since 2.8.4
+	 *
+	 * @param array $log_data The log data being sent to the remote logging service.
+	 * @return array Modified log data with Atomic site information.
+	 */
+	public function add_site_atomic_property_to_logs( $log_data ) {
+		if ( ! is_array( $log_data ) ) {
+			$log_data = array();
+		}
+
+		if ( ! isset( $log_data['properties'] ) ) {
+			$log_data['properties'] = array();
+		}
+
+		$log_data['properties']['siteIsAtomic'] = true;
+
+		return $log_data;
 	}
 }
 

@@ -1,69 +1,69 @@
-# Translation of WooCommerce - Calypso Bridge in Chinese (Singapore)
-# This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-03-19 08:10:07+0000\n"
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-07-03T15:56:36+00:00\n"
+"PO-Revision-Date: 2025-03-25 09:54:03+0000\n"
+"Language: zh_SG\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: zh_SG\n"
-"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:183
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "希望发布您的站点？ 请访问<a href=\"%s\">此链接</a>以开始。"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:150
+msgid "There was a problem trying to update site visibility."
+msgstr "尝试更新站点可见性时遇到问题。"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "设置 Stripe 付款方式，在您的商店内接受信用卡付款。 您需要一个 Stripe 账户才能开始操作"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "通过 Stripe 收款"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr "设置 PayPal 付款方式，在您的商店内接受信用卡付款。 您需要一个 PayPal 账户才能开始操作"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr "通过 PayPal 收款"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
-msgstr ""
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
-msgid "Hosting"
-msgstr "主机"
-
-#: src/task-headers/get-paid-with-square.js:53
-msgid "Set up Square"
-msgstr "设置 Square"
-
-#: src/task-headers/get-paid-with-square.js:40
-msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
-msgstr "借助 Square 可轻松接受付款。 在线或现场销售，并同步所有付款、客户、商品和库存信息。"
-
-#: src/task-headers/get-paid-with-square.js:34
-msgid "It's time to get paid"
-msgstr "接下来是收款"
+msgstr "您的 %s 免费试用才刚刚开始"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
 msgstr "设置 Square 付款方式，在您的商店内接受信用卡付款。 您需要一个 Square 账户才能开始操作"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
 msgid "Get paid with Square"
 msgstr "使用 Square 收款"
-
-#: src/payment-gateway-suggestions/index.js:285
-msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
-msgstr "只有管理员和商店经理可以在免费试用版中下单。 {{link}}升级至付费套餐{{/link}}，以接收客户付款，并探索更多付款选项。"
 
 #: includes/class-wc-calypso-bridge-setup.php:424
 msgid "News"
 msgstr "新闻"
 
-#: src/introductory-offer-banner/index.js:91
-msgid "Dismiss this banner."
-msgstr "关闭此横幅。"
-
-#: src/introductory-offer-banner/index.js:69
-msgid "Start selling — for less!"
-msgstr "开始营业 — 以更低的成本！"
-
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
 msgid "Create your first product"
 msgstr "创建您的首件产品"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
 msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "欢迎体验 %s 套餐 14 天免费试用，获取一站式启动和扩大可盈利的在线业务所需的一切。 您的首次销售之旅才刚刚开启！ 准备好探索了吗？"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
@@ -84,10 +84,6 @@ msgstr "为您的新商店挑选一个域名"
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "无法在此套餐中停用 WooCommerce。"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New Order"
-msgstr "添加新订单"
 
 #: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
@@ -119,21 +115,9 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "博客首页"
 
-#: src/task-headers/appearance.js:29
-msgid "Appearance illustration"
-msgstr "外观插图"
-
-#: src/task-headers/products.js:26
-msgid "Products illustration"
-msgstr "产品插图"
-
-#: src/welcome-modal/index.js:94
-msgid "Welcome modal navigation illustration 1"
-msgstr "欢迎模式导航插图 1"
-
-#: src/welcome-modal/index.js:64
-msgid "Welcome modal navigation illustration 2"
-msgstr "欢迎模式导航插图 2"
+#: includes/class-wc-calypso-bridge-coming-soon.php:172
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "您目前正在使用免费试用版！ 若想获取全套功能，请<a href=\"%s\">升级至付费套餐</a>。"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
@@ -175,355 +159,42 @@ msgstr "选择最适合您品牌外观和感觉的主题，然后对其进行自
 msgid "Choose your theme"
 msgstr "选择您的主题"
 
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: src/index.js:220
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
 msgid "Plugins"
 msgstr "插件"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:400
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
 msgid "Restore"
 msgstr "还原"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "\"Things to do next\""
 msgstr "“待办事项”"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "Setup task list"
 msgstr "设置任务列表"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "恢复显示“待办事项”任务列表。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "恢复显示主登录任务列表。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "使用这些选项可在 WooCommerce 主页中恢复显示登录任务列表。"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
 msgid "Onboarding"
 msgstr "登录"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "出于销售目的优化的自定义导航体验。"
-
-#: src/welcome-modal/index.js:114
-msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
-msgstr "使用 WooCommerce 完成工作的速度越来越快。 <a>详细了解</a>我们的新导航，或亲身体验，自行探索。"
-
-#: src/welcome-modal/index.js:107
-msgid "Move faster with our new navigation"
-msgstr "使用我们的新导航提高浏览速度"
-
-#: src/welcome-modal/index.js:83
-msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
-msgstr "每次跳转回 WordPress.com 仪表盘时，都可以获得有关商店性能的提示和见解。"
-
-#: src/welcome-modal/index.js:77
-msgid "Meet your new Home"
-msgstr "了解新主页"
-
-#: src/task-headers/add-domain.js:34
-msgid "Choose a new website address for your store or transfer one you already own."
-msgstr "为您的商店选择一个新的网站地址，或者转移您已经拥有的网站地址。"
-
-#: src/task-headers/add-domain.js:22
-msgid "Add a domain illustration"
-msgstr "添加域名插图"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:160
-msgid "Save"
-msgstr "保存"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:147
-msgid "BIC / Swift"
-msgstr "BIC / Swift"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:139
-msgid "IBAN"
-msgstr "国际银行标准账号"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:129
-msgid "Sort code"
-msgstr "排序编号"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:119
-msgid "Bank name"
-msgstr "银行名称"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:109
-msgid "Account number"
-msgstr "帐号"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:99
-msgid "Account name"
-msgstr "帐户名"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:92
-msgid "These details are required to receive payments via bank transfer"
-msgstr "通过银行转帐接收付款时需要使用这些详细信息"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:86
-msgid "Add your bank details"
-msgstr "添加您的银行详细信息"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:53
-msgid "Direct bank transfer details added successfully"
-msgstr "已成功添加直接银行转账详细信息"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:32
-msgid "Please enter an account number or IBAN"
-msgstr "请输入帐号或 IBAN"
-
-#: src/payment-gateway-suggestions/index.js:266
-msgid "Offline payment methods"
-msgstr "线下付款方式"
-
-#: src/payment-gateway-suggestions/index.js:257
-msgid "See more"
-msgstr "查看更多"
-
-#: src/payment-gateway-suggestions/index.js:236
-msgid "Try one of the alternative payment providers."
-msgstr "尝试某个备用付款提供商。"
-
-#: src/payment-gateway-suggestions/index.js:232
-#: src/payment-gateway-suggestions/index.js:311
-msgid "Other payment providers"
-msgstr "其他付款提供商"
-
-#: src/payment-gateway-suggestions/index.js:227
-msgid "Give your customers additional choices in ways to pay."
-msgstr "为您的客户提供更多付款方式选择。"
-
-#: src/payment-gateway-suggestions/index.js:223
-msgid "Additional payment options"
-msgstr "其他付款选项"
-
-#: src/payment-gateway-suggestions/index.js:217
-msgid "To get ready to accept online payments"
-msgstr "准备接收在线付款"
-
-#: src/payment-gateway-suggestions/index.js:213
-msgid "Choose a payment provider"
-msgstr "选择付款提供商"
-
-#: src/payment-gateway-suggestions/components/WCPay/utils.js:15
-msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
-msgstr "连接到 WooCommerce Payments 时出错。 请重试，或稍后在商店设置中连接。"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
-msgid "I agree"
-msgstr "我同意"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
-msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
-msgstr "同意分享非敏感{{link}}使用情况数据{{/link}}即表示，您将帮助我们改善功能并优化 WooCommerce Payments 体验。 您可以随时选择退出。"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
-msgid "Help us build a better WooCommerce Payments experience"
-msgstr "帮助我们打造更优质的 WooCommerce Payments 体验"
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
-msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
-msgstr "使用 WooCommerce Payments 即表示，您同意遵守我们的{{tosLink}}服务条款{{/tosLink}}，并确认您已阅读我们的{{privacyLink}}隐私政策{{/privacyLink}} "
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
-msgid "Get ready to accept payments"
-msgstr "准备好接收付款"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
-msgid "Yes, count me in!"
-msgstr "是，我报名！"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
-msgid "Build a better WooCommerce"
-msgstr "构建更好的 WooCommerce"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
-msgid "There was a problem updating your preferences"
-msgstr "更新您的偏好设置时出现问题"
-
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:120
-msgid "Configure your %(title)s account"
-msgstr "配置您的 %(title)s 账户"
-
-#. translators: %s = title of the payment gateway to install
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:88
-msgid "Install %s"
-msgstr "安装 %s"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:152
-msgid "You can manage this payment gateway's settings by clicking the button below"
-msgstr "您可以通过单击下面的按钮来管理此付款网关的设置"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:133
-msgid "Connect"
-msgstr "连接"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:100
-msgid "Proceed"
-msgstr "继续"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:84
-#: src/payment-gateway-suggestions/plugins/Bacs.js:63
-msgid "There was a problem saving your payment settings"
-msgstr "保存您的付款设置时出现问题。"
-
-#. translators: %s = title of the payment gateway
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:75
-msgid "%s configured successfully"
-msgstr "已成功配置 %s"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:81
-msgid "Recommended"
-msgstr "推荐"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:80
-msgid "Local Partner"
-msgstr "当地合作伙伴"
-
-#: src/payment-gateway-suggestions/components/Action.js:138
-msgid "Finish setup"
-msgstr "完成设置"
-
-#: src/payment-gateway-suggestions/components/Action.js:99
-msgid "Enable"
-msgstr "启用"
-
-#: src/launch-store/index.js:392
-msgid "Launch anyway"
-msgstr "仍然发布"
-
-#: src/launch-store/index.js:382
-msgid "A few things to check before launching your store"
-msgstr "发布商店前的应检查事项"
-
-#: src/launch-store/index.js:379
-msgid "Before you launch"
-msgstr "发布前"
-
-#: src/launch-store/index.js:318
-msgid "Choose an address for your new website or transfer a domain you already own."
-msgstr "为您的新网站选择一个地址，或者转移您已经拥有的域名。"
-
-#: src/launch-store/index.js:314
-msgid "List products"
-msgstr "列出产品"
-
-#: src/launch-store/index.js:310
-msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
-msgstr "向您的商店添加产品或服务，开始进行销售。 手动创建产品，或从现有商店导入产品。"
-
-#: src/launch-store/index.js:309
-msgid "List your products"
-msgstr "列出产品"
-
-#: src/launch-store/index.js:301
-msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
-msgstr "为您的客户提供简单便捷的支付方式！ 设置一种（或多种！）快速安全的在线或面对面付款方式。"
-
-#: src/launch-store/index.js:300 src/launch-store/index.js:305
-msgid "Get paid"
-msgstr "收款"
-
-#: src/launch-store/index.js:262 src/launch-store/index.js:398
-msgid "You can always revert this under <a>Settings</a>."
-msgstr "您可以随时在<a>设置</a>下恢复此设置。"
-
-#: src/launch-store/index.js:250
-msgid "It's time to celebrate – you're ready to launch your store! Woo!"
-msgstr "举杯庆祝吧 - 您已准备好发布商店！ Woo！"
-
-#: src/launch-store/index.js:247
-msgid "Ready to launch your store?"
-msgstr "准备好开启您的商店了吗？"
-
-#: src/launch-store/index.js:212
-msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
-msgstr "改变了主意？ 您可以更新<a>隐私</a>设置，将您的商店设为私密。"
-
-#: src/launch-store/index.js:206
-msgid "View your store"
-msgstr "查看商店"
-
-#: src/launch-store/index.js:186
-msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
-msgstr "祝贺您发布 WooCommerce 商店。 花点时间来庆祝和分项这一消息吧！"
-
-#: src/launch-store/index.js:182
-msgid "Woo! You did it!"
-msgstr "Woo！ 您做到了！"
-
-#: src/launch-store/index.js:142
-msgid "Launching your store"
-msgstr "发布您的商店"
-
-#: src/launch-store/index.js:71
-msgid "Copied"
-msgstr "已复制"
-
-#: src/homescreen-banner/index.js:61
-msgid "Dismiss this free trial informational banner."
-msgstr "忽略此免费试用版信息横幅。"
-
-#: src/homescreen-banner/index.js:45
-msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
-msgstr "这是您的免费试用版测试商店，您可以在这里开始探索可用功能！ 要详细了解免费试用版，请点击“了解详情”。"
-
-#: src/free-trial/tax/components/location.js:56
-msgid "There was a problem saving your store location"
-msgstr "保存您的商店位置时出现问题"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
-msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
-msgstr "点击“测试付款”即表示您同意{{tosLink}}服务条款{{/tosLink}}"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
-msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
-msgstr "通过简单的一站式选项帮助您打造强大的付款功能。 验证您的业务详情，以开始使用 WooCommerce Payments 测试交易。"
-
-#: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
-msgid "Test payments"
-msgstr "测试付款"
-
-#: src/free-trial/fills/task-headers/payments.js:40
-msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
-msgstr "为您的客户提供简单便捷的支付方式！ 设置并测试一些快速安全的在线或面对面付款方式。"
-
-#: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
-msgid "It’s time to test payments"
-msgstr "是时候测试付款了"
-
-#: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
-#: src/task-headers/get-paid-with-square.js:22
-msgid "Payment illustration"
-msgstr "付款插图"
-
-#: assets/scripts/free-trial-wc-payments.js:93
-msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
-msgstr "您现在可以开始测试 WooCommerce Payments 的功能和优势了。"
-
-#: assets/scripts/free-trial-wc-payments.js:79
-msgid "You’re only steps away from getting ready to be paid"
-msgstr "只差几步，您就可以获得付款了"
-
-#: assets/scripts/free-trial-wc-payments.js:49
-msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "存款功能在试用期间不可用。 若想开始处理真实交易并收付款，请<a href='%s' id='upgrade_now_button'>升级至付费套餐</a>。"
-
-#: assets/scripts/free-trial-wc-payments.js:41
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "只有管理员和商店经理可以在免费试用版中下单。 如果您已准备好接收客户付款，请<a href='%s' id='upgrade_now_button'>升级至付费套餐</a>。"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
@@ -579,7 +250,6 @@ msgstr "举杯庆祝吧！ 准备好开启您的商店了吗？"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "推出您的商店"
 
@@ -589,8 +259,9 @@ msgstr "您已准备好发布商店"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: src/task-headers/products.js:46
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
 msgid "2 minutes"
 msgstr "2 分钟"
 
@@ -604,8 +275,6 @@ msgstr "域"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:322 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "添加域"
 
@@ -625,7 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: src/introductory-offer-banner/index.js:87
 msgid "Upgrade now"
 msgstr "立即升级"
 
@@ -650,11 +318,11 @@ msgstr "联系"
 msgid "Home"
 msgstr "首页"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:61
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
 msgid "This site has already been launched"
 msgstr "此站点已发布"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:56
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
 msgid "You don't have permissions to launch this site"
 msgstr "您没有发布此站点的权限"
 
@@ -680,78 +348,7 @@ msgstr "您无法下单。 当前启用结账功能仅用于预览目的。"
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "此商店尚未准备好接收订单。 当前启用结账功能仅用于预览目的。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
-msgid "Jetpack Stats"
-msgstr "Jetpack 统计"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:623
-msgid "Jetpack Status"
-msgstr "Jetpack 状态"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:603
-msgid "Anti-Spam"
-msgstr "反垃圾邮件"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:410
-msgid "Discover"
-msgstr "发现"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-#: src/payment-gateway-suggestions/components/Action.js:76
-msgid "Manage"
-msgstr "管理"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-msgid "WooCommerce Subscriptions"
-msgstr "WooCommerce Subscriptions"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:399
-msgid "Extensions"
-msgstr "扩展"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:395
-msgid "Customers"
-msgstr "客户"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:385
-msgid "Legacy Reports"
-msgstr "旧版报告"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:378
-msgid "WooCommerce Status"
-msgstr "WooCommerce 状态"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
-msgid "WooCommerce Settings"
-msgstr "WooCommerce 设置"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
-msgid "Orders"
-msgstr "订单"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
-msgid "My Home"
-msgstr "我的主页"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
-msgid "Feedback"
-msgstr "反馈"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
-msgid "No thanks"
-msgstr "不用了，谢谢"
-
-#: src/payment-gateway-suggestions/components/Action.js:27
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:159
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
-msgid "Get started"
-msgstr "从这里开始"
-
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "导航"
 
@@ -800,7 +397,6 @@ msgstr "已将订单详细信息手动发送给客户。"
 msgid "Invalid order ID."
 msgstr "无效的订单 ID。"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce插件"
@@ -923,33 +519,16 @@ msgstr "这是您的主页，大部分访客首次访问您的商店时将会看
 msgid "Welcome"
 msgstr "欢迎"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New"
-msgstr "添加新用户"
-
 #: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
 msgid "Store"
 msgstr "商店"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
-msgid "Stats"
-msgstr "统计数据"
-
-#: src/free-trial/tax/components/location.js:23
-msgid "Continue"
-msgstr "继续"
-
-#: src/homescreen-banner/index.js:57
-msgid "Learn more"
-msgstr "了解更多内容。"
-
-#: includes/class-wc-calypso-bridge-addons.php:88
+#: includes/class-wc-calypso-bridge-addons.php:99
 msgid "WooCommerce extensions"
 msgstr "WooCommerce 扩展程序"
 
 #. translators: %s: extensions count
-#: includes/class-wc-calypso-bridge-addons.php:87
+#: includes/class-wc-calypso-bridge-addons.php:91
 msgid "Extensions %s"
 msgstr "扩展程序 %s"
 
@@ -958,10 +537,10 @@ msgstr "扩展程序 %s"
 msgid "Powered by %1$s"
 msgstr "由 %1$s 提供支持"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "Built with Storefront &amp; WordPress.com"
 msgstr "借助 Storefront 和 WordPress.com 打造"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "WordPress.com - The Best eCommerce Platform for WordPress"
 msgstr "WordPress.com - 最佳 WordPress 电子商务平台"

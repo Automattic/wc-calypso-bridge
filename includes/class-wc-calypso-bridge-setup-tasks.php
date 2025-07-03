@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.3.3
+ * @version 2.6.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -42,7 +42,6 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		// All plans.
 		add_action( 'load-woocommerce_page_wc-settings', array( $this, 'redirect_store_details_onboarding' ) );
 		add_action( 'wp_ajax_launch_store', array( $this, 'handle_ajax_launch_endpoint' ) );
-		add_action( 'init', array( $this, 'add_tasks' ) );
 		add_filter( 'woocommerce_admin_experimental_onboarding_tasklists', [ $this, 'replace_tasks' ] );
 		add_filter( 'get_user_metadata', array( $this, 'override_user_meta_field' ), 10, 4 );
 	}
@@ -86,14 +85,9 @@ class WC_Calypso_Bridge_Setup_Tasks {
 	}
 
 	/**
-	 * Add Setup Tasks.
+	 * Add and replace setup tasks.
 	 */
-	public function add_tasks() {
-
-		if ( ! class_exists( '\Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists' ) ) {
-			return;
-		}
-
+	public function replace_tasks( $lists ) {
 		/**
 		 * `ecommerce_custom_setup_tasks_enabled` filter.
 		 *
@@ -104,27 +98,7 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		 * @param  bool $status_enabled
 		 * @return bool
 		 */
-		if ( ! (bool) apply_filters( 'ecommerce_custom_setup_tasks_enabled', true ) ) {
-			return;
-		}
-
-		$tl = \Automattic\WooCommerce\Admin\Features\OnboardingTasks\TaskLists::instance();
-		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-add-domain.php';
-		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
-
-		$list = $tl::get_lists_by_ids( array( 'setup' ) );
-		$list = array_pop( $list );
-
-		$add_domain_task  = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $list );
-		$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $list );
-		$tl::add_task( 'setup', $add_domain_task );
-		$tl::add_task( 'setup', $launch_site_task );
-	}
-
-	/**
-	 * Replace setup tasks.
-	 */
-	public function replace_tasks( $lists ) {
+		$ecommerce_custom_setup_tasks_enabled = (bool) apply_filters( 'ecommerce_custom_setup_tasks_enabled', true );
 		if ( isset( $lists['setup'] ) ) {
 			// Default product task index.
 			$product_task_index = 2;
@@ -140,6 +114,25 @@ class WC_Calypso_Bridge_Setup_Tasks {
 					case 'purchase':
 						// Remove appearance and purchase task.
 						unset( $lists['setup']->tasks[$index] );
+						break;
+					case 'launch-your-store':
+						if ( wc_calypso_bridge_is_trial_plan() ) {
+							// Don't show launch your store task for trial sites.
+							unset( $lists['setup']->tasks[$index] );
+						}
+						if ( $ecommerce_custom_setup_tasks_enabled ) {
+							// Append add domain task before launch your store task.
+							require_once __DIR__ . '/tasks/class-wc-calypso-task-add-domain.php';
+							$add_domain_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $lists['setup'] ) );
+							array_splice( $lists['setup']->tasks, $index, 0, $add_domain_task );
+
+							// Replace launch your store task with launch site task.
+							if ( ! Features::is_enabled( 'launch-your-store' ) && ! wc_calypso_bridge_is_trial_plan() ) {
+								require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
+								$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $lists['setup'] );
+								$lists['setup']->tasks[$index + 1] = $launch_site_task;
+							}
+						}
 						break;
 				}
 			}

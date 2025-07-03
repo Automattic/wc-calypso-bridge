@@ -65,7 +65,13 @@ const CopyButton = ( { contentToCopy } ) => {
 	} );
 
 	return (
-		<div className="copy-to-clipboard" onClick={ handleClick }>
+		<div
+			className="copy-to-clipboard"
+			onClick={ handleClick }
+			role="button"
+			onKeyDown={ ( e ) => e.key === 'Enter' && handleClick() }
+			tabIndex={ 0 }
+		>
 			<CopyIcon />
 			<div className={ classes }>
 				{ __( 'Copied', 'wc-calypso-bridge' ) }

@@ -25,12 +25,36 @@ import {
 	ProgressHeaderFill,
 	ProgressTitleFill,
 } from './homescreen-progress-header';
-import './index.scss';
 import { CalypsoBridgeHomescreenBanner } from './homescreen-banner';
-import { AppearanceFill, GetPaidWithSquareFill } from './task-fills';
+import {
+	AppearanceFill,
+	GetPaidWithSquareFill,
+	GetPaidWithStripeFill,
+	GetPaidWithPayPalFill,
+} from './task-fills';
 import './task-headers';
 import './track-menu-item';
 import { CalypsoBridgeIntroductoryOfferBanner } from './introductory-offer-banner';
+import { loadTranslations } from './i18n-loader';
+
+// Register the remote logging filter early to ensure it's applied before any logging occurs.
+if ( !! window.wcCalypsoBridge?.isAtomic ) {
+	// Add `siteIsAtomic` property to remote logging error data so we can filter logs for Atomic sites.
+	addFilter(
+		'woocommerce_remote_logging_error_data',
+		'wc-calypso-bridge',
+		( errorData ) => ( {
+			...errorData,
+			properties: {
+				...errorData.properties,
+				siteIsAtomic: true,
+			},
+		} )
+	);
+}
+
+// A workaround for Webpack's tree-shaking to ensure `loadTranslations` is included in the production bundle.
+( function () {} )( loadTranslations );
 
 // Modify webpack to append the ?ver parameter to JS chunk
 // https://webpack.js.org/api/module-variables/#__webpack_get_script_filename__-webpack-specific
@@ -165,13 +189,29 @@ if ( !! window.wcCalypsoBridge.isEcommercePlanTrial ) {
 		} );
 	}
 
-	if ( window?.wcCalypsoBridge?.square_connect_url ) {
-		// Setup Square task fill (Partner Aware Onboarding).
-		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-square', {
+	if ( window?.wcCalypsoBridge?.stripe_connect_url ) {
+		// Setup Stripe task fill (Partner Aware Onboarding).
+		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-stripe', {
 			scope: 'woocommerce-tasks',
-			render: GetPaidWithSquareFill,
+			render: GetPaidWithStripeFill,
 		} );
 	}
+
+	if ( window?.wcCalypsoBridge?.paypal_connect_url ) {
+		// Setup PayPal task fill (Partner Aware Onboarding).
+		registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-paypal', {
+			scope: 'woocommerce-tasks',
+			render: GetPaidWithPayPalFill,
+		} );
+	}
+}
+
+if ( window?.wcCalypsoBridge?.square_connect_url ) {
+	// Setup Square task fill (Partner Aware Onboarding).
+	registerPlugin( 'wc-calypso-bridge-task-setup-woocommerce-square', {
+		scope: 'woocommerce-tasks',
+		render: GetPaidWithSquareFill,
+	} );
 }
 
 if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
@@ -217,7 +257,10 @@ if ( !! window.wcCalypsoBridge.isEcommercePlan ) {
 				pages.push( {
 					container: Plugins,
 					path: '/plugins-upgrade',
-					breadcrumbs: [ __( 'Plugins' ), __( 'Plugins' ) ],
+					breadcrumbs: [
+						__( 'Plugins', 'wc-calypso-bridge' ),
+						__( 'Plugins', 'wc-calypso-bridge' ),
+					],
 					navArgs: {
 						id: 'plugins-upgrade',
 					},

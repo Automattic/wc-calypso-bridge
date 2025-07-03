@@ -16,9 +16,10 @@ const ProductsHeader = () => {
 	return (
 		<WooOnboardingTaskListHeader id="products">
 			{ ( { task, goToTask } ) => {
-				const taskTitle = task.title;
-				const taskDescription = task.content;
-				const taskCta = task.actionLabel;
+				const taskTitle = task?.title;
+				const taskDescription = task?.content;
+				const taskCta = task?.actionLabel;
+				const taskIsComplete = task?.isComplete;
 
 				return (
 					<div className="woocommerce-task-header__contents-container">
@@ -26,7 +27,7 @@ const ProductsHeader = () => {
 							alt={ __( 'Products illustration', 'woocommerce' ) }
 							src={
 								WC_ASSET_URL +
-								'images/task_list/sales-section-illustration.png'
+								'images/task_list/sales-section-illustration.svg'
 							}
 							className="svg-background"
 						/>
@@ -34,8 +35,9 @@ const ProductsHeader = () => {
 							<h1>{ taskTitle }</h1>
 							<p>{ taskDescription }</p>
 							<Button
-								isSecondary={ task.isComplete }
-								isPrimary={ ! task.isComplete }
+								variant={
+									taskIsComplete ? 'secondary' : 'primary'
+								}
 								onClick={ goToTask }
 							>
 								{ taskCta }

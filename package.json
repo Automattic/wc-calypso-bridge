@@ -29,12 +29,17 @@
 	],
 	"devDependencies": {
 		"@automattic/color-studio": "^2.5.0",
+		"@automattic/i18n-loader-webpack-plugin": "^2.0.51",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^12.1.5",
+		"@types/dompurify": "^3.2.0",
+		"@types/lodash": "^4.17.16",
+		"@types/prop-types": "^15.7.14",
 		"@woocommerce/dependency-extraction-webpack-plugin": "^2.2.0",
-		"@woocommerce/eslint-plugin": "^2.2.0",
+		"@woocommerce/eslint-plugin": "^2.3.0",
 		"@wordpress/prettier-config": "^2.14.0",
 		"@wordpress/scripts": "^24.6.0",
+		"crypto-js": "^4.2.0",
 		"husky": "^8.0.3",
 		"prettier": "npm:wp-prettier@^2.8.5",
 		"typescript": "^4.9.5"
@@ -42,9 +47,19 @@
 	"dependencies": {
 		"@automattic/calypso-analytics": "^1.0.0-alpha.1",
 		"@automattic/interpolate-components": "^1.2.1",
+		"@woocommerce/explat": "^2.4.0",
 		"@woocommerce/onboarding": "^3.3.0",
+		"@wordpress/components": "wp-6.6",
+		"@wordpress/core-data": "wp-6.6",
+		"@wordpress/data": "wp-6.6",
+		"@wordpress/element": "wp-6.6",
+		"@wordpress/hooks": "wp-6.6",
+		"@wordpress/i18n": "wp-6.6",
+		"@wordpress/icons": "wp-6.6",
 		"classnames": "^2.3.2",
 		"dompurify": "^2.4.5",
-		"gridicons": "^3.4.2"
+		"gridicons": "^3.4.2",
+		"react-transition-group": "^4.4.5",
+		"which": "^5.0.0"
 	}
 }

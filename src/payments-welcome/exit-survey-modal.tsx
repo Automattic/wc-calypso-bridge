@@ -23,7 +23,7 @@ import wcpayTracks from './tracks';
 function ExitSurveyModal( {
 	setExitSurveyModalOpen,
 }: {
-	setExitSurveyModalOpen: Function;
+	setExitSurveyModalOpen: ( open: boolean ) => void;
 } ): JSX.Element | null {
 	const [ isOpen, setOpen ] = useState( true );
 	const [ isHappyChecked, setHappyChecked ] = useState( false );

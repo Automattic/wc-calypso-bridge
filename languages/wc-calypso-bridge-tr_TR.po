@@ -1,69 +1,69 @@
-# Translation of WooCommerce - Calypso Bridge in Turkish
-# This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-03-19 08:10:07+0000\n"
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-07-03T15:56:35+00:00\n"
+"PO-Revision-Date: 2025-03-19 11:54:03+0000\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: tr\n"
-"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:183
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "Sitenizi yayınlamak mı istiyorsunuz? Lütfen başlamak için <a href=\"%s\">bu bağlantıyı</a> ziyaret edin."
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:150
+msgid "There was a problem trying to update site visibility."
+msgstr "Site görünürlüğünü güncellemeye çalışılırken bir sorun oluştu."
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "Mağazanızda kredi kartı ödemelerini kabul etmek için Stripe ödemelerini kurun. Başlamak için bir Square hesabınız olması gerekiyor"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "Stripe ile ödeme alın"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr "Mağazanızda kredi kartı ödemelerini kabul etmek için PayPal ödemelerini kurun. Başlamak için bir PayPal hesabınız olması gerekiyor"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr "PayPal ile ödeme alın"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
-msgstr ""
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
-msgid "Hosting"
-msgstr "Barındırma"
-
-#: src/task-headers/get-paid-with-square.js:53
-msgid "Set up Square"
-msgstr "Square'i kur"
-
-#: src/task-headers/get-paid-with-square.js:40
-msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
-msgstr "Square ile ödeme almak kolaydır. Çevrimiçi ve yüz yüze satış yapın; tüm ödemeleri, müşterileri, ürünleri ve envanteri senkronize edin."
-
-#: src/task-headers/get-paid-with-square.js:34
-msgid "It's time to get paid"
-msgstr "Ödeme alma zamanı"
+msgstr "%s deneme sürümü süreniz az önce başladı"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
 msgstr "Mağazanızda kredi kartı ödemelerini kabul etmek için Square ödemelerini kurun. Başlamak için bir Square hesabınız olması gerekiyor"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
 msgid "Get paid with Square"
 msgstr "Square ile ödeme alın"
-
-#: src/payment-gateway-suggestions/index.js:285
-msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
-msgstr "Ücretsiz deneme süresi boyunca yalnızca Yöneticiler ve Mağaza Yöneticileri sipariş verebilir. Müşterilerden ödemeleri kabul etmek ve daha fazla ödeme seçeneği keşfetmek için {{link}}ücretli bir pakete yükseltin{{/link}}."
 
 #: includes/class-wc-calypso-bridge-setup.php:424
 msgid "News"
 msgstr "Haber"
 
-#: src/introductory-offer-banner/index.js:91
-msgid "Dismiss this banner."
-msgstr "Bu reklam bandını kapatın."
-
-#: src/introductory-offer-banner/index.js:69
-msgid "Start selling — for less!"
-msgstr "Daha az masrafla satmaya başlayın!"
-
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
 msgid "Create your first product"
 msgstr "İlk ürününüzü oluşturun"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
 msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "14 günlük %s paketi denemesi sürümüne hoş geldiniz. Başarılı bir çevrimiçi işletme başlatmak ve büyütmek için ihtiyacınız olan her şey aynı yerde. İlk satışınıza doğru yolculuğunuza başladınız! Keşfetmeye hazır mısınız?"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
@@ -84,10 +84,6 @@ msgstr "Yeni mağazanız için bir alan adı seçin"
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "WooCommerce, bu pakette devre dışı bırakılamaz."
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New Order"
-msgstr "Yeni Sipariş Ekle"
 
 #: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
@@ -119,21 +115,9 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "Blog Ana Sayfası"
 
-#: src/task-headers/appearance.js:29
-msgid "Appearance illustration"
-msgstr "Görünüm illüstrasyonu"
-
-#: src/task-headers/products.js:26
-msgid "Products illustration"
-msgstr "Ürünlerin illüstrasyonu"
-
-#: src/welcome-modal/index.js:94
-msgid "Welcome modal navigation illustration 1"
-msgstr "Hoş geldiniz penceresi gezinme illüstrasyonu 1"
-
-#: src/welcome-modal/index.js:64
-msgid "Welcome modal navigation illustration 2"
-msgstr "Hoş geldiniz penceresi gezinme illüstrasyonu 2"
+#: includes/class-wc-calypso-bridge-coming-soon.php:172
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "Şu anda ücretsiz deneme sürümünü kullanıyorsunuz! Tüm özelliklere erişmek için lütfen <a href=\"%s\">ücretli bir pakete yükseltin</a>."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
@@ -175,355 +159,42 @@ msgstr "Markanızın genel görünümüne en uygun temayı seçip ardından tama
 msgid "Choose your theme"
 msgstr "Temanızı seçin"
 
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: src/index.js:220
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
 msgid "Plugins"
 msgstr "Eklentiler"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:400
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
 msgid "Restore"
 msgstr "Geri yükle"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "\"Things to do next\""
 msgstr "\"Bundan sonra yapılacaklar\""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "Setup task list"
 msgstr "Kurulum görev listesi"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "\"Bundan sonra yapılacaklar\" Görev Listesinin görünürlüğünü geri yükleyin."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "Birincil tanıtım Görev Listesinin görünürlüğünü geri yükleyin."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "WooCommerce Ana Ekranında tanıtım Görev Listelerinin görünürlüğünü geri yüklemek için bu seçenekleri kullanın."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
 msgid "Onboarding"
 msgstr "İlk Katılım"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
 msgid "A custom navigation experience that is optimized for selling."
 msgstr "Satış için uygun hale getirilmiş özel bir gezinme deneyimi."
-
-#: src/welcome-modal/index.js:114
-msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
-msgstr "WooCommerce ile işleri halletmek artık daha hızlı. Yeni gezinmemiz hakkında <a>daha fazla bilgi edinin</a> veya gidip kendiniz keşfedin."
-
-#: src/welcome-modal/index.js:107
-msgid "Move faster with our new navigation"
-msgstr "Yeni gezinmemizle daha hızlı hareket edin"
-
-#: src/welcome-modal/index.js:83
-msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
-msgstr "WordPress.com panonuza her geri döndüğünüzde mağazanızın performansı hakkında ipuçları ve istatistikler alın."
-
-#: src/welcome-modal/index.js:77
-msgid "Meet your new Home"
-msgstr "Yeni Ana Sayfanızla tanışın"
-
-#: src/task-headers/add-domain.js:34
-msgid "Choose a new website address for your store or transfer one you already own."
-msgstr "Mağazanız için yeni bir web sitesi adresi seçin veya zaten sahip olduğunuz bir adresi aktarın."
-
-#: src/task-headers/add-domain.js:22
-msgid "Add a domain illustration"
-msgstr "Alan adı illüstrasyonu ekleyin"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:160
-msgid "Save"
-msgstr "Kaydet"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:147
-msgid "BIC / Swift"
-msgstr "BIC / Swift"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:139
-msgid "IBAN"
-msgstr "IBAN"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:129
-msgid "Sort code"
-msgstr "Sıralama kodu"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:119
-msgid "Bank name"
-msgstr "Banka adı"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:109
-msgid "Account number"
-msgstr "Hesap numarası"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:99
-msgid "Account name"
-msgstr "Hesap adı"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:92
-msgid "These details are required to receive payments via bank transfer"
-msgstr "Bu detaylar, banka havalesi yoluyla ödeme almak için gereklidir"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:86
-msgid "Add your bank details"
-msgstr "Banka detaylarınızı ekleyin"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:53
-msgid "Direct bank transfer details added successfully"
-msgstr "Doğrudan banka havale detayları başarıyla eklendi"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:32
-msgid "Please enter an account number or IBAN"
-msgstr "Lütfen bir hesap numarası veya IBAN girin"
-
-#: src/payment-gateway-suggestions/index.js:266
-msgid "Offline payment methods"
-msgstr "Çevrimdışı ödeme yöntemleri"
-
-#: src/payment-gateway-suggestions/index.js:257
-msgid "See more"
-msgstr "Daha fazla gör"
-
-#: src/payment-gateway-suggestions/index.js:236
-msgid "Try one of the alternative payment providers."
-msgstr "Alternatif ödeme sağlayıcılarından birini deneyin."
-
-#: src/payment-gateway-suggestions/index.js:232
-#: src/payment-gateway-suggestions/index.js:311
-msgid "Other payment providers"
-msgstr "Diğer ödeme sağlayıcıları"
-
-#: src/payment-gateway-suggestions/index.js:227
-msgid "Give your customers additional choices in ways to pay."
-msgstr "Müşterilerinize ödeme yöntemleriyle ilgili ek seçenekler sunun."
-
-#: src/payment-gateway-suggestions/index.js:223
-msgid "Additional payment options"
-msgstr "Ek ödeme seçenekleri"
-
-#: src/payment-gateway-suggestions/index.js:217
-msgid "To get ready to accept online payments"
-msgstr "Çevrimiçi ödeme almaya hazır olmak için"
-
-#: src/payment-gateway-suggestions/index.js:213
-msgid "Choose a payment provider"
-msgstr "Bir ödeme sağlayıcısı seç"
-
-#: src/payment-gateway-suggestions/components/WCPay/utils.js:15
-msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
-msgstr "WooCommerce Payments bağlantısı kurulurken bir hata oluştu. Lütfen tekrar deneyin veya mağaza ayarlarında daha sonra bağlanın."
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
-msgid "I agree"
-msgstr "Kabul ediyorum"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
-msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
-msgstr "Hassas olmayan {{link}}kullanım verilerini{{/link}} paylaşmayı kabul ederek, özellikleri iyileştirmemize ve WooCommerce Payments deneyimini optimize etmemize yardımcı olacaksınız. Veri paylaşımını dilediğiniz zaman durdurabilirsiniz."
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
-msgid "Help us build a better WooCommerce Payments experience"
-msgstr "Daha iyi bir WooCommerce Payments deneyimi oluşturmamıza yardımcı olun"
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
-msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
-msgstr "WooCommerce Payments'ı kullanarak {{tosLink}}Hizmet Şartlarımıza{{/tosLink}} bağlı kalmayı ve {{privacyLink}}Gizlilik Politikamızı{{/privacyLink}} okuduğunuzu kabul etmiş olursunuz. "
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
-msgid "Get ready to accept payments"
-msgstr "Ödeme almaya hazır olun"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
-msgid "Yes, count me in!"
-msgstr "Evet, ben de varım!"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
-msgid "Build a better WooCommerce"
-msgstr "Daha iyi bir WooCommerce oluşturun"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
-msgid "There was a problem updating your preferences"
-msgstr "Tercihleriniz güncellenirken bir sorun oluştu"
-
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:120
-msgid "Configure your %(title)s account"
-msgstr "%(title)s hesabınızı yapılandırın"
-
-#. translators: %s = title of the payment gateway to install
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:88
-msgid "Install %s"
-msgstr "Yükle %s"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:152
-msgid "You can manage this payment gateway's settings by clicking the button below"
-msgstr "Aşağıdaki düğmeyi tıklayarak bu ödeme ağ geçidinin ayarlarını yönetebilirsiniz"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:133
-msgid "Connect"
-msgstr "Bağlan"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:100
-msgid "Proceed"
-msgstr "İlerle"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:84
-#: src/payment-gateway-suggestions/plugins/Bacs.js:63
-msgid "There was a problem saving your payment settings"
-msgstr "Ödeme ayarlarınız kaydedilirken bir sorun oluştu"
-
-#. translators: %s = title of the payment gateway
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:75
-msgid "%s configured successfully"
-msgstr "%s başarıyla yapılandırıldı"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:81
-msgid "Recommended"
-msgstr "Önerilen"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:80
-msgid "Local Partner"
-msgstr "Yerel iş ortağı"
-
-#: src/payment-gateway-suggestions/components/Action.js:138
-msgid "Finish setup"
-msgstr "Kurulumu Tamamla"
-
-#: src/payment-gateway-suggestions/components/Action.js:99
-msgid "Enable"
-msgstr "Etkinleştir"
-
-#: src/launch-store/index.js:392
-msgid "Launch anyway"
-msgstr "Yine de başlat"
-
-#: src/launch-store/index.js:382
-msgid "A few things to check before launching your store"
-msgstr "Mağazanızı başlatmadan önce kontrol etmeniz gereken birkaç şey"
-
-#: src/launch-store/index.js:379
-msgid "Before you launch"
-msgstr "Başlatmadan önce"
-
-#: src/launch-store/index.js:318
-msgid "Choose an address for your new website or transfer a domain you already own."
-msgstr "Yeni web siteniz için bir adres seçin veya zaten sahip olduğunuz bir alan adını aktarın."
-
-#: src/launch-store/index.js:314
-msgid "List products"
-msgstr "Ürün listeleme"
-
-#: src/launch-store/index.js:310
-msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
-msgstr "Mağazanıza ürün veya hizmet ekleyerek satış yapmaya başlayın. Ürünlerinizi manuel olarak oluşturun veya mevcut bir mağazadan içe aktarın."
-
-#: src/launch-store/index.js:309
-msgid "List your products"
-msgstr "Ürünlerinizi listeleme"
-
-#: src/launch-store/index.js:301
-msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
-msgstr "Müşterilerinize kolay ve rahat bir ödeme yöntemi sağlayın! Hızlı ve güvenli internetten veya şahsen ödeme yöntemlerimizden birini (veya daha fazlasını!) ayarlayın."
-
-#: src/launch-store/index.js:300 src/launch-store/index.js:305
-msgid "Get paid"
-msgstr "Ödeme alın"
-
-#: src/launch-store/index.js:262 src/launch-store/index.js:398
-msgid "You can always revert this under <a>Settings</a>."
-msgstr "Bunu her zaman <a>Ayarlar</a>'ın altından geri alabilirsiniz."
-
-#: src/launch-store/index.js:250
-msgid "It's time to celebrate – you're ready to launch your store! Woo!"
-msgstr "Kutlama zamanı, mağazanızı başlatmaya hazırsınız! Woo!"
-
-#: src/launch-store/index.js:247
-msgid "Ready to launch your store?"
-msgstr "Mağazanızı yayınlamaya hazır mısınız?"
-
-#: src/launch-store/index.js:212
-msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
-msgstr "Fikrinizi mi değiştirdiniz? <a>Gizlilik</a> ayarlarınızı güncelleyerek mağazanızı tekrar gizli hale getirebilirsiniz."
-
-#: src/launch-store/index.js:206
-msgid "View your store"
-msgstr "Mağazanızı görüntüleme"
-
-#: src/launch-store/index.js:186
-msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
-msgstr "WooCommerce mağazanızı başlattığınız için tebrik ederiz. Kutlamak ve haberleri paylaşmak için bir dakikanızı ayırın!"
-
-#: src/launch-store/index.js:182
-msgid "Woo! You did it!"
-msgstr "Woo! Başardınız!"
-
-#: src/launch-store/index.js:142
-msgid "Launching your store"
-msgstr "Mağazanızı başlatma"
-
-#: src/launch-store/index.js:71
-msgid "Copied"
-msgstr "Kopyalandı"
-
-#: src/homescreen-banner/index.js:61
-msgid "Dismiss this free trial informational banner."
-msgstr "Bu ücretsiz deneme süresi bilgilendirici bandını kapatın."
-
-#: src/homescreen-banner/index.js:45
-msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
-msgstr "Bu, neler bulunduğunu keşfetmeye başlayabileceğiniz ücretsiz deneme süresi test mağazanız! Ücretsiz deneme süresi hakkında daha fazla bilgi edinmek için \"Daha fazla bilgi\"ye tıklayın."
-
-#: src/free-trial/tax/components/location.js:56
-msgid "There was a problem saving your store location"
-msgstr "Mağaza konumunuz kaydedilirken bir sorun oluştu"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
-msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
-msgstr "\"Ödemeleri test et\"e tıklayarak {{tosLink}}Hizmet Koşulları{{/tosLink}}'nı kabul etmiş olursunuz."
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
-msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
-msgstr "Ödemelerinizi basit, hepsi bir arada bir seçenekle güçlendirin. WooCommerce Ödemeler ile işlemleri test etmeye başlamak için işletmenizle ilgili ayrıntıları doğrulayın."
-
-#: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
-msgid "Test payments"
-msgstr "Ödemeleri test etme"
-
-#: src/free-trial/fills/task-headers/payments.js:40
-msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
-msgstr "Müşterilerinize kolay ve rahat bir ödeme yöntemi sağlayın! Hızlı ve güvenli internetten veya şahsen ödeme yöntemlerimizden bazılarını ayarlayın ve test edin."
-
-#: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
-msgid "It’s time to test payments"
-msgstr "Ödemeleri test etme zamanı"
-
-#: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
-#: src/task-headers/get-paid-with-square.js:22
-msgid "Payment illustration"
-msgstr "Ödeme resmi"
-
-#: assets/scripts/free-trial-wc-payments.js:93
-msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
-msgstr "WooCommerce Payments'ın özelliklerini ve avantajlarını test etmeye hazırsınız"
-
-#: assets/scripts/free-trial-wc-payments.js:79
-msgid "You’re only steps away from getting ready to be paid"
-msgstr "Ödeme almaya hazır olmanıza sadece birkaç adım kaldı"
-
-#: assets/scripts/free-trial-wc-payments.js:49
-msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "Ücretsiz deneme süresi boyunca yatırılan para kullanılamaz. Gerçek işlemleri işlemeye başlamak ve ödemeleri almak için <a href='%s' id='upgrade_now_button'>ücretli bir pakete yükseltin</a>."
-
-#: assets/scripts/free-trial-wc-payments.js:41
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr "Ücretsiz deneme süresi boyunca yalnızca Yöneticiler ve Mağaza Yöneticileri sipariş verebilir. Müşterilerden ödeme almaya hazırsanız <a href='%s' id='upgrade_now_button'>ücretli bir pakete yükseltin</a>."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
@@ -579,7 +250,6 @@ msgstr "Kutlama zamanı! Mağazanızı yayınlamaya hazır mısınız?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "Mağazanızı yayınlayın"
 
@@ -589,8 +259,9 @@ msgstr "Mağazanızı zaten yayınladınız"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: src/task-headers/products.js:46
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
 msgid "2 minutes"
 msgstr "2 dakika"
 
@@ -604,8 +275,6 @@ msgstr "Alan Adı"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:322 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "Alan adı ekle"
 
@@ -625,7 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: src/introductory-offer-banner/index.js:87
 msgid "Upgrade now"
 msgstr "Şimdi yükselt"
 
@@ -650,11 +318,11 @@ msgstr "İletişim"
 msgid "Home"
 msgstr "Başlangıç"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:61
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
 msgid "This site has already been launched"
 msgstr "Bu site zaten başlatıldı"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:56
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
 msgid "You don't have permissions to launch this site"
 msgstr "Bu siteyi başlatma izniniz yok"
 
@@ -680,78 +348,7 @@ msgstr "Siparişiniz verilemedi. Ödeme işlevi şu anda yalnızca önizleme ama
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Bu mağaza sipariş almaya hazır değil. Ödeme işlevi şu anda yalnızca önizleme amacıyla etkinleştirilmiştir."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
-msgid "Jetpack Stats"
-msgstr "Jetpack İstatistikleri"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:623
-msgid "Jetpack Status"
-msgstr "Jetpack Durumu"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:603
-msgid "Anti-Spam"
-msgstr "Anti-Spam"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:410
-msgid "Discover"
-msgstr "Keşfet"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-#: src/payment-gateway-suggestions/components/Action.js:76
-msgid "Manage"
-msgstr "Yönetin"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-msgid "WooCommerce Subscriptions"
-msgstr "WooCommerce Subscriptions"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:399
-msgid "Extensions"
-msgstr "Genişleme paketleri"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:395
-msgid "Customers"
-msgstr "Müşteriler"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:385
-msgid "Legacy Reports"
-msgstr "Eski Raporlar"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:378
-msgid "WooCommerce Status"
-msgstr "WooCommerce durumu"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
-msgid "WooCommerce Settings"
-msgstr "WooCommerce Ayarları"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
-msgid "Orders"
-msgstr "Siparişler"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
-msgid "My Home"
-msgstr "Evim"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
-msgid "Feedback"
-msgstr "Geri Bildirim"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
-msgid "No thanks"
-msgstr "Hayır, teşekkürler"
-
-#: src/payment-gateway-suggestions/components/Action.js:27
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:159
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
-msgid "Get started"
-msgstr "Başla"
-
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "Dolaşım"
 
@@ -800,7 +397,6 @@ msgstr "Sipariş ayrıntıları müşteriye postayla gönderildi."
 msgid "Invalid order ID."
 msgstr "Geçersiz sipariş kimliği."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -923,33 +519,16 @@ msgstr "Burası, çoğu ziyaretçinin mağazanızı ilk ziyaret ettiğinde görd
 msgid "Welcome"
 msgstr "Hoşgeldiniz"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New"
-msgstr "Yeni ekle"
-
 #: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
 msgid "Store"
 msgstr "Mağaza"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
-msgid "Stats"
-msgstr "İstatistikler"
-
-#: src/free-trial/tax/components/location.js:23
-msgid "Continue"
-msgstr "Devam"
-
-#: src/homescreen-banner/index.js:57
-msgid "Learn more"
-msgstr "Daha fazla bilgi edinin."
-
-#: includes/class-wc-calypso-bridge-addons.php:88
+#: includes/class-wc-calypso-bridge-addons.php:99
 msgid "WooCommerce extensions"
 msgstr "WooCommerce uzantıları"
 
 #. translators: %s: extensions count
-#: includes/class-wc-calypso-bridge-addons.php:87
+#: includes/class-wc-calypso-bridge-addons.php:91
 msgid "Extensions %s"
 msgstr "Uzantılar: %s"
 
@@ -958,10 +537,10 @@ msgstr "Uzantılar: %s"
 msgid "Powered by %1$s"
 msgstr "Destekleyen: %1$s"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "Built with Storefront &amp; WordPress.com"
 msgstr "Storefront & WordPress.com ile Oluştur"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "WordPress.com - The Best eCommerce Platform for WordPress"
 msgstr "WordPress.com; WordPress için En İyi E-Ticaret Platformu"

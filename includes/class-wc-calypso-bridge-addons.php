@@ -57,8 +57,8 @@ class WC_Calypso_Bridge_Addons {
 
 		// Hide the default marketplace.
 		add_filter( 'woocommerce_show_addons_page', '__return_false' );
-		// Handle the addons legacy page.
-		add_action( 'admin_menu', array( $this, 'addons_menu' ), 70 );
+		// Handle trial plan extensions menu.
+		add_action( 'admin_menu', array( $this, 'maybe_add_trial_extensions_submenu' ), PHP_INT_MAX );
 
 		// Add admin body class for the free trial landing page.
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
@@ -79,13 +79,29 @@ class WC_Calypso_Bridge_Addons {
 	}
 
 	/**
-	 * Addons menu item.
+	 * Adds the trial extensions submenu when needed.
 	 */
-	public function addons_menu() {
+	public function maybe_add_trial_extensions_submenu() {
+		if ( ! wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			return;
+		}
+
 		$count_html = WC_Helper_Updater::get_updates_count_html();
 		/* translators: %s: extensions count */
 		$menu_title = sprintf( __( 'Extensions %s', 'wc-calypso-bridge' ), $count_html );
-		add_submenu_page( 'woocommerce', __( 'WooCommerce extensions', 'wc-calypso-bridge' ), $menu_title, 'manage_woocommerce', 'wc-addons', array( $this, 'addons_page' ) );
+
+		// We need to remove the default extensions menu since it isn't available on the trial plan.
+		remove_submenu_page( 'woocommerce', 'wc-admin&path=/extensions' );
+
+		// Add the trial extension sub menu.
+		add_submenu_page(
+			'woocommerce',
+			__( 'WooCommerce extensions', 'wc-calypso-bridge' ),
+			$menu_title,
+			'manage_woocommerce',
+			'wc-addons',
+			array( $this, 'addons_page' )
+		);
 	}
 
 	/**

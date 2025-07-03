@@ -1,69 +1,69 @@
-# Translation of WooCommerce - Calypso Bridge in Dutch
-# This file is distributed under the same license as the WooCommerce - Calypso Bridge package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-05-21 16:04:17+0000\n"
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-07-03T15:56:32+00:00\n"
+"PO-Revision-Date: 2025-03-19 13:54:03+0000\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: nl\n"
-"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:183
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "Wil je je site lanceren? Ga naar <a href=\"%s\">deze link</a> om aan de slag te gaan."
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:150
+msgid "There was a problem trying to update site visibility."
+msgstr "Er is een probleem opgetreden bij het bijwerken van de zichtbaarheid van de site."
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "Stel Stripe-betalingen in om creditcardbetalingen aan je winkel te accepteren. Je moet een Stripe-account hebben om aan de slag te kunnen gaan"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "Krijg betaald met Stripe"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr "Stel PayPal-betalingen in om creditcardbetalingen aan je winkel te accepteren. Je moet een PayPal-account hebben om aan de slag te kunnen gaan"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr "Krijg betaald met PayPal"
 
 #. translators: %s: trial plan name, e.g. Entrepreneur
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:41
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
 msgid "Your %s free trial has just started"
-msgstr ""
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:248
-msgid "Hosting"
-msgstr "Hosting"
-
-#: src/task-headers/get-paid-with-square.js:53
-msgid "Set up Square"
-msgstr "Square instellen"
-
-#: src/task-headers/get-paid-with-square.js:40
-msgid "Accepting payments is easy with Square. Sell online and in person, and sync all payments, customers, items, and inventory."
-msgstr "Betalingen aannemen is makkelijk met Square. Verkoop zowel online als fysiek en synchroniseer alle betalingen, klanten, artikelen en voorraad."
-
-#: src/task-headers/get-paid-with-square.js:34
-msgid "It's time to get paid"
-msgstr "Laat die betalingen maar komen"
+msgstr "Je proefabonnement van %s is net van start gegaan"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
 msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
 msgstr "Stel Square-betalingen in om creditcardbetalingen aan je winkel te accepteren. Je moet een Square-account hebben om aan de slag te kunnen"
 
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:59
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
 msgid "Get paid with Square"
 msgstr "Krijg betaald met Square"
-
-#: src/payment-gateway-suggestions/index.js:285
-msgid "Only Administrators and Store Managers can place orders during the free trial. {{link}}Upgrade to a paid plan{{/link}} to accept payments from customers and explore more payment options."
-msgstr "Alleen beheerders en winkelmanagers kunnen bestellingen plaatsen tijdens de gratis proefversie. {{link}}Upgrade naar een betaald abonnement{{/link}} om betalingen te kunnen accepteren van klanten en meer betaalopties tot je beschikking te hebben."
 
 #: includes/class-wc-calypso-bridge-setup.php:424
 msgid "News"
 msgstr "Nieuws"
 
-#: src/introductory-offer-banner/index.js:91
-msgid "Dismiss this banner."
-msgstr "Negeer deze banner."
-
-#: src/introductory-offer-banner/index.js:69
-msgid "Start selling — for less!"
-msgstr "Begin met verkopen — voor minder!"
-
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:58
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
 msgid "Create your first product"
 msgstr "Je eerste product toevoegen"
 
-#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:45
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
 msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
-msgstr ""
+msgstr "Welkom bij je 14-daagse proefperiode van het %s-abonnement. Op deze centrale plek vind je alles wat je nodig hebt om een succesvolle online onderneming te starten en uit te laten groeien. Je bent op weg naar je eerste verkoop! Klaar om op ontdekkingsreis te gaan?"
 
 #: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
 msgid "Choose a domain"
@@ -84,10 +84,6 @@ msgstr "Kies een domein voor je nieuwe winkel"
 #: includes/class-wc-calypso-bridge-plugins.php:181
 msgid "WooCommerce cannot be deactivated on this plan."
 msgstr "WooCommerce kan niet gedeactiveerd worden in dit abonnement."
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New Order"
-msgstr "Nieuwe bestelling toevoegen"
 
 #: includes/class-wc-calypso-bridge-setup.php:324
 msgctxt "Page slug"
@@ -119,21 +115,9 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "Blog home"
 
-#: src/task-headers/appearance.js:29
-msgid "Appearance illustration"
-msgstr ""
-
-#: src/task-headers/products.js:26
-msgid "Products illustration"
-msgstr ""
-
-#: src/welcome-modal/index.js:94
-msgid "Welcome modal navigation illustration 1"
-msgstr ""
-
-#: src/welcome-modal/index.js:64
-msgid "Welcome modal navigation illustration 2"
-msgstr ""
+#: includes/class-wc-calypso-bridge-coming-soon.php:172
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "Je gebruikt momenteel een gratis proefversie! <a href=\"%s\">Upgrade naar een betaald abonnement</a> om toegang te krijgen tot alle functies."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:27
 msgid "Browse Extensions"
@@ -141,11 +125,11 @@ msgstr "Door extensies bladeren"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:95
 msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
-msgstr ""
+msgstr "Producten toevoegen. Laat je producten of diensten zien en maak je klaar om te beginnen met verkopen – voeg je productinformatie, afbeeldingen en beschrijvingen toe."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:89
 msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
-msgstr ""
+msgstr "Importeer je producten. Laat je producten of diensten zien en maak je klaar om te beginnen met verkopen – importeer je bestaande productinformatie, afbeeldingen en beschrijvingen."
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:79
 msgid "Add products"
@@ -161,369 +145,56 @@ msgstr "Voeg je producten toe"
 
 #: includes/tasks/class-wc-calypso-task-headstart-products.php:63
 msgid "Import your products"
-msgstr ""
+msgstr "Importeer je producten"
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:59
 msgid "Choose theme"
-msgstr ""
+msgstr "Kies een thema"
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:38
 msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
-msgstr ""
+msgstr "Kies een thema dat het beste bij het uiterlijk en gevoel van je merk past, daarna kun je het personaliseren. Verander de kleuren, voeg je logo toe en creëer pagina’s."
 
 #: includes/tasks/class-wc-calypso-task-appearance.php:29
 msgid "Choose your theme"
 msgstr "Kies je thema"
 
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:59
-#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:61
-#: src/index.js:220
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
 msgid "Plugins"
 msgstr "Plugins"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:400
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
 msgid "Restore"
 msgstr "Herstellen"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "\"Things to do next\""
-msgstr ""
+msgstr "\"Dingen die je vervolgens moet doen\""
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:392
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "Setup task list"
-msgstr ""
+msgstr "Takenlijst instellen"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the \"Things to do next\" Task List."
-msgstr ""
+msgstr "Herstel de zichtbaarheid van de \"Dingen die je vervolgens moet doen\"-takenlijst."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:391
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
 msgid "Restore the visibility of the primary onboarding Task List."
-msgstr ""
-
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
-msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
-msgstr ""
+msgstr "Herstel de zichtbaarheid van de primaire takenlijst voor onboarden."
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
+msgstr "Gebruik deze opties om de zichtbaarheid van de takenlijst voor onboarden in de WooCommerce Home te herstellen."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
 msgid "Onboarding"
 msgstr "Onboarding"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:199
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
 msgid "A custom navigation experience that is optimized for selling."
-msgstr ""
-
-#: src/welcome-modal/index.js:114
-msgid "Getting things done with WooCommerce just got faster. <a>Learn more</a> about our new navigation — or go ahead and explore on your own."
-msgstr "Dingen voor elkaar krijgen met WooCommerce gaat nu nog sneller. <a>Krijg meer informatie</a> over onze nieuwe manier van navigeren, of ga verder en ontdek het zelf."
-
-#: src/welcome-modal/index.js:107
-msgid "Move faster with our new navigation"
-msgstr "Beweeg sneller met onze nieuwe manier van navigeren"
-
-#: src/welcome-modal/index.js:83
-msgid "Get tips and insights on your store’s performance every time you jump back into your WordPress.com dashboard."
-msgstr "Krijg elke keer dat je terugkeert naar je WordPress.com-dashboard tips en inzichten met betrekking tot de prestaties van je winkel."
-
-#: src/welcome-modal/index.js:77
-msgid "Meet your new Home"
-msgstr "Maak kennis met je nieuw startpagina"
-
-#: src/task-headers/add-domain.js:34
-msgid "Choose a new website address for your store or transfer one you already own."
-msgstr "Kies een nieuw website-adres voor je winkel of draag er een die je al hebt over."
-
-#: src/task-headers/add-domain.js:22
-msgid "Add a domain illustration"
-msgstr "Voeg een domeinafbeelding toe"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:160
-msgid "Save"
-msgstr "Opslaan"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:147
-msgid "BIC / Swift"
-msgstr "BIC / Swift"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:139
-msgid "IBAN"
-msgstr "IBAN"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:129
-msgid "Sort code"
-msgstr "Sorteercode"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:119
-msgid "Bank name"
-msgstr "Banknaam"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:109
-msgid "Account number"
-msgstr "Accountnummer"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:99
-msgid "Account name"
-msgstr "Accountnaam"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:92
-msgid "These details are required to receive payments via bank transfer"
-msgstr "Deze gegevens zijn vereist om betalingen via bankoverschrijving te innen"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:86
-msgid "Add your bank details"
-msgstr "Voeg je bankgegevens toe"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:53
-msgid "Direct bank transfer details added successfully"
-msgstr "Gegevens voor directe bankoverschrijving toegevoegd"
-
-#: src/payment-gateway-suggestions/plugins/Bacs.js:32
-msgid "Please enter an account number or IBAN"
-msgstr "Voer een rekeningnummer of IBAN in"
-
-#: src/payment-gateway-suggestions/index.js:266
-msgid "Offline payment methods"
-msgstr "Offline betaalmethoden"
-
-#: src/payment-gateway-suggestions/index.js:257
-msgid "See more"
-msgstr "Meer zien"
-
-#: src/payment-gateway-suggestions/index.js:236
-msgid "Try one of the alternative payment providers."
-msgstr "Probeer een van de andere betaalproviders."
-
-#: src/payment-gateway-suggestions/index.js:232
-#: src/payment-gateway-suggestions/index.js:311
-msgid "Other payment providers"
-msgstr "Andere betaalproviders"
-
-#: src/payment-gateway-suggestions/index.js:227
-msgid "Give your customers additional choices in ways to pay."
-msgstr "Bied je klanten extra betaalmethoden."
-
-#: src/payment-gateway-suggestions/index.js:223
-msgid "Additional payment options"
-msgstr "Extra betaalmethoden"
-
-#: src/payment-gateway-suggestions/index.js:217
-msgid "To get ready to accept online payments"
-msgstr "Online betalingen accepteren"
-
-#: src/payment-gateway-suggestions/index.js:213
-msgid "Choose a payment provider"
-msgstr "Kies een betalingsprovider"
-
-#: src/payment-gateway-suggestions/components/WCPay/utils.js:15
-msgid "There was an error connecting to WooCommerce Payments. Please try again or connect later in store settings."
-msgstr "Er is een fout opgetreden tijdens het verbinden met WooCommerce Payments. Probeer het opnieuw of maak later verbinding in winkelinstellingen."
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:54
-msgid "I agree"
-msgstr "Ik ga akkoord"
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:34
-msgid "By agreeing to share non-sensitive {{link}}usage data{{/link}}, you’ll help us improve features and optimize the WooCommerce Payments experience. You can opt out at any time."
-msgstr "Door ermee in te stemmen om niet-gevoelige {{link}}gebruiksgegevens{{/link}} te delen, help je ons de functies te verbeteren en de WooCommerce Payments-ervaring te optimaliseren. Je kan je op elk moment uitschrijven."
-
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:29
-msgid "Help us build a better WooCommerce Payments experience"
-msgstr "Help ons een betere WooCommerce Payments-ervaring te creëren"
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:46
-msgid "By using WooCommerce Payments you agree to be bound by our {{tosLink}}Terms of Service{{/tosLink}} and acknowledge that you have read our {{privacyLink}}Privacy Policy{{/privacyLink}} "
-msgstr "Door WooCommerce Payments te gebruiken ga je ermee akkoord dat je bent gebonden aan onze {{tosLink}}Servicevoorwaarden{{/tosLink}} en bevestig je dat je ons {{privacyLink}}Privacybeleid{{/privacyLink}} hebt gelezen "
-
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:36
-msgid "Get ready to accept payments"
-msgstr "Betalingen accepteren"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:127
-msgid "Yes, count me in!"
-msgstr "Ja, reken op mij!"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:109
-msgid "Build a better WooCommerce"
-msgstr "Creëer een betere WooCommerce"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:50
-msgid "There was a problem updating your preferences"
-msgstr "Er is een probleem opgetreden met het updaten van je voorkeuren"
-
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:120
-msgid "Configure your %(title)s account"
-msgstr "Configureer je %(title)s-account"
-
-#. translators: %s = title of the payment gateway to install
-#: src/payment-gateway-suggestions/components/Setup/Setup.js:88
-msgid "Install %s"
-msgstr "%s installeren"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:152
-msgid "You can manage this payment gateway's settings by clicking the button below"
-msgstr "Je kunt de instellingen van deze betaalservice beheren door op de onderstaande knop te klikken"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:133
-msgid "Connect"
-msgstr "Verbinden"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:100
-msgid "Proceed"
-msgstr "Doorgaan"
-
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:84
-#: src/payment-gateway-suggestions/plugins/Bacs.js:63
-msgid "There was a problem saving your payment settings"
-msgstr "Er was een probleem met het opslaan van je betaalinstellingen"
-
-#. translators: %s = title of the payment gateway
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:75
-msgid "%s configured successfully"
-msgstr "%s configuratie geslaagd"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:81
-msgid "Recommended"
-msgstr "Aangeraden"
-
-#: src/payment-gateway-suggestions/components/List/Item.js:80
-msgid "Local Partner"
-msgstr "Lokale partner"
-
-#: src/payment-gateway-suggestions/components/Action.js:138
-msgid "Finish setup"
-msgstr "Configuratie voltooien"
-
-#: src/payment-gateway-suggestions/components/Action.js:99
-msgid "Enable"
-msgstr "Inschakelen"
-
-#: src/launch-store/index.js:392
-msgid "Launch anyway"
-msgstr "Toch lanceren"
-
-#: src/launch-store/index.js:382
-msgid "A few things to check before launching your store"
-msgstr "Een aantal dingen die je voor lancering van winkel moet controleren"
-
-#: src/launch-store/index.js:379
-msgid "Before you launch"
-msgstr "Voor lancering"
-
-#: src/launch-store/index.js:318
-msgid "Choose an address for your new website or transfer a domain you already own."
-msgstr "Kies een adres voor je nieuwe website of draag een domein dat je al hebt over."
-
-#: src/launch-store/index.js:314
-msgid "List products"
-msgstr "Producten vermelden"
-
-#: src/launch-store/index.js:310
-msgid "Start selling by adding products or services to your store. Create your products manually, or import them from an existing store."
-msgstr "Begin met verkopen door producten of diensten aan je winkel toe te voegen. Je kunt producten handmatig aanmaken, of ze importeren uit een bestaande winkel."
-
-#: src/launch-store/index.js:309
-msgid "List your products"
-msgstr "Je producten vermelden"
-
-#: src/launch-store/index.js:301
-msgid "Give your customers an easy and convenient way to pay! Set up one (or more!) of our fast and secure online or in person payment methods."
-msgstr "Bied je klanten een eenvoudige en handige betaalmethode! Stel een (of meer!) van onze snelle en veilige online of fysieke betaalmethodes in."
-
-#: src/launch-store/index.js:300 src/launch-store/index.js:305
-msgid "Get paid"
-msgstr "Verdien geld"
-
-#: src/launch-store/index.js:262 src/launch-store/index.js:398
-msgid "You can always revert this under <a>Settings</a>."
-msgstr "Dit kan altijd teruggedraaid worden via <a>instellingen</a>."
-
-#: src/launch-store/index.js:250
-msgid "It's time to celebrate – you're ready to launch your store! Woo!"
-msgstr "Tijd voor een feestje: je bent klaar om je winkel te lanceren! Woo!"
-
-#: src/launch-store/index.js:247
-msgid "Ready to launch your store?"
-msgstr "Klaar om je winkel te lanceren?"
-
-#: src/launch-store/index.js:212
-msgid "Changed your mind? You can make your store private again by updating your <a>Privacy</a> settings."
-msgstr "Van gedachten veranderd? Je kunt je winkel weer op privé zetten door je <a>privacyinstellingen</a> bij te werken."
-
-#: src/launch-store/index.js:206
-msgid "View your store"
-msgstr "Bekijk je winkel"
-
-#: src/launch-store/index.js:186
-msgid "Congratulations on launching your WooCommerce store. Take a moment to celebrate and share the news!"
-msgstr "Gefeliciteerd met het lanceren van je WooCommerce-winkel. Neem de tijd om dit te vieren en deel het goede nieuws!"
-
-#: src/launch-store/index.js:182
-msgid "Woo! You did it!"
-msgstr "Woo! Goed gedaan!"
-
-#: src/launch-store/index.js:142
-msgid "Launching your store"
-msgstr "Je winkel lanceren"
-
-#: src/launch-store/index.js:71
-msgid "Copied"
-msgstr "Gekopieerd"
-
-#: src/homescreen-banner/index.js:61
-msgid "Dismiss this free trial informational banner."
-msgstr "Druk deze banner voor de gratis proefversie weg."
-
-#: src/homescreen-banner/index.js:45
-msgid "This is your free trial test store where you can start exploring what's available! To find out more about the free trial, click \"Learn more\"."
-msgstr "Dit is je gratis proefwinkel waar je kunt ontdekken wat er allemaal beschikbaar is! Om meer te leren over de proefversie, klik op 'Meer informatie'."
-
-#: src/free-trial/tax/components/location.js:56
-msgid "There was a problem saving your store location"
-msgstr "Er is een probleem met het opslaan van je winkellocatie"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:62
-msgid "By clicking \"Test payments\", you agree to the {{tosLink}}Terms of Service{{/tosLink}}"
-msgstr "Door op 'Betalingen testen' te klikken, ga je akkoord met onze {{tosLink}}Servicevoorwaarden{{/tosLink}}"
-
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:54
-msgid "Power your payments with a simple, all-in-one option. Verify your business details to start testing transactions with WooCommerce Payments."
-msgstr "Zet je betalingen kracht bij met een simpele alles-in-één optie. Verifieer je bedrijfsgegevens om te beginnen met transacties testen met WooCommerce Payments."
-
-#: src/free-trial/fills/task-headers/payments.js:50
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:84
-msgid "Test payments"
-msgstr "Testbetalingen"
-
-#: src/free-trial/fills/task-headers/payments.js:40
-msgid "Give your customers an easy and convenient way to pay! Set up and test some of our fast and secure online or in person payment methods."
-msgstr "Bied je klanten een eenvoudige en handige betaalmethode! Stel een aantal van onze snelle en veilige online en fysieke betaalmethodes in en test ze."
-
-#: src/free-trial/fills/task-headers/payments.js:34
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:41
-msgid "It’s time to test payments"
-msgstr "Het is tijd om de betalingen te testen"
-
-#: src/free-trial/fills/task-headers/payments.js:22
-#: src/free-trial/fills/task-headers/woocommerce-payments.js:29
-#: src/task-headers/get-paid-with-square.js:22
-msgid "Payment illustration"
-msgstr "Afbeelding betaling"
-
-#: assets/scripts/free-trial-wc-payments.js:93
-msgid "You’re ready to start testing the features and benefits of WooCommerce Payments"
-msgstr "Je bent er klaar voor om de functies en voordelen van WooCommerce Payments te testen"
-
-#: assets/scripts/free-trial-wc-payments.js:79
-msgid "You’re only steps away from getting ready to be paid"
-msgstr "Nog maar een paar stappen en je kunt betaald worden"
-
-#: assets/scripts/free-trial-wc-payments.js:49
-msgid "Deposits are not available during the trial period. To start processing real transactions and receive payments and payouts, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr ""
-
-#: assets/scripts/free-trial-wc-payments.js:41
-msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href='%s' id='upgrade_now_button'>upgrade to a paid plan</a>."
-msgstr ""
+msgstr "Een aangepaste navigatie-ervaring die geoptimaliseerd is voor verkoop."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:77
 msgid "Tips, tricks, and ecommerce inspiration from our blog."
@@ -560,7 +231,7 @@ msgstr "Door extensies bladeren"
 
 #: includes/templates/html-admin-page-addons-landing-page.php:19
 msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
-msgstr ""
+msgstr "Personaliseer je winkel met WooCommerce-extensies zodat die perfect werkt voor jouw bedrijf. Upgrade naar een betaald abonnement om toegang te krijgen tot honderden tools en functies die je kunnen helpen bij het behalen van je doelen. Nieuwsgierig naar wat er allemaal beschikbaar is? Blader door onze extensie-marktplaats."
 
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
@@ -579,7 +250,6 @@ msgstr "Tijd voor een feestje! Klaar om je winkel te lanceren?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: src/launch-store/index.js:155
 msgid "Launch your store"
 msgstr "Lanceer je winkel"
 
@@ -589,8 +259,9 @@ msgstr "Je hebt je winkel al gelanceerd"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:59
 #: includes/tasks/class-wc-calypso-task-appearance.php:50
-#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:50
-#: src/task-headers/products.js:46
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
 msgid "2 minutes"
 msgstr "2 minuten"
 
@@ -604,8 +275,6 @@ msgstr "Domein"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: src/launch-store/index.js:322 src/task-headers/add-domain.js:31
-#: src/task-headers/add-domain.js:44
 msgid "Add a domain"
 msgstr "Een domein toevoegen"
 
@@ -625,7 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: src/introductory-offer-banner/index.js:87
 msgid "Upgrade now"
 msgstr "Upgrade nu"
 
@@ -650,11 +318,11 @@ msgstr "contact"
 msgid "Home"
 msgstr "Home"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:61
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
 msgid "This site has already been launched"
 msgstr "Deze website is al gelanceerd"
 
-#: includes/class-wc-calypso-bridge-setup-tasks.php:56
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
 msgid "You don't have permissions to launch this site"
 msgstr "Je hebt geen rechten om deze website te lanceren."
 
@@ -680,78 +348,7 @@ msgstr "Je bestelling kon niet geplaatst worden. Afrekenfuncties zijn momenteel 
 msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
 msgstr "Deze winkel is niet klaar om bestellingen te ontvangen. Afrekenfuncties zijn momenteel alleen ingeschakeld voor voorbeeldweergaven."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
-msgid "Jetpack Stats"
-msgstr "Jetpack Statistieken"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:623
-msgid "Jetpack Status"
-msgstr "Jetpack-status"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:603
-msgid "Anti-Spam"
-msgstr "Anti-spam"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:410
-msgid "Discover"
-msgstr "Ontdek"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-#: src/payment-gateway-suggestions/components/Action.js:76
-msgid "Manage"
-msgstr "Beheren"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:402
-msgid "WooCommerce Subscriptions"
-msgstr "WooCommerce Subscriptions"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:399
-msgid "Extensions"
-msgstr "Uitbreidingen"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:395
-msgid "Customers"
-msgstr "Klanten"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:385
-msgid "Legacy Reports"
-msgstr "Legacy verslagen"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:378
-msgid "WooCommerce Status"
-msgstr "WooCommerce-status"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
-msgid "WooCommerce Settings"
-msgstr "WooCommerce-instellingen"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:124
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:125
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:130
-msgid "Orders"
-msgstr "Bestellingen"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:229
-msgid "My Home"
-msgstr "Mijn startpagina"
-
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:99
-msgid "Feedback"
-msgstr "Feedback"
-
-#: src/payment-gateway-suggestions/components/WCPay/Modal.js:126
-#: src/payment-gateway-suggestions/components/WCPay/UsageModal.js:55
-msgid "No thanks"
-msgstr "Nee, liever niet"
-
-#: src/payment-gateway-suggestions/components/Action.js:27
-#: src/payment-gateway-suggestions/components/Setup/Configure.js:159
-#: src/payment-gateway-suggestions/components/WCPay/Suggestion.js:134
-#: src/welcome-modal/index.js:59
-msgid "Get started"
-msgstr "Aan de slag"
-
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:198
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
 msgid "Navigation"
 msgstr "Navigatie"
 
@@ -800,7 +397,6 @@ msgstr "Bestelgegevens handmatig naar klant verzonden."
 msgid "Invalid order ID."
 msgstr "Ongeldige bestellings-ID."
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:374
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
 msgstr "WooCommerce"
@@ -923,33 +519,16 @@ msgstr "Dit is je homepage en is voor veel van de bezoekers aan je winkel het ee
 msgid "Welcome"
 msgstr "Welkom"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:45
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:126
-msgid "Add New"
-msgstr "Nieuwe toevoegen"
-
 #: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
 msgid "Store"
 msgstr "Winkel"
 
-#: includes/class-wc-calypso-bridge-ecommerce-admin-menu.php:627
-msgid "Stats"
-msgstr "Statistieken"
-
-#: src/free-trial/tax/components/location.js:23
-msgid "Continue"
-msgstr "Doorgaan"
-
-#: src/homescreen-banner/index.js:57
-msgid "Learn more"
-msgstr "Meer informatie."
-
-#: includes/class-wc-calypso-bridge-addons.php:88
+#: includes/class-wc-calypso-bridge-addons.php:99
 msgid "WooCommerce extensions"
 msgstr "WooCommerce-extensies"
 
 #. translators: %s: extensions count
-#: includes/class-wc-calypso-bridge-addons.php:87
+#: includes/class-wc-calypso-bridge-addons.php:91
 msgid "Extensions %s"
 msgstr "Extensies %s"
 
@@ -958,10 +537,10 @@ msgstr "Extensies %s"
 msgid "Powered by %1$s"
 msgstr "Gerealiseerd door %1$s"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "Built with Storefront &amp; WordPress.com"
 msgstr "Gecreëerd met Storefront en WordPress.com"
 
-#: includes/class-wc-calypso-bridge-themes-setup.php:129
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
 msgid "WordPress.com - The Best eCommerce Platform for WordPress"
 msgstr "WordPress.com - Het beste eCommerce-platform voor WordPress"

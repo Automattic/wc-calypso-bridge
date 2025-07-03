@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 2.3.12
+ * @version 2.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -40,12 +40,6 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * Constructor.
 	 */
 	public function __construct() {
-
-		// Only in Ecommerce and Woo Express plans.
-		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
-			return;
-		}
-
 		add_action( 'plugins_loaded', array( $this, 'initialize' ), 2 );
 	}
 
@@ -53,10 +47,15 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * Initialize.
 	 */
 	public function initialize() {
+		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
+
+		// The rest applies only to Entrepreneur and Woo Express plans.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
 
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 		add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
-		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
 
 		/*
 		 * Hide the features under 'Advanced > Features' but let users disable our commerce-optimized menu.
@@ -141,15 +140,14 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * @return array
 	 */
 	public function filter_woocommerce_admin_features( $features ) {
+		// The rest applies only to Entrepreneur and Woo Express plans.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return $features;
+		}
 
 		// Disable and revert the navigation experiment.
 		if ( isset( $features['navigation'] ) ) {
 			$features['navigation'] = false;
-		}
-
-		// Disable launch-your-store to prevent clashes with similar functionality already provided.
-		if ( isset( $features['launch-your-store'] ) ) {
-			$features['launch-your-store'] = false;
 		}
 
 		// Keep Woo Analytics enabled.

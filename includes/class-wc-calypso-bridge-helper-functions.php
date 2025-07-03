@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version 1.9.8
+ * @version 2.8.4
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -227,6 +227,34 @@ class WC_Calypso_Bridge_Helper_Functions {
 		}
 
 		return $woocommerce_pages;
+	}
+
+	/**
+	 * Outputs CSS and JS to hide WPCOM UI elements.
+	 *
+	 * @since 2.8.4
+	 *
+	 * @return void
+	 */
+	public static function echo_admin_bar_hide() {
+		echo '
+			<style type="text/css">
+				#wpadminbar,
+				#wpcom-gifting-banner,
+				#wpcom-launch-banner-wrapper,
+				#atomic-proxy-bar,
+				#free-trial-plan-picker-banner { display: none !important; }
+				.woocommerce-store-notice { display: none !important; }
+				html { margin-top: 0 !important; }
+			</style>';
+			echo '
+			<script type="text/javascript">
+			( function() {
+				document.addEventListener( "DOMContentLoaded", function() {
+					document.documentElement.style.setProperty( "margin-top", "0px", "important" );
+				} );
+			} )();
+			</script>';
 	}
 
 }
