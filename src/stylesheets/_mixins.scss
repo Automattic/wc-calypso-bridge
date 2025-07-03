@@ -1,0 +1,68 @@
+@import './variables';
+
+// @todo refactor breakpoints so they use the mixins from Gutenberg
+// https://github.com/WordPress/gutenberg/blob/master/packages/base-styles/_mixins.scss
+@mixin breakpoint( $sizes... ) {
+	@each $size in $sizes {
+		@if type-of( $size ) == string {
+			$approved-value: 0;
+			@each $breakpoint in $breakpoints {
+				$and-larger: '>' + $breakpoint;
+				$and-smaller: '<' + $breakpoint;
+
+				@if $size == $and-smaller {
+					$approved-value: 1;
+					@media ( max-width: $breakpoint ) {
+						@content;
+					}
+				} @else {
+					@if $size == $and-larger {
+						$approved-value: 2;
+						@media ( min-width: $breakpoint + 1 ) {
+							@content;
+						}
+					} @else {
+						@each $breakpoint-end in $breakpoints {
+							$range: $breakpoint + '-' + $breakpoint-end;
+							@if $size == $range {
+								$approved-value: 3;
+								@media ( min-width: $breakpoint + 1 ) and ( max-width: $breakpoint-end ) {
+									@content;
+								}
+							}
+						}
+					}
+				}
+			}
+			@if $approved-value == 0 {
+				$sizes: '';
+				@each $breakpoint in $breakpoints {
+					$sizes: $sizes + ' ' + $breakpoint;
+				}
+				@warn "ERROR in breakpoint(#{ $size }) : You can only use these sizes[ #{$sizes} ] using the following syntax [ <#{ nth($breakpoints, 1) } >#{ nth($breakpoints, 1) } #{ nth($breakpoints, 1) }-#{ nth($breakpoints, 2) } ]";
+			}
+		} @else {
+			$sizes: '';
+			@each $breakpoint in $breakpoints {
+				$sizes: $sizes + ' ' + $breakpoint;
+			}
+			@error "ERROR in breakpoint(#{ $size }) : Please wrap the breakpoint $size in parenthesis. You can use these sizes[ #{$sizes} ] using the following syntax [ <#{ nth($breakpoints, 1) } >#{ nth($breakpoints, 1) } #{ nth($breakpoints, 1) }-#{ nth($breakpoints, 2) } ]";
+		}
+	}
+}
+
+// Adds animation to placeholder section
+@mixin placeholder( $lighten-percentage: 30% ) {
+	animation: loading-fade 1.6s ease-in-out infinite;
+	background-color: $gray-100;
+	color: transparent;
+
+	&::after {
+		content: '\00a0';
+	}
+
+	@media screen and ( prefers-reduced-motion: reduce ) {
+		animation: none;
+	}
+}
+	

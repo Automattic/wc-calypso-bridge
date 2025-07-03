@@ -1,0 +1,39 @@
+#free-trial-plan-picker-banner {
+	background-color: #c9356e;
+	color: #ffffff;
+	font-size: 0.8125em;
+	position: sticky;
+	z-index: 99999;
+	padding: 5px;
+	text-align: center;
+	top: calc( var( --wp-admin--admin-bar--height, 0px ) ) !important;
+}
+
+#free-trial-plan-picker-banner a {
+	color: #ffffff !important;
+	text-decoration: underline;
+}
+
+/**
+* Store notice can be at the top or bottom depending on the activated theme.
+* Force it to be at the bottom all the time to place the free trial banner at the top.
+*/
+body.has-free-trial-plan-picker .woocommerce-store-notice {
+	top: auto !important;
+}
+
+@media screen and (max-width: 782px) {
+	html {
+		--wp-admin--admin-bar--height: 46px !important;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#free-trial-plan-picker-banner {
+		position: inherit;
+	}
+}
+
+body.hide-free-trial-plan-picker #free-trial-plan-picker-banner {
+	display: none;
+}

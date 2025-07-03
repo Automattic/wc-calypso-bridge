@@ -30,7 +30,8 @@ function wc_calypso_bridge_jetpack_sync_sender_should_load( $sender_should_load 
 	$trigger_strings = array( '/wp-json/wc/v', '/?rest_route=%2Fwc%2Fv' );
 
 	foreach( $trigger_strings as $trigger_string ) {
-		if ( false !== strpos( $_SERVER[ 'REQUEST_URI' ], $trigger_string ) ) {
+        $request_uri = isset( $_SERVER[ 'REQUEST_URI' ] ) ? sanitize_text_field( wp_unslash( $_SERVER[ 'REQUEST_URI' ] ) ) : '';
+		if ( false !== strpos( $request_uri, $trigger_string ) ) {
 			$sender_should_load = false;
 			break;
 		}

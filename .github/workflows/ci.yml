@@ -1,0 +1,77 @@
+name: Pull Request CI
+
+on:
+  pull_request:
+      branches:
+        - master
+      types:
+        - synchronize
+        - opened
+        - reopened
+        - ready_for_review
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+
+    php-coding-standards:
+        if: ${{ !startsWith(github.head_ref, 'release/') }}
+        # if: github.event.pull_request.draft == false
+        name: PHP
+        uses: ./.github/workflows/check-coding-standards.yml
+
+    setup:
+        name: NodeJS
+        needs: php-coding-standards
+        uses: ./.github/workflows/setup-node.yml
+
+    # linting-tests:
+    #     name: Linting
+    #     needs: setup
+    #     uses: ./.github/workflows/run-linting.yml
+
+    bundle_size:
+        name: Package Size
+        needs: setup
+        uses: ./.github/workflows/check-bundle-size.yml
+
+    # handle-success:
+    #     if: ${{ success() }}
+    #     needs: e2e-tests
+    #     name: Handle success
+    #     runs-on: ubuntu-18.04
+    #     env:
+    #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    #     steps:
+    #       - uses: act10ns/slack@v1
+    #         with:
+    #             status: success
+    #             message: "Workflow <{{workflowUrl}}|{{workflow}}> with run ID <{{workflowRunUrl}}|{{runId}}> in PR <{{refUrl}}|{{ref}}> passed."
+
+    # handle-cancelled:
+    #     if: ${{ cancelled() }}
+    #     needs: e2e-tests
+    #     name: Handle cancellation
+    #     runs-on: ubuntu-18.04
+    #     env:
+    #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    #     steps:
+    #       - uses: act10ns/slack@v1
+    #         with:
+    #             status: cancelled
+    #             message: "Workflow <{{workflowUrl}}|{{workflow}}> with run ID <{{workflowRunUrl}}|{{runId}}> in PR <{{refUrl}}|{{ref}}> cancelled."
+
+    # handle-error:
+    #     if: ${{ failure() }}
+    #     needs: e2e-tests
+    #     name: Handle failure
+    #     runs-on: ubuntu-18.04
+    #     env:
+    #       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    #     steps:
+    #       - uses: act10ns/slack@v1
+    #         with:
+    #             status: failure
+    #             message: "Workflow <{{workflowUrl}}|{{workflow}}> with run ID <{{workflowRunUrl}}|{{runId}}> in PR <{{refUrl}}|{{ref}}> failed."

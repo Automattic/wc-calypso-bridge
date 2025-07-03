@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.0
- * @version 1.9.9
+ * @version 2.3.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -33,24 +33,63 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	}
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 */
 	private function __construct() {
-		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
+		// Includes.
+		require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/data/class-wc-calypso-bridge-admin-note-data-store.php';
+
+		// Hooks. Init is called on priority 1 to ensure it runs before other init hooks.
+		add_action( 'init', array( $this, 'init' ), 1 );
+	}
+
+	/**
+	 * Initialize.
+	 */
+	public function init() {
+
+		// Override Admin Notes datastore to implement performant allow/suppress-listing.
+		add_filter( 'woocommerce_data_stores', array( $this, 'filter_notes_data_store' ), 100 );
+
+		if ( ! is_admin() ) {
+			return;
+		}
+
 		add_action( 'admin_head', array( $this, 'hide_alerts_on_non_settings_pages' ) );
 		add_filter( 'woocommerce_helper_suppress_connect_notice', '__return_true' );
 		add_filter( 'woocommerce_show_admin_notice', '__return_false' );
 		add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
 
+		add_action( 'admin_head', array( $this, 'suppress_admin_notices' ) );
 		add_action( 'load-index.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
 		add_action( 'load-plugins.php', array( $this, 'maybe_remove_somewherewarm_maintenance_notices' ) );
+	}
+
+	/**
+	 * Overrides Notes data store.
+	 *
+	 * @since 2.2.20
+	 *
+	 * @param array $data_stores List of data stores.
+	 * @return array
+	 */
+	public static function filter_notes_data_store( $data_stores ) {
+		$data_stores['admin-note'] = 'WC_Calypso_Bridge_Admin_Note_Data_Store';
+
+		return $data_stores;
 	}
 
 	/**
 	 * Prevents some alerts like the Apple Pay alert and Akismet from being shown on pages besides settings pages / core wp-admin pages.
 	 */
 	public function hide_alerts_on_non_settings_pages() {
-		if ( is_wc_calypso_bridge_page() && ( empty( $_GET['page'] ) || 'wc-settings' !== $_GET['page'] ) ) {
+		if ( empty( $_GET['page'] ) || 'wc-settings' !== $_GET['page'] ) {
 			WC_Calypso_Bridge_Helper_Functions::remove_class_action( 'admin_notices', 'WC_Stripe_Apple_Pay_Registration', 'admin_notices', 10 );
 			remove_action( 'admin_notices', array( 'Akismet_Admin', 'display_notice' ) );
 		}
@@ -153,36 +192,32 @@ class WC_Calypso_Bridge_Hide_Alerts {
 	 * Filters out the `welcome` notice from the list of notices to be displayed.
 	 *
 	 * It's specifically hooked on `load-index.php` and `load-plugins.php`
-	 * as both PB and GC display notices only on these pages.
+	 * as all plugins display notices only on these pages.
 	 *
 	 * @since 1.9.4
 	 * @return void
 	 */
 	public function maybe_remove_somewherewarm_maintenance_notices() {
 
-		// Gift Cards.
-		if ( class_exists( 'WC_GC_Admin_Notices' ) && WC_GC_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_GC_Admin_Notices::$maintenance_notices = array_filter( WC_GC_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
-		}
+		$classes = array(
+			'WC_GC_Admin_Notices', // Gift Cards.
+			'WC_PB_Admin_Notices', // Product Bundles.
+			'WC_BIS_Admin_Notices', // Back In Stock.
+			'WC_PRL_Admin_Notices', // Product Recommendations.
+		);
 
-		// Product Bundles.
-		if ( class_exists( 'WC_PB_Admin_Notices' ) && WC_PB_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_PB_Admin_Notices::$maintenance_notices = array_filter( WC_PB_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
-		}
+		foreach ( $classes as $class ) {
 
-		// Back In Stock.
-		if ( class_exists( 'WC_BIS_Admin_Notices' ) && WC_BIS_Admin_Notices::is_maintenance_notice_visible( 'welcome' ) ) {
-			WC_BIS_Admin_Notices::$maintenance_notices = array_filter( WC_BIS_Admin_Notices::$maintenance_notices, static function ( $element ) {
-				return 'welcome' !== $element;
-			} );
+			if ( class_exists( $class ) && $class::is_maintenance_notice_visible( 'welcome' ) ) {
+				$class::$maintenance_notices = array_filter( $class::$maintenance_notices, static function ( $element ) {
+					return 'welcome' !== $element;
+				} );
+			}
+
 		}
 
 	}
 
 }
 
-$wc_calypso_bridge_hide_alerts = WC_Calypso_Bridge_Hide_Alerts::get_instance();
+WC_Calypso_Bridge_Hide_Alerts::get_instance();

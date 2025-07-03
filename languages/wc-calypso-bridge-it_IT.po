@@ -1,0 +1,546 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-07-03T15:56:33+00:00\n"
+"PO-Revision-Date: 2025-03-19 13:54:02+0000\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:183
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "Vuoi lanciare il tuo sito? Visita <a href=\"%s\">questo link</a> per iniziare."
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:150
+msgid "There was a problem trying to update site visibility."
+msgstr "Si è verificato un problema nell'aggiornamento della visibilità del sito."
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "Configura i pagamenti con Stripe per accettare pagamenti con carta di credito nel tuo negozio. Dovrai avere un conto Stripe per iniziare"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "Ricevi pagamenti con Stripe"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr "Configura i pagamenti con PayPal per accettare pagamenti con carta di credito nel tuo negozio. Dovrai avere un conto PayPal per iniziare"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr "Ricevi pagamenti con PayPal"
+
+#. translators: %s: trial plan name, e.g. Entrepreneur
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
+msgid "Your %s free trial has just started"
+msgstr "La prova gratuita di %s è appena iniziata"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
+msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
+msgstr "Configura i pagamenti con Square per accettare pagamenti con carta di credito nel tuo negozio. Dovrai avere un conto Square per iniziare"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
+msgid "Get paid with Square"
+msgstr "Ricevi pagamenti tramite Square"
+
+#: includes/class-wc-calypso-bridge-setup.php:424
+msgid "News"
+msgstr "Notizie"
+
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
+msgid "Create your first product"
+msgstr "Crea il tuo primo prodotto"
+
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
+msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
+msgstr "Ti diamo il benvenuto nella prova gratuita di 14 giorni del piano %s: tutto ciò di cui hai bisogno per avviare e far crescere un'attività di successo online, tutto in un unico posto. Il viaggio verso la tua prima vendita è appena iniziato. Tutto pronto per iniziare a esplorare?"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
+msgid "Choose a domain"
+msgstr "Scegli un dominio"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:138
+msgid "Ready to make that perfect domain yours?"
+msgstr "Vuoi un dominio perfetto?"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:136
+msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
+msgstr "Un nome di dominio breve e facile da ricordare è importantissimo. Permette ai tuoi clienti di trovarti più facilmente online, rafforza l'identità del tuo brand e genera fiducia."
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:134
+msgid "Pick a domain for your new store"
+msgstr "Scegli un dominio per il tuo nuovo negozio"
+
+#: includes/class-wc-calypso-bridge-plugins.php:181
+msgid "WooCommerce cannot be deactivated on this plan."
+msgstr "Impossibile disattivare WooCommerce su questo piano."
+
+#: includes/class-wc-calypso-bridge-setup.php:324
+msgctxt "Page slug"
+msgid "refund_returns"
+msgstr "rimborso_reso"
+
+#: includes/class-wc-calypso-bridge-setup.php:323
+msgctxt "Page slug"
+msgid "my-account"
+msgstr "mio-account"
+
+#: includes/class-wc-calypso-bridge-setup.php:322
+msgctxt "Page slug"
+msgid "checkout"
+msgstr "pagamento"
+
+#: includes/class-wc-calypso-bridge-setup.php:321
+msgctxt "Page slug"
+msgid "cart"
+msgstr "carrello"
+
+#: includes/class-wc-calypso-bridge-setup.php:320
+msgctxt "Page slug"
+msgid "shop"
+msgstr "negozio"
+
+#: includes/class-wc-calypso-bridge-fse.php:52
+msgctxt "Template name"
+msgid "Blog Home"
+msgstr "Home del blog"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:172
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "Stai utilizzando una prova gratuita. Per ottenere l'accesso all'intera gamma di funzionalità, <a href=\"%s\">effettua l'aggiornamento a un piano a pagamento.</a>"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:27
+msgid "Browse Extensions"
+msgstr "Sfoglia le estensioni"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:95
+msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
+msgstr "Aggiungi i tuoi prodotti. Mostra i tuoi prodotti o servizi e preparati a vendere: aggiungi informazioni, immagini e descrizioni del prodotto."
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:89
+msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
+msgstr "Importa i tuoi prodotti. Mostra i tuoi prodotti o servizi e preparati a vendere: importa le informazioni, le immagini e le descrizioni del prodotto esistente."
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:79
+msgid "Add products"
+msgstr "Aggiungi prodotti"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:76
+msgid "Import products"
+msgstr "Importa prodotti"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:66
+msgid "Add your products"
+msgstr "Aggiungi i tuoi prodotti"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:63
+msgid "Import your products"
+msgstr "Importa i tuoi prodotti"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:59
+msgid "Choose theme"
+msgstr "Scegli un tema"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:38
+msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
+msgstr "Scegli un tema che meglio si adatta all'aspetto del tuo marchio e rendilo unico. Cambia i colori, aggiungi il tuo logo e crea pagine."
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:29
+msgid "Choose your theme"
+msgstr "Scegli il tuo tema"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
+msgid "Plugins"
+msgstr "Plugin"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
+msgid "Restore"
+msgstr "Ripristino"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+msgid "\"Things to do next\""
+msgstr "\"Prossimi passaggi\""
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+msgid "Setup task list"
+msgstr "Configura elenco delle attività"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+msgid "Restore the visibility of the \"Things to do next\" Task List."
+msgstr "Ripristina la visibilità dell'elenco delle attività \"Prossimi passaggi\"."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+msgid "Restore the visibility of the primary onboarding Task List."
+msgstr "Ripristina la visibilità dell'elenco delle attività di avviamento principali."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
+msgstr "Usa queste opzioni per ripristinare la visibilità dell'elenco delle attività di avviamento nella home di WooCommerce."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
+msgid "Onboarding"
+msgstr "Avviamento"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
+msgid "A custom navigation experience that is optimized for selling."
+msgstr "Un'esperienza di navigazione personalizzata ottimizzata per la vendita."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:77
+msgid "Tips, tricks, and ecommerce inspiration from our blog."
+msgstr "Suggerimenti, trucchi e ispirazioni per l'e-commerce dal nostro blog."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:75
+#: includes/templates/html-admin-page-addons-landing-page.php:79
+msgid "Get inspired"
+msgstr "Lasciati ispirare"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:65
+msgid "Discover collections"
+msgstr "Scopri le raccolte"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:63
+msgid "Quickly get started with our curated extension collections."
+msgstr "Muovi rapidamente i primi passi con le nostre raccolte di estensioni selezionate."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:61
+msgid "Curated collections"
+msgstr "Raccolte selezionate"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:49
+msgid "Add extra features and functionality, or integrate with other platforms and tools."
+msgstr "Aggiungi caratteristiche e funzionalità extra o integra con altre piattaforme e strumenti."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:47
+msgid "Customize and extend"
+msgstr "Personalizza ed estendi"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:51
+msgid "Browse extensions"
+msgstr "Sfoglia le estensioni"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:19
+msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
+msgstr "Personalizza il tuo negozio in modo che funzioni perfettamente per la tua attività, grazie alle estensioni WooCommerce. Effettua l'aggiornamento a un piano a pagamento per accedere a centinaia di strumenti e funzionalità che possono aiutarti a raggiungere i tuoi obiettivi. Vuoi conoscere le opzioni disponibili? Sfoglia il nostro marketplace delle estensioni."
+
+#: includes/templates/html-admin-page-addons-landing-page.php:15
+#: includes/templates/html-admin-page-addons-landing-page.php:32
+#: includes/templates/html-admin-page-addons-landing-page.php:35
+msgid "Take your store to the next level, with extensions"
+msgstr "Porta il tuo negozio al livello successivo grazie alle estensioni"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:59
+msgid "1 minute"
+msgstr "1 minuto"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:47
+msgid "It's time to celebrate! Ready to launch your store?"
+msgstr "È tempo di festeggiare. Tutto pronto per lanciare il tuo negozio?"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:35
+#: includes/tasks/class-wc-calypso-task-launch-site.php:38
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68
+msgid "Launch your store"
+msgstr "Lancia il tuo negozio"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:32
+msgid "You've already launched your store"
+msgstr "Hai già lanciato il tuo negozio"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:59
+#: includes/tasks/class-wc-calypso-task-appearance.php:50
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
+msgid "2 minutes"
+msgstr "2 minuti"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:47
+msgid "Add your domain name and make your store unique."
+msgstr "Aggiungi il nome di dominio e rendi unico il tuo negozio."
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:38
+msgid "Domain"
+msgstr "Dominio"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:35
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94
+msgid "Add a domain"
+msgstr "Aggiungi un dominio"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:32
+msgid "You added your domain"
+msgstr "Hai aggiunto il tuo dominio"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:77
+msgid ""
+"\n"
+"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.\n"
+"\t\t"
+msgstr ""
+"\n"
+"\t\t\tAl momento sei l'unica persona che può vedere il tuo negozio. Affinché il tuo negozio sia disponibile per tutti, effettua <a href='%s' id='banner_button'>l'aggiornamento a un piano a pagamento</a>.\n"
+"\t\t"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
+#: includes/templates/html-admin-page-addons-landing-page.php:24
+msgid "Upgrade now"
+msgstr "Migliora il tuo sito"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:45
+msgid "During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling."
+msgstr "Durante il periodo di prova puoi effettuare solo ordini di prova. Per ricevere ordini dai clienti, passa a un piano a pagamento e tutto sarà pronto per iniziare a vendere."
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:43
+msgid "Start selling to everyone"
+msgstr "Inizia a vendere al pubblico"
+
+#: includes/class-wc-calypso-bridge-setup.php:422
+msgid "My Account"
+msgstr "Il mio account"
+
+#: includes/class-wc-calypso-bridge-setup.php:420
+msgid "Contact"
+msgstr "Contatt"
+
+#: includes/class-wc-calypso-bridge-fse.php:53
+#: includes/class-wc-calypso-bridge-setup.php:411
+msgid "Home"
+msgstr "Home"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
+msgid "This site has already been launched"
+msgstr "Questo sito è pronto per essere lanciato"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
+msgid "You don't have permissions to launch this site"
+msgstr "Non disponi delle autorizzazioni per lanciare il sito"
+
+#. translators: %s is the plans URL
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:371
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "Solo gli amministratori e i responsabili del negozio possono effettuare ordini durante il periodo di prova. Se tutto è pronto per accettare i pagamenti dai clienti, <a href=\"%s\">effettua l'aggiornamento a un piano a pagamento</a>."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:297
+msgid "There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order."
+msgstr "Non sono disponibili metodi di pagamento. Potrebbe essere un nostro errore. Contattaci se hai bisogno di aiuto per effettuare l'ordine."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:283
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:315
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:322
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:330
+msgid "Your order could not be placed. Checkout functionality is currently enabled for preview purposes only."
+msgstr "Non è stato possibile effettuare l'ordine. La funzionalità di pagamento è attualmente abilitata solo a scopo di anteprima."
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:271
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:298
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:340
+msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
+msgstr "Il negozio non è pronto ad accettare ordini. La funzionalità di pagamento è attualmente abilitata solo a scopo di anteprima."
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
+msgid "Navigation"
+msgstr "Navigazione"
+
+#. Author of the plugin
+#: wc-calypso-bridge.php
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+#: wc-calypso-bridge.php
+msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
+msgstr "Un plugin che aggiunge una funzionalità di potenziamento della UX degli utenti del Negozio su WordPress.com."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: wc-calypso-bridge.php
+msgid "https://wordpress.com/"
+msgstr "https://wordpress.com/"
+
+#. Plugin Name of the plugin
+#: wc-calypso-bridge.php
+msgid "WooCommerce Calypso Bridge"
+msgstr "WooCommerce Calypso Bridge"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:16
+msgid "Make your check payable to..."
+msgstr "Rendi i tuoi assegni pagabili a..."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:15
+msgid "Pay for this order by check."
+msgstr "Paga per questo ordine tramite assegno."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-add-bacs-accounts.php:92
+msgid "An invalid setting value was passed."
+msgstr "È stato approvato un valore delle impostazioni non valido."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:118
+msgid "Cannot create order note, please try again."
+msgstr "Impossibile creare nota dell'ordine, riprova."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:116
+msgid "Order details manually sent to customer."
+msgstr "Dettagli dell'ordine inviati manualmente al cliente."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:107
+msgid "Invalid order ID."
+msgstr "ID ordine non valido"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:70
+msgid "Sorry, you cannot view this resource."
+msgstr "Siamo spiacenti, non puoi visualizzare questa risorsa."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:374
+msgid "Featured image for the product."
+msgstr "Immagine in primo piano per il prodotto."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:368
+msgid "Name of the product."
+msgstr "Nome del prodotto."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:362
+msgid "ID of the product."
+msgstr "ID del prodotto."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:356
+msgid "Basic information on the product that the review is for."
+msgstr "Informazioni di base sul prodotto al quale si riferisce la recensione."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:349
+msgid "Status of the review"
+msgstr "Stato della recensione"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:343
+msgid "Shows if the reviewer bought the product or not."
+msgstr "Mostra se l'autore della recensione ha acquistato il prodotto o no."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:338
+msgid "URLs for the reviewer's avatar."
+msgstr "URL per l'avatar dell'autore della recensione."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:333
+msgid "Reviewer email."
+msgstr "E-mail dell'autore della recensione."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:328
+msgid "Reviewer name."
+msgstr "Nome dell'autore della recensione."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:323
+msgid "Review rating (0 to 5)."
+msgstr "Valutazione della recensione (da 0 a 5)."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:318
+msgid "The date the review was created, as GMT."
+msgstr "La data di creazione della recensione, secondo il GMT."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:313
+msgid "The date the review was created, in the site's timezone."
+msgstr "La data di creazione della recensione, nel fuso orario del sito."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:308
+msgid "The content of the review."
+msgstr "Il contenuto della recensione."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:302
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:49
+msgid "Unique identifier for the resource."
+msgstr "Identificatore univoco per la risorsa."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:281
+msgid "Limit results to those matching a string."
+msgstr "Limita la serie di risultati a quelli contententi una stringa."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:274
+msgid "Limit result set to reviews assigned a specific product."
+msgstr "Limita l'insieme dei risultati alle recensioni assegnate a un prodotto specifico."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:266
+msgid "Order sort attribute ascending or descending."
+msgstr "Attributo per l'ordinamento ascendente o discendente."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:256
+msgid "Maximum number of items to be returned in result set."
+msgstr "Numero massimo dei risultati da restituire nella serie dei risultati."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:247
+msgid "Current page of the collection."
+msgstr "Pagina corrente dell'elenco."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:240
+msgid "Limit result set to reviews with a specific status."
+msgstr "Limita l'insieme dei risultati alle recensioni con uno stato specifico."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-mailchimp-settings-controller.php:111
+msgid "Sorry, you cannot edit this resource."
+msgstr "Siamo spiacenti, non puoi modificare questa risorsa."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+msgid "Collection of review totals by comment status."
+msgstr "Raccolta di recensioni totali per stato del commento."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+msgid "Collection of product totals by stock status."
+msgstr "Raccolta di prodotti totali per stato della disponibilità."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+msgid "Collection of order totals by order status."
+msgstr "Raccolta di ordini totali per stato dell'ordine."
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:60
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:63
+msgid "Sorry, you cannot list resources."
+msgstr "Spiacente, non puoi elencare le risorse."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "You can change this text by editing the \"Parallax Hero\" Section via the \"Powerpack\" settings in the Customizer on the left hand side of your screen."
+msgstr "Puoi modificare questo testo modificando la sezione \"Parallax Hero\" tramite le impostazioni \"Powerpack\" nell'Utilità di personalizzazione sul lato sinistro dello schermo."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "This is your homepage which is what most visitors will see when they first visit your shop."
+msgstr "Questa è la tua homepage, elemento che sarà visto dalla maggior parte dei visitatori quando visiteranno per la prima volta il tuo negozio."
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:96
+msgid "Welcome"
+msgstr "Benvenuto"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
+msgid "Store"
+msgstr "Negozio"
+
+#: includes/class-wc-calypso-bridge-addons.php:99
+msgid "WooCommerce extensions"
+msgstr "Estensioni WooCommerce"
+
+#. translators: %s: extensions count
+#: includes/class-wc-calypso-bridge-addons.php:91
+msgid "Extensions %s"
+msgstr "Estensioni %s"
+
+#. translators: %1$s is replaced with a link to WooCommerce.com
+#: includes/class-wc-calypso-bridge-footer-credits.php:66
+msgid "Powered by %1$s"
+msgstr "Con tecnologia %1$s"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
+msgid "Built with Storefront &amp; WordPress.com"
+msgstr "Realizzazione effettuata con Storefront e WordPress.com"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
+msgid "WordPress.com - The Best eCommerce Platform for WordPress"
+msgstr "WordPress.com - La migliore piattaforma di eCommerce per WordPress"

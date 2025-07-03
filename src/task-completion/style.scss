@@ -1,0 +1,35 @@
+$ces-feedback-height: 64px;
+
+.wooocommerce-task-card__header .wooocommerce-task-card__header-subtitle {
+	color: #757575;
+	margin-bottom: 24px;
+	max-width: 480px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wooocommerce-task-card__finished-header-image {
+	max-width: 75%;
+}
+
+.customer-feedback-simple__container {
+	height: $ces-feedback-height;
+}
+
+.woocommerce-task-card__header-menu {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.wooocommerce-task-card__header-ces-feedback {
+	height: $ces-feedback-height;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.woocommerce-homescreen-card.completed .wooocommerce-task-card__header {
+	padding-top: 32px;
+	padding-bottom: 8px;
+}

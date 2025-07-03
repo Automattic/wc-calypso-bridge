@@ -1,17 +1,19 @@
 export default ( storageId, defaultValue = null ) => {
-	const errorWrapper = ( fn ) => ( ...args ) => {
-		try {
-			return fn( ...args );
-		} catch ( e ) {
-			/* eslint-disable no-console */
-			console.warn(
-				`Error encountered when attempting to use localStorage: `,
-				e.message
-			);
+	const errorWrapper =
+		( fn ) =>
+		( ...args ) => {
+			try {
+				return fn( ...args );
+			} catch ( e ) {
+				/* eslint-disable no-console */
+				console.warn(
+					`Error encountered when attempting to use localStorage: `,
+					e.message
+				);
 
-			return null;
-		}
-	};
+				return null;
+			}
+		};
 
 	const storage = {
 		set: errorWrapper( ( query ) => {

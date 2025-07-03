@@ -3,6 +3,8 @@
  * Prevents Crowdsignal Forms plugin from doing a redirect.
  *
  * @package WC_Calypso_Bridge/Classes
+ * @since   1.0.0
+ * @version 2.1.9
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -33,23 +35,23 @@ class WC_Calypso_Bridge_Crowdsignal_Redirect {
 	 * Constructor
 	 */
 	private function __construct() {
-		add_action( 'admin_init', array( $this, 'add_crowdsignal_redirect_filter' ) );
+
+		// Only Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
+		add_action( 'admin_init', array( $this, 'disable_crowdsignal_redirect' ), 9 );
 	}
 
 	/**
-	 * Hook into add_option to disable the redirect.
-	 */
-	public function add_crowdsignal_redirect_filter() {
-		add_action( 'add_option_crowdsignal_forms_do_activation_redirect', array( $this, 'disable_crowdsignal_redirect' ) );
-	}
-
-	/**
-	 * When the option to redirect is added, delete the option.
+	 * Prevent redirection, by deleting the option earlier than Crowdsignal Forms runs their activate_redirect.
 	 */
 	public function disable_crowdsignal_redirect() {
-		delete_option( 'crowdsignal_forms_do_activation_redirect' );
+		if ( get_option( 'crowdsignal_forms_do_activation_redirect', false ) ) {
+			delete_option( 'crowdsignal_forms_do_activation_redirect' );
+		}
 	}
-
-
 }
-$wc_calypso_bridge_crowdsignal_redirect = WC_Calypso_Bridge_Crowdsignal_Redirect::get_instance();
+
+WC_Calypso_Bridge_Crowdsignal_Redirect::get_instance();

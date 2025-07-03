@@ -1,0 +1,546 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce - Calypso Bridge\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-07-03T15:56:31+00:00\n"
+"PO-Revision-Date: 2025-03-25 09:54:03+0000\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:183
+msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
+msgstr "希望发布您的站点？ 请访问<a href=\"%s\">此链接</a>以开始。"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:150
+msgid "There was a problem trying to update site visibility."
+msgstr "尝试更新站点可见性时遇到问题。"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:38
+msgid "Set up Stripe payments to accept credit card payments in your store. You'll need a Stripe account to get started"
+msgstr "设置 Stripe 付款方式，在您的商店内接受信用卡付款。 您需要一个 Stripe 账户才能开始操作"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:74
+msgid "Get paid with Stripe"
+msgstr "通过 Stripe 收款"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:38
+msgid "Set up PayPal payments to accept credit card payments in your store. You'll need a PayPal account to get started"
+msgstr "设置 PayPal 付款方式，在您的商店内接受信用卡付款。 您需要一个 PayPal 账户才能开始操作"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:76
+msgid "Get paid with PayPal"
+msgstr "通过 PayPal 收款"
+
+#. translators: %s: trial plan name, e.g. Entrepreneur
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:39
+msgid "Your %s free trial has just started"
+msgstr "您的 %s 免费试用才刚刚开始"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:38
+msgid "Set up Square payments to accept credit card payments in your store. You'll need a Square account to get started"
+msgstr "设置 Square 付款方式，在您的商店内接受信用卡付款。 您需要一个 Square 账户才能开始操作"
+
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:29
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:71
+msgid "Get paid with Square"
+msgstr "使用 Square 收款"
+
+#: includes/class-wc-calypso-bridge-setup.php:424
+msgid "News"
+msgstr "新闻"
+
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:56
+msgid "Create your first product"
+msgstr "创建您的首件产品"
+
+#: includes/notes/class-wc-calypso-bridge-free-trial-welcome.php:43
+msgid "Welcome to your 14-day free trial of the %s plan – everything you need to start and grow a successful online business, all in one place. The journey toward your first sale has just begun! Ready to explore?"
+msgstr "欢迎体验 %s 套餐 14 天免费试用，获取一站式启动和扩大可盈利的在线业务所需的一切。 您的首次销售之旅才刚刚开启！ 准备好探索了吗？"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:146
+msgid "Choose a domain"
+msgstr "选择域"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:138
+msgid "Ready to make that perfect domain yours?"
+msgstr "准备好拥有这个完美域名了吗？"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:136
+msgid "A short, easy-to-remember domain name is a must-have for your store. It makes it simpler for customers to find you online, reinforces your brand identity, and helps establish trust."
+msgstr "您的商店必须具有一个简短、易记的域名。 这样的域名会让客户更容易在网上找到您的商店，能提升您的品牌形象并有助于构建信任。"
+
+#: includes/notes/class-wc-calypso-bridge-choose-domain.php:134
+msgid "Pick a domain for your new store"
+msgstr "为您的新商店挑选一个域名"
+
+#: includes/class-wc-calypso-bridge-plugins.php:181
+msgid "WooCommerce cannot be deactivated on this plan."
+msgstr "无法在此套餐中停用 WooCommerce。"
+
+#: includes/class-wc-calypso-bridge-setup.php:324
+msgctxt "Page slug"
+msgid "refund_returns"
+msgstr "refund_returns"
+
+#: includes/class-wc-calypso-bridge-setup.php:323
+msgctxt "Page slug"
+msgid "my-account"
+msgstr "my-account"
+
+#: includes/class-wc-calypso-bridge-setup.php:322
+msgctxt "Page slug"
+msgid "checkout"
+msgstr "checkout"
+
+#: includes/class-wc-calypso-bridge-setup.php:321
+msgctxt "Page slug"
+msgid "cart"
+msgstr "cart"
+
+#: includes/class-wc-calypso-bridge-setup.php:320
+msgctxt "Page slug"
+msgid "shop"
+msgstr "shop"
+
+#: includes/class-wc-calypso-bridge-fse.php:52
+msgctxt "Template name"
+msgid "Blog Home"
+msgstr "博客首页"
+
+#: includes/class-wc-calypso-bridge-coming-soon.php:172
+msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "您目前正在使用免费试用版！ 若想获取全套功能，请<a href=\"%s\">升级至付费套餐</a>。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:27
+msgid "Browse Extensions"
+msgstr "浏览扩展程序"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:95
+msgid "Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions."
+msgstr "添加产品。 展示您的产品或服务并准备好开始销售 — 添加产品信息、图片和描述。"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:89
+msgid "Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions."
+msgstr "导入产品。 展示您的产品或服务并准备好开始销售 — 导入现有的产品信息、图片和描述。"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:79
+msgid "Add products"
+msgstr "添加产品"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:76
+msgid "Import products"
+msgstr "导入产品"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:66
+msgid "Add your products"
+msgstr "添加产品"
+
+#: includes/tasks/class-wc-calypso-task-headstart-products.php:63
+msgid "Import your products"
+msgstr "导入产品"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:59
+msgid "Choose theme"
+msgstr "选择主题"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:38
+msgid "Choose a theme that best fits your brand's look and feel, then make it your own. Change the colors, add your logo, and create pages."
+msgstr "选择最适合您品牌外观和感觉的主题，然后对其进行自定义。 更改颜色、添加徽标和创建页面。"
+
+#: includes/tasks/class-wc-calypso-task-appearance.php:29
+msgid "Choose your theme"
+msgstr "选择您的主题"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
+msgid "Plugins"
+msgstr "插件"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
+msgid "Restore"
+msgstr "还原"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+msgid "\"Things to do next\""
+msgstr "“待办事项”"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+msgid "Setup task list"
+msgstr "设置任务列表"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+msgid "Restore the visibility of the \"Things to do next\" Task List."
+msgstr "恢复显示“待办事项”任务列表。"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+msgid "Restore the visibility of the primary onboarding Task List."
+msgstr "恢复显示主登录任务列表。"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
+msgstr "使用这些选项可在 WooCommerce 主页中恢复显示登录任务列表。"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
+msgid "Onboarding"
+msgstr "登录"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:197
+msgid "A custom navigation experience that is optimized for selling."
+msgstr "出于销售目的优化的自定义导航体验。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:77
+msgid "Tips, tricks, and ecommerce inspiration from our blog."
+msgstr "来自我们博客的提示、技巧和电子商务灵感。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:75
+#: includes/templates/html-admin-page-addons-landing-page.php:79
+msgid "Get inspired"
+msgstr "受到启发"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:65
+msgid "Discover collections"
+msgstr "探索收藏"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:63
+msgid "Quickly get started with our curated extension collections."
+msgstr "快速开始了解我们精心策划的扩展程序收藏。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:61
+msgid "Curated collections"
+msgstr "精心策划的收藏"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:49
+msgid "Add extra features and functionality, or integrate with other platforms and tools."
+msgstr "添加额外的特性和功能，或与其他平台和工具集成。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:47
+msgid "Customize and extend"
+msgstr "定制和扩展"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:51
+msgid "Browse extensions"
+msgstr "浏览扩展程序"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:19
+msgid "Customize your store to work perfectly for your business, with WooCommerce Extensions. Upgrade to a paid plan to gain access to hundreds of tools and features that can help you achieve your goals. Curious about what’s available? Browse our Extensions Marketplace."
+msgstr "使用 WooCommerce 扩展程序自定义您的商店，使其完美贴合您的业务。 升级至付费套餐，获得数百种工具和功能的使用权限，借此实现目标。 好奇有哪些可用功能？ 浏览我们的扩展程序市场。"
+
+#: includes/templates/html-admin-page-addons-landing-page.php:15
+#: includes/templates/html-admin-page-addons-landing-page.php:32
+#: includes/templates/html-admin-page-addons-landing-page.php:35
+msgid "Take your store to the next level, with extensions"
+msgstr "使用扩展程序让您的商店更上一层楼"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:59
+msgid "1 minute"
+msgstr "1 分钟"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:47
+msgid "It's time to celebrate! Ready to launch your store?"
+msgstr "举杯庆祝吧！ 准备好开启您的商店了吗？"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:35
+#: includes/tasks/class-wc-calypso-task-launch-site.php:38
+#: includes/tasks/class-wc-calypso-task-launch-site.php:68
+msgid "Launch your store"
+msgstr "推出您的商店"
+
+#: includes/tasks/class-wc-calypso-task-launch-site.php:32
+msgid "You've already launched your store"
+msgstr "您已准备好发布商店"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:59
+#: includes/tasks/class-wc-calypso-task-appearance.php:50
+#: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
+#: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
+#: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
+msgid "2 minutes"
+msgstr "2 分钟"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:47
+msgid "Add your domain name and make your store unique."
+msgstr "添加域名，让您的商店独一无二。"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:38
+msgid "Domain"
+msgstr "域"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:35
+#: includes/tasks/class-wc-calypso-task-add-domain.php:94
+msgid "Add a domain"
+msgstr "添加域"
+
+#: includes/tasks/class-wc-calypso-task-add-domain.php:32
+msgid "You added your domain"
+msgstr "您已添加域名"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-plan-picker-banner.php:77
+msgid ""
+"\n"
+"\t\t\tAt the moment you are the only one who can see your store. To make your store available to everyone, please&nbsp;<a href='%s' id='banner_button'>upgrade to a paid plan</a>.\n"
+"\t\t"
+msgstr ""
+"\n"
+"\t\t\t目前，只有您可以看到您的商店。 若想让商店面向所有人开放，请<a href='%s' id='banner_button'>升级至付费套餐</a>。\n"
+"\t\t"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
+#: includes/templates/html-admin-page-addons-landing-page.php:24
+msgid "Upgrade now"
+msgstr "立即升级"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:45
+msgid "During the trial period you can only place test orders! To receive orders from customers, upgrade to a paid plan and you'll be ready to start selling."
+msgstr "在试用期间，您只能下达测试订单！ 要接收来自客户的订单，请升级至付费套餐，并且您要已经准备好开始销售产品。"
+
+#: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:43
+msgid "Start selling to everyone"
+msgstr "开始面向所有人销售"
+
+#: includes/class-wc-calypso-bridge-setup.php:422
+msgid "My Account"
+msgstr "我的账户"
+
+#: includes/class-wc-calypso-bridge-setup.php:420
+msgid "Contact"
+msgstr "联系"
+
+#: includes/class-wc-calypso-bridge-fse.php:53
+#: includes/class-wc-calypso-bridge-setup.php:411
+msgid "Home"
+msgstr "首页"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:60
+msgid "This site has already been launched"
+msgstr "此站点已发布"
+
+#: includes/class-wc-calypso-bridge-setup-tasks.php:55
+msgid "You don't have permissions to launch this site"
+msgstr "您没有发布此站点的权限"
+
+#. translators: %s is the plans URL
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:371
+msgid "Only Administrators and Store Managers can place orders during the free trial. If you are ready to accept payments from customers, <a href=\"%s\">upgrade to a paid plan</a>."
+msgstr "只有管理员和商店经理可以在免费试用版中下单。 如果您已准备好接收客户付款，请<a href=\"%s\">升级至付费套餐</a>。"
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:297
+msgid "There are no payment methods available. This may be an error on our side. Please contact us if you need any help placing your order."
+msgstr "无可用的付款方式。 可能是我们这边的错误。 如果在下单时需要任何帮助，请联系我们。"
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:283
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:315
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:322
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:330
+msgid "Your order could not be placed. Checkout functionality is currently enabled for preview purposes only."
+msgstr "您无法下单。 当前启用结账功能仅用于预览目的。"
+
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:271
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:298
+#: includes/class-wc-calypso-bridge-free-trial-payment-restrictions.php:340
+msgid "This store is not ready to accept orders. Checkout functionality is currently enabled for preview purposes only."
+msgstr "此商店尚未准备好接收订单。 当前启用结账功能仅用于预览目的。"
+
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:196
+msgid "Navigation"
+msgstr "导航"
+
+#. Author of the plugin
+#: wc-calypso-bridge.php
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Description of the plugin
+#: wc-calypso-bridge.php
+msgid "A feature plugin to provide ux enhancements for users of Store on WordPress.com."
+msgstr "一个功能插件，为 WordPress.com 上的 Store 用户提供增强的用户体验。"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: wc-calypso-bridge.php
+msgid "https://wordpress.com/"
+msgstr "https://wordpress.com/"
+
+#. Plugin Name of the plugin
+#: wc-calypso-bridge.php
+msgid "WooCommerce Calypso Bridge"
+msgstr "WooCommerce Calypso Bridge"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:16
+msgid "Make your check payable to..."
+msgstr "将您的支票抬头设置为..."
+
+#: store-on-wpcom/inc/wc-calypso-bridge-cheque-defaults.php:15
+msgid "Pay for this order by check."
+msgstr "使用支票支付该订单。"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-add-bacs-accounts.php:92
+msgid "An invalid setting value was passed."
+msgstr "系统传递了一个无效的设置值。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:118
+msgid "Cannot create order note, please try again."
+msgstr "未能创建订单备注，请重试。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:116
+msgid "Order details manually sent to customer."
+msgstr "已将订单详细信息手动发送给客户。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:107
+msgid "Invalid order ID."
+msgstr "无效的订单 ID。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
+msgid "WooCommerce"
+msgstr "WooCommerce插件"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:70
+msgid "Sorry, you cannot view this resource."
+msgstr "抱歉，您不可查看该资源。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:374
+msgid "Featured image for the product."
+msgstr "商品的特色图片。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:368
+msgid "Name of the product."
+msgstr "商品名称。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:362
+msgid "ID of the product."
+msgstr "商品 ID。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:356
+msgid "Basic information on the product that the review is for."
+msgstr "所评价商品的基本信息。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:349
+msgid "Status of the review"
+msgstr "评价状态"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:343
+msgid "Shows if the reviewer bought the product or not."
+msgstr "显示评价者是否购买了该商品。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:338
+msgid "URLs for the reviewer's avatar."
+msgstr "评价者头像的 URL。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:333
+msgid "Reviewer email."
+msgstr "评价者的电子邮件地址。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:328
+msgid "Reviewer name."
+msgstr "评价者的姓名。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:323
+msgid "Review rating (0 to 5)."
+msgstr "评价等级（0 至 5）。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:318
+msgid "The date the review was created, as GMT."
+msgstr "评价日期（格林尼治标准时间）。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:313
+msgid "The date the review was created, in the site's timezone."
+msgstr "评价日期（站点所在地时区时间）。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:308
+msgid "The content of the review."
+msgstr "评价内容。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:302
+#: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:49
+msgid "Unique identifier for the resource."
+msgstr "该资源的唯一标识符。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:281
+msgid "Limit results to those matching a string."
+msgstr "将结果限制为匹配字符串的。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:274
+msgid "Limit result set to reviews assigned a specific product."
+msgstr "将结果集限制为已分配特定产品的评价。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:266
+msgid "Order sort attribute ascending or descending."
+msgstr "设置排序字段升序或降序。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:256
+msgid "Maximum number of items to be returned in result set."
+msgstr "结果集包含的最大项目数量。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:247
+msgid "Current page of the collection."
+msgstr "集合的当前页。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:240
+msgid "Limit result set to reviews with a specific status."
+msgstr "将结果集限制为具有特定状态的评论。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-mailchimp-settings-controller.php:111
+msgid "Sorry, you cannot edit this resource."
+msgstr "抱歉，您无法编辑该资源。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+msgid "Collection of review totals by comment status."
+msgstr "按评论状态计算的评价总数。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+msgid "Collection of product totals by stock status."
+msgstr "按库存状态计算的产品总数。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+msgid "Collection of order totals by order status."
+msgstr "按订单状态计算的订单总数。"
+
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:60
+#: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:63
+msgid "Sorry, you cannot list resources."
+msgstr "抱歉，您无法列出资源。"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "You can change this text by editing the \"Parallax Hero\" Section via the \"Powerpack\" settings in the Customizer on the left hand side of your screen."
+msgstr "您可以在屏幕左侧定制器的“Powerpack”设置中，通过编辑“Parallax Hero”部分更改这些文本。"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:97
+msgid "This is your homepage which is what most visitors will see when they first visit your shop."
+msgstr "这是您的主页，大部分访客首次访问您的商店时将会看到该页面。"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:96
+msgid "Welcome"
+msgstr "欢迎"
+
+#: store-on-wpcom/inc/wc-calypso-bridge-masterbar-menu.php:34
+msgid "Store"
+msgstr "商店"
+
+#: includes/class-wc-calypso-bridge-addons.php:99
+msgid "WooCommerce extensions"
+msgstr "WooCommerce 扩展程序"
+
+#. translators: %s: extensions count
+#: includes/class-wc-calypso-bridge-addons.php:91
+msgid "Extensions %s"
+msgstr "扩展程序 %s"
+
+#. translators: %1$s is replaced with a link to WooCommerce.com
+#: includes/class-wc-calypso-bridge-footer-credits.php:66
+msgid "Powered by %1$s"
+msgstr "由 %1$s 提供支持"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
+msgid "Built with Storefront &amp; WordPress.com"
+msgstr "借助 Storefront 和 WordPress.com 打造"
+
+#: includes/class-wc-calypso-bridge-themes-setup.php:128
+msgid "WordPress.com - The Best eCommerce Platform for WordPress"
+msgstr "WordPress.com - 最佳 WordPress 电子商务平台"

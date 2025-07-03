@@ -15,11 +15,11 @@ const Banner = () => {
 				<div className="limited-time-offer">
 					<h1 className="offer-copy">
 						<i className="flag"></i>
-						{strings.limitedTimeOffer}: {strings.bannerCopy}
+						{ strings.limitedTimeOffer }: { strings.bannerCopy }
 					</h1>
-					<p className="discount-copy">{strings.discountCopy}</p>
+					<p className="discount-copy">{ strings.discountCopy }</p>
 				</div>
-				{/* <h1>{strings.bannerHeading}</h1> */}
+				{ /* <h1>{strings.bannerHeading}</h1> */ }
 			</CardBody>
 		</Card>
 	);

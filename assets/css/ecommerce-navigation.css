@@ -1,3 +1,7 @@
+/**
+ * Ecommerce navigation feature
+ */
+
 /* Fix the top space in WooCommerce Marketplace. */
 body.woocommerce_page_wc-addons.woocommerce-embed-page #wpbody .woocommerce-layout {
 	padding-top: 0;

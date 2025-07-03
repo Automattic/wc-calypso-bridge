@@ -8,7 +8,7 @@
 /**
  * WC Calypso Bridge
  */
-class WC_Calypso_Bridge {
+class WC_Calypso_Bridge_Deprecated {
 
 	/**
 	 * Paths to assets act oddly in production
@@ -24,7 +24,7 @@ class WC_Calypso_Bridge {
 	/**
 	 * Class instance.
 	 *
-	 * @var WC_Calypso_Bridge
+	 * @var WC_Calypso_Bridge_Deprecated
 	 */
 	protected static $instance = null;
 
@@ -67,18 +67,14 @@ class WC_Calypso_Bridge {
 	public function includes() {
 		/** Patches includes */
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php';
-		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-allowed-redirect-hosts.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-disable-publicize.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-hotfixes.php';
-		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-sync.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-deactivate-hook.php';
-		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-no-redirect.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php';
-		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-method-supports.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-products.php';
 	}
 
@@ -134,4 +130,4 @@ class WC_Calypso_Bridge {
 	}
 }
 
-WC_Calypso_Bridge::instance();
+WC_Calypso_Bridge_Deprecated::instance();

@@ -1,0 +1,65 @@
+name: 🐞 Woo Express Bug Report
+description: Report a bug if something isn't working as expected in Woo Express
+labels: Woo Express
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thanks for helping make Woo Express better!
+
+        Please provide us with as much information as possible in this report. 
+        Without these details, we won't be able to fully evaluate this issue. 
+        Bug reports lacking detail, or for any other reason than to report a bug, may be closed without action.
+
+  
+  - type: textarea
+    id: summary
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: |
+        A clear and concise description of what you expected to happen.
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Attach screenshot(s) or recording(s) directly by dragging & dropping.
+      placeholder: |
+        1. Go to
+        2. Click on
+        3. Scroll down to
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: WordPress Environment
+      description: |
+        We use the [WooCommerce System Status Report](https://woocommerce.com/document/understanding-the-woocommerce-system-status-report/) to help us evaluate the issue. 
+        Without this report we won't be able to fully evaluate this issue.
+      placeholder: |
+        The System Status Report is found in your WordPress admin under **WooCommerce > Status**. 
+        Please select “Get system report”, then “Copy for support”, and then paste it here.
+    validations:
+      required: true
+  - type: dropdown
+    id: plan
+    attributes:
+      label: What plan is active?
+      description: Woo Express has different rules based on which plan you have activated. Please let us know which plan you have activated while experiencing this issue.
+      options:
+        - Free trial 
+        - Free trial expired
+        - Essential
+        - Performance
+    validations:
+      required: true

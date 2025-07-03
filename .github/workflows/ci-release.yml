@@ -1,0 +1,116 @@
+name: Release CI
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - deploy
+
+jobs:
+
+  check-versions:
+      if: startsWith(github.head_ref, 'release/')
+      # if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/')
+      name: Check versions
+      runs-on: ubuntu-latest
+
+      steps:
+
+          - name: Checkout repository
+            uses: actions/checkout@v3
+
+          - name: Extract Version Number
+            run: |
+              if [[ "${{ github.head_ref }}" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+                version="${BASH_REMATCH[1]}"
+                echo "Extracted version number: ${version}"
+                if ! [[ "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                  echo "Invalid version number format: ${version}"
+                  exit 1
+                fi
+                echo "Valid version number format"
+                echo "VERSION=${version}" >> $GITHUB_ENV
+              else
+                echo "Branch name does not match the release/X.X.X format: ${{ github.head_ref }}"
+                exit 1
+              fi
+            env:
+              GITHUB_REF: ${{ github.ref }}
+
+          - name: Check Versions
+            run: |
+              bash ./bin/check-versions.sh ${{ env.VERSION }}
+
+  php-coding-standards:
+      needs: check-versions
+      name: PHP
+      uses: ./.github/workflows/check-coding-standards.yml
+
+  setup:
+      name: NodeJS
+      needs: php-coding-standards
+      uses: ./.github/workflows/setup-node.yml
+
+  build-and-release:
+      needs: setup
+      name: Build and Release
+      runs-on: ubuntu-latest
+
+      steps:
+
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Extract Version Number
+          run: |
+            if [[ "${{ github.head_ref }}" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+              version="${BASH_REMATCH[1]}"
+              echo "Extracted version number: ${version}"
+              if ! [[ "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                echo "Invalid version number format: ${version}"
+                exit 1
+              fi
+              echo "Valid version number format"
+              echo "VERSION=${version}" >> $GITHUB_ENV
+            else
+              echo "Branch name does not match the release/X.X.X format: ${{ github.head_ref }}"
+              exit 1
+            fi
+          env:
+            GITHUB_REF: ${{ github.ref }}
+
+        - name: Validate version number
+          run: |
+            if [[ ! ${{ env.VERSION }} =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo "Error: Invalid version number."
+              exit 1
+            fi
+
+        - name: Restore node_modules
+          id: cache-node-modules
+          uses: actions/cache@v3
+          env:
+              cache-name: cache-node-modules
+          with:
+              path: node_modules
+              key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+        - name: Build project
+          run: |
+            npm run build
+            rm -rf node_modules
+
+        - name: Create tag and push changes
+          run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git tag ${{ env.VERSION }}
+            git checkout ${{ env.VERSION }}
+            git add ./build --force
+            git commit -m 'Adding build directory to release' --no-verify
+            git tag -f ${{ env.VERSION }}
+            git push origin ${{ env.VERSION }}
+
+
+

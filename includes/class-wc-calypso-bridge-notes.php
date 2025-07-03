@@ -3,6 +3,8 @@
  * Notes.
  *
  * @package WC_Calypso_Bridge/Classes
+ * @since   1.0.0
+ * @version 2.3.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -27,6 +29,7 @@ class WC_Calypso_Bridge_Notes {
 		if ( null === static::$instance ) {
 			static::$instance = new static();
 		}
+
 		return static::$instance;
 	}
 
@@ -34,6 +37,12 @@ class WC_Calypso_Bridge_Notes {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
 		$this->init();
 	}
 
@@ -41,22 +50,29 @@ class WC_Calypso_Bridge_Notes {
 	 * Include notes and initialize note hooks.
 	 */
 	public function init() {
-		include_once dirname( __FILE__ ) . '/notes/class-wc-calypso-bridge-payments-remind-me-later-note.php';
-		new WC_Calypso_Bridge_Payments_Remind_Me_Later_Note();
+		include_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/notes/class-wc-calypso-bridge-choose-domain.php';
+		new WC_Calypso_Bridge_Choose_Domain_Note();
 	}
 
 	/**
 	 * Add qualifying notes.
 	 */
 	public function add_notes() {
-		WC_Calypso_Bridge_Payments_Remind_Me_Later_Note::possibly_add_note();
+		WC_Calypso_Bridge_Choose_Domain_Note::possibly_add_note();
+	}
+
+	/**
+	 * Update notes.
+	 */
+	public function update_notes() {
+		WC_Calypso_Bridge_Choose_Domain_Note::update_note();
 	}
 
 	/**
 	 * Delete qualifying notes.
 	 */
 	public function delete_notes() {
-		WC_Calypso_Bridge_Payments_Remind_Me_Later_Note::possibly_clear_note();
+		WC_Calypso_Bridge_Choose_Domain_Note::delete_if_not_applicable();
 	}
 }
 

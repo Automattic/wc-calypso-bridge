@@ -2,9 +2,9 @@
 /**
  * Jetpack customizations.
  *
- * @package WC_Calypso_Bridge/Jetpack
+ * @package WC_Calypso_Bridge/Classes
  * @since   1.9.8
- * @version 1.9.12
+ * @version 2.3.2
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -37,6 +37,12 @@ class WC_Calypso_Bridge_Jetpack {
 	 * Constructor.
 	 */
 	public function __construct() {
+
+		// Only in Ecommerce.
+		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
+			return;
+		}
+
 		$this->init();
 	}
 
@@ -44,43 +50,6 @@ class WC_Calypso_Bridge_Jetpack {
 	 * Initialize hooks.
 	 */
 	public function init() {
-
-		/**
-		 * Inject the Ecommerce admin menu controller into Jetpack.
-		 *
-		 * @since 1.9.8
-		 *
-		 * @param  string $menu_controller_class The name of the menu controller class.
-		 * @return string
-		 */
-		add_filter( 'jetpack_admin_menu_class', function ( $menu_controller_class ) {
-
-			/**
-			 * `calypso_bridge_disable_ecommerce_menu` filter.
-			 *
-			 * This filter is used to revert the ecommerce menu back to the atomic one. It's suppose to be a safety net that will be deprecated in the future.
-			 *
-			 * @since 1.9.12
-			 *
-			 * @param  bool $disabled
-			 * @return bool
-			 */
-			if ( class_exists( '\Automattic\Jetpack\Dashboard_Customizations\Atomic_Admin_Menu' ) ) {
-
-				if ( (bool) apply_filters( 'ecommerce_new_woo_atomic_navigation_enabled', false ) ) {
-					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-ecommerce-admin-menu.php';
-
-					return Ecommerce_Atomic_Admin_Menu::class;
-				} else {
-					require_once dirname( __FILE__ ) . '/class-wc-calypso-bridge-admin-menu.php';
-
-					return Ecommerce_Atomic_Admin_Menu::class;
-				}
-			}
-
-			return $menu_controller_class;
-		} );
-
 		/**
 		 * Limits Jetpack Modules to those relevant to Ecommerce Plan users.
 		 *
@@ -103,6 +72,25 @@ class WC_Calypso_Bridge_Jetpack {
 			}
 
 			return $mods;
+		} );
+
+		/**
+		 * Removes the "Notify me of new posts by email" checkbox from the product review form.
+		 *
+		 * Hint: Remove when https://github.com/Automattic/jetpack/issues/34859 is fixed.
+		 *
+		 * @since 2.3.2
+		 *
+		 * @param  string $html The checkbox HTML value.
+		 * @return string
+		 */
+		add_filter( 'jetpack_comment_subscription_form', function( $html ) {
+			global $product;
+			if ( is_single() && ! is_null( $product ) && is_a( $product, 'WC_Product' ) ) {
+				return '';
+			}
+
+			return $html;
 		} );
 
 	}
