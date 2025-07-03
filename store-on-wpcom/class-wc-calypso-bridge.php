@@ -70,7 +70,6 @@ class WC_Calypso_Bridge_Deprecated {
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-disable-publicize.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php';
-		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-hide-alerts.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-jetpack-hotfixes.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-mailchimp-deactivate-hook.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php';
