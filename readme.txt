@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.1 =
+Allow WooCommerce settings to fix issue with guided setup being broken.
+
 = 2.11.0 =
 * Introductory offers API calls: Optimize by filtering at endpoint level #1562
 
