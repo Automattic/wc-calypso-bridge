@@ -54,15 +54,14 @@ class WC_Calypso_Bridge_Addons {
 	 * Initialize.
 	 */
 	public function init() {
-
-		// Hide the default marketplace.
-		add_filter( 'woocommerce_show_addons_page', '__return_false' );
 		// Handle trial plan extensions menu.
 		add_action( 'admin_menu', array( $this, 'maybe_add_trial_extensions_submenu' ), PHP_INT_MAX );
 
-		// Add admin body class for the free trial landing page.
 		if ( wc_calypso_bridge_is_ecommerce_trial_plan() ) {
+			// Hide the default addons/marketplace for trial plans.
+        	add_filter( 'woocommerce_show_addons_page', '__return_false' );
 
+			// Add admin body class for the free trial landing page.
 			add_filter( 'admin_body_class', function( $classes ) {
 				$screen = get_current_screen();
 				if ( $screen && 'woocommerce_page_wc-addons' === $screen->id ) {
