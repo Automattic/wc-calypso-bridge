@@ -22,6 +22,18 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.2 =
+ * Add LICENSE file and specify Composer license (#1473)
+ * Remove unnecessary Jetpack Sync option definitions (#890)
+ * Remove unnecessary `woocommerce_show_admin_notice` filter (#886)
+ * Remove unnecessary override of PayPal `supports` field for refunds (#888)
+ * Remove unnecessary filter to specify permitted redirect hosts (#889)
+ * Remove filter that prevents a Mailchimp plugin activation redirect (#893)
+ * Remove option filters that pre-empt Stripe admin notices (#891)
+ * Update `word-wrap` from 1.2.3 to 1.2.4 (#1228)
+ * Update `tough-cookie` from 4.1.2 to 4.1.3 (#1220)
+ * Only prevent access to the WooCommerce add-ons menu for Commerce trials (#1573)
+
 = 2.11.1 =
 Allow WooCommerce settings to fix issue with guided setup being broken.
 
