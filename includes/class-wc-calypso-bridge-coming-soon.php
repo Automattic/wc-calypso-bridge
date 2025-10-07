@@ -39,6 +39,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 		add_filter( 'woocommerce_coming_soon_exclude', array( $this, 'should_exclude_lys_coming_soon' ) );
 		add_filter( 'pre_option_woocommerce_coming_soon', array( $this, 'override_option_woocommerce_coming_soon' ) );
 		add_filter( 'pre_update_option_woocommerce_coming_soon', array( $this, 'override_update_woocommerce_coming_soon' ), 10, 2 );
+		add_action( 'woocommerce_newly_installed', array( $this, 'disable_woocommerce_store_pages_only' ), 30 );
 		// Admin bar menu is not only shown in the admin area but also in the front end when the admin user is logged in.
 		add_action( 'admin_bar_menu', array( $this, 'remove_site_visibility_badge' ), 32 );
 		add_filter( 'rest_pre_dispatch', array( $this, 'handle_initial_coming_soon_endpoint' ), 10, 3 );
@@ -155,6 +156,19 @@ class WC_Calypso_Bridge_Coming_Soon {
 		}
 
 		return $new_value;
+	}
+
+	/**
+	 * Disable the store pages only option when WooCommerce is newly installed.
+	 *
+	 * This is to prevent the store pages only option from being enabled by default
+	 * when WooCommerce is newly installed on a WPCOM site. In most cases this is not
+	 * the desired behavior as the site is likely to be in coming soon mode.
+	 *
+	 * @return void
+	 */
+	public function disable_woocommerce_store_pages_only() {
+		delete_option( 'woocommerce_store_pages_only' );
 	}
 
 	/**
