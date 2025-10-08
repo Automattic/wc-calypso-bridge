@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.3 =
+* Disable coming soon on store pages only for new WooCommerce installs
+
 = 2.11.2 =
  * Add LICENSE file and specify Composer license (#1473)
  * Remove unnecessary Jetpack Sync option definitions (#890)
