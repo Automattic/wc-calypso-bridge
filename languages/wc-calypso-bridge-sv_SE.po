@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-22T10:21:47+00:00\n"
+"POT-Creation-Date: 2025-10-08T08:52:40+00:00\n"
 "PO-Revision-Date: 2025-03-24 17:54:02+0000\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -523,12 +523,12 @@ msgstr "Välkommen"
 msgid "Store"
 msgstr "Butik"
 
-#: includes/class-wc-calypso-bridge-addons.php:99
+#: includes/class-wc-calypso-bridge-addons.php:98
 msgid "WooCommerce extensions"
 msgstr "Utökningar för WooCommerce"
 
 #. translators: %s: extensions count
-#: includes/class-wc-calypso-bridge-addons.php:91
+#: includes/class-wc-calypso-bridge-addons.php:90
 msgid "Extensions %s"
 msgstr "Utökningar %s"
 

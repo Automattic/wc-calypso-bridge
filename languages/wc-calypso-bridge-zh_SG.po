@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-22T10:21:46+00:00\n"
+"POT-Creation-Date: 2025-10-08T08:52:39+00:00\n"
 "PO-Revision-Date: 2025-03-25 09:54:03+0000\n"
 "Language: zh_SG\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -523,12 +523,12 @@ msgstr "欢迎"
 msgid "Store"
 msgstr "商店"
 
-#: includes/class-wc-calypso-bridge-addons.php:99
+#: includes/class-wc-calypso-bridge-addons.php:98
 msgid "WooCommerce extensions"
 msgstr "WooCommerce 扩展程序"
 
 #. translators: %s: extensions count
-#: includes/class-wc-calypso-bridge-addons.php:91
+#: includes/class-wc-calypso-bridge-addons.php:90
 msgid "Extensions %s"
 msgstr "扩展程序 %s"
 
