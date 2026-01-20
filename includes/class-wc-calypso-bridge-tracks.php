@@ -203,16 +203,17 @@ class WC_Calypso_Bridge_Tracks {
 	}
 
 	/**
-	 * Hide the display of the WooCommerce.com settings.
+	 * Hide the display of the WooCommerce.com tracking setting.
 	 *
 	 * @param array $settings Current settings array.
+	 * @return array Modified array with tracking setting removed.
 	 */
 	public function hide_woocommerce_tracking_setting( $settings ) {
 		return array_filter(
 			$settings,
 			function ( $setting ) {
 				if ( empty( $setting['id'] ) ) {
-					return $setting;
+					return true;
 				}
 				return ! in_array( $setting['id'], [ 'tracking_options', 'woocommerce_allow_tracking' ] );
 			}
