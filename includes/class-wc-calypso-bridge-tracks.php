@@ -215,7 +215,7 @@ class WC_Calypso_Bridge_Tracks {
 				if ( empty( $setting['id'] ) ) {
 					return true;
 				}
-				return ! in_array( $setting['id'], [ 'tracking_options', 'woocommerce_allow_tracking' ] );
+				return ! in_array( $setting['id'], [ 'tracking_options', 'woocommerce_allow_tracking' ], true );
 			}
 		);
 	}
