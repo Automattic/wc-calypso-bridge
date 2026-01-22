@@ -209,6 +209,11 @@ class WC_Calypso_Bridge_Tracks {
 	 * @return array Modified array with tracking setting removed.
 	 */
 	public function hide_woocommerce_tracking_setting( $settings ) {
+		// Only hide when on WooCommerce settings page
+		if ( ! is_admin() || empty( $_GET['page'] ) || $_GET['page'] !== 'wc-settings' ) {
+			return $settings;
+		}
+
 		return array_filter(
 			$settings,
 			function ( $setting ) {
