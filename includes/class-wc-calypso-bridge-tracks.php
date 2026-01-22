@@ -90,6 +90,9 @@ class WC_Calypso_Bridge_Tracks {
 		add_filter( 'jetpack_woocommerce_analytics_event_props', array( $this, 'filter_jetpack_woocommerce_analytics_event_props' ) );
 		add_filter( 'woocommerce_admin_survey_query', array( $this, 'set_survey_source' ) );
 
+		// Hide WooCommerce.com tracking settings.
+		add_filter( 'woocommerce_com_integration_settings', array( $this, 'hide_woocommerce_tracking_setting' ), 10, 1 );
+
 		// Always opt-in to Tracks, WPCOM user tracks preferences take priority.
 		add_filter( 'woocommerce_apply_tracking', '__return_true' );
 		add_filter( 'woocommerce_apply_user_tracking', '__return_true' );
@@ -200,13 +203,26 @@ class WC_Calypso_Bridge_Tracks {
 	}
 
 	/**
-	 * Hide the display of the WooCommerce.com settings.
+	 * Hide the display of the WooCommerce.com tracking setting.
 	 *
 	 * @param array $settings Current settings array.
+	 * @return array Modified array with tracking setting removed.
 	 */
-	public function hide_woocommerce_com_settings( $settings ) {
-		unset( $settings['woocommerce_com'] );
-		return $settings;
+	public function hide_woocommerce_tracking_setting( $settings ) {
+		// Only hide when on WooCommerce settings page
+		if ( ! is_admin() || empty( $_GET['page'] ) || $_GET['page'] !== 'wc-settings' ) {
+			return $settings;
+		}
+
+		return array_filter(
+			$settings,
+			function ( $setting ) {
+				if ( empty( $setting['id'] ) ) {
+					return true;
+				}
+				return ! in_array( $setting['id'], [ 'tracking_options', 'woocommerce_allow_tracking' ], true );
+			}
+		);
 	}
 
 	/**
