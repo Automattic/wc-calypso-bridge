@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.4 =
+* Refactor method to hide WooCommerce.com tracking settings
+
 = 2.11.3 =
 * Disable coming soon on store pages only for new WooCommerce installs
 

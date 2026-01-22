@@ -7,17 +7,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-10-08T08:52:34+00:00\n"
+"POT-Creation-Date: 2026-01-22T17:35:41+00:00\n"
 "PO-Revision-Date: 2025-03-26 09:54:03+0000\n"
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:183
+#: includes/class-wc-calypso-bridge-coming-soon.php:197
 msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
 msgstr "サイトの立ち上げをお考えですか ?  <a href=\"%s\">こちらのリンク</a>にアクセスして開始してください。"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:150
+#: includes/class-wc-calypso-bridge-coming-soon.php:151
 msgid "There was a problem trying to update site visibility."
 msgstr "サイトの可視性を更新する際に問題が発生しました。"
 
@@ -115,7 +115,7 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "ブログのホーム"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:172
+#: includes/class-wc-calypso-bridge-coming-soon.php:186
 msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr "現在、無料お試しに登録しています。 すべての機能にアクセスするには、<a href=\"%s\">有料プランにアップグレード</a>してください。"
 
@@ -161,6 +161,7 @@ msgstr "テーマを選択"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
+#: build/index.js:11
 msgid "Plugins"
 msgstr "プラグイン"
 
@@ -236,6 +237,7 @@ msgstr "WooCommerce 拡張機能を使用して、ストアがビジネスに最
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "拡張機能を使用してストアをレベルアップさせましょう"
 
@@ -250,6 +252,7 @@ msgstr "おめでとうございます ! ストアの立ち上げ準備は整い
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: build/index.js:1
 msgid "Launch your store"
 msgstr "ストアを立ち上げる"
 
@@ -262,6 +265,7 @@ msgstr "すでにストアを立ち上げています"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
+#: build/index.js:3
 msgid "2 minutes"
 msgstr "2分"
 
@@ -275,6 +279,8 @@ msgstr "ドメイン"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
+#: build/index.js:1
+#: build/index.js:3
 msgid "Add a domain"
 msgstr "ドメインを追加"
 
@@ -294,6 +300,10 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:1
+#: build/index.js:11
+#: build/marketing.js:1
+#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "今すぐアップグレード"
 
