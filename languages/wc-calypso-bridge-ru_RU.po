@@ -7,17 +7,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-10-08T08:52:35+00:00\n"
+"POT-Creation-Date: 2026-01-22T17:35:43+00:00\n"
 "PO-Revision-Date: 2025-03-18 15:54:02+0000\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:183
+#: includes/class-wc-calypso-bridge-coming-soon.php:197
 msgid "Looking to launch your site? Please visit <a href=\"%s\">this link</a> to get started."
 msgstr "Вы собираетесь запустить сайт? Чтобы начать работу, перейдите <a href=\"%s\">по этой ссылке</a>."
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:150
+#: includes/class-wc-calypso-bridge-coming-soon.php:151
 msgid "There was a problem trying to update site visibility."
 msgstr "При попытке обновить статус сайта возникла проблема."
 
@@ -115,7 +115,7 @@ msgctxt "Template name"
 msgid "Blog Home"
 msgstr "Главная страница блога"
 
-#: includes/class-wc-calypso-bridge-coming-soon.php:172
+#: includes/class-wc-calypso-bridge-coming-soon.php:186
 msgid "You’re currently using a free trial! To get access to the full range of features, please <a href=\"%s\">upgrade to a paid plan</a>."
 msgstr "Сейчас для вас действует бесплатный пробный период! Чтобы получить доступ ко всем функциям, <a href=\"%s\">перейдите на платный тарифный план</a>."
 
@@ -161,6 +161,7 @@ msgstr "Выберите тему"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
+#: build/index.js:11
 msgid "Plugins"
 msgstr "Плагины"
 
@@ -236,6 +237,7 @@ msgstr "Используйте расширения WooCommerce, чтобы на
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
+#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Выведите свой магазин на новый уровень с помощью расширений"
 
@@ -250,6 +252,7 @@ msgstr "Пришло время отпраздновать! Готовы зап�
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
+#: build/index.js:1
 msgid "Launch your store"
 msgstr "Запустите ваш магазин"
 
@@ -262,6 +265,7 @@ msgstr "Вы уже запустили свой магазин"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
+#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 минуты"
 
@@ -275,6 +279,8 @@ msgstr "Домен"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
+#: build/index.js:1
+#: build/index.js:3
 msgid "Add a domain"
 msgstr "Добавить домен"
 
@@ -294,6 +300,10 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
+#: build/index.js:1
+#: build/index.js:11
+#: build/marketing.js:1
+#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Перейти на платную подписку"
 
