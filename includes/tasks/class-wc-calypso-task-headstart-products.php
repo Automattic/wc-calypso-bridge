@@ -88,13 +88,13 @@ class HeadstartProducts extends Products {
 		if ( self::is_already_selling() ) {
 			return __(
 				'Import your products. Show off your products or services and get ready to start selling – import your existing product info, images, and descriptions.',
-				'woocommerce'
+				'wc-calypso-bridge'
 			);
 		}
 
 		return __(
 			'Add your products. Show off your products or services and get ready to start selling – add your product info, images, and descriptions.',
-			'woocommerce'
+			'wc-calypso-bridge'
 		);
 	}
 

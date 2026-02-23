@@ -263,19 +263,19 @@ class WC_Calypso_Bridge_Data_Counts_Controller extends WC_REST_Controller {
 			'properties' => array(
 				'orders' => array(
 					'type'        => 'object',
-					'description' => __( 'Collection of order totals by order status.', 'woocommerce' ),
+					'description' => __( 'Collection of order totals by order status.', 'wc-calypso-bridge' ),
 					'context'     => array( 'view' ),
 					'readonly'    => true,
 				),
 				'products' => array(
 					'type'        => 'object',
-					'description' => __( 'Collection of product totals by stock status.', 'woocommerce' ),
+					'description' => __( 'Collection of product totals by stock status.', 'wc-calypso-bridge' ),
 					'context'     => array( 'view' ),
 					'readonly'    => true,
 				),
 				'reviews' => array(
 					'type'        => 'object',
-					'description' => __( 'Collection of review totals by comment status.', 'woocommerce' ),
+					'description' => __( 'Collection of review totals by comment status.', 'wc-calypso-bridge' ),
 					'context'     => array( 'view' ),
 					'readonly'    => true,
 				),

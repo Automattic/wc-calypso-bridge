@@ -237,7 +237,7 @@ class WC_Calypso_Bridge_Product_Reviews_Controller extends WC_REST_Controller {
 
 		$params['status'] = array(
 			'default'           => 'any',
-			'description'       => __( 'Limit result set to reviews with a specific status.', 'woocommerce' ),
+			'description'       => __( 'Limit result set to reviews with a specific status.', 'wc-calypso-bridge' ),
 			'type'              => 'stringy',
 			'enum'              => array( 'any', 'pending', 'approved', 'trash', 'spam' ),
 			'validate_callback' => 'rest_validate_request_arg',
@@ -271,7 +271,7 @@ class WC_Calypso_Bridge_Product_Reviews_Controller extends WC_REST_Controller {
 		);
 
 		$params['product'] = array(
-			'description'       => __( 'Limit result set to reviews assigned a specific product.', 'woocommerce' ),
+			'description'       => __( 'Limit result set to reviews assigned a specific product.', 'wc-calypso-bridge' ),
 			'type'              => 'integer',
 			'sanitize_callback' => 'absint',
 			'validate_callback' => 'rest_validate_request_arg',
@@ -335,7 +335,7 @@ class WC_Calypso_Bridge_Product_Reviews_Controller extends WC_REST_Controller {
 					'context'     => array( 'view', 'edit' ),
 				),
 				'avatar_urls' => array(
-					'description' => __( "URLs for the reviewer's avatar.", 'woocommerce' ),
+					'description' => __( "URLs for the reviewer's avatar.", 'wc-calypso-bridge' ),
 					'type'        => 'array',
 					'context'     => array( 'view', 'edit' ),
 				),
@@ -346,32 +346,32 @@ class WC_Calypso_Bridge_Product_Reviews_Controller extends WC_REST_Controller {
 					'readonly'    => true,
 				),
 				'status' => array(
-					'description' => __( 'Status of the review', 'woocommerce' ),
+					'description' => __( 'Status of the review', 'wc-calypso-bridge' ),
 					'type'        => 'string',
 					'enum'        => array( 'pending', 'approved', 'trash', 'spam' ),
 					'context'     => array( 'view', 'edit' ),
 					'readonly'    => true,
 				),
 				'product' => array(
-					'description' => __( 'Basic information on the product that the review is for.', 'woocommerce' ),
+					'description' => __( 'Basic information on the product that the review is for.', 'wc-calypso-bridge' ),
 					'type'        => 'array',
 					'context'     => array( 'view', 'edit' ),
 					'readonly'    => true,
 					'properties' => array(
 						'id' => array(
-							'description' => __( 'ID of the product.', 'woocommerce' ),
+							'description' => __( 'ID of the product.', 'wc-calypso-bridge' ),
 							'type'        => 'integer',
 							'context'     => array( 'view', 'edit' ),
 							'readonly'    => true,
 						),
 						'name' => array(
-							'description' => __( 'Name of the product.', 'woocommerce' ),
+							'description' => __( 'Name of the product.', 'wc-calypso-bridge' ),
 							'type'        => 'string',
 							'context'     => array( 'view', 'edit' ),
 							'readonly'    => true,
 						),
 						'image' => array(
-							'description' => __( 'Featured image for the product.', 'woocommerce' ),
+							'description' => __( 'Featured image for the product.', 'wc-calypso-bridge' ),
 							'type'        => 'string',
 							'context'     => array( 'view', 'edit' ),
 							'readonly'    => true,
