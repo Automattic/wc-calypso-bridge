@@ -317,7 +317,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 				array(
 					'title' => __( 'Onboarding', 'wc-calypso-bridge' ),
 					'type'  => 'title',
-					'desc'  => __( 'Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home.', 'woocommerce' ),
+					'desc'  => __( 'Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home.', 'wc-calypso-bridge' ),
 					'id'    => 'onboarding_options',
 				)
 			)

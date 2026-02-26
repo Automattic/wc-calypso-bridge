@@ -29,7 +29,7 @@ class LaunchSite extends Task {
 	public function get_title() {
 		if ( true === $this->get_parent_option( 'use_completed_title' ) ) {
 			if ( $this->is_complete() ) {
-				return __( 'You\'ve already launched your store', 'woocommerce' );
+				return __( 'You\'ve already launched your store', 'wc-calypso-bridge' );
 			}
 
 			return __( 'Launch your store', 'woocommerce' );
@@ -46,7 +46,7 @@ class LaunchSite extends Task {
 	public function get_content() {
 		return __(
 			'It\'s time to celebrate! Ready to launch your store?',
-			'woocommerce'
+			'wc-calypso-bridge'
 		);
 	}
 
