@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.5 =
+* i18n: Change the textdomain for strings which only exist in wc-calypso-bridge
+
 = 2.11.4 =
 * Refactor method to hide WooCommerce.com tracking settings
 
