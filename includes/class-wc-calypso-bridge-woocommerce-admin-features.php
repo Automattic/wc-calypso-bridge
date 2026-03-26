@@ -241,6 +241,10 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * @return array
 	 */
 	public function filter_woocommerce_settings_pages_order( $pages ) {
+		if ( ! is_array( $pages ) ) {
+			return $pages;
+		}
+
 		foreach ( $pages as $page_id => $page ) {
 			if ( 'advanced' === $page_id ) {
 				unset( $pages[ $page_id ] );
