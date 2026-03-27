@@ -8,8 +8,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-27T12:21:50+00:00\n"
-"PO-Revision-Date: 2024-02-05 11:59:40+0000\n"
-"Language: fr_BE\n"
+"PO-Revision-Date: 2024-01-09 14:10:04+0000\n"
+"Language: fr_CH\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
 
@@ -98,7 +98,7 @@ msgstr "mon-compte"
 #: includes/class-wc-calypso-bridge-setup.php:322
 msgctxt "Page slug"
 msgid "checkout"
-msgstr "commande"
+msgstr "commander"
 
 #: includes/class-wc-calypso-bridge-setup.php:321
 msgctxt "Page slug"
@@ -167,7 +167,7 @@ msgstr "Extensions"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
 msgid "Restore"
-msgstr "Rétablir"
+msgstr "Restaurer"
 
 #: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
 msgid "\"Things to do next\""
@@ -317,7 +317,7 @@ msgstr "Commencer à vendre à tout le monde"
 
 #: includes/class-wc-calypso-bridge-setup.php:422
 msgid "My Account"
-msgstr "Mon compte :"
+msgstr "Mon Compte:"
 
 #: includes/class-wc-calypso-bridge-setup.php:420
 msgid "Contact"
@@ -405,15 +405,15 @@ msgstr "Détails de la commande envoyés manuellement au client."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:107
 msgid "Invalid order ID."
-msgstr "ID commande non valide."
+msgstr "ID de commande non valide."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:86
 msgid "WooCommerce"
-msgstr "WooCommerce"
+msgstr "Woocommerce"
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:70
 msgid "Sorry, you cannot view this resource."
-msgstr "Désolé, vous ne pouvez pas afficher cette ressource."
+msgstr "Désolé, vous ne pouvez pas voir cette ressource."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:374
 msgid "Featured image for the product."
@@ -437,7 +437,7 @@ msgstr "État de l'avis"
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:343
 msgid "Shows if the reviewer bought the product or not."
-msgstr "Indique si l&rsquo;évaluateur a acheté le produit ou non."
+msgstr "Indique si d'évaluateur a acheté le produit ou non."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:338
 msgid "URLs for the reviewer's avatar."
@@ -445,11 +445,11 @@ msgstr "URL de l’avatar de d'évaluateur."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:333
 msgid "Reviewer email."
-msgstr "Email de l&rsquo;évaluateur."
+msgstr "E-mail de d'évaluateur."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:328
 msgid "Reviewer name."
-msgstr "Nom de l&rsquo;évaluateur."
+msgstr "Nom de d'évaluateur."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:323
 msgid "Review rating (0 to 5)."
@@ -457,15 +457,15 @@ msgstr "Note de l’avis (0 à 5)."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:318
 msgid "The date the review was created, as GMT."
-msgstr "La date à laquelle l&rsquo;avis a été créé, format GMT."
+msgstr "Date de création du commentaire, format GMT."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:313
 msgid "The date the review was created, in the site's timezone."
-msgstr "La date à laquelle l&rsquo;avis a été créé, en fuseau horaire du site."
+msgstr "La date à laquelle l'avis a été créé, dans le fuseau horaire du site."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:308
 msgid "The content of the review."
-msgstr "Le contenu de l&rsquo;avis."
+msgstr "Le contenu de l'avis."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:302
 #: store-on-wpcom/api/class-wc-calypso-bridge-send-invoice-controller.php:49
@@ -486,7 +486,7 @@ msgstr "Le paramètre order trie les attributs dans l’ordre croissant ou décr
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:256
 msgid "Maximum number of items to be returned in result set."
-msgstr "Nombre maximal d'éléments à renvoyer dans le groupe de résultats."
+msgstr "Nombre maximal d’éléments à renvoyer dans le groupe de résultats."
 
 #: store-on-wpcom/api/class-wc-calypso-bridge-product-reviews-controller.php:247
 msgid "Current page of the collection."
