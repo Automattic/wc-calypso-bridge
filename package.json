@@ -57,7 +57,7 @@
 		"@wordpress/i18n": "wp-6.6",
 		"@wordpress/icons": "wp-6.6",
 		"classnames": "^2.3.2",
-		"dompurify": "^2.4.5",
+		"dompurify": "^3.2.4",
 		"gridicons": "^3.4.2",
 		"react-transition-group": "^4.4.5",
 		"which": "^5.0.0"
