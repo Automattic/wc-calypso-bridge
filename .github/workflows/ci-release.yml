@@ -22,7 +22,7 @@ jobs:
 
           - name: Extract Version Number
             run: |
-              if [[ "${{ github.head_ref }}" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+              if [[ "$HEAD_REF" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
                 version="${BASH_REMATCH[1]}"
                 echo "Extracted version number: ${version}"
                 if ! [[ "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -32,11 +32,12 @@ jobs:
                 echo "Valid version number format"
                 echo "VERSION=${version}" >> $GITHUB_ENV
               else
-                echo "Branch name does not match the release/X.X.X format: ${{ github.head_ref }}"
+                echo "Branch name does not match the release/X.X.X format: $HEAD_REF"
                 exit 1
               fi
             env:
               GITHUB_REF: ${{ github.ref }}
+              HEAD_REF: ${{ github.head_ref }}
 
           - name: Check Versions
             run: |
@@ -64,7 +65,7 @@ jobs:
 
         - name: Extract Version Number
           run: |
-            if [[ "${{ github.head_ref }}" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            if [[ "$HEAD_REF" =~ ^release\/([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
               version="${BASH_REMATCH[1]}"
               echo "Extracted version number: ${version}"
               if ! [[ "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -74,11 +75,12 @@ jobs:
               echo "Valid version number format"
               echo "VERSION=${version}" >> $GITHUB_ENV
             else
-              echo "Branch name does not match the release/X.X.X format: ${{ github.head_ref }}"
+              echo "Branch name does not match the release/X.X.X format: $HEAD_REF"
               exit 1
             fi
           env:
             GITHUB_REF: ${{ github.ref }}
+            HEAD_REF: ${{ github.head_ref }}
 
         - name: Validate version number
           run: |
