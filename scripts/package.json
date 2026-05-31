@@ -11,6 +11,6 @@
 		"chalk": "^5.2.0",
 		"inquirer": "^8.0.0",
 		"semver": "^7.3.5",
-		"simple-git": "^3.18.0"
+		"simple-git": "^3.36.0"
 	}
 }
