@@ -61,5 +61,11 @@
 		"gridicons": "^3.4.2",
 		"react-transition-group": "^4.4.5",
 		"which": "^5.0.0"
+	},
+	"overrides": {
+		"@babel/traverse": "7.23.2",
+		"form-data": "3.0.4",
+		"locutus": "3.0.36",
+		"simple-git": "3.36.0"
 	}
 }
