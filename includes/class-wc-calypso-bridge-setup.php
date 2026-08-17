@@ -544,6 +544,7 @@ class WC_Calypso_Bridge_Setup {
 				'blocks',
 				'blaze',
 				'account-protection',
+				'stats',
 			);
 
 			$sharing_options = array(
