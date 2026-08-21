@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-27T12:21:46+00:00\n"
+"POT-Creation-Date: 2026-08-21T15:24:59+00:00\n"
 "PO-Revision-Date: 2025-03-19 15:54:03+0000\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -161,35 +161,34 @@ msgstr "Elige un tema"
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:60
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-plugins-screen.php:62
-#: build/index.js:11
 msgid "Plugins"
 msgstr "Plugins"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:398
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:402
 msgid "Restore"
 msgstr "Restaurar"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "\"Things to do next\""
 msgstr "«Qué hacer a continuación»"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:390
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:394
 msgid "Setup task list"
 msgstr "Lista de tareas de configuración"
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:393
 msgid "Restore the visibility of the \"Things to do next\" Task List."
 msgstr "Restablece la visibilidad de la lista de tareas «Cosas que hacer a continuación»."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:389
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:393
 msgid "Restore the visibility of the primary onboarding Task List."
 msgstr "Restablece la visibilidad de la lista de tareas de incorporación principal."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:320
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:324
 msgid "Use these options to restore the visibility of the onboarding Task Lists in the WooCommerce Home."
 msgstr "Utiliza estas opciones para restablecer la visibilidad de las listas de tareas de incorporación en la página de inicio de WooCommerce."
 
-#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:318
+#: includes/class-wc-calypso-bridge-woocommerce-admin-features.php:322
 msgid "Onboarding"
 msgstr "Incorporación de empleados"
 
@@ -237,7 +236,6 @@ msgstr "Personaliza tu tienda con extensiones de WooCommerce para que funcione a
 #: includes/templates/html-admin-page-addons-landing-page.php:15
 #: includes/templates/html-admin-page-addons-landing-page.php:32
 #: includes/templates/html-admin-page-addons-landing-page.php:35
-#: build/plugins.js:1
 msgid "Take your store to the next level, with extensions"
 msgstr "Mejora el nivel de tu tienda con extensiones"
 
@@ -252,7 +250,6 @@ msgstr "¡Es hora de celebrarlo! ¿Todo listo para publicar tu tienda?"
 #: includes/tasks/class-wc-calypso-task-launch-site.php:35
 #: includes/tasks/class-wc-calypso-task-launch-site.php:38
 #: includes/tasks/class-wc-calypso-task-launch-site.php:68
-#: build/index.js:1
 msgid "Launch your store"
 msgstr "Pon en marcha tu tienda"
 
@@ -265,7 +262,6 @@ msgstr "Ya has publicado tu tienda"
 #: includes/tasks/class-wc-calypso-task-get-paid-with-paypal.php:67
 #: includes/tasks/class-wc-calypso-task-get-paid-with-square.php:62
 #: includes/tasks/class-wc-calypso-task-get-paid-with-stripe.php:65
-#: build/index.js:3
 msgid "2 minutes"
 msgstr "2 minutos"
 
@@ -279,8 +275,6 @@ msgstr "Dominio"
 
 #: includes/tasks/class-wc-calypso-task-add-domain.php:35
 #: includes/tasks/class-wc-calypso-task-add-domain.php:94
-#: build/index.js:1
-#: build/index.js:3
 msgid "Add a domain"
 msgstr "Añadir un dominio"
 
@@ -300,10 +294,6 @@ msgstr ""
 
 #: includes/free-trial/class-wc-calypso-bridge-free-trial-orders-notice.php:49
 #: includes/templates/html-admin-page-addons-landing-page.php:24
-#: build/index.js:1
-#: build/index.js:11
-#: build/marketing.js:1
-#: build/plugins.js:1
 msgid "Upgrade now"
 msgstr "Mejora tu plan ahora"
 
