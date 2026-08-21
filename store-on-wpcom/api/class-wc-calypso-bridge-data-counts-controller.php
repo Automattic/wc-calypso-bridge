@@ -101,11 +101,15 @@ class WC_Calypso_Bridge_Data_Counts_Controller extends WC_REST_Controller {
 				AND posts.post_status = 'publish'"
 		);
 
-		$low_stock_amount = get_option( 'woocommerce_notify_low_stock_amount' );
-		$no_stock_amount = get_option( 'woocommerce_notify_no_stock_amount' );
+		// Both thresholds are stock levels, so coerce them to integers and bind them
+		// as integers below. This keeps the comparisons numeric even when an option
+		// holds an unexpected value.
+		$low_stock_amount = absint( get_option( 'woocommerce_notify_low_stock_amount' ) );
+		$no_stock_amount = absint( get_option( 'woocommerce_notify_no_stock_amount' ) );
 
 		$counts['out-of-stock'] = (int) $wpdb->get_var(
-			"SELECT COUNT( DISTINCT posts.ID )
+			$wpdb->prepare(
+				"SELECT COUNT( DISTINCT posts.ID )
 				FROM {$wpdb->posts} as posts
 				INNER JOIN {$wpdb->postmeta} AS postmeta ON posts.ID = postmeta.post_id
 				INNER JOIN {$wpdb->postmeta} AS postmeta2 ON posts.ID = postmeta2.post_id
@@ -113,11 +117,14 @@ class WC_Calypso_Bridge_Data_Counts_Controller extends WC_REST_Controller {
 				AND posts.post_type IN ( 'product', 'product_variation' )
 				AND posts.post_status = 'publish'
 				AND postmeta2.meta_key = '_manage_stock' AND postmeta2.meta_value = 'yes'
-				AND postmeta.meta_key = '_stock' AND CAST(postmeta.meta_value AS SIGNED) <= '{$no_stock_amount}'"
+				AND postmeta.meta_key = '_stock' AND CAST(postmeta.meta_value AS SIGNED) <= %d",
+				$no_stock_amount
+			)
 		);
 
 		$counts['low-inventory'] = (int) $wpdb->get_var(
-			"SELECT COUNT( DISTINCT posts.ID )
+			$wpdb->prepare(
+				"SELECT COUNT( DISTINCT posts.ID )
 				FROM {$wpdb->posts} as posts
 				INNER JOIN {$wpdb->postmeta} AS postmeta ON posts.ID = postmeta.post_id
 				INNER JOIN {$wpdb->postmeta} AS postmeta2 ON posts.ID = postmeta2.post_id
@@ -125,8 +132,11 @@ class WC_Calypso_Bridge_Data_Counts_Controller extends WC_REST_Controller {
 				AND posts.post_type IN ( 'product', 'product_variation' )
 				AND posts.post_status = 'publish'
 				AND postmeta2.meta_key = '_manage_stock' AND postmeta2.meta_value = 'yes'
-				AND postmeta.meta_key = '_stock' AND CAST(postmeta.meta_value AS SIGNED) <= '{$low_stock_amount}'
-				AND postmeta.meta_key = '_stock' AND CAST(postmeta.meta_value AS SIGNED) > '{$no_stock_amount}'"
+				AND postmeta.meta_key = '_stock' AND CAST(postmeta.meta_value AS SIGNED) <= %d
+				AND postmeta.meta_key = '_stock' AND CAST(postmeta.meta_value AS SIGNED) > %d",
+				$low_stock_amount,
+				$no_stock_amount
+			)
 		);
 
 		wp_cache_set( 'wc-counts-products', $counts );
