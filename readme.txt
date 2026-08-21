@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.7 =
+* Product counts: treat stock thresholds as integers
+
 = 2.11.6 =
 * Fix PHP warnings: guard foreach against null, use reset() after array_filter
 
