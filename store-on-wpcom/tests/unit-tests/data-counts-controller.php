@@ -168,10 +168,22 @@ class Data_Counts_Controller extends WC_REST_Unit_Test_Case {
 	}
 
 	/**
-	 * A customer cannot read the endpoint.
+	 * A customer is signed in but lacks the capability, so the request is
+	 * forbidden rather than unauthorized.
 	 */
 	public function test_get_items_as_customer_is_denied() {
 		wp_set_current_user( $this->customer );
+
+		$response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/data/counts' ) );
+
+		$this->assertEquals( 403, $response->get_status() );
+	}
+
+	/**
+	 * A signed-out request is unauthorized.
+	 */
+	public function test_get_items_when_signed_out_is_denied() {
+		wp_set_current_user( 0 );
 
 		$response = $this->server->dispatch( new WP_REST_Request( 'GET', '/wc/v3/data/counts' ) );
 
