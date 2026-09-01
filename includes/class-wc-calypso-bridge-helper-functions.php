@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version x.x.x
+ * @version 2.8.4
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
