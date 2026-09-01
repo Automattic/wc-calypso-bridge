@@ -35,8 +35,12 @@ class WC_Calypso_Bridge_Customize_Store {
 	 * Constructor.
 	 */
 	private function __construct() {
-		add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'add_customize_store_styles' ) );
+		add_action( 'plugins_loaded', function() {
+			if ( WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'customize-store' ) ) {
+				add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
+				add_action( 'admin_enqueue_scripts', array( $this, 'add_customize_store_styles' ) );
+			}
+		});
 
 		// wpcom.editor.js conflicts with CYS scripts due to double registration of the private-apis
 		// dequeue it on CYS pages.

@@ -99,9 +99,13 @@ class WC_Calypso_Bridge_Setup_Tasks {
 		 */
 		$ecommerce_custom_setup_tasks_enabled = (bool) apply_filters( 'ecommerce_custom_setup_tasks_enabled', true );
 		if ( isset( $lists['setup'] ) ) {
+			// Default product task index.
+			$product_task_index = 2;
+
 			foreach ($lists['setup']->tasks as $index => $task) {
 				switch ( $task->get_id() ) {
 					case 'products':
+						$product_task_index = $index;
 						require_once __DIR__ . '/tasks/class-wc-calypso-task-headstart-products.php';
 						$lists['setup']->tasks[$index] = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\HeadstartProducts( $lists['setup'] );
 						break;
@@ -120,9 +124,23 @@ class WC_Calypso_Bridge_Setup_Tasks {
 							require_once __DIR__ . '/tasks/class-wc-calypso-task-add-domain.php';
 							$add_domain_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $lists['setup'] ) );
 							array_splice( $lists['setup']->tasks, $index, 0, $add_domain_task );
+
+							// Replace launch your store task on versions where the feature is disabled.
+							if ( ! WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'launch-your-store' ) && ! wc_calypso_bridge_is_trial_plan() ) {
+								require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
+								$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $lists['setup'] );
+								$lists['setup']->tasks[$index + 1] = $launch_site_task;
+							}
 						}
 						break;
 				}
+			}
+
+			if ( ! WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'customize-store' ) ) {
+				// Insert appearance task after products task if customize-store feature is not enabled.
+				require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
+				$appearance_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] ) );
+				array_splice( $lists['setup']->tasks, $product_task_index, 0, $appearance_task );
 			}
 		}
 		return $lists;

@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version 2.8.4
+ * @version x.x.x
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -36,6 +36,37 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 */
 	private function __construct() {
 		// Silence.
+	}
+
+	/**
+	 * Check whether stable WooCommerce Admin feature flags have been retired.
+	 *
+	 * @since x.x.x
+	 *
+	 * @return bool
+	 */
+	public static function are_stable_wc_admin_feature_flags_retired() {
+		return defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '11.1.0', '>=' );
+	}
+
+	/**
+	 * Check whether a stable WooCommerce Admin feature is available.
+	 *
+	 * WooCommerce 11.1 and later load stable features directly. Older supported
+	 * versions still require the legacy feature flag check.
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $feature Feature slug.
+	 * @return bool
+	 */
+	public static function is_stable_wc_admin_feature_enabled( $feature ) {
+		if ( self::are_stable_wc_admin_feature_flags_retired() ) {
+			return true;
+		}
+
+		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) &&
+			\Automattic\WooCommerce\Admin\Features\Features::is_enabled( $feature );
 	}
 
 	/**

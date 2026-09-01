@@ -69,7 +69,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return bool
 	 */
 	public function should_show_a8c_coming_soon_page( $should_show ) {
-		if ( ! wc_calypso_bridge_is_trial_plan() ) {
+		if ( $this->is_feature_enabled() && ! wc_calypso_bridge_is_trial_plan() ) {
 			return false;
 		}
 
@@ -107,7 +107,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 			return 'no';
 		}
 
-		if ( ! $this->is_private_site_available() ) {
+		if ( ! $this->is_feature_enabled() || ! $this->is_private_site_available() ) {
 			return $current_value;
 		}
 		// Either private or coming soon is considered as coming soon.
@@ -124,7 +124,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return string
 	 */
 	public function override_update_woocommerce_coming_soon( $new_value, $old_value ) {
-		if ( ! $this->is_private_site_available() ) {
+		if ( ! $this->is_feature_enabled() || ! $this->is_private_site_available() ) {
 			return $new_value;
 		}
 
@@ -177,6 +177,10 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return void
 	 */
 	public function maybe_add_admin_notice() {
+		if ( ! $this->is_feature_enabled() ) {
+			return;
+		}
+
 		if ( wc_calypso_bridge_is_trial_plan() ) {
 			$upgrade_url = sprintf( 'https://wordpress.com/plans/%s', WC_Calypso_Bridge_Instance()->get_site_slug() );
 			$this->add_admin_notice( sprintf( __( 'You’re currently using a free trial! To get access to the full range of features, please <a href="%s">upgrade to a paid plan</a>.', 'wc-calypso-bridge' ), esc_url( $upgrade_url ) ), 'info' );
@@ -268,6 +272,10 @@ class WC_Calypso_Bridge_Coming_Soon {
 			return $result;
 		}
 
+		if ( ! $this->is_feature_enabled() ) {
+			return $result;
+		}
+
 		if ( 'yes' === get_option( 'woocommerce_coming_soon' ) ) {
 			return new WP_REST_Response( true, 200 );
 		}
@@ -275,6 +283,15 @@ class WC_Calypso_Bridge_Coming_Soon {
 		// Site is live, set default option for store pages only to true and proceed with the request.
 		add_option( 'woocommerce_store_pages_only', 'yes' );
 		return $result;
+	}
+
+	/**
+	 * Check if the Launch Your Store feature is available.
+	 *
+	 * @return bool
+	 */
+	private function is_feature_enabled() {
+		return WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'launch-your-store' );
 	}
 
 	/**

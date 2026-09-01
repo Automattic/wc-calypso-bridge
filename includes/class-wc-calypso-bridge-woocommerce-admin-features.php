@@ -56,6 +56,10 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 
+		if ( ! WC_Calypso_Bridge_Helper_Functions::are_stable_wc_admin_feature_flags_retired() ) {
+			add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
+		}
+
 		/*
 		 * Hide the features under 'Advanced > Features' but let users disable our commerce-optimized menu.
 		 */
@@ -117,7 +121,22 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	}
 
 	/**
-	 * Disable the legacy WooCommerce Navigation feature.
+	 * Enable remote inbox notifications on WooCommerce versions that still use feature flags.
+	 *
+	 * @param array $features Array of wc-calypso-bridge features that are enabled by default for the current environment.
+	 *
+	 * @return array
+	 */
+	public function filter_wc_admin_enabled_features( $features ) {
+		if ( ! in_array( 'remote-inbox-notifications', $features, true ) ) {
+			$features[] = 'remote-inbox-notifications';
+		}
+
+		return $features;
+	}
+
+	/**
+	 * Configure WooCommerce Admin features.
 	 *
 	 * @param array $features Array containing all wc-calypso-bridge features (enabled and disabled).
 	 *
@@ -132,6 +151,22 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 		// Disable and revert the navigation experiment.
 		if ( isset( $features['navigation'] ) ) {
 			$features['navigation'] = false;
+		}
+
+		if ( WC_Calypso_Bridge_Helper_Functions::are_stable_wc_admin_feature_flags_retired() ) {
+			return $features;
+		}
+
+		// Keep Woo Analytics enabled on versions that still use feature flags.
+		if ( ! isset( $features['analytics'] ) ) {
+			$features['analytics'] = true;
+		}
+
+		$timestamp = get_option( 'woocommerce_admin_install_timestamp', false );
+
+		// Enable customize store feature if the install timestamp is set and is after 2024-01-02 8:00pm PT.
+		if ( isset( $features['customize-store'] ) && $timestamp && $timestamp >= 1704254400 ) {
+			$features['customize-store'] = true;
 		}
 
 		return $features;
