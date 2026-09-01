@@ -291,7 +291,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	 * @return bool
 	 */
 	private function is_feature_enabled() {
-		return WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'launch-your-store' );
+		return WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( 'launch-your-store' );
 	}
 
 	/**

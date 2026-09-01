@@ -17,7 +17,7 @@ class WC_Calypso_Bridge_Helper_Functions_Test extends WC_Unit_Test_Case {
 	public function test_stable_feature_enabled_for_version( $feature, $woocommerce_version, $expected ) {
 		$this->assertSame(
 			$expected,
-			WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( $feature, $woocommerce_version )
+			WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( $feature, $woocommerce_version )
 		);
 	}
 
@@ -35,7 +35,7 @@ class WC_Calypso_Bridge_Helper_Functions_Test extends WC_Unit_Test_Case {
 
 		try {
 			$this->assertTrue(
-				WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( $feature, '11.1.0' )
+				WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( $feature, '11.1.0' )
 			);
 		} finally {
 			remove_filter( 'woocommerce_admin_features', $enable_feature, PHP_INT_MAX );

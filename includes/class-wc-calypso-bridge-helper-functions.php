@@ -96,7 +96,7 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 * @param string|null $woocommerce_version WooCommerce version. Defaults to the installed version.
 	 * @return bool
 	 */
-	public static function is_stable_wc_admin_feature_enabled( $feature, $woocommerce_version = null ) {
+	public static function is_wc_admin_feature_enabled( $feature, $woocommerce_version = null ) {
 		if ( null === $woocommerce_version && defined( 'WC_VERSION' ) ) {
 			$woocommerce_version = WC_VERSION;
 		}
