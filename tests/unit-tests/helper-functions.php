@@ -15,13 +15,10 @@ class WC_Calypso_Bridge_Helper_Functions_Test extends WC_Unit_Test_Case {
 	 * @param bool   $expected              Expected result.
 	 */
 	public function test_feature_flag_deprecation_for_version( $feature, $woocommerce_version, $expected ) {
-		$method = new ReflectionMethod(
-			WC_Calypso_Bridge_Helper_Functions::class,
-			'is_wc_admin_feature_flag_deprecated_in_version'
+		$this->assertSame(
+			$expected,
+			WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( $feature, $woocommerce_version )
 		);
-		$method->setAccessible( true );
-
-		$this->assertSame( $expected, $method->invoke( null, $feature, $woocommerce_version ) );
 	}
 
 	/**
