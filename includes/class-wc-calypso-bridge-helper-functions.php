@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version 2.8.4
+ * @version 2.8.5
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -87,7 +87,7 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 * For example, `11.1.0-beta.1` compares lower than `11.1.0`, so legacy
 	 * feature flags remain active until the stable version is installed.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.5
 	 *
 	 * @param string $feature Feature slug.
 	 * @return bool
@@ -120,7 +120,7 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 * WooCommerce loads deprecated stable features directly. Older supported
 	 * versions still require their legacy feature flag checks.
 	 *
-	 * @since x.x.x
+	 * @since 2.8.5
 	 *
 	 * @param string $feature Feature slug.
 	 * @return bool
