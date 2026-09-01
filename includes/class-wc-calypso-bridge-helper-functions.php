@@ -19,6 +19,8 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 * Keep this in sync with the retired feature compatibility metadata in
 	 * WooCommerce's Admin Features class.
 	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/src/Admin/Features/Features.php
+	 *
 	 * @var array<string, string>
 	 */
 	private const WC_ADMIN_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
