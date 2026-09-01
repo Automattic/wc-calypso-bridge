@@ -26,6 +26,20 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	protected static $instance = null;
 
 	/**
+	 * Whether the Analytics feature is available.
+	 *
+	 * @var bool
+	 */
+	private $is_analytics_feature_enabled = false;
+
+	/**
+	 * Whether the Customize Store feature is available.
+	 *
+	 * @var bool
+	 */
+	private $is_customize_store_feature_enabled = false;
+
+	/**
 	 * Get class instance
 	 */
 	public static function get_instance() {
@@ -47,16 +61,22 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 	 * Initialize.
 	 */
 	public function initialize() {
-		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
-
 		// The rest applies only to Entrepreneur and Woo Express plans.
 		if ( ! wc_calypso_bridge_has_ecommerce_features() ) {
 			return;
 		}
 
+		$is_remote_inbox_notifications_feature_enabled =
+			WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'remote-inbox-notifications' );
+		$this->is_analytics_feature_enabled =
+			WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'analytics' );
+		$this->is_customize_store_feature_enabled =
+			WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( 'customize-store' );
+
+		add_filter( 'woocommerce_admin_get_feature_config', array( $this, 'filter_woocommerce_admin_features' ), PHP_INT_MAX );
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 
-		if ( ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( 'remote-inbox-notifications' ) ) {
+		if ( ! $is_remote_inbox_notifications_feature_enabled ) {
 			add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		}
 
@@ -155,13 +175,13 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		// Keep Woo Analytics enabled on versions that still use feature flags.
 		if (
-			! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( 'analytics' ) &&
+			! $this->is_analytics_feature_enabled &&
 			! isset( $features['analytics'] )
 		) {
 			$features['analytics'] = true;
 		}
 
-		if ( ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( 'customize-store' ) ) {
+		if ( ! $this->is_customize_store_feature_enabled ) {
 			$timestamp = get_option( 'woocommerce_admin_install_timestamp', false );
 
 			// Enable customize store feature if the install timestamp is set and is after 2024-01-02 8:00pm PT.

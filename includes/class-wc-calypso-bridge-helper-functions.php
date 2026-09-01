@@ -81,7 +81,10 @@ class WC_Calypso_Bridge_Helper_Functions {
 	}
 
 	/**
-	 * Check whether a WooCommerce Admin feature flag is deprecated in the installed version.
+	 * Check whether a stable WooCommerce Admin feature is available.
+	 *
+	 * Features whose deprecation version has been reached are always available.
+	 * Other features use the legacy WooCommerce Admin feature flag check.
 	 *
 	 * Prerelease versions compare lower than their corresponding stable release.
 	 * For example, `11.1.0-beta.1` compares lower than `11.1.0`, so legacy
@@ -93,34 +96,18 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 * @param string|null $woocommerce_version WooCommerce version. Defaults to the installed version.
 	 * @return bool
 	 */
-	public static function is_wc_admin_feature_flag_deprecated( $feature, $woocommerce_version = null ) {
-		if ( null === $woocommerce_version ) {
-			if ( ! defined( 'WC_VERSION' ) ) {
-				return false;
-			}
-
+	public static function is_stable_wc_admin_feature_enabled( $feature, $woocommerce_version = null ) {
+		if ( null === $woocommerce_version && defined( 'WC_VERSION' ) ) {
 			$woocommerce_version = WC_VERSION;
 		}
 
 		$deprecation_version = self::WC_ADMIN_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
 
-		return null !== $deprecation_version &&
-			version_compare( $woocommerce_version, $deprecation_version, '>=' );
-	}
-
-	/**
-	 * Check whether a stable WooCommerce Admin feature is available.
-	 *
-	 * WooCommerce loads deprecated stable features directly. Older supported
-	 * versions still require their legacy feature flag checks.
-	 *
-	 * @since 2.8.5
-	 *
-	 * @param string $feature Feature slug.
-	 * @return bool
-	 */
-	public static function is_stable_wc_admin_feature_enabled( $feature ) {
-		if ( self::is_wc_admin_feature_flag_deprecated( $feature ) ) {
+		if (
+			null !== $deprecation_version &&
+			null !== $woocommerce_version &&
+			version_compare( $woocommerce_version, $deprecation_version, '>=' )
+		) {
 			return true;
 		}
 

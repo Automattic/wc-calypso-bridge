@@ -6,33 +6,51 @@
 class WC_Calypso_Bridge_Helper_Functions_Test extends WC_Unit_Test_Case {
 
 	/**
-	 * Test feature flag deprecation checks for specific WooCommerce versions.
+	 * Test stable features whose deprecation version has been reached.
 	 *
-	 * @dataProvider feature_flag_deprecation_provider
+	 * @dataProvider stable_feature_provider
 	 *
 	 * @param string $feature              Feature slug.
 	 * @param string $woocommerce_version  WooCommerce version.
 	 * @param bool   $expected              Expected result.
 	 */
-	public function test_feature_flag_deprecation_for_version( $feature, $woocommerce_version, $expected ) {
+	public function test_stable_feature_enabled_for_version( $feature, $woocommerce_version, $expected ) {
 		$this->assertSame(
 			$expected,
-			WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( $feature, $woocommerce_version )
+			WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( $feature, $woocommerce_version )
 		);
 	}
 
 	/**
-	 * Feature flag deprecation test cases.
+	 * Test that features missing from the dictionary use the normal feature flag flow.
+	 */
+	public function test_unlisted_feature_uses_normal_feature_flag_flow() {
+		$feature        = 'wc-calypso-bridge-test-feature';
+		$enable_feature = function( $features ) use ( $feature ) {
+			$features[] = $feature;
+			return $features;
+		};
+
+		add_filter( 'woocommerce_admin_features', $enable_feature, PHP_INT_MAX );
+
+		try {
+			$this->assertTrue(
+				WC_Calypso_Bridge_Helper_Functions::is_stable_wc_admin_feature_enabled( $feature, '11.1.0' )
+			);
+		} finally {
+			remove_filter( 'woocommerce_admin_features', $enable_feature, PHP_INT_MAX );
+		}
+	}
+
+	/**
+	 * Stable feature test cases.
 	 *
 	 * @return array<string, array{string, string, bool}>
 	 */
-	public function feature_flag_deprecation_provider() {
+	public function stable_feature_provider() {
 		return array(
 			'stable deprecation version' => array( 'launch-your-store', '11.1.0', true ),
 			'newer prerelease version'   => array( 'launch-your-store', '11.2.0-dev', true ),
-			'beta deprecation version'   => array( 'launch-your-store', '11.1.0-beta.1', false ),
-			'dev deprecation version'    => array( 'launch-your-store', '11.1.0-dev', false ),
-			'older version'              => array( 'launch-your-store', '11.0.0', false ),
 			'unknown feature'            => array( 'unknown-feature', '11.1.0', false ),
 		);
 	}
