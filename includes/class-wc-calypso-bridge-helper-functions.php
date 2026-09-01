@@ -83,17 +83,35 @@ class WC_Calypso_Bridge_Helper_Functions {
 	/**
 	 * Check whether a WooCommerce Admin feature flag is deprecated in the installed version.
 	 *
+	 * Prerelease versions compare lower than their corresponding stable release.
+	 * For example, `11.1.0-beta.1` compares lower than `11.1.0`, so legacy
+	 * feature flags remain active until the stable version is installed.
+	 *
 	 * @since x.x.x
 	 *
 	 * @param string $feature Feature slug.
 	 * @return bool
 	 */
 	public static function is_wc_admin_feature_flag_deprecated( $feature ) {
+		if ( ! defined( 'WC_VERSION' ) ) {
+			return false;
+		}
+
+		return self::is_wc_admin_feature_flag_deprecated_in_version( $feature, WC_VERSION );
+	}
+
+	/**
+	 * Check whether a WooCommerce Admin feature flag is deprecated in a specific version.
+	 *
+	 * @param string $feature             Feature slug.
+	 * @param string $woocommerce_version WooCommerce version.
+	 * @return bool
+	 */
+	private static function is_wc_admin_feature_flag_deprecated_in_version( $feature, $woocommerce_version ) {
 		$deprecation_version = self::WC_ADMIN_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
 
 		return null !== $deprecation_version &&
-			defined( 'WC_VERSION' ) &&
-			version_compare( WC_VERSION, $deprecation_version, '>=' );
+			version_compare( $woocommerce_version, $deprecation_version, '>=' );
 	}
 
 	/**
