@@ -13,6 +13,46 @@ use Automattic\WooCommerce\Admin\WCAdminHelper;
  * WC_Calypso_Bridge_Helper_Functions.
  */
 class WC_Calypso_Bridge_Helper_Functions {
+	/**
+	 * WooCommerce versions that deprecated stable WooCommerce Admin feature flags.
+	 *
+	 * Keep this in sync with the retired feature compatibility metadata in
+	 * WooCommerce's Admin Features class.
+	 *
+	 * @var array<string, string>
+	 */
+	private const WC_ADMIN_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
+		'activity-panels'                      => '11.1.0',
+		'analytics'                            => '11.1.0',
+		'analytics-scheduled-import'           => '11.1.0',
+		'experimental-iapi-mini-cart'          => '11.1.0',
+		'coupons'                              => '11.1.0',
+		'core-profiler'                        => '11.1.0',
+		'customize-store'                      => '11.1.0',
+		'customer-effort-score-tracks'         => '11.1.0',
+		'import-products-task'                 => '11.1.0',
+		'experimental-fashion-sample-products' => '11.1.0',
+		'shipping-smart-defaults'              => '11.1.0',
+		'shipping-setting-tour'                => '11.1.0',
+		'homescreen'                           => '11.1.0',
+		'marketing'                            => '11.1.0',
+		'mobile-app-banner'                    => '11.1.0',
+		'onboarding'                           => '11.1.0',
+		'onboarding-tasks'                     => '11.1.0',
+		'pattern-toolkit-full-composability'   => '11.1.0',
+		'payment-gateway-suggestions'          => '11.1.0',
+		'product-custom-fields'                => '11.1.0',
+		'printful'                             => '11.1.0',
+		'remote-inbox-notifications'           => '11.1.0',
+		'remote-free-extensions'               => '11.1.0',
+		'shipping-label-banner'                => '11.1.0',
+		'subscriptions'                        => '11.1.0',
+		'transient-notices'                    => '11.1.0',
+		'wc-pay-promotion'                     => '11.1.0',
+		'wc-pay-welcome-page'                  => '11.1.0',
+		'woo-mobile-welcome'                   => '11.1.0',
+		'launch-your-store'                    => '11.1.0',
+	);
 
 	/**
 	 * Class instance.
@@ -39,21 +79,26 @@ class WC_Calypso_Bridge_Helper_Functions {
 	}
 
 	/**
-	 * Check whether stable WooCommerce Admin feature flags have been retired.
+	 * Check whether a WooCommerce Admin feature flag is deprecated in the installed version.
 	 *
 	 * @since x.x.x
 	 *
+	 * @param string $feature Feature slug.
 	 * @return bool
 	 */
-	public static function are_stable_wc_admin_feature_flags_retired() {
-		return defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '11.1.0', '>=' );
+	public static function is_wc_admin_feature_flag_deprecated( $feature ) {
+		$deprecation_version = self::WC_ADMIN_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
+
+		return null !== $deprecation_version &&
+			defined( 'WC_VERSION' ) &&
+			version_compare( WC_VERSION, $deprecation_version, '>=' );
 	}
 
 	/**
 	 * Check whether a stable WooCommerce Admin feature is available.
 	 *
-	 * WooCommerce 11.1 and later load stable features directly. Older supported
-	 * versions still require the legacy feature flag check.
+	 * WooCommerce loads deprecated stable features directly. Older supported
+	 * versions still require their legacy feature flag checks.
 	 *
 	 * @since x.x.x
 	 *
@@ -61,7 +106,7 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 * @return bool
 	 */
 	public static function is_stable_wc_admin_feature_enabled( $feature ) {
-		if ( self::are_stable_wc_admin_feature_flags_retired() ) {
+		if ( self::is_wc_admin_feature_flag_deprecated( $feature ) ) {
 			return true;
 		}
 

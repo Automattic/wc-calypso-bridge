@@ -56,7 +56,7 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 
 		add_filter( 'wc_admin_get_feature_config', array( $this, 'maybe_remove_devdocs_menu_item' ) );
 
-		if ( ! WC_Calypso_Bridge_Helper_Functions::are_stable_wc_admin_feature_flags_retired() ) {
+		if ( ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( 'remote-inbox-notifications' ) ) {
 			add_filter( 'woocommerce_admin_features', array( $this, 'filter_wc_admin_enabled_features' ) );
 		}
 
@@ -153,20 +153,21 @@ class WC_Calypso_Bridge_WooCommerce_Admin_Features {
 			$features['navigation'] = false;
 		}
 
-		if ( WC_Calypso_Bridge_Helper_Functions::are_stable_wc_admin_feature_flags_retired() ) {
-			return $features;
-		}
-
 		// Keep Woo Analytics enabled on versions that still use feature flags.
-		if ( ! isset( $features['analytics'] ) ) {
+		if (
+			! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( 'analytics' ) &&
+			! isset( $features['analytics'] )
+		) {
 			$features['analytics'] = true;
 		}
 
-		$timestamp = get_option( 'woocommerce_admin_install_timestamp', false );
+		if ( ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_flag_deprecated( 'customize-store' ) ) {
+			$timestamp = get_option( 'woocommerce_admin_install_timestamp', false );
 
-		// Enable customize store feature if the install timestamp is set and is after 2024-01-02 8:00pm PT.
-		if ( isset( $features['customize-store'] ) && $timestamp && $timestamp >= 1704254400 ) {
-			$features['customize-store'] = true;
+			// Enable customize store feature if the install timestamp is set and is after 2024-01-02 8:00pm PT.
+			if ( isset( $features['customize-store'] ) && $timestamp && $timestamp >= 1704254400 ) {
+				$features['customize-store'] = true;
+			}
 		}
 
 		return $features;
