@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since  1.0.0
- * @version 2.8.4
+ * @version x.x.x
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -35,12 +35,8 @@ class WC_Calypso_Bridge_Customize_Store {
 	 * Constructor.
 	 */
 	private function __construct() {
-		add_action( 'plugins_loaded', function() {
-			if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'customize-store' ) ) {
-				add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
-				add_action( 'admin_enqueue_scripts', array( $this, 'add_customize_store_styles' ) );
-			}
-		});
+		add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_customize_store_styles' ) );
 
 		// wpcom.editor.js conflicts with CYS scripts due to double registration of the private-apis
 		// dequeue it on CYS pages.
