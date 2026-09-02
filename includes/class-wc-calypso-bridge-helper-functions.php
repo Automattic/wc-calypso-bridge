@@ -138,10 +138,12 @@ class WC_Calypso_Bridge_Helper_Functions {
 	}
 
 	/**
-	 * Check whether a retired optional WooCommerce Admin feature is enabled.
+	 * Check whether an optional WooCommerce Admin feature is effectively enabled.
 	 *
-	 * Delegate to WooCommerce so feature settings and compatibility filters are
-	 * evaluated consistently with Core.
+	 * Although the feature's legacy flag has been retired, the feature can still
+	 * be disabled through its setting or compatibility filters. WooCommerce's
+	 * get_available_features() applies those controls without using the deprecated
+	 * direct feature-flag lookup.
 	 *
 	 * @param string $feature Feature slug.
 	 * @return bool
