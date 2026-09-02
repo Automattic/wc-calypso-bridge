@@ -43,6 +43,40 @@ class WC_Calypso_Bridge_Helper_Functions_Test extends WC_Unit_Test_Case {
 	}
 
 	/**
+	 * Test that optional features continue to respect their options.
+	 *
+	 * @dataProvider optional_feature_provider
+	 *
+	 * @param string $feature     Feature slug.
+	 * @param string $option_name Option name.
+	 */
+	public function test_optional_feature_respects_option( $feature, $option_name ) {
+		update_option( $option_name, 'no' );
+
+		$this->assertFalse(
+			WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( $feature, '11.1.0' )
+		);
+
+		update_option( $option_name, 'yes' );
+
+		$this->assertTrue(
+			WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( $feature, '11.1.0' )
+		);
+	}
+
+	/**
+	 * Optional feature test cases.
+	 *
+	 * @return array<string, array{string, string}>
+	 */
+	public function optional_feature_provider() {
+		return array(
+			'analytics'                  => array( 'analytics', 'woocommerce_analytics_enabled' ),
+			'remote inbox notifications' => array( 'remote-inbox-notifications', 'woocommerce_show_marketplace_suggestions' ),
+		);
+	}
+
+	/**
 	 * Stable feature test cases.
 	 *
 	 * @return array<string, array{string, string, bool}>

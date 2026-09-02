@@ -16,16 +16,15 @@ class WC_Calypso_Bridge_Helper_Functions {
 	/**
 	 * WooCommerce versions that deprecated stable WooCommerce Admin feature flags.
 	 *
-	 * Keep this in sync with the retired feature compatibility metadata in
-	 * WooCommerce's Admin Features class.
+	 * Keep the non-optional entries in sync with the retired feature
+	 * compatibility metadata in WooCommerce's Admin Features class.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/src/Admin/Features/Features.php
 	 *
 	 * @var array<string, string>
 	 */
-	private const WC_ADMIN_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
+	private const WC_ADMIN_STABLE_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
 		'activity-panels'                      => '11.1.0',
-		'analytics'                            => '11.1.0',
 		'analytics-scheduled-import'           => '11.1.0',
 		'experimental-iapi-mini-cart'          => '11.1.0',
 		'coupons'                              => '11.1.0',
@@ -45,7 +44,6 @@ class WC_Calypso_Bridge_Helper_Functions {
 		'payment-gateway-suggestions'          => '11.1.0',
 		'product-custom-fields'                => '11.1.0',
 		'printful'                             => '11.1.0',
-		'remote-inbox-notifications'           => '11.1.0',
 		'remote-free-extensions'               => '11.1.0',
 		'shipping-label-banner'                => '11.1.0',
 		'subscriptions'                        => '11.1.0',
@@ -54,6 +52,19 @@ class WC_Calypso_Bridge_Helper_Functions {
 		'wc-pay-welcome-page'                  => '11.1.0',
 		'woo-mobile-welcome'                   => '11.1.0',
 		'launch-your-store'                    => '11.1.0',
+	);
+
+	/**
+	 * Optional WooCommerce Admin features whose flags were deprecated.
+	 *
+	 * Retiring these flags does not make the features unconditionally enabled;
+	 * their settings and compatibility filters still control their state.
+	 *
+	 * @var array<string, string>
+	 */
+	private const WC_ADMIN_OPTIONAL_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
+		'analytics'                  => '11.1.0',
+		'remote-inbox-notifications' => '11.1.0',
 	);
 
 	/**
@@ -81,10 +92,11 @@ class WC_Calypso_Bridge_Helper_Functions {
 	}
 
 	/**
-	 * Check whether a stable WooCommerce Admin feature is available.
+	 * Check whether a WooCommerce Admin feature is enabled.
 	 *
-	 * Features whose deprecation version has been reached are always available.
-	 * Other features use the legacy WooCommerce Admin feature flag check.
+	 * Stable features whose deprecation version has been reached are always
+	 * available. Optional features continue to respect their settings and
+	 * compatibility filters. Other features use the legacy feature flag check.
 	 *
 	 * Prerelease versions compare lower than their corresponding stable release.
 	 * For example, `11.1.0-beta.1` compares lower than `11.1.0`, so legacy
@@ -101,7 +113,17 @@ class WC_Calypso_Bridge_Helper_Functions {
 			$woocommerce_version = WC_VERSION;
 		}
 
-		$deprecation_version = self::WC_ADMIN_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
+		$optional_feature_deprecation_version = self::WC_ADMIN_OPTIONAL_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
+
+		if (
+			null !== $optional_feature_deprecation_version &&
+			null !== $woocommerce_version &&
+			version_compare( $woocommerce_version, $optional_feature_deprecation_version, '>=' )
+		) {
+			return self::is_wc_admin_optional_feature_enabled( $feature );
+		}
+
+		$deprecation_version = self::WC_ADMIN_STABLE_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
 
 		if (
 			null !== $deprecation_version &&
@@ -113,6 +135,24 @@ class WC_Calypso_Bridge_Helper_Functions {
 
 		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) &&
 			\Automattic\WooCommerce\Admin\Features\Features::is_enabled( $feature );
+	}
+
+	/**
+	 * Check whether a retired optional WooCommerce Admin feature is enabled.
+	 *
+	 * Delegate to WooCommerce so feature settings and compatibility filters are
+	 * evaluated consistently with Core.
+	 *
+	 * @param string $feature Feature slug.
+	 * @return bool
+	 */
+	private static function is_wc_admin_optional_feature_enabled( $feature ) {
+		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) &&
+			in_array(
+				$feature,
+				\Automattic\WooCommerce\Admin\Features\Features::get_available_features(),
+				true
+			);
 	}
 
 	/**
