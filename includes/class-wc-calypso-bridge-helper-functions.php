@@ -14,43 +14,16 @@ use Automattic\WooCommerce\Admin\WCAdminHelper;
  */
 class WC_Calypso_Bridge_Helper_Functions {
 	/**
-	 * WooCommerce versions that deprecated stable WooCommerce Admin feature flags.
+	 * WooCommerce versions that deprecated stable feature flags used by the bridge.
 	 *
-	 * Keep the non-optional entries in sync with the retired feature
-	 * compatibility metadata in WooCommerce's Admin Features class.
+	 * Add entries only for stable features checked by this plugin.
 	 *
 	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/src/Admin/Features/Features.php
 	 *
 	 * @var array<string, string>
 	 */
 	private const WC_ADMIN_STABLE_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
-		'activity-panels'                      => '11.1.0',
-		'analytics-scheduled-import'           => '11.1.0',
-		'experimental-iapi-mini-cart'          => '11.1.0',
-		'coupons'                              => '11.1.0',
-		'core-profiler'                        => '11.1.0',
 		'customize-store'                      => '11.1.0',
-		'customer-effort-score-tracks'         => '11.1.0',
-		'import-products-task'                 => '11.1.0',
-		'experimental-fashion-sample-products' => '11.1.0',
-		'shipping-smart-defaults'              => '11.1.0',
-		'shipping-setting-tour'                => '11.1.0',
-		'homescreen'                           => '11.1.0',
-		'marketing'                            => '11.1.0',
-		'mobile-app-banner'                    => '11.1.0',
-		'onboarding'                           => '11.1.0',
-		'onboarding-tasks'                     => '11.1.0',
-		'pattern-toolkit-full-composability'   => '11.1.0',
-		'payment-gateway-suggestions'          => '11.1.0',
-		'product-custom-fields'                => '11.1.0',
-		'printful'                             => '11.1.0',
-		'remote-free-extensions'               => '11.1.0',
-		'shipping-label-banner'                => '11.1.0',
-		'subscriptions'                        => '11.1.0',
-		'transient-notices'                    => '11.1.0',
-		'wc-pay-promotion'                     => '11.1.0',
-		'wc-pay-welcome-page'                  => '11.1.0',
-		'woo-mobile-welcome'                   => '11.1.0',
 		'launch-your-store'                    => '11.1.0',
 	);
 
