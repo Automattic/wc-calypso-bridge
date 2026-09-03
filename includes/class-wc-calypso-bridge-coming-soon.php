@@ -63,7 +63,7 @@ class WC_Calypso_Bridge_Coming_Soon {
 	}
 
 	/**
-	 * Hide the a8c coming soon page if the Launch Your Store feature is enabled.
+	 * Hide the a8c coming soon page when Launch Your Store manages site visibility.
 	 *
 	 * @param bool $should_show Whether to show the coming soon page.
 	 * @return bool
@@ -286,12 +286,12 @@ class WC_Calypso_Bridge_Coming_Soon {
 	}
 
 	/**
-	 * Check if the Launch Your Store feature is enabled.
+	 * Check if the Launch Your Store feature is available.
 	 *
 	 * @return bool
 	 */
 	private function is_feature_enabled() {
-		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'launch-your-store' );
+		return WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( 'launch-your-store' );
 	}
 
 	/**

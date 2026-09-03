@@ -4,7 +4,7 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   1.0.2
- * @version 2.8.4
+ * @version 2.8.5
  */
 
 use Automattic\WooCommerce\Admin\WCAdminHelper;
@@ -13,6 +13,32 @@ use Automattic\WooCommerce\Admin\WCAdminHelper;
  * WC_Calypso_Bridge_Helper_Functions.
  */
 class WC_Calypso_Bridge_Helper_Functions {
+	/**
+	 * WooCommerce versions that deprecated stable feature flags used by the bridge.
+	 *
+	 * Add entries only for stable features checked by this plugin.
+	 *
+	 * @see https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/src/Admin/Features/Features.php
+	 *
+	 * @var array<string, string>
+	 */
+	private const WC_ADMIN_STABLE_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
+		'customize-store'                      => '11.1.0',
+		'launch-your-store'                    => '11.1.0',
+	);
+
+	/**
+	 * Optional WooCommerce Admin features whose flags were deprecated.
+	 *
+	 * Retiring these flags does not make the features unconditionally enabled;
+	 * their settings and compatibility filters still control their state.
+	 *
+	 * @var array<string, string>
+	 */
+	private const WC_ADMIN_OPTIONAL_FEATURE_FLAG_DEPRECATION_VERSIONS = array(
+		'analytics'                  => '11.1.0',
+		'remote-inbox-notifications' => '11.1.0',
+	);
 
 	/**
 	 * Class instance.
@@ -36,6 +62,72 @@ class WC_Calypso_Bridge_Helper_Functions {
 	 */
 	private function __construct() {
 		// Silence.
+	}
+
+	/**
+	 * Check whether a WooCommerce Admin feature is enabled.
+	 *
+	 * Stable features whose deprecation version has been reached are always
+	 * available. Optional features continue to respect their settings and
+	 * compatibility filters. Other features use the legacy feature flag check.
+	 *
+	 * Prerelease versions compare lower than their corresponding stable release.
+	 * For example, `11.1.0-beta.1` compares lower than `11.1.0`, so legacy
+	 * feature flags remain active until the stable version is installed.
+	 *
+	 * @since 2.8.5
+	 *
+	 * @param string      $feature             Feature slug.
+	 * @param string|null $woocommerce_version WooCommerce version. Defaults to the installed version.
+	 * @return bool
+	 */
+	public static function is_wc_admin_feature_enabled( $feature, $woocommerce_version = null ) {
+		if ( null === $woocommerce_version && defined( 'WC_VERSION' ) ) {
+			$woocommerce_version = WC_VERSION;
+		}
+
+		$optional_feature_deprecation_version = self::WC_ADMIN_OPTIONAL_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
+
+		if (
+			null !== $optional_feature_deprecation_version &&
+			null !== $woocommerce_version &&
+			version_compare( $woocommerce_version, $optional_feature_deprecation_version, '>=' )
+		) {
+			return self::is_wc_admin_optional_feature_enabled( $feature );
+		}
+
+		$deprecation_version = self::WC_ADMIN_STABLE_FEATURE_FLAG_DEPRECATION_VERSIONS[ $feature ] ?? null;
+
+		if (
+			null !== $deprecation_version &&
+			null !== $woocommerce_version &&
+			version_compare( $woocommerce_version, $deprecation_version, '>=' )
+		) {
+			return true;
+		}
+
+		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) &&
+			\Automattic\WooCommerce\Admin\Features\Features::is_enabled( $feature );
+	}
+
+	/**
+	 * Check whether an optional WooCommerce Admin feature is effectively enabled.
+	 *
+	 * Although the feature's legacy flag has been retired, the feature can still
+	 * be disabled through its setting or compatibility filters. WooCommerce's
+	 * get_available_features() applies those controls without using the deprecated
+	 * direct feature-flag lookup.
+	 *
+	 * @param string $feature Feature slug.
+	 * @return bool
+	 */
+	private static function is_wc_admin_optional_feature_enabled( $feature ) {
+		return class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) &&
+			in_array(
+				$feature,
+				\Automattic\WooCommerce\Admin\Features\Features::get_available_features(),
+				true
+			);
 	}
 
 	/**

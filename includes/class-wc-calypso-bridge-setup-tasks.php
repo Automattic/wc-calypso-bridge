@@ -4,13 +4,12 @@
  *
  * @package WC_Calypso_Bridge/Classes
  * @since   2.0.0
- * @version 2.6.0
+ * @version 2.6.1
  */
 
 defined( 'ABSPATH' ) || exit;
 
 use Automattic\Jetpack\Connection\Client;
-use Automattic\WooCommerce\Admin\Features\Features;
 
 /**
  * WC Calypso Bridge Setup Tasks Controller
@@ -126,8 +125,8 @@ class WC_Calypso_Bridge_Setup_Tasks {
 							$add_domain_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\AddDomain( $lists['setup'] ) );
 							array_splice( $lists['setup']->tasks, $index, 0, $add_domain_task );
 
-							// Replace launch your store task with launch site task.
-							if ( ! Features::is_enabled( 'launch-your-store' ) && ! wc_calypso_bridge_is_trial_plan() ) {
+							// Replace launch your store task on versions where the feature is disabled.
+							if ( ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( 'launch-your-store' ) && ! wc_calypso_bridge_is_trial_plan() ) {
 								require_once WC_CALYPSO_BRIDGE_PLUGIN_PATH . '/includes/tasks/class-wc-calypso-task-launch-site.php';
 								$launch_site_task = new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\LaunchSite( $lists['setup'] );
 								$lists['setup']->tasks[$index + 1] = $launch_site_task;
@@ -137,7 +136,7 @@ class WC_Calypso_Bridge_Setup_Tasks {
 				}
 			}
 
-			if ( ! Features::is_enabled( 'customize-store' ) ) {
+			if ( ! WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( 'customize-store' ) ) {
 				// Insert appearance task after products task if customize-store feature is not enabled.
 				require_once __DIR__ . '/tasks/class-wc-calypso-task-appearance.php';
 				$appearance_task = array( new \Automattic\WooCommerce\Admin\Features\OnboardingTasks\Tasks\WCBridgeAppearance( $lists['setup'] ) );

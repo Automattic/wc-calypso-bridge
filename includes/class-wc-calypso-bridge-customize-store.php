@@ -36,7 +36,7 @@ class WC_Calypso_Bridge_Customize_Store {
 	 */
 	private function __construct() {
 		add_action( 'plugins_loaded', function() {
-			if ( class_exists( '\Automattic\WooCommerce\Admin\Features\Features' ) && \Automattic\WooCommerce\Admin\Features\Features::is_enabled( 'customize-store' ) ) {
+			if ( WC_Calypso_Bridge_Helper_Functions::is_wc_admin_feature_enabled( 'customize-store' ) ) {
 				add_action( 'load-site-editor.php', array( $this, 'mark_customize_store_task_as_completed_on_site_editor' ) );
 				add_action( 'admin_enqueue_scripts', array( $this, 'add_customize_store_styles' ) );
 			}
