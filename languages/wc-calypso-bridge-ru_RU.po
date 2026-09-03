@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T15:24:58+00:00\n"
+"POT-Creation-Date: 2026-09-03T13:49:25+00:00\n"
 "PO-Revision-Date: 2025-03-18 15:54:02+0000\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -490,15 +490,15 @@ msgstr "Показать только рецензии с конкретным �
 msgid "Sorry, you cannot edit this resource."
 msgstr "Вы не можете редактировать этот ресурс."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:288
 msgid "Collection of review totals by comment status."
 msgstr "Сортировка рецензий по статусу комментария."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:282
 msgid "Collection of product totals by stock status."
 msgstr "Сортировка продуктов по наличию."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:276
 msgid "Collection of order totals by order status."
 msgstr "Сортировка продуктов по статусу заказов."
 

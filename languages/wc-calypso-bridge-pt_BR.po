@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T15:24:53+00:00\n"
+"POT-Creation-Date: 2026-09-03T13:49:18+00:00\n"
 "PO-Revision-Date: 2025-03-18 17:54:03+0000\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -490,15 +490,15 @@ msgstr "Limitar o resultado definido às avaliações contendo um status especí
 msgid "Sorry, you cannot edit this resource."
 msgstr "Desculpe, não é possível editar esse recurso."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:288
 msgid "Collection of review totals by comment status."
 msgstr "Grupo com o total de avaliações, conforme o status do comentário."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:282
 msgid "Collection of product totals by stock status."
 msgstr "Grupo com o total de produtos, conforme o status do estoque."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:276
 msgid "Collection of order totals by order status."
 msgstr "Grupo com o total de pedidos, conforme o status do pedido."
 

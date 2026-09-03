@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T15:24:54+00:00\n"
+"POT-Creation-Date: 2026-09-03T13:49:21+00:00\n"
 "PO-Revision-Date: 2025-03-19 13:54:03+0000\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -490,15 +490,15 @@ msgstr "Beperk resultaten tot beoordelingen met een specifieke status."
 msgid "Sorry, you cannot edit this resource."
 msgstr "Sorry, je kunt deze bron niet bewerken."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:288
 msgid "Collection of review totals by comment status."
 msgstr "Verzameling van het totale aantal beoordelingen op basis van reactiestatus."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:282
 msgid "Collection of product totals by stock status."
 msgstr "Verzameling van het totale aantal producten op basis van voorraadstatus."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:276
 msgid "Collection of order totals by order status."
 msgstr "Verzameling van het totale aantal bestellingen op basis van bestelstatus."
 

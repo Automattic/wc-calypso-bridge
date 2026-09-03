@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T15:25:01+00:00\n"
+"POT-Creation-Date: 2026-09-03T13:49:29+00:00\n"
 "PO-Revision-Date: 2024-09-16 11:51:52+0000\n"
 "Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -490,15 +490,15 @@ msgstr "Limitar el conjunto de resultados a las valoraciones con un estado espec
 msgid "Sorry, you cannot edit this resource."
 msgstr "Lo siento, no puedes editar este recurso."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:288
 msgid "Collection of review totals by comment status."
 msgstr "Recopilación del número total de valoraciones por estado del comentario."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:282
 msgid "Collection of product totals by stock status."
 msgstr "Recopilación del número total de productos por estado de las existencias."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:276
 msgid "Collection of order totals by order status."
 msgstr "Recopilación del número total de pedidos por estado del pedido."
 
