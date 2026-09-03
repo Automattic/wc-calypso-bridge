@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.8 =
+Don't use Feature class for retired stable WooCommerce Admin feature flags
+
 = 2.11.7 =
 * Product counts: treat stock thresholds as integers
 

@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T15:25:02+00:00\n"
+"POT-Creation-Date: 2026-09-03T13:49:31+00:00\n"
 "PO-Revision-Date: 2025-03-24 17:54:02+0000\n"
 "Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -490,15 +490,15 @@ msgstr "Begränsa resultatuppsättningen till recensioner med en viss status."
 msgid "Sorry, you cannot edit this resource."
 msgstr "Du kan inte se redigera denna resurs."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:288
 msgid "Collection of review totals by comment status."
 msgstr "Samling av recensionsantal efter kommentarsstatus."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:282
 msgid "Collection of product totals by stock status."
 msgstr "Samling av produktantal efter lagerstatus."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:276
 msgid "Collection of order totals by order status."
 msgstr "Samling av orderantal efter orderstatus."
 

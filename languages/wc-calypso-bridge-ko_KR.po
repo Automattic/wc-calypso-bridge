@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T15:24:58+00:00\n"
+"POT-Creation-Date: 2026-09-03T13:49:25+00:00\n"
 "PO-Revision-Date: 2025-03-19 09:54:03+0000\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -490,15 +490,15 @@ msgstr "결과를 특정 상태의 검토로 제한."
 msgid "Sorry, you cannot edit this resource."
 msgstr "죄송합니다. 이 리소스를 편집할 수 없습니다."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:288
 msgid "Collection of review totals by comment status."
 msgstr "댓글 상태별 상품평 합계의 수집."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:282
 msgid "Collection of product totals by stock status."
 msgstr "재고 상태별 제품 합계의 수집."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:276
 msgid "Collection of order totals by order status."
 msgstr "주문 상태별 주문 합계의 수집."
 

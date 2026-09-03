@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-21T15:24:52+00:00\n"
+"POT-Creation-Date: 2026-09-03T13:49:18+00:00\n"
 "PO-Revision-Date: 2025-03-19 09:54:03+0000\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
@@ -490,15 +490,15 @@ msgstr "يمكنك حصر مجموعة النتائج على المراجعات 
 msgid "Sorry, you cannot edit this resource."
 msgstr "عذرًا، لا يمكنك تحرير هذا المورد."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:278
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:288
 msgid "Collection of review totals by comment status."
 msgstr "مجموعة الأعداد الإجمالية للمراجعات حسب حالة التعليقات."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:272
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:282
 msgid "Collection of product totals by stock status."
 msgstr "مجموعة الأعداد الإجمالية للمنتجات حسب حالة المخزون."
 
-#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:266
+#: store-on-wpcom/api/class-wc-calypso-bridge-data-counts-controller.php:276
 msgid "Collection of order totals by order status."
 msgstr "مجموعة الأعداد الإجمالية للطلبات حسب حالة الطلب."
 
