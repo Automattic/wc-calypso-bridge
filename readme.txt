@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.9 =
+* Stop loading the legacy Direct bank transfer account REST customizations (#1648)
+* Temporarily log any request that still sends the retired bank transfer account details payload (#1648)
+
 = 2.11.8 =
 Don't use Feature class for retired stable WooCommerce Admin feature flags
 
