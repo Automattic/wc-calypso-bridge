@@ -42,6 +42,9 @@ class WC_Calypso_Bridge_Deprecated {
 		if ( $this->is_woocommerce_valid() ) {
 			$this->includes();
 
+			// Temporary: detect any caller still sending the retired BACS account details payload.
+			add_filter( 'rest_request_before_callbacks', array( $this, 'log_legacy_bacs_accounts_payload' ), 10, 3 );
+
 			// Ensure wc-api-dev has already registered routes.
 			add_action( 'rest_api_init', array( $this, 'register_routes' ), 20 );
 		}
@@ -66,7 +69,6 @@ class WC_Calypso_Bridge_Deprecated {
 	 */
 	public function includes() {
 		/** Patches includes */
-		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-add-bacs-accounts.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-cheque-defaults.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-disable-publicize.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-enable-auto-update-db.php';
@@ -75,6 +77,62 @@ class WC_Calypso_Bridge_Deprecated {
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-masterbar-menu.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-paypal-defaults.php';
 		include_once dirname( __FILE__ ) . '/inc/wc-calypso-bridge-products.php';
+	}
+
+	/**
+	 * Logs requests that still carry the retired BACS account details payload.
+	 *
+	 * This branch used to read and write Direct Bank Transfer account details
+	 * through `settings.accounts` on /wc/v3/payment_gateways/bacs, for the
+	 * Calypso Store dashboard retired in 2021. WooCommerce ignores that key, so
+	 * a caller that still sends it now gets a 200 with nothing saved and no
+	 * error, leaving no trace anywhere.
+	 *
+	 * One line is logged per such request, so that any remaining caller shows up
+	 * in the platform PHP error logs and can be alerted on. Account values are
+	 * never logged. Remove this method and its filter once the observation
+	 * window has passed with no hits.
+	 *
+	 * Runs on `rest_request_before_callbacks`, which fires before the route's
+	 * permission callback, so unauthenticated attempts are recorded too. It only
+	 * reads the request and returns the response untouched.
+	 *
+	 * @param WP_REST_Response|WP_HTTP_Response|WP_Error|mixed $response Current response.
+	 * @param array                                            $handler  Route handler for the request.
+	 * @param WP_REST_Request                                  $request  Request being dispatched.
+	 * @return WP_REST_Response|WP_HTTP_Response|WP_Error|mixed The response, unchanged.
+	 */
+	public function log_legacy_bacs_accounts_payload( $response, $handler, $request ) {
+		if ( ! $request instanceof WP_REST_Request ) {
+			return $response;
+		}
+
+		if ( ! in_array( $request->get_method(), array( 'POST', 'PUT', 'PATCH' ), true ) ) {
+			return $response;
+		}
+
+		$route  = $request->get_route();
+		$suffix = '/payment_gateways/bacs';
+		if ( $suffix !== substr( $route, -strlen( $suffix ) ) ) {
+			return $response;
+		}
+
+		$settings = $request['settings'];
+		if ( ! is_array( $settings ) || ! array_key_exists( 'accounts', $settings ) ) {
+			return $response;
+		}
+
+		error_log(
+			sprintf(
+				'wc-calypso-bridge: legacy BACS accounts payload received. route=%s method=%s authorized=%s accounts=%d',
+				$route,
+				$request->get_method(),
+				current_user_can( 'manage_woocommerce' ) ? 'yes' : 'no',
+				is_array( $settings['accounts'] ) ? count( $settings['accounts'] ) : -1
+			)
+		);
+
+		return $response;
 	}
 
 	/**
