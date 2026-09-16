@@ -93,6 +93,10 @@ class WC_Calypso_Bridge_Deprecated {
 	 * never logged. Remove this method and its filter once the observation
 	 * window has passed with no hits.
 	 *
+	 * The platform does not index the message, only the file and line it parses
+	 * from this trailing suffix. Keep it last and use `__FILE__` and `__LINE__`,
+	 * so alerts can match this file.
+	 *
 	 * Runs on `rest_request_before_callbacks`, which fires before the route's
 	 * permission callback, so unauthenticated attempts are recorded too. It only
 	 * reads the request and returns the response untouched.
@@ -122,13 +126,15 @@ class WC_Calypso_Bridge_Deprecated {
 			return $response;
 		}
 
-		error_log(
+		error_log( // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 			sprintf(
-				'wc-calypso-bridge: legacy BACS accounts payload received. route=%s method=%s authorized=%s accounts=%d',
+				'wc-calypso-bridge: legacy BACS accounts payload received. route=%s method=%s authorized=%s accounts=%d in %s on line %d',
 				$route,
 				$request->get_method(),
 				current_user_can( 'manage_woocommerce' ) ? 'yes' : 'no',
-				is_array( $settings['accounts'] ) ? count( $settings['accounts'] ) : -1
+				is_array( $settings['accounts'] ) ? count( $settings['accounts'] ) : -1,
+				__FILE__,
+				__LINE__
 			)
 		);
 
