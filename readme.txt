@@ -22,6 +22,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.10 =
+* Make the legacy Direct bank transfer detector log queryable, so it can be alerted on (#1651)
+
 = 2.11.9 =
 * Stop loading the legacy Direct bank transfer account REST customizations (#1648)
 * Temporarily log any request that still sends the retired bank transfer account details payload (#1648)
