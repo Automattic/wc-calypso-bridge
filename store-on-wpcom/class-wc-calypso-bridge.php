@@ -93,11 +93,9 @@ class WC_Calypso_Bridge_Deprecated {
 	 * never logged. Remove this method and its filter once the observation
 	 * window has passed with no hits.
 	 *
-	 * The message ends with ` in <file> on line <n>` on purpose. The platform log
-	 * index stores the message but does not index it, so a message alone cannot
-	 * be queried or alerted on. It does index the file and line it parses out of
-	 * that suffix, which is what lets an alert match this file's path. Keep the
-	 * suffix last, and keep `__FILE__` and `__LINE__` rather than a literal.
+	 * The platform does not index the message, only the file and line it parses
+	 * from this trailing suffix. Keep it last and use `__FILE__` and `__LINE__`,
+	 * so alerts can match this file.
 	 *
 	 * Runs on `rest_request_before_callbacks`, which fires before the route's
 	 * permission callback, so unauthenticated attempts are recorded too. It only
