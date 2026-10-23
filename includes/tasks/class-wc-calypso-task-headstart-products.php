@@ -21,6 +21,10 @@ class HeadstartProducts extends Products {
 	 * @return bool
 	 */
 	public function is_complete() {
+		if ( $this->has_previously_completed() ) {
+			return true;
+		}
+
 		return self::has_products();
 	}
 
