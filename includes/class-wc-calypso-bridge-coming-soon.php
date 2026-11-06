@@ -155,7 +155,57 @@ class WC_Calypso_Bridge_Coming_Soon {
 			return $old_value;
 		}
 
+		if ( $new_value !== $old_value ) {
+			$this->align_stored_coming_soon_value( $old_value );
+		}
+
 		return $new_value;
+	}
+
+	/**
+	 * Make the stored option value match the value reported by
+	 * override_option_woocommerce_coming_soon() before core writes the new one.
+	 *
+	 * Reads are derived from the WPCOM site visibility, so the stored value can
+	 * lag behind (e.g. a staging site copied from a launched site), already be
+	 * rewritten while the site launches, or be missing because add_option()
+	 * bails when this class's read filter already returns a value. When the row
+	 * already equals the new value or doesn't exist, update_option() changes no
+	 * rows and returns false, so callers such as `wp option update` report a
+	 * failure even though the site was updated.
+	 *
+	 * @param string $value The value reported for the option before the update.
+	 * @return void
+	 */
+	private function align_stored_coming_soon_value( $value ) {
+		global $wpdb;
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$stored_value = $wpdb->get_var( $wpdb->prepare( "SELECT option_value FROM {$wpdb->options} WHERE option_name = %s LIMIT 1", 'woocommerce_coming_soon' ) );
+
+		if ( $stored_value === $value ) {
+			return;
+		}
+
+		// Write directly so no option hooks (e.g. Jetpack Sync) see this intermediate value.
+		if ( null === $stored_value ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
+			$wpdb->insert(
+				$wpdb->options,
+				array(
+					'option_name'  => 'woocommerce_coming_soon',
+					'option_value' => $value,
+					'autoload'     => function_exists( 'wp_autoload_values_to_autoload' ) ? 'auto' : 'yes',
+				)
+			);
+		} else {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+			$wpdb->update( $wpdb->options, array( 'option_value' => $value ), array( 'option_name' => 'woocommerce_coming_soon' ) );
+		}
+
+		wp_cache_delete( 'woocommerce_coming_soon', 'options' );
+		wp_cache_delete( 'alloptions', 'options' );
+		wp_cache_delete( 'notoptions', 'options' );
 	}
 
 	/**
