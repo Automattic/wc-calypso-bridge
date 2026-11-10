@@ -16,6 +16,13 @@ class HeadstartProducts extends Products {
 	private static $onboarding_data = [];
 
 	/**
+	 * Transient set once the store is known to have a non-Headstart product.
+	 *
+	 * @var string
+	 */
+	const HAS_REAL_PRODUCTS_TRANSIENT = 'wc_calypso_bridge_has_real_products';
+
+	/**
 	 * Task completion.
 	 *
 	 * @return bool
@@ -31,6 +38,10 @@ class HeadstartProducts extends Products {
 	 * @return bool
 	 */
 	public static function has_products() {
+		if ( 'yes' === get_transient( self::HAS_REAL_PRODUCTS_TRANSIENT ) ) {
+			return true;
+		}
+
 		$product_query = array(
 			'post_type' => 'product',
 			'post_status' => 'publish',
@@ -50,7 +61,33 @@ class HeadstartProducts extends Products {
 		$products = get_posts( $product_query );
 		$product_count = count( $products );
 
+		if ( $product_count > 0 ) {
+			set_transient( self::HAS_REAL_PRODUCTS_TRANSIENT, 'yes' );
+		}
+
 		return $product_count > 0;
+	}
+
+	/**
+	 * Clear the cached result when a product is trashed.
+	 *
+	 * @param int $post_id Post ID.
+	 */
+	public function on_product_trashed( $post_id ) {
+		if ( get_post_type( $post_id ) === 'product' ) {
+			delete_transient( self::HAS_REAL_PRODUCTS_TRANSIENT );
+		}
+
+		parent::on_product_trashed( $post_id );
+	}
+
+	/**
+	 * Clear the cached result when a product is deleted.
+	 */
+	public function on_product_deleted() {
+		delete_transient( self::HAS_REAL_PRODUCTS_TRANSIENT );
+
+		parent::on_product_deleted();
 	}
 
 	/**
