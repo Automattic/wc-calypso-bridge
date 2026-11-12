@@ -67,7 +67,10 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 
 	info( 'Updating translations...' );
 	if ( ! ( await updateTranslations() ) ) {
-		error( 'Aborting, something went wrong while updating translations.' );
+		const releaseBranchName = await getCurrentBranchName();
+		error(
+			`Aborting, something went wrong while updating translations. Delete the ${ releaseBranchName } branch before running this again: git branch -D ${ releaseBranchName }`
+		);
 		await switchToBranchWithMessage( currentBranchName );
 		process.exit( 1 );
 	}
