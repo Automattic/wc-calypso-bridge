@@ -8,7 +8,6 @@ import {
 	info,
 	warning,
 	gitFactory,
-	isDevBuild,
 	verifyBuild,
 } from '../utils.js';
 
@@ -69,12 +68,6 @@ export default async function updateTranslations() {
 		if ( buildErrors.length > 0 ) {
 			return error(
 				`Build verification failed:\n${ buildErrors.join( '\n' ) }`
-			);
-		}
-
-		if ( isDevBuild() ) {
-			return error(
-				"build/ holds a dev build. Stop 'npm start' and try again."
 			);
 		}
 
