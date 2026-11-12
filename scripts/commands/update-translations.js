@@ -2,7 +2,15 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 import https from 'https';
 import fs from 'fs';
-import { error, success, info, warning, gitFactory } from '../utils.js';
+import {
+	error,
+	success,
+	info,
+	warning,
+	gitFactory,
+	isDevBuild,
+	verifyBuild,
+} from '../utils.js';
 
 const execPromise = promisify( exec );
 const REQUIRED_TRANSLATION_PERCENTAGE = 85;
@@ -43,13 +51,31 @@ async function verifyLangData( langData ) {
 }
 
 export default async function updateTranslations() {
-	const git = gitFactory();
 	const wpPath = 'vendor/bin/wp';
 
 	try {
 		if ( ! fs.existsSync( wpPath ) ) {
 			warning( 'wp not found, running composer install...' );
 			await execPromise( 'composer install' );
+		}
+
+		// make-pot excludes src/, so every JS string comes from build/. That
+		// directory is gitignored and absent on a clean checkout, and without
+		// it the POT silently loses all JS strings.
+		info( 'Building assets so the POT includes JS strings...' );
+		await execPromise( 'npm run build' );
+
+		const buildErrors = await verifyBuild();
+		if ( buildErrors.length > 0 ) {
+			return error(
+				`Build verification failed:\n${ buildErrors.join( '\n' ) }`
+			);
+		}
+
+		if ( isDevBuild() ) {
+			return error(
+				"build/ holds a dev build. Stop 'npm start' and try again."
+			);
 		}
 
 		info( 'Executing wp i18n make-pot command...' );
@@ -60,6 +86,7 @@ export default async function updateTranslations() {
 		);
 		success( 'wp i18n make-pot command executed successfully.' );
 
+		const git = gitFactory();
 		const status = await git.status();
 
 		const isPotFileUpdated =
