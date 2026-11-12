@@ -68,10 +68,17 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	info( 'Updating translations...' );
 	if ( ! ( await updateTranslations() ) ) {
 		const releaseBranchName = await getCurrentBranchName();
-		error(
-			`Aborting, something went wrong while updating translations. Delete the ${ releaseBranchName } branch before running this again: git branch -D ${ releaseBranchName }`
-		);
 		await switchToBranchWithMessage( currentBranchName );
+
+		// switchToBranchWithMessage() does not switch back to master, so the
+		// release branch can still be checked out, and git refuses to delete it.
+		const deleteCommand =
+			( await getCurrentBranchName() ) === releaseBranchName
+				? `git checkout ${ currentBranchName } && git branch -D ${ releaseBranchName }`
+				: `git branch -D ${ releaseBranchName }`;
+		error(
+			`Aborting, something went wrong while updating translations. Delete the ${ releaseBranchName } branch before running this again: ${ deleteCommand }`
+		);
 		process.exit( 1 );
 	}
 
