@@ -66,7 +66,11 @@ Please install it from https://cli.github.com/ or using 'brew install gh' if you
 	}
 
 	info( 'Updating translations...' );
-	await updateTranslations();
+	if ( ! ( await updateTranslations() ) ) {
+		error( 'Aborting, something went wrong while updating translations.' );
+		await switchToBranchWithMessage( currentBranchName );
+		process.exit( 1 );
+	}
 
 	if (
 		! ( await promptContinue( 'Would you like to create a pull request?' ) )
