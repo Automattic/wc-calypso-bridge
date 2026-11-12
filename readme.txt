@@ -22,6 +22,10 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 2.11.11 =
+* Cache the Headstart products task check, which ran a slow uncached product query on every request (#1654)
+* Remove the legacy Direct bank transfer account REST files and the temporary detector that logged requests still sending the old payload (#1649)
+
 = 2.11.10 =
 * Make the legacy Direct bank transfer detector log queryable, so it can be alerted on (#1651)
 
